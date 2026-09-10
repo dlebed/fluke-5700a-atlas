@@ -1,0 +1,13 @@
+Rev9 parts: stock no 403055 (CR25,CR26,CR27,CR28) did not join on stock number
+Rev9 parts: stock no 152124 (H2) did not join on stock number
+Rev9 parts: stock no 358341 (M1,M2) did not join on stock number
+Rev9 parts: stock no 640995 (R1) did not join on stock number
+Rev9 parts: stock no 573238 (R2) did not join on stock number
+Rev9 parts: stock no 573584 (R3,R12) did not join on stock number
+Rev9 parts: stock no 148072 (R4) did not join on stock number
+Rev9 parts: stock no 110106 (R6) did not join on stock number
+Rev9 parts: stock no 218735 (R7) did not join on stock number
+Rev9 parts: stock no 573592 (R8) did not join on stock number
+Rev9 parts: stock no 573485 (R9,R11) did not join on stock number
+Rev9 parts: stock no 573535 (R10) did not join on stock number
+Rev9 parts: stock no 698662 (VR5) did not join on stock number

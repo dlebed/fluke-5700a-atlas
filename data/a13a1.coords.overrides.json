@@ -1,0 +1,622 @@
+{
+ "_comment": [
+  "Hand corrections to the reader's output for A13A1, in pixels of the",
+  "full-resolution crops in .build/a13a1/ (see imageSize / sheetImageSize).",
+  "The reader placed 37 of 70 and got 22 right: the surface-mount labels sit",
+  "inside their outlines and fuse with them. Every part was therefore placed",
+  "by hand off scripts/page_grid.py over four quarters of drawing_full.png:",
+  "body outlines for the chip parts, whose designator is printed inside the",
+  "outline, and label boxes for the SOT-23 parts, whose designator is beside it."
+ ],
+ "imageSize": {
+  "w": 4560,
+  "h": 1440
+ },
+ "sheetImageSize": {
+  "sh1": {
+   "w": 6360,
+   "h": 3880
+  }
+ },
+ "board": {
+  "TP1": {
+   "x": 390,
+   "y": 150,
+   "w": 150,
+   "h": 150,
+   "shape": "circle",
+   "note": "The test point pad itself; its label is below it"
+  },
+  "C13": {
+   "x": 642,
+   "y": 270,
+   "w": 245,
+   "h": 120,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "C9": {
+   "x": 642,
+   "y": 425,
+   "w": 245,
+   "h": 130,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "C10": {
+   "x": 642,
+   "y": 580,
+   "w": 245,
+   "h": 120,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "U2": {
+   "x": 370,
+   "y": 508,
+   "w": 260,
+   "h": 205,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "VR4": {
+   "x": 900,
+   "y": 255,
+   "w": 200,
+   "h": 90,
+   "note": "Designator beside the part"
+  },
+  "VR3": {
+   "x": 900,
+   "y": 475,
+   "w": 200,
+   "h": 90,
+   "note": "Designator beside the part"
+  },
+  "U1": {
+   "x": 678,
+   "y": 872,
+   "w": 245,
+   "h": 205,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "C11": {
+   "x": 880,
+   "y": 895,
+   "w": 120,
+   "h": 250,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "CR6": {
+   "x": 340,
+   "y": 1095,
+   "w": 210,
+   "h": 90,
+   "note": "Designator beside the part"
+  },
+  "R8": {
+   "x": 247,
+   "y": 1212,
+   "w": 245,
+   "h": 125,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R5": {
+   "x": 662,
+   "y": 1212,
+   "w": 245,
+   "h": 125,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R9": {
+   "x": 997,
+   "y": 1212,
+   "w": 245,
+   "h": 125,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "Q1": {
+   "x": 985,
+   "y": 812,
+   "w": 90,
+   "h": 150,
+   "note": "Designator beside the part"
+  },
+  "R31": {
+   "x": 1215,
+   "y": 225,
+   "w": 250,
+   "h": 130,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "C2": {
+   "x": 1580,
+   "y": 228,
+   "w": 240,
+   "h": 125,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R6": {
+   "x": 1580,
+   "y": 365,
+   "w": 240,
+   "h": 130,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "Q2": {
+   "x": 1330,
+   "y": 455,
+   "w": 140,
+   "h": 90,
+   "note": "Designator beside the part"
+  },
+  "R7": {
+   "x": 1385,
+   "y": 588,
+   "w": 240,
+   "h": 125,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "VR2": {
+   "x": 1630,
+   "y": 650,
+   "w": 220,
+   "h": 90,
+   "note": "Designator beside the part"
+  },
+  "R30": {
+   "x": 1940,
+   "y": 418,
+   "w": 380,
+   "h": 385,
+   "shape": "rect",
+   "note": "Trimmer outline; designator inside"
+  },
+  "R2": {
+   "x": 1332,
+   "y": 825,
+   "w": 135,
+   "h": 250,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R3": {
+   "x": 1510,
+   "y": 825,
+   "w": 130,
+   "h": 250,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R4": {
+   "x": 1795,
+   "y": 752,
+   "w": 250,
+   "h": 125,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "C6": {
+   "x": 1795,
+   "y": 892,
+   "w": 250,
+   "h": 125,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "Q3": {
+   "x": 2160,
+   "y": 745,
+   "w": 140,
+   "h": 90,
+   "note": "Designator beside the part"
+  },
+  "R26": {
+   "x": 2142,
+   "y": 875,
+   "w": 265,
+   "h": 130,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "P1": {
+   "x": 1650,
+   "y": 1145,
+   "w": 740,
+   "h": 310,
+   "shape": "rect",
+   "note": "Header outline; designator inside"
+  },
+  "C8": {
+   "x": 2085,
+   "y": 1115,
+   "w": 130,
+   "h": 250,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R23": {
+   "x": 2225,
+   "y": 1115,
+   "w": 130,
+   "h": 250,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R25": {
+   "x": 2255,
+   "y": 480,
+   "w": 140,
+   "h": 250,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "VR5": {
+   "x": 2255,
+   "y": 250,
+   "w": 90,
+   "h": 200,
+   "note": "Designator beside the part"
+  },
+  "VR6": {
+   "x": 2525,
+   "y": 240,
+   "w": 90,
+   "h": 200,
+   "note": "Designator beside the part"
+  },
+  "VR7": {
+   "x": 2780,
+   "y": 240,
+   "w": 90,
+   "h": 200,
+   "note": "Designator beside the part"
+  },
+  "Q5": {
+   "x": 3040,
+   "y": 240,
+   "w": 90,
+   "h": 170,
+   "note": "Designator beside the part"
+  },
+  "Q9": {
+   "x": 3330,
+   "y": 240,
+   "w": 90,
+   "h": 170,
+   "note": "Designator beside the part"
+  },
+  "C3": {
+   "x": 2462,
+   "y": 415,
+   "w": 235,
+   "h": 130,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "Q4": {
+   "x": 2665,
+   "y": 400,
+   "w": 150,
+   "h": 90,
+   "note": "Designator beside the part"
+  },
+  "R21": {
+   "x": 2462,
+   "y": 560,
+   "w": 235,
+   "h": 120,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "CR10": {
+   "x": 3145,
+   "y": 390,
+   "w": 270,
+   "h": 90,
+   "note": "Designator beside the part"
+  },
+  "C4": {
+   "x": 2587,
+   "y": 755,
+   "w": 125,
+   "h": 250,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R10": {
+   "x": 2737,
+   "y": 755,
+   "w": 125,
+   "h": 250,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R22": {
+   "x": 2880,
+   "y": 755,
+   "w": 130,
+   "h": 250,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R11": {
+   "x": 3027,
+   "y": 755,
+   "w": 125,
+   "h": 250,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "C7": {
+   "x": 3170,
+   "y": 755,
+   "w": 130,
+   "h": 250,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "VR1": {
+   "x": 2570,
+   "y": 935,
+   "w": 220,
+   "h": 90,
+   "note": "Designator beside the part"
+  },
+  "R24": {
+   "x": 2412,
+   "y": 1165,
+   "w": 125,
+   "h": 250,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "P2": {
+   "x": 2857,
+   "y": 1140,
+   "w": 735,
+   "h": 300,
+   "shape": "rect",
+   "note": "Header outline; designator inside"
+  },
+  "R12": {
+   "x": 3460,
+   "y": 388,
+   "w": 240,
+   "h": 120,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R13": {
+   "x": 3460,
+   "y": 535,
+   "w": 240,
+   "h": 130,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R28": {
+   "x": 3460,
+   "y": 685,
+   "w": 240,
+   "h": 120,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R20": {
+   "x": 3460,
+   "y": 860,
+   "w": 240,
+   "h": 120,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R15": {
+   "x": 3460,
+   "y": 1060,
+   "w": 240,
+   "h": 120,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "C5": {
+   "x": 3460,
+   "y": 1210,
+   "w": 240,
+   "h": 120,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "Q8": {
+   "x": 3655,
+   "y": 580,
+   "w": 140,
+   "h": 90,
+   "note": "Designator beside the part"
+  },
+  "C12": {
+   "x": 3798,
+   "y": 315,
+   "w": 135,
+   "h": 250,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R17": {
+   "x": 3898,
+   "y": 338,
+   "w": 245,
+   "h": 125,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R27": {
+   "x": 4080,
+   "y": 558,
+   "w": 135,
+   "h": 245,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "CR5": {
+   "x": 4080,
+   "y": 140,
+   "w": 210,
+   "h": 90,
+   "note": "Designator beside the part"
+  },
+  "CR4": {
+   "x": 4440,
+   "y": 420,
+   "w": 90,
+   "h": 200,
+   "note": "Designator beside the part"
+  },
+  "Q6": {
+   "x": 4370,
+   "y": 580,
+   "w": 150,
+   "h": 90,
+   "note": "Designator beside the part"
+  },
+  "R19": {
+   "x": 3795,
+   "y": 700,
+   "w": 250,
+   "h": 120,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R18": {
+   "x": 3795,
+   "y": 842,
+   "w": 250,
+   "h": 125,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R29": {
+   "x": 3745,
+   "y": 1035,
+   "w": 130,
+   "h": 250,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "Q7": {
+   "x": 3880,
+   "y": 980,
+   "w": 90,
+   "h": 160,
+   "note": "Designator beside the part"
+  },
+  "CR9": {
+   "x": 4070,
+   "y": 1170,
+   "w": 90,
+   "h": 200,
+   "note": "Designator beside the part"
+  },
+  "R16": {
+   "x": 4300,
+   "y": 940,
+   "w": 240,
+   "h": 120,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "C1": {
+   "x": 4300,
+   "y": 1080,
+   "w": 240,
+   "h": 120,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R14": {
+   "x": 4300,
+   "y": 1220,
+   "w": 240,
+   "h": 120,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "R1": {
+   "x": 1185,
+   "y": 1145,
+   "w": 120,
+   "h": 250,
+   "shape": "rect",
+   "note": "Body outline; designator inside. The reader had R1 on R7"
+  }
+ },
+ "drop": {},
+ "schematic": {
+  "sh1": {
+   "C11": {
+    "x": 1089,
+    "y": 2644,
+    "w": 70,
+    "h": 30,
+    "note": ".01uF above CR6; the reader chose the COLL pin label"
+   },
+   "U1": {
+    "x": 1155,
+    "y": 3100,
+    "w": 60,
+    "h": 30,
+    "note": "OP-07 offset amplifier; the reader chose R26's value"
+   },
+   "Q9": {
+    "x": 2810,
+    "y": 2025,
+    "w": 60,
+    "h": 30,
+    "note": "2N3904 in the mid-stage bias; the reader chose the Q2-Q9 pinout legend"
+   },
+   "TP1": {
+    "x": 1612,
+    "y": 2165,
+    "w": 80,
+    "h": 80,
+    "shape": "circle",
+    "note": "The test point circle on U2's output"
+   },
+   "R9": {
+    "x": 979,
+    "y": 2564,
+    "w": 60,
+    "h": 30,
+    "note": "2K beside C11 in the offset amplifier; the reader did not find it"
+   },
+   "CR9": {
+    "x": 3430,
+    "y": 683,
+    "w": 70,
+    "h": 30,
+    "note": "BAV99 beside C1 and R14 in the output driver; the reader did not find it"
+   }
+  }
+ },
+ "dropSchematic": {
+  "sh1": {}
+ },
+ "_notOnDrawingComment": [
+  "TP2 is drawn on the sheet (the OFFSET line from P1 pin 5) but not printed on the locator."
+ ],
+ "notOnDrawing": [
+  "TP2"
+ ],
+ "_schematicComment": [
+  "Sheet positions placed by hand where the reader chose a pin label, a value or the SOT-23 pinout legend, plus TP1, which it did not find."
+ ]
+}

@@ -1,0 +1,306 @@
+{
+  "_comment": [
+    "Hand corrections to the reader's output for A14, in pixels of the",
+    "full-resolution crops in .build/a14/ (see imageSize / sheetImageSize).",
+    "",
+    "The reader did well on this board -- 140 of 177 located, 79%, against A17's",
+    "47% -- because A14's silkscreen stands clear of the component outlines. Every",
+    "marker was still reviewed by eye, tier by tier, and the error rate is very",
+    "uneven across the tiers:", "",
+    "  agreed     99 of 101 right   (C4 landed on 'P612', C5 on the 'ASSY' silkscreen)",
+    "  ambiguous   8 of 14 right", "  single      8 of 9 right",
+    "  collision   8 of 16 right", "",
+    "which is the same shape as A17: agreed is the best tier and still not a clean",
+    "one, and collision is a coin toss. The 17 wrong ones are replaced by hand below",
+    "rather than dropped, since every one of them is legible on the drawing.",
+    "",
+    "R1 to R5 were misread as a group -- R1 onto the 'ROL' of the CONTROL",
+    "silkscreen, R2 onto CR2, R3 onto R30, R4 onto CR4, R5 onto R37. Four of the",
+    "five are the carbon composition parts that changed stock number between",
+    "revisions, which is a coincidence, but it is worth knowing that the whole",
+    "R1-R5 group is hand placed.", "",
+    "All six test points are placed by hand. Each is drawn as a short vertical bar",
+    "with its label immediately to the right, and the labels sit in a row about 80 px",
+    "apart, so a marker wide enough to cover pad and label will reach the neighbour",
+    "unless it is placed deliberately: the box is narrowed to 100 px and centred so",
+    "the pad falls on its left edge.", "",
+    "Sheet 4 carries no circuit -- it is the relay state table -- so no OCR pass is",
+    "run against it and nothing is placed on it.", "",
+    "32 board entries carry \"fitted\": true. Those are the component body rather",
+    "than the designator that names it, measured off the drawing by",
+    "tools/detect_round_parts.py and then rendered and looked at one by one:",
+    "fifteen relays, six DIP and two flat-pack ICs, the CR5 bridge, the J1",
+    "header, seven cans and U3's TO-5. The build treats them like any other",
+    "hand-placed entry; the flag only records how the numbers were arrived at.",
+    "",
+    "K9 is the one relay declined -- its designator is printed outside the",
+    "outline. The tantalums C6, C7 and C11 are fitted despite being drawn as",
+    "broken arcs, and sit at 69-78% ray agreement against 97-100% for the",
+    "relays; they were checked with more care for that reason and are right."
+  ],
+  "imageSize": { "w": 5897, "h": 3351 },
+  "sheetImageSize": { "w": 6345, "h": 3821 },
+  "board": {
+    "TP1": { "x": 2085, "y": 300, "w": 100, "h": 130, "note": "Pad bar, left of the label" },
+    "TP2": { "x": 1068, "y": 300, "w": 100, "h": 130, "note": "Pad bar, left of the label" },
+    "TP3": { "x": 1725, "y": 300, "w": 100, "h": 130, "note": "Pad bar, left of the label" },
+    "TP4": { "x": 1231, "y": 300, "w": 100, "h": 130, "note": "Pad bar, left of the label" },
+    "TP5": { "x": 1549, "y": 300, "w": 100, "h": 130, "note": "Pad bar, left of the label" },
+    "TP6": { "x": 1467, "y": 300, "w": 100, "h": 130, "note": "Pad bar, left of the label" },
+    "C1": { "x": 4846, "y": 642, "note": "Reader put it on C17", "w": 959, "h": 544, "shape": "rect" },
+    "C3": { "x": 2123, "y": 2163, "w": 212, "h": 212, "shape": "circle", "fitted": true, "note": "Reader put it on C32" },
+    "C4": { "x": 2363, "y": 2161, "w": 210, "h": 210, "shape": "circle", "fitted": true, "note": "Reader put it on the P612 silkscreen" },
+    "C5": { "x": 1740, "y": 686, "note": "Reader put it on the ASSY silkscreen", "w": 125, "h": 174, "shape": "rect" },
+    "C7": { "x": 2687, "y": 2797, "w": 135, "h": 135, "shape": "circle", "fitted": true, "note": "Reader put it on R46" },
+    "C8": { "x": 1854, "y": 2565, "w": 179, "h": 179, "shape": "circle", "fitted": true },
+    "C9": { "x": 1853, "y": 2312, "w": 179, "h": 179, "shape": "circle", "fitted": true },
+    "C11": { "x": 871, "y": 2300, "w": 135, "h": 135, "shape": "circle", "fitted": true },
+    "C12": { "x": 2178, "y": 2803, "w": 110, "h": 115, "shape": "rect" },
+    "C13": { "x": 2001, "y": 2806, "w": 99, "h": 118, "shape": "rect" },
+    "C14": { "x": 1444, "y": 1691, "w": 117, "h": 175, "shape": "rect" },
+    "C30": { "x": 1621, "y": 690, "w": 81, "h": 195, "shape": "rect" },
+    "C31": { "x": 1344, "y": 1160 },
+    "J1": { "x": 3259, "y": 1306, "w": 198, "h": 649, "shape": "rect", "fitted": true, "note": "Reader put it on TP4" },
+    "K4": { "x": 4156, "y": 714, "w": 203, "h": 413, "shape": "rect", "fitted": true },
+    "K5": { "x": 2711, "y": 654, "w": 426, "h": 209, "shape": "rect", "fitted": true },
+    "K6": { "x": 3076, "y": 437, "w": 209, "h": 423, "shape": "rect", "fitted": true, "note": "Reader put it on K8" },
+    "K7": { "x": 3137, "y": 2703, "w": 428, "h": 204, "shape": "rect", "fitted": true },
+    "K9": { "x": 2709, "y": 385, "w": 426, "h": 226, "shape": "rect" },
+    "K12": { "x": 3886, "y": 715, "w": 207, "h": 421, "shape": "rect", "fitted": true },
+    "K13": { "x": 3350, "y": 435, "w": 211, "h": 423, "shape": "rect", "fitted": true },
+    "K16": { "x": 2712, "y": 1244, "w": 427, "h": 207, "shape": "rect", "fitted": true },
+    "Q2": { "x": 1937, "y": 1180 },
+    "R1": { "x": 3044, "y": 1267, "note": "Reader put it on the CONTROL silkscreen" },
+    "R2": { "x": 3044, "y": 1045, "note": "Reader put it on CR2" },
+    "R3": { "x": 5658, "y": 2049, "note": "Reader put it on R30", "w": 117, "h": 303, "shape": "rect" },
+    "R4": { "x": 5655, "y": 1548, "note": "Reader put it on CR4", "w": 114, "h": 307, "shape": "rect" },
+    "R5": { "x": 5659, "y": 1053, "note": "Reader put it on R37", "w": 121, "h": 305, "shape": "rect" },
+    "R30": { "x": 1085, "y": 1180, "note": "Reader put it on R50" },
+    "U1": { "x": 1863, "y": 473, "note": "Reader put it on U11", "w": 196, "h": 109, "shape": "rect" },
+    "U3": { "x": 1784, "y": 2001, "w": 192, "h": 192, "shape": "circle", "fitted": true },
+    "U14": { "x": 2204, "y": 2577, "w": 441, "h": 88, "shape": "rect", "fitted": true },
+    "VR2": { "x": 2717, "y": 2315, "w": 110, "h": 301, "shape": "rect" },
+    "VR3": { "x": 2590, "y": 2312, "w": 126, "h": 287, "shape": "rect" },
+    "VR4": { "x": 2524, "y": 1591, "w": 112, "h": 283, "shape": "rect" },
+    "VR5": { "x": 2636, "y": 1592, "w": 101, "h": 293, "shape": "rect" },
+    "VR8": { "x": 2124, "y": 1042 },
+    "Z1": { "x": 1037, "y": 834, "note": "Reader put it on R68", "w": 89, "h": 511, "shape": "rect" },
+    "C6": { "x": 2511, "y": 2801, "w": 131, "h": 131, "shape": "circle", "fitted": true },
+    "CR5": { "x": 2095, "y": 1774, "w": 153, "h": 423, "shape": "rect", "fitted": true },
+    "K1": { "x": 3135, "y": 2424, "w": 421, "h": 200, "shape": "rect", "fitted": true },
+    "K2": { "x": 2336, "y": 1799, "w": 201, "h": 414, "shape": "rect", "fitted": true },
+    "K3": { "x": 3993, "y": 353, "w": 422, "h": 207, "shape": "rect", "fitted": true },
+    "K8": { "x": 2712, "y": 922, "w": 420, "h": 201, "shape": "rect", "fitted": true },
+    "K10": { "x": 3134, "y": 2076, "w": 420, "h": 200, "shape": "rect", "fitted": true },
+    "K11": { "x": 3240, "y": 812, "w": 421, "h": 200, "shape": "rect", "fitted": true },
+    "K14": { "x": 3133, "y": 1807, "w": 420, "h": 201, "shape": "rect", "fitted": true },
+    "K15": { "x": 2900, "y": 1512, "w": 428, "h": 209, "shape": "rect", "fitted": true },
+    "U6": { "x": 1388, "y": 1400, "w": 433, "h": 88, "shape": "rect", "fitted": true },
+    "U7": { "x": 1384, "y": 2005, "w": 441, "h": 89, "shape": "rect", "fitted": true },
+    "U10": { "x": 464, "y": 774, "w": 263, "h": 637, "shape": "rect", "fitted": true },
+    "U11": { "x": 464, "y": 1432, "w": 264, "h": 636, "shape": "rect", "fitted": true },
+    "U12": { "x": 828, "y": 772, "w": 263, "h": 638, "shape": "rect", "fitted": true },
+    "U13": { "x": 829, "y": 1430, "w": 263, "h": 636, "shape": "rect", "fitted": true },
+    "C2": { "x": 2323, "y": 831, "w": 301, "h": 1039, "shape": "rect" },
+    "C20": { "x": 1624, "y": 925, "w": 83, "h": 187, "shape": "rect" },
+    "C25": { "x": 234, "y": 973, "w": 69, "h": 181, "shape": "rect" },
+    "C26": { "x": 235, "y": 1189, "w": 78, "h": 187, "shape": "rect" },
+    "C29": { "x": 1866, "y": 317, "w": 170, "h": 84, "shape": "rect" },
+    "C32": { "x": 1608, "y": 2323, "w": 72, "h": 191, "shape": "rect" },
+    "L1": { "x": 1638, "y": 2553, "w": 133, "h": 189, "shape": "rect" },
+    "Q3": { "x": 1845, "y": 1537, "w": 121, "h": 179, "shape": "rect" },
+    "Q4": { "x": 1243, "y": 1764, "w": 133, "h": 180, "shape": "rect" },
+    "T1": { "x": 4471, "y": 1904, "w": 2153, "h": 1837, "shape": "rect" },
+    "U2": { "x": 1352, "y": 902, "w": 410, "h": 105, "shape": "rect" },
+    "U4": { "x": 1354, "y": 2297, "w": 408, "h": 105, "shape": "rect" },
+    "U8": { "x": 1355, "y": 2643, "w": 420, "h": 115, "shape": "rect" },
+    "U9": { "x": 521, "y": 2330, "w": 252, "h": 1102, "shape": "rect" }
+  },
+  "_schematicComment": [
+    "Hand placements for parts the reader left with no schematic position at all.",
+    "Each was found by cropping the sheet at full resolution and reading the label,",
+    "and the box is the printed designator, centre, in pixels of schN_full.png.",
+    "",
+    "Most of them had a reader hit that never became a placement because it was",
+    "filed as a collision: on this board a collision is usually two designators",
+    "claiming one label, and one of the two is right. R70 and R10 were read off the",
+    "same '4.7M' label and it is R70's; likewise C18 not C15, R30 not R20, R25 not",
+    "U1, R59 not R50, R60 not R66, R61 and R31 correct. The losing half of each",
+    "pair is placed here from its own label elsewhere.",
+    "",
+    "J1 is printed twice on sheet 1, once at each end of the T1 primary; the left",
+    "one is recorded. U1 is printed only as the section label 'U1 A', which is what",
+    "the sheet gives.",
+    "",
+    "Sheets 1 and 3 have no home for R10 and R57 respectively -- the reads dropped",
+    "there were the net labels 'HV LC1' and 'RST'. Both parts are placed on the",
+    "sheet that actually draws them.",
+    "",
+    "Two markers already in the data were wrong and are corrected here. CR5's only",
+    "schematic position was sheet 2's CR9 label -- the 9-as-5 confusion, in the",
+    "agreed tier at 96% on nine votes -- so it is dropped there and placed on the",
+    "2A range bridge it actually labels on sheet 1. R8 had a correct sheet 1",
+    "position and a second one on sheet 2 sitting on R24's label; that one is",
+    "dropped and nothing replaces it, R8 is not on sheet 2."
+  ],
+  "schematic": {
+    "sh1": {
+      "C10": { "x": 3116, "y": 2481, "w": 95, "h": 38, "note": "Filter cap on +5 LH, left of L1" },
+      "C12": { "x": 3259, "y": 2671, "w": 95, "h": 38, "note": "22uF on LH COM to -5 LH" },
+      "CR1": { "x": 3137, "y": 378, "w": 95, "h": 38, "note": "HVDC bridge, top-left arm" },
+      "CR5": { "x": 3062, "y": 1076, "w": 95, "h": 38, "note": "2A range bridge; the reader had CR5 on sheet 2's CR9 label and nowhere else" },
+      "J1": { "x": 1690, "y": 252, "w": 70, "h": 38, "note": "T1 primary side; J1 is printed twice on this sheet, this is the left one" },
+      "L1": { "x": 3286, "y": 2461, "w": 70, "h": 38, "note": "6T choke in the +5 LH filter" },
+      "R9": { "x": 5481, "y": 1401, "w": 70, "h": 38, "note": "PA OUT DC divider, second of the 1.5M chain" },
+      "R10": { "x": 5494, "y": 1544, "w": 95, "h": 38, "note": "PA OUT DC divider, third of the 1.5M chain" },
+      "R65": { "x": 2767, "y": 1528, "w": 95, "h": 38, "note": "10 ohm feeding VR4, 2A range supply" },
+      "R66": { "x": 3073, "y": 1708, "w": 95, "h": 38, "note": "10 ohm feeding VR5, 2A range supply" },
+      "R70": { "x": 4822, "y": 376, "w": 95, "h": 38, "note": "4.7M across C2; reader read the same label as R10" },
+      "R71": { "x": 4822, "y": 633, "w": 95, "h": 38, "note": "4.7M across C2, lower half" }
+    },
+    "sh2": {
+      "C15": { "x": 5601, "y": 349, "w": 95, "h": 38, "note": "120pF across R20" },
+      "C17": { "x": 2910, "y": 609, "w": 95, "h": 38, "note": "2200pF in the square wave generator" },
+      "C18": { "x": 3924, "y": 1556, "w": 95, "h": 38, "note": "U2D integrator cap" },
+      "C20": { "x": 1581, "y": 908, "w": 95, "h": 38, "note": "0.1uF below R28/R29" },
+      "CR9": { "x": 1070, "y": 1332, "w": 95, "h": 38, "note": "1N4448 on U2A output, absolute value circuit" },
+      "CR10": { "x": 4193, "y": 1691, "w": 125, "h": 38, "note": "1N4448 on U2D output, AMPLITUDE" },
+      "Q4": { "x": 2799, "y": 1988, "w": 70, "h": 38, "note": "J6006 JFET in the reference and error amplifier" },
+      "R20": { "x": 5602, "y": 476, "w": 95, "h": 38, "note": "412K across C15" },
+      "R21": { "x": 5966, "y": 649, "w": 95, "h": 38, "note": "10k from TP3 to HVCL" },
+      "R25": { "x": 3071, "y": 300, "w": 95, "h": 38, "note": "750K on U7A, square wave generator" },
+      "R28": { "x": 1412, "y": 793, "w": 95, "h": 38, "note": "20.5K across Q3" },
+      "R30": { "x": 508, "y": 1101, "w": 95, "h": 38, "note": "18.2k on G OUT from P612-12C" },
+      "R31": { "x": 923, "y": 1101, "w": 95, "h": 38, "note": "18.2k, second of the G OUT pair" },
+      "R40": { "x": 2855, "y": 1685, "w": 95, "h": 38, "note": "464K in ERROR SIGNAL" },
+      "R41": { "x": 3272, "y": 2192, "w": 95, "h": 38, "note": "464K below R43, reference divider" },
+      "R50": { "x": 5265, "y": 1231, "w": 95, "h": 38, "note": "196K on U1A" },
+      "R69": { "x": 5411, "y": 758, "w": 95, "h": 38, "note": "10K into U3 pin 3" },
+      "U1": { "x": 4932, "y": 1296, "w": 105, "h": 38, "note": "printed as the section label U1 A on the LF412" },
+      "VR8": { "x": 5212, "y": 1932, "w": 115, "h": 38, "note": "18V zener below R22" }
+    },
+    "sh3": {
+      "R57": { "x": 875, "y": 1138, "w": 95, "h": 38, "note": "750 ohm in WR*" },
+      "R59": { "x": 682, "y": 1503, "w": 95, "h": 38, "note": "16k in POP" },
+      "R60": { "x": 3091, "y": 1073, "w": 95, "h": 38, "note": "20k pull-up on FET2" },
+      "R61": { "x": 3255, "y": 1073, "w": 95, "h": 38, "note": "20k pull-up, second of the pair" },
+      "U9": { "x": 1488, "y": 617, "w": 70, "h": 38, "note": "82C55, label above pin 26" },
+      "Z1": { "x": 3500, "y": 998, "w": 70, "h": 38, "note": "10k SIP network, label above the array" }
+    }
+  },
+  "_sheetsComment": [
+    "Grid frames measured corner by corner on each sheet. They differ: the scan is",
+    "cropped inside the left zone band on sheets 1 and 3, and sheet 2 prints its row",
+    "letters on the left rather than the right, so no two sheets share a frame.",
+    "Sheet 4 is given none -- it carries the relay state table, not a circuit, and a",
+    "derived zone for a marker that does not exist would be worse than nothing."
+  ],
+  "sheets": {
+    "sh1": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.00315, "y0": 0.0178, "x1": 0.9907, "y1": 0.98299 }
+      }
+    },
+    "sh2": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.01497, "y0": 0.01623, "x1": 0.99843, "y1": 0.9843 }
+      }
+    },
+    "sh3": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.00126, "y0": 0.01701, "x1": 0.98707, "y1": 0.97671 }
+      }
+    }
+  },
+  "_dropSchematicComment": [
+    "Sheet 1's markers were reviewed one by one, and the failures are concentrated",
+    "in one place: the block of relay and transistor pinout legends along the bottom",
+    "of the sheet. 'K1, K2, K4, K8, K10, K11, K14' printed as a caption reads to the",
+    "reader exactly like eleven placements, and the FRONT/E-B-C pinouts do the same",
+    "for Q2 and Q3. Those parts are on the sheet -- their contacts are drawn in the",
+    "circuit -- but the marker landed on the caption, so it is dropped rather than",
+    "nudged, and the part is simply unplaced on that sheet. Same for TP2 to TP5,",
+    "which appear only in the sheet-1 legend box that lists all six test points and",
+    "the sheet each really lives on.", "",
+    "The rest are the ordinary schematic misreads: a value ('1.5M' as VR1, '196k' as",
+    "Z1), a net name ('-5 LH' as L1, 'I SNS' as Z1), a pin number, or a word of a",
+    "title block ('ABSOLUTE VALUE CIRCUIT' as L1, 'OUTPUT PEAK MEASURE' as MP1).",
+    "",
+    "Sheet 3 fails the same way in its own idiom: it is the digital sheet, so the",
+    "reader finds capacitors in the 5801 drivers' output labels (C0, C1, C2, C3 are",
+    "net names there, not parts), test points in a 4051's I/O pin names (IO4, IO6),",
+    "and resistors in the port labels (PA2). Its relay coils and driver ICs, on the",
+    "other hand, read cleanly.", "",
+    "Sheet 2's ambiguous and single tiers were reviewed the same way; its agreed tier",
+    "was sampled rather than swept -- see the coverage caveat in a14.reference.json."
+  ],
+  "dropSchematic": {
+    "sh1": [
+      "C15", "H6", "H7", "H8", "J1", "K1", "K4", "K6", "K7", "K8", "K12",
+      "K13", "K14", "K15", "K16", "L1", "MP1", "MP5", "MP8", "Q2", "Q3",
+      "TP2", "TP3", "TP4", "TP5", "U7", "U10", "VR1", "Z1"
+    ],
+    "sh2": [
+      "C5", "CR5", "CR12", "H5", "H8", "H11", "J1", "K5", "L1", "R1", "R6",
+      "R7", "R8", "R28", "T1", "VR7", "Z1"
+    ],
+    "sh3": [
+      "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "H5",
+      "H7", "H8", "J1", "L1", "MP1", "MP8", "Q2", "Q3", "R1", "R2", "R5",
+      "R10", "R15", "R19", "R57", "T1", "TP1", "TP4", "TP6", "U1", "U6",
+      "U7", "VR4"
+    ]
+  },
+  "drop": ["H5", "H7"],
+  "_layersComment": [
+    "Alignment of the photograph to board space. The high voltage shield (MP3) is",
+    "fitted in this photograph and covers the right-hand 40% of the board, so there",
+    "are no landmarks to be had out there and none of the four pairs below sits",
+    "further right than K7 at x=0.53. A homography fitted from one half of a board",
+    "extrapolates into the other half, so positions under the shield are a guess",
+    "drawn confidently -- which is why this is marked approximate and why the",
+    "coverage caveat says the photo tells you nothing on the right.", "",
+    "The pairs are silkscreen features rather than board corners: C27 and C2 across",
+    "the top, C11 and K7 across the bottom. Silkscreen is unambiguous in both images",
+    "in a way a corner under a bracket is not. Re-shoot with MP3 removed and the",
+    "same four still work, with room to add pairs on the right.", "",
+    "src is normalised in the drawing (5897 x 3351), dst in the photo (3400 x 2020)."
+  ],
+  "layers": {
+    "photo": {
+      "approximate": true,
+      "landmarks": [
+        {
+          "note": "photo corner, top left",
+          "src": [-0.01071, -0.03028],
+          "dst": [0.0, 0.0]
+        },
+        {
+          "note": "photo corner, top right",
+          "src": [1.01556, -0.05555],
+          "dst": [1.0, 0.0]
+        },
+        {
+          "note": "photo corner, bottom right",
+          "src": [1.02687, 0.98357],
+          "dst": [1.0, 1.0]
+        },
+        {
+          "note": "photo corner, bottom left",
+          "src": [-0.01, 1.04932],
+          "dst": [0.0, 1.0]
+        }
+      ]
+    }
+  },
+  "notOnDrawing": [
+    "H4", "H5", "H6", "H7", "H8", "H9", "H11", "MP1", "MP2", "MP3", "MP5",
+    "MP8", "MP10", "MP11", "MP12", "MP13"
+  ]
+}

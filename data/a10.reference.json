@@ -1,0 +1,385 @@
+{
+  "_comment": [
+    "A10 Ohms Main PCA -- curated reference material, hand-written.",
+    "",
+    "Sources, and what each is authoritative for:",
+    "  Table 6-11 (1996 text layer)   the parts list. Exact, not OCR.",
+    "  Table 6-11 (Rev 9 Ch6 p.40)    manufacturer columns only. OCR, checked.",
+    "  §2-168 … §2-172                what the board is and how it is switched.",
+    "  §5-12 and Table 5-2            the bench procedure and its tolerances.",
+    "  §5-2, codes 3311-3341          the A9/A10 diagnostic fault codes.",
+    "  Figure 7-10 (Ch7 PDF pp.41-45) locator + four sheets, two of which are",
+    "                                 relay state tables rather than circuits.",
+    "",
+    "Everything with a number in it was read off the PDF. Where the curated study",
+    "document ../MD/A10_Ohms_Main.md disagreed with a source, the disagreement is",
+    "recorded as a caveat rather than resolved silently."
+  ],
+
+  "overview": {
+    "summary": "The instrument's resistance standard. A10 holds every fixed resistance value the calibrator can output from 10 Ω to 100 MΩ -- everything except the 1 Ω, 1.9 Ω and short, which live on the Ohms Cal assembly (A9). It is an almost entirely passive board: three Fluke hermetically sealed thin-film resistor networks (Z1, Z2, Z3), one discrete 90 MΩ film resistor (R1), 39 relays, nine relay driver ICs, two decoders and exactly one op amp. The values are arranged as two ladders sharing a common low end -- a 1x10ⁿ decade string and a 1.9x10ⁿ string. Z2 carries the 1x high decades (9 M, 900 k, 90 k, 9 k), Z3 the 1.9x high decades (17.1 M, 1.71 M, 171 k, 17.1 k), and Z1 carries the low decades of BOTH strings in one package (900, 90, 10 for the 1x side and 1710, 171, 19 for the 1.9x side), which is why it is drawn twice on sheet 1. The 100 MΩ value is R1's 90 MΩ inserted in series with the decade string above its 10 MΩ tap, and it is the only two-wire value on the board. Relays K1 and K2 (reset) connect the top of the selected string to INT OUT HI and INT SENSE HI; K27A/B and K39A/B connect the two strings' low ends to OHMS OUT LO and OHMS SENSE LO. A10 has no processor and no diagnostic multiplexer: every relay on it is driven from the 82C55 on A9 across the motherboard, and every self-test reading of it is taken by the adc on the DAC assembly (A11) through A9's differential amplifier. U1, an OPA111, is used only during calibration -- it is a low-bias-current buffer for values above 1 MΩ. K3, K28 and K31-K34 are calibration-only relays; K4 and K6 belong to A9's two-wire compensation circuit.",
+    "connectors": "P301 and P302, both DIN 41612 type C, 64-pin right-angle, into the Analog Motherboard (A3), where they are called J301 and J302. P301 carries the analog signals: INT OUT HI (30A/30C), INT SENSE HI (28A/28C), OHMS SENSE LO (25A/25C), OHMS OUT LO (24A/24C), OHMS SENSE HI (22A/22C), OHMS OUT HI (21A/21C), 10V OUT HI (1A/1C), 10V SENSE HI (2A), 10V SENSE LO (23A/23C), DAC OUT LO (11A/11C), ACOM (2C), AMP IN (3C) and AMP OUT (3A). P302 carries the supplies and the digital control: +17 S (30A/30C), S COM (32A/32C), -17 S (31A/31C), +5 RLH (23A/23C) with RLH COM (25A/25C), +5 LH (22A/22C) with LH COM (24A/24C), and the 82C55 lines from A9 as OHM PA0-PA7, OHM PB0-PB3, OHM PC0-PC3 and OHM PC4. Every analog pair is wired A and C in parallel.",
+    "source": "§2-168 … §2-172; Figure 7-10 sheets 1 and 2 (connector pin fields read off the sheets)"
+  },
+
+  "railCircuits": {
+    "OHMS": {
+      "rails": "INT OUT HI, INT SENSE HI, OHMS OUT LO, OHMS SENSE LO, OHMS OUT HI, OHMS SENSE HI",
+      "regulators": ["Z1", "Z2", "Z3", "R1"],
+      "tps": ["TP2", "TP3", "TP4", "TP5"],
+      "note": "Not a supply -- the measurement path, and the only thing on this board a bench meter can judge. The output-high and sense-high side of any value reaches INT OUT HI and INT SENSE HI through K1 and K2 in the reset position; the exception is 100 MΩ, which reaches INT OUT HI through reed relay K5 and has no sense-high path at all. The low side of the 1x string reaches OHMS SENSE LO and OHMS OUT LO through K27A and K27B in reset, and the low side of the 1.9x string through K39A and K39B. Both leave on P301 to A9, which connects them to the OUTPUT LO and SENSE LO binding posts. Within the strings: 10 MΩ is K7 (reset) with K8 (energised); 1 MΩ is K9 and K10 (reset); decades below 1 MΩ are K15 and K16 (reset) plus a pair from K17 through K26A. On the 1.9x side, 19 MΩ is K11 and K12 (energised), 1.9 MΩ is K13 and K14 (reset), and 1.9 decades below that are K35 and K36 (reset) plus a pair from K18B through K26B and K37. OHMS OUT HI and OHMS SENSE HI are the calibration access lines: K29 connects OHMS OUT HI to the 1x string when set and to the 1.9x string when reset, and K30 connects OHMS SENSE HI to the 1.9x string during calibration.",
+      "source": "§2-170; Figure 7-10 sheet 1"
+    },
+    "S": {
+      "rails": "+17 S, -17 S, S COM",
+      "regulators": ["U1", "VR1", "R2", "R3", "R5"],
+      "filters": ["C1", "C2", "C3", "C4"],
+      "tps": ["TP1"],
+      "note": "The only analog supply on the board, and it feeds exactly one device: U1, an OPA111 in a TO-99 can, inside a dashed region on sheet 1 annotated GROUND PLANE = SCOM. +17 S reaches U1 pin 7 through VR1, a 3.3 V zener in series, so the positive supply node sits about 3.3 V below the rail; -17 S reaches pin 4 through R5 (100 Ω), which at the OPA111's few milliamps drops almost nothing. C3 (10 µF tantalum) and C1 (0.22 µF polyester) bypass the positive node to SCOM, C4 and C2 the negative one. R3 (270 Ω) is the feedback element from pin 6 to pin 2 and R2 (270 Ω) sits in the +17 S feed to the input network. Nothing else on A10 runs on these rails -- if U1 is not the suspect, ±17 S is not either. A10 makes no supply of its own and has no regulator.",
+      "source": "§2-181 … §2-185 (calibration use of U1); Figure 7-10 sheet 1 zones B7-C7"
+    },
+    "LH": {
+      "rails": "+5 LH, LH COM, +5 RLH, RLH COM",
+      "regulators": ["U2", "U3", "U5", "U6", "U7", "U8", "U9", "U10", "U11", "U12", "U13"],
+      "filters": ["C6", "C7", "C10", "C11", "C12", "C13", "C16"],
+      "note": "Two separate 5 V supplies, both made on A17 and both arriving on P302. +5 LH (22A/22C) passes through choke L5 and C7 (0.22 µF) and is the logic supply: it feeds decoders U9 and U10 and the VDD pin of every 5801 driver. +5 RLH (23A/23C) passes through choke L4 and C6 (4.7 µF tantalum) and is the relay-coil supply: it feeds the COM pin of every driver and the coils themselves. C10, C11, C12, C13 and C16 each decouple one driver's COM pin to RLH COM. The two commons are different nets and neither of them is SCOM, so a meter clipped to TP1 will read both of them wrong -- and neither LH COM nor RLH COM is brought out to a test point anywhere on this assembly. U9 (a 4028) decodes PB0-PB3 to strobe the latching drivers; U10 (a 74HC138) decodes PC0-PC3 into four enable lines, each enabling a pair of drivers -- U6/U7, U2/U8, U5/U12 and U11/U13. U3 is outside that scheme: its enable is tied to LH COM so it drives constantly, and PC4 alone strobes it.",
+      "source": "§2-172; Figure 7-10 sheet 2"
+    }
+  },
+
+  "faultCodes": [
+    {
+      "code": "3311",
+      "title": "A9/A10: Ohms 10:1 Divider Fault",
+      "measure": "The 2/5/10V SOURCE circuit is set for 10 V and connected across the 100 kΩ resistance in Z5 on the Ohms Cal assembly (A9). The 1 V across the 10 kΩ portion is measured.",
+      "expected": "1 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Cal assembly (A9) is probably at fault. Despite the 'A9/A10' title, no A10 resistance is in this loop at all -- both ends of the divider are inside Z5 on A9. Do not go looking for a divider problem on this board.",
+      "refs": [],
+      "source": "§5-2"
+    },
+    {
+      "code": "3312",
+      "title": "A9/A10: Ohms 1:1 Divider Fault",
+      "measure": "The 2/5/10V SOURCE circuit is set for 10 V and connected across the 100 kΩ resistance in Z5 on the Ohms Cal assembly (A9), and the arrangement is measured end to end.",
+      "expected": "10 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Cal assembly (A9) is probably at fault. As with 3311, nothing on A10 is in circuit.",
+      "refs": [],
+      "source": "§5-2"
+    },
+    {
+      "code": "3313",
+      "title": "A9/A10: 10 Kilohm Diagnostic Fault",
+      "measure": "10 V across 20 kΩ made from A9's 10 kΩ in Z5 in series with A10's 10 kΩ string. The 5 V across A10's half is measured.",
+      "expected": "5 V ±3 % ±15 mV",
+      "verdict": "This is the one code in the series that tells you how to split the blame by hand. Put a DMM hi on TP2 and lo on TP1 of the Ohms Cal assembly (A9) and read the voltage across A10's 10 kΩ string. Greater than 5 V and the Ohms Main assembly (A10) is probably at fault; 5 V or less and the Ohms Cal assembly (A9) is. A10's 10 kΩ is Z2's 9 kΩ element plus the whole of Z1's 1x low half, reached through K15, K16 and K18A/K20A.",
+      "refs": ["Z1", "Z2", "K15", "K16", "K18", "K20"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3314",
+      "title": "A9/A10: 19 Kilohm Cal Diag Fault",
+      "measure": "10 V across 29 kΩ made from A9's 10 kΩ in Z5 in series with A10's 19 kΩ string. The 6.55 V across A10's half is measured.",
+      "expected": "6.55 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Main assembly (A10) is probably at fault. The 19 kΩ string is Z3's 17.1 kΩ element plus Z1's 1.9x low half, so a fault here with 3313 passing points at Z3 or at the 1.9x relay chain (K35, K36, K37, K39) rather than at anything the 1x string uses.",
+      "refs": ["Z1", "Z3", "K35", "K36", "K37", "K39"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3315",
+      "title": "A9/A10: 10 Ohm Cal Diag Fault",
+      "measure": "2 V across A10's 100 Ω string; the 0.2 V across the 10 Ω portion goes to the differential amplifier's -input on A9, against 0.2 V from A9's own Z5 divider on the +input. The difference is read by the adc on A11 through the RCL line.",
+      "expected": "0 V ±3 % ±15 mV",
+      "verdict": "Check the reference side first: verify the divided DAC voltage of 0.2 V ±5 % at the +input by putting a DMM hi on TP20 and lo on TP10 of the Ohms Cal assembly (A9). If that is out of tolerance the Ohms Cal assembly (A9) is at fault and A10 is innocent. Only if the reference is good does this code implicate the calibration of A10's 10 Ω value.",
+      "refs": ["Z1"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3316",
+      "title": "A9/A10: 19 Ohm Cal Diag Fault",
+      "measure": "2 V across A10's 190 Ω string; the 0.2 V across the 19 Ω portion goes to the differential amplifier's -input on A9 against A9's own 0.2 V reference.",
+      "expected": "0 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the calibration of the 19 Ω resistance on the Ohms Main assembly (A10) is probably at fault. The same reference-side check as 3315 applies before believing it -- the manual does not repeat it here, but the +input comes from the same Z5 divider.",
+      "refs": ["Z1"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3317",
+      "title": "A9/A10: 100 Kilohm Ratio Fault",
+      "measure": "10 V from A9's 2/5/10V SOURCE across A10's 100 kΩ string; the 1 V across the 10 kΩ portion is measured.",
+      "expected": "1 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Main assembly (A10) is probably at fault. This is a ratio inside Z2 (90 kΩ against 9 kΩ plus Z1's 1 kΩ), so it fails on a network or a tap relay, not on a lead resistance.",
+      "refs": ["Z1", "Z2"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3318",
+      "title": "A9/A10: 190 Kilohm Ratio Fault",
+      "measure": "10 V across A10's 190 kΩ string; the 1 V across the 19 kΩ portion is measured.",
+      "expected": "1 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Main assembly (A10) is probably at fault. The 1.9x mirror of 3317, inside Z3 and Z1.",
+      "refs": ["Z1", "Z3"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3319",
+      "title": "A9/A10: 1M Ohm Ratio Fault",
+      "measure": "10 V across A10's 1 MΩ string; the 1 V across the 100 kΩ portion is measured.",
+      "expected": "1 V ±3 % ±15 mV",
+      "verdict": "The second code with a hand check: put a DMM hi on TP14 and lo on TP2 of the Ohms Cal assembly (A9) and read the 1 V across the 100 kΩ. Out of tolerance and the Ohms Main assembly (A10) is probably at fault; in tolerance and the Ohms Cal assembly (A9) is. Above 1 MΩ the measurement is buffered by U1 on this board, so U1 becomes a suspect for the first time at this code and at every code above it.",
+      "refs": ["Z2", "U1", "K9", "K10"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3320",
+      "title": "A9/A10: 1.9M Ohm Ratio Fault",
+      "measure": "10 V across A10's 1.9 MΩ string; the 1 V across the 190 kΩ portion is measured.",
+      "expected": "1 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Main assembly (A10) is probably at fault. The 1.9 MΩ value is selected by K13 and K14 in reset, and the measurement is buffered by U1.",
+      "refs": ["Z3", "U1", "K13", "K14"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3321",
+      "title": "A9/A10: 10M Ohm Ratio Fault",
+      "measure": "10 V across A10's 10 MΩ string; the 1 V across the 1 MΩ portion is measured.",
+      "expected": "1 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Main assembly (A10) is probably at fault. 10 MΩ is selected by K7 (reset) with K8 energised, and K8 is a non-latching reed -- so unlike the lower values this path cannot be traced with the calibrator switched off.",
+      "refs": ["Z2", "U1", "K7", "K8"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3322",
+      "title": "A9/A10: 19M Ohm Ratio 1",
+      "measure": "10 V across A10's 19 MΩ string; the 1 V across the 1.9 MΩ portion is measured.",
+      "expected": "1 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Main assembly (A10) is probably at fault. 19 MΩ needs K11 and K12 both energised, and both are non-latching reeds, so 3322 and 3323 firing together with everything below 1.9 MΩ passing is as likely to be a reed relay or its driver (U3) as a network.",
+      "refs": ["Z3", "U1", "K11", "K12"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3323",
+      "title": "A9/A10: 19M Ohm Ratio 2",
+      "measure": "10 V across A10's 19 MΩ string, measured end to end rather than as a tap ratio.",
+      "expected": "10 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Main assembly (A10) is probably at fault. Read together with 3322: 3322 checks the 1.9 MΩ tap's position within the string and 3323 checks that the string is there at all, so 3323 alone is an open or a relay and 3322 alone is a ratio.",
+      "refs": ["Z3", "U1", "K11", "K12"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3324",
+      "title": "A9/A10: 100M Ohm Ratio Fault",
+      "measure": "The manual's text for this code is word for word the text of 3321 -- 10 V across the 10 MΩ string, 1 V across the 1 MΩ portion. See the verdict.",
+      "expected": "1 V ±3 % ±15 mV, as printed",
+      "verdict": "A failure indicates the Ohms Main assembly (A10) is probably at fault. Treat the printed description with suspicion: it is identical to 3321's and describes no 100 MΩ measurement at all, which looks like a copy-and-paste error in §5-2. What actually distinguishes the 100 MΩ value is R1 (90 MΩ) in series above the 10 MΩ tap, put in circuit by reed relay K5, and it is two-wire. If 3324 fires while 3321 passes, R1 and K5 are the parts to check; if both fire together, treat it as one 10 MΩ event.",
+      "refs": ["R1", "K5", "Z2"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3325",
+      "title": "A9/A10: 10 Kilohm Check Fault",
+      "measure": "The Current assembly (A7) drives 0.13 mA into A10's 10 kΩ string through INT OUT HI, and the drop across it is measured.",
+      "expected": "1.3 V ±3 % ±15 mV",
+      "verdict": "The third code with a hand check: put a DMM hi on TP5 and lo on TP6 of the Ohms Cal assembly (A9). Out of tolerance and the Ohms Main assembly (A10) is probably at fault; in tolerance and the Ohms Cal assembly (A9) is. Unlike the 33xx ratio codes this one drives real current in from A7, so a fault common to 3325-3332 with the ratio codes passing points at A7 or at the INT OUT HI path rather than at a network.",
+      "refs": ["Z1", "Z2", "TP4"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3326",
+      "title": "A9/A10: 19 Kilohm Check Fault",
+      "measure": "A7 drives 0.13 mA into A10's 19 kΩ string through INT OUT HI, and the drop is measured.",
+      "expected": "2.47 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Main assembly (A10) is probably at fault.",
+      "refs": ["Z1", "Z3", "TP4"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3327",
+      "title": "A9/A10: 1 Kilohm Check Fault",
+      "measure": "A7 drives 1.3 mA into A10's 1 kΩ string through INT OUT HI, and the drop is measured.",
+      "expected": "1.3 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Main assembly (A10) is probably at fault. 1 kΩ is the whole of Z1's 1x low half, which is also the value §5-12 step 3 checks on the bench to ±0.03 %.",
+      "refs": ["Z1", "TP4"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3328",
+      "title": "A9/A10: 1.9 Kilohm Check Fault",
+      "measure": "A7 drives 1.3 mA into A10's 1.9 kΩ string through INT OUT HI, and the drop is measured.",
+      "expected": "2.47 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Main assembly (A10) is probably at fault. 1.9 kΩ is the whole of Z1's 1.9x low half.",
+      "refs": ["Z1", "TP4"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3329",
+      "title": "A9/A10: 100 Ohm Check Fault",
+      "measure": "A7 drives 13 mA into A10's 100 Ω string through INT OUT HI, and the drop is measured.",
+      "expected": "1.3 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Main assembly (A10) is probably at fault.",
+      "refs": ["Z1", "TP4"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3330",
+      "title": "A9/A10: 190 Ohm Check Fault",
+      "measure": "A7 drives 13 mA into A10's 190 Ω string through INT OUT HI, and the drop is measured.",
+      "expected": "2.47 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Main assembly (A10) is probably at fault.",
+      "refs": ["Z1", "TP4"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3331",
+      "title": "A9/A10: 10 Ohm Check Fault",
+      "measure": "A7 drives 130 mA into A10's 10 Ω resistance through INT OUT HI, and the drop is measured.",
+      "expected": "1.3 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Main assembly (A10) is probably at fault. 130 mA through a 10 Ω element in a hermetic thin-film network is 0.17 W and it is a self-test condition, not something to reproduce casually on the bench -- self-heating a resistance standard is how a good one is made to look bad.",
+      "refs": ["Z1", "TP4"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3332",
+      "title": "A9/A10: 19 Ohm Check Fault",
+      "measure": "A7 drives 130 mA into A10's 19 Ω resistance through INT OUT HI, and the drop is measured.",
+      "expected": "2.47 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Main assembly (A10) is probably at fault. The same self-heating caution as 3331 applies, more so: 130 mA in 19 Ω is 0.32 W.",
+      "refs": ["Z1", "TP4"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3333",
+      "title": "A9/A10: 1 Ohm Check Fault",
+      "measure": "A7 drives 130 mA through A10 by way of INT OUT HI to the 1 Ω resistance on the Ohms Cal assembly (A9), and the drop is measured.",
+      "expected": "0.13 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Cal assembly (A9) is probably at fault -- the resistance is R41 on that board, not anything here. A10 is only the route the current takes, so this code implicates it only if 3325-3332 are failing too.",
+      "refs": ["TP4"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3334",
+      "title": "A9/A10: 1.9 Ohm Check Fault",
+      "measure": "A7 drives 13 mA through A10 by way of INT OUT HI to the 1.9 Ω resistance on A9, and the drop is measured.",
+      "expected": "24.7 mV ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Cal assembly (A9) is probably at fault. Note how loose this one really is: the ±15 mV floor is 61 % of the 24.7 mV being measured, so the code can only detect a gross failure.",
+      "refs": ["TP4"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3335",
+      "title": "A9/A10: Ohms Short Check Fault",
+      "measure": "A7 drives 130 mA through A10 by way of INT OUT HI to the short on A9, and the drop is measured.",
+      "expected": "0 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the Ohms Cal assembly (A9) is probably at fault -- the short is K7/K8 on that board.",
+      "refs": ["TP4"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3336",
+      "title": "A9/A10: 2 Wire Compensation Fault",
+      "measure": "The two-wire lead-drop compensation circuit is exercised at its limits -- 10 mA into 10 Ω, -10 mA into 10 Ω, 10 µA into 10 kΩ and 5.6 µA into 19 kΩ. A7 generates the current, it is routed through A10 to ACOM on A9, and the compensating voltage is read by the adc on A11 through the SDL line. Expected V = I × -1000 V/A.",
+      "expected": "V = I × -1000 V/A for each of the four cases",
+      "verdict": "Failure of any of the tests indicates the 2 Wire Lead Drop Compensation circuit on the Ohms Cal assembly (A9) is probably at fault. A10 contributes the resistances and relays K4 and K6, which §2-170 says are used only during two-wire compensation -- so if 3336 fails alone, K4 and K6 are the only parts on this board worth looking at.",
+      "refs": ["K4", "K6"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3337",
+      "title": "A9/A10: Ohms Correction Factor Fault",
+      "measure": "The 13 volt reference on the DAC assembly is checked by the adc circuit on the DAC assembly.",
+      "expected": "The 13 V reference is within tolerance",
+      "verdict": "A failure indicates the DAC assembly (A11) is probably at fault. It carries an A9/A10 title and names neither board -- every ohms self-test reading is taken by A11's adc, so a bad reference makes the whole 33xx range untrustworthy. Clear 3337 before believing any other code in this series.",
+      "refs": [],
+      "source": "§5-2"
+    },
+    {
+      "code": "3340",
+      "title": "A9/A10: 100 Ohm Cal Diag Fault",
+      "measure": "2 V across A10's 1 kΩ string; the 0.2 V across the 100 Ω portion goes to the differential amplifier's -input on A9, against 0.2 V from A9's Z5 divider on the +input.",
+      "expected": "0 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the calibration of the 100 Ω resistance on the Ohms Main assembly (A10) is probably at fault. This is the ratio of Z1's 90+10 against the rest of its 1x half, so it is an internal property of one network.",
+      "refs": ["Z1"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3341",
+      "title": "A9/A10: 190 Ohm Cal Diag Fault",
+      "measure": "2 V across A10's 1.9 kΩ string; the 0.2 V across the 190 Ω portion goes to the differential amplifier's -input on A9, against 0.2 V from A9's Z5 divider on the +input.",
+      "expected": "0 V ±3 % ±15 mV",
+      "verdict": "A failure indicates the calibration of the 190 Ω resistance on the Ohms Main assembly (A10) is probably at fault. The 1.9x mirror of 3340, and the last code in the ohms range.",
+      "refs": ["Z1"],
+      "source": "§5-2"
+    }
+  ],
+
+  "componentNotes": {
+    "Z1": "The most-used part on the board. One hermetically sealed thin-film SIP carrying the low decades of BOTH ladders -- 900 Ω, 90 Ω and 10 Ω for the 1x string, and 1710 Ω, 171 Ω and 19 Ω for the 1.9x string -- which is why sheet 1 draws it twice, once in each ladder. Every value §5-12 gives a bench tolerance for (10 Ω, 19 Ω, 100 Ω, 190 Ω, 1 kΩ, 1.9 kΩ) is inside this one package, and it is also the bottom of every higher decade, so it is in circuit for every resistance the calibrator can output below 100 MΩ. §2-171 names its pin 6 as the SENSE LO side of the 1x string, which is where K38 connects DAC OUT LO during current calibration. Not field-serviceable: an out-of-tolerance ratio means a replacement network.",
+    "Z2": "The 1x high decades: 9 MΩ, 900 kΩ, 90 kΩ and 9 kΩ in one hermetic thin-film SIP, drawn on sheet 1 as part number 1R06. In series above Z1 it makes the 10 kΩ, 100 kΩ, 1 MΩ and 10 MΩ taps, and 100 MΩ is R1 stacked above its 10 MΩ end. The Rev 9 parts list describes it as '10.MEG, (7) +-250/20PPM', which is the only place either manual states a value for any of the three networks.",
+    "Z3": "The 1.9x high decades: 17.1 MΩ, 1.71 MΩ, 171 kΩ and 17.1 kΩ in one hermetic thin-film SIP, drawn on sheet 1 as part number 1R11. In series above Z1's 1.9x half it makes the 19 kΩ, 190 kΩ, 1.9 MΩ and 19 MΩ taps.",
+    "R1": "The 90 MΩ resistor that makes 100 MΩ, inserted in series with the decade string above its 10 MΩ tap and switched in by reed relay K5. It is the only fixed resistance on the board that is a discrete part rather than an element of a network, and the only value the calibrator outputs two-wire. The two parts lists describe it as two different parts -- see the 'R1' caveat. It is also the part §5-12 step 4's mangled sentence is trying to name.",
+    "U1": "OPA111, a JFET-input low-noise op amp in a TO-99 can, and the only active analog device on the assembly. It is a low-bias-current buffer used only during calibration: for values above 1 MΩ it is switched in ahead of the differential amplifier on A9, whose own input current would otherwise be a significant error across a megohm. Its supplies come from ±17 S through VR1 and R5 and are the only use ±17 S has on this board. R3 (270 Ω) is its feedback element; the whole circuit sits inside a dashed boundary on sheet 1 annotated GROUND PLANE = SCOM, which is a guard, not decoration.",
+    "VR1": "A 3.3 V zener in series between +17 S and U1's positive supply pin, not a shunt clamp across it -- sheet 1 draws its cathode at the rail and its anode at pin 7, so it drops 3.3 V in the supply feed and U1 sits at about +13.7 V. The negative side has no equivalent: -17 S reaches pin 4 through R5, 100 Ω. If U1 misbehaves only during ohms calibration, this is the part that has to be proved before U1 is condemned.",
+    "K5": "The reed relay that switches R1 in for the 100 MΩ value. Non-latching -- it drops out when power is removed -- so the 100 MΩ path is one of the three that cannot be traced cold. §5-12 step 4 names it and R1 as the two suspects.",
+    "K38": "The only non-latching armature relay on the board and the only one in the 2FC package. During current calibration half of it connects DAC OUT LO to Z1 pin 6, the SENSE LO side of the 1x string; the other half connects -17 S through R6 to the same DAC OUT LO line, generating about 60 µA of opposite polarity to cancel the 60 µA the Current assembly puts on it (§2-171).",
+    "R6": "The current-cancellation resistor for DAC OUT LO, in series from -17 S through half of K38. The parts lists and the schematic give it two different values -- see the 'R6' caveat. Only the current calibration path uses it, so a wrong value here shows up as a small consistent current-function calibration offset and nothing else.",
+    "U2": "One of the nine 5801 latch/drivers, all the same part. The Rev 9 parts list gives the manufacturer part as Sprague UCN-5801A; the photographed board is populated with Micrel MIC5801BN, which is the same device from a second source and is what a board of this vintage is likely to carry. U2 is enabled in a pair with U8 by one of U10's four enable lines.",
+    "U3": "The 5801 driver for the six non-latching relays -- K5, K6, K8, K11 and K12 (the reed relays) and K38. Its enable is tied to LH COM so it drives continuously, and PC4 alone strobes it; it sits outside the U10 enable-pair scheme that governs the other eight drivers. Every resistance value that cannot be traced with the power off (10 MΩ, 19 MΩ, 100 MΩ) is switched by this one IC.",
+    "U9": "MC14028B, a BCD-to-decimal / binary-to-octal decoder, labelled LATCHING RELAY STROBE DECODING on sheet 2. It decodes PB0-PB3 from A9's 82C55 into the strobe lines that latch the data on the PA0-PA7 bus into the selected 5801.",
+    "U10": "74HC138, a 3-to-8 line decoder with enable, labelled LATCHING RELAY ENABLE DECODING on sheet 2. It decodes PC0-PC3 into four enable lines, each of which drives a pair of latch/drivers: U6/U7, U2/U8, U5/U12 and U11/U13. Because the relays are latching, the enable is asserted only briefly.",
+    "MP7": "The Ohms Main heat shield, and the only mechanical part on the board that is ESD-marked in the parts list. Its job is to keep thermal gradients off Z1, Z2, Z3 and R1, which is what the board's accuracy rests on -- refit it before judging any resistance measurement made after a long warm-up.",
+    "L4": "A 6-turn choke in the +5 RLH feed from P302 pins 23A/23C, with C6 (4.7 µF tantalum) after it. It keeps relay-coil switching transients out of the motherboard's relay supply.",
+    "L5": "A 6-turn choke in the +5 LH feed from P302 pins 22A/22C, with C7 (0.22 µF) after it. The logic supply for U9, U10 and the VDD pin of every 5801."
+  },
+
+  "caveats": [
+    {
+      "title": "§5-12 step 4 is broken in the manual, and the missing words are at the top of step 1",
+      "text": "The printed step 4 ends 'If a failure is detected, check relay K5 and90.' -- and §5-12 step 1 opens with the orphan fragment 'MΩ resistor in R1.' before its real first sentence. Both were read off the rendered pages (1996 manual, printed pages 5-57 and 5-58), so this is the manual's own typesetting and not a text-extraction artefact. Read together the sentence is 'check relay K5 and the 90 MΩ resistor in R1', which is exactly what §2-169 describes and what the Rev 9 parts list confirms by giving R1 as RES,CERM,90M. The step text in this dataset is left as printed rather than repaired, so the evidence survives; the 100 MΩ probe point carries the repaired reading in its note.",
+      "refs": ["K5", "R1"]
+    },
+    {
+      "title": "R1 is a different part in the two parts lists",
+      "text": "The 1996 Table 6-11 gives R1 as 'R-NET, THIN FILM, TESTED, FRIT', Fluke stock 103306, with no manufacturer columns and no ESD marking. The Rev 9 Table 6-11 gives it as 'RES,CERM,90M,+-.025%,0.75W,10 PPM', stock 783654, supply code 19647, part TF656R, and marks it ESD-sensitive. These are not the same part and the join on stock number correctly refused to merge them -- one of only two rows on this board that did. Both descriptions agree with §2-169's '90 MΩ film resistor (R1)', and the value R1 has to be is not in doubt; what the two revisions disagree about is which part Fluke shipped. The dataset carries the 1996 row as the part to order and the Rev 9 row as asBuilt.",
+      "refs": ["R1"]
+    },
+    {
+      "title": "R6: both parts lists say 110 kΩ, the schematic says 287 kΩ, and the theory agrees with the schematic",
+      "text": "Table 6-11 gives R6 as RES,MF,110K,±1%,0.125W,100PPM in both revisions -- 1996 at stock 234708, Rev 9 at stock 719526 with Vishay/Dale CMF-55 1103F T-1, where '1103' is itself 110 kΩ. Figure 7-10 sheet 1, zone A6 beside K38, draws it as 'R6 287K MF'. §2-171 says the resistor's job is to make 'an opposite-polarity 60 µA current' from the -17 S supply to cancel the 60 µA the Current assembly puts on DAC OUT LO: 17 V / 287 kΩ = 59 µA, which is the figure the theory asks for, while 17 V / 110 kΩ = 155 µA, which would over-cancel by two and a half times. So the schematic and the theory agree against both parts lists. This dataset does NOT resolve it: the BOM shows what the parts lists print, because that is what an order will be filled from, and this caveat records that the board is very unlikely to contain a 110 kΩ part there. Measure R6 before replacing it.",
+      "refs": ["R6", "K38"]
+    },
+    {
+      "title": "The test point legend puts TP3 in the wrong zone",
+      "text": "The legend box at sheet 1 zone C1 prints 'TP2 = OHMS SENSE LO (PG1A7)' and 'TP3 = OHMS OUT LO (PG1A8)'. On the sheet, TP3's flag is drawn to the RIGHT of TP2's, and columns run 8 down to 1 from left to right -- so TP3 cannot be in a higher-numbered column than TP2. Measured against the frame both flags fall in column 7, row A, so TP2's printed zone is right and TP3's is not. The signal names themselves are confirmed independently: TP2's flag sits on the OHMS SENSE LO net at P301 25A/25C and TP3's on OHMS OUT LO at 24A/24C, exactly as the legend names them. The other three entries (TP1 = B8, TP4 and TP5 = D8) agree with the geometry.",
+      "refs": ["TP2", "TP3"]
+    },
+    {
+      "title": "Two of Figure 7-10's four sheets carry no circuit at all",
+      "text": "Sheets 3 and 4 of drawing 5700A-1030 are the relay state tables -- 'OHMS MAIN ASSEMBLY RELAYS' and 'OHMS CAL ASSEMBLY RELAYS AND FETS' -- listing, for every instrument state and every calibration step, which relay is reset and which non-latching relay is energised. This is the 'relay chart' §5-12 step 2 tells you to use when a path fails, and it is the most useful thing on the board for tracing, but it is nothing but designators laid out in a grid. No component is placed on either sheet: every marker a reader finds there would be a table column header rather than a part. Sheets 1 and 2 carry the whole circuit between them.",
+      "refs": []
+    },
+    {
+      "title": "The photographed board is one revision newer than the manual documents",
+      "text": "The Manual Status Information table at the front of Chapter 6 documents A10 as Fluke 761114 at revision level 100. The board in the photograph is silkscreened 'OHMS MAIN ASSY REV' with the field hand-inked 101, over etch '5700A-3030 REV 101 © 1987 FLUKE MADE IN USA'. The dataset records rev 101 because that is what is on the board. Nothing in the parts list is known to differ between the two levels; the R1 and R6 stock-number changes above are differences between the 1996 and Rev 9 manuals, which is a different axis.",
+      "refs": []
+    },
+    {
+      "title": "Fault code 3324's printed description is a copy of 3321's",
+      "text": "§5-2 describes 3324, '100M Ohm Ratio Fault', as '10 V across the 10 MΩ string, 1 V across the 1 MΩ portion' -- word for word what it says for 3321, '10M Ohm Ratio Fault'. No 100 MΩ measurement is described anywhere in the code. The 100 MΩ value is two-wire and is R1 in series above the 10 MΩ tap, so a genuine 100 MΩ ratio test cannot be the same measurement as 3321's. The fault code entry keeps the printed text and says so in its verdict rather than inventing a corrected description.",
+      "refs": ["R1", "K5"]
+    },
+    {
+      "title": "The two parts lists describe H3-H6 differently",
+      "text": "Both lists carry stock 838458 at quantity 4, so the join succeeded and the disagreement is not in the review report: the 1996 list calls it 'RIVET,S-TUB,OVAL,AL,.087,.343' and the Rev 9 list 'RIVET,S-TUB,OVAL,STL,.087,.343' -- aluminium against steel for the same stock number. It is a rivet holding the heat shield standoffs and nothing measurable depends on it, but it is a real disagreement between sources and is recorded here rather than quietly dropped. The dataset shows the 1996 description.",
+      "refs": ["H3", "H4", "H5", "H6"]
+    },
+    {
+      "title": "Table 5-2 is not carried as a table of its own",
+      "text": "§5-12 step 3 says only 'repeat step 2 for the resistances in Table 5-2'. The table itself -- 19 Ω and 100 Ω and 190 Ω and 1 kΩ and 1.9 kΩ with their tolerances -- is printed between steps 3 and 4, and the procedure parser absorbs part of it into step 3's text and drops the rows whose lines carry no lower-case letter. So the step text shows two of the five rows. All five values are carried in full as probe points instead, each with its own tolerance and its citation to Table 5-2, which is where to read them. The reference-table slot in tools/assemble.py accepts only two fixed keys (paSupplySettings, currentLimit) and neither describes this table, so nothing was forced into it.",
+      "refs": []
+    },
+    {
+      "title": "What the curated study document got wrong",
+      "text": "../MD/A10_Ohms_Main.md was used as a starting point and proved accurate on structure and on the R6 finding, but three of its numbers did not survive checking. It says the ESD-marked parts include 'all four resistance networks': in the 1996 list R1 carries no ESD mark at all (only MP7, U1, U2, U3, U5-U8, U9, U10, U11-U13, VR1, Z1, Z2 and Z3 do), and R1's mark exists only in the Rev 9 list, where it is a different part. It assigns Z3 the elements '17.1 M, 1.71 M, 171 k, 17.1 k, 1710, 171, 19': sheet 1 shows the last three (1710, 171, 19) inside Z1, not Z3, in the same package as the 1x low decades. And it describes VR1 as a 'supply clamp': sheet 1 draws it in series in the +17 S feed with its cathode at the rail, so it is a 3.3 V series drop rather than a shunt. Its 100 MΩ note also lists R1's 1996 stock number against the Rev 9 90 MΩ description, mixing the two revisions in one row.",
+      "refs": ["R1", "VR1", "Z1", "Z3"]
+    }
+  ]
+}

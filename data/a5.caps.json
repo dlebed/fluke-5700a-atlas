@@ -1,0 +1,130 @@
+{
+  "_comment": [
+    "Which rail each capacitor sits on, and what that rail runs at.",
+    "The rated voltage is NOT here -- it is read from the parts list",
+    "at run time, so a corrected BOM corrects this too.",
+    "",
+    "source: 'schematic' means the net was traced on the Chapter 7",
+    "sheet cited in the note; 'inferred' means it was deduced from",
+    "the rails present at that slot and has not been read off a",
+    "schematic. appliedV: null means the rail was never traced --",
+    "shown as unknown rather than assumed safe.",
+    "",
+    "railClass is how much energy is behind the rail, which decides",
+    "what a shorted part does. The letters follow A13 and A17, which",
+    "are the boards that make and distribute these rails: A is the",
+    "unfused 3 A +/-17 S pair with a 6600 uF reservoir behind it,",
+    "D is a 2 A three-terminal LH regulator on A17.",
+    "",
+    "A5 carries thirteen electrolytics: twelve 4.7 uF 25 V solid",
+    "tantalums and one 47 uF 16 V aluminium. Every one is supply",
+    "decoupling -- there is no coupling or timing electrolytic on",
+    "this board, and no wet-slug or high-voltage part anywhere on it.",
+    "",
+    "There is not one fuse on A5. Every rail arrives already regulated",
+    "on P111 and the board's own contribution is the six 6-turn chokes",
+    "L1-L6, which are in series with the incoming rail and are not",
+    "protection: a shorted tantalum on this board is held by whatever",
+    "A17's regulator will do, not by anything here. That is why the",
+    "fusing is spelt out per entry below rather than left implied.",
+    "",
+    "Eleven of the thirteen were traced on a sheet. C32 was not, and",
+    "it could not be: it exists only in the 1996 revision of Table 6-6",
+    "and appears on none of the three schematic sheets. Its appliedV",
+    "is null and stays null."
+  ],
+  "assembly": "A5",
+  "caps": {
+    "C16": {
+      "net": "+SRLH",
+      "appliedV": 6.4,
+      "railClass": "D",
+      "source": "schematic",
+      "note": "P111 14A/14C (+5 RLH) through choke L3; sheet 3 of 3, top left. Decouples the +SRLH rail that runs the relay coils and the 5800/5801 drivers. Table 2-10 gives +5RLH as +5.975 V +/-425 mV, so 6.4 V is the top of the band and the number used here -- 26 % of a 25 V part. | A17 U11, three-terminal TO-3 from unregulated +5LHR, 2 A current limit, UNFUSED. A5 has no fuse of its own."
+    },
+    "C17": {
+      "net": "-SLH",
+      "appliedV": 5.3,
+      "railClass": "D",
+      "source": "schematic",
+      "note": "P111 17A/17C (-5 LH) through choke L4, to SCOM; sheet 3 of 3, top left. Table 2-10 gives -5LH as -5 V +/-300 mV, so 5.3 V is the magnitude used -- 21 % of a 25 V part. | A17 U12, 7905T TO-220 from unregulated -5LHR, 2 A current limit, UNFUSED."
+    },
+    "C18": {
+      "net": "+SLH",
+      "appliedV": 5.1,
+      "railClass": "D",
+      "source": "schematic",
+      "note": "The +5 LH rail after choke L5, to SCOM; sheet 3 of 3, top left. Table 2-10 gives +5LH as +5.1 V +/-300 mV -- 20 % of a 25 V part. | A17 U8, three-terminal TO-3 from unregulated +5LHR, 2 A current limit, UNFUSED."
+    },
+    "C21": {
+      "net": "+5 LH",
+      "appliedV": 5.1,
+      "railClass": "D",
+      "source": "schematic",
+      "note": "The same rail as C18 but on the connector side of choke L5: P111 13A/13C to LH COM (15A/15C); sheet 3 of 3, top left. The pair is a pi filter with L5 between them, so one of the two is what a fault on this rail will point at. | A17 U8, 2 A current limit, UNFUSED."
+    },
+    "C26": {
+      "net": "+5RLH (attenuator relay coil bank)",
+      "appliedV": 6.4,
+      "railClass": "D",
+      "source": "schematic",
+      "note": "Hand-lettered on the sheet as a later addition, '4.7uF 25V' beside K6 and K7; sheet 3 of 3, zone B3-B4. The local reservoir for K4-K8, which are the only non-latching relays on the board and so the only coils that hold current continuously -- and the ones the overload circuit drops by disabling U9. If the attenuators chatter or the output drops under load, this is the part to look at before the relays. | A17 U11, 2 A current limit, UNFUSED."
+    },
+    "C32": {
+      "net": null,
+      "appliedV": null,
+      "railClass": "?",
+      "source": "inferred",
+      "note": "Not traced, and not traceable from the manuals as they stand. RE-CHECKED 2026-08 by the tantalum audit and the answer is unchanged, but the search behind it is now much wider and worth recording so nobody repeats it. C32 appears only in the 1996 revision of Table 6-6, appended to the tantalum row; the Rev 9 row has eleven designators and none is C32, and it did not migrate to a different row either -- the adjacent 0.1 uF polyester row reads C33-37, not C32-37, and that row's printed Tot Qty of 33 corroborates the reading. A C32 symbol was then looked for and NOT found on: Rev 9 Ch7 sheets 1, 2 and 3 (PDF pages 18-20), the Rev 9 locator 5700A-1611 (page 17), and the 1996 manual's own independent copies -- Figure 7-5 sheet 3, the Figure 7-5 locator and the Figure 6-8 locator. Both an OCR designator sweep and a page-by-page visual search returned nothing. So there is no net to read. WHY it is missing has a likely answer that is still only an inference: in the 1996 table C30, C31 and C32 are all appended AFTER the sorted runs in their rows, which is the signature of a later ECO adding parts to existing table rows without redrawing the sheets -- and sheet 3 already carries one such addition that DID get drawn, the hand-lettered '4.7uF 25V' beside K6/K7 that is C26. On that reading C30/C31/C32 are one more relay-group addition and C32 is a fourth 4.7 uF bulk tantalum on +5RLH to S COM, which would put it at 6.4 V, 26 % of its 25 V rating, exactly where C16, C26 and C44 sit. That is a plausible story and it is NOT recorded as the answer: appliedV stays null. To settle it you need either a post-1996 revision of drawing 5700A-1011 sheet 3 (not present in any manual in this tree) or a look at the board -- if C32 is stuffed, it will be a 4.7 uF tantalum physically beside a relay in the 5800/5801 driver area."
+    },
+    "C39": {
+      "net": "+17 S",
+      "appliedV": 17.0,
+      "railClass": "A",
+      "source": "schematic",
+      "note": "P111 19A/19C, on the connector side of choke L1; sheet 1 of 3, bottom left. With C40 the highest-stress pair on this board: 68 % of a 25 V rating at the nominal, and the +17 S band really runs to +17.95 V (see the A17 caveat about Table 2-10's near limit), which is 72 %. A solid tantalum at 70 % of rating is inside the manufacturer's numbers and outside most recap rules of thumb -- these four are the ones worth replacing first. | A17 LT1085CK, 3 A, UNFUSED, with a 6600 uF reservoir on +17SR behind it. Nothing limits the fault current here except the regulator."
+    },
+    "C40": {
+      "net": "+17S",
+      "appliedV": 17.0,
+      "railClass": "A",
+      "source": "schematic",
+      "note": "The +17 S rail after choke L1; sheet 1 of 3, bottom left. Mirror of C39 on the other side of the choke. Same 68 % of rating, same unfused 3 A source. | A17 LT1085CK, 3 A, UNFUSED, 6600 uF on +17SR."
+    },
+    "C41": {
+      "net": "-17 S",
+      "appliedV": 17.0,
+      "railClass": "A",
+      "source": "schematic",
+      "note": "P111 20A/20C, on the connector side of choke L2; sheet 1 of 3, bottom left. The negative half of the pair, at the same 68 % of a 25 V rating. | A17 LT1033CK, 3 A, UNFUSED, 6600 uF on -17SR."
+    },
+    "C42": {
+      "net": "-17S",
+      "appliedV": 17.0,
+      "railClass": "A",
+      "source": "schematic",
+      "note": "The -17 S rail after choke L2; sheet 1 of 3, bottom left. Mirror of C41. | A17 LT1033CK, 3 A, UNFUSED, 6600 uF on -17SR."
+    },
+    "C43": {
+      "net": "RLHCOM",
+      "appliedV": 0,
+      "railClass": "D",
+      "source": "schematic",
+      "note": "Between RLHCOM -- the RLH return after choke L6 -- and SCOM; sheet 3 of 3, top left. Not a rail decoupler: it bonds two commons that the guard scheme keeps separate at the connector, so in a working instrument it sees essentially nothing. Recorded as 0 V rather than left null, because the node was traced and the answer is that there is no working voltage across it. It is still a tantalum and can still fail short, and if it does it ties RLH COM to S COM."
+    },
+    "C44": {
+      "net": "+5 RLH",
+      "appliedV": 6.4,
+      "railClass": "D",
+      "source": "schematic",
+      "note": "P111 14A/14C to RLH COM (16A/16C), on the connector side of choke L3; sheet 3 of 3, top left. The pi-filter partner of C16. 26 % of a 25 V part at the top of Table 2-10's band. | A17 U11, 2 A current limit, UNFUSED."
+    },
+    "C82": {
+      "net": "+5LH",
+      "appliedV": 5.1,
+      "railClass": "D",
+      "source": "schematic",
+      "note": "The board's only aluminium electrolytic and its largest capacitor: 47 uF 16 V from +5LH to SCOM, with R118 (1.5 k) beside it; sheet 3 of 3, zone D5. Bulk hold-up for the digital section -- the 82C55 (U7), the three relay drivers and the multiplexer all run off this rail. 32 % of a 16 V rating, so voltage stress is not the issue; age is. It is the one part on A5 that dries out rather than shorts, and a high-ESR C82 shows up as the digital section misbehaving under relay switching rather than as anything measurable at a test point. | A17 U8, 2 A current limit, UNFUSED."
+    }
+  }
+}

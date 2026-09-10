@@ -1,0 +1,2014 @@
+/*
+ * Palette and type are taken from the subject rather than from a theme: the
+ * background is the deep navy of the board's solder mask under bench light,
+ * text is the warm off-white of its silkscreen, and the one brand accent is
+ * Fluke's yellow. Cyan (the colour of the traces in the photograph) means
+ * "you are looking at this"; amber is reserved strictly for a reading near its
+ * limit, so the two never compete.
+ *
+ * The recurring structural device is the schematic legend box -- hairline
+ * border, uppercase title strip, monospace rows -- because that is how this
+ * information is presented in the manuals the tool replaces.
+ */
+
+:root {
+  --pcb-deep:   #0e141c;
+  --pcb-panel:  #141c26;
+  --pcb-raised: #1a2431;
+  --rule:       #26313f;
+  --rule-soft:  #1e2733;
+
+  --silk:       #e9e3d2;
+  --silk-dim:   #939cab;
+  /* The faint step is where the smallest working text lives -- column
+     headers, pin numbers, limit figures -- and small type needs more
+     contrast, not less. This value clears 4.5:1 on every panel shade while
+     staying clearly below --silk-dim in the hierarchy. */
+  --silk-faint: #848e9d;
+
+  /* --ink and --ink-dim were used in fifteen places and defined in none, so
+     every one of them fell back to inherited colour: text meant to recede --
+     the recap readouts, the dock's secondary lines, the blurb -- was drawing at
+     full strength, and the hierarchy those rules were written for never
+     appeared. Aliased onto the silk scale they were plainly meant to be. */
+  --ink:        var(--silk);
+  --ink-dim:    var(--silk-dim);
+
+  /* Same defect, other names: --warn and --accent were referenced only
+     through hard-coded fallbacks -- four copies of one amber, and a fifth
+     amber that matched nothing else on the page. Both belong to the brand
+     accent. */
+  --warn:       var(--fluke);
+  --accent:     var(--fluke);
+
+  --fluke:      #f2b035;
+  --trace:      #4ec9d6;
+  --pass:       #4bb381;
+  --marginal:   #e0a336;
+  --fail:       #e2564d;
+  --hazard:     #e2564d;
+
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+          "DejaVu Sans Mono", monospace;
+  --ui: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --topbar-h: 52px;
+  /* Shared height of the top bar's selects and search input. */
+  --control-h: 28px;
+  /* The floating control row over the stage: its height, how far it sits off
+   * the bottom, and the clear air under the zone frame. The frame and the
+   * viewport reserve their bottom insets from these, so making the row taller
+   * moves the board up instead of the row sliding over it. */
+  --stage-ctl-h: 36px;
+  --stage-ctl-bottom: 14px;
+  --stage-ctl-gap: 10px;
+  --status-h: 26px;
+  --panel-w: 384px;
+  /* Height of a panel section's sticky header. The readings table pins its
+     own header this far down the same scrollport, so the two stack instead of
+     the column labels sliding underneath. Change it here and both follow. */
+  --panel-head-h: 29px;
+}
+
+* { box-sizing: border-box; }
+
+/* Several elements here are flex/grid containers toggled with the hidden
+   attribute, whose default display: none loses to a display declaration. */
+[hidden] { display: none !important; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: var(--pcb-deep);
+  color: var(--silk);
+  font-family: var(--ui);
+  font-size: 13px;
+  line-height: 1.45;
+  overflow: hidden;
+  /* The schematic sheets letter their zeros with a slash; the data in this
+     tool is read alongside them, so it does too. */
+  font-variant-numeric: slashed-zero tabular-nums;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+  font-variant-numeric: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--trace);
+  outline-offset: 1px;
+}
+
+/* Rows and heads that act as buttons for the keyboard. The list rows are
+   full-bleed inside a scroller, so their ring draws inward where the
+   scrollport cannot clip it; the same inside .segmented's rounded clip. */
+.hitlist li:focus-visible,
+.result-row:focus-visible,
+.recap-head:focus-visible,
+.fit-row:focus-visible,
+.detail-dock > header:focus-visible,
+.segmented button:focus-visible {
+  outline: 2px solid var(--trace);
+  outline-offset: -2px;
+}
+
+/* These sit inside padded parents, so the ring gets room to breathe. */
+.step-head:focus-visible { outline: 2px solid var(--trace); outline-offset: 3px; }
+.modes button:focus-visible,
+.chip:focus-visible,
+.kindchip:focus-visible {
+  outline: 2px solid var(--trace);
+  outline-offset: 1px;
+}
+
+/* Opts a run of text out of an inherited text-transform. Used to keep the
+   micro sign from being uppercased into a capital M -- see protectMicroSign()
+   in app.js. */
+.lit { text-transform: none; }
+
+.micro {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--silk-faint);
+}
+
+.spacer { flex: 1; }
+
+/* ---------- top bar ---------- */
+
+.topbar {
+  height: var(--topbar-h);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 14px;
+  background: var(--pcb-panel);
+  border-bottom: 1px solid var(--rule);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding-right: 14px;
+  border-right: 1px solid var(--rule);
+  height: 100%;
+}
+
+/* The square inherits its border colour through currentColor, so the mark
+ * tracks --silk without repeating the hex. Keep it out of the flex sizing:
+ * an SVG with no intrinsic width will otherwise stretch. */
+.brand-mark {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  color: var(--silk);
+}
+
+.brand-model {
+  font-family: var(--mono);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--fluke);
+}
+
+.assembly-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+/* One height for every control in the bar. The selects and the search input
+ * used to be sized by their own padding and came out 24px and 34px, so no two
+ * edges lined up; pinning both to --control-h is what makes the row read as a
+ * row. Change it here rather than in either rule. */
+.assembly-picker select,
+.search input {
+  height: var(--control-h);
+  background: var(--pcb-raised);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  font-family: var(--mono);
+}
+
+/* Capped: sized by its options the closed control came out 345px -- a third
+ * of a small laptop's bar spent restating what the panel header already says.
+ * The closed select ellipsizes a long assembly name; the open list still
+ * shows every name in full. */
+.assembly-picker select {
+  padding: 0 6px;
+  font-size: 12px;
+  max-width: 230px;
+  text-overflow: ellipsis;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  max-width: 460px;
+  /* The one flexible item in the bar gives its width up first, and with no
+   * floor it collapsed to the width of its own label. A search box a
+   * designator cannot be read back from is not a search box. */
+  min-width: 170px;
+}
+
+/* Holds the input and its kbd hint. The hint is absolute against this rather
+ * than against .search, which now also contains the label row. */
+.search-field { position: relative; display: block; }
+
+.search input {
+  width: 100%;
+  background: var(--pcb-deep);
+  padding: 0 34px 0 10px;
+  font-size: 12.5px;
+}
+
+.search input::placeholder { color: var(--silk-faint); }
+.search input:focus { border-color: var(--trace); outline: none; }
+
+.search-key {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--silk-faint);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0 5px;
+  pointer-events: none;
+}
+
+/* Mirrors the rule after .brand, so the bar reads as three groups rather than
+ * one run of controls: identity | what you are working on | where you are
+ * looking. Same 14px and same --rule as the left-hand one, so the two sit
+ * symmetrically about the middle. */
+.modes {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  height: 100%;
+  padding-left: 14px;
+  border-left: 1px solid var(--rule);
+  /* Pinned to the right edge. The search box grows into the spare width but
+   * stops at its max-width, so on a wide window what was left over collected
+   * after the tabs and left them floating mid-bar instead of anchored where
+   * the eye goes for them. */
+  margin-left: auto;
+}
+
+.modes button {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 6px 11px;
+  color: var(--silk-dim);
+  cursor: pointer;
+  font-size: 12.5px;
+  /* A tab is one word or two; wrapped onto two lines it reads as two tabs.
+   * When the bar runs short the media rules below give up padding instead. */
+  white-space: nowrap;
+}
+
+.modes button u { text-decoration: none; }
+.modes button:hover { color: var(--silk); background: var(--pcb-raised); }
+
+.modes button.is-active {
+  color: var(--pcb-deep);
+  background: var(--fluke);
+  font-weight: 600;
+}
+
+/* ---------- layout ---------- */
+
+main {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.stage {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  background:
+    radial-gradient(ellipse at 50% 0%, #16202c 0%, var(--pcb-deep) 70%);
+}
+
+/* The signature: the viewer sits inside a D-size sheet frame. In schematic
+   view these are the real printed zone divisions, so "R208 is at C4" is a
+   thing you can actually say out loud. */
+.zoneframe {
+  position: absolute;
+  inset: 8px 8px calc(var(--stage-ctl-bottom) + var(--stage-ctl-h)
+                      + var(--stage-ctl-gap)) 8px;
+  border: 1px solid var(--rule);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.zoneframe-edge {
+  position: absolute;
+  display: flex;
+  color: var(--silk-faint);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
+.zoneframe-edge.top, .zoneframe-edge.bottom {
+  left: 0; right: 0; height: 15px;
+  flex-direction: row;
+}
+.zoneframe-edge.top { top: 0; border-bottom: 1px solid var(--rule-soft); }
+.zoneframe-edge.bottom { bottom: 0; border-top: 1px solid var(--rule-soft); }
+
+.zoneframe-edge.left, .zoneframe-edge.right {
+  top: 15px; bottom: 15px; width: 15px;
+  flex-direction: column;
+}
+.zoneframe-edge.left { left: 0; border-right: 1px solid var(--rule-soft); }
+.zoneframe-edge.right { right: 0; border-left: 1px solid var(--rule-soft); }
+
+.zoneframe-cell {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  border-right: 1px solid var(--rule-soft);
+}
+.zoneframe-edge.left .zoneframe-cell,
+.zoneframe-edge.right .zoneframe-cell {
+  border-right: none;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.zoneframe-cell:last-child { border-right: none; border-bottom: none; }
+
+/* `.stage >`, not a bare `.viewport`: js/viewer.js adds a `viewer` class to
+ * this same element, and `.viewer { inset: 0 }` further down matched at equal
+ * specificity and won on order -- so these insets were dead and the board
+ * filled the whole stage, running under the control row and past the zone
+ * frame whenever it was fitted. Two classes here outrank that one. */
+.stage > .viewport {
+  position: absolute;
+  /* 15px inside the zone frame, which itself clears the control row. */
+  top: 23px;
+  right: 23px;
+  left: 23px;
+  bottom: calc(var(--stage-ctl-bottom) + var(--stage-ctl-h) + var(--stage-ctl-gap) + 15px);
+  overflow: hidden;
+}
+
+.viewport.secondary { display: none; }
+
+.stage.is-split .viewport { right: calc(50% + 4px); }
+.stage.is-split .viewport.secondary { display: block; left: calc(50% + 4px); right: 23px; }
+.stage.is-split .zoneframe { display: none; }
+
+/* The swipe seam. It is the control as well as the indicator: without
+   something to take hold of, the split has no way to be moved. */
+.swipe-divider {
+  position: absolute;
+  top: 23px; bottom: 23px;
+  left: 50%;
+  width: 15px;
+  margin-left: -7px;
+  z-index: 3;
+  display: none;
+  cursor: ew-resize;
+  touch-action: none;
+}
+
+.stage.is-swipe .swipe-divider { display: block; }
+
+.swipe-divider span {
+  position: absolute;
+  top: 0; bottom: 0; left: 7px;
+  width: 1px;
+  background: var(--fluke);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+
+/* The grip: a short bar at eye height, so the seam reads as draggable. */
+.swipe-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 0;
+  width: 15px; height: 46px;
+  margin-top: -23px;
+  border-radius: 8px;
+  background: var(--fluke);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.swipe-divider:focus-visible { outline: 2px solid var(--trace); outline-offset: 2px; }
+
+.viewer { position: absolute; inset: 0; }
+
+.viewer-stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  /* Keep the layer z-indexes below to themselves. Without a stacking context
+     here they compete in the viewer's own context and paint over the canvas,
+     which hides every marker and takes the wheel and pointer events with it. */
+  isolation: isolate;
+}
+
+.viewer-layer {
+  position: absolute;
+  top: 0; left: 0;
+  transform-origin: 0 0;
+  image-rendering: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  will-change: transform;
+}
+
+/* Paint order, which decides whether blending them means anything: the line
+   art goes over the photograph, because Overlay fades the drawing down onto
+   the photo and Swipe wipes the drawing across it. Left to document order the
+   photo lands on top, covers everything, and both modes look like a plain
+   photograph no matter where the slider sits. */
+.viewer-layer[data-layer="photo"] { z-index: 1; }
+.viewer-layer[data-layer="drawing"] { z-index: 2; }
+
+/* The drawing is black line art on white paper. Inverting it puts it on the
+   same footing as the photograph so the two can be blended, and stops a full
+   white page glaring on a dark bench. */
+.viewer-stage[data-invert="1"] .viewer-layer[data-layer="drawing"] {
+  filter: invert(1) hue-rotate(180deg) brightness(1.05) contrast(0.92);
+}
+
+.viewer-canvas {
+  position: absolute;
+  inset: 0;
+  /* Above the images: it carries the markers and receives every gesture. */
+  z-index: 1;
+  cursor: grab;
+  touch-action: none;
+}
+
+/* ---------- stage controls ---------- */
+
+.stage-controls {
+  position: absolute;
+  left: 23px; right: 23px; bottom: var(--stage-ctl-bottom);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* One row, always. The sheet tabs are the only group allowed to give up
+   * width, and they shrink into a two-line clamp rather than pushing Fit off
+   * the end -- which is what happened when the row was allowed to wrap.
+   * --ctl-h is the shared height of everything in the row: tall enough for two
+   * lines of a sheet name, and applied to the display tabs and Fit as well so
+   * the three groups sit on one baseline instead of three. */
+  flex-wrap: nowrap;
+}
+
+.stage-controls .segmented,
+.stage-controls .slider-group,
+.stage-controls .ghost { height: var(--stage-ctl-h); }
+.stage-controls .slider-group { display: flex; align-items: center; }
+.stage-controls .segmented button { height: 100%; }
+/* Only the sheet tabs shrink; the display tabs and Fit keep their size. */
+#display-tabs, .stage-controls .ghost, .stage-controls .slider-group { flex: 0 0 auto; }
+#sheet-tabs { flex: 0 1 auto; min-width: 0; }
+#sheet-tabs button { flex: 1 1 auto; min-width: 0; }
+
+/* Sheet tabs carry a name, not just a number, so they cannot be uniform and
+ * cannot be nowrap -- A4's three titles measured 1395px inside a 1082px row
+ * and put its third sheet 500px past the edge of the stage. The name is
+ * shortened to four words in app.js; here it is allowed two lines and capped
+ * in width, so the widest tab is bounded whatever the title says. The full
+ * title is on the button's tooltip. */
+#sheet-tabs button {
+  display: flex;
+  /* Centred, not baseline: a one-line name and a two-line name sit in the same
+   * fixed-height button, and baseline would hang the short one off the top. */
+  align-items: center;
+  gap: 5px;
+  max-width: 9.5em;
+  padding: 4px 8px;
+  text-align: left;
+  line-height: 1.2;
+  white-space: normal;
+}
+#sheet-tabs .sheet-n {
+  flex: 0 0 auto;
+  font-family: var(--mono);
+  font-size: 10px;
+  opacity: 0.7;
+}
+#sheet-tabs .sheet-name {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.segmented {
+  display: flex;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(14, 20, 28, 0.92);
+  backdrop-filter: blur(6px);
+}
+
+.segmented button {
+  background: none;
+  border: none;
+  border-right: 1px solid var(--rule-soft);
+  padding: 6px 12px;
+  color: var(--silk-dim);
+  cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.segmented button:last-child { border-right: none; }
+.segmented button:hover { background: var(--pcb-raised); color: var(--silk); }
+.segmented button.is-active { background: var(--trace); color: #06212a; font-weight: 600; }
+
+.segmented button:disabled {
+  color: var(--silk-faint);
+  opacity: 0.45;
+  cursor: not-allowed;
+  background: repeating-linear-gradient(-45deg,
+    transparent 0 5px, rgba(255,255,255,0.03) 5px 10px);
+}
+.segmented button:disabled:hover { background: none; color: var(--silk-faint); }
+
+.segmented.small button { padding: 4px 9px; font-size: 11px; }
+
+.slider-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14, 20, 28, 0.92);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+
+.slider-group input { width: 110px; accent-color: var(--trace); }
+
+.ghost {
+  background: rgba(14, 20, 28, 0.92);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 6px 12px;
+  color: var(--silk-dim);
+  cursor: pointer;
+}
+.ghost:hover { color: var(--silk); border-color: var(--trace); }
+
+.stage-badge {
+  position: absolute;
+  top: 30px; right: 30px;
+  z-index: 4;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--silk-faint);
+  background: rgba(14, 20, 28, 0.88);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 3px 8px;
+}
+
+/* ---------- legend box: the recurring structural device ---------- */
+
+.legend {
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--pcb-panel);
+}
+
+.legend > h3,
+.legend-title {
+  margin: 0;
+  padding: 5px 9px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--pcb-raised);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--silk-dim);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-rows {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0;
+}
+
+.legend-rows dt {
+  padding: 3px 9px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--silk-faint);
+  white-space: nowrap;
+}
+
+.legend-rows dd {
+  margin: 0;
+  padding: 3px 9px 3px 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--silk);
+  word-break: break-word;
+}
+
+/* ---------- hover / pinned info card ---------- */
+
+.infocard {
+  position: absolute;
+  z-index: 20;
+  width: 330px;
+  max-width: calc(100vw - 40px);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: rgba(20, 28, 38, 0.97);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+.infocard.is-pinned { pointer-events: auto; }
+
+/* In Author Mode the card is pinned right where you are working, and selecting
+   a marker can park it on top of that very marker -- so the press meant to
+   drag the part lands on the card instead and the part appears stuck. Let
+   presses fall through the card's dead space to the board, keeping only its
+   controls live. */
+body.author .infocard.is-pinned { pointer-events: none; }
+body.author .infocard.is-pinned button,
+body.author .infocard.is-pinned input,
+body.author .infocard.is-pinned select,
+body.author .infocard.is-pinned textarea,
+body.author .infocard.is-pinned a { pointer-events: auto; }
+
+.infocard-head {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--pcb-raised);
+}
+
+.infocard-ref {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--fluke);
+  letter-spacing: 0.02em;
+}
+
+.infocard-signal {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--trace);
+}
+
+.infocard-kind {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--silk-faint);
+}
+
+.infocard-body { padding: 2px 0 6px; }
+
+.hazard-strip {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 10px;
+  background: rgba(226, 86, 77, 0.14);
+  border-bottom: 1px solid rgba(226, 86, 77, 0.4);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f3948c;
+}
+
+.expect {
+  margin: 6px 10px;
+  padding: 7px 9px;
+  border: 1px solid var(--rule);
+  border-left: 2px solid var(--trace);
+  border-radius: 2px;
+  background: rgba(78, 201, 214, 0.05);
+}
+
+.expect-value {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.expect-range {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--silk-dim);
+}
+
+.expect-setup {
+  margin-top: 5px;
+  font-size: 11.5px;
+  color: var(--fluke);
+}
+
+.pill {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  color: var(--silk-faint);
+}
+
+.pill.warn { color: var(--marginal); border-color: rgba(224, 163, 54, 0.5); }
+.pill.hazard { color: var(--hazard); border-color: rgba(226, 86, 77, 0.5); }
+.pill.ok { color: var(--pass); border-color: rgba(75, 179, 129, 0.5); }
+
+.source-note {
+  padding: 4px 10px 0;
+  font-size: 11px;
+  color: var(--silk-faint);
+  font-style: italic;
+}
+
+/* ---------- side panel ---------- */
+
+.panel {
+  width: var(--panel-w);
+  flex: 0 0 var(--panel-w);
+  border-left: 1px solid var(--rule);
+  background: var(--pcb-panel);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.panel-body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.panel-section { border-bottom: 1px solid var(--rule); }
+
+.panel-section > header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  height: var(--panel-head-h);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  background: var(--pcb-raised);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--silk-dim);
+}
+
+.panel-section .count { color: var(--silk-faint); }
+
+.hitlist { list-style: none; margin: 0; padding: 0; }
+
+.hitlist li {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  padding: 5px 12px;
+  border-bottom: 1px solid var(--rule-soft);
+  cursor: pointer;
+}
+
+.hitlist li:hover { background: var(--pcb-raised); }
+.hitlist li.is-selected { background: rgba(78, 201, 214, 0.12); }
+.hitlist li.is-selected .hit-ref { color: var(--trace); }
+
+.hit-ref {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  min-width: 52px;
+  color: var(--silk);
+}
+
+.hit-desc {
+  flex: 1;
+  font-size: 11.5px;
+  color: var(--silk-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hit-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--silk-faint);
+  white-space: nowrap;
+}
+
+/* Component-type key. Doubles as a filter: clicking a type highlights every
+   part of that type on the board. */
+.kindlegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px 12px;
+}
+
+.kindchip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--pcb-deep);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 2px 7px 2px 5px;
+  color: var(--silk-dim);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.kindchip:hover { border-color: var(--trace); color: var(--silk); }
+.kindchip.is-active { border-color: var(--trace); background: rgba(78,201,214,0.12); color: var(--silk); }
+
+.swatch {
+  width: 9px; height: 9px;
+  border-radius: 2px;
+  flex: 0 0 auto;
+}
+
+.kindcount {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: var(--silk-faint);
+}
+
+.dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  align-self: center;
+}
+.dot.pass { background: var(--pass); }
+.dot.marginal { background: var(--marginal); }
+.dot.fail { background: var(--fail); }
+.dot.unplaced { background: none; border: 1px dashed var(--silk-faint); }
+
+.note-badge {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--fluke);
+  border: 1px solid rgba(242, 176, 53, 0.4);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+
+/* ---------- forms, buttons ---------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 12px;
+}
+
+.field input, .field textarea, .field select {
+  background: var(--pcb-deep);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 5px 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.field input:focus, .field textarea:focus, .field select:focus {
+  border-color: var(--trace);
+  outline: none;
+}
+
+/* ---- instrument configuration ----
+   Thirteen boards have to be scannable in one look, so the rows are dense and
+   the only thing that carries colour is a board that is out. A board nobody
+   has spoken about is dimmed rather than styled as present: "not said" and
+   "fitted" are different claims. */
+.fit-note-row { padding: 8px 12px 6px; }
+.fit-note-row input { width: 100%; }
+.fit-grid { padding: 0 12px 8px; }
+.fit-row {
+  display: grid;
+  grid-template-columns: 18px 34px 1fr auto auto;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 0;
+  border-bottom: 1px solid var(--rule-soft);
+  cursor: pointer;
+}
+.fit-row:last-child { border-bottom: 0; }
+.fit-id { font-family: var(--mono); font-size: 12px; color: var(--silk); }
+.fit-name {
+  font-size: 11.5px;
+  color: var(--silk-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fit-state {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--silk-dim);
+}
+.fit-row.is-unknown .fit-id,
+.fit-row.is-unknown .fit-name { opacity: 0.55; }
+.fit-row.is-out .fit-id { color: var(--fail); }
+.fit-row.is-out .fit-state { color: var(--fail); }
+.fit-row.is-swapped .fit-state { color: var(--fluke); }
+.fit-swap {
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  color: var(--silk-dim);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  padding: 1px 6px;
+  cursor: pointer;
+}
+.fit-swap:hover { border-color: var(--trace); color: var(--trace); }
+.fit-log-head { padding: 8px 12px 4px; letter-spacing: 0.1em; text-transform: uppercase; }
+.fit-log { list-style: none; margin: 0; padding: 0 12px 10px; }
+.fit-log li {
+  font-size: 12px;
+  padding: 3px 0;
+  border-bottom: 1px solid var(--rule-soft);
+  display: flex;
+  gap: 7px;
+  align-items: baseline;
+}
+.fit-log li:last-child { border-bottom: 0; }
+.fit-when { font-family: var(--mono); font-size: 10.5px; color: var(--silk-dim); }
+.fit-log .linkish { margin-left: auto; }
+
+.field-row { display: flex; gap: 0; }
+.field-row .field { flex: 1; }
+/* A revision is a letter or two next to a serial that is eight digits, and
+   giving them equal halves of the row makes the short one look like the
+   important one. */
+.field-row .field.field-narrow { flex: 0 0 84px; }
+
+/* Says which object the fields below it are about. Sits tight under the
+   summary strip so it reads as a heading for them, not as a stray remark. */
+.scope-note {
+  padding: 2px 12px 6px;
+  line-height: 1.45;
+}
+
+.btn {
+  background: var(--pcb-raised);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 6px 12px;
+  color: var(--silk);
+  cursor: pointer;
+  font-size: 12px;
+}
+.btn:hover { border-color: var(--trace); }
+.btn.primary { background: var(--fluke); border-color: var(--fluke); color: #221803; font-weight: 600; }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.danger:hover { border-color: var(--fail); color: var(--fail); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-row {
+  display: flex;
+  gap: 6px;
+  padding: 8px 12px;
+  flex-wrap: wrap;
+}
+
+.empty {
+  padding: 22px 16px;
+  color: var(--silk-faint);
+  font-size: 12px;
+  text-align: center;
+}
+
+.empty strong { display: block; color: var(--silk-dim); margin-bottom: 4px; }
+
+/* ---------- measurement entry ---------- */
+
+.measure {
+  padding: 8px 12px 12px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.measure-input {
+  display: flex;
+  gap: 6px;
+  align-items: stretch;
+}
+
+.measure-input input {
+  flex: 1;
+  background: var(--pcb-deep);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 8px 10px;
+  font-family: var(--mono);
+  font-size: 17px;
+  text-align: right;
+}
+
+.measure-input input:focus { border-color: var(--trace); outline: none; }
+.measure-unit { display: grid; place-items: center; padding: 0 8px; color: var(--silk-dim); font-family: var(--mono); }
+
+.verdict-readout {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  border: 1px solid var(--rule);
+  font-family: var(--mono);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.verdict-readout.pass { border-color: rgba(75,179,129,0.55); background: rgba(75,179,129,0.10); }
+.verdict-readout.marginal { border-color: rgba(224,163,54,0.55); background: rgba(224,163,54,0.10); }
+.verdict-readout.fail { border-color: rgba(226,86,77,0.55); background: rgba(226,86,77,0.10); }
+
+.verdict-word { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.verdict-readout.pass .verdict-word { color: var(--pass); }
+.verdict-readout.marginal .verdict-word { color: var(--marginal); }
+.verdict-readout.fail .verdict-word { color: var(--fail); }
+.verdict-detail { font-size: 11.5px; color: var(--silk-dim); }
+
+/* A tolerance band drawn to scale: where the reading falls inside the
+   allowed window is more legible as a position than as a number. */
+.tolbar {
+  position: relative;
+  height: 6px;
+  margin-top: 8px;
+  border-radius: 3px;
+  background: linear-gradient(90deg,
+    var(--fail) 0%, var(--marginal) 12%, var(--pass) 42%,
+    var(--pass) 58%, var(--marginal) 88%, var(--fail) 100%);
+  opacity: 0.55;
+}
+
+.tolbar-needle {
+  position: absolute;
+  top: -3px;
+  width: 2px;
+  height: 12px;
+  background: var(--silk);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.6);
+}
+
+.tolbar-scale {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: var(--silk-faint);
+  margin-top: 3px;
+}
+
+/* The measurement box in the detail dock.
+
+   Pinned to the top of the dock's own scroller, so a run down the supply test
+   points works with the dock dragged small: the box, the limits and the band
+   stay put while the notes and the history scroll under them. The Log tab's
+   copy is deliberately not sticky -- that panel is already about one thing at
+   a time and has nothing above the box to scroll past. */
+.detail-dock-body .measure {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: var(--pcb-panel);
+  /* The notes and the history pass under this, so it has to read as a lid
+     rather than as the first of the rows travelling with them. */
+  box-shadow: 0 6px 8px -6px rgba(0, 0, 0, 0.55);
+}
+
+/* Trimmed to fit a short dock. The setup note has already moved out of the
+   block into the rows below (see measureHTML); what is left comes down in
+   type, but not below what reads at arm's length across a bench. */
+.measure.is-compact { padding: 6px 12px 8px; }
+.measure.is-compact .measure-input input { font-size: 15px; padding: 5px 8px; }
+.measure.is-compact .verdict-readout { margin-top: 6px; padding: 5px 8px; }
+.measure.is-compact .tolbar { margin-top: 6px; }
+
+/* Nothing measured yet. The band still shows the window being aimed at --
+   that is worth seeing with a probe in hand -- held back far enough that it
+   cannot be mistaken for a result. */
+.tolbar.is-idle { opacity: 0.28; }
+
+/* A reading already filed, still on screen because saving emptied the box and
+   the answer should outlive the toast. Dashed, because the box beside it is
+   empty: solid would read as a measurement happening now rather than one that
+   has been written down. */
+.verdict-readout.is-held {
+  border-style: dashed;
+  background: none;
+}
+
+.verdict-readout.is-held .verdict-detail { font-style: italic; }
+.tolbar.is-held { opacity: 0.75; }
+.tolbar.is-held .tolbar-needle { opacity: 0.8; }
+
+/* ---------- readings table ---------- */
+
+.readings { width: 100%; border-collapse: collapse; }
+
+.readings th {
+  /* Pinned one step down, not at 0: the section header shares this scrollport
+     and would otherwise slide over the column labels exactly when a long list
+     is being scanned. The 1px eats the header's bottom border. */
+  position: sticky; top: calc(var(--panel-head-h) - 1px);
+  background: var(--pcb-raised);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--silk-faint);
+  font-weight: 500;
+  text-align: left;
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.readings td {
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--rule-soft);
+  font-family: var(--mono);
+  font-size: 11.5px;
+}
+
+.readings tr:hover td { background: var(--pcb-raised); }
+.readings .num { text-align: right; }
+.readings .v-pass { color: var(--pass); }
+.readings .v-marginal { color: var(--marginal); }
+.readings .v-fail { color: var(--fail); }
+
+.summary-strip {
+  display: flex;
+  gap: 14px;
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.summary-strip b { font-weight: 700; }
+
+/* ---------- procedure ---------- */
+
+/* The head is the control; the body is where you type. Only the head shows
+   the pointer, and only the head reacts to hovering, or the whole card looks
+   like something that will fold away under the cursor. */
+.step {
+  border-bottom: 1px solid var(--rule-soft);
+  /* Every card carries the 2px left border and only the active one colours
+     it. A border that appears only on the active card would push its content
+     sideways and kink the column of step numbers scanned down the left; the
+     2px comes out of the padding so the cards line up with everything else. */
+  border-left: 2px solid transparent;
+  padding: 9px 12px 9px 10px;
+}
+.step:not(.is-active):hover { background: var(--pcb-raised); }
+.step.is-active { background: rgba(78, 201, 214, 0.10); border-left-color: var(--trace); }
+.step.is-done { opacity: 0.62; }
+
+.step-head { display: flex; gap: 9px; align-items: baseline; cursor: pointer; }
+
+/* A step's state has to be legible with every card shut, so it is carried
+   twice: a word in the head, and the step number itself, which forms a column
+   down the left that can be scanned in one movement of the eye. */
+.step-state {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 1px 6px;
+  border-radius: 2px;
+  border: 1px solid currentColor;
+}
+
+.step-state.v-pass { color: var(--pass); }
+.step-state.v-marginal { color: var(--marginal); }
+.step-state.v-fail { color: var(--fail); }
+.step-state.v-unscored,
+.step-state.v-partial { color: var(--silk-faint); }
+
+.step.s-pass .step-n { color: var(--pass); }
+.step.s-marginal .step-n { color: var(--marginal); }
+.step.s-fail .step-n { color: var(--fail); }
+.step.s-partial .step-n { color: var(--silk-dim); }
+
+.step.s-pass, .step.s-marginal, .step.s-fail, .step.s-partial {
+  box-shadow: inset 3px 0 0 currentColor;
+}
+.step.s-pass { color: var(--pass); }
+.step.s-marginal { color: var(--marginal); }
+.step.s-fail { color: var(--fail); }
+.step.s-partial { color: var(--silk-faint); }
+/* The bar is the only thing that inherits the status colour; the text of the
+   card must stay readable. */
+.step.s-pass .step-title, .step.s-marginal .step-title,
+.step.s-fail .step-title, .step.s-partial .step-title { color: var(--silk); }
+.step-n {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--fluke);
+  min-width: 22px;
+}
+.step-title { font-size: 12.5px; }
+.step-text { font-size: 11.5px; color: var(--silk-dim); margin-top: 4px; }
+
+/* A measurement taken while reading the step that calls for it. Every row is
+   optional: a blank one is a point you did not measure, not an error. */
+.measure-row {
+  border: 1px solid var(--rule);
+  border-left: 2px solid var(--trace);
+  border-radius: 3px;
+  background: var(--pcb-deep);
+  padding: 7px 9px;
+  margin-bottom: 6px;
+}
+
+.mr-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mr-ref {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--fluke);
+  cursor: pointer;
+}
+.mr-ref:hover { text-decoration: underline; }
+
+.mr-sig { font-family: var(--mono); font-size: 11.5px; color: var(--trace); }
+
+.mr-state {
+  width: 100%;
+  margin-top: 5px;
+  background: var(--pcb-panel);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 3px 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.mr-expect {
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--silk);
+}
+
+.mr-range { color: var(--silk-faint); font-size: 11px; }
+
+.mr-entry {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 6px;
+}
+
+.mr-entry input {
+  width: 108px;
+  background: var(--pcb-panel);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 5px 8px;
+  font-family: var(--mono);
+  font-size: 14px;
+  text-align: right;
+}
+
+.mr-entry input:focus { border-color: var(--trace); outline: none; }
+.mr-entry input::placeholder { color: var(--silk-faint); font-size: 11px; }
+
+.mr-unit { font-family: var(--mono); font-size: 11px; color: var(--silk-dim); }
+
+.mr-verdict {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--silk-faint);
+}
+.mr-verdict.v-pass { color: var(--pass); }
+.mr-verdict.v-marginal { color: var(--marginal); }
+.mr-verdict.v-fail { color: var(--fail); }
+
+.chiprow { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+
+.chip {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  padding: 1px 6px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  color: var(--silk-dim);
+  cursor: pointer;
+  background: var(--pcb-deep);
+}
+.chip:hover { border-color: var(--trace); color: var(--trace); }
+.chip.tp { color: var(--trace); border-color: rgba(78,201,214,0.35); }
+
+/* ---------- notes ---------- */
+
+.note {
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.note-meta {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: var(--silk-faint);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.note-text { font-size: 12px; white-space: pre-wrap; margin-top: 2px; }
+/* Padded for the same reason as the dock buttons; the auto left margin keeps
+   it pushed to the row's right in the flex note header. */
+.note-del {
+  margin: -6px -4px -6px auto;
+  border: 0; background: none; color: var(--ink-dim);
+  font: inherit; line-height: 1;
+  cursor: pointer; padding: 6px;
+}
+.note-del:hover { color: var(--fail); }
+/* A delete's first press arms it and rewrites it to "sure?"; the colour has
+   to carry the state change too, or the swap reads as a glitch rather than a
+   question. */
+.is-armed { color: var(--fail) !important; font-weight: 600; }
+
+/* ---------- status bar & toast ---------- */
+
+.statusbar {
+  height: var(--status-h);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 14px;
+  background: var(--pcb-panel);
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--silk-faint);
+}
+
+.statusbar b { color: var(--silk-dim); font-weight: 600; }
+
+.toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  background: var(--pcb-raised);
+  border: 1px solid var(--trace);
+  border-radius: 4px;
+  padding: 9px 16px;
+  font-size: 12.5px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* The storage-full warning. It reports a reading that exists in memory only,
+   so it cannot wear the same calm border as "C13 recorded": red, heavier, and
+   flagged, so a glance up from the probes reads it as an alarm and not as a
+   confirmation that outstayed its welcome. */
+.toast.is-alarm {
+  border-color: var(--fail);
+  background: linear-gradient(rgba(226, 86, 77, 0.16),
+                              rgba(226, 86, 77, 0.16)) var(--pcb-raised);
+  font-weight: 600;
+}
+
+.toast.is-alarm::before {
+  content: '!';
+  display: inline-block;
+  margin-right: 9px;
+  padding: 0 7px;
+  border-radius: 2px;
+  background: var(--fail);
+  color: var(--pcb-deep);
+  font-family: var(--mono);
+  font-weight: 700;
+}
+
+/* ---------- author mode ---------- */
+
+body.author .topbar { box-shadow: inset 0 -2px 0 var(--fluke); }
+
+/* Author Mode is a mode, not a second panel. Its controls used to be appended
+ * to whichever mode panel was open -- so they sat under the log, and every time
+ * that list re-rendered they moved under the pointer -- and a column of their
+ * own fixed that at the cost of 250px of stage for the whole session. As a tab
+ * they get the panel to themselves and cost nothing. */
+/* Always present, so Author Mode is a button rather than a URL you have to
+   know. Greyed while it is off -- still clickable, and the one tab that turns
+   something on rather than switching what the panel shows. */
+.modes .author-tab { display: block; color: var(--fluke); }
+.modes .author-tab.is-off { color: var(--ink-dim); }
+.modes .author-tab.is-off:hover { color: var(--silk-dim); }
+
+.author-flag {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #221803;
+  background: var(--fluke);
+  border-radius: 2px;
+  padding: 2px 6px;
+}
+
+.inspector-grid {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 1px 0;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.inspector-grid label {
+  padding-left: 12px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--silk-faint);
+}
+
+.inspector-grid input, .inspector-grid select, .inspector-grid textarea {
+  background: var(--pcb-deep);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 4px 7px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  margin-right: 12px;
+}
+
+.inspector-grid input:invalid { border-color: var(--fail); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* The top bar holds five fixed groups and one flexible one, and the flexible
+ * one is the search box, which must never be the thing that gives. Below
+ * ~1400px it is the pickers, paddings and gaps that yield, in two steps sized
+ * so the row never wraps and never clips a tab down to ~1050px. */
+@media (max-width: 1360px) {
+  .topbar { gap: 10px; }
+  .assembly-picker select { max-width: 180px; }
+  /* Doubled up on .topbar: the unit picker's own min-width rule sits later in
+     the file and would win the tie. */
+  .topbar .unit-picker select { min-width: 120px; }
+  .modes button { padding: 6px 8px; font-size: 12px; }
+}
+
+@media (max-width: 1200px) {
+  .topbar { gap: 8px; padding: 0 10px; }
+  .brand { padding-right: 10px; }
+  .assembly-picker select { max-width: 160px; }
+  .topbar .unit-picker select { min-width: 100px; max-width: 120px; }
+  .modes { padding-left: 10px; }
+  .modes button { padding: 6px; font-size: 11.5px; }
+}
+
+@media (max-width: 1100px) {
+  :root { --panel-w: 320px; }
+  .segmented button { padding: 6px 8px; font-size: 11px; }
+}
+
+/* ---- service record: units, component measurements, repairs ---------------
+ *
+ * The unit picker sits beside the assembly picker and inherits its shape. It
+ * turns amber while the instrument has no serial on it: everything recorded is
+ * filed under that serial, and a record filed under nothing is the one thing
+ * here that cannot be fixed after the fact.
+ */
+/* This picker carries a third child the assembly picker does not: the rename
+ * button. Under the shared column layout that button becomes a third row, so
+ * this picker stands 52px tall against its neighbour's 39 -- and because the
+ * topbar centres its items, the two labels and the two selects each end up on
+ * a different baseline. Put the select and the button on one row so both
+ * pickers are the same two-row shape. */
+.unit-picker {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "label  label"
+    "select edit";
+  align-items: center;
+  column-gap: 4px;
+}
+.unit-picker > .micro { grid-area: label; }
+.unit-picker > .unit-edit { grid-area: edit; }
+
+.unit-picker select { min-width: 150px; grid-area: select; }
+.unit-picker.needs-serial select {
+  border-color: var(--warn, #f2b035);
+  color: var(--warn, #f2b035);
+}
+
+.measure-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 6px;
+  padding: 4px 12px 6px;
+}
+.measure-grid select, .measure-grid input {
+  width: 100%;
+  min-width: 0;         /* a grid item will not shrink below its content without this */
+}
+
+.inline-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 12px 6px;
+  font-size: 12px;
+  color: var(--silk-faint);
+}
+
+.repair-line {
+  position: relative;
+  padding: 5px 30px 5px 12px;
+  font-size: 12px;
+  border-left: 2px solid transparent;
+}
+.repair-line.s-replaced { border-left-color: var(--fail); }
+.repair-line.s-faulty { border-left-color: var(--warn, #f2b035); }
+.repair-line.s-suspect { border-left-color: var(--silk-faint); }
+.repair-line .note-del { position: absolute; right: 8px; top: 4px; }
+
+.tag {
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 9px;
+  border: 1px solid currentColor;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.tag.t-replaced { color: var(--fail); }
+.tag.t-faulty { color: var(--warn, #f2b035); }
+.tag.t-suspect { color: var(--silk-faint); }
+
+.chip.is-active {
+  border-color: var(--fluke);
+  color: var(--fluke);
+  background: rgba(242,176,53,0.10);
+}
+.chip b { font-weight: 700; opacity: 0.75; }
+
+/* ---- selected-part dock ------------------------------------------------
+   The list above scrolls; this does not move with it. It is capped so a long
+   repair history can never push the parts list off the screen, and scrolls
+   inside itself instead. */
+.detail-dock {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  max-height: 55%;
+  border-top: 1px solid var(--rule);
+  background: var(--pcb-panel);
+}
+
+.detail-dock > header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  background: var(--pcb-raised);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  cursor: pointer;
+  user-select: none;
+}
+
+.detail-dock > header .spacer { flex: 1; }
+
+.detail-dock-body {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  min-height: 0;
+}
+
+/* Padded out to something a finger or a hurried cursor can land on, with the
+   margins pulling the box back in so the header keeps its height and the
+   glyphs do not move. */
+.dock-toggle,
+.dock-close {
+  border: 0;
+  background: none;
+  color: var(--ink-dim);
+  font: inherit;
+  cursor: pointer;
+  padding: 7px 9px;
+  margin: -7px -7px;
+  line-height: 1;
+}
+
+.dock-toggle:hover,
+.dock-close:hover { color: var(--ink); }
+
+.dock-toggle .chev { display: inline-block; transition: transform 120ms ease; }
+
+/* Collapsed keeps the header, so the part stays named and one click brings it
+   back -- a dock that vanished would just look like the selection was lost. */
+.detail-dock.is-collapsed { max-height: none; }
+.detail-dock.is-collapsed .detail-dock-body { display: none; }
+.detail-dock.is-collapsed .dock-toggle .chev { transform: rotate(-90deg); }
+
+/* The middle stop: the measurement box and nothing else. What the box does not
+   need is taken out of the flow rather than scrolled past, so the dock ends up
+   exactly as tall as the thing in use -- roughly a fifth of the full card, and
+   the list above it gets the rest. */
+.detail-dock.is-measure { max-height: none; }
+.detail-dock.is-measure .detail-dock-body { overflow: hidden; }
+.detail-dock.is-measure .detail-dock-body > .panel-section > *:not(.measure) { display: none; }
+.detail-dock.is-measure .panel-section { border-bottom: 0; }
+/* Nothing passes under it here, so the lid loses its shadow and its rule. */
+.detail-dock.is-measure .measure { box-shadow: none; border-bottom: 0; }
+.detail-dock.is-measure .dock-resize { display: none; }
+/* Half-turned: folded, but not all the way. */
+.detail-dock.is-measure .dock-toggle .chev { transform: rotate(-45deg); }
+
+#detail-dock-title { color: var(--ink); }
+
+/* A grab strip along the top edge. Thin enough not to read as a divider in its
+   own right, with a wider invisible target so it can actually be caught. */
+.dock-resize {
+  height: 14px;
+  margin-top: -7px;
+  cursor: ns-resize;
+  background: transparent;
+  flex: 0 0 auto;
+  position: relative;
+  touch-action: none;
+}
+
+.dock-resize::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 6px;
+  width: 34px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--rule);
+  transition: background 120ms ease;
+}
+
+.dock-resize:hover::after,
+.dock-resize.is-dragging::after { background: var(--accent, #d8a13a); }
+
+/* A resize in progress must not select the list text it drags over. */
+body.is-resizing-dock { user-select: none; cursor: ns-resize; }
+
+/* Nothing to drag when there is no body to size. */
+.detail-dock.is-collapsed .dock-resize { display: none; }
+
+/* ---- recap: the capacitor replacement round --------------------------- */
+.recap-family { margin: 8px 12px 0; }
+.recap-blurb { padding: 6px 12px 8px; color: var(--ink-dim); line-height: 1.45; }
+.recap-summary { display: flex; flex-wrap: wrap; gap: 5px; padding: 0 12px 8px; }
+
+.riskchip {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+/* A data error is not a severity -- it is a question about the data, so it
+   reads as a note to check rather than another shade of danger. */
+.riskchip.r-error    { color: #b48ce8; }
+.riskchip.r-critical { color: var(--fail); }
+.riskchip.r-high     { color: #e2764d; }
+.riskchip.r-unknown  { color: var(--ink-dim); }
+.riskchip.r-marginal { color: var(--marginal); }
+.riskchip.r-ok       { color: var(--pass); }
+
+.recap-bar {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+  padding: 6px 12px 8px; border-bottom: 1px solid var(--rule);
+}
+/* The panel is narrow and these labels are two words each. Letting the row wrap
+   while the buttons themselves do not keeps every button one line tall, so they
+   stay the same height as each other however the row breaks. */
+.recap-bar .btn { white-space: nowrap; }
+.recap-bar .spacer { flex: 1; }
+.recap-bar .dim { color: var(--ink-dim); }
+/* The rollup toggle is a state, not an action, so it reads as pressed rather
+   than as another button you could click by accident. */
+.btn.is-active { border-color: var(--trace); color: var(--trace); }
+
+.recap-scope { margin: 6px 12px 0; }
+.recap-bulk {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
+  padding: 0 12px 8px;
+}
+
+.recap-row { border-bottom: 1px solid var(--rule); }
+.recap-row.is-done { opacity: 0.62; }
+.recap-row.is-open { background: var(--pcb-raised); }
+
+/* Every row is its own grid container, so a track sized by its own content
+   resolves per row and nothing lines up between rows. The old template ended
+   in three `auto` tracks whose width depended on how many status chips that
+   particular part had collected, which pushed the flexible columns around and
+   stepped the designators sideways down the list. So every track here is fixed
+   except one, and the flexible one is last among the data: the leftover is then
+   the same arithmetic on every row, measured or not, refitted or not. */
+.recap-head {
+  display: grid;
+  grid-template-columns: 16px 58px 66px 48px minmax(0, 1fr) 46px;
+  align-items: center; gap: 8px;
+  padding: 6px 12px; cursor: pointer;
+}
+.recap-value, .recap-rated, .hit-ref { white-space: nowrap; }
+/* The status chips get a line of their own under the designator, so they can
+   wrap among themselves without ever disturbing a data column. */
+.recap-state {
+  grid-column: 2 / -1;
+  display: flex; flex-wrap: wrap; gap: 5px;
+  margin-top: 5px;
+}
+.recap-head.has-asm .recap-state { grid-column: 3 / -1; }
+.recap-head:hover { background: var(--pcb-raised); }
+/* All-boards scope adds the assembly in front of the designator. It gets its
+   own column rather than being folded into the ref, because C13 on A17 and C13
+   on A16 are different parts and the eye has to separate them while scanning. */
+.recap-head.has-asm {
+  grid-template-columns: 16px 38px 54px 62px 44px minmax(0, 1fr) 46px;
+}
+.recap-asm {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 600;
+  color: var(--trace); letter-spacing: 0.02em;
+}
+.recap-value, .recap-rated, .recap-applied {
+  font-family: var(--mono); font-size: 11px; color: var(--ink-dim);
+}
+.recap-applied { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.recap-body { padding: 2px 12px 12px; }
+.recap-step { padding: 8px 0 4px; color: var(--ink-dim); }
+.recap-advice {
+  padding: 7px 9px; margin-bottom: 4px;
+  border-left: 2px solid var(--marginal);
+  background: rgba(224, 163, 54, 0.07);
+  line-height: 1.5;
+}
+.recap-advice.is-error { border-left-color: #b48ce8; background: rgba(180, 140, 232, 0.08); }
+.recap-measured { padding: 4px 0; color: var(--ink-dim); }
+
+/* These blocks carry the .micro class but hold sentences -- what voltage
+   rating to order, how to read an in-circuit ESR figure -- not labels. Prose
+   set as 9.5px letterspaced uppercase is the hardest read on the page, on the
+   most consequential text in Recap mode, so it opts back into reading type. */
+.recap-advice.micro,
+.recap-measured.micro {
+  font-family: var(--ui);
+  font-size: 11.5px;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--silk-dim);
+}
+.recap-fitted { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr; gap: 6px; }
+
+/* Where a self-filling field got its numbers. Empty until a remembered part
+   number is matched, so it costs no height until it has something to say. */
+.fitted-hint {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--silk-dim);
+  padding: 4px 12px 0;
+}
+
+.fitted-hint:empty { display: none; }
+
+/* The recap row already pads its own body, so the hint only needs the gap
+   above it -- 12px here would indent it past every field it explains. */
+.recap-body .fitted-hint { padding: 4px 0 0; }
+
+/* These inputs had no styling of their own, so they fell through to the
+   browser's default control -- a light box -- while still inheriting the dark
+   theme's pale ink from the `button, input, select, textarea` reset. Pale text
+   on a light box is the faintest combination on the page, and it landed on the
+   one field you most need to read back: what was actually fitted. Same
+   treatment as the other entry fields, and the recorded value is full-strength
+   ink so it reads as data rather than as a hint. */
+.recap-fitted input,
+.measure-grid input,
+.measure-grid select,
+.recap-body textarea {
+  min-width: 0;
+  background: var(--pcb-deep);
+  color: var(--silk);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 5px 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.recap-fitted input::placeholder,
+.measure-grid input::placeholder,
+.recap-body textarea::placeholder { color: var(--silk-faint); }
+.recap-fitted input:focus,
+.measure-grid input:focus,
+.measure-grid select:focus,
+.recap-body textarea:focus { border-color: var(--trace); outline: none; }
+.recap-body textarea { width: 100%; }
+.recap-loss {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
+  padding: 0 12px 8px;
+}
+.recap-loss .dim { color: var(--ink-dim); margin-left: auto; }
+.unit-edit {
+  border: 0; background: none; cursor: pointer;
+  padding: 6px; margin: -6px -2px;
+  color: var(--ink-dim); font-size: 12px; line-height: 1;
+}
+.unit-edit:hover { color: var(--ink); }
+
+/* ---- Pin voltage sweeps -------------------------------------------------
+ * A grid of small numeric cells for ICs and transistors. Nothing published
+ * says what a pin should read, so there is no verdict colour here; the only
+ * comparison offered is against the previous sweep of the same part.
+ */
+.pin-head { display: flex; align-items: center; gap: 8px; }
+.pin-count-wrap { margin-left: auto; display: flex; align-items: center; gap: 4px; }
+.pin-count-wrap input {
+  width: 48px;
+  background: var(--pcb-raised);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 2px 4px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--silk);
+}
+.pin-why { padding: 0 12px 6px; }
+
+.pin-meta { display: grid; grid-template-columns: 1fr 90px; gap: 6px; padding: 0 12px 8px; }
+.pin-meta input {
+  background: var(--pcb-raised);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 4px 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--silk);
+  min-width: 0;
+}
+
+.pin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(58px, 1fr));
+  gap: 4px;
+  padding: 0 12px 8px;
+}
+.pin-cell { position: relative; display: flex; flex-direction: column; gap: 1px; }
+.pin-no { font: 9px var(--mono); color: var(--silk-faint); letter-spacing: .08em; }
+.pin-cell input {
+  width: 100%;
+  background: var(--pcb-raised);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 3px 4px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--silk);
+  text-align: right;
+}
+.pin-cell input:focus { outline: none; border-color: var(--fluke); }
+/* What this pin read last time, so a sweep can be taken without flipping back
+ * and forth to the history below. */
+.pin-was {
+  font: 9px var(--mono);
+  color: var(--silk-faint);
+  text-align: right;
+  padding-right: 2px;
+}
+.pin-hint { padding: 0 12px 8px; }
+.pin-hint code { font-family: var(--mono); color: var(--silk-dim); }
+
+.pin-sweep { padding: 2px 12px 8px; }
+.pin-sweep-head { color: var(--silk-faint); margin-bottom: 3px; }
+.pin-reads { display: flex; flex-wrap: wrap; gap: 3px; }
+.pin-read {
+  font: 11px var(--mono);
+  background: var(--pcb-raised);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 1px 5px;
+  white-space: nowrap;
+}
+.pin-read b { color: var(--silk-faint); font-weight: 400; margin-right: 4px; }
+/* A pin that changed since the previous sweep. This is the whole reason to
+ * keep the old one. */
+.pin-read.moved { border-color: var(--fluke); color: var(--fluke); }
+.pin-read.moved b { color: var(--fluke); opacity: .7; }
+
+/* ---- linked follower windows ----------------------------------------------
+ *
+ * A follower is the stage and nothing else: the panel, search, pickers and
+ * mode tabs all act on the record, and the record belongs to the leader.
+ * The bottom strip stays because display, sheet and fit are choices each
+ * window makes for itself; the info card stays because a part's data sheet
+ * is what the second monitor is for. The linked-view button is hidden too --
+ * a follower is already a view, and opening a follower of a follower is not
+ * a thing this feature offers.
+ */
+body.follower .panel,
+body.follower .search,
+body.follower .assembly-picker,
+body.follower .modes,
+body.follower .detail-dock,
+body.follower #linked-view-btn { display: none; }
+body.follower .stage { flex: 1 1 100%; }
+
+/* The one piece of topbar chrome a follower keeps beyond the brand mark: a
+ * label, not a control, so it carries no border, background or hover state
+ * of its own -- quieter than the pickers it replaces. */
+body.follower .follower-assembly {
+  font: 13px var(--mono);
+  color: var(--silk-dim);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

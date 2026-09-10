@@ -1,0 +1,141 @@
+{
+  "_comment": [
+    "Curated A20 reference data: circuit blocks, component notes and the source",
+    "disagreements. Everything here is from the 1996 Series II service manual's text",
+    "layer (§2-30 to §2-45, Tables 2-2 to 2-5, §4-21, §4-23) or read off Figure 7-24's",
+    "five sheets. ../MD/A20_CPU.md was used as a starting skeleton and every value in",
+    "it was checked against the PDF; where the two differ the PDF is followed and the",
+    "difference is recorded in caveats.",
+    "",
+    "faultCodes is deliberately empty. §5-2 was read end to end and no code names A20",
+    "or the CPU. See the 'faultCodes' caveat for the evidence and why that is the",
+    "architecture rather than an omission."
+  ],
+
+  "overview": {
+    "summary": "The instrument's unguarded single-board computer, and the largest assembly in it -- five schematic sheets against nobody else's four. A 68HC000 at U8 running from a 7.3728 MHz crystal, 512 KB of EPROM in four sockets, 128 KB of static RAM in four more, a 32 KB EEPROM at U13 holding the calibration constants, a DUART at U31 for the fibre-optic link to the guarded digital section, and a battery-backed clock/calendar at U33. Around them sit the support circuits that decide whether any of it runs: a power-up and reset circuit built on line monitor U1, a watchdog timer, an address decoder and DTACK generator in three programmed logic devices, and a priority interrupt controller. It generates no supply of its own -- +5 V and ±12 V arrive from the Digital Power Supply (A19) through P61 and P62 -- and its only local source of power is BT1, the 3 V lithium cell that keeps the clock running with the instrument off. The board is drawn with more positions than it is built with: three ROM socket pairs of which two are filled, three RAM socket pairs of which two are filled, a second development DUART and its RS-232 connector J5, and an alternate oscillator Y2, all left empty on production units and all labelled as such on the sheets.",
+    "connectors": "P61 (64-pin DIN 41612 type C) carries the front panel interface and the two fan-monitor sense lines; P62 (the same part) carries the rear panel interface and the guard-crossing serial link TXDB, RCVB and XMT. Both mate with the Digital Motherboard (A4). J5, a 12-pin header for the development DUART's RS-232 channel, is not installed.",
+    "source": "§2-30 to §2-45, Tables 2-3, 2-4 and 2-5, and Figure 7-24 sheets 1-5"
+  },
+
+  "railCircuits": {
+    "5V": {
+      "rails": "+5 V, from A19 on P61/P62",
+      "fuses": [],
+      "rectifier": [],
+      "filters": ["C1", "C3"],
+      "regulators": ["U1"],
+      "note": "Not generated here. A19's U3 makes it, CR35 there lifts it about 0.2 V so the published nominal is 5.2 V, and it arrives on P61/P62. On this board C1 (220 µF tantalum, 10 V) is the bulk reservoir and C3 the local bypass, with roughly thirty-seven 0.1 µF capacitors distributed across the five sheets under the 'BYPASS CAPACITORS' captions. U1 is not a regulator but the rail's monitor: a TL7705-class line monitor that holds the whole board in reset whenever +5 V falls below 4.55 V ±0.05 V (§2-31). CR1 lit is the one-glance statement that this rail is up and the processor is out of reset.",
+      "source": "§2-25, §2-31, Table 2-2, sheet 4"
+    },
+    "12V": {
+      "rails": "+12 V and −12 V, from A19 on P61/P62",
+      "fuses": [],
+      "rectifier": [],
+      "filters": ["C2", "C4"],
+      "regulators": [],
+      "note": "Also from A19, and used by exactly one circuit on this board: the fan monitor's quad op-amp U52 (§2-45). Its comparator outputs swing to about ±11 V on these rails before CR4 level-shifts the result to TTL. Nothing digital depends on them, so losing one produces a spurious fan interrupt rather than a dead instrument.",
+      "source": "§2-45, Table 2-2, sheets 4 and 5"
+    },
+    "BATT": {
+      "rails": "3 V lithium clock/calendar backup",
+      "fuses": [],
+      "rectifier": [],
+      "filters": ["C10", "C11"],
+      "regulators": ["U33"],
+      "note": "BT1, a 3.0 V 0.5 Ah lithium cell soldered to the board on this build, feeding U33's VBCK pin. U33 (an ICM7170) switches itself between +5 V and the cell internally, so the changeover is inside the IC and cannot be probed. Y3 (32.768 kHz) with C10 and C11 (22 pF, 2%) is its timebase; the pull-ups in Z5 exist so the parts around U33 draw no current from the cell when +5 V is off. TP13 and TP14 sit directly across the cell, and TP14 reaches digital common through jumper E4 rather than directly.",
+      "source": "§2-41, sheet 5"
+    },
+    "CLK": {
+      "rails": "System clocks: CLK 7.3728 MHz, and 3.6864 MHz, 28.8 kHz and 450 Hz from it",
+      "fuses": [],
+      "rectifier": [],
+      "filters": ["C8", "C9"],
+      "regulators": ["Y1", "U3", "U4"],
+      "note": "Y1 with R4 (10 M), R5 (1.8 k), C8 and C9 (22 pF, 2%) and one inverter of U3 makes the 7.3728 MHz system clock CLK, which the processor runs on directly and which TP1 brings out. Binary counter U4 divides it to 3.6864 MHz for the DUARTs and the clock filter circuit, 28.8 kHz for the decoder U6, and 450 Hz for the watchdog. Jumper E5 would select the alternate oscillator Y2 instead -- but Y2 is not installed, so moving E5 stops the clock. The 68HC000's own E output, CLK/10 at 737.28 kHz, comes out at TP3.",
+      "source": "§2-32, Table 2-3, sheet 1"
+    },
+    "SER": {
+      "rails": "Guard-crossing serial link",
+      "fuses": [],
+      "rectifier": [],
+      "filters": [],
+      "regulators": ["U31", "U32"],
+      "note": "DUART U31 (a 68C681) provides the asynchronous channels that talk to the guarded digital controller over the fibre-optic path on the Digital Motherboard; U32, a 75451, drives the transmitter. TXDB is at TP9, RCVB at TP10, and SCLK -- a test output of the channel A serial clock, provided for no other purpose -- at TP11. U31 also watches the EEPROM ready line and FANINT*, and generates its own DTACK.",
+      "source": "§2-40, sheet 5"
+    }
+  },
+
+  "faultCodes": [],
+
+  "componentNotes": {
+    "U8": "MC68HC000, the main processor. Rev 9 fits the 8 MHz 64-pin DIP (MC68HC000P-8) in socket X8, which is what this instrument carries; the Series II list gives a 10 MHz PLCC68. Clocked at 7.3728 MHz from TP1's net; its E output at pin 20 is TP3.",
+    "U1": "Line monitor. Holds the board in reset at power-up, for 195 ms set by C5, and again any time +5 V falls below 4.55 V ±0.05 V. Also holds NVMOE* low through CR5 when the rail drops, which is what stops the EEPROM being corrupted on power-down. Rev 9 gives a TL7705ACP with a 4.55 V sense input; the Series II list gives a 5 V sense part.",
+    "CR1": "The reset lamp, and the fastest diagnostic on the board: §2-31 says it indicates that +5 V is on and that the CPU is operating, i.e. not reset. Driven by an inverter in U2 off RESETL. On the Series II surface-mount build the same lamp is DS1; there is no CR1 there and no DS1 here.",
+    "DS1": "The reset lamp on the Series II surface-mount build, where it replaces CR1. Not fitted on the through-hole board this instrument carries.",
+    "SW1": "Hardware reset. Wired directly to the processor and read by it, unlike the front panel RESET key, which is a software reset that restores the default configuration (§2-31). Pressing and releasing it produces the same 195 ms pulse as power-up.",
+    "BT1": "3.0 V, 0.5 Ah lithium cell backing U33's clock and calendar, soldered to the board rather than held in a clip on this build. TP13 and TP14 are across it. Replacing it is §4-21 and costs the time, the date and the ETIME elapsed-time counter -- read ETIME? first (§4-23).",
+    "XBT1": "The coin-cell holder that replaces the soldered BT1 on the Series II surface-mount build. Not fitted on this board.",
+    "U13": "28C256 EEPROM, 32K x 8, holding the calibration constants. Its write protection is the reason for the diode cluster around it: CR5, CR6 and CR8 with R6 wire-OR three signals onto NVMOE*, and R6/CR6/C17 hold it at a valid low for typically 37.3 ms at power-up (26.8 ms minimum, 49.6 ms maximum). CR7 discharges C17 on power-down so the instrument can be switched off and straight back on without defeating that delay (§2-39).",
+    "U15": "Boot EPROM. Rev 9 gives a programmed 27010 at stock 761262 marked 'A20U015', which is what is fitted here -- the photographed board's socket carries a hand-written label reading 761262 / A20 U15 Rev. J. The Series II list replaces U15-U18 with a single 28F800 flash whose parts-list row has no stock number at all, only 'See Note 1'; the note gives 1608184 for a 5700A and 1619757 for a 5720A.",
+    "U11": "74HC4020 binary counter, the watchdog timer. Divides the 450 Hz clock to raise DOGINTH 1.14 s after the last DOGCLR2 from U10, so the software must clear it more often than that. Cutting jumper E1 disables the watchdog entirely (§2-33).",
+    "U10": "Programmed logic device, the priority interrupt controller. Encodes the pending interrupts into a level for the 68HC000 and supplies the low four bits of the vector; the high four are pulled up by Z1. Table 2-5 lists the priorities and vectors.",
+    "U31": "68C681 DUART. The asynchronous serial link to the guarded digital controller over the fibre-optic path, plus a spare channel to J5, monitoring of the EEPROM ready line and of FANINT*, and its own DTACK (DRTDTK*).",
+    "U33": "ICM7170 clock/calendar, battery-backed by BT1 with Y3 as its timebase. Generates CLKCALINT*, interrupt priority 4, vector F5. Replacing it loses ETIME along with the time and date (§4-23).",
+    "U52": "LM324 quad op-amp, the whole fan monitor. U52D subtracts FAN1 from FAN2 and amplifies the difference; U52B and U52C form a window comparator around it; U52A makes the −5 V reference for U52C. Outputs are wire-ORed through CR2 and CR3 and level-shifted by CR4 and R51 to make FANINT* (§2-45).",
+    "T51": "The clock filter transformer. The front panel is fed a low-level sine wave of about 200 mV p-p at 3.6864 MHz rather than a square wave, to keep EMI down, and is reconstituted there by a differential comparator (§2-47). Rev 9 calls it 'RF TRANSFORMER 8 MHZ', T51, and the board silkscreen agrees; the Series II list calls the same position T1.",
+    "E1": "Cut to disable the watchdog timer (§2-33).",
+    "E5": "Selects the alternate oscillator Y2 as the system clock (§2-32). Y2 is not installed on production boards, so moving this jumper stops the clock.",
+    "E4": "Returns the battery's negative terminal to digital common, at JP20 on sheet 5. TP14 is on the battery side of it.",
+    "Y2": "Alternate 10 MHz oscillator module, marked DESIGN OPTION on sheet 1 and 'not installed' in its note. The footprint is on the board; the part is not.",
+    "Z1": "Pulls up the high four bits of the interrupt vector that U10 does not drive (§2-35).",
+    "MP1": "The printed circuit board itself in the Series II list; the ejector pair in Rev 9's, where MP1 and MP2 are the two nylon ejectors. Two different parts under one designator, in two different revisions of the list."
+  },
+
+  "caveats": [
+    {
+      "title": "The parts list and the drawing describe two different builds of this board",
+      "text": "This is the largest source disagreement in the dataset and it is not an error in either document. The 1996 Series II parts list (Tables 6-25 and 6-26) describes a surface-mount assembly: one 28F800 flash at U15, one 7C1021 SRAM at U19, a coin-cell holder XBT1, the reset lamp as DS1, no E-series jumpers, no U42/U43/U44. The Rev 9 Chapter 6 list describes the through-hole assembly: four programmed 27010 EPROMs at U15-U18, four 32K x 8 static RAMs at U19-U22, a soldered lithium BT1, ten IC sockets at X15-X24, the reset lamp as CR1. The component locator, Figure 7-24, is the through-hole board — and so is ../Photos/a20_top.jpg, and so is this instrument: the silkscreen reads MAIN CPU ASSY REV F 761072 over etch 5700A-3006 REV G, the processor is a 64-pin DIP MC68HC000P8 in a socket, four EPROMs sit in sockets with hand-written Fluke labels, four Toshiba TC55257BPL-10 SRAMs are fitted, and the clock cell is soldered in. So the drawing, the photograph and the bench all agree with each other and with the Rev 9 list, and the Series II list is the odd one out. The dataset carries both: where a designator appears in both lists with different stock numbers the main fields hold the Series II part and asBuilt holds the through-hole one, which is what is actually in front of you. 62 of the 128 build review items are exactly that case. Where a part exists in only one list it is marked accordingly — 42 parts are Rev 9 only and 24 are Series II only."
+    },
+    {
+      "title": "No diagnostic fault code names A20, and there is no Chapter 5 procedure for it",
+      "text": "Confirmed by absence, and checked twice: §5-2 runs from the 2700 series to the 3900 series and none of its codes mentions A20, the CPU, the processor, or any of this board's circuits, even as a fallback after another assembly reads good. Every 'not responding' code names the assembly being polled — A7, A8, A9, A11, A12, A13, A14, A16, A21 — and A20 is the thing doing the polling. Chapter 5's component-level sections run §5-4 to §5-23 and stop at A18. That is the architecture rather than an oversight: A20 is the processor that runs the diagnostics and displays the codes, so it cannot report on itself. A dead A20 presents as an instrument that will not boot at all, or — worse for the technician — as fault codes raised against boards that are perfectly healthy, because the CPU's own bus, decoder or interrupt logic is misreading them. Confirm +5 V at TP6, the reset lamp CR1, and the clocks at TP1 and TP3 before believing any code raised against another assembly. The nearest thing to a published procedure for this board is §4-21, replacing the clock/calendar battery."
+    },
+    {
+      "title": "Positions that are drawn but deliberately not fitted",
+      "text": "The board carries more sockets and footprints than parts, and the manual says so in four separate places rather than one. Sheet 1's notes: 'remove U42, U43 and U44 for production units' and 'Y2 is not installed'. Sheet 3's note: 'U23, U24, U40 and U41 are not installed'. Sheet 5's note: 'U42, U43, U44 and J5 are not installed'. §2-37 says RAM is three socket pairs — U19/U20, U21/U22, U40/U41 — and that the instrument ships with U19-U22 fitted, 128 KB. §2-38 says ROM is three socket pairs — U15/U16, U17/U18, U23/U24 — and that it ships with U15-U18 fitted, 512 KB. §2-40 says U42 'is used only for test purposes'. The photograph agrees: those positions are empty on this instrument. Consequently U23, U24, U40, U41, U42, U43, U44 and J5 appear in neither parts list and are not components in this dataset, even though their designators are printed on the locator drawing. An empty socket at one of these positions is correct, not a missing part."
+    },
+    {
+      "title": "The manual mis-numbers A20's second parts-list page as Table 6-26",
+      "text": "Table 6-25 is 'A20 CPU PCA' and the page after it is headed 'Table 6-26. A20 CPU PCA (cont)'. Every other assembly's continuation page repeats its own number — 'Table 6-24. A19 Digital Power Supply PCA (cont)', 'Table 6-27. A21 Rear Panel PCA (cont)' — so 6-26 is a printing mistake and not a second table. It matters because it is not cosmetic: the parser stops at an unrecognised 'Table 6-' heading, so reading only 6-25 loses everything from U19 onwards, including the SRAM, the DUART, the real-time clock, both crystals and all four resistor networks. Both headings are named in the pipeline config. The refs panel shows both numbers for the same reason. Note also that Rev 9's Chapter 6 numbers the same tables differently again: there, A20 is Table 6-25 and A21 is Table 6-26."
+    },
+    {
+      "title": "Rev 9's Table 6-25 is printed twice",
+      "text": "In the Rev 9 Chapter 6 scan, pages 85-86 and pages 87-88 are the same two pages of Table 6-25 — the same rows in the same order with the same stock numbers, differing only in scanning noise. Pages 84 and 89 are both Chapter 6 duplicates of the locator drawing. The dataset reads the first copy only; reading both would join every row against itself. Nothing is lost by the choice."
+    },
+    {
+      "title": "The Series II flash at U15 has no stock number in the parts list",
+      "text": "U15 is the only row in any of these parts lists whose Fluke stock number is not a number. Because the 5700A and the 5720A take differently programmed devices, the column reads 'See Note 1', and the note below the table gives 1608184 for a 5700A and 1619757 for a 5720A. The row therefore cannot be parsed as a part and the Series II flash is not in the BOM. U15 in this dataset is the through-hole EPROM the Rev 9 list gives (stock 761262), which is what is fitted here — the photographed board's socket carries a hand-written label reading 761262 / A20 U15 Rev. J. If you are working on a Series II board instead, the two flash part numbers above are the ones to order."
+    },
+    {
+      "title": "TP12's signal name: CLKI on the drawings, CLK1 on the board",
+      "text": "The sheet 1 test point legend and the sheet 5 net label both print CLKI; the board silkscreen next to the pad reads CLK1. Table 2-3's acronym glossary lists neither. The net TP12 sits on is CLKCALINT*, the clock/calendar interrupt from U33, which makes the legend's final character a letter I rather than a digit 1. The dataset follows the drawings and records both spellings on the test point."
+    },
+    {
+      "title": "Six real parts the Rev-9-only plausibility rule rejects",
+      "text": "The pipeline guards against OCR running two designators together by refusing a Rev-9-only designator numbered above anything the 1996 list uses for that prefix. That rule assumes both lists describe one board, which is exactly what is not true here, so it rejected six parts that genuinely exist: T51 (the clock filter transformer, which the Series II list calls T1), R81 and R82 (150 Ω carbon film), MP2 (the second nylon ejector), and MP7/MP8 (adhesive pads). Each was confirmed by eye on the locator drawing and the photograph before being allowed through — T51 and R82 are legible on both — and they are listed by name in REV9_ONLY_ALLOW in tools/build_data.py rather than the rule being weakened for every board."
+    },
+    {
+      "title": "Recap mode cannot tell what type A20's capacitors are",
+      "text": "Not a fault in this board's data, and it is left rather than worked around. js/caps.js decides whether a capacitor is tantalum, aluminium or ceramic with a regex anchored to the start of the description — /^CAP,\\s*([A-Z]+)/ — because every board before this one prints its capacitor rows as 'CAP,TA,4.7UF,+-20%,25V'. The 1996 Series II list writes A20's rows in a two-field shape instead, 'CAPACITOR     SMR,CAP,TA,220UF,+-20%,10V,7343H', so the type comes back null for 50 of this board's 57 capacitors — every one the Series II list supplies. The seven that do type correctly are the Rev-9-only parts, whose descriptions start with CAP, in the old shape. A20 is the only board in the dataset with this shape, which is why it has not come up before. Everything else about those parts reads correctly: Parts.spec() gets 87 of 87 values and tolerances and Parts.ratedVoltage() gets 57 of 57 ratings, and data/a20.caps.json's four traced nets produce correct ratios (C1 at 52% of rating, C5 at 15%, C17 at 28%, C100 at 26% — none above 1.0). What is lost is recap mode's type-specific ranking: the tantalum list comes back empty and the aluminium ESR path never sees C17. Fixing it is a one-line change to capType in js/caps.js, unanchoring the match, and it is being reported as its own piece of work rather than made here."
+    },
+    {
+      "title": "Where ../MD/A20_CPU.md and the service manual disagree",
+      "text": "The MD guide was used as a skeleton and every specific in it was checked against the 1996 text layer. Its structural claims are correct and confirmed: thirteen test points TP1 and TP3-TP14 with no TP2 (the sheet 1 legend and both parts lists agree); TP1 = CLK at 7.3728 MHz (§2-32 states it outright); TP3 = ECLK at 737.28 kHz (Table 2-3's glossary entry for E gives the frequency in the entry itself, so this is published and not derived); the ROM pairs U15/U16, U17/U18, U23/U24 and the RAM pairs U19/U20, U21/U22, U40/U41 (Table 2-3's chip-select names and §2-37/§2-38); jumpers E1 and E5 (§2-33 and §2-32); the development DUART at U42 with U43/U44 and connector J5 (§2-40 and sheet 5); the reset LED called CR1 on this build and DS1 on the Series II one (§2-31 and the two parts lists). Two things it gets wrong or leaves incomplete. It cites 'Tables 6-25, 6-26' as though they were two tables; 6-26 is the second page of 6-25 and the manual's own numbering slip, described in its own caveat above. And it treats the schematic and the parts list as describing one board with the parts list simply being newer, whereas the drawing, the photograph and this instrument are all the through-hole build and the Series II list is the outlier — which changes which of the two stories is useful at the bench, and is why the dataset carries both."
+    },
+    {
+      "title": "The board photograph is the through-hole build",
+      "text": "../Photos/a20_top.jpg shows PCA 761072 REV F on etch 5700A-3006 REV G, dated 1987. Visible and identifying: a 64-pin DIP MC68HC000P8 in a socket at U8; four EPROMs in sockets at U15-U18 with hand-written Fluke labels (761262 / A20 U15 Rev. J, 761361 / A20 U16 Rev. J, 761374 / A20 U17 Rev. J, 775247 / A20 U18 Rev. J); four Toshiba TC55257BPL-10 static RAMs at U19-U22; a XICOR X28C256P-25 at U13; a 68C681CP DUART at U31; an ICM7170IPG at U33; an LM324N at U52; and a lithium coin cell soldered to the board at BT1 with TP13 and TP14 beside it. Empty at U23, U24, U40, U41, U42, U43 and U44, as the sheets say they should be. Note U17's label reads 761374 where the Rev 9 parts list prints 761379 — one digit apart, and the label is hand-written, so which of the two is the typographical slip is not decidable from here."
+    }
+  ]
+}

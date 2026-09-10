@@ -1,0 +1,303 @@
+{
+  "_comment": [
+    "Curated A16 reference data, hand-authored from the 1996 service manual text layer",
+    "(§2-139 to §2-154 for the circuit descriptions, §5-2 for the fault codes, §5-22 for",
+    "the procedure) and checked against Figure 7-19 sheets 1-3, Table 6-20 and the Rev 9",
+    "parts list scan.",
+    "",
+    "Two things shape this file.",
+    "",
+    "First, the 35xx block is not all one thing. Six of its codes -- 3500 to 3503, 3521",
+    "and 3530 -- are titled 'A16' but every part they exercise lives on A16A1, the Power",
+    "Amplifier Digital Control SIP mounted on the bottom of this board. The 82C55 those",
+    "codes read is U11, and there is no U11 in Table 6-20. Their refs therefore point at",
+    "the interface those signals cross, not at parts that do not exist here. See the",
+    "caveat; it is the single most useful thing to know before chasing one of them.",
+    "",
+    "Second, a title is not a verdict. 3508 is titled 'A16/A14' and resolves to whichever",
+    "board the DMM says: out of tolerance at TP6 means A16, in tolerance means A14. That",
+    "entry is deliberately worded to agree with the one already curated in",
+    "a14.reference.json, since the same code is reached from both boards and the two must",
+    "not tell a technician different things. 3507 is the opposite trap -- it is titled",
+    "'A16: PA Supplies Are Off' and normally means somebody left A18's test switch in the",
+    "test position, which is exactly what §5-22 step 3 tells you to do."
+  ],
+
+  "overview": {
+    "summary": "The instrument's high voltage workhorse. A16 outputs dc from ±22 V to ±219.99999 V and ac from 22 V to 219.99999 V rms, and it drives the High Voltage assemblies A14 and A15 in every high voltage and high current function -- so a genuine A16 fault takes out the 220 V ranges, the 1100 V ranges and the 2.2 A range together. It is a single feedback loop built in three stages: a transconductance input stage around heated hybrid HR8, a voltage-gain mid stage on two 800 V MOSFETs, and an emitter-follower output stage stacked two devices deep on each side to stand off the ±PA rails. All the voltage gain comes from the first two stages; the third only supplies current. Gain is set by which resistors the relays select -- -20 in dc from the 500 kΩ/25 kΩ network on HR8, -10 in ac from R11+R12+R13 over R17 -- so most 'wrong output' faults are a relay or its drive rather than an amplifier fault. Around the loop sit three support circuits that generate most of the fault codes: sense-current cancellation, the 220 V range ac attenuator, and the 220 V dc internal calibration network.",
+    "sections": "§2-139 … §2-154",
+    "note": "The ±PA supplies come from A18 and reach ±365 V; the output reaches 220 V rms. Troubleshooting means removing the rear high voltage shield (MP50) and the front air duct (MP58) and running the board live on the extender card, with the ±PA rail bypass capacitors C27, C78 and C79 -- 3.3 µF at 450 V -- charged. §5-22 step 3 exists precisely so the main loop can be worked on at ±60 V instead: use it."
+  },
+
+  "railCircuits": {
+    "SIG": {
+      "rails": "DC INPUT, AC INPUT, INPUT REF, LOOP CHK, 1ST MID STAGE OUT",
+      "regulators": ["HR8", "U7", "Q2", "Q6", "Q8", "Q9", "Q13", "Q12", "Q14", "Q16", "Q31", "Q32", "CR53"],
+      "filters": ["C15", "C18", "C57", "C42", "C12"],
+      "protection": ["CR13", "CR14", "CR21", "CR23", "VR22", "CR25", "CR29", "VR28", "R112", "R113"],
+      "tps": ["TP2", "TP3", "TP4", "TP5"],
+      "note": "Input stage and mid stage, which between them provide all the voltage gain. HR8 is an op amp on a heated substrate with both resistor networks bonded to it, driving faster op amp U7 for slew rate; at mid to high frequencies HR8 and U7 are bypassed by R89, C42, R24 and C12 and JFET Q2 is effectively the only signal path. Q2 and Q6 form a transconductance stage whose collector current is coupled to the mid stage by Q8, Q9, Q13 and C15 -- Q13 being the level shifter that drops the ±17 V input stage down to Q16's emitter, which sits on -PA. The mid stage is Q12, Q14 and Q16 biased by an 8 mA current source (CR53, Q31, Q32, R87); C18 and C57 are the Miller capacitance and K12A parallels them in dc operation for lower bandwidth and therefore lower noise.",
+      "source": "§2-143, §2-144"
+    },
+    "OUT": {
+      "rails": "PA OUT HI, +PA, -PA, SC+, SC-, PA SENSE DC",
+      "regulators": ["Q1", "Q3", "Q5", "Q15", "Q17", "Q10", "Q7", "Q4", "Q11", "Q60", "Q61", "Q62", "U1"],
+      "filters": ["C27", "C78", "C79", "C8", "C9", "C20", "C21"],
+      "protection": ["CR5", "CR7", "VR6", "R108", "VR15", "VR18", "R120", "L10", "CR68"],
+      "tps": ["TP1", "TP6", "TP14", "TP15"],
+      "note": "An emitter follower with current gain and no voltage gain. Q1, Q3 and Q5 source current, Q15, Q17 and Q10 sink it, stacked two MOSFETs deep on each side to withstand the drop between the ±PA rails and the output. Q7 is a Vbe multiplier setting the 50 mA output bias current across R74 and R35. VR15 (18 V) and VR18 (15 V) bootstrap Q3 and Q15 and double as the SC+ and SC- supplies for U1. Q60, Q61 and Q62 limit the output stage to about 250 mA and the mid stage current with it, which both protects the board and improves transient response. R120 and L10 isolate capacitive loads. U1 is the sense-current cancellation amplifier, active only in the dc 220 V range: it drives a current through R8 equal and opposite to the current in the 500 kΩ feedback resistor so that the resistance of the connection to the load does not become an output error.",
+      "source": "§2-145, §2-146, §2-154"
+    },
+    "ATT": {
+      "rails": "PA SENSE AC, OSC SENSE, AC CAL",
+      "regulators": ["U4", "Z1", "Q54", "Q57", "Q58"],
+      "filters": ["C47", "C49", "C48", "C82", "C5"],
+      "tps": ["TP7", "TP8", "TP17"],
+      "note": "The 220 V range ac attenuator, a precise divide-by-100 that lets the Oscillator Control assembly (A12) regulate an exactly calibrated ac signal at the output. PA SENSE AC, tied to PA OUT HI out at the load, reaches network Z1's input by relay K16; the tap goes to U4's inverting input and the output returns through Z1's 4 kΩ leg. C0*, inverted by U8, turns on Q58 to tie U4's non-inverting input to OSC RCOM, and Q54 supplies the current gain to drive the capacitance of the OSC SENSE HI line. K10B and K11 route the output onward. Because the network is fully characterised at several spot frequencies during internal calibration, the exact desired signal appears at the output sense point.",
+      "source": "§2-149, §2-154"
+    },
+    "CAL": {
+      "rails": "INT CAL HI, INT CAL LO, RCL, SIG1",
+      "regulators": ["U9", "U5", "U2", "K1", "K2", "K3", "K4", "HR8"],
+      "protection": ["VR57", "VR58"],
+      "tps": ["TP9", "TP12", "TP13"],
+      "note": "The 220 V dc internal calibration network: the 175 kΩ/25 kΩ section of the HR8 resistor network used as an input attenuator, buffered by chopper-stabilised op amp U9 running on supplies cut down by 6.8 V zeners VR57 and VR58. Relay K4 puts its output on the RCL line back to the adc on the DAC assembly. It is what lets the instrument measure its own Power Amplifier offset, its dc gain of about -20, and the attenuation of both networks, all against the DAC's own 6.5 V and 13 V references. Fault codes 3527, 3528 and 3529 all measure through this chain, so a fault in it fires all three while the amplifier is perfectly healthy.",
+      "source": "§2-153, §2-154"
+    },
+    "COM": {
+      "rails": "PA COM, S COM, RCOM, OSC RCOM",
+      "protection": ["CR63", "CR64", "CR65", "CR66"],
+      "tps": ["TP10", "TP11", "TP16", "TP17"],
+      "note": "Four separate commons. PA COM (TP10) is the reference for every measurement on the board unless a step says otherwise, and it is the one fault code 3508 names. S COM, RCOM and OSC RCOM belong to the sense, reference and oscillator domains respectively, and CR63-CR66 clamp the first two to LH COM across the guard crossing. The one measurement that is not referenced to PA COM is the output stage bias voltage, which is read between TP14 and TP15.",
+      "source": "§5-22 step 1; Figure 7-19 sheet 3"
+    }
+  },
+
+  "faultCodes": [
+    { "code": "3500", "title": "A16: 8255 Control Word",
+      "measure": "The diagnostics software reads the control word of the 8255 IC on the Power Amplifier assembly.",
+      "expected": "The control word reads back as written",
+      "verdict": "The manual says the Power Amplifier (A16) is probably at fault, but the 8255 is U11 on the A16A1 Digital Control SIP, not on A16 itself. Check the SIP is seated on its two 26-pin headers and that the guarded digital bus reaches P702 before suspecting anything on the main board.",
+      "refs": ["P702"], "source": "§5-2" },
+
+    { "code": "3501", "title": "A16: 8255 Port A",
+      "measure": "The diagnostics software writes and reads data to port A of the 8255 IC on the Power Amplifier assembly.",
+      "expected": "Data written to port A reads back",
+      "verdict": "Titled A16, but port A is on U11 of the A16A1 SIP. It is the common input bus to both 5801 relay drivers, so this failing means no relay on A16 can be trusted -- every relay-dependent symptom on this board is downstream of it.",
+      "refs": ["P702", "K1", "K2", "K3", "K4"], "source": "§5-2" },
+
+    { "code": "3502", "title": "A16: 8255 Port B",
+      "measure": "The diagnostics software reads port B of the 8255 IC on the Power Amplifier assembly.",
+      "expected": "Port B reads back correctly",
+      "verdict": "Titled A16, tests A16A1. Port B feeds the two LM339 comparators that generate SW0-SW7, so with this failing the function selection is unreliable -- including SW3, which decides whether Q50 or Q51 sets the input reference, and SW4-SW7, which tell A18 what to do with the ±PA supplies.",
+      "refs": ["P702", "Q50", "Q51"], "source": "§5-2" },
+
+    { "code": "3503", "title": "A16: 8255 Port C",
+      "measure": "The diagnostics software reads port C of the 8255 IC on the Power Amplifier assembly.",
+      "expected": "Port C reads back correctly",
+      "verdict": "Titled A16, tests A16A1. Port C carries the strobe and enable lines for both relay drivers and the four address bits for the diagnostic multiplexer, so this failing invalidates every other MUX-based reading in the 35xx block as well.",
+      "refs": ["P702"], "source": "§5-2" },
+
+    { "code": "3507", "title": "A16: PA Supplies Are Off",
+      "measure": "The instrument is dormant. The +PA and -PA supplies are read through MUX1 and MUX2 onto the SDL line and measured by the adc on the DAC assembly. MUX1 comes from +PA through R34 and R28, MUX2 from -PA through R47 and R29, 499 kΩ each.",
+      "expected": "Fires when the measured voltage is between 40 V and 80 V",
+      "verdict": "Almost never an A16 fault. The manual says it outright: switch S201 on the Filter/PA Supply assembly (A18) appears to be in the test position. 40-80 V is the range the ±44 SR test rails sit in, and §5-22 step 3 is the procedure that deliberately puts them there. Put S201 back -- with the instrument powered down -- before looking any further. If S201 is in its normal position and this still fires, suspect the divider chain here or the ±PA supplies on A18.",
+      "refs": ["R34", "R28", "R47", "R29", "P701"], "source": "§5-2" },
+
+    { "code": "3508", "title": "A16/A14: 220V AC Range Output Fault",
+      "measure": "The instrument is configured at 22.1 V at 1 kHz, 22.1 V at 100 Hz, 100 V at 1 kHz, 100 V at 80 Hz, 100 V at 500 Hz, 219 V at 1 kHz and 219 V at 50 Hz. The Power Amplifier output is routed to the High Voltage Control assembly (A14), divided and peak-detected there, and read on the SDL line by the adc on the DAC assembly to be the nominal ±10%. Then exit diagnostics, restore the configuration, and measure the ac output of the Power Amplifier with a DMM.",
+      "com": "A16 TP10",
+      "hi": "A16 TP6",
+      "expected": "The Power Amplifier output is within tolerance at the DMM",
+      "verdict": "Out of tolerance: the Power Amplifier (A16) is probably at fault. In tolerance: the High Voltage Control assembly (A14) is probably at fault -- meaning its divider and peak detector, not its high voltage section, since that is the only part of A14 this measurement passes through. This is the one code in the block where a good reading convicts the other board, which is why the manual gives the COM and HI points explicitly.",
+      "refs": ["TP6", "TP10", "Z1", "U4", "K16", "K10", "K11"], "source": "§5-2" },
+
+    { "code": "3509", "title": "A16: Amplifier Loop Not Regulated",
+      "measure": "Three modes. First, dc 220 V range with the input taken from the DAC's 6.5 V reference (BRF6, BSRF6), giving -130 V out. Second, normal dc 220 V operation from the DAC at 22.1 V, 100 V, 219 V and -219 V. Third, the ac 220 V range at the same seven settings as 3508. In each, the output of the Power Amplifier input stage is read through MUX0 onto the SDL line.",
+      "expected": "Input stage output less than 11 V",
+      "verdict": "A failure indicates the Power Amplifier (A16) is probably at fault. MUX0 is the output of U7, so this measures how hard the loop is having to work: a healthy closed loop keeps the input stage output small, and a large value means the loop is not closing. The bench equivalent is §5-22 step 5, which checks that TP4 is properly inverting with respect to HR8 pin 10.",
+      "refs": ["U7", "HR8", "Q2", "Q6", "R38", "TP4"], "source": "§5-2" },
+
+    { "code": "3510", "title": "A16: 220V Amp Fault",
+      "measure": "The dc 220 V range in the two modes above -- the 6.5 V reference input giving -130 V out, and normal operation at 22.1 V, 100 V, 219 V and -219 V. The Power Amplifier output is read through MUX3 onto the SDL line.",
+      "expected": "Output within ±10% of nominal",
+      "verdict": "A failure indicates the Power Amplifier (A16) is probably at fault. 3510 measures the output itself while 3509 measures how the loop got there, so the pair together separate 'the amplifier is not producing the right voltage' from 'the amplifier is straining'. 3510 firing alone with 3509 clear points at the output stage or the MUX3 divider rather than at the loop.",
+      "refs": ["Q1", "Q3", "Q15", "Q17", "Q5", "Q10", "R61", "VR61", "VR62"], "source": "§5-2" },
+
+    { "code": "3511", "title": "A16: Incorrect PA Input",
+      "measure": "The same two dc 220 V modes. The 6.5 V reference input, or the resulting -1.105 V, -5.0 V, -10.95 V and +10.95 V from the DAC for outputs of 22.1 V, 100 V, 219 V and -219 V, is read through MUX5 onto the SDL line.",
+      "expected": "Input within ±10% of nominal",
+      "verdict": "A failure indicates the Power Amplifier (A16) is probably at fault, but what it actually says is that the amplifier is being fed the wrong thing -- so check K2, which connects DAC OUT HI and DAC SENSE HI to pin 2 of the HR8 network, and U2, which switches in the 6.5 V reference, before suspecting the amplifier. The four numbers are simply the output divided by the dc gain of -20; TP2 is where to see them on the bench.",
+      "refs": ["K2", "U2", "HR8", "TP2"], "source": "§5-2" },
+
+    { "code": "3520", "title": "A16: PA Oven Regulation Fault",
+      "measure": "The heater voltage of the Power Amp hybrid is read through MUX7 onto the SDL line, to confirm the hybrid is warmed up and regulating.",
+      "expected": "0.7 V ±10% ±0.2 V",
+      "verdict": "A failure indicates the Power Amplifier (A16) is probably at fault. The heater control circuit on sheet 3 adjusts the base voltage of Q38 to feed the hybrid's 27 Ω heater element, with Q35 protecting the hybrid if Q38 fails. A cold hybrid does not merely fire this code -- it puts the offset, noise and drift of the whole input stage out of specification, so treat any reading from §5-22 step 5 as unreliable until this is clear.",
+      "refs": ["HR8", "Q38", "Q35", "R137", "R116", "C45"], "source": "§5-2" },
+
+    { "code": "3521", "title": "Assembly A16 Is Not Responding",
+      "measure": "At power up the instrument surveys which assemblies are installed and does not find the Power Amplifier.",
+      "expected": "The assembly responds",
+      "verdict": "The manual blames A16, but the survey talks to the 82C55 on the A16A1 SIP, so a missing or unseated SIP looks exactly like a missing board. Check that A16 is seated in P701 and P702, that the SIP is seated on its headers, and that the board has its supplies, before suspecting anything else.",
+      "refs": ["P701", "P702"], "source": "§5-2" },
+
+    { "code": "3524", "title": "A16: Power Amp Is Too Hot",
+      "measure": "The output of the temperature sensor is read through MUX4 onto the SDL line.",
+      "expected": "Fires when the measured voltage is over 1.7 V",
+      "verdict": "A failure indicates the Power Amplifier (A16) is probably at fault, but check the cooling before the electronics: U10 is an LM34-class Fahrenheit sensor reading the assembly temperature through R138, and the board's only heat sinking is MP49 with the MP58 air duct directing air over it. A board left running on the extender card with the duct off will fire this legitimately. If the board is cool to the touch and this still fires, suspect U10 and R138.",
+      "refs": ["U10", "R138", "MP49", "MP58"], "source": "§5-2" },
+
+    { "code": "3525", "title": "220V DC Initialization Fault",
+      "measure": "The diagnostics software attempts to set the Power Amplifier hardware up for dc diagnostic testing.",
+      "expected": "The hardware configures",
+      "verdict": "A failure indicates the Power Amplifier (A16) is probably at fault. This is a setup failure rather than a measurement failure: the software could not get the board into the dc 220 V configuration at all, which points at the latching relays K1-K4 and their drivers on the SIP rather than at anything in the signal path. Expect it alongside 3500-3503 if the 8255 is the real problem.",
+      "refs": ["K1", "K2", "K3", "K4", "P702"], "source": "§5-2" },
+
+    { "code": "3526", "title": "220V AC Initialization Fault",
+      "measure": "The same, for the ac mode.",
+      "expected": "The hardware configures",
+      "verdict": "As 3525, for the ac configuration -- so the relays that matter are the non-latching group K10-K17, which set the ac signal path, rather than the latching group. 3526 alone with 3525 clear narrows it usefully.",
+      "refs": ["K10", "K11", "K12", "K13", "K14", "K15", "K16", "K17", "P702"], "source": "§5-2" },
+
+    { "code": "3527", "title": "A16: Power Amp DC Cal Network Zero Fault",
+      "measure": "The instrument is dormant. The offset of the 220 V DC INT. CAL network is measured with its input connected to ACOM and its output to the RCL line. RCL goes to the + input of the adc on the DAC assembly and the DAC output is adjusted at the - input until a null is achieved.",
+      "expected": "Fires if the DAC could not converge",
+      "verdict": "A failure indicates the Power Amplifier (A16) is probably at fault. Note what 'could not converge' means: the network's offset was so far out that the DAC ran out of range, which is a hard fault rather than a drift. U9 is a chopper-stabilised op amp precisely so that this offset stays tiny, so suspect U9, its 6.8 V supply zeners VR57 and VR58, and the switches U5 and K3 that set the input up.",
+      "refs": ["U9", "VR57", "VR58", "U5", "K3", "K1", "K4", "HR8"], "source": "§5-2" },
+
+    { "code": "3528", "title": "A16: Power Amp DC Cal Network Gain Fault",
+      "measure": "The instrument is dormant. The gain of the 220 V INT. CAL network is measured with its input connected to the 13 V reference (BRF13, BSRF13) and its output to the RCL line, nulled against the DAC output as in 3527.",
+      "expected": "Nominal gain of 0.125, fires if it is off by more than 7%",
+      "verdict": "A failure indicates the Power Amplifier (A16) is probably at fault. 0.125 is 25 kΩ over 175 kΩ plus 25 kΩ -- the internal cal section of the HR8 resistor network -- so a gain error here is either the network itself or U9's buffer. §5-22 step 12 is the bench version: U9 pin 6 should be TP12 divided by 8, which is the same ratio measured a different way, and §2-154 gives the expected 1.625 V outright.",
+      "refs": ["HR8", "U9", "K1", "K3", "K4", "U5"], "source": "§5-2" },
+
+    { "code": "3529", "title": "A16: Power Amp 220V Range Attenuator Fault",
+      "measure": "The Power Amplifier is set to the dc 220 V range with the 6.5 V reference (BRF6, BSRF6) as its input, giving -130 V at the output. That is fed to the input of the 220 V RANGE AC ATTENUATOR, whose nominal gain is -0.01, and the resulting +1.3 V is routed to the RCL line and nulled against the DAC output.",
+      "expected": "+1.3 V within 10%",
+      "verdict": "A failure indicates the Power Amplifier (A16) is probably at fault. Despite the name the attenuator is being checked at dc here, which is deliberate -- it separates a gain error in the network from a frequency response problem. §5-22 step 9 is the ac bench equivalent. Suspect Z1, U4, Q58 and Q54, and the K16, K10B and K11 contacts that route the signal in and out.",
+      "refs": ["Z1", "U4", "Q58", "Q54", "K16", "K10", "K11"], "source": "§5-2" },
+
+    { "code": "3530", "title": "A16: 8255 Was Reset",
+      "measure": "The control word of the 8255 on the Power Amplifier is re-read and shows the device has been reset.",
+      "expected": "The control word still holds its programmed value",
+      "verdict": "Titled A16, tests A16A1's U11. A spontaneous reset points at the supply to the SIP or at noise on the guarded digital bus rather than at the device -- the same reasoning as A14's 3136. It also means every relay on A16 has silently returned to its power-up state, so expect a crop of unrelated-looking symptoms alongside it.",
+      "refs": ["P702"], "source": "§5-2" }
+  ],
+
+  "paSupplySettings": {
+    "title": "±PA supply settings at different outputs",
+    "source": "Table 2-13, §2-142",
+    "rows": [
+      { "out": "Calibrator output", "pos": "+PA", "neg": "-PA" },
+      { "out": "Less than 22 V ac or dc", "pos": "+185 V", "neg": "-185 V" },
+      { "out": "22 to 110 V dc", "pos": "+185 V", "neg": "-185 V" },
+      { "out": "110 to 220 V dc", "pos": "+365 V", "neg": "-185 V" },
+      { "out": "-220 to -110 V dc", "pos": "+185 V", "neg": "-365 V" },
+      { "out": "22 to 101 V ac (freq < 120 kHz)", "pos": "+185 V", "neg": "-185 V" },
+      { "out": "22 to 85 V ac (freq > 120 kHz)", "pos": "+185 V", "neg": "-185 V" },
+      { "out": "Other voltages", "pos": "+365 V", "neg": "-365 V" },
+      { "out": "220 to 550 V dc or ac", "pos": "+185 V", "neg": "-185 V" },
+      { "out": "550 to 1100 V dc or ac", "pos": "+365 V", "neg": "-365 V" },
+      { "out": "220 mA to 2.2 A", "pos": "+365 V", "neg": "-365 V" }
+    ],
+    "note": "The rails are generated on A18 and switched between the two modes by A16A1 through SW4-SW7 at P702. These are settings, not measurements: no tolerance is published for them, and the only ±PA figure §5-22 gives is the ±60 V ±15 V of the step 3 test mode. Note that 220 to 550 V drops back to ±185 V because above 220 V the output comes from A14's transformer rather than directly from A16."
+  },
+
+  "currentLimit": {
+    "title": "Output stage current limits and idle current",
+    "source": "§2-154, last paragraph",
+    "rows": [
+      { "part": "Q60", "does": "Limits the current sourced by the output stage", "value": "about 250 mA" },
+      { "part": "Q61", "does": "Limits the current the output stage has to sink", "value": "about 250 mA" },
+      { "part": "Q62", "does": "Limits the current flowing through the mid stage", "value": "—" },
+      { "part": "CR68", "does": "Current source holding a minimum current through the output devices", "value": "at least 5 mA" }
+    ],
+    "note": "The limits both protect the circuitry and improve transient response. The manual attributes the idle current source to CR64; both parts lists make CR64 an ordinary 1N4448 and sheet 3 draws it as a clamp between S COM and LH COM, while sheet 2 draws CR68 in the output stage as a current-regulator diode annotated 5.3 mA. It is recorded as CR68 here -- see the caveat."
+  },
+
+  "componentNotes": {
+    "HR8": "The heart of the board: an op amp on a heated-substrate hybrid with both resistor networks bonded to it -- the 500 kΩ/25 kΩ pair that sets the dc gain of -20 and the 175 kΩ/25 kΩ pair used as the internal calibration attenuator. Its oven is held at temperature by the Q38/Q35 heater circuit on sheet 3 and monitored by fault code 3520. Not a field-repairable part, and a cold one degrades everything the input stage does.",
+    "C9": "15 µF 20 V tantalum, and the single worst-derated tantalum position found anywhere in this instrument. Whatever it sits on, a 20 V part leaves the smallest voltage margin of any tantalum in the machine, and this is a board where the ±PA rails run at up to ±365 V a few components away. If the board is being recapped, start here and fit a substantially higher voltage rating.",
+    "C21": "The companion to C9 -- the other 15 µF 20 V tantalum, on the SC- side of U1's supply pair. Same reasoning, same priority.",
+    "C27": "3.3 µF 450 V aluminium on the ±PA rails, with C78 and C79. These sit directly across supplies that reach ±365 V and stay charged after power-down; confirm they have discharged before working near the output stage.",
+    "C57": "100 pF 1000 V, the dc-mode Miller capacitance. K12A parallels it with C18 during dc operation to drop the loop bandwidth, which is what makes the dc 220 V range quieter than the ac range. If dc noise is the symptom and ac is clean, K12 is worth checking before C57.",
+    "C12": "One of the two components whose part actually changed between the parts lists: 2000 pF ±5% 50 V C0G in the 1996 list, 2000 pF ±20% 100 V Z5U in Rev 9. It sits in the R89/C42/R24/C12 network that bypasses HR8 and U7 at mid to high frequencies, so the dielectric is not incidental -- a Z5U part there behaves differently with temperature and voltage than a C0G one.",
+    "Q12": "One of the two mid stage MOSFETs, and the part §5-22 step 4 asks you to remove. The 1996 list gives it as an STD1NB80, 800 V 1 A; the Rev 9 list gives a VN0550N2, N-DMOS 400 V TO-39. Both lists agree there are two, Q12 and Q14. It is ESD sensitive and it is the highest-voltage small part on the board -- handle and reseat carefully.",
+    "Q14": "The other mid stage MOSFET. See Q12, including the 800 V / 400 V difference between the two parts lists.",
+    "Z1": "The 220 V range ac attenuator network, a hermetic SIP whose two elements are the divider that makes the precise 1/100. The manual gives its input leg as both 400 kΩ and 396 kΩ in different places -- see the caveat. The ±500 ppm ratio and 5 ppm tracking in the Rev 9 description are the properties that matter: it is a matched pair, not two resistors.",
+    "U1": "The sense-current cancellation op amp, and unusual in that it runs on bootstrapped supplies SC+ and SC- that float with the output rather than on a fixed rail. That is why §5-22 step 10 checks it at 0 V output and why VR15 and VR18 are the first suspects when it misbehaves.",
+    "U9": "Chopper-stabilised op amp buffering the internal calibration network, running on supplies reduced by VR57 and VR58. Chopper stabilisation is there for offset, so fault 3527 -- the offset test that could not converge -- points here first. Note there is a different U9 on the A16A1 SIP.",
+    "U10": "LM34-class Fahrenheit temperature sensor reading the assembly temperature onto MUX4, and the device behind fault 3524. Note there is a different U10 on the A16A1 SIP, a 5801 relay driver; the two share a designator and nothing else.",
+    "CR69": "The one component the two parts lists disagree about in a way that changes what it is. Sheet 1 draws it as a current-regulator diode annotated 5.3 mA in the level shifting circuit, hand-lettered onto the artwork, which matches the 1996 list. See the caveat.",
+    "K12": "One of the two high-insulation-resistance relays, with K17. K12A parallels the Miller capacitors in dc operation and K12B switches the ac feedback path. High IR matters here because the contacts sit in the feedback network of a 220 V amplifier, where leakage becomes an output error.",
+    "K17": "The other high-IR relay. K17B closes the feedback loop through HVAC from A14 in the 1100 V ac range.",
+    "R150": "15 Ω in the mid stage current limit chain with Q62 and R58. Schematic sheet 1 prints this part as R510, which is not a designator on the board -- see the caveat.",
+    "M17": "The oscillator thermal cover, stock 797696 -- the same physical part A12 carries as M12, which is where the description comes from. It is the only M-prefixed designator on the board and it has no silkscreen marking, so it is listed but not placed.",
+    "MP50": "The rear high voltage shield. It comes off to troubleshoot, after which the board runs live and exposed on the extender card.",
+    "MP58": "The air duct. In the 1996 list it is a single riveted assembly (stock 764506); Rev 9 lists it as a bare duct plus the MP3 divider and four MP9-MP12 pop rivets. It is part of the cooling design, not a cover -- running the board without it for long enough will fire fault 3524.",
+    "MP49": "The only heat sink the output devices have, and part of the same 665570 assembly as the thermal insulator MP55, the clamp bars MP56/MP57 and the Q1/Q3/Q15/Q17 mounting hardware."
+  },
+
+  "caveats": [
+    { "title": "Six fault codes titled A16 test hardware that is not on A16",
+      "text": "Codes 3500, 3501, 3502, 3503, 3521 and 3530 all read the 82C55 on 'the Power Amplifier assembly'. That 82C55 is U11, and there is no U11 in Table 6-20 -- it is on A16A1, the Power Amplifier Digital Control SIP mounted on the bottom of this board, whose parts are in Table 6-21 and whose schematic is Figure 7-20. The same is true of the two 5801 relay drivers (U10, U12), the two LM339 comparators (U13, U15), the 4051 multiplexer (U14) and the SIP resistor networks Z1 and Z2 named in §2-140. Everything those codes measure crosses onto A16 through the two 26-pin headers, so the first thing to check is that the SIP is present and seated. A16A1 is its own assembly in this tool -- pick it from the assembly list -- with its own parts list, drawing and schematic sheet, and those six codes are carried on it as well.",
+      "refs": ["P701", "P702"] },
+
+    { "title": "A16 and A16A1 reuse the same designator numbers for different parts",
+      "text": "The daughter board numbers its parts in the same series as the main board rather than continuing from it, so several designators mean two different things depending on which board you are looking at. U9 is a chopper-stabilised op amp here and a 3-to-8 line decoder there; U10 is an LM34 temperature sensor here and a 5801 relay driver there; Z1 is the 400 kΩ/4 kΩ attenuator network here and a 47 kΩ SIP there; C57 is a 100 pF 1000 V ceramic here and a 0.22 µF polyester there; R2 is 10 kΩ here and 1 kΩ there; and MP3 is the air duct divider here and a 10-pin header there. Read every designator in §2-140 as belonging to the SIP and every designator in §2-141 to §2-154 as belonging to the main board.",
+      "refs": ["U9", "U10", "Z1", "C57", "R2", "MP3"] },
+
+    { "title": "The 5 mA idle current source is CR68, not CR64 as §2-154 says",
+      "text": "The last paragraph of §2-154 says 'Diode CR64 is a current source that maintains a current flow of at least 5 mA through the output devices at all times.' Three things say otherwise. Both parts lists put CR64 in the 1N4448 group, an ordinary switching diode. Schematic sheet 3 draws CR64 as one of a clamp pair with CR63, between S COM and LH COM at P702 -- nowhere near the output stage. And schematic sheet 2 draws CR68 in the output stage as a current-regulator diode annotated 5.3 mA, which is precisely 'at least 5 mA', and the 1996 parts list gives CR68 as an N-JFET current regulator with IF = 5.3 mA. Read §2-154's CR64 as CR68.",
+      "refs": ["CR64", "CR68", "CR63"] },
+
+    { "title": "The schematic prints R510 for a resistor the board calls R150",
+      "text": "Sheet 1 labels the 15 Ω resistor in the mid stage current limit chain, below R58 and beside Q62, as R510. There is no R510 in Table 6-20 -- the R series stops at R152 -- and there is exactly one 15 Ω resistor on the board, R150 (RES,CF,15,±5%,0.25W, stock 348755). The board drawing's silkscreen says R150. It is a transposed pair of digits on the schematic, but it matters because searching the parts list for R510 finds nothing at all.",
+      "refs": ["R150", "R58", "Q62"] },
+
+    { "title": "Z1's input leg is 400 kΩ in two places and 396 kΩ in two others",
+      "text": "§2-149 calls the 220 V range ac attenuator network '400 kΩ/4 kΩ' and schematic sheet 2 labels its two elements 400K and 4K. §2-154 opens by calling the same network '396 kΩ/4 kΩ' and then, two sentences later, refers to 'the 400 kΩ input resistor (Z1)'; the Rev 9 parts list describes it as 'RES,NET,THN F. 396K,(2)±500/5PPM'. The dataset follows 400 kΩ/4 kΩ, because that is what the schematic draws and what makes the attenuator's stated gain of exactly -0.01 and its 'precise 1/100' true. Be aware of it when using §5-22 step 9, whose ±1% band on TP8 is narrow enough that the difference between the two readings is not negligible: if a board reads consistently about 1% off there and everything else is clean, measure the network rather than condemning U4.",
+      "refs": ["Z1", "U4", "TP8"] },
+
+    { "title": "§5-22 step 3 names A18's switch and rails wrongly, in two ways",
+      "text": "The step says to switch the ±PA supplies to 'the low voltage (±40SR Supplies) mode by switching switch SW201 on the Filter/PA Supply assembly'. On A18 that switch is S201 -- fault code 3507, describing the same switch two hundred pages earlier, calls it S201 -- and the rails substituted are the ±44 SR unregulated supplies, whose nominal in A18's Table 2-8 is 60 V ±15 V. That is exactly the ±60 V ±15 V the step then tells you to expect, so the value is right and only the names are wrong. Power the instrument down before moving the switch, and put it back afterwards: left in the test position it produces fault 3507 at every power-up.",
+      "refs": ["P701"] },
+
+    { "title": "§5-22 has three smaller slips worth knowing before you follow it",
+      "text": "Step 10 is headed 'Check the SC+ and SC- supplies' and then asks you to measure 'the DC- supply at U1 pin 4'; there is no DC- on this board and the schematic names that node SC-. Step 8 says to install the monitoring-defeat jumpers 'as done in the previous step 1', but step 1 says nothing about jumpers -- they are installed by the unnumbered Note before step 1. And step 8 announces that testing the attenuator 'is divided into three steps' while only steps 8 and 9 follow. None of the three changes what you measure, but all three cost time if you go looking for what they refer to.",
+      "refs": ["U1", "VR18"] },
+
+    { "title": "CR69 is a different component in the two parts lists, and the schematic settles it",
+      "text": "The 1996 list groups CR69 with CR33 and CR68 as an N-JFET current-regulator diode, IF = 5.3 mA, stock 852116 (J9010). The Rev 9 list groups it instead with CR35-CR39 as an ordinary 200 V 200 mA signal diode, stock 876867 (FDH400), and gives CR33 and CR68 alone as the current regulators. Both lists are internally consistent -- their quantities add up either way -- so this is a genuine difference and not an OCR error. Schematic sheet 1 draws CR69 in the level shifting circuit as a current-regulator diode annotated 5.3 mA, hand-lettered onto the artwork alongside the similarly hand-lettered CR8 and CR9, which agrees with the 1996 list. The Rev 9 entry is recorded as 'as built' because Rev 9 is the revision the drawing matches, but the schematic and the 1996 list agree against it.",
+      "refs": ["CR69", "CR68", "CR33"] },
+
+    { "title": "The air duct is one part in one list and six in the other",
+      "text": "The 1996 list carries MP58 as a single 'RIVETED AIR DUCT ASSEMBLY', stock 764506. The Rev 9 list breaks the same thing into a bare 'AIR DUCT, PWR AMP' (775601) as MP58, an 'AIR DUCT DIVIDER, PWR AMP' (791939) as MP3, and four pop rivets (807347) as MP9 to MP12 -- five designators the 1996 list does not mention at all. That accounts for five of this board's six parts-list disagreements about what exists. All of them are mechanical, none has a silkscreen designator, and all are recorded as not on the drawing.",
+      "refs": ["MP58", "MP3", "MP9", "MP10", "MP11", "MP12"] },
+
+    { "title": "Five parts differ between the revisions in what they are, not just in stock number",
+      "text": "C12 is a 2000 pF ±5% 50 V C0G ceramic in the 1996 list and a ±20% 100 V Z5U in Rev 9. Q12 and Q14 are STD1NB80 800 V 1 A MOSFETs in 1996 and VN0550N2 N-DMOS 400 V TO-39 parts in Rev 9 -- a doubling of the voltage rating on the two devices that stand off the mid stage swing. MP5 and MP6 are DPAK surface-mount heat dissipators in 1996 and press-on TO-5 heat sinks grouped with MP7 and MP8 in Rev 9. H3 and H4 are stainless steel screws in 1996 and plain steel in Rev 9. And CR69 changes device type, as above. In each case the 1996 part carries the later, higher-numbered Fluke stock number, so where the two differ the 1996 entry is the newer specification and the Rev 9 entry is what this revision of the board was built with.",
+      "refs": ["C12", "Q12", "Q14", "MP5", "MP6", "H3", "H4"] },
+
+    { "title": "Twelve more parts differ only in stock number, and three of the changes match A14's",
+      "text": "CR8 and CR9 (887203 in 1996, 820449 in Rev 9), K12 and K17 (1278765 / 911271), Q10 (866756 / 866769), R15, R19, R52 and R57 (686987 / 109629), R27 (687811 / 108597), R41, R51 and R55 (686774 / 109926), R85 (875257 / 221994), R120 (644259 / 159608), VR15 (827973 / 810325), VR18 (266601 / 820415), VR51, VR52, VR57 and VR58 (260695 / 820431), VR64 (267807 / 810317) and VR65 (386771 / 810309). The descriptions are identical in both lists in every case, which reads as a supplier or numbering change rather than a design change. Three of the pairs -- 686774/109926, 644259/159608 and 260695/820431 -- are the same renumberings already recorded on A14, which is good evidence that they are genuine and not scanning errors. Q10 was the one worth checking by eye, since 866756 and 866769 differ by two digits in a way OCR could invent; the printed Rev 9 page reads 866769 with manufacturer part MRF545. The Rev 9 numbers are recorded as 'as built'.",
+      "refs": ["CR8", "CR9", "K12", "K17", "Q10", "R41", "R120", "VR51"] },
+
+    { "title": "§2-140 names eight diagnostic signals and describes seven",
+      "text": "The theory of operation says 'The eight monitored points are:' and then lists MUX0, MUX1, MUX2, MUX3, MUX4, MUX5 and MUX7. MUX6 is simply missing. It is real -- schematic sheet 3 shows it on pin 6 of the SIP interface, routed from page 1 zone A7 -- but neither the text nor the legend says what it monitors, and no fault code in the 35xx block measures through it. If a diagnostic points at MUX6, the manual will not help you interpret it.",
+      "refs": ["P702"] },
+
+    { "title": "Sheet 3 carries the relay state table for the whole board",
+      "text": "The centre right of schematic sheet 3 tabulates the position of every relay and FET on A16 -- K1 to K4, K10 to K17, Q39, Q40, Q50, Q51, Q57, Q58 and the U2 and U5 switch sections -- for eleven instrument configurations, from standby through the four ranges to each of the internal calibration setups. R is the reset position of a latching relay, S the set position, and an asterisk means a FET is on or a non-latching relay is energised. It is much the fastest way to answer 'should this relay be pulled in right now' while the board is on the extender, and it is the reference that turns a suspicious relay into a confirmed one.",
+      "refs": ["K12", "K15", "K16", "Q50", "Q51"] },
+
+    { "title": "The photograph was taken with the heat sink and hybrid cover fitted",
+      "text": "MP49, the power amplifier heat sink, covers the output devices Q1, Q3, Q15 and Q17 along the left edge of the board, and MP4, the moulded hybrid cover, sits over HR8 and its resistor network. Neither is removed in the photograph, so those parts have positions on the drawing and on the schematic sheets but nothing visible to point at on the photo, and the photo alignment is solved from landmarks in the uncovered area. Treat the Photo, Overlay and Swipe modes as approximate over the heat sink and the hybrid, and use the Drawing mode there.",
+      "refs": ["MP49", "MP4", "HR8", "Q1", "Q3"] },
+
+    { "title": "Manufacturer part numbers come from OCR of a scan and carry character errors",
+      "text": "The 1996 parts list has a real text layer, so its designators, descriptions, Fluke stock numbers and quantities are exact. The manufacturer supply code and manufacturer part number exist only in the scanned Rev 9 list, and at that type size tesseract confuses 0 with O and 5 with S and picks up neighbouring column rules: Q10's MRF545 reads as 'MRFS545', C12's DD10X-90B as 'pp10x-90B'. The Fluke stock number is the identifier to order against; treat the manufacturer part number as a hint to be checked, not as data.",
+      "refs": ["Q10", "C12"] }
+  ]
+}

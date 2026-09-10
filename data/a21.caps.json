@@ -1,0 +1,93 @@
+{
+  "_comment": [
+    "Which rail each capacitor sits on, and what that rail runs at.",
+    "The rated voltage is NOT here -- it is read from the parts list",
+    "at run time, so a corrected BOM corrects this too.",
+    "Every electrolytic on A21 is a tantalum, and all of them were traced on",
+    "the sheets: the +5 LOGIC / +/-12 V decoupling row on sheet 1 zone B7,",
+    "the guarded supply row on sheet 5 zone D6, and the two 68 uF reservoirs.",
+    "Applied voltages are the generating tables' nominals: Table 2-2 (A19) for",
+    "the unguarded rails, Table 2-10 (A17) for the guarded ones, with +5 RLH",
+    "taken at the top of its 5.55-6.40 V band."
+  ],
+  "assembly": "A21",
+  "caps": {
+    "C10": {
+      "net": "+5 LOGIC",
+      "appliedV": 5.2,
+      "railClass": "A",
+      "source": "traced",
+      "note": "68 uF 15 V reservoir on the +5 LOGIC rail beside TP4, sheet 1 zone B7 (Table 2-2: 5.2 V nominal). The lowest-rated tantalum on the board, but 5.2 V on 15 V is a comfortable third."
+    },
+    "C70": {
+      "net": "+5 LOGIC",
+      "appliedV": 5.2,
+      "railClass": "A",
+      "source": "traced",
+      "note": "68 uF 15 V reservoir on the +5 LOGIC feed to the 5725A interface connector J7, sheet 4 zone A2."
+    },
+    "C11": {
+      "net": "+12V",
+      "appliedV": 12.0,
+      "railClass": "A",
+      "source": "traced",
+      "note": "10 uF 25 V on the +12 V rail, sheet 1 zone B7, beside C41."
+    },
+    "C12": {
+      "net": "-12V",
+      "appliedV": 12.0,
+      "railClass": "A",
+      "source": "traced",
+      "note": "10 uF 25 V on the -12 V rail, sheet 1 zone B7. The sheet says NOTE POLARITY ON C12: its positive end is on +5V LOGIC COMMON, the rail being negative. Entered as a magnitude."
+    },
+    "C13": {
+      "net": "-5LH",
+      "appliedV": 5.0,
+      "railClass": "A",
+      "source": "traced",
+      "note": "10 uF 25 V on the -5 LH rail at TP12, sheet 5 zone D6. The sheet says NOTE POLARITY OF C13: positive end to LH COM. Entered as a magnitude."
+    },
+    "C15": {
+      "net": "+5LH",
+      "appliedV": 5.1,
+      "railClass": "A",
+      "source": "traced",
+      "note": "10 uF 25 V on the +5 LH rail at TP11, sheet 5 zone D6 (Table 2-10: 5.1 V)."
+    },
+    "C14": {
+      "net": "+5RLH",
+      "appliedV": 6.4,
+      "railClass": "A",
+      "source": "traced",
+      "note": "10 uF 25 V on the +5 RLH rail at TP13, sheet 5 zone D6, ahead of choke L1. Table 2-10 gives +5.55 V to +6.40 V; the top of the band is used."
+    },
+    "C33": {
+      "net": "+5RLH",
+      "appliedV": 6.4,
+      "railClass": "A",
+      "source": "traced",
+      "note": "39 uF 20 V relay-supply reservoir after choke L1, sheet 5 zone D5, feeding the +VS of drivers U16/U17 and every relay coil. Top of the +5 RLH band."
+    },
+    "C46": {
+      "net": "+5 LOGIC",
+      "appliedV": 5.2,
+      "railClass": "A",
+      "source": "traced",
+      "note": "1 uF 35 V on the +5 LOGIC supply to the clock comparator U18, sheet 1 zone A6, with C48."
+    },
+    "C50": {
+      "net": "+5 LOGIC",
+      "appliedV": 5.2,
+      "railClass": "A",
+      "source": "traced",
+      "note": "1 uF 35 V from the +5 LOGIC pull-up node at U18's output (R10) to +5V LOGIC COMMON, sheet 1 zone A6, with C49."
+    },
+    "C16": {
+      "net": "U13 feedback",
+      "appliedV": 5.0,
+      "railClass": "B",
+      "source": "inferred",
+      "note": "10 uF 35 V in the feedback of the LF356 sense amplifier U13 (with R20, 200 k), sheet 3 zone D3 -- a signal integrator rather than a rail. U13 runs from +5 LH / -5 LH, so the capacitor can never see more than about 5 V; entered as that bound."
+    }
+  }
+}

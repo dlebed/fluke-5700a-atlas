@@ -1,0 +1,309 @@
+{
+  "_comment": [
+    "Hand corrections to the reader's output for A10, in pixels of the",
+    "full-resolution crops in .build/a10/ (see imageSize / sheetImageSize).",
+    "",
+    "THE BOARD. The reader found 51 of the 92 designators, 55% -- or 65% of the",
+    "78 that have a silkscreen designator at all, since the twelve H and MP parts",
+    "are rivets, screws, spacers, ejectors, a rubber foot and the heat shield and",
+    "are not lettered anywhere. Every one of the 51 was rendered and looked at,",
+    "and seven were wrong:", "",
+    "  agreed     27 of 29 right   (K4 landed on K1's label, U1 on the '5' of L5)",
+    "  ambiguous   3 of 4 right    (C1 on the 'AI' of OHMS MAIN ASSEMBLY)",
+    "  single     13 of 16 right   (K7 on C3, U7 on U1's label, Z1 on 'MAIN')",
+    "  collision   1 of 2 right    (K1 on K19's label; K19 itself was right)",
+    "",
+    "which is the usual shape: agreed is the best tier and still not a clean one.",
+    "All seven are legible on the drawing, so they are replaced by hand below",
+    "rather than dropped, along with the 29 the reader never found.", "",
+    "Two clusters caused most of the trouble. The 'OHMS MAIN ASSEMBLY' legend runs",
+    "vertically up the right-hand edge of the board and its letters read as C1 and",
+    "Z1; and K1/K4/K19 sit in a column of identical relay outlines where a marker",
+    "one row out looks entirely plausible.", "",
+    "All five test points are placed by hand as a matter of course. Each is drawn",
+    "as a short bar with its label below it, so each box spans bar and label",
+    "together -- a marker on the label alone sends a probe about 60 px high of the",
+    "pad. TP3's bar sits 23 px left of its label's centre while TP5's is dead",
+    "centre, so the boxes are not a constant offset from the lettering.", "",
+    "THE SHEETS. Sheet 1 is the resistance strings and sheet 2 the digital",
+    "section; sheets 3 and 4 carry no circuit at all (they are the relay state",
+    "tables) and get no reader pass and no placements. Every marker on sheets 1",
+    "and 2 was reviewed:", "",
+    "  sh1   77 read   51 kept   26 rejected   +  9 placed by hand   = 60",
+    "  sh2   78 read   47 kept   31 rejected   + 13 placed by hand   = 60",
+    "",
+    "The relay coil rows on sheet 2 and the relay contact groups on sheet 1 read",
+    "almost perfectly -- 38 of 38 K markers right on sheet 1, 35 of 35 on sheet 2.",
+    "Everything else did badly, and in the ways the pipeline has met before: pin",
+    "numbers read as capacitors ('16' as C10, '8' as C4, '13' as C6), package",
+    "names as capacitors ('2FCL' as C11, '4FCL' as C7), net names as networks",
+    "('INT SENSE HI' as Z2, 'RLH' as R1, '+5RLH' as VR1), and the words of U9's",
+    "own output list as the ICs they name ('U6 STB' as U6, 'U12 STB' as U12).",
+    "",
+    "Two blocks are dropped wholesale. Sheet 2's relay bottom-view legend prints",
+    "'K1-K4, K7, K9, K10, K13-K17, K28-K30, K33-K37.' and 'K18-K27, K31, K32,",
+    "K39.' as plain text beside the package drawings, and the reader placed K9,",
+    "K10, K31 and K32 on those words -- in the agreed tier, looking trustworthy.",
+    "All four are replaced with their real coil positions. Sheet 1's test point",
+    "legend at zone C1 caught TP1, TP2, TP4 and TP5 the same way; those are",
+    "replaced with the flag positions on the nets.", "",
+    "Every H and MP designator the reader found on a sheet is a misread by",
+    "construction -- rivets, screws and heat shields have no schematic symbol."
+  ],
+  "imageSize": { "w": 5700, "h": 3240 },
+  "sheetImageSize": {
+    "sh1": { "w": 6345, "h": 3806 },
+    "sh2": { "w": 6365, "h": 3832 },
+    "sh3": { "w": 6340, "h": 3810 },
+    "sh4": { "w": 6370, "h": 3822 }
+  },
+  "board": {
+    "C1": { "x": 1930, "y": 2345, "note": "Reader put it on the 'AI' of the vertical OHMS MAIN ASSEMBLY silkscreen" },
+    "C3": { "x": 2380, "y": 2320 },
+    "C6": { "x": 2912, "y": 2855, "shape": "circle", "w": 150, "h": 122, "note": "Body outline: the 4.7 uF tantalum is drawn as a circle" },
+    "C7": { "x": 3855, "y": 2665 },
+    "C11": { "x": 4450, "y": 2085 },
+    "C13": { "x": 5195, "y": 1740 },
+    "C16": { "x": 5185, "y": 665 },
+    "K1": {
+      "x": 565,
+      "y": 2865,
+      "w": 413,
+      "h": 205,
+      "shape": "rect",
+      "note": "Reader put it on K19's label, a column away. Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+    },
+    "K4": {
+      "x": 1534,
+      "y": 2332,
+      "w": 205,
+      "h": 415,
+      "shape": "rect",
+      "note": "Reader put it on K1's label. Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+    },
+    "K6": { "x": 1337, "y": 1964, "w": 570, "h": 193, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K7": {
+      "x": 564,
+      "y": 2213,
+      "w": 412,
+      "h": 205,
+      "shape": "rect",
+      "note": "Reader put it on C3. Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+    },
+    "K9": { "x": 1351, "y": 407, "w": 415, "h": 205, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K11": { "x": 461, "y": 1661, "w": 572, "h": 192, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K16": { "x": 2637, "y": 1909, "w": 204, "h": 416, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K17": { "x": 1835, "y": 409, "w": 416, "h": 204, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K20": { "x": 3265, "y": 402, "w": 728, "h": 204, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K22": { "x": 4038, "y": 1404, "w": 730, "h": 205, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K23": { "x": 3265, "y": 1042, "w": 729, "h": 202, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K24": { "x": 4037, "y": 1039, "w": 729, "h": 202, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K25": { "x": 3265, "y": 1408, "w": 729, "h": 205, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K26": { "x": 2454, "y": 405, "w": 732, "h": 205, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K27": { "x": 2467, "y": 1410, "w": 732, "h": 205, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K30": { "x": 3345, "y": 1908, "w": 204, "h": 416, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K39": { "x": 2453, "y": 1044, "w": 732, "h": 202, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "L4": { "x": 3070, "y": 2860 },
+    "L5": { "x": 3980, "y": 2665 },
+    "R1": { "x": 866, "y": 1930, "note": "Label beside the tall thin 90 MOhm body at the left of the board" },
+    "R6": { "x": 2476, "y": 2771 },
+    "U1": { "x": 2140, "y": 2348, "note": "Reader put it on the '5' of L5" },
+    "U7": {
+      "x": 4078,
+      "y": 2388,
+      "w": 580,
+      "h": 153,
+      "shape": "rect",
+      "note": "Reader put it on U1's label. Body outline measured off a pixel grid; the designator sits inside the package"
+    },
+    "U8": { "x": 4078, "y": 2089, "w": 580, "h": 158, "shape": "rect", "note": "Body outline measured off a pixel grid; the designator sits inside the package" },
+    "U9": { "x": 4300, "y": 2662, "w": 444, "h": 100, "shape": "rect", "note": "Body outline measured off a pixel grid; the designator sits inside the package" },
+    "U11": { "x": 4810, "y": 1008, "w": 580, "h": 153, "shape": "rect", "note": "Body outline measured off a pixel grid; the designator sits inside the package" },
+    "VR1": { "x": 2388, "y": 2771 },
+    "Z1": { "x": 1712, "y": 1210, "note": "Reader put it on the 'MAIN' of the OHMS MAIN ASSEMBLY silkscreen" },
+    "Z3": { "x": 1435, "y": 1210 },
+    "TP1": { "x": 2158, "y": 2723, "w": 95, "h": 80, "note": "Pad is a horizontal bar just above the label" },
+    "TP2": { "x": 1372, "y": 2688, "w": 100, "h": 125, "note": "Pad bar above the label" },
+    "TP3": { "x": 1485, "y": 2688, "w": 100, "h": 125, "note": "Pad bar above the label and 23 px left of its centre" },
+    "TP4": { "x": 873, "y": 2688, "w": 100, "h": 125, "note": "Pad bar above the label" },
+    "TP5": { "x": 1244, "y": 2688, "w": 100, "h": 125, "note": "Pad bar above the label" },
+    "K2": { "x": 1022, "y": 2331, "w": 203, "h": 415, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K3": { "x": 1271, "y": 2331, "w": 205, "h": 415, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K5": { "x": 471, "y": 2540, "w": 615, "h": 338, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K8": { "x": 460, "y": 1938, "w": 571, "h": 192, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K10": { "x": 565, "y": 604, "w": 415, "h": 202, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K12": { "x": 460, "y": 1399, "w": 571, "h": 192, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K13": { "x": 565, "y": 864, "w": 414, "h": 202, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K14": { "x": 565, "y": 1138, "w": 414, "h": 203, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K15": { "x": 2164, "y": 1910, "w": 205, "h": 416, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K18": { "x": 4037, "y": 401, "w": 730, "h": 204, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K19": { "x": 4037, "y": 701, "w": 730, "h": 205, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K21": { "x": 3265, "y": 703, "w": 728, "h": 206, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K28": { "x": 2610, "y": 705, "w": 418, "h": 206, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K29": { "x": 3111, "y": 1908, "w": 205, "h": 416, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K31": { "x": 3149, "y": 2369, "w": 728, "h": 204, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K32": { "x": 3149, "y": 2616, "w": 730, "h": 203, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K33": { "x": 3646, "y": 2498, "w": 206, "h": 412, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K34": { "x": 3593, "y": 1908, "w": 208, "h": 416, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K35": { "x": 2872, "y": 1909, "w": 206, "h": 416, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K36": { "x": 2399, "y": 1910, "w": 203, "h": 417, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K37": { "x": 2149, "y": 706, "w": 414, "h": 206, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K38": { "x": 2636, "y": 2487, "w": 204, "h": 411, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U10": { "x": 4868, "y": 2649, "w": 433, "h": 89, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U12": { "x": 4811, "y": 1349, "w": 573, "h": 142, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U13": { "x": 4814, "y": 2388, "w": 573, "h": 141, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U2": { "x": 4812, "y": 1717, "w": 573, "h": 142, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U3": { "x": 4809, "y": 673, "w": 572, "h": 141, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U5": { "x": 4813, "y": 2046, "w": 573, "h": 141, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U6": { "x": 4079, "y": 1786, "w": 572, "h": 142, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "C4": { "x": 2385, "y": 2513, "w": 176, "h": 176, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" }
+  },
+  "_notOnDrawingComment": [
+    "Twelve mechanical parts with no silkscreen designator. MP1 and MP2, the",
+    "swaged brass spacers, are the only ones drawn at all -- two rings near the",
+    "left edge -- and nothing on the drawing says which ring is which, so neither",
+    "is placed. The rest (rivets, screws, ejectors, the rubber foot and the heat",
+    "shield) have no outline either. They stay searchable in the parts list."
+  ],
+  "notOnDrawing": ["H3", "H4", "H5", "H6", "H7", "H8", "MP1", "MP2", "MP3", "MP4", "MP6", "MP7"],
+  "_dropSchematicComment": [
+    "Reads reviewed by eye and rejected. Grouped by what the reader actually saw.",
+    "Anything replaced by a hand placement below is not listed here -- a hand",
+    "placement already supersedes the read for that sheet."
+  ],
+  "dropSchematic": {
+    "sh1": [
+      "H5", "H7", "MP1", "MP2", "MP3", "MP4", "MP7", "Z2", "U3", "U5", "U6",
+      "U7", "U8", "C6", "C7", "C11", "L4", "L5"
+    ],
+    "sh2": [
+      "H5", "H6", "H7", "H8", "MP1", "MP3", "MP4", "MP7", "U1", "U6", "U9",
+      "U10", "U12", "Z1", "Z2", "R1", "R2", "R5", "VR1", "L4", "L5", "C1",
+      "C4", "TP1", "TP5"
+    ]
+  },
+  "_schematicComment": [
+    "Hand placements on the sheets. The five test points are placed on their flag",
+    "symbols on sheet 1, checked against the signal name printed beside each one:",
+    "TP1 on S COM at P302 32A/32C, TP2 on OHMS SENSE LO at P301 25A/25C, TP3 on",
+    "OHMS OUT LO at 24A/24C, TP4 on INT OUT HI at 30A/30C and TP5 on INT SENSE HI",
+    "at 28A/28C -- all five agreeing with the legend box at zone C1. No test point",
+    "appears on sheet 2 at all: its only commons are LH COM and RLH COM.",
+    "",
+    "K9, K10, K31 and K32 on sheet 2 are their coils in the latching-relay rows,",
+    "replacing the legend text the reader read instead. C10, C11 and C12 are the",
+    "5801 decoupling capacitors, each printed just below and right of its driver's",
+    "designator at the same offset C16 has from U3."
+  ],
+  "schematic": {
+    "sh1": {
+      "TP1": { "x": 607, "y": 2519, "w": 110, "h": 127, "note": "Flag on S COM, zone B8" },
+      "TP2": { "x": 1078, "y": 3232, "w": 107, "h": 125, "note": "Flag on OHMS SENSE LO, zone A7" },
+      "TP3": { "x": 1273, "y": 3232, "w": 107, "h": 125, "note": "Flag on OHMS OUT LO. The legend prints A8; the flag is in A7" },
+      "TP4": { "x": 742, "y": 208, "w": 115, "h": 125, "note": "Flag on INT OUT HI, zone D8" },
+      "TP5": { "x": 742, "y": 663, "w": 115, "h": 125, "note": "Flag on INT SENSE HI, zone D8" },
+      "C2": { "x": 1000, "y": 2072, "note": "Reader had it as a collision and dropped it" },
+      "C4": { "x": 805, "y": 2072, "note": "Reader put it on pin 8 of K1" },
+      "K15": { "x": 3417, "y": 1261, "w": 130, "h": 50, "note": "Reader had it as a collision with MP3 and dropped both" },
+      "Z2": { "x": 2484, "y": 1975, "note": "Label at the foot of the 9K element; reader put it on the INT SENSE HI net name" }
+    },
+    "sh2": {
+      "C10": { "x": 2725, "y": 1024, "note": "U5 decoupling" },
+      "C11": { "x": 2725, "y": 1869, "note": "U6 decoupling" },
+      "C12": { "x": 2719, "y": 2714, "note": "U11 decoupling" },
+      "K9": { "x": 1148, "y": 3075, "note": "Coil in the U13 row; reader had it on the package legend text" },
+      "K10": { "x": 1424, "y": 3075, "note": "Coil in the U13 row; reader had it on the package legend text" },
+      "K31": { "x": 3147, "y": 1328, "note": "Coil in the U8 row; reader had it on the package legend text" },
+      "K32": { "x": 3427, "y": 1328, "note": "Coil in the U8 row; reader had it on the package legend text" },
+      "L4": { "x": 678, "y": 1417, "note": "6T choke in the +5 RLH entry from P302 23A/23C" },
+      "L5": { "x": 678, "y": 1727, "note": "6T choke in the +5 LH entry from P302 22A/22C" },
+      "U6": { "x": 2652, "y": 1832, "note": "Reader put it on the words 'U6 STB' in U9's output list" },
+      "U9": { "x": 1445, "y": 1230, "note": "The 4028, LATCHING RELAY STROBE DECODING" },
+      "U10": { "x": 1460, "y": 1963, "note": "The 74HC138, LATCHING RELAY ENABLE DECODING" },
+      "U12": { "x": 2657, "y": 3522, "note": "Reader put it on the words 'U12 STB' in U9's output list" }
+    }
+  },
+  "_sheetsComment": [
+    "The zone grid for each sheet, measured as the inner border of the frame in",
+    "pixels of that sheet's own crop and normalised. The crops are cut to the",
+    "OUTER border, so the inner frame sits about 60 px inside on every side and",
+    "the zone-label band lies between the two. On sheets 1 and 3 the frame's left",
+    "border is off the page in the scan, so the crop starts at x=0 and the left",
+    "band is already lost; the numbers below are still the inner frame."
+  ],
+  "sheets": {
+    "sh1": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.00615, "y0": 0.01682, "x1": 0.98944, "y1": 0.98345 }
+      }
+    },
+    "sh2": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.00974, "y0": 0.01618, "x1": 0.98979, "y1": 0.9833 }
+      }
+    },
+    "sh3": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.00552, "y0": 0.0168, "x1": 0.98975, "y1": 0.9832 }
+      }
+    },
+    "sh4": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.00989, "y0": 0.01675, "x1": 0.9898, "y1": 0.98352 }
+      }
+    }
+  },
+  "_layersComment": [
+    "Photo alignment. src is board/drawing space, dst is photo image space, and",
+    "the homography solved from these maps board -> photo.", "",
+    "The photograph is in the same orientation as the locator drawing and at",
+    "nearly the same scale, but it is about 6% shorter vertically relative to it,",
+    "so a translation alone will not do -- the offset at the top of the board is",
+    "130 px and in the middle it is 15.", "",
+    "Every landmark is a silkscreen OUTLINE corner or a component body, never an",
+    "ejector, standoff or mounting hole -- those stand proud of the board and show",
+    "real parallax -- and never a designator's lettering, because A10 is one of",
+    "the boards where the drawing moves text inside the part outline and the",
+    "board does not: K5 is lettered inside its box on the drawing and outside it",
+    "on the board, 200 px away.", "",
+    "Marked approximate: the six pairs were measured by eye off a labelled pixel",
+    "grid rather than by cross-correlation, and the residuals are of the order of",
+    "25 px in board space. Good enough to line the photo up with the markers, not",
+    "good enough to measure with."
+  ],
+  "layers": {
+    "photo": {
+      "approximate": true,
+      "landmarks": [
+        {
+          "note": "photo corner, top left",
+          "src": [-0.01671, -0.05867],
+          "dst": [0.0, 0.0]
+        },
+        {
+          "note": "photo corner, top right",
+          "src": [1.00077, -0.0511],
+          "dst": [1.0, 0.0]
+        },
+        {
+          "note": "photo corner, bottom right",
+          "src": [1.01377, 1.01163],
+          "dst": [1.0, 1.0]
+        },
+        {
+          "note": "photo corner, bottom left",
+          "src": [-0.02348, 1.03267],
+          "dst": [0.0, 1.0]
+        }
+      ]
+    }
+  }
+}

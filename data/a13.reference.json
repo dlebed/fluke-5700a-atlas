@@ -1,0 +1,279 @@
+{
+  "_comment": [
+    "Curated A13 reference data, hand-authored from the 1996 Series II service",
+    "manual text layer (§2-118 and §2-130 to §2-138 for the circuit descriptions,",
+    "§5-2 for the fault codes, §5-18 for the procedure) and checked against",
+    "Figure 7-15 sheets 1-3 and Table 6-16 in both revisions.",
+    "",
+    "Unlike every assembly added before it, A13 has no curated study document in",
+    "../MD/. Everything here was read out of the manual directly, and where a",
+    "statement is a reading of the schematic rather than a sentence of the manual",
+    "the entry says so.",
+    "",
+    "The fault codes are the 3400 block, which A13 shares with A12. Six codes name",
+    "A13 alone (3404-3409, 3424, 3427), two name both boards in the title and",
+    "return an A13 verdict (3410, 3411), one is genuinely ambiguous (3425), and",
+    "five more -- 3412 to 3416 -- carry an 'A12/A13' title but a verdict of A12",
+    "and a measurement made on A12. Those five are not repeated here; they belong",
+    "to A12's dataset, and a caveat below says so rather than leaving a gap in the",
+    "numbering unexplained."
+  ],
+
+  "overview": {
+    "summary": "The calibrator's ac signal source. A13 generates a sine wave from 0.22 V to 22 V over 10 Hz to 1.1999 MHz, in five frequency ranges (100 Hz, 1 kHz, 10 kHz, 100 kHz, 1 MHz) selected by latching relays K1-K3 and two voltage ranges (2.2 V and 22 V) selected by K4. Everything above 22 V in the instrument starts here: the Power Amplifier, the High Voltage assemblies, the Current function, the Switch Matrix and the Wideband module all take OSC OUT HI from this board. Four blocks make it up. A double-integrator quadrature RC oscillator (U3 summing, U6 and U9 integrating, with resistive DACs U5 and U7 setting frequency inside a range) produces four equal-amplitude phases 90 degrees apart. An amplitude control loop rectifies those four phases through CR1-CR4 and Z6, compares the result with a -12 V reference in error integrator U18, and trims the loop phase through multiplier U16. A phase-locked loop -- zero crossing detectors U23, phase detector U22/U21, charge pumps CR5-CR8, loop filter U31A with range capacitors C75-C84 selected by U17 -- pulls the oscillator onto an external reference from A7 or the rear panel. And a 0.22-22 V gain-controlled output amplifier built round the A13A1 daughter card (U30 on the silkscreen) with a bootstrapped complementary Darlington output stage drives the binding posts. A13 does not set its own amplitude: A12 measures the output and returns OSC CONT, so the two boards are one servo split across a motherboard.",
+    "sections": "§2-118, §2-130 … §2-138",
+    "note": "A13 makes almost none of its own power. +/-44 S, +/-17 S, +/-15 S, +/-5 LH, LH COM, +5 RLH and RLH COM all arrive from the Regulator/Guard Crossing assembly (A17) on P512. Three rails are local: U2, a 7912, makes -12 S from -17 S; chokes L1 and L2 with C106/C107 make +5 S and -5 S from +5 LH and -5 LH; and R58/R59 divide +15 S down to the +1.4 V bias used by the zero crossing detectors and the loop filter. The digital section runs on +5 LH referenced to LH COM, and the relay drivers on +5 RLH referenced to RLH COM, so those two commons are not SCOM and a meter left on TP1 will read them wrong."
+  },
+
+  "railCircuits": {
+    "OSC": {
+      "rails": "INT OSC OUT, QUADRATURE AMP OUT, SUMMING AMP OUT, ERROR INTERGRATOR OUT",
+      "regulators": ["U3", "U6", "U9", "U8", "U5", "U7", "U16", "U18"],
+      "filters": ["C19", "C21", "C22", "C24", "C25", "C37", "C38", "C40", "C41"],
+      "rectifier": ["CR1", "CR2", "CR3", "CR4"],
+      "tps": ["TP3", "TP4", "TP5", "TP6"],
+      "note": "A double-integrator oscillator: U3 is a unity-gain inverting summing amplifier providing 180 degrees, and U6 (quadrature) and U9 (oscillator) are RC integrators providing -90 degrees each with a -20 dB/decade slope. Relays K1B/K2B/K3B select C25, C24, C22 and C21 as U6's feedback for 100 Hz, 1 kHz, 10 kHz and 100 kHz; on the 1 MHz range all four are switched out and C19 alone remains. K1A/K2A/K3A do the same for U9 with C41, C40, C38 and C37. Frequency inside a range is set by resistive DACs U5 and U7 under the FREQ DATA bus, whose equivalent resistance is R = (256/X) x 2 kohm. Oscillation happens where the loop gain is unity, at F = 1/(2 x pi x R x C). U8 inverts U6's output to make the fourth phase; CR1-CR4 and Z6 rectify and sum all four into a dc measure of amplitude, which U18 compares against -12 S through R42/R43 and feeds to multiplier U16 to trim the loop phase. On the 100 Hz range LFCOMP* and comparator U20A turn FET Q6 off.",
+      "source": "§2-132, §2-133"
+    },
+    "OUT": {
+      "rails": "OSC OUT HI, ISOLATED OSC OUT HI",
+      "regulators": ["Q13", "Q8", "Q14", "Q10", "Q11", "Q16", "Q17", "U11", "U10", "K4", "R28", "R29"],
+      "protection": ["Q9", "R91", "Q15", "R99", "VR3", "VR4"],
+      "filters": ["C116", "C117", "C7", "C8"],
+      "tps": ["TP2", "TP10"],
+      "note": "An inverting wide-band low-distortion amplifier. The gain block is the Oscillator Wideband SMD PCA (A13A1) -- 'U30' on the silkscreen, 'A1' in the Rev 9 parts list -- and the output stage is a bootstrapped complementary Darlington emitter follower. K4 selects R28 for the 2.2 V range and R29 for the 22 V range, and changes the open-loop response with it. Coarse gain comes from resistive DAC U11 on the AMPL DATA bus; fine gain from multiplier U10, whose control input OSC CONT arrives from A12. The daughter card's Q7 and Q8 drive this board's Q8 and Q14, which drive the paralleled pairs Q10/Q11 (positive) and Q16/Q17 (negative), bootstrapped by VR3 and VR4 and biased by the J9010 current-regulator diodes CR13-CR20. Current limiting is Q9 across R91 on the positive side and Q15 across R99 on the negative. S1 pulls the daughter card's input low for the step 8 resistor check. TP10 is the same node as TP2 through R110.",
+      "source": "§2-135, §2-136, §2-137"
+    },
+    "PLL": {
+      "rails": "P LOCK HI, LOOP FILTER OUT",
+      "regulators": ["U23", "U22", "U21", "U31", "U17", "U15", "U19"],
+      "rectifier": ["CR5", "CR6", "CR7", "CR8"],
+      "filters": ["C75", "C76", "C77", "C78", "C79", "C80", "C81", "C82", "C83", "C84", "Z1"],
+      "tps": ["TP7", "TP9"],
+      "note": "Locks the oscillator to an external reference -- the High-Resolution Oscillator on A7, or the rear-panel PHASE LOCK IN jack -- to get frequency accuracy the RC loop cannot. Capture range is about +/-5 percent of the nominal output frequency. Pulse transformer L15 isolates P LOCK HI / P LOCK LO at P512; U23A and U23B square up the two signals, and the 74F112 phase detector U22 with U21 looks for the falling edge of each. Whichever arrives first turns on its charge pump (CR5/CR6 positive, CR7/CR8 negative) until the other transitions, so the faster signal pulses its pump and the slower one stays off. U31A integrates the accumulated charge with C75-C84 through Z1, selected per range by U17 on the PLOCK RNG bus, and drives multipliers U15 and U19, which change the unity-gain frequency of the two integrators. In the 22 V range and below the loop compares SUMMING AMP OUT; above it, control line 0/180 and U31B turn on Q7 to select INT OSC OUT instead, because the Power Amplifier and High Voltage outputs are 180 degrees out of phase with A13's.",
+      "source": "§2-134"
+    },
+    "PHASE": {
+      "rails": "P SHIFT HI, P SHIFT LO",
+      "regulators": ["U27", "U28", "U29", "U33"],
+      "filters": ["Z4", "Z5"],
+      "tps": ["TP8"],
+      "note": "A fixed-amplitude, variable-phase copy of the output for the rear panel. Z4 and Z5 divide the oscillator's four phases; dual four-channel multiplexer U27, on the PHASE bus from latch U33, picks any two adjacent phases; dual monolithic DAC U28 scales them under DAC STRB and DAC SEL; and U29 sums the pair. Scaling two signals 90 degrees apart gives any phase inside that quadrant, and choosing the quadrant gives the full 360 degrees.",
+      "source": "§2-138"
+    },
+    "SUPPLY": {
+      "rails": "-12 S, +5 S, -5 S, +1.4 V",
+      "regulators": ["U2", "R58", "R59"],
+      "filters": ["L1", "L2", "C2", "C94", "C95", "C96", "C97", "C98", "C99", "C106", "C107"],
+      "tps": ["TP1"],
+      "note": "The only rails A13 makes for itself. U2 is a 7912 taking -17 S in and putting -12 S out, decoupled by C99 and C2; it is the -12 V the error integrator sums against through R42/R43, so a fault here presents as an amplitude fault rather than as a dead board. L1 and L2 are 6-turn chokes converting +5 LH and -5 LH into the quieter +5 S and -5 S used by the analog switches and comparators, filtered by C106 and C107 to SCOM. R58 (47k) and R59 (4.7k) divide +15 S to +1.4 V. Everything else comes in on P512 from A17: +/-44 S on 28 and 29, +/-17 S on 30 and 31, SCOM on 32, +/-15 S on 20 and 21, +5 LH on 22, LH COM on 24, -5 LH on 26, +5 RLH on 23 and RLH COM on 25.",
+      "source": "§2-130; Figure 7-15 sheet 3 zones C8 to A8"
+    },
+    "COM": {
+      "rails": "SCOM / OS COM, ACOM, LH COM, RLH COM",
+      "tps": ["TP1"],
+      "note": "TP1 is SCOM, which is one node with ACOM and with OS COM at P511 pins 22A/22C, and it is the reference for every §5-18 measurement. It is not the only common on the board: the digital section returns to LH COM (P512 24A/24C) and the relay drivers to RLH COM (P512 25A/25C). Neither has a test point.",
+      "source": "Figure 7-15 sheets 2 and 3"
+    }
+  },
+
+  "faultCodes": [
+    {
+      "code": "3404",
+      "title": "A13: 8255 Control Word",
+      "measure": "The diagnostics read back the control word of the 82C55 (U26).",
+      "expected": "The control word reads back as written",
+      "verdict": "A failure indicates the Oscillator Output assembly (A13) is probably at fault. Nothing else on the board can be trusted while this fails: U26 drives every latch, the relay driver and the diagnostic multiplexer, so the other 34xx measurements are made through hardware that is not known to be listening.",
+      "refs": ["U26"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3405",
+      "title": "A13: 8255 Port A",
+      "measure": "The diagnostics write and read data to port A of U26.",
+      "expected": "Data written to port A reads back",
+      "verdict": "A failure indicates the Oscillator Output assembly (A13) is probably at fault. Port A is the common input bus to U24, U12, U32, U33 and U28, so this failing means no relay, no dac and no latch on the board can be set.",
+      "refs": ["U26", "U24", "U12", "U32", "U33", "U28"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3406",
+      "title": "A13: 8255 Port B",
+      "measure": "The diagnostics read port B of U26 during the instrument's dormant state.",
+      "expected": "Port B reads back correctly",
+      "verdict": "A failure indicates the Oscillator Output assembly (A13) is probably at fault. Port B carries PLOCK RNG (PB0-PB2) to loop filter multiplexer U17, the 0/180 line (PB4) to Q7 through U31B, LFCOMP* (PB6) to Q6 through U20A, and HFCOMP* (PB7) out to A12.",
+      "refs": ["U26", "U17", "U31", "U20", "Q6", "Q7"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3407",
+      "title": "A13: 8255 Port C",
+      "measure": "The diagnostics read port C of U26 during the instrument's dormant state.",
+      "expected": "Port C reads back correctly",
+      "verdict": "A failure indicates the Oscillator Output assembly (A13) is probably at fault. Port C is all clocking and enabling: PC0 clocks U32 (FREQ DATA), PC1 clocks U12 (AMPL DATA), PC2 clocks U33 (PHASE and MUX), PC3 strobes and PC6 enables relay driver U24, PC4 and PC5 are DAC STRB and DAC SEL for U28, and PC7 is INH for diagnostic multiplexer U25. U24 has to stay enabled for 10 ms for the latching relays to latch properly.",
+      "refs": ["U26", "U32", "U12", "U33", "U24", "U28", "U25"],
+      "source": "§5-2, §2-131"
+    },
+    {
+      "code": "3408",
+      "title": "A13: Fixed Ampl. Osc Fault",
+      "measure": "The instrument is set for 1 V ac at 100 Hz, 1 kHz, 10 kHz, 100 kHz and 1 MHz in turn. INTEGRATOR OUT -- the output of error integrator U18, which is also TP6 -- is read through the Z2/Z3 divider and multiplexer U25 on the SDL line, and measured by the adc on the DAC assembly (A11).",
+      "expected": "0 V ±1 V at 100 Hz, 1 kHz and 10 kHz; ±2 V at 100 kHz; ±5 V at 1 MHz",
+      "com": "SCOM (TP1)",
+      "hi": "TP6",
+      "verdict": "A failure indicates the Oscillator Output assembly (A13) is probably at fault. This is the amplitude control loop's own error signal, so a reading against the stop means the loop has run out of range rather than that any one part is dead: §5-18 step 5 works the same circuit from the other end, checking CR1-CR4 and Z6 first, then that U18 inverts, then U16.",
+      "refs": ["TP6", "U18", "U16", "Z6", "CR1", "CR2", "CR3", "CR4", "U3", "U6", "U9", "R42", "R43"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3409",
+      "title": "A13: Phase Lock Loop Fault",
+      "measure": "The instrument is set for 1 V ac at each of the five frequency ranges. LOOP FILTER OUT -- the output of U31A, which is also TP7 -- is read on the SDL line.",
+      "expected": "0 V ±5 V",
+      "com": "SCOM (TP1)",
+      "hi": "TP7",
+      "verdict": "A failure indicates the Oscillator Output assembly (A13) is probably at fault. Out of band here means the loop filter has railed, which is what an unlocked loop looks like: §5-18 step 11c expects +13 V or -13 V when the loop is not locked. Whether that is the filter's fault or the detectors' is settled at U23 pins 7 and 12 and U22 pins 5 and 7.",
+      "refs": ["TP7", "U31", "U17", "Z1", "U22", "U21", "U23", "CR5", "CR6", "CR7", "CR8", "U15", "U19"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3410",
+      "title": "A12/A13: 22V Amp Bias Adj Error",
+      "measure": "The instrument is set for 1 V and then 10 V at 1 kHz. Signal AMP1, which comes from the A13A1 daughter card, is read on the SDL line.",
+      "expected": "AMP1 at or below 500 mV. The code fires when AMP1 is greater than 500 mV but less than 2 V",
+      "com": "SCOM (TP1)",
+      "verdict": "A failure indicates the Oscillator Output assembly (A13) is probably at fault, and the manual is specific about where: check the zero adjustment of potentiometer R30 on the Oscillator Wideband SMD (A13A1) assembly. That potentiometer is on the daughter card, not on A13's own parts list. The title names A12 as well because A12 is what measures the output amplitude in normal operation, but the verdict here is A13.",
+      "refs": ["S1", "R87"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3411",
+      "title": "A12/A13: 22V Amp Nonfunctional",
+      "measure": "The instrument is set for 1 V and then 10 V at 1 kHz. Signal AMP1 from the A13A1 daughter card is read on the SDL line.",
+      "expected": "AMP1 at or below 500 mV. The code fires when AMP1 is greater than 2 V",
+      "com": "SCOM (TP1)",
+      "verdict": "A failure indicates the Oscillator Output assembly (A13) is probably at fault. This is 3410's larger sibling: the same measurement, past the point where a zero adjustment could explain it. Go to §5-18 step 8 -- S1 to the test position, 1 V ±20 % across R87, then about +3.2 V at TP2 -- which is the published way to decide between this board's output stage and the daughter card.",
+      "refs": ["S1", "R87", "TP2", "Q8", "Q14", "Q10", "Q11", "Q16", "Q17", "Q13"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3424",
+      "title": "Assembly A13 Missing",
+      "measure": "At power-up the instrument checks which assemblies are not installed, by seeing whether the Oscillator Output assembly responds.",
+      "expected": "A13 responds",
+      "verdict": "A failure indicates the Oscillator Output assembly (A13) is probably at fault. Before suspecting the board, check that it is seated: everything the CPU uses to reach it -- CS9* on P512 1A/1C, the data bus on 13A to 16C, A0/A1 on 11A/11C, RD* on 12C, WR* on 12A and POP on 10A -- arrives on the one connector.",
+      "refs": ["P512", "U26", "R107", "R108", "R109"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3425",
+      "title": "Assembly A12 Or A13 Not Responding",
+      "measure": "Communication with both Oscillator assemblies is checked.",
+      "expected": "Both assemblies respond",
+      "verdict": "A failure indicates that one or both assemblies are not responding, and the manual goes no further than that. It is the one code in the block that does not choose a board. Read it with 3423 (A12 missing) and 3424 (A13 missing): if either of those is also present, that is the board to start on; if neither is, look at what the two share, which is the guarded digital bus on the motherboard.",
+      "refs": ["P512", "U26"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3427",
+      "title": "A13: 8255 Was Reset",
+      "measure": "The control word of the 82C55 (U26) is read back.",
+      "expected": "The control word still holds what was written to it",
+      "verdict": "A failure indicates the Oscillator Output assembly (A13) is probably at fault. Distinct from 3404: the control word is not wrong, it has gone back to its reset state, which points at the POP reset line (P512 pin 10A, through R107 and C105 to U26 pin 35) or at the +5 LH supply glitching rather than at the 82C55 itself.",
+      "refs": ["U26", "R107", "C105", "P512"],
+      "source": "§5-2"
+    }
+  ],
+
+  "componentNotes": {
+    "U2": "7912, the only regulator on the board: -12 S from -17 S. Its output is the reference the error integrator sums against through R42/R43, so if it sags the oscillator amplitude moves with it and the symptom looks like an amplitude control fault rather than a supply fault.",
+    "U3": "The unity-gain inverting summing amplifier, and the element whose exact gain and phase the amplitude control and phase-locked loops trim to satisfy the two conditions for oscillation: 360 degrees of loop phase and unity gain. EL2006CG in a TO-8 can with a radial heat sink (one of HS1-HS3).",
+    "U6": "Quadrature amplifier -- the first RC integrator. K1B, K2B and K3B select C25, C24, C22 or C21 as its feedback for the four lower ranges; on the 1 MHz range only C19 remains. Its input resistance is resistive dac U5 on the FREQ DATA bus.",
+    "U9": "Oscillator amplifier -- the second RC integrator, identical in function to U6, with U7 as its input resistance and K1A/K2A/K3A selecting its feedback capacitors. Its output is INT OSC OUT at TP3.",
+    "U8": "Inverts the quadrature amplifier's output to make the fourth of the four equal-amplitude phases. §5-18 checks pin 6 for polarity alongside TP3, TP4 and TP5.",
+    "U16": "The amplitude control multiplier: a linear variable resistance whose value is inversely proportional to the error integrator's output. Zero control voltage means infinite resistance; a negative one means a negative resistance. It injects a small out-of-phase current into the summing amplifier, which is how the loop stabilises amplitude by moving phase.",
+    "U18": "Error integrator. Sums the rectified four-phase dc from Z6 against the -12 S reference through R42 and R43. TP6 is its output.",
+    "U11": "Resistive dac, coarse gain control of the output amplifier, on the AMPL DATA bus. Identical part to U5 and U7 (stock 793885) -- the difference is which bus drives it.",
+    "U10": "The gain control multiplier. Its control input is OSC CONT from the Oscillator Control assembly (A12), which is how A12 adjusts A13's amplitude. Range is only a few dac counts, so it is fine trim on top of U11's coarse steps.",
+    "U17": "Selects which pair of C75-C84 is in the loop filter's feedback, and so the loop's crossover frequency: C83/C84 for 100 Hz, C81/C82 for 1 kHz, C79/C80 for 10 kHz, C77/C78 for 100 kHz, C75/C76 for 1 MHz.",
+    "U25": "The diagnostic multiplexer, a 4051. It puts one of ±44 S, ±15 S, INTEGRATOR OUT, LOOP FILTER OUT or AMP1 onto the SDL line through the Z2/Z3 divider and R2, to be measured by the adc on the DAC assembly (A11). Every 34xx voltage measurement passes through it. §5-18's preamble strapping SDL to TP1 disables all of them.",
+    "U26": "82C55 programmable peripheral interface, the board's entire digital control. Three ports, 24 outputs, reached over the guarded digital bus.",
+    "U24": "5801 latching relay driver for K1-K4. Strobed by PC3 and enabled by PC6, and the enable must be held for 10 ms or the relays will not latch.",
+    "S1": "Slide switch. Left is 'test' and pulls the input of the A13A1 output stage low so the output stage can be checked on its own; right is 'operate'. §5-18 step 8d says to put it back, and left in test the board produces no output.",
+    "R87": "100 ohms. §5-18 step 8b measures the drop across it with S1 in test and expects 1 V ±20 %, which is the A13A1's 10 mA mid-stage current source doing its job.",
+    "R110": "1 kohm between OSC OUT HI and TP10. It is what makes TP10 the safe place to hang a scope probe on the output.",
+    "L15": "Designated as an inductor but described in both parts lists as TRANSFORMER, PULSE. It isolates the incoming P LOCK HI / P LOCK LO pair from the phase-locked loop's zero crossing detector; TP9 is on its secondary.",
+    "Z6": "The summing network for the four rectified oscillator phases. §5-18 step 5 names it and CR1-CR4 as the first things to check when there is no 100 Hz oscillation.",
+    "Z2": "10 kohm network, the upper half of the diagnostic divider ahead of U25. Changed between revisions -- 601911 at ±2 % in the 1996 list, 364000 at ±5 % in Rev 9.",
+    "K1": "4 Form C latching relay. Its A section switches the oscillator amplifier's feedback capacitor and its B section the quadrature amplifier's; K1-K3 together select the frequency range.",
+    "K4": "Selects R28 for the 2.2 V range and R29 for the 22 V range as the output amplifier's feedback, and changes the open-loop response with it. §5-18 step 10 sends you here when the 22 V range is wrong and the 2.2 V range is right.",
+    "Q7": "N-DMOS FET. Control line 0/180, through comparator U31B, turns it on to feed INT OSC OUT rather than SUMMING AMP OUT to the zero crossing detector, because the Power Amplifier and High Voltage outputs are 180 degrees out of phase with A13's.",
+    "Q6": "N-JFET turned off by LFCOMP* through comparator U20A on the 100 Hz range, which changes the error integrator's compensation.",
+    "Q9": "Positive-side current limit. An overcurrent drop across R91 turns Q9 on, which steals base drive from Q11.",
+    "Q15": "Negative-side current limit, the mirror of Q9, working against R99.",
+    "MP8": "The oscillator air duct. It comes off to troubleshoot and it is part of the cooling design for the output stage -- do not leave the board running on the extender without it for longer than a measurement takes."
+  },
+
+  "caveats": [
+    {
+      "title": "The assembly's own part number is given two different ways in one manual",
+      "text": "The Manual Status Information table at the front of Chapter 6 lists A13 as Fluke 1607704 at revision level 003. Table 6-1, Front Panel Final Assembly, in the same chapter lists it as 761148. The photographed board settles which one you will find on a bench: its silkscreen reads OSCILLATOR OUTPUT 761148 REV H, with the etch number 5700A-3051 REV N alongside. This dataset carries 761148 REV H because that is what is printed on the board; 1607704 is most likely the later replacement assembly number, and is what to quote when ordering.",
+      "refs": []
+    },
+    {
+      "title": "The A13A1 daughter card has three names and is not in the 1996 parts list",
+      "text": "The board that actually drives the 22 V output is called the Oscillator Wideband SMD PCA in the manual text (§2-136), U30 on this board's silkscreen and schematic, and A1 in the Rev 9 Table 6-16 -- where its row carries no stock number and the note 'NON PROCURABLE. ORDER NEXT HIGHER ASSEMBLY'. The 1996 Table 6-16 does not list it at all; it appears there only as Table 6-17, its own parts list, and as Fluke 761403 in Table 6-1. Because no designator for it survives into this board's parts list, it has no marker here and nothing in the dataset links to it, even though §5-18 step 8, fault 3410 and fault 3411 all end by pointing at it. Its own components -- including R30, the zero adjustment fault 3410 names -- are in Table 6-17 and on Figure 7-16, which is Chapter 7 page 63.",
+      "refs": ["S1", "R87", "TP2"]
+    },
+    {
+      "title": "Fault codes 3412 to 3416 are titled A12/A13 but measure and blame A12",
+      "text": "The 3400 block runs 3404-3411 for A13 and 3412-3416 under 'A12/A13' titles: 22V Amp Bias Adj Error, DAC Nonfunctional, Nonlinear Control Loop, DAC 15th Bit Fault. Read the bodies and 3412 to 3416 all measure a signal on the Oscillator Control assembly -- VREF, 14 BIT DAC OUT, ERROR INT. OUT -- and every one returns 'the Oscillator Control assembly (A12) is probably at fault'. They are not repeated in this dataset because none of them measures anything on A13, and 3416 even names a part (FET Q19) that does not exist here. The two that share a title and do return an A13 verdict, 3410 and 3411, are included. If you are chasing an amplitude problem, expect to work both boards.",
+      "refs": []
+    },
+    {
+      "title": "The chip select for A13 is CS9* on the schematic and CS10* in the address map",
+      "text": "Figure 7-15 sheet 3 labels the line arriving on P512 pins 1A/1C as CS9* and takes it to pin 6 of U26 through R108. The inguard address map in §2-78 assigns 4048-404F / CS10* to the Oscillator Output (A13) and 4040-4047 / CS9* to the Oscillator Control (A12). Both cannot be right. The schematic is the drawing of this board and is the safer of the two to probe against; the address map is the safer thing to quote when reasoning about what the CPU is doing. Worth resolving against A12's own sheet before relying on either.",
+      "refs": ["P512", "U26", "R108"]
+    },
+    {
+      "title": "§2-137 names CR11 where the schematic shows CR19",
+      "text": "The output stage theory lists the current sources that bias the bootstrapped transistors as 'CR13, CR14, CR17, CR18, CR15, CR16, CR11, and CR20'. Figure 7-15 sheet 2 draws them as four pairs -- CR17/CR13 and CR18/CR14 on the positive side, CR15/CR19 and CR16/CR20 on the negative -- and Table 6-16 lists exactly CR13-CR20 as the J9010 current regulator diodes, eight of them. CR11 is a 1N4448 in the phase-locked loop, on the other sheet. Read the theory's CR11 as CR19.",
+      "refs": ["CR11", "CR19", "CR20"]
+    },
+    {
+      "title": "The schematic spells it INTERGRATOR",
+      "text": "Sheet 1's legend gives TP6 as ERROR INTERGRATOR OUT and its net label reads INTERGRATOR OUT TO MUX CIRCUIT. Sheet 3 repeats the spelling on the diagnostic multiplexer input. The manual text and fault code 3408 spell it INTEGRATOR. Same node, same signal; the dataset keeps the sheet's spelling for the test point's signal name so that what is written here matches what is written on the drawing you are holding.",
+      "refs": ["TP6"]
+    },
+    {
+      "title": "Two rows of the 1996 parts list lose designators, and one of them creates a duplicate",
+      "text": "The 10 kohm carbon film row is printed 'R19,R37,R50' against a Tot Qty of 5. The 10 ohm row is printed 'R89,R90,R9, R98' -- and R9 is already a 200 ohm part two rows above. Rev 9's Table 6-16 prints the same two rows, on the same stock numbers, as R19/R37/R50/R70/R79 and R89/R90/R97/R98. R70 and R79 are on sheet 2 in the phase lock circuit, and R97 is on the board silkscreen beside Q15 and on sheet 2 as the 10 ohm emitter resistor of the negative output pair. This dataset follows Rev 9 for both rows: R70, R79 and R97 are present, and R9 keeps only its 200 ohm identity. Left uncorrected all three parts were absent from the dataset entirely, with no unplaced count and no review line to show it.",
+      "refs": ["R9", "R70", "R79", "R97", "R7", "R11", "R18"]
+    },
+    {
+      "title": "MP4-6 is three designators against a quantity of four",
+      "text": "The 1996 row reads 'MP4-6 INSUL PT,TRANSISTOR MOUNT,DAP,TO-5, stock 152207, Tot Qty 4'. Rev 9 prints the same stock number and the same three designators with a Tot Qty of 3, and describes the part as SPACER rather than INSUL PT. Three transistor mount insulators for the three TO-8 cans with radial heat sinks is what the board shows, so the 1996 quantity of 4 looks like the misprint. The dataset carries three parts.",
+      "refs": ["MP4", "MP5", "MP6"]
+    },
+    {
+      "title": "Six parts changed between revisions, and four exist in only one list",
+      "text": "Joined on stock number, Table 6-16 disagrees with itself across revisions in six places, all recorded as asBuilt entries: HS9/HS10 (800144 HEAT DIS,VERT becomes 380220 HEAT DIS,SLEEVE), MP8 (939509 becomes 802959, same air duct), Q10/Q11 (943803 TO-202 becomes 806497 MPSU07 in case 152-02), Q16/Q17 (943790 becomes 806489 MPSU57), R91/R99 (442061 becomes 640953, both 2.7 ohm) and Z2 (601911 at ±2 % becomes 364000 at ±5 %). Four more parts exist in one list only: MP1 (oscillator heat sink retainer) and MP9 (silicone sponge tape) are in Rev 9 and not in 1996, and C126, C127, R111 and R112 are in 1996 and not in Rev 9, which is why those four carry no manufacturer part number. Rev 9 also adds H14 and H15 to the 6-32 screw row -- a Tot Qty of 6 against the 1996 row's 4 -- but because the row joins on stock number those two designators are absorbed rather than added, so the dataset carries H9-H12 only.",
+      "refs": ["HS9", "HS10", "MP8", "Q10", "Q11", "Q16", "Q17", "R91", "R99", "Z2", "MP1", "MP9", "C126", "C127", "R111", "R112"]
+    },
+    {
+      "title": "§5-18's preamble is carried as a warning rather than as step 0",
+      "text": "The section opens with an unnumbered Note and paragraph -- defeat the software output monitor with a jumper from TP9 to TP10 on the DAC assembly and another from SDL (P511 pin 11A/11C) to SCOM (TP1) here, remove the front air duct and the rear shield, and put the board on the extender card -- and only then reaches its numbered step 1, 'Turn on the Calibrator'. The extractor takes the first numbered step as the procedure's prerequisite, so that preamble is not in the step list. It is in this assembly's warnings instead, in full. Nothing is missing; the numbering just starts at 2.",
+      "refs": ["TP1", "MP8"]
+    },
+    {
+      "title": "TP9 and TP10 are also the names of the two DAC-assembly test points the preamble jumpers",
+      "text": "§5-18's Note says to connect a jumper from TP9 to TP10 -- on the DAC assembly (A11), not on this board. A13 has its own TP9 and TP10, P LOCK INPUT and ISOLATED OSC OUT HI, and strapping those two together would tie the phase lock input to the output. The same trap exists on A15. Because the preamble is not one of the parsed steps, no link is offered here for either name, but it is worth knowing before following the instruction from memory.",
+      "refs": ["TP9", "TP10"]
+    },
+    {
+      "title": "P512 pins 18 and 19 carry the compensation lines in the order A13's sheet gives",
+      "text": "Figure 7-15 sheet 3 shows HFCOMP on P512 18A/18C and LFCOMP* on 19A/19C. §2-120, describing the Oscillator Control assembly, says 'The Oscillator Output assembly (A13) generates two more control lines: LFCOMP* and HFCOMP*. These control lines are routed to this assembly via the motherboard and enter on pins 18A/C and 19A/C of connector P502' -- which reads as LFCOMP* on 18 and HFCOMP* on 19, the other way round. The sentence lists the signals and then the pins without pairing them explicitly, so it may be no more than a loose sentence; A13's own drawing is the authority for A13's connector. Worth checking against A12's sheet.",
+      "refs": ["P512"]
+    }
+  ]
+}

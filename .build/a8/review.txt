@@ -1,0 +1,6 @@
+1996 parts: MP18-21 expands to 4 designators but Tot Qty is 8
+Rev9 parts: stock no 820449 (CR14,CR15) did not join on stock number
+Rev9 parts: unparsed designator token(s) ['HY1'] in 'Hy 1' (OCR noise -- add to OCR_DESIGNATOR_FIXES if it matters)
+Rev9 parts: stock no 512061 (R38) did not join on stock number
+Rev9 parts: stock no 820431 (VR1,VR2) did not join on stock number
+no manufacturer part number for C32 (CAPACITOR R05R,CAP,CER,220PF,+-20%,50V,C)

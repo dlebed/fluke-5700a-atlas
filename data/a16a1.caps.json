@@ -1,0 +1,18 @@
+{
+  "_comment": [
+    "Which rail each capacitor sits on, and what that rail runs at.",
+    "The rated voltage is NOT here -- it is read from the parts list",
+    "at run time, so a corrected BOM corrects this too.",
+    "A16A1 has one electrolytic, C52. The rest are ceramic and polyester."
+  ],
+  "assembly": "A16A1",
+  "caps": {
+    "C52": {
+      "net": "+5RLH",
+      "appliedV": 6.0,
+      "railClass": "A",
+      "source": "traced",
+      "note": "Reservoir on the +5 RLH relay-driver supply after choke L4, sheet 5700A-1071 zone A8. The rail is A17's +5 RLH, +5.55 V to +6.40 V (Table 2-10), so the applied voltage is its top of band. Table 6-21 prints 15 uF 35 V; the sheet annotates it 10 uF/35V. Either way a 35 V part on 6 V has a generous margin."
+    }
+  }
+}

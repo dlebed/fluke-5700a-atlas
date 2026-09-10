@@ -1,0 +1,35 @@
+Rev9 parts: stock no 698720 (CR1,CR4,CR11,CR12,CR13,CR14) did not join on stock number
+Rev9 parts: stock no 698720 (CR24,CR25) did not join on stock number
+Rev9 parts: stock no 152173 (H1,H2) did not join on stock number
+Rev9 parts: Q1 is in the Rev 9 list but not the 1996 list -- same row as Q11, stock 454041, which did join
+Rev9 parts: stock no 573170 (R1,R72) did not join on stock number
+Rev9 parts: stock no 573584 (R2,R15,R39) did not join on stock number
+Rev9 parts: stock no 573014 (R4,R11,R51,R53,R61,R62) did not join on stock number
+Rev9 parts: stock no 573691 (R6,R9) did not join on stock number
+Rev9 parts: stock no 573279 (R8,R19) did not join on stock number
+Rev9 parts: stock no 574970 (R10) did not join on stock number
+Rev9 parts: stock no 573394 (R14,R16,R21,R27,R28,R40) did not join on stock number
+Rev9 parts: stock no 573311 (R17,R41) did not join on stock number
+Rev9 parts: stock no 573451 (R18) did not join on stock number
+Rev9 parts: stock no 573212 (R20) did not join on stock number
+Rev9 parts: stock no 641118 (R22) did not join on stock number
+Rev9 parts: stock no 572941 (R23,R24,R60,R65) did not join on stock number
+Rev9 parts: stock no 832097 (R25,R26) did not join on stock number
+Rev9 parts: stock no 573378 (R29,R30) did not join on stock number
+Rev9 parts: stock no 169854 (R31,R32) did not join on stock number
+Rev9 parts: stock no 108415 (R33,R34,R35) did not join on stock number
+Rev9 parts: stock no 572982 (R36) did not join on stock number
+Rev9 parts: stock no 719476 (R42,R43,R45,R46) did not join on stock number
+Rev9 parts: stock no 641084 (R47) did not join on stock number
+Rev9 parts: stock no 719799 (R56,R69) did not join on stock number
+Rev9 parts: stock no 641159 (R58,R67) did not join on stock number
+Rev9 parts: stock no 643783 (R59,R66) did not join on stock number
+Rev9 parts: stock no 573238 (R73,R75) did not join on stock number
+Rev9 parts: stock no 832576 (VR3,VR4) did not join on stock number
+Rev9 parts: stock no 698712 (VR7,VR8) did not join on stock number
+Rev9 parts: stock no 761296 (Z6) did not join on stock number
+no manufacturer part number for MP11 (INSUL PT,TRANSISTOR MOUNT,DAP,T0-5)
+no manufacturer part number for MP12 (INSUL PT,TRANSISTOR MOUNT,DAP,T0-5)
+no manufacturer part number for MP14 (CABLE TIE,5",1.375"DIA)
+no manufacturer part number for MP15 (CABLE TIE,5",1.375"DIA)
+no manufacturer part number for MP16 (CABLE TIE,5",1.375"DIA)

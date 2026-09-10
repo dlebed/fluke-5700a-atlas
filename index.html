@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fluke 5700A Atlas</title>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <!-- Inlined rather than an <img> so it stays sharp at any zoom and reads
+         --silk and --fluke straight from the stylesheet. Geometry is the 24px
+         row of assets/brand/README.md: below 24 the strokes thicken and the
+         check pulls outward so it does not fill in. -->
+    <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect x="2" y="2" width="28" height="28" stroke="currentColor" stroke-width="2.3"/>
+      <path d="M8.4 16.5 13.5 22 24 9.4" stroke="var(--fluke)" stroke-width="3.7"
+            stroke-linecap="square"/>
+    </svg>
+    <!-- The mark and the model number carry the identity on their own. The
+         name "Atlas" would be a chunk of a 52px-tall bar that the pickers
+         and the search box have better uses for; it still names the page in
+         <title>, which is where it does some work. -->
+    <span class="brand-model">5700A</span>
+  </div>
+
+  <label class="assembly-picker unit-picker" id="unit-picker">
+    <span class="micro">Unit</span>
+    <select id="unit-select" title="Which calibrator this work is recorded against"></select>
+    <button id="unit-edit" class="unit-edit" title="Name this unit">✎</button>
+  </label>
+
+  <label class="assembly-picker">
+    <span class="micro">Assembly</span>
+    <select id="assembly-select"></select>
+  </label>
+
+  <!-- Same two-row shape as the pickers -- label strip over control. Without
+       the label the input centred on the bar while the selects, pushed down by
+       their own labels, sat 12px lower. The kbd hint is positioned against
+       .search-field rather than .search so the label row does not offset it. -->
+  <label class="search">
+    <span class="micro">Search</span>
+    <span class="search-field">
+      <input id="search-input" type="search" autocomplete="off" spellcheck="false"
+             placeholder="Designator, signal, value, stock no…">
+      <kbd class="search-key">/</kbd>
+    </span>
+  </label>
+
+  <nav class="modes" id="mode-tabs" aria-label="Mode">
+    <button data-mode="board"      class="is-active"><u>B</u>oard</button>
+    <button data-mode="testpoints"><u>T</u>est points</button>
+    <button data-mode="log"><u>L</u>og</button>
+    <button data-mode="procedure"><u>P</u>rocedure</button>
+    <button data-mode="faults"><u>F</u>ault codes</button>
+    <button data-mode="recap"><u>R</u>ecap</button>
+    <!-- One more mode rather than a second panel: Author Mode's controls are
+         another thing to look at in the same place, and a column of their own
+         cost the stage 250px for the whole session. Always present but greyed
+         until ?author=1 turns it on, so Author Mode is a button rather than a
+         URL you have to know. -->
+    <button data-mode="author" class="author-tab"><u>A</u>uthor</button>
+  </nav>
+</header>
+
+<main>
+  <section class="stage" id="stage">
+    <div class="zoneframe" id="zoneframe" aria-hidden="true">
+      <div class="zoneframe-edge top"></div>
+      <div class="zoneframe-edge bottom"></div>
+      <div class="zoneframe-edge left"></div>
+      <div class="zoneframe-edge right"></div>
+    </div>
+
+    <div class="viewport" id="viewport"></div>
+
+    <!-- The seam between photograph and drawing in Swipe view: drag it across
+         the board. Shown only in that mode, driven by .stage.is-swipe. -->
+    <div class="swipe-divider" id="swipe-divider" role="separator"
+         aria-label="Photograph / drawing split" aria-valuemin="0" aria-valuemax="100"
+         aria-valuenow="50" tabindex="0"><span></span></div>
+
+    <div class="stage-controls">
+      <div class="segmented" id="display-tabs" role="group" aria-label="Display">
+        <button data-display="drawing" class="is-active">Drawing</button>
+        <button data-display="photo">Photo</button>
+        <button data-display="overlay">Overlay</button>
+        <button data-display="swipe">Swipe</button>
+        <button data-display="schematic">Schematic</button>
+        <button data-display="split">Split</button>
+      </div>
+
+      <div class="slider-group" id="opacity-group" hidden>
+        <span class="micro">Drawing</span>
+        <input id="opacity-slider" type="range" min="0" max="100" value="55">
+      </div>
+
+      <div class="segmented small" id="sheet-tabs" role="group" aria-label="Sheet" hidden></div>
+
+      <div class="spacer"></div>
+      <button class="ghost" id="linked-view-btn"
+              title="Open a view-only window that follows this one">⧉ Linked view</button>
+      <button class="ghost" id="fit-btn" title="Fit to view (Z)">Fit</button>
+    </div>
+
+    <div class="stage-badge" id="coverage-badge"></div>
+
+    <div class="infocard" id="infocard" hidden></div>
+    <!-- Shown only in split view; visibility is driven by .stage.is-split so it
+         must not carry the hidden attribute, which would win over that rule. -->
+    <div class="viewport secondary" id="viewport-secondary"></div>
+  </section>
+
+  <aside class="panel" id="panel">
+    <div class="panel-body" id="panel-body"></div>
+    <!-- The selected part's readings and repairs. Docked below the list rather
+         than appended to it: it used to sit at the bottom of the same scroller,
+         so every re-render moved the list under the reader's hand. -->
+    <section class="detail-dock" id="detail-dock" hidden>
+      <div class="dock-resize" id="detail-dock-resize" title="Drag to resize"
+           role="separator" aria-orientation="horizontal"></div>
+      <header id="detail-dock-head">
+        <!-- The title names the next stop of three and is rewritten on every
+             fold; this is only what it says before anything is selected. -->
+        <button class="dock-toggle" id="detail-dock-toggle" aria-expanded="true"
+                title="Fold the card (D)"><span class="chev">▾</span></button>
+        <span id="detail-dock-title">Selected</span>
+        <span class="spacer"></span>
+        <button class="dock-close" id="detail-dock-close" title="Clear selection">✕</button>
+      </header>
+      <div class="detail-dock-body" id="detail-dock-body"></div>
+    </section>
+  </aside>
+
+</main>
+
+<footer class="statusbar">
+  <span id="status-left"></span>
+  <span class="spacer"></span>
+  <span id="status-right" class="micro"></span>
+</footer>
+
+<div class="toast" id="toast" hidden></div>
+<input type="file" id="file-input" accept="application/json" hidden>
+
+<script src="js/geom.js"></script>
+<script src="js/registry.js"></script>
+<script src="js/sync.js"></script>
+<script src="js/viewer.js"></script>
+<script src="js/testpoints.js"></script>
+<!-- units.js first: notes and the test log both scope themselves to the unit
+     being worked on, and migrate older stores into it as they load. -->
+<script src="js/units.js"></script>
+<script src="js/parts.js"></script>
+<script src="js/caps.js"></script>
+<script src="js/notes.js"></script>
+<script src="js/testlog.js"></script>
+<script src="js/service.js"></script>
+<script src="js/search.js"></script>
+<script src="js/procedures.js"></script>
+<script src="js/snap.js"></script>
+<script src="js/author.js"></script>
+<script src="js/app.js"></script>
+
+<!-- Assembly datasets. Add a line here when a new assembly is built. -->
+<script src="data/a4.js"></script>
+<script src="data/a5.js"></script>
+<script src="data/a6.js"></script>
+<script src="data/a7.js"></script>
+<script src="data/a8.js"></script>
+<script src="data/a9.js"></script>
+<script src="data/a10.js"></script>
+<script src="data/a11.js"></script>
+<script src="data/a12.js"></script>
+<script src="data/a13.js"></script>
+<script src="data/a14.js"></script>
+<script src="data/a15.js"></script>
+<script src="data/a16.js"></script>
+<script src="data/a17.js"></script>
+<script src="data/a18.js"></script>
+<script src="data/a19.js"></script>
+<script src="data/a20.js"></script>
+<script src="data/a21.js"></script>
+<script src="data/a13a1.js"></script>
+<script src="data/a16a1.js"></script>
+
+<script>window.App.start();</script>
+</body>
+</html>

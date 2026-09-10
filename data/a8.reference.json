@@ -1,0 +1,664 @@
+{
+ "_comment": [
+  "Curated A8 reference material, hand-authored from the 1996 Series II service",
+  "manual: §2-87 to §2-99 for the circuit description, §5-2 for the 3800-series",
+  "fault codes and 2821/2822, §5-9 for the bench procedure, and Table 6-9 for",
+  "the parts. Figure 7-8 (locator plus five schematic sheets, drawing 5700A-1622",
+  "and 5700A-1020) was read alongside for the device types the parts list gives",
+  "only generically, and the photographed board settled three questions the",
+  "manuals leave open — see the caveats.",
+  "",
+  "../MD/A8_Switch_Matrix.md was used as a starting point. It proved accurate on",
+  "structure and on nearly every number; where it and the PDFs disagree, the",
+  "disagreement is recorded as a caveat rather than resolved silently."
+ ],
+ "overview": {
+  "summary": "The board every output in the instrument passes through on its way to the binding posts. Thirty-three latching two- and four-pole relays, driven by eight UCN5801 latching drivers (U5-U12) under an 82C55 (U1), route the DAC, the Oscillator, the Power Amplifier and the High Voltage assemblies to OUTPUT HI, OUTPUT LO, SENSE HI and SENSE LO, and switch the analog and digital commons for operate, standby and calibration. A ninth UCN5801 (U13) drives the ten non-latching relays on the Analog Motherboard from a local 3.5 V/7 V supply (U17, Q1, Q2) so that those coils run cool and contribute no thermal EMF. Three analog blocks sit alongside the switching. The dc 2.2 V range is made here: the 5700A-4HR1 heated hybrid and its bonded resistor network divide the DAC's 11 V range by five and buffer it, and a CA3096 array (U19) with Q4 turns that into a 50 mA output stage. The same network carries the 10:1 and 100:1 dividers that make the ac and dc 220 mV, 22 mV and 2.2 mV ranges, all at 50 ohm output impedance. And the internal cal zero amplifier (U20, U21, Z2) removes the offset of every dc range except 1100 V, comparing each in turn against R COM through FET Q7 at a gain of 10 or 130 and reporting to the adc on A11 over RCL. A 4051 multiplexer (U4) reads eight diagnostic channels onto SDL, which makes A8 the measuring path for the guarded supply rails of the whole analog section.",
+  "sections": "§2-87 … §2-99",
+  "note": "A8 generates no supply of its own. Nine rails arrive from A17 on P202 — +8 RLH, +5 RLH and RLH COM for the relay drivers, +5 LH, LH COM and -5 LH for the digital section, and +17 S, S COM and -17 S for the analog — each through a 6-turn choke (L1-L4). The three commons are not interchangeable: RLH COM belongs to the relay coils, LH COM to the guarded digital bus, and S COM (TP9) to the analog supplies, while R COM (TP8) is the precision common that U21's current-cancellation circuit keeps current out of. §5-9 uses three different references in six steps, and one of them is the front panel OUTPUT LO binding post rather than anything on the board."
+ },
+ "railCircuits": {
+  "DC22": {
+   "rails": "DC ATT INPUT, DC ATT OUTPUT, BUFFER IN, 2.2V OUT, 2.2V SENSE, AC/DC mV",
+   "regulators": [
+    "H2",
+    "U19",
+    "Q4"
+   ],
+   "filters": [
+    "C23",
+    "C30",
+    "C20",
+    "C12",
+    "C13"
+   ],
+   "relay": [
+    "K1",
+    "K2",
+    "K16",
+    "K6",
+    "K27",
+    "K30",
+    "K25",
+    "K26"
+   ],
+   "tps": [
+    "TP1",
+    "TP2",
+    "TP3",
+    "TP4"
+   ],
+   "note": "DAC OUT HI and DAC SENSE HI arrive through K1 at pin 10 of the Z1 network and DAC LO through K2 at pin 9; the 4K/1K pair divides by five and pin 8 (TP2) feeds pin 11 of the heated hybrid. The hybrid buffers it, and its output at pin 18 through R23 (TP3) drives the high-current output stage — U19A-E, Q4, R25-R30, R32 and CR7-CR9 — which lets the range deliver 50 mA with current limiting. VR1 and VR2 clamp 2.2V OUT to ±6.8 V; Q12 and Q13 close a local feedback path when the OUTPUT posts are shorted or the range is in standby. The same Z1 network carries the 10:1 divider (500/55.555, pins 3-1-2/4) and the 100:1 divider (4706/52.525, pins 7-5-6) on sheet 2 that make every millivolt range, with CR5/CR6 and VR3/VR4 clamping the AC/DC mV node to ±5.1 V. The heater that holds the hybrid at 50 °C is drawn as a sealed block inside the HR1 HYBRID outline on sheet 3 — see the caveat on Q3 and Q8.",
+   "source": "§2-92, §2-94, §2-96"
+  },
+  "ZERO": {
+   "rails": "ZERO AMP INPUT, ZERO OUT, RCL, ac mV CAL",
+   "regulators": [
+    "U20",
+    "U21"
+   ],
+   "filters": [
+    "C14",
+    "C15",
+    "C16",
+    "C17"
+   ],
+   "relay": [
+    "K29",
+    "K31",
+    "K32",
+    "K28",
+    "K17"
+   ],
+   "driver": [
+    "Q6",
+    "Q7",
+    "Q11"
+   ],
+   "tps": [
+    "TP5",
+    "TP6",
+    "TP7"
+   ],
+   "note": "The internal cal zero amplifier, outlined in a broken-line rectangle on sheet 1. Its functional parts are U20, U21, R38-R44, R46, R47, Q6, Q7, Q11 and Z2. Each dc range is switched into it by K29 and compared against 0 V: Q7 ties the input to R COM, or Q11 ties it to SWM SENSE LO for the 220 mV range so that the source impedance stays 50 ohm. Q6 selects the gain of 130 used for the 22 V ranges and below; without it the gain is 10, which is what the 220 V range uses. U21 senses the output and injects a current equal and opposite to the current through the Z2 gain resistors, so no current flows in the precision common. The output leaves on RCL through K31 and K32 for the adc on A11.",
+   "source": "§2-93, §2-97, §2-98"
+  },
+  "DIAG": {
+   "rails": "SDL, OVEN TEMP",
+   "regulators": [
+    "U4",
+    "U3"
+   ],
+   "filters": [
+    "C10"
+   ],
+   "pullups": [
+    "Z5",
+    "Z6",
+    "R33",
+    "R18",
+    "R34",
+    "R19",
+    "R35",
+    "R22"
+   ],
+   "tps": [
+    "TP10"
+   ],
+   "note": "Eight channels into a 4051 (U4), selected by PA0-PA2 and PC6 of U1 and read by the adc on A11 over SDL: +8 RLH, the 2.2 V range output, +5 RLH, -5 LH, +17 S, -17 S, the assembly temperature from U3 (a Fahrenheit sensor, LM34 class), and OVEN TEMP from the heated hybrid. OVEN TEMP, +5 RLH, -5 LH and +8 RLH are divided by eleven first, by Z5 (4 × 10K) and Z6 (5 × 1K). Because the guarded rails of the entire analog section are measured through this one multiplexer, a fault in U4 or in the ÷11 dividers presents as several supply fault codes at once with every supply measuring good on A17 and A18.",
+   "source": "§2-88"
+  },
+  "COM": {
+   "rails": "R COM, S COM, LH COM, RLH COM, PA COM, OS COM, OSC SENSE LO, SWM SENSE LO",
+   "relay": [
+    "K10",
+    "K11",
+    "K12",
+    "K13",
+    "K14",
+    "K15",
+    "K21",
+    "K23",
+    "K33"
+   ],
+   "tps": [
+    "TP8",
+    "TP9"
+   ],
+   "note": "The LO side of every range is switched here too, and which relays do it depends on the range: K11 and K12 join PA COM to DAC LO and K10 takes them to OUTPUT LO for the volt ranges; K14 and K15 take R COM to SENSE LO or OUTPUT/SENSE LO; K13 and K15 do the same for OSC SENSE LO on the ac ranges; and in the millivolt ranges a single line leaves through K33. K23 switches B SNS LO for the 5725A Amplifier to either OSC SENSE LO or, through K14, R COM.",
+   "source": "§2-89 … §2-96, §2-99"
+  }
+ },
+ "foreignStepRefs": {
+  "3": [
+   "K1",
+   "K10"
+  ]
+ },
+ "faultCodes": [
+  {
+   "code": "3800",
+   "title": "A8: 8255 Control Word",
+   "measure": "The diagnostics software reads the control word of the 82C55 (U1) on the Switch Matrix assembly.",
+   "expected": "The control word reads back as written",
+   "verdict": "A failure indicates the Switch Matrix assembly (A8) is probably at fault. Nothing else reported against this board can be trusted while this fails: U1 drives every relay driver, the strobe decoder, all five FETs and the diagnostic multiplexer, so every other 38xx measurement is made through hardware that is not known to be listening.",
+   "refs": [
+    "U1"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "3801",
+   "title": "A8: 8255 Port A Fault",
+   "measure": "The diagnostics software writes and reads port A of the 82C55 (U1).",
+   "expected": "What is written to port A reads back",
+   "verdict": "A failure indicates the Switch Matrix assembly (A8) is probably at fault. Port A is the common data bus for all nine UCN5801 drivers, so a fault here means no relay on this board or on the Analog Motherboard can be set reliably.",
+   "refs": [
+    "U1",
+    "U5",
+    "U13"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "3802",
+   "title": "A8: 8255 Port B Fault",
+   "measure": "The diagnostics software reads port B of the 82C55 (U1).",
+   "expected": "Port B reads back correctly",
+   "verdict": "A failure indicates the Switch Matrix assembly (A8) is probably at fault. PB0-PB3 carry the strobe select decoded by U2 into U5STB-U13STB, and PB4, PB5 and PB7 drive Q6, the Q9/Q10 pair and Q7 — so a port B fault takes out both relay strobing and the calibration FETs.",
+   "refs": [
+    "U1",
+    "U2"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "3803",
+   "title": "A8: 8255 Port C Fault",
+   "measure": "The diagnostics software reads port C of the 82C55 (U1).",
+   "expected": "Port C reads back correctly",
+   "verdict": "A failure indicates the Switch Matrix assembly (A8) is probably at fault. PC0-PC3 are the driver output enables, one bit per pair; PC4 drives Q11, PC5 selects the 3.5 V or 7 V motherboard relay supply and PC6 addresses the diagnostic multiplexer.",
+   "refs": [
+    "U1"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "3804",
+   "title": "A8: Zero Amp Lo Noise Fault",
+   "measure": "The internal cal zero amplifier is set to low gain with its input tied to RCOM through Q7 and its output routed to RCL; the adc on A11 takes ten readings.",
+   "expected": "Spread between the lowest and highest of ten readings not over 0.0001 V",
+   "verdict": "A failure indicates the Switch Matrix assembly (A8) is probably at fault. This is a noise test, not an offset test — a steady wrong value passes it. Suspect U20, its supply decoupling, or a contaminated board around the Z2 gain network.",
+   "refs": [
+    "U20",
+    "U21",
+    "Q7",
+    "Z2"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "3805",
+   "title": "A8: Zero Amp Lo Offset",
+   "measure": "Same configuration as 3804 — low gain, input at RCOM through Q7, output to RCL — and the ten adc readings are averaged.",
+   "expected": "Average not over 0.035 V",
+   "verdict": "A failure indicates the Switch Matrix assembly (A8) is probably at fault. TP6 is the same node the adc sees, before K31 and K32.",
+   "refs": [
+    "U20",
+    "U21",
+    "Q7",
+    "Z2",
+    "R44",
+    "R46",
+    "R47",
+    "TP6"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "3806",
+   "title": "A8: Zero Amp Lo Gain Fault",
+   "measure": "The amplifier input is connected to the DAC output and its output to RCL, which goes to the adc's +input while the -input sits on the 6.5 V reference. The DAC is set to a nominal 0.65 V and adjusted until a null is reached.",
+   "expected": "Gain of 10 ±6 %",
+   "verdict": "A failure indicates the Switch Matrix assembly (A8) is probably at fault. The low gain is the one the 220 V range is zeroed at, so a failure here disables 220 V offset calibration specifically. Gain is set by Z2 with R46/R47; check Q6 is OFF, since a stuck-on Q6 gives 130 instead of 10.",
+   "refs": [
+    "U20",
+    "Z2",
+    "Q6",
+    "R46",
+    "R47"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "3807",
+   "title": "A8: Zero Amp Hi Noise Fault",
+   "measure": "As 3804 but with the amplifier in the high gain configuration (Q6 on).",
+   "expected": "Spread between the lowest and highest of ten readings not over 0.0015 V",
+   "verdict": "A failure indicates the Switch Matrix assembly (A8) is probably at fault. The limit is thirteen times the low-gain one for a gain thirteen times higher, so this and 3804 are the same test scaled — failing only the high-gain one points at Q6 and the gain network rather than at U20 itself.",
+   "refs": [
+    "U20",
+    "U21",
+    "Q6",
+    "Q7",
+    "Z2"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "3808",
+   "title": "A8: Zero Amp Hi Offset",
+   "measure": "As 3805 but in the high gain configuration; ten adc readings averaged.",
+   "expected": "Average not over 0.155 V",
+   "verdict": "A failure indicates the Switch Matrix assembly (A8) is probably at fault. 0.155 V at a gain of 130 is about 1.2 mV referred to the input, so this is a demanding test of the input path — Q7's on-resistance and leakage, R43 and the RCOM connection all show up here.",
+   "refs": [
+    "U20",
+    "U21",
+    "Q6",
+    "Q7",
+    "Z2",
+    "R43",
+    "TP6"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "3809",
+   "title": "A8: Zero Amp Hi Gain Fault",
+   "measure": "As 3806 but in the high gain configuration, with the DAC set to a nominal 0.05 V and adjusted to a null.",
+   "expected": "Gain of 130 ±6 %",
+   "verdict": "A failure indicates the Switch Matrix assembly (A8) is probably at fault. The high gain is used to zero the 22 V ranges and everything below them, so a failure here blocks offset calibration of most of the dc ranges. Q6 is what switches the gain from 10 to 130.",
+   "refs": [
+    "U20",
+    "Q6",
+    "Z2",
+    "R46",
+    "R47"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "3810",
+   "title": "A8: 2.2V Amp Noise Fault",
+   "measure": "The manual prints this code's title and no description at all — unlike every other code in §5-2. From the name and from §2-92, it is a noise test on the dc 2.2 V range amplifier, read through the diagnostic multiplexer's 2.2 V range channel.",
+   "expected": "Not published",
+   "verdict": "The code names A8. With no published limit, fall back on the §5-9 bench values: TP2 and TP4 both 2 V ±6 mV at 2 V dc, operate (±0.12 V on an uncalibrated instrument). The suspects §5-9 step 5 names for that check are the hybrid, U19 and Q4.",
+   "refs": [
+    "H2",
+    "U19",
+    "Q4",
+    "TP4"
+   ],
+   "source": "§5-2 (title only)"
+  },
+  {
+   "code": "3811",
+   "title": "A8: Zero Amp Offset",
+   "measure": "Title only; no description is printed. Distinct from 3805 and 3808, which are the low- and high-gain offset tests with their own published limits.",
+   "expected": "Not published",
+   "verdict": "The code names A8. Treat it as the zero amplifier block — U20, U21, Q6, Q7, Q11 and Z2 — and use 3805's 0.035 V and 3808's 0.155 V as the nearest published limits.",
+   "refs": [
+    "U20",
+    "U21",
+    "Z2",
+    "TP6"
+   ],
+   "source": "§5-2 (title only)"
+  },
+  {
+   "code": "3812",
+   "title": "A8: 2.2V Gain Fault",
+   "measure": "Title only; no description is printed. §2-93 describes the calibration this must be checking: the 13 V buffered reference is switched into the 2.2 V range input by Q9 and Q10, the network divides by five to give 2.6 V at 2.2V OUT and 2.2V SENSE tied together by K28, and the DAC is nulled against it over RCL.",
+   "expected": "Not published",
+   "verdict": "The code names A8. The parts that make the gain are Z1's 4K/1K divider and the hybrid; the parts that make the measurement possible are Q9, Q10, K28, K31 and K32, and a stuck relay or FET there fails the test with a perfectly good range behind it.",
+   "refs": [
+    "Z1",
+    "H2",
+    "Q9",
+    "Q10",
+    "K28",
+    "K31",
+    "K32"
+   ],
+   "source": "§5-2 (title only)"
+  },
+  {
+   "code": "3813",
+   "title": "A8: 220mV Offset Fault",
+   "measure": "Title only; no description is printed. §2-97 describes the calibration: the board is configured for the 220 mV dc range with AC/DC mV switched into the zero amplifier through K17 and K29, and PC4 turns on Q11 so that the 0 V checkpoint is taken through a 50 ohm source.",
+   "expected": "Not published",
+   "verdict": "The code names A8. This offset calibration exists to cancel thermal EMF in the 10:1 divider, so a failure that will not clear is as likely to be a poor joint or a contaminated board around Z1 as a failed device. Check Q11 first — it is what makes the checkpoint 50 ohm.",
+   "refs": [
+    "Q11",
+    "K17",
+    "K29",
+    "Z1"
+   ],
+   "source": "§5-2 (title only)"
+  },
+  {
+   "code": "3814",
+   "title": "A8: 220mV Divider Fault",
+   "measure": "Title only; no description is printed. §2-97 describes the ratio measurement: the DAC drives the 10:1 divider input through K24 and K6, DAC LO/PA COM/R COM reach its common through K12, K11 and K21, and the zero amplifier at a gain of 10 reads the result.",
+   "expected": "Not published",
+   "verdict": "The code names A8. The bench equivalent is §5-9 step 6: 200 mV at 1 kHz should give 200 mV ±1 % at the cathode of CR6. The divider itself is Z1's 500/55.555 section on sheet 2; K5, K6, K16, K9, K11 and K21 are what connect it.",
+   "refs": [
+    "Z1",
+    "K6",
+    "K16",
+    "K24",
+    "K11",
+    "K21",
+    "CR6"
+   ],
+   "source": "§5-2 (title only)"
+  },
+  {
+   "code": "3815",
+   "title": "A8: 22mV Divider Fault",
+   "measure": "Title only; no description is printed. §2-97 describes the 100:1 ratio measurement: the 13 V buffered reference drives pin 7 through K4, K7 connects the 100:1 output to the 10:1 input, and K6 and K8 route it to the ac mV CAL line into the zero amplifier.",
+   "expected": "Not published",
+   "verdict": "The code names A8. The bench equivalent is the second half of §5-9 step 6: 20 mV at 1 kHz should give 20 mV ±1 % at the cathode of CR6. Right at 200 mV and wrong at 20 mV isolates the fault to the 100:1 section (Z1 pins 7-5-6) and to K3, K4 and K7, since both ranges share the 10:1 section.",
+   "refs": [
+    "Z1",
+    "K3",
+    "K4",
+    "K7",
+    "K8",
+    "CR6"
+   ],
+   "source": "§5-2 (title only)"
+  },
+  {
+   "code": "3818",
+   "title": "A8: Out Lo To Sense Lo Continuity Fault",
+   "measure": "Title only; no description is printed. From the name, a continuity check between the OUTPUT LO and SENSE LO paths, which on this board are joined by the internal-sense relays.",
+   "expected": "Not published",
+   "verdict": "The code names A8. The relays in that path are K10, K14, K15, K21 and K33; the relay chart on schematic sheet 5 gives their required state for every range, and §5-9 step 1's cold ohmmeter method is the way to check them.",
+   "refs": [
+    "K10",
+    "K14",
+    "K15",
+    "K21",
+    "K33"
+   ],
+   "source": "§5-2 (title only)"
+  },
+  {
+   "code": "3819",
+   "title": "A8: Relay Fault",
+   "measure": "A fault occurred while doing relay testing on the Switch Matrix assembly.",
+   "expected": "All relays reach the commanded state",
+   "verdict": "A failure indicates the Switch Matrix assembly (A8) is probably at fault, but the code does not say which relay. Because every relay here is latching and holds its state with the power off, §5-9 step 1 is the productive next move: leave the instrument in the failing function, power down, pull the board and ohm the signal path against the relay chart on schematic sheet 5. A driver output stuck low fails a whole bank of four, which is the pattern that separates a dead UCN5801 from a dead relay.",
+   "refs": [
+    "U5",
+    "U6",
+    "U7",
+    "U8",
+    "U9",
+    "U10",
+    "U11",
+    "U12",
+    "Z3",
+    "Z4"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "3824",
+   "title": "A8: Oven Regulation Fault",
+   "measure": "The heater voltage of the 4HR1 hybrid is measured by connecting OVEN TEMP to the SDL line, where the adc on A11 reads it. OVEN TEMP is divided by eleven by Z5/Z6 before the multiplexer.",
+   "expected": "0.7 V ±10 % ±0.2 V",
+   "verdict": "A failure indicates the Switch Matrix assembly (A8) is probably at fault. Give the instrument time before believing it — the hybrid is held at 50 °C and reads wrong until it is warmed up and regulating. Refit the moulded cover MP2 before judging it, and check the multiplexer path (U4, Z5, Z6) as well as the hybrid, since the reading arrives through the same divider chain as four supply diagnostics.",
+   "refs": [
+    "H2",
+    "U4",
+    "Z5",
+    "Z6",
+    "MP2",
+    "TP10"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "3825",
+   "title": "Assembly A8 Not Responding",
+   "measure": "At power up the instrument checks which assemblies are not installed. This test verifies that the Switch Matrix assembly is not responding.",
+   "expected": "The assembly answers on the guarded digital bus",
+   "verdict": "A failure indicates the Switch Matrix assembly (A8) is probably at fault — but check that the board is seated in its slot and that its +5 LH supply and the RD*, WR*, CS2* and RESET lines reach U1 on P202 before condemning it. This code is what a board left out of the instrument, or one whose connector is not home, reports.",
+   "refs": [
+    "U1",
+    "P202"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "3826",
+   "title": "A8: 8255 Was Reset",
+   "measure": "The control word of the 82C55 (U1) is re-read and found to have returned to its reset state.",
+   "expected": "The control word still holds what was written to it",
+   "verdict": "A failure indicates the Switch Matrix assembly (A8) is probably at fault. Distinct from 3800: the word was written correctly and has since been lost, which points at the RESET line into U1 (P202 pin 10A, through R1 and C1) or at a glitch on +5 LH rather than at the chip.",
+   "refs": [
+    "U1",
+    "R1",
+    "C1"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "3827",
+   "title": "Assembly A8 Too Hot",
+   "measure": "Title only; no description is printed. The assembly temperature comes from U3, a Fahrenheit temperature sensor read through the diagnostic multiplexer.",
+   "expected": "Not published",
+   "verdict": "The code names A8. Before suspecting U3, consider the two things on this board that dissipate: the 4HR1 hybrid's 50 °C heater, and Q1, the TIP120 pass transistor of the motherboard relay supply — a foldback limit that has stopped folding back cooks Q1 and heats the board around it. Check the instrument's airflow too; a real over-temperature is as likely to be a fan or a blocked duct as a fault here.",
+   "refs": [
+    "U3",
+    "U4",
+    "Q1",
+    "H2"
+   ],
+   "source": "§5-2 (title only)"
+  },
+  {
+   "code": "2821",
+   "title": "A8/A11: +11/22V DC Zero Estimate Fault",
+   "measure": "The DAC is put in its +11 V or +22 V range, its output (DAC SENSE CAL) goes to the adc's +input and the -input to RCOM, and the zero is estimated by adjusting the DAC to a null.",
+   "expected": "The nulling process converges",
+   "verdict": "The manual's own verdict names the DAC assembly (A11) as the probable fault, not A8 — the code is titled A8/A11 because RCOM and the switching that presents it come from this board. Check A11 first; look here only if the RCOM path (TP8, K11, K12, K21) or the relays that set up the range are suspect.",
+   "refs": [
+    "TP8",
+    "K11",
+    "K12",
+    "K21"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2822",
+   "title": "A8/A11: -11/22V DC Zero Estimate Fault",
+   "measure": "As 2821 but with the DAC in its -11 V or -22 V range.",
+   "expected": "The nulling process converges",
+   "verdict": "As 2821: the manual names the DAC assembly (A11) as the probable fault. A failure on one polarity only is worth noting — it is the kind of asymmetry a leaky FET or a relay contact makes, not a divider ratio.",
+   "refs": [
+    "TP8",
+    "K11",
+    "K12",
+    "K21"
+   ],
+   "source": "§5-2"
+  }
+ ],
+ "componentNotes": {
+  "H2": "The 5700A-4HR1 heated hybrid: a precision dc amplifier die (marked AD707C on schematic sheet 3, with 300/300 input resistors, 25K/25K feedback and 6.2 V clamps) held at 50 °C by a heater control block drawn sealed inside the HR1 HYBRID outline. It buffers the divided DAC voltage that becomes the dc 2.2 V range, and its OVEN TEMP output is what fault code 3824 measures. Filed here as 'mech' because the parts list gives it an H designator; it is nothing of the kind. Note the naming: the 1996 list calls it H2, the Rev 9 list HY1, the board silkscreen HR1 and the schematic all three — see the caveats.",
+  "Z1": "The resistor network bonded to the H2 hybrid, and the other half of what the schematic calls the HR1 ASSY. It carries all three precision dividers: the 5:1 attenuator that makes the dc 2.2 V range (4K/1K, pins 10-8-9, sheet 3), the 10:1 divider that makes the 220 mV ranges (500/55.555, pins 3-1-2/4, sheet 2) and the 100:1 divider that cascades with it for the 22 mV and 2.2 mV ranges (4706/52.525, pins 7-5-6, sheet 2). §2-97 measures the two lower ratios during calibration and stores them, so a measured ratio that is not exactly 10:1 or 100:1 is by design and not a fault.",
+  "Z2": "The gain network of the internal cal zero amplifier — an 8840A output divider SIP, not a plain resistor pack. §2-98 names it as the element U21's current-cancellation circuit works against so that no current flows in RCOM.",
+  "Z3": "Five 330 ohm series resistors in the UCN5801 relay driver output lines on sheet 4, with Z4.",
+  "Z4": "Five 330 ohm series resistors in the UCN5801 relay driver output lines on sheet 4, with Z3.",
+  "Z5": "Four 10K elements forming the top halves of the ÷11 diagnostic dividers with Z6, so that +8 RLH, +5 RLH, -5 LH and OVEN TEMP fit the multiplexer's input range.",
+  "Z6": "Five 1K elements forming the bottom halves of the ÷11 diagnostic dividers with Z5.",
+  "MP2": "The moulded cover over the H2 hybrid and Z1 network. Refit it before judging fault code 3824 or any 220 mV reading — the assembly is temperature controlled and running it uncovered changes the thermal load.",
+  "U1": "82C55 programmable peripheral interface (CP82C55A), the whole board's digital control: 24 outputs across three ports driving nine relay drivers, the strobe decoder, five FETs and the diagnostic multiplexer. Fault codes 3800-3803, 3825 and 3826 all name it.",
+  "U2": "4028 BCD-to-decimal decoder (MC14028BCP). Decodes PB0-PB3 of U1 into the nine strobe lines U5STB-U13STB.",
+  "U3": "Fahrenheit temperature sensor (LM34CZ) reading the assembly temperature onto one of the eight diagnostic multiplexer channels. Fault code 3827 is its code.",
+  "U4": "4051 eight-channel analog multiplexer (MM74HC4051N), addressed by PA0-PA2 and PC6 of U1, driving the SDL line to the adc on A11. This one chip is the measuring path for the guarded supply rails of the whole analog section.",
+  "U5": "One of eight UCN5801A eight-channel latching high-voltage drivers (U5-U12) that hold every latching relay on this board. Its bank is K2, K9, K11 and K15 — the worked example in §2-88. Enabled with U6 by PC0.",
+  "U6": "UCN5801A latching relay driver. Its bank is K3, K4, K5 and K24. Enabled with U5 by PC0.",
+  "U13": "The ninth UCN5801A, and the odd one out: it drives the ten NON-latching relays on the Analog Motherboard, so its enable is tied permanently to LH COM rather than to a port C bit. §5-9 step 3 sends you here when a motherboard relay misbehaves.",
+  "U15": "LM393 dual comparator. U15A is an open-collector stage that level-shifts PB5 into the FET2 line driving the Q9/Q10 JFET pair on sheet 3.",
+  "U17": "741 op amp (LM741CN), the control element of the motherboard non-latching relay supply. PC5 low gives about 3.5 V on RLY+V and PC5 high gives about 7 V; §5-9 step 2 measures the result at the cathode of CR2.",
+  "U19": "CA3096E array — three NPN and two PNP transistors, five isolated. U19A-E with Q4 form the dc 2.2 V range high-current output stage, which lets the range deliver 50 mA with current limiting.",
+  "U20": "LT1007 precision low-noise op amp — the internal cal zero amplifier itself. Fault codes 3804 to 3809 are all measurements of this device and its gain network.",
+  "U21": "OP-07 low-offset op amp forming the current-cancellation circuit around U20: it creates a current equal and opposite to the current in the Z2 gain resistors so that zero current flows in the precision common, RCOM.",
+  "Q1": "TIP120 Darlington, the pass element of the motherboard relay supply. The 1996 parts list prints its package as TO-22, which is a typo for TO-220; the Rev 9 list and the schematic both say TO-220.",
+  "Q2": "2N3904, the sensing transistor of the foldback current limit on the motherboard relay supply, with CR1 and R10-R12.",
+  "Q4": "2N3906 PNP in the dc 2.2 V range output stage, with U19.",
+  "Q6": "VN01 DMOS FET. A logic high on PB4 turns it on and sets the internal cal zero amplifier gain to 130; off, the gain is 10.",
+  "Q7": "VN01 DMOS FET. A logic high on PB7 turns it on and ties the zero amplifier input to R COM, which is how every 0 V checkpoint in the calibration and in fault codes 3804-3808 is established.",
+  "Q9": "J112 N-channel JFET, with Q10. Driven from PB5 through the U15A level shifter, the pair connects the 13 V buffered reference (BRF13/BSRF13) from A11 to the 2.2 V range input for gain calibration.",
+  "Q10": "J112 N-channel JFET, with Q9.",
+  "Q11": "VN01 DMOS FET driven by PC4. It ties SWM SENSE LO to the zero amplifier input in place of Q7 for the 220 mV range, so that the 0 V checkpoint is made through the same 50 ohm source impedance as the range itself.",
+  "Q12": "High-voltage N-JFET (marked J2006 on schematic sheet 3), with Q13. The pair closes a local feedback path around the precision dc amplifier under abnormal conditions — a short at the OUTPUT binding posts, or the range in standby.",
+  "Q13": "High-voltage N-JFET, with Q12.",
+  "CR2": "1N4002. Its cathode is the RLY+V node, and the probe point for §5-9 step 2 — there is no wire loop there.",
+  "CR5": "One of the pair clamping the AC/DC mV node against VR3/VR4 at ±5.1 V on sheet 2, where the schematic marks both as FDH300. The two parts lists describe this stock number differently — see the caveats.",
+  "CR6": "The other half of the AC/DC mV clamp, and the probe point for §5-9 step 6. That step references its cathode to the front panel OUTPUT LO binding post, not to a board test point.",
+  "CR12": "With CR13, the clamp pair on the OUT LO / OUT-SENSE LO node on sheet 2.",
+  "CR13": "With CR12, the clamp pair on the OUT LO / OUT-SENSE LO node on sheet 2.",
+  "VR1": "6.8 V zener (1N754A) clamping the 2.2V OUT node on sheet 3, with VR2.",
+  "VR2": "6.8 V zener clamping the 2.2V OUT node on sheet 3, with VR1.",
+  "VR3": "5.1 V zener (1N5231B) on sheet 2; with CR5/CR6 it clamps the AC/DC mV node to +5.1 V. Fed from +17 S through R36.",
+  "VR4": "5.1 V zener on sheet 2; with CR5/CR6 it clamps the AC/DC mV node to -5.1 V. Fed from -17 S through R37.",
+  "T1": "The mV common-mode choke, in the AC/DC mV output path on sheet 2 between the 10:1 divider output and the clamp pair.",
+  "L1": "One of four 6-turn chokes in the P202 supply entry on sheet 3, one per incoming rail.",
+  "C21": "0.22 µF polyester bypassing +5 RLH at the P202 supply entry, beside C22.",
+  "C22": "The only tantalum on the board: 15 µF, 20 V, on the +5 RLH rail at the P202 supply entry (sheet 3, beside C21). At 5 V on a 20 V part it runs at a quarter of its rating.",
+  "R24": "The only wire-wound resistor on the board. Table 6-9 gives it no value at all — just '1/4 WATT HERM. W.W. RESISTOR' — and schematic sheet 3 prints it as 820 ohm in the dc 2.2 V range amplifier.",
+  "R38": "In the internal cal zero amplifier input on sheet 1, where the sheet prints '47 CC' — a 47 ohm carbon composition part, which is what the Rev 9 list also has. The 1996 list replaces it with a 46.4 ohm 1 % metal film; see the caveats.",
+  "K22": "Connects the ac and dc input signals needed to operate the 5725A Amplifier.",
+  "K23": "Connects B SNS LO for the 5725A Amplifier to either OSC SENSE LO or, through K14, R COM.",
+  "K29": "The relay that channels each dc range in turn into the internal cal zero amplifier input. In the set (open) position during a 0 V checkpoint reading.",
+  "K31": "With K32, switches the zero amplifier output onto the RCL line to the adc on A11.",
+  "K32": "With K31, switches the zero amplifier output onto the RCL line to the adc on A11.",
+  "K33": "The single LO line out to the OUTPUT LO binding post in all the millivolt ranges.",
+  "P201": "DIN 41612 type C 64-pin right-angle connector carrying the analog signals: DAC, oscillator and power amplifier inputs, INT OUT HI and INT SENSE HI out, the LO and sense returns, RCL and SDL.",
+  "P202": "DIN 41612 type C 64-pin right-angle connector carrying the nine supply rails from A17, the guarded digital bus into U1, and RLY1-RLY10 with RLY+V out to the Analog Motherboard relays."
+ },
+ "caveats": [
+  {
+   "title": "One assembly, four names — and §5-9 uses the one no parts list has",
+   "text": "The heated hybrid and its bonded resistor network are called different things by every source. The 1996 Table 6-9 lists them as H2 (HYBRID ASSEMBLY, TESTED, stock 813436) and Z1 (RNET, 5700 LO V DIVIDER, stock 759647). The Rev 9 Table 6-9 lists the same hybrid as HY1. The board silkscreen prints a single HR1 beside the moulded cover, with no H2 or Z1 anywhere. Schematic sheet 3 uses all three at once: HY1 HYBRID for the amplifier die, HR1 HYBRID for the heater block, and HR1 ASSY for the combined hybrid-plus-RNET footprint. §2-92 explains why — 'the resistor network is bonded to the hybrid and this entire assembly is called the 5700A-4HR1 (HR1) on the schematic'. The practical consequence is that §5-9 steps 4, 5 and 6 tell you to check 'the HR1 resistor network' and 'the HR1 hybrid', and HR1 exists in no parts list, so those steps carry no link to a part in this dataset. Read HR1 as H2 plus Z1, and order them by those two designators.",
+   "refs": [
+    "H2",
+    "Z1",
+    "MP2"
+   ]
+  },
+  {
+   "title": "Q3, Q8, C11 and R48 are drawn on the board and fitted to none of it",
+   "text": "§2-92 says 'Transistor Q3 drives the heater resistor on the hybrid' and 'Transistor Q8 protects the hybrid in case Q3 fails', and the locator drawing carries silkscreen for Q3 with a heat-sink outline, for C11 and for R48; sheet 1's component identification box adds Q5 and Q8. None of Q3, Q5, Q8, C11 or R48 appears in either revision of Table 6-9. The photographed board settles it: that whole footprint is bare — empty pads, no transistor, no heat sink. Schematic sheet 3 draws the heater control as a sealed block inside the HR1 HYBRID outline annotated HEATER CONTROL (50C), so Q3 and Q8 are inside the 4HR1 assembly and are not separately orderable. If you need one of them you are looking at replacing the hybrid. The same is true of C19 and C24, which have silkscreen and empty pads on the photographed board while C23 between them is fitted.",
+   "refs": [
+    "H2"
+   ]
+  },
+  {
+   "title": "The two parts lists describe CR5, CR6, CR12 and CR13 as different diodes",
+   "text": "Both revisions give stock 844647 for these four, so the dataset joins them without complaint — but the descriptions do not match. The 1996 list prints 'DIODE RL1N4007R05A, DIODE,SI,1KV,1A,DO-41', a mains rectifier. The Rev 9 list prints 'DIODE,SI,BV=125V,IO=150MA,500MW', a small-signal part. Schematic sheet 2 marks all four FDH300, which is a 125 V 150 mA switching diode and agrees with Rev 9. Two of three sources say small-signal, and the circuit says the same — these are clamps across a millivolt divider node, not rectifiers. Treat the 1996 description as the error, and order by stock number rather than by either description.",
+   "refs": [
+    "CR5",
+    "CR6",
+    "CR12",
+    "CR13"
+   ]
+  },
+  {
+   "title": "R38 changed type between the two revisions, and the schematic shows the old one",
+   "text": "Rev 9 lists R38 as stock 512061, 'RES,CC,47,+-5%,0.125W' — a 47 ohm carbon composition part, manufacturer Allen-Bradley BB4705 — and schematic sheet 1 prints it as '47 CC' beside the zero amplifier input. The 1996 list replaces it with stock 686995, 'RESISTOR A52R, RES,MF,46.4,+-1%,0.125W,100PPM', a 46.4 ohm 1 % metal film. Both are carried: the main entry is the later metal film, the as-built entry is the carbon composition. This is a deliberate improvement in a precision amplifier's input path, not a scanning error, so fit the metal film.",
+   "refs": [
+    "R38"
+   ]
+  },
+  {
+   "title": "Three more parts changed stock number between revisions",
+   "text": "CR14 and CR15 are stock 820449 in the Rev 9 list (1N4002A-T20) and 887203 in the 1996 list; both are described as 100 PIV, 1 A silicon. VR1 and VR2 are stock 820431 in Rev 9 (1N754A) and 260695 in the 1996 list; both are 6.8 V, 5 %, 0.4 W zeners. C32 (220 pF ceramic, stock 740654) is in the 1996 list and appears nowhere in the Rev 9 Table 6-9, so it has no manufacturer columns and no as-built row. In each case the later 1996 entry is the part to order.",
+   "refs": [
+    "CR14",
+    "CR15",
+    "VR1",
+    "VR2",
+    "C32"
+   ]
+  },
+  {
+   "title": "MP18-MP21: four designators against a quantity of eight",
+   "text": "The 1996 Table 6-9 row reads 'MP18-21  SPACER,.156 RND,SOLUBLE,.062,.060  296319' with a Tot Qty of 8. Four designators, eight parts. The Rev 9 row prints the same four designators with a Tot Qty of 4. Nothing else in either table disagrees on this part, and the drawing shows four spacer positions, so the likeliest reading is that the 1996 quantity is a typo — but if you are ordering, note that two spacers per position is physically possible for a soluble spacer and the manual does not say which it means.",
+   "refs": [
+    "MP18",
+    "MP19",
+    "MP20",
+    "MP21"
+   ]
+  },
+  {
+   "title": "§5-9 step 3 names Motherboard relays, not this board's K1 and K10",
+   "text": "The step reads 'Motherboard relays K1-K10 are controlled by U13 on the Switch Matrix assembly.' Those ten relays live on the Analog Motherboard (A3); A8 has its own K1 and K10, which are entirely different parts — K1 is the dc 2.2 V attenuator input relay and K10 the OUTPUT LO relay. The step's links to K1 and K10 have been suppressed for that reason, so the sentence still says what it says but does not send you probing the wrong relay. Relay chart columns on schematic sheet 5 keep the two groups apart the same way: the left block is headed SWITCH MATRIX RELAYS AND FETS, the right block MOTHERBOARD RELAYS.",
+   "refs": [
+    "U13",
+    "K1",
+    "K10"
+   ]
+  },
+  {
+   "title": "Three printing errors in the theory that will send you the wrong way",
+   "text": "§2-88's description of the motherboard relay supply reads 'When PC5 is low, the output is 3.5V, and when PB5 is high, the output is 7V.' It should be PC5 in both places — the same paragraph names PC5 as the control line, and the numbered sequence immediately below says 'Apply 7V to the relay coils by setting PC5 high.' §2-93 step 2 reads 'PBS turns on FET Q7'; §2-88 states plainly that a logic high on PB7 turns on Q7. §2-93 step 3 refers to 'the output (NIT SENSE HI) of the range'; the signal is INT SENSE HI, and NIT SENSE HI appears nowhere else in the manual set.",
+   "refs": [
+    "Q7",
+    "U17",
+    "Q1"
+   ]
+  },
+  {
+   "title": "Eight of A8's fault codes are printed as bare titles",
+   "text": "Codes 3810, 3811, 3812, 3813, 3814, 3815, 3818 and 3827 appear in §5-2 with a title and no descriptive paragraph, unlike every other code in the section. There is no published measurement, no acceptance band and no verdict for any of them. The entries in this dataset say what each name must refer to, based on §2-92 to §2-97 and on §5-9's bench equivalents, and mark the source as 'title only'. Codes 3816, 3817 and 3820 to 3823 really are spare and are printed as such.",
+   "refs": []
+  },
+  {
+   "title": "Nothing is placed on schematic sheet 5, and that is deliberate",
+   "text": "Sheet 5 of Figure 7-8 is the relay state chart and carries no circuit at all: a matrix of 26 instrument states against all 33 relays, the four FET channels and the nine motherboard relay groups, with its column headers repeated four times down the page. Those headers are nothing but designators laid out in a grid, which is exactly the shape that produces confident, wholly wrong marker positions, so no component is placed on this sheet. Read it as a page. Its legend is worth knowing: R means the reset position for a latching relay, a filled square means energised for a non-latching relay, a filled marker means on for a FET, and E means the external sense state — K15 reset AND motherboard relay K3 energised, both at once. The schematic itself is drawn in the RESET / DC VOLTS STANDBY condition, which is the chart's first row.",
+   "refs": []
+  },
+  {
+   "title": "Manufacturer part numbers for the four JFETs disagree with the schematic",
+   "text": "The Rev 9 manufacturer column gives Q9 and Q10 as J2929 and Q12 and Q13 as 32907-TR3 (the leading letter of which the scan may have lost). Schematic sheet 3 marks Q9 and Q10 as J112 and Q12 and Q13 as J2006, and §2-88 describes Q9/Q10 as N-channel JFETs. The Fluke stock numbers — 845073 and 832147 — are the same in both revisions and are what to order by; the manufacturer types are recorded as read and are not reliable here.",
+   "refs": [
+    "Q9",
+    "Q10",
+    "Q12",
+    "Q13"
+   ]
+  },
+  {
+   "title": "The hybrid cover hides the top-left of the board in the photograph",
+   "text": "MP2, the moulded cover over the H2 hybrid and the Z1 network, is fitted on the photographed board, so nothing under it is visible and no silkscreen there could be used as an alignment landmark. The photo alignment is solved from landmarks spread across the rest of the board and is marked approximate for that reason. Positions for H2 and Z1 come from the locator drawing, not from the photograph.",
+   "refs": [
+    "H2",
+    "Z1",
+    "MP2"
+   ]
+  },
+  {
+   "title": "Schematic placements: sheet 1 only, and only what was checked by eye",
+   "text": "The reader produced 302 markers across sheets 1 to 4. Every one of sheet 1's 96 was rendered onto the full-resolution sheet and looked at, and 25 of them were right — 26%. The other 71 sat on the relay bottom-view legend captions (a line reading 'K1, K3-K6, K13, K15-K20, K22, K24, K25' is eight designators in a row and not one of them is a position), on the transistor package legends, on the test point legend table, on pin numbers, on net names, on the NOTES block and on the title block's '(1 of 5)'. Those 71 are dropped. Sheets 2, 3 and 4 have not been reviewed marker by marker and are dropped in full rather than shipped unchecked: at sheet 1's measured rate roughly three quarters of their 255 markers would point at the wrong thing, and a marker that is not there cannot mislead. What is placed on those sheets is the six test points, put there by hand. So clicking a part will turn to sheet 1 for the parts placed there and do nothing for the rest; that is missing work, not a broken feature.",
+   "refs": []
+  },
+  {
+   "title": "How a step's part links are extracted, and what that misses",
+   "text": "Designators are picked out of each step's prose one token at a time, so a printed range links only its two ends. §5-9 step 3's 'Motherboard relays K1-K10' yields K1 and K10 and nothing between them — which on this board is doubly moot, because those ten relays are on the Analog Motherboard and both links are suppressed anyway. The other case to know about is a designator printed with a space ('TP 2'), which links to nothing at all; §5-9 does not do this anywhere, but the step text is always the authority, not the chips beside it. Finally, §5-9 steps 4, 5 and 6 name HR1, which is in no parts list and therefore cannot be linked — read it as H2 plus Z1.",
+   "refs": [
+    "K1",
+    "K10",
+    "H2",
+    "Z1"
+   ]
+  }
+ ]
+}

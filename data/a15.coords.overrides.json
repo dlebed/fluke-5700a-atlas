@@ -1,0 +1,530 @@
+{
+  "_comment": [
+    "Hand corrections to the reader's output for A15, in pixels of the",
+    "full-resolution crops in .build/a15/ (see imageSize / sheetImageSize).",
+    "",
+    "The reader placed 148 of the 236 designators (63%). Every marker was",
+    "reviewed by eye, tier by tier, against the drawing, and the tiers behave",
+    "very differently on this board:", "", "    agreed      83 of 90 right",
+    "    single      24 of 25 right", "    ambiguous    9 of 13 right",
+    "    collision    9 of 20 right", "",
+    "So 125 of 148 machine placements survived review. The 23 that did not were",
+    "all the same failure -- the marker sat on a neighbouring designator whose",
+    "label differs by one glyph (CR5 on CR9, R22 on CR22, C4 on C42, R8 on R82,",
+    "K6 on K9, R1 on R61). Each is moved onto its own label rather than dropped,",
+    "because the part is genuinely on the board a short distance away.", "",
+    "Three of the 23 are a different case and are not moved: H7, MP8 and MP9 are",
+    "a screw and two snap standoffs with no silkscreen designator at all. The",
+    "reader had truncated 'R80' and 'CR24' into them. They go to notOnDrawing,",
+    "which is where every other H and MP part on this board already is -- the",
+    "drawing labels no screw, rivet, standoff, cover, shield, insulator, cable",
+    "tie or ejector.", "",
+    "All eleven test points are placed by hand, spanning label and pad together,",
+    "and TP2, TP9, TP10 and TP11 carry a note about how their pad is drawn."
+  ],
+  "imageSize": { "w": 6115, "h": 3305 },
+  "sheetImageSize": {
+    "sh1": { "w": 6420, "h": 3910 },
+    "sh2": { "w": 6335, "h": 3875 }
+  },
+  "board": {
+    "C2": { "x": 4785, "y": 2100, "w": 128, "h": 62 },
+    "C4": { "x": 5100, "y": 2691, "w": 553, "h": 191, "shape": "rect", "note": "Body outline measured off a pixel grid; the designator sits inside the outline" },
+    "C5": { "x": 1826, "y": 1891, "w": 95, "h": 122, "note": "Read by the OCR pass, checked against the drawing by eye." },
+    "C6": { "x": 2210, "y": 780, "w": 128, "h": 62 },
+    "C7": { "x": 2430, "y": 1970, "w": 128, "h": 62 },
+    "C11": { "x": 3364, "y": 1927, "w": 99, "h": 144, "note": "Read by the OCR pass, checked against the drawing by eye." },
+    "C14": { "x": 3200, "y": 2040, "w": 62, "h": 128 },
+    "C16": { "x": 2665, "y": 2205, "w": 128, "h": 62 },
+    "C21": { "x": 2620, "y": 1235, "w": 128, "h": 62 },
+    "C24": { "x": 3165, "y": 1160, "w": 128, "h": 62 },
+    "C25": { "x": 3165, "y": 985, "w": 128, "h": 62 },
+    "C30": { "x": 3365, "y": 2810, "w": 128, "h": 62 },
+    "C34": { "x": 3945, "y": 2810, "w": 128, "h": 62 },
+    "C35": { "x": 3755, "y": 2810, "w": 128, "h": 62 },
+    "C37": { "x": 4160, "y": 2810, "w": 128, "h": 62 },
+    "C39": { "x": 4165, "y": 2660, "w": 128, "h": 62 },
+    "C42": { "x": 2790, "y": 764, "w": 124, "h": 54, "note": "Read by the OCR pass, checked against the drawing by eye." },
+    "C43": { "x": 2695, "y": 620, "w": 62, "h": 128 },
+    "CR1": { "x": 1432, "y": 1215, "w": 62, "h": 128 },
+    "CR2": { "x": 3935, "y": 2183, "w": 176, "h": 58, "note": "Read by the OCR pass, checked against the drawing by eye." },
+    "CR4": { "x": 1955, "y": 1215, "w": 62, "h": 128 },
+    "CR5": { "x": 1167, "y": 1510, "w": 62, "h": 128 },
+    "CR6": { "x": 1270, "y": 1510, "w": 62, "h": 128 },
+    "CR9": { "x": 592, "y": 2160, "w": 62, "h": 128 },
+    "CR11": { "x": 2339, "y": 360, "w": 54, "h": 166, "note": "Read by the OCR pass, checked against the drawing by eye." },
+    "CR15": { "x": 4425, "y": 1025, "w": 62, "h": 128 },
+    "CR16": { "x": 2962, "y": 828, "w": 106, "h": 169, "note": "Read by the OCR pass, checked against the drawing by eye." },
+    "CR17": { "x": 1450, "y": 900, "w": 128, "h": 62 },
+    "CR19": { "x": 2395, "y": 1290, "w": 171, "h": 51, "note": "Read by the OCR pass, checked against the drawing by eye." },
+    "CR21": { "x": 1935, "y": 622, "w": 128, "h": 62 },
+    "CR24": { "x": 2520, "y": 1881, "w": 173, "h": 54, "note": "Read by the OCR pass, checked against the drawing by eye." },
+    "K1": {
+      "x": 2091,
+      "y": 2716,
+      "w": 768,
+      "h": 222,
+      "shape": "rect",
+      "note": "Read by the OCR pass, checked against the drawing by eye. Body outline measured off a pixel grid; the designator sits inside the outline"
+    },
+    "K6": { "x": 967, "y": 2719, "w": 435, "h": 222, "shape": "rect", "note": "Body outline measured off a pixel grid; the designator sits inside the outline" },
+    "K9": {
+      "x": 967,
+      "y": 2447,
+      "w": 435,
+      "h": 215,
+      "shape": "rect",
+      "note": "Read by the OCR pass, checked against the drawing by eye. Body outline measured off a pixel grid; the designator sits inside the outline"
+    },
+    "L4": { "x": 3197, "y": 2590, "w": 54, "h": 80, "note": "Read by the OCR pass, checked against the drawing by eye." },
+    "Q11": { "x": 3905, "y": 630, "w": 128, "h": 62 },
+    "Q21": { "x": 4560, "y": 1665, "w": 128, "h": 62 },
+    "Q24": { "x": 4960, "y": 1085, "w": 128, "h": 62 },
+    "R1": { "x": 1690, "y": 2135, "w": 62, "h": 128 },
+    "R2": { "x": 4745, "y": 330, "w": 62, "h": 128 },
+    "R4": { "x": 5340, "y": 1955, "w": 62, "h": 128 },
+    "R5": { "x": 5002, "y": 2142, "w": 79, "h": 84, "note": "Read by the OCR pass, checked against the drawing by eye." },
+    "R6": { "x": 5420, "y": 1955, "w": 62, "h": 128 },
+    "R7": { "x": 3760, "y": 2140, "w": 128, "h": 62 },
+    "R8": { "x": 2185, "y": 2135, "w": 62, "h": 128 },
+    "R9": { "x": 2270, "y": 2135, "w": 62, "h": 128 },
+    "R10": { "x": 2095, "y": 2135, "w": 62, "h": 128 },
+    "R11": { "x": 1775, "y": 2135, "w": 62, "h": 128 },
+    "R14": { "x": 4890, "y": 1490, "w": 62, "h": 128 },
+    "R18": { "x": 1935, "y": 2135, "w": 62, "h": 128 },
+    "R19": { "x": 2015, "y": 2135, "w": 62, "h": 128 },
+    "R20": { "x": 1850, "y": 2135, "w": 62, "h": 128 },
+    "R21": { "x": 2050, "y": 570, "w": 62, "h": 128 },
+    "R22": { "x": 2113, "y": 570, "w": 62, "h": 128 },
+    "R23": { "x": 1732, "y": 1497, "w": 92, "h": 275, "note": "Read by the OCR pass, checked against the drawing by eye." },
+    "R24": { "x": 1815, "y": 1520, "w": 62, "h": 128 },
+    "R25": { "x": 1325, "y": 1520, "w": 62, "h": 128 },
+    "R27": { "x": 1655, "y": 1520, "w": 62, "h": 128 },
+    "R29": { "x": 1320, "y": 1105, "w": 62, "h": 128 },
+    "R32": { "x": 3510, "y": 2705, "w": 62, "h": 128 },
+    "R33": { "x": 500, "y": 2385, "w": 62, "h": 128 },
+    "R35": { "x": 330, "y": 2385, "w": 62, "h": 128 },
+    "R37": { "x": 3885, "y": 1520, "w": 128, "h": 62 },
+    "R40": { "x": 3140, "y": 1520, "w": 128, "h": 62 },
+    "R42": { "x": 2478, "y": 570, "w": 62, "h": 128 },
+    "R43": { "x": 2415, "y": 570, "w": 62, "h": 128 },
+    "R46": { "x": 2255, "y": 1105, "w": 62, "h": 128 },
+    "R47": { "x": 2262, "y": 1520, "w": 62, "h": 128 },
+    "R50": { "x": 2095, "y": 1104, "w": 86, "h": 271, "note": "Read by the OCR pass, checked against the drawing by eye." },
+    "R52": { "x": 2180, "y": 570, "w": 62, "h": 128 },
+    "R53": { "x": 2500, "y": 1520, "w": 62, "h": 128 },
+    "R57": { "x": 3390, "y": 235, "w": 128, "h": 62 },
+    "R60": { "x": 2545, "y": 570, "w": 62, "h": 128 },
+    "R61": { "x": 3345, "y": 545, "w": 62, "h": 128 },
+    "R62": { "x": 3180, "y": 545, "w": 62, "h": 128 },
+    "R63": { "x": 4280, "y": 545, "w": 62, "h": 128 },
+    "R64": { "x": 4150, "y": 545, "w": 62, "h": 128 },
+    "R65": { "x": 4355, "y": 545, "w": 62, "h": 128 },
+    "R66": { "x": 4450, "y": 545, "w": 62, "h": 128 },
+    "R67": { "x": 4530, "y": 545, "w": 62, "h": 128 },
+    "R68": { "x": 4055, "y": 235, "w": 128, "h": 62 },
+    "R69": { "x": 4075, "y": 545, "w": 62, "h": 128 },
+    "R71": { "x": 1019, "y": 1503, "w": 119, "h": 269, "note": "Read by the OCR pass, checked against the drawing by eye." },
+    "R72": { "x": 2880, "y": 1040, "w": 62, "h": 128 },
+    "R73": { "x": 2815, "y": 1040, "w": 62, "h": 128 },
+    "R74": { "x": 2745, "y": 1040, "w": 62, "h": 128 },
+    "R75": { "x": 2910, "y": 550, "w": 62, "h": 128 },
+    "R76": { "x": 2827, "y": 550, "w": 62, "h": 128 },
+    "R77": { "x": 3390, "y": 335, "w": 128, "h": 62 },
+    "R78": { "x": 4055, "y": 335, "w": 128, "h": 62 },
+    "R80": { "x": 4570, "y": 1170, "w": 128, "h": 62 },
+    "R82": { "x": 4965, "y": 1245, "w": 124, "h": 54, "note": "Read by the OCR pass, checked against the drawing by eye." },
+    "R83": { "x": 4965, "y": 1170, "w": 128, "h": 62 },
+    "TP1": {
+      "x": 1381,
+      "y": 456,
+      "w": 120,
+      "h": 100,
+      "note": "Pad and label together: the marker spans the silkscreen text and the plated pad it names, so a probe lands on copper rather than on ink."
+    },
+    "TP2": {
+      "x": 4630,
+      "y": 352,
+      "w": 150,
+      "h": 145,
+      "note": "The one high-voltage test point on the board — a single PWB socket for an 0.080 pin, drawn as a circle to the right of its label. It reaches the 7 megohm end of the HR7 network through the 100 kilohm resistor R2."
+    },
+    "TP3": {
+      "x": 1733,
+      "y": 456,
+      "w": 120,
+      "h": 100,
+      "note": "Pad and label together: the marker spans the silkscreen text and the plated pad it names, so a probe lands on copper rather than on ink."
+    },
+    "TP4": {
+      "x": 1201,
+      "y": 456,
+      "w": 120,
+      "h": 100,
+      "note": "Pad and label together: the marker spans the silkscreen text and the plated pad it names, so a probe lands on copper rather than on ink."
+    },
+    "TP5": {
+      "x": 1908,
+      "y": 456,
+      "w": 120,
+      "h": 100,
+      "note": "Pad and label together: the marker spans the silkscreen text and the plated pad it names, so a probe lands on copper rather than on ink."
+    },
+    "TP6": {
+      "x": 1557,
+      "y": 456,
+      "w": 120,
+      "h": 100,
+      "note": "Pad and label together: the marker spans the silkscreen text and the plated pad it names, so a probe lands on copper rather than on ink."
+    },
+    "TP7": {
+      "x": 848,
+      "y": 456,
+      "w": 120,
+      "h": 100,
+      "note": "Pad and label together: the marker spans the silkscreen text and the plated pad it names, so a probe lands on copper rather than on ink."
+    },
+    "TP8": {
+      "x": 1024,
+      "y": 456,
+      "w": 120,
+      "h": 100,
+      "note": "Pad and label together: the marker spans the silkscreen text and the plated pad it names, so a probe lands on copper rather than on ink."
+    },
+    "TP9": {
+      "x": 3755,
+      "y": 290,
+      "w": 125,
+      "h": 120,
+      "note": "TP9 and TP10 are a mirrored pair: two vertical labels between two loop pads. Each marker is matched to its nearer pad, TP10 to the left one and TP9 to the right. The drawing does not draw a leader line, so the pairing is by proximity rather than stated."
+    },
+    "TP10": { "x": 3650, "y": 290, "w": 115, "h": 120, "note": "See TP9 — the left-hand loop of the mirrored pair." },
+    "TP11": { "x": 2705, "y": 270, "w": 125, "h": 110, "note": "The only test point on this board whose pad is drawn below its label rather than above or beside it." },
+    "U1": { "x": 2440, "y": 2130, "w": 62, "h": 128 },
+    "U4": { "x": 4010, "y": 1060, "w": 62, "h": 128 },
+    "U5": { "x": 3425, "y": 1060, "w": 62, "h": 128 },
+    "VR5": { "x": 2835, "y": 2530, "w": 62, "h": 128 },
+    "W1": { "x": 694, "y": 1875, "w": 132, "h": 51, "note": "Read by the OCR pass, checked against the drawing by eye." },
+    "K10": { "x": 5431, "y": 1292, "w": 426, "h": 210, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K11": { "x": 481, "y": 2722, "w": 425, "h": 210, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K12": { "x": 2712, "y": 2715, "w": 418, "h": 203, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K14": { "x": 4947, "y": 2461, "w": 432, "h": 210, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K2": { "x": 2399, "y": 2445, "w": 427, "h": 210, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K3": { "x": 1925, "y": 2447, "w": 424, "h": 210, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K4": { "x": 1453, "y": 2447, "w": 417, "h": 202, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K5": {
+      "x": 5432,
+      "y": 1550,
+      "w": 419,
+      "h": 206,
+      "shape": "rect",
+      "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye"
+    },
+    "K7": { "x": 5435, "y": 2459, "w": 425, "h": 210, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K8": { "x": 514, "y": 1500, "w": 417, "h": 203, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U2": { "x": 3834, "y": 1842, "w": 189, "h": 91, "shape": "rect", "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye" },
+    "U3": { "x": 2598, "y": 1046, "w": 185, "h": 89, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "C31": { "x": 3147, "y": 2808, "w": 135, "h": 135, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "Q12": { "x": 4357, "y": 281, "w": 192, "h": 192, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "Q13": { "x": 3070, "y": 286, "w": 194, "h": 194, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "Q14": { "x": 3505, "y": 648, "w": 209, "h": 101, "shape": "rect", "note": "Body and tab cells of the outline traced by flood fill and joined, checked by eye" },
+    "Q18": { "x": 2938, "y": 1670, "w": 213, "h": 101, "shape": "rect", "note": "Body and tab cells of the outline traced by flood fill and joined, checked by eye" },
+    "Q19": { "x": 3198, "y": 1674, "w": 210, "h": 101, "shape": "rect", "note": "Body and tab cells of the outline traced by flood fill and joined, checked by eye" },
+    "Q3": { "x": 1459, "y": 1579, "w": 199, "h": 199, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "Q6": { "x": 1948, "y": 1579, "w": 193, "h": 193, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "Q8": { "x": 3199, "y": 1918, "w": 210, "h": 100, "shape": "rect", "note": "Body and tab cells of the outline traced by flood fill and joined, checked by eye" },
+    "Q9": { "x": 3198, "y": 1796, "w": 211, "h": 102, "shape": "rect", "note": "Body and tab cells of the outline traced by flood fill and joined, checked by eye" }
+  },
+  "_notOnDrawingComment": [
+    "Screws, rivets, spacers, insulators, ejectors and the rest of the hardware:",
+    "none of it is drawn on the locator, so counting it as unplaced would make",
+    "the coverage badge lie. It stays searchable in the parts list.", "",
+    "Q1 is here for a different reason -- it is not a part at all. It comes from",
+    "the Rev 9 scan alone, and review.txt reports it as sharing a row with Q11,",
+    "stock 454041, which did join. Reading that row off the Rev 9 page settles",
+    "it: the reference cell says 'Q 11' and nothing else, quantity 1, and the",
+    "1996 table has no Q1 either. The OCR split the two digits of Q11. Nothing",
+    "on the drawing or on either sheet carries a Q1, which is why the reader",
+    "never found one and a search of the artwork does not either."
+  ],
+  "notOnDrawing": [
+    "H1", "H2", "H6", "H7", "H8", "H9", "H10", "H17", "H18", "H19", "H20",
+    "H21", "MP1", "MP2", "MP3", "MP4", "MP5", "MP6", "MP7", "MP8", "MP9",
+    "MP10", "MP11", "MP12", "MP14", "MP15", "MP16", "MP22", "Q1"
+  ],
+  "_sheetsComment": [
+    "Grid frames, measured corner by corner on each sheet at full resolution.",
+    "They are not the same: sheet 2's frame sits about 1.3% narrower than sheet",
+    "1's and further left, which is also why the two sheets are cropped",
+    "separately. On both sheets the outer border's left edge is at or beyond",
+    "x=0 in the scan, so the left-hand row letters are clipped; the frame below",
+    "is the inner zone border, which is what a zone reference is measured from.",
+    "",
+    "The legend box on sheet 1 prints its own zone for every test point --",
+    "'TP1 = INPUT (PG1D7)' is sheet 1 zone D7 -- so the derived zones can be",
+    "checked against the sheet's own arithmetic rather than taken on trust."
+  ],
+  "sheets": {
+    "sh1": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.00927, "y0": 0.01969, "x1": 0.98925, "y1": 0.97877 }
+      }
+    },
+    "sh2": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.00434, "y0": 0.01935, "x1": 0.98942, "y1": 0.97806 }
+      }
+    }
+  },
+  "_dropSchematicComment": [
+    "Both sheets were reviewed marker by marker against the artwork. Sheet 1",
+    "kept 83 of 103 reads and sheet 2 kept 86 of 120 -- and the two sheets fail",
+    "in quite different ways.", "",
+    "Sheet 2's failures are almost all one block: the row of relay and transistor",
+    "pinout legends across the bottom right. 'Q4,Q15,Q16,Q22,Q23,Q24' and",
+    "'K6,K7,K10,K11,K14' printed as captions beside bottom-view symbols read to",
+    "the reader as nineteen placements, several passes agree on them, and they",
+    "arrive in the agreed tier looking like the best markers on the sheet. Those",
+    "parts are genuinely on the sheet -- their contacts and their symbols are",
+    "drawn in the circuit -- so the designator is right and only the position is",
+    "wrong, which is the case no parts-list check can catch. All nineteen are",
+    "dropped rather than nudged.", "",
+    "Sheet 1 has no such block; its failures are spread out and are the ordinary",
+    "schematic misreads. The HR7 ASSY pin-number strip along the bottom supplies",
+    "three of them on its own (pin 9 read as Q9, pin 8 as C18, pin 2 as U2), and",
+    "the rest are a value ('1/4W' as L4, '1M' as L5, '0.1' as U1, '10uF' as C7),",
+    "a net name ('HV C6*' as C6, 'PACOM' as MP8, 'GUARD' as MP4), a pin label",
+    "('3A' as H8, '11' as R1, '19' as VR8), or a word of a caption ('INPUT' as",
+    "U5, 'DETAIL 1' as MP7, 'PREAMP' as MP3, 'RST' as R57).", "",
+    "Both sheets draw an oven cover as a four-pin block -- 'LARGE OVEN COVER' on",
+    "sheet 1 beside HR7, 'OVEN COVER' on sheet 2 beside H4 -- and the reader put",
+    "MP4 on one and MP5 on the other. Table 6-19 calls MP4 'MOLDED COVER, REF.",
+    "HYBRID' and MP5 'MOLDED COVER, HYBRID, R-NET', and it is HR7 that is the",
+    "hybrid bonded to an R-net, so the reader's pairing is more likely backwards",
+    "than right. Both are dropped: an unplaced part is better than a confidently",
+    "mislabelled one. MP3 is kept, because sheet 2 draws it as 'REAR SHIELD' and",
+    "there is only one of those.", "",
+    "Test points are the other systematic failure and they are placed by hand.",
+    "TP1 and TP5 belong on sheet 1 and TP9 and TP10 on sheet 2; the reader put",
+    "TP1 on 'TIP120', TP5 on TP9's own flag, and never found TP9 or TP10 at all.",
+    "Each hand placement is checked against the zone the sheet 1 legend prints",
+    "for it -- TP1 = INPUT (PG1D7), TP5 = BUFFER (PG1C4), TP9 = VI + (PG2B6),",
+    "TP10 = VI - (PG2A6) -- and all four derive the zone the legend states.",
+    "U1, U2 and Q9 are placed by hand on sheet 1 for the same reason: §5-21 names",
+    "all three, so a marker that lands on an HR7 pin number is worse than useless."
+  ],
+  "dropSchematic": {
+    "sh1": [
+      "C2", "C6", "C18", "CR12", "H1", "H7", "H8", "L4", "L5", "MP1", "MP3",
+      "MP4", "MP7", "MP8", "Q9", "R57", "U1", "U2", "U5", "W1", "Z5"
+    ],
+    "sh2": [
+      "C5", "C6", "C7", "C10", "H1", "K1", "K2", "K3", "K4", "K5", "K6",
+      "K7", "K9", "K10", "K11", "K12", "K14", "MP1", "MP4", "MP5", "MP7",
+      "Q3", "Q6", "Q20", "Q21", "R1", "R7", "R17", "TP1", "TP5", "TP7", "U1",
+      "VR8", "W2"
+    ]
+  },
+  "_schematicComment": [
+    "Hand placements in pixels of .build/a15/sch1_full.png and sch2_full.png.",
+    "Everything here was measured off a labelled pixel grid and, for the test",
+    "points, cross-checked against the zone the sheet 1 legend prints.", "",
+    "A later pass placed the 35 remaining electrical parts that had no",
+    "schematic position, 18 on sheet 1 and 17 on sheet 2. Most of them were",
+    "sitting in the reader's collision tier, which build_coords.py discards",
+    "outright: two designators read at one pixel, one of them the label that",
+    "is actually printed there. C10 not C19, C41 not C4, CR24 not R24, Q4 not",
+    "U4, Q8 not C8, C21 not C2, C40 not C4 -- in every case the collision was",
+    "at the right pixel and only the choice of name was open, so each was",
+    "settled by looking at the crop and the part number printed under it.",
+    "",
+    "Two of the dropped reads turned out to be the neighbouring part rather",
+    "than a misread of something else: sheet 1's 'C2' at (3173,786) is C4's",
+    "label, and sheet 1's 'CR12' at (5344,2776) is CR10's. Both drops stay,",
+    "and the two parts are now placed by hand at those pixels.", "",
+    "Q1 is the one part still unplaced. It is a TO-220, 100V, 2W, qty 1 in",
+    "Table 6-19, and it is not drawn on either sheet: neither reader found a",
+    "Q1 anywhere, and a zone-by-zone read of both sheets lists only Q3, Q4,",
+    "Q6, Q8, Q9, Q20 and Q21 on sheet 1 and Q10-Q16, Q18, Q19, Q22-Q24 on",
+    "sheet 2 (plus the bottom-view legend captions, which are dropped). It has",
+    "no board position either."
+  ],
+  "schematic": {
+    "sh1": {
+      "TP1": {
+        "x": 1265,
+        "y": 195,
+        "w": 200,
+        "h": 120,
+        "note": "The INPUT flag itself, not the legend row. Derived zone D7 agrees with the legend's own 'TP1 = INPUT (PG1D7)'."
+      },
+      "TP5": {
+        "x": 3545,
+        "y": 1875,
+        "w": 200,
+        "h": 130,
+        "note": "The BUFFER flag on U1's output net. Derived zone C4 agrees with the legend's 'TP5 = BUFFER (PG1C4)'."
+      },
+      "U1": {
+        "x": 2995,
+        "y": 1755,
+        "w": 140,
+        "h": 90,
+        "note": "The 356B ac sense buffer inverter, checked in §5-21 step 4. The reader had put U1 on a '0.1' resistor value instead."
+      },
+      "U2": {
+        "x": 2075,
+        "y": 2318,
+        "w": 140,
+        "h": 90,
+        "note": "The LF356 inside DETAIL 1, checked in §5-21 steps 5, 8 and 10. The reader had put U2 on pin 2 of the HR7 pin strip."
+      },
+      "Q9": {
+        "x": 2855,
+        "y": 2945,
+        "w": 140,
+        "h": 90,
+        "note": "The TIP120 that protects the HR7 hybrid if Q8 fails. The reader had put Q9 on pin 9 of the HR7 pin strip."
+      },
+      "C2": { "x": 1748, "y": 826, "w": 98, "h": 60, "note": "0.01uF in the +HV sense return, immediately left of R5." },
+      "C4": {
+        "x": 3175,
+        "y": 786,
+        "w": 98,
+        "h": 60,
+        "note": "0.022uF 1500V in series with R4 off K5A. The reader read this same label as C2, which is why C2 is dropped on this sheet."
+      },
+      "C6": {
+        "x": 4143,
+        "y": 1128,
+        "w": 98,
+        "h": 60,
+        "note": "0.047uF to SCOM beside R21 in the preamp diagnostic net. The reader's only C6 read was the net name 'HV C6*'."
+      },
+      "C8": {
+        "x": 1535,
+        "y": 1964,
+        "w": 98,
+        "h": 60,
+        "note": "680pF to ACOM on the ac sense line, one net above C10. The reader's C8 read landed on Q8's label instead."
+      },
+      "C10": { "x": 1410, "y": 2107, "w": 122, "h": 60, "note": "680pF below C8. Read here as a C10/C19 collision; C10 is what is printed." },
+      "C41": {
+        "x": 4654,
+        "y": 1187,
+        "w": 122,
+        "h": 60,
+        "note": "0.22uF on Q4's emitter in the current-limit circuit. Read here as a C4/C41 collision; C41 is what is printed."
+      },
+      "CR10": {
+        "x": 5343,
+        "y": 2778,
+        "w": 146,
+        "h": 60,
+        "note": "1N4002 beside CR9 on the HV SENSE return. The reader read this same label as CR12, which is why CR12 is dropped on this sheet."
+      },
+      "CR21": { "x": 4679, "y": 1914, "w": 146, "h": 60, "note": "Hand-lettered 5.3mA current-regulator diode across CR4/CR18 to -15S." },
+      "CR24": { "x": 3184, "y": 1683, "w": 146, "h": 60, "note": "1N4448 from U1 pin 7 to pin 6. Read here as a CR24/R24 collision; CR24 is what is printed." },
+      "Q4": {
+        "x": 4533,
+        "y": 1052,
+        "w": 98,
+        "h": 60,
+        "note": "2N3904, the CUR LIM driver. Read here as a Q4/U4 collision; Q4 is what is printed and U4 is on sheet 2."
+      },
+      "Q8": { "x": 1422, "y": 3021, "w": 98, "h": 60, "note": "TIP32A in the HR7 heater control, with C14 on its +8RLH supply. Read here as a C8/Q8 collision." },
+      "Q20": {
+        "x": 1262,
+        "y": 2368,
+        "w": 122,
+        "h": 60,
+        "note": "J2656 FET beside Q21 inside DETAIL 1. Its only agreed read was in sheet 2's pinout legend and was dropped."
+      },
+      "R9": { "x": 3110, "y": 1442, "w": 98, "h": 60, "note": "1M across R8, above the C7/R10 pair in the ac sense feedback." },
+      "R24": { "x": 5632, "y": 1714, "w": 122, "h": 60, "note": "10 ohm off the +SP C node beside TP6. The reader's R24 read collided with CR24's label instead." },
+      "R31": { "x": 3570, "y": 2028, "w": 122, "h": 60, "note": "2k 1/2W in the +44 S feed, above VR3." },
+      "R32": { "x": 3572, "y": 2350, "w": 122, "h": 60, "note": "2k 1/2W in the -44 S feed, below VR4." },
+      "VR2": { "x": 5346, "y": 1664, "w": 122, "h": 60, "note": "16V zener across R30 to PACOM." },
+      "VR3": { "x": 3759, "y": 2102, "w": 122, "h": 60, "note": "20V zener on the +20 S rail below R31." }
+    },
+    "sh2": {
+      "TP9": { "x": 1975, "y": 2600, "w": 190, "h": 120, "note": "The VI+ flag. Derived zone B6 agrees with the sheet 1 legend's 'TP9 = VI + (PG2B6)'." },
+      "TP10": { "x": 2055, "y": 3085, "w": 200, "h": 130, "note": "The VI- flag. Derived zone A6 agrees with the sheet 1 legend's 'TP10 = VI - (PG2A6)'." },
+      "C19": { "x": 3168, "y": 2839, "w": 122, "h": 60, "note": "2.2uF on +8RLH at Q18's collector." },
+      "C21": { "x": 2894, "y": 1789, "w": 122, "h": 60, "note": "0.1uF on U3A's -15S pin. Read here as a C2/C21 collision; C21 is what is printed." },
+      "C40": { "x": 2270, "y": 2879, "w": 122, "h": 60, "note": "0.1uF from VI COM to VI -, right of C39. Read here as a C4/C40 collision; C40 is what is printed." },
+      "CR12": {
+        "x": 2453,
+        "y": 1731,
+        "w": 146,
+        "h": 60,
+        "note": "1N4448 from U3A pin 3 to SCOM, right of R44. Sheet 1's CR12 read was really CR10 and is dropped there."
+      },
+      "CR13": { "x": 3321, "y": 1910, "w": 146, "h": 60, "note": "1N4448 from SCOM into the R53/R54 divider under Q16." },
+      "Q11": { "x": 5555, "y": 890, "w": 122, "h": 60, "note": "15029 mounted to Z6, above Q12." },
+      "Q13": { "x": 5340, "y": 1790, "w": 122, "h": 60, "note": "2219A driving Q14 through R59." },
+      "Q14": { "x": 5559, "y": 1876, "w": 122, "h": 60, "note": "15028 mounted to Z7, below Q13." },
+      "Q15": { "x": 3445, "y": 1263, "w": 122, "h": 60, "note": "2N3904 fed from R50." },
+      "Q16": { "x": 3445, "y": 1677, "w": 122, "h": 60, "note": "2N3906 fed from R48." },
+      "R37": { "x": 534, "y": 1421, "w": 122, "h": 60, "note": "825 MF in the G+ line, left of C18." },
+      "R41": { "x": 4264, "y": 2797, "w": 122, "h": 60, "note": "4.7k from +8RLH into Q19's base." },
+      "R50": { "x": 3202, "y": 1253, "w": 122, "h": 60, "note": "2.21k MF into Q15's base." },
+      "R59": { "x": 5348, "y": 2007, "w": 122, "h": 60, "note": "68 between Q13's emitter and Q14." },
+      "R60": { "x": 5131, "y": 1815, "w": 122, "h": 60, "note": "10 into Q13's base." },
+      "R83": { "x": 3887, "y": 2054, "w": 122, "h": 60, "note": "4.7K in the VI + line into Q24." },
+      "U4": { "x": 4583, "y": 1049, "w": 98, "h": 60, "note": "LF356 with C26 and C27 on its supplies. The reader's only U4 read was on sheet 1, on Q4's label." }
+    }
+  },
+  "_dropComment": [
+    "Reader placements on parts that have no silkscreen designator at all.",
+    "notOnDrawing alone would not remove them: it says the part has no marker to",
+    "find, while the bogus marker would still be drawn, and the coverage badge",
+    "would count the part as placed. H7 was read off a pad stroke above R28;",
+    "MP8 and MP9 are truncations of R80 and CR24."
+  ],
+  "drop": ["H7", "MP8", "MP9"],
+  "_layersComment": [
+    "Alignment of the photograph to board space. Nothing covers this board in the",
+    "photograph -- the rear shield is off -- but the two hybrid covers and the two",
+    "heat sinks are fitted, so HR7, H4, Z5, Z6, Q11, Q14 and the parts under the",
+    "covers are hidden even though their positions are right.", "",
+    "The eight landmark pairs below were read off labelled pixel grids on both",
+    "images: the ends of the test point row and TP11 along the top, the K9/K6/K11",
+    "relay cluster at bottom left, P602 at bottom right and K10 up the right-hand",
+    "side. That is a spread of the whole board, but every pair is a label centre",
+    "judged by eye rather than a measured fiducial, and the photograph is not a",
+    "perfectly overhead shot, so the fit is marked approximate. Expect a marker to",
+    "land on the right part and not necessarily on the middle of it."
+  ],
+  "layers": {
+    "photo": {
+      "approximate": true,
+      "landmarks": [
+        {
+          "note": "photo corner, top left",
+          "src": [-0.01769, -0.06898],
+          "dst": [0.0, 0.0]
+        },
+        {
+          "note": "photo corner, top right",
+          "src": [0.97297, -0.05785],
+          "dst": [1.0, 0.0]
+        },
+        {
+          "note": "photo corner, bottom right",
+          "src": [0.97757, 1.03548],
+          "dst": [1.0, 1.0]
+        },
+        {
+          "note": "photo corner, bottom left",
+          "src": [-0.01044, 1.04756],
+          "dst": [0.0, 1.0]
+        }
+      ]
+    }
+  }
+}

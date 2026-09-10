@@ -1,0 +1,120 @@
+{
+  "_comment": [
+    "Which rail each capacitor sits on, and what that rail runs at.",
+    "The rated voltage is NOT here -- it is read from the parts list",
+    "at run time, so a corrected BOM corrects this too.",
+    "",
+    "All eleven capacitors on the board are audited and every net was traced on",
+    "a Chapter 7 sheet, so source is 'schematic' throughout. There is nothing to",
+    "infer: A10 has no regulator of its own, and the four rails it consumes",
+    "(+17 S, -17 S, +5 LH, +5 RLH) all arrive at P302 already regulated on A17.",
+    "",
+    "Only three of the eleven are tantalum -- C3, C4 and C6. The other eight are",
+    "polyester film (CAP,POLYES,0.22UF,+-5%,50V, stock 747519), which neither",
+    "dries out nor fails short the way a tantalum does; they are audited anyway",
+    "because the same question is worth asking of every part.",
+    "",
+    "appliedV is the worst case the NODE can reach, not the nominal it normally",
+    "sits at. C1 and C3 are the case that matters: their node is U1's positive",
+    "supply pin, which sheet 1 feeds from +17 S through VR1, a 3.3 V zener in",
+    "series -- so the node normally runs at about +13.7 V. It is recorded at 17 V",
+    "because a shorted or shunted VR1 puts the full rail on it and because 17 V",
+    "is what it sees at power-up before the zener conducts. Recording 13.7 would",
+    "flatter the margin on the strength of one series part.",
+    "",
+    "railClass is how much energy is behind the rail, which decides what a",
+    "shorted part does. These letters are this board's:",
+    "  A  U1's supply node, from +/-17 S through a small series element (VR1 on",
+    "     the positive side, R5 100 ohm on the negative). +/-17 S itself is",
+    "     unfused off A17's 3 A regulators, but nothing here sees the rail",
+    "     directly: a short would be limited by a 0.4 W zener or a 0.25 W",
+    "     resistor, both of which open long before the rail notices.",
+    "  B  +5 RLH, the relay-coil supply, after choke L4. Regulated on A17 and",
+    "     shared with every relay coil on the board, so a short here stops the",
+    "     ohms function outright rather than degrading it.",
+    "  C  +5 LH, the logic supply, after choke L5. Regulated on A17 and shared",
+    "     with A9's and the motherboard's logic.",
+    "",
+    "Hand-authored; tools/import_cap_audit.py was not used."
+  ],
+  "assembly": "A10",
+  "caps": {
+    "C1": {
+      "net": "U1 positive supply node (+17 S through VR1)",
+      "appliedV": 17.0,
+      "railClass": "A",
+      "source": "schematic",
+      "note": "0.22 uF polyester, high-frequency bypass in parallel with C3 on U1 pin 7, returned to SCOM. Sheet 1 of 4, inside the dashed GROUND PLANE = SCOM region. Node normally sits about 3.3 V below +17 S because VR1 is in series in the feed."
+    },
+    "C2": {
+      "net": "U1 negative supply node (-17 S through R5)",
+      "appliedV": 17.0,
+      "railClass": "A",
+      "source": "schematic",
+      "note": "0.22 uF polyester, mirror of C1 on U1 pin 4, returned to SCOM. Sheet 1 of 4. R5 is only 100 ohm and the OPA111 draws a few mA, so this node really does sit at nearly the full -17 S."
+    },
+    "C3": {
+      "net": "U1 positive supply node (+17 S through VR1)",
+      "appliedV": 17.0,
+      "railClass": "A",
+      "source": "schematic",
+      "note": "10 uF tantalum, 35 V part, the bulk bypass on U1 pin 7 with its + toward the rail. Sheet 1 of 4. One of only three tantalums on the assembly, and with C4 the pair worth looking at first if U1 misbehaves during ohms calibration but the board is otherwise well."
+    },
+    "C4": {
+      "net": "U1 negative supply node (-17 S through R5)",
+      "appliedV": 17.0,
+      "railClass": "A",
+      "source": "schematic",
+      "note": "10 uF tantalum, 35 V part, the bulk bypass on U1 pin 4 with its + toward SCOM -- correct polarity for a negative rail, and worth checking on a repaired board. Sheet 1 of 4."
+    },
+    "C6": {
+      "net": "+5 RLH",
+      "appliedV": 6.4,
+      "railClass": "B",
+      "source": "schematic",
+      "note": "4.7 uF tantalum, 25 V part, on the relay-coil supply immediately after choke L4 at P302 pins 23A/23C, returned to RLH COM. Sheet 2 of 4. The only bulk capacitance behind 39 relay coils. CORRECTED 2026-08 from 5.0 V to 6.4 V: the net was traced correctly, but the value had been taken from the rail's name rather than from Table 2-10, which gives +5 RLH as +5.975 V +/-425 mV at A17's TP14. 6.40 V is the top of that band and is what A5, A8, A9, A13, A14, A15 and A17 use for the same rail. 26 % of a 25 V part -- still one of the least stressed tantalums in the instrument, just not the very lowest."
+    },
+    "C7": {
+      "net": "+5 LH",
+      "appliedV": 5.0,
+      "railClass": "C",
+      "source": "schematic",
+      "note": "0.22 uF polyester on the logic supply after choke L5 at P302 pins 22A/22C, returned to LH COM. Sheet 2 of 4. The only bypass on +5 LH -- U9, U10 and the VDD pin of all nine 5801 drivers share it."
+    },
+    "C10": {
+      "net": "+5 RLH",
+      "appliedV": 5.0,
+      "railClass": "B",
+      "source": "schematic",
+      "note": "0.22 uF polyester decoupling U5's COM pin (12) to its GND pin (11), i.e. +5 RLH to RLH COM. Sheet 2 of 4."
+    },
+    "C11": {
+      "net": "+5 RLH",
+      "appliedV": 5.0,
+      "railClass": "B",
+      "source": "schematic",
+      "note": "0.22 uF polyester decoupling U6, same arrangement as C10. Sheet 2 of 4."
+    },
+    "C12": {
+      "net": "+5 RLH",
+      "appliedV": 5.0,
+      "railClass": "B",
+      "source": "schematic",
+      "note": "0.22 uF polyester decoupling U11, same arrangement as C10. Sheet 2 of 4."
+    },
+    "C13": {
+      "net": "+5 RLH",
+      "appliedV": 5.0,
+      "railClass": "B",
+      "source": "schematic",
+      "note": "0.22 uF polyester decoupling U12, same arrangement as C10. Sheet 2 of 4."
+    },
+    "C16": {
+      "net": "+5 RLH",
+      "appliedV": 5.0,
+      "railClass": "B",
+      "source": "schematic",
+      "note": "0.22 uF polyester decoupling U3, the non-latching driver, same arrangement as C10. Sheet 2 of 4. Five of the nine drivers have their own decoupling cap; U2, U7, U8 and U13 do not."
+    }
+  }
+}

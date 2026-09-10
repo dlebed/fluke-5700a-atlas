@@ -1,0 +1,16 @@
+Rev9 parts: stock no 313247 (CR35) did not join on stock number
+Rev9 parts: MP23 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 761353 (MP23) did not join on stock number
+Rev9 parts: MP24 is in the Rev 9 list but not the 1996 list
+Rev9 parts: MP25 is in the Rev 9 list but not the 1996 list
+Rev9 parts: MP26 is in the Rev 9 list but not the 1996 list
+Rev9 parts: MP27 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 807347 (MP24,MP25,MP26,MP27) did not join on stock number
+Rev9 parts: stock no 883835 (MP38) did not join on stock number
+Rev9 parts: stock no 109090 (R19) did not join on stock number
+Rev9 parts: stock no 875658 (U58) did not join on stock number
+Rev9 parts: stock no 881698 (U64) did not join on stock number
+Rev9 parts: X2 is in the Rev 9 list but not the 1996 list -- same row as X1, stock 812198, which did join
+Rev9 parts: stock no 800357 (Y51) did not join on stock number
+Rev9 parts: Z521 dropped -- numbered outside this board's Z range, so the scan has run two designators from stock 355305 together
+no manufacturer part number for X3 (SOCKET,IC,28 PIN)

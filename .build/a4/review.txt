@@ -1,0 +1,8 @@
+Rev9 parts: stock no 831354 (J11) did not join on stock number
+J41: Rev 9 groups it with J51,J52 (stock 845334) but the 1996 list gives it stock 807818 -- part changed between revisions
+MP11: Rev 9 groups it with MP10,MP3,MP4 (stock 838482) but the 1996 list gives it stock 838458 -- part changed between revisions
+MP12: Rev 9 groups it with MP10,MP3,MP4 (stock 838482) but the 1996 list gives it stock 838458 -- part changed between revisions
+Rev9 parts: MP21 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 836478 (MP21) did not join on stock number
+Rev9 parts: stock no 358341 (MP22,MP23) did not join on stock number
+Rev9 parts: stock no 886697 (SW1) did not join on stock number

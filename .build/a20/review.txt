@@ -1,0 +1,128 @@
+Rev9 parts: BT1 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 821439 (BT1) did not join on stock number
+Rev9 parts: stock no 474288 (C1) did not join on stock number
+Rev9 parts: C117 is in the Rev 9 list but not the 1996 list
+Rev9 parts: C118 is in the Rev 9 list but not the 1996 list
+Rev9 parts: C122 is in the Rev 9 list but not the 1996 list
+Rev9 parts: C123 is in the Rev 9 list but not the 1996 list
+Rev9 parts: C124 is in the Rev 9 list but not the 1996 list
+Rev9 parts: C144 is in the Rev 9 list but not the 1996 list
+Rev9 parts: C145 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 649913 (C2,C3,C4,C6,C101,C102) did not join on stock number
+Rev9 parts: stock no 807610 (C5) did not join on stock number
+Rev9 parts: stock no 714832 (C8,C9,C10,C11) did not join on stock number
+Rev9 parts: stock no 706028 (C12,C13) did not join on stock number
+Rev9 parts: stock no 643312 (C17) did not join on stock number
+Rev9 parts: stock no 649939 (C80) did not join on stock number
+Rev9 parts: stock no 721142 (C81,C82) did not join on stock number
+Rev9 parts: stock no 706804 (C100) did not join on stock number
+Rev9 parts: CR1 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 723486 (CR1) did not join on stock number
+Rev9 parts: stock no 742874 (CR2,CR3,CR7) did not join on stock number
+Rev9 parts: stock no 313247 (CR4,CR5,CR6,CR8) did not join on stock number
+Rev9 parts: stock no 452888 (L80,L81) did not join on stock number
+Rev9 parts: M3 is in the Rev 9 list but not the 1996 list
+Rev9 parts: M4 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 358341 (M3,M4) did not join on stock number
+Rev9 parts: MP2 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 494724 (MP1,MP2) did not join on stock number
+Rev9 parts: MP7 is in the Rev 9 list but not the 1996 list
+Rev9 parts: MP8 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 735365 (MP7,MP8) did not join on stock number
+Rev9 parts: stock no 807800 (P61,P62) did not join on stock number
+Rev9 parts: stock no 573121 (R1,R3) did not join on stock number
+Rev9 parts: stock no 696971 (R4) did not join on stock number
+Rev9 parts: stock no 573220 (R5) did not join on stock number
+Rev9 parts: stock no 573345 (R6) did not join on stock number
+Rev9 parts: stock no 720342 (R51,R52,R53,R54) did not join on stock number
+Rev9 parts: R55 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 719476 (R55) did not join on stock number
+Rev9 parts: R57 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 719468 (R56,R57) did not join on stock number
+Rev9 parts: stock no 312207 (R58,R59) did not join on stock number
+Rev9 parts: stock no 719492 (R60,R61) did not join on stock number
+Rev9 parts: R81 is in the Rev 9 list but not the 1996 list
+Rev9 parts: R82 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 573030 (R81,R82) did not join on stock number
+Rev9 parts: stock no 782656 (SW1) did not join on stock number
+Rev9 parts: T51 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 813477 (T51) did not join on stock number
+Rev9 parts: stock no 816090 (TP1,TP3,TP4,TP5,TP6,TP7) did not join on stock number
+Rev9 parts: stock no 780577 (U1) did not join on stock number
+Rev9 parts: stock no 394536 (U2) did not join on stock number
+Rev9 parts: stock no 741199 (U3) did not join on stock number
+Rev9 parts: stock no 807701 (U4,U11) did not join on stock number
+Rev9 parts: stock no 845271 (U5) did not join on stock number
+Rev9 parts: stock no 845250 (U6) did not join on stock number
+Rev9 parts: stock no 816926 (U8) did not join on stock number
+Rev9 parts: stock no 817312 (U9) did not join on stock number
+Rev9 parts: stock no 845268 (U10) did not join on stock number
+Rev9 parts: stock no 875260 (U13) did not join on stock number
+Rev9 parts: U15 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 761262 (U15) did not join on stock number
+Rev9 parts: U16 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 761361 (U16) did not join on stock number
+Rev9 parts: U17 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 761379 (U17) did not join on stock number
+Rev9 parts: U18 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 775247 (U18) did not join on stock number
+Rev9 parts: U20 is in the Rev 9 list but not the 1996 list
+Rev9 parts: U21 is in the Rev 9 list but not the 1996 list
+Rev9 parts: U22 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 800250 (U19,U20,U21,U22) did not join on stock number
+Rev9 parts: stock no 741892 (U25,U27,U28,U29) did not join on stock number
+Rev9 parts: stock no 722017 (U26,U30) did not join on stock number
+Rev9 parts: stock no 799494 (U31) did not join on stock number
+Rev9 parts: stock no 393959 (U32) did not join on stock number
+Rev9 parts: stock no 807693 (U33) did not join on stock number
+Rev9 parts: stock no 402669 (U52) did not join on stock number
+Rev9 parts: X5 is in the Rev 9 list but not the 1996 list
+Rev9 parts: X6 is in the Rev 9 list but not the 1996 list
+Rev9 parts: X10 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 812198 (X5,X6,X10) did not join on stock number
+Rev9 parts: X8 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 483842 (X8) did not join on stock number
+Rev9 parts: X13 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 448217 (X13) did not join on stock number
+Rev9 parts: X15 is in the Rev 9 list but not the 1996 list
+Rev9 parts: X16 is in the Rev 9 list but not the 1996 list
+Rev9 parts: X17 is in the Rev 9 list but not the 1996 list
+Rev9 parts: X18 is in the Rev 9 list but not the 1996 list
+Rev9 parts: X19 is in the Rev 9 list but not the 1996 list
+Rev9 parts: X20 is in the Rev 9 list but not the 1996 list
+Rev9 parts: X21 is in the Rev 9 list but not the 1996 list
+Rev9 parts: X22 is in the Rev 9 list but not the 1996 list
+Rev9 parts: X23 is in the Rev 9 list but not the 1996 list
+Rev9 parts: X24 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 807156 (X15,X16,X17,X18,X19,X20) did not join on stock number
+Rev9 parts: stock no 742049 (Y1) did not join on stock number
+Rev9 parts: stock no 811943 (Y3) did not join on stock number
+Rev9 parts: stock no 837666 (Z1) did not join on stock number
+Rev9 parts: stock no 416834 (Z2,Z3) did not join on stock number
+Rev9 parts: Z4 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 529990 (Z4) did not join on stock number
+Rev9 parts: stock no 404624 (Z5) did not join on stock number
+no manufacturer part number for C107 (CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7)
+no manufacturer part number for C14 (CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7)
+no manufacturer part number for C142 (CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7)
+no manufacturer part number for C15 (CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7)
+no manufacturer part number for C16 (CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7)
+no manufacturer part number for C18 (CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7)
+no manufacturer part number for C7 (CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7)
+no manufacturer part number for DS1 (LED,RED,BR1101W,1.6 MCD,20MA,1.7V,1206,T)
+no manufacturer part number for R10 (RESISTOR SMR,RES,CERM,10K,+-1%,.125W,100)
+no manufacturer part number for R11 (RESISTOR SMR,RES,CERM,10K,+-1%,.125W,100)
+no manufacturer part number for R12 (RESISTOR SMR,RES,CERM,10K,+-1%,.125W,100)
+no manufacturer part number for R13 (RESISTOR SMR,RES,CERM,10K,+-1%,.125W,100)
+no manufacturer part number for R14 (RESISTOR SMR,RES,CERM,10K,+-1%,.125W,100)
+no manufacturer part number for R15 (RESISTOR SMR,RES,CERM,10K,+-1%,.125W,100)
+no manufacturer part number for R16 (RESISTOR SMR,RES,CERM,10K,+-1%,.125W,100)
+no manufacturer part number for R17 (RESISTOR SMR,RES,CERM,1K,+-1%,.125W,100P)
+no manufacturer part number for R2 (RESISTOR SMR,RES,CERM,0,+.05 MAX,.125W,1)
+no manufacturer part number for R7 (RESISTOR SMR,RES,CERM,0,+.05 MAX,.125W,1)
+no manufacturer part number for R8 (RESISTOR SMR,RES,CERM,75,+-5%,.125W,200P)
+no manufacturer part number for R9 (RESISTOR SMR,RES,CERM,75,+-5%,.125W,200P)
+no manufacturer part number for T1 (TRANSFORMER,SIGNAL,1:1,0.3-150MHZ,1515,T)
+no manufacturer part number for TP13 (CONNECTOR,TERMINAL,TEST POINT,1510,TAPE)
+no manufacturer part number for TP14 (CONNECTOR,TERMINAL,TEST POINT,1510,TAPE)
+no manufacturer part number for XBT1 (CONNECTOR,HOLDER,BATTERY,2450 COIN,SURFA)

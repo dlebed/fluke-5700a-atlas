@@ -1,0 +1,7 @@
+Rev9 parts: C1214 dropped -- numbered outside this board's C range, so the scan has run two designators from stock 697441 together
+Rev9 parts: unparsed designator token(s) ['25'] in '25' (OCR noise -- add to OCR_DESIGNATOR_FIXES if it matters)
+Rev9 parts: stock no 159608 (R1,R2) did not join on stock number
+Rev9 parts: stock no 109926 (R3,R4,R5) did not join on stock number
+Rev9 parts: stock no 109090 (R22) did not join on stock number
+Rev9 parts: stock no 220046 (R70,R71) did not join on stock number
+Rev9 parts: stock no 820431 (VR1) did not join on stock number

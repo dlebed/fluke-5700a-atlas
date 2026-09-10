@@ -1,0 +1,27 @@
+1996 parts: MP4-6 expands to 3 designators but Tot Qty is 4
+Rev9 parts: C216 dropped -- numbered outside this board's C range, so the scan has run two designators from stock 816843 together
+Rev9 parts: unparsed designator token(s) ['EC125'] in 'C 76, 77,124,ec 125' (OCR noise -- add to OCR_DESIGNATOR_FIXES if it matters)
+Rev9 parts: unparsed designator token(s) ['C', 'I12'] in 'C i12' (OCR noise -- add to OCR_DESIGNATOR_FIXES if it matters)
+Rev9 parts: unparsed designator token(s) ['EC115'] in 'ec 115' (OCR noise -- add to OCR_DESIGNATOR_FIXES if it matters)
+Rev9 parts: H14 dropped -- numbered outside this board's H range, so the scan has run two designators from stock 152140 together
+Rev9 parts: H15 dropped -- numbered outside this board's H range, so the scan has run two designators from stock 152140 together
+Rev9 parts: stock no 380220 (HS9,HS10) did not join on stock number
+Rev9 parts: MP1 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 775296 (MP1) did not join on stock number
+Rev9 parts: stock no 802959 (MP8) did not join on stock number
+Rev9 parts: MP9 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 853387 (MP9) did not join on stock number
+Rev9 parts: unparsed designator token(s) ['MP', 'I3-15'] in 'MP i3- 15' (OCR noise -- add to OCR_DESIGNATOR_FIXES if it matters)
+Rev9 parts: unparsed designator token(s) ['OME-'] in 'ome-)' (OCR noise -- add to OCR_DESIGNATOR_FIXES if it matters)
+Rev9 parts: stock no 806497 (Q10,Q11) did not join on stock number
+Rev9 parts: stock no 806489 (Q16,Q17) did not join on stock number
+Rev9 parts: R22 is in the Rev 9 list but not the 1996 list -- same row as R12,R13,R83, stock 721548, which did join
+Rev9 parts: R5 is in the Rev 9 list but not the 1996 list -- same row as R107,R35,R36, stock 721571, which did join
+Rev9 parts: stock no 640953 (R91,R99) did not join on stock number
+Rev9 parts: U0 dropped -- numbered outside this board's U range, so the scan has run two designators from stock 793885 together
+Rev9 parts: stock no 364000 (Z2) did not join on stock number
+Rev9 parts: Z24 dropped -- numbered outside this board's Z range, so the scan has run two designators from stock 513309 together
+no manufacturer part number for C126 (CAP,CER,39PF,+-2%,50V,C0G)
+no manufacturer part number for C127 (CAP,CER,39PF,+-2%,50V,C0G)
+no manufacturer part number for R111 (RES,CF,620,+-5%,0.25W)
+no manufacturer part number for R112 (RES,CF,620,+-5%,0.25W)

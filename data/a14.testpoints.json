@@ -1,0 +1,167 @@
+{
+  "_comment": [
+    "Curated A14 test-point data. Hand-authored from the service manuals rather than",
+    "parsed, and shaped by one fact about this board: A14 generates no supply that",
+    "Chapter 2 tabulates. There is no Table 2-x for it. Every published expectation",
+    "comes from the 5-19 / 5-20 procedure instead, and most of them are not at a test",
+    "point at all -- they are at a connector pin, a component lead, or across a",
+    "capacitor. Those are the probePoints below.",
+    "",
+    "So only one of the six test points carries a number: TP4, and it carries two,",
+    "because the manual specifies it in two different instrument states.",
+    "",
+    "The rest are marked noPublishedValue, which is the honest record. TP2 and TP3",
+    "are oscilloscope points and the manual describes a waveform, not a level. For",
+    "TP3 it prints amplitudes of 'typically 10V p-p' and 'typically 40V p-p' and then",
+    "says outright that the measured amplitude may not be that -- 'for now just verify",
+    "that the 1 kHz signal is present'. Writing those in as a nominal with a tolerance",
+    "would invent an acceptance test the manual explicitly declines to give, and the",
+    "log would then score a good board as failing. The prose is in the note instead.",
+    "",
+    "Signal names and their sheet/zone references are transcribed from the legend box",
+    "on schematic sheet 1, which prints them as 'TP2 = QSQB (PG2D3)' -- page 2, zone",
+    "D3. All six are non-insulated wire-loop jumpers, Table 6-18 'TP1-6",
+    "JUMPER,WIRE,NONINSUL,0.200CTR', stock 816090, so all six take a clip lead.",
+    "",
+    "TP6 (PACOM) is the reference for every measurement on this board unless a step",
+    "says otherwise -- 5-19 step 1. The two VI rails are the exception the step means:",
+    "they are measured against VI COM at P612 16A/C, which is not a test point, so",
+    "those probe points carry no refPoint and say so in their condition instead.",
+    "",
+    "Step numbers cite the combined 1-14 sequence used in the app, with the printed",
+    "section given alongside -- see the procedure caveat in a14.reference.json."
+  ],
+
+  "rails": {
+    "HV":   { "label": "High voltage section",  "com": "TP6", "color": "#d9534f" },
+    "MAG":  { "label": "Magnitude control",     "com": "TP6", "color": "#e0b13a" },
+    "DIAG": { "label": "Diagnostics",           "com": "TP6", "color": "#4fa3d1" },
+    "COM":  { "label": "Common",                "com": "TP6", "color": "#9aa0a6" }
+  },
+
+  "testpoints": [
+    { "ref": "TP1", "signal": "PA OUT DC", "rail": "HV", "kind": "wire-loop",
+      "refPoint": "TP6", "noPublishedValue": true,
+      "source": "Figure 7-17 sheet 1 legend (PG1C1)",
+      "note": "The Power Amplifier (A16) output as it arrives at A14, ahead of relay K1 and the T1 primary. The manual publishes no level here: §5-19 checks the amplified result at P611 pin 1A/1C instead, because what matters is what T1 and the range relays did with it. Useful for confirming that A16 is driving the board at all.",
+      "onFail": ["K1", "T1", "R67", "VR2", "VR3"] },
+
+    { "ref": "TP2", "signal": "QSQB", "rail": "MAG", "kind": "wire-loop",
+      "refPoint": "TP6", "noPublishedValue": true,
+      "condition": "Power-up transient. Scope at 2 V/div, 500 us/div, connected before power-up.",
+      "source": "§5-20 step 1 (step 10 of the combined procedure)",
+      "note": "Square wave generator output. At power-up the scope should show a TTL-level 1 kHz square wave for approximately one second, then nothing -- the oscillator is shut down by PS OFF when it is not needed, so an idle board reading flat here is correct. Control line FREQ shifts the frequency via U7 to stop it beating against a 2 A ac output near 1 kHz.",
+      "onFail": ["U4", "U7", "R25", "R26", "C17"] },
+
+    { "ref": "TP3", "signal": "SQ OUT (HVCL)", "rail": "MAG", "kind": "wire-loop",
+      "refPoint": "TP6", "noPublishedValue": true,
+      "condition": "Scope at 20 V/div, 500 us/div. Three published cases, see note.",
+      "source": "§5-19 steps 2, 5 and 8; Figure 5-31",
+      "note": "Square wave amplifier output -- the amplitude-controlled 1 kHz square wave sent to A16, and therefore the signal that sets every high-voltage and high-current supply. Published cases: at power-up it ramps up to the level of Figure 5-31, holds about a second, then goes to 0 V; at +220 V dc operate it is typically 10 V p-p; at 220 mA dc 1 kHz operate it is typically 40 V p-p. The manual states the measured amplitude may not match those figures and that the check is only that the 1 kHz signal is present, so no acceptance band is recorded here. Nothing at TP3 sends you to the magnitude control circuit, §5-20.",
+      "onFail": ["U3", "U7", "U1", "C14", "C15"] },
+
+    { "ref": "TP4", "signal": "ERROR SIGNAL", "rail": "MAG", "kind": "wire-loop",
+      "refPoint": "TP6", "unit": "V",
+      "source": "§5-19 step 2 and §5-20 step 5",
+      "note": "Output of the signal/polarity selection circuit, and the input the error integrator balances against its reference. In the current function U2C subtracts the supply voltage from the absolute value, so this is a measure of the collector-emitter voltage on A15's output devices; in dc voltage it is a unity-gain inverter for positive output and a follower for negative, which is why the reading is the same for both polarities.",
+      "states": [
+        { "label": "Power up, 0 V standby", "nominal": 0.2, "tolerance": 0.1,
+          "source": "§5-19 step 2 (step 2)",
+          "onFail": ["U2", "U6"] },
+        { "label": "±220 V dc, operate", "nominal": 7, "tolerance": 1,
+          "setup": "Set the Calibrator to 220 V dc operate, then to -220 V dc operate. The reading must stay in band for both.",
+          "source": "§5-20 step 5 (step 14)",
+          "onFail": ["U2", "U6"] }
+      ] },
+
+    { "ref": "TP5", "signal": "SDL", "rail": "DIAG", "kind": "wire-loop",
+      "refPoint": "TP6", "noPublishedValue": true,
+      "source": "Figure 7-17 sheet 1 legend (PG3B8)",
+      "note": "Diagnostic multiplexer output. U14 selects one of seven monitored points across A14 and A15 -- the two hybrid oven temperatures and the dc HV amplifier output on A15, the series-pass current, and A14's own MUX5 (high voltage output), MUX6 (absolute value) and MUX7 (AMPLITUDE) -- and the adc on the DAC assembly (A11) reads it. Which one is selected depends on PB4-PB7 of U9, so a static reading here means nothing without knowing what the software has addressed. This is the line every 31xx fault code is measured through.",
+      "onFail": ["U14", "U9"] },
+
+    { "ref": "TP6", "signal": "PACOM", "rail": "COM", "kind": "wire-loop",
+      "isReturn": true,
+      "source": "§5-19 step 1; Figure 7-17 sheet 1 legend (PG1B7)",
+      "note": "Power amplifier common, and the reference for every measurement on this assembly unless a step says otherwise. The two VI rails are the exception: §5-19 step 9 references them to VI COM at P612 pins 16A/C." }
+  ],
+
+  "probePoints": [
+    { "id": "P611-1", "label": "P611 pin 1A or 1C (HV OUT)", "component": "P611",
+      "refPoint": "TP6", "unit": "V", "hazard": "HIGH VOLTAGE",
+      "source": "§5-19 step 3 and step 7",
+      "note": "The assembly's output, ac or dc according to range. In the 1100 V ac range A14 and the Power Amplifier together form an amplifier of gain -100; in the dc range the output is HVDC selected by K4/K11 and routed through K5, K12 and K3. Both pins are the same node.",
+      "states": [
+        { "label": "220 V ac at 110 Hz and 130 Hz, operate", "nominal": 220, "tolerance": 0.2,
+          "setup": "Both frequencies are checked. 110 Hz and 130 Hz sit either side of the 120 Hz point where K14-K16 series the transformer windings.",
+          "source": "§5-19 step 3 (step 3)",
+          "onFail": ["T1", "K1", "K14", "K15", "K16", "K9", "K6", "K5", "K12", "K3"] },
+        { "label": "+220 V dc, operate", "nominal": 220, "tolerance": 0.2,
+          "source": "§5-19 step 7 (step 7)",
+          "onFail": ["K4", "K11", "K5", "K12", "K3"] }
+      ] },
+
+    { "id": "VR4-K", "label": "VR4 cathode (-SP C)", "component": "VR4",
+      "refPoint": "TP6", "nominal": 13.7, "tolerance": 0.5, "unit": "V",
+      "condition": "0 V standby",
+      "source": "§5-19 step 4 (step 4)",
+      "note": "Published as +13.2 V to +14.2 V. -SP C is made from the opposite HVDC rail by K4 and K8; VR4 clamps it to 16 V through R65. Its dc level is set by the series-pass circuit on A15, so this reading is really a check on A15 -- which is what the step says to suspect.",
+      "onFail": ["VR4", "R65", "K4", "K8"] },
+
+    { "id": "VR5-A", "label": "VR5 anode (+SP C)", "component": "VR5",
+      "refPoint": "TP6", "nominal": -0.2, "tolerance": 0.1, "unit": "V",
+      "condition": "0 V standby",
+      "source": "§5-19 step 4 (step 4)",
+      "note": "Published as -0.1 V to -0.3 V. The companion to VR4, clamped through R66. As above, a failure here points at the HV DC output series pass and current limit circuit on the High Voltage/High Current assembly (A15), not at A14.",
+      "onFail": ["VR5", "R66", "K4", "K8"] },
+
+    { "id": "C1-across", "label": "Across C1 (HVDC filter)", "component": "C1",
+      "nominal": 227, "tolerance": 1, "unit": "V", "hazard": "HIGH VOLTAGE",
+      "condition": "+220 V dc, operate. Measured across the capacitor, not to PACOM.",
+      "source": "§5-19 step 6 (step 6)",
+      "note": "C1 filters the rectified transformer output into +/-HVDC, and R3-R5 form a 600 kilohm bleeder across it. A reading much greater than 227 V is a magnitude control fault, not a filter fault, and sends you to §5-20 -- step 6 says 'starting at step 10', which in this numbering is the square wave generator check. No dc at all points at the transformer, its range relays or the bridge.",
+      "onFail": ["T1", "K9", "K6", "CR1", "CR2", "CR3", "CR4", "C1", "R3", "R4", "R5"] },
+
+    { "id": "P612-15", "label": "P612 pins 15A/C (VI+)", "component": "P612",
+      "nominal": 5.3, "tolerancePct": 10, "unit": "V",
+      "condition": "220 mA at 1 kHz, operate. DMM low on VI COM, P612 pins 16A/C -- not on PACOM.",
+      "source": "§5-19 step 9 (step 9)",
+      "note": "Low-voltage high-current rail from the stepped-down T1 secondary, rectified by CR5 and filtered by C3. VI+ sources the output current and VI- sinks it, and their magnitude is deliberately held down by the magnitude control loop to keep the collector-emitter voltage low on A15's output transistors. Requires the front-panel OUTPUT HI to OUTPUT LO jumper, which must be removed afterwards.",
+      "onFail": ["T1", "K14", "K2", "CR5", "C3", "R14"] },
+
+    { "id": "P612-14", "label": "P612 pins 14A/C (VI-)", "component": "P612",
+      "nominal": -5.3, "tolerancePct": 10, "unit": "V",
+      "condition": "220 mA at 1 kHz, operate. DMM low on VI COM, P612 pins 16A/C -- not on PACOM.",
+      "source": "§5-19 step 9 (step 9)",
+      "note": "The negative half of the 2 A range supply pair, filtered by C4 with R15 as its bleeder. Same setup and same jumper caution as VI+.",
+      "onFail": ["T1", "K14", "K2", "CR5", "C4", "R15"] },
+
+    { "id": "CR10-K", "label": "CR10 cathode (reference and error amplifier)", "component": "CR10",
+      "refPoint": "TP6", "noPublishedValue": true,
+      "condition": "Power-up transient. Scope at 5 V/div, connected before power-up.",
+      "source": "§5-20 step 2 (step 11)",
+      "note": "At power-up the level should ramp up to approximately +14 V, hold for about a second, then return to 0 V. The manual gives no band, so nothing is scored here -- what is being checked is that the reference and error amplifier comes alive and then stands down. The return to 0 V is Q2 shorting the integrator capacitor C18 when PS OFF goes high.",
+      "onFail": ["U2", "U7", "Q2", "Q4", "VR1", "C18"] },
+
+    { "id": "U1-1", "label": "U1 pin 1 (-AMPLITUDE)", "component": "U1",
+      "refPoint": "TP6", "noPublishedValue": true,
+      "condition": "Power-up transient. Scope at 5 V/div, connected before power-up.",
+      "source": "§5-20 step 3 (step 12)",
+      "note": "The mirror of the CR10 check: this should ramp down to approximately -14 V, hold about a second and return to 0 V. U1A inverts AMPLITUDE so the square wave amplifier can swing between +AMPLITUDE and -AMPLITUDE. If this is right and TP3 is still dead at power-up, the fault is downstream in U3 or the U7 switches.",
+      "onFail": ["U1", "U3", "U7"] },
+
+    { "id": "U2-7", "label": "U2 pin 7 (absolute value output)", "component": "U2",
+      "refPoint": "TP6", "noPublishedValue": true,
+      "condition": "1.0 A at 1 kHz, operate, with the front panel OUTPUT HI jumpered to OUTPUT LO.",
+      "source": "§5-20 step 4 (step 13)",
+      "note": "Checked against G OUT rather than against a number: note the amplitude of the positive wave peaks at G OUT, then verify the dc voltage here equals them. U2A generates a negative half-wave equal to those peaks and U2B sums and averages it, so in the high-voltage dc function -- where the 2.2 A amplifier is unused -- this output is 0 V and that is correct. Remove the jumper before continuing.",
+      "onFail": ["U2", "Q3", "CR8", "CR9", "C20"] },
+
+    { "id": "P612-12C", "label": "P612 pin 12C (G OUT)", "component": "P612",
+      "refPoint": "TP6", "noPublishedValue": true,
+      "condition": "1.0 A at 1 kHz, operate, with the front panel OUTPUT HI jumpered to OUTPUT LO.",
+      "source": "§5-20 step 4 (step 13)",
+      "note": "The current control signal arriving from the collectors of A15's 2.2 A output transistors. It is the reference for the U2 pin 7 check above, not a measurement in its own right -- read its positive peaks and compare.",
+      "onFail": ["U2"] }
+  ]
+}

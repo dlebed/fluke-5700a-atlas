@@ -1,0 +1,45 @@
+{
+  "_comment": [
+    "A16A1 Power Amplifier Digital Control SIP PCA -- test point expectations.",
+    "There are none. The board carries no test points on its drawing or its",
+    "sheet (5700A-1071), no Chapter 2 supply table covers it, and Chapter 5",
+    "has no section for it. Its rails are the +5LH / +5RLH logic supplies from",
+    "A17 arriving on P2, listed here so the rail legend has something to name.",
+    "Fault codes 3500-3503, 3521 and 3530 are the published procedure and are",
+    "curated into a16a1.reference.json."
+  ],
+  "rails": {
+    "LH": {
+      "label": "+5 LH guarded logic supply (from A17 via A16 P702 and P2)",
+      "com": "P2",
+      "color": "#4fa3d1"
+    },
+    "RLH": {
+      "label": "+5 RLH relay-driver supply (from A17)",
+      "com": "P2",
+      "color": "#d97b5a"
+    },
+    "CTRL": {
+      "label": "Control lines to A16 and A18 (LC0*-LC7*, C0*-C7*, CONT0*-CONT7*, SW0-SW7)",
+      "com": "P2",
+      "color": "#9aa0a6"
+    }
+  },
+  "testpoints": [],
+  "probePoints": [
+    {
+      "id": "U11-35",
+      "label": "U11 pin 35 -- RESET",
+      "component": "U11",
+      "refPoint": "P2",
+      "nominal": 0,
+      "maxAbs": 0.8,
+      "unit": "V",
+      "condition": "Power on, after the instrument has finished its power-up sequence",
+      "source": "Sheet 1 (5700A-1071): RESET from P2 through R102/C54 and R101/C53; §2-140; fault code 3530",
+      "inferred": true,
+      "note": "The 82C55 reset pin. Fault code 3530 fires when the control word has been lost, which means this pin has been high since the software last wrote it. Anything above a TTL low here while the instrument is running points at the RC network on the reset line or at the guarded digital bus rather than at U11.",
+      "onFail": ["R101", "R102", "C53", "C54", "P2"]
+    }
+  ]
+}

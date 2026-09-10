@@ -1,0 +1,232 @@
+{
+ "_comment": [
+  "Which rail each capacitor sits on, and what that rail runs at.",
+  "The rated voltage is NOT here -- it is read from the parts list",
+  "at run time, so a corrected BOM corrects this too.",
+  "",
+  "All 25 capacitors on the board are audited. Every net was traced on",
+  "schematic sheet 1; what varies is whether the *voltage* on that net is",
+  "published. So source is used strictly:",
+  "  'schematic'  the net was traced on the sheet AND Table 2-2 or §2-25…§2-29",
+  "               states what that net runs at. These are the regulated rails.",
+  "  'inferred'   the net was traced on the sheet, but nothing in the manuals",
+  "               states its voltage and the sheet does not annotate it -- the",
+  "               +35VUR node carries TP4 and nothing else. The figure is",
+  "               derived, and each note says from what. Do not read these as",
+  "               measurements; they are design points good to perhaps 20%.",
+  "",
+  "The four unregulated rails were derived like this:",
+  "  +75VUR ~100 V   73 V out through a Darlington emitter follower needs real",
+  "                  headroom, and R6 (10 k, 2 W) across the rail dissipates",
+  "                  1.0 W at 100 V -- half its rating, which is where a bleeder",
+  "                  is normally sized. C1 is a 160 V part, consistent.",
+  "  +35VUR ~45 V    35 V out through Q5 (TIP120) plus headroom; R13 (10 k,",
+  "                  0.25 W) bleeds it and would be at 81% of rating at 45 V,",
+  "                  which caps how high it can plausibly be. C3 is 100 V.",
+  "  ±12VUR ~18 V    a 7812/7912 pair needs about 14.5 V in, and C6/C7 are 25 V",
+  "                  parts -- 18 V is the usual design point between the two.",
+  "  +5VUR  ~8.5 V   U3 is a low-dropout type feeding 5.2 V, and C12/C13 are",
+  "                  16 V parts.",
+  "The ac-side capacitors are entered at the peak of their winding, which for a",
+  "capacitor-input rectifier is the dc rail plus the rectifier drop.",
+  "",
+  "railClass is how much energy is behind the rail, which decides what a shorted",
+  "part does. These letters are this board's:",
+  "  A  an unregulated reservoir node. Behind its supply fuse, but the whole",
+  "     reservoir is behind it too -- 22 000 µF on +5VUR, 10 000 µF on +12VUR --",
+  "     so a short here dumps the bank before the fuse can clear. The worst",
+  "     place on this assembly for a capacitor to fail short.",
+  "  B  the output of a three-terminal IC regulator (U1, U2, U3): current",
+  "     limited and thermally protected, so a short is survivable.",
+  "  C  the output of a discrete series-pass regulator (Q1/Q3, or Q5) with a",
+  "     resistive current limit and no thermal protection.",
+  "  D  the ac side of a rectifier, ahead of the reservoir. The part sees the",
+  "     winding's peak in both polarities, and a short is across a transformer",
+  "     secondary through that supply's own fuse.",
+  "",
+  "There are no tantalums on this board. Every electrolytic is aluminium, which",
+  "is why Recap ranks these by capacitance lost rather than by voltage margin --",
+  "but the margins are here because a 1987 can on 72% of its rating is worth",
+  "knowing about before it is refitted.",
+  "",
+  "Hand-authored; tools/import_cap_audit.py was not used."
+ ],
+ "assembly": "A19",
+ "caps": {
+  "C6": {
+   "net": "+12VUR",
+   "appliedV": 18.0,
+   "railClass": "A",
+   "source": "inferred",
+   "note": "Reservoir for the unregulated +12 V rail, from rectifier CR17–CR20 and fused by F3 (§2-26). Sheet 1. The 18 V is derived from the 7812's input requirement and the part's own 25 V rating; nothing publishes it. The tightest margin on the board, together with C7 — a 25 V can on an 18 V rail is about 72%, so fit 35 V parts when recapping."
+  },
+  "C7": {
+   "net": "-12VUR",
+   "appliedV": 18.0,
+   "railClass": "A",
+   "source": "inferred",
+   "note": "Reservoir for the unregulated -12 V rail, same rectifier as C6, fused by F4 (§2-26). Sheet 1. Negative with respect to COMMON; entered as a magnitude. Same 72% as C6. Table 6-24 prints its tolerance as +-20%.25V and the Rev 9 list as +30-20%,25V — the 25 V rating is the same either way."
+  },
+  "C1": {
+   "net": "+75VUR",
+   "appliedV": 100.0,
+   "railClass": "A",
+   "source": "inferred",
+   "note": "Reservoir for the unregulated +75 V rail, from rectifier CR1–CR4 and fused by F1, bled by R6 (§2-28). Sheet 1. The 100 V is derived from R6's 2 W rating at 10 k and from the 73 V output plus Darlington headroom; the manuals publish nothing for this node. Holds the most energy of any capacitor here at working voltage — give R6 several seconds after power-down."
+  },
+  "C12": {
+   "net": "+5VUR",
+   "appliedV": 8.5,
+   "railClass": "A",
+   "source": "inferred",
+   "note": "Half the +5 V reservoir with C13, from rectifier CR25–CR28 and fused at 3.15 A by F5 (§2-25). Sheet 1. The 8.5 V is derived from U3 being a low-dropout type feeding 5.2 V and from the part's own 16 V rating. 22 000 µF behind no further protection than F5 — the highest stored charge on the board."
+  },
+  "C13": {
+   "net": "+5VUR",
+   "appliedV": 8.5,
+   "railClass": "A",
+   "source": "inferred",
+   "note": "The other half of the +5 V reservoir, in parallel with C12. Sheet 1. Same derivation, same rail, same margin."
+  },
+  "C4": {
+   "net": "+35V",
+   "appliedV": 35.0,
+   "railClass": "C",
+   "source": "schematic",
+   "note": "Bypass on the regulated +35 V output, after Q5 (§2-27). Sheet 1. 35 V is Table 2-2's nominal for TP5. A 63 V part at 56% — the tightest of the regulated-rail capacitors."
+  },
+  "C3": {
+   "net": "+35VUR",
+   "appliedV": 45.0,
+   "railClass": "A",
+   "source": "inferred",
+   "note": "Reservoir for the unregulated +35 V rail, from rectifier CR9–CR12 and fused by F2, bled by R13 (§2-27). Sheet 1. The 45 V is derived: it must clear 35 V plus Q5's headroom, and R13 (10 k, 0.25 W) would be running at 81% of rating there, which is about as high as it can plausibly sit."
+  },
+  "C2": {
+   "net": "+75V",
+   "appliedV": 73.0,
+   "railClass": "C",
+   "source": "schematic",
+   "note": "Bypass on the regulated +75 V output, after the Q3/Q1 Darlington (§2-28). Sheet 1. 73 V is Table 2-2's nominal for TP2 — the circuit's own figure, VR6 + VR7 less two base-emitter drops."
+  },
+  "C15": {
+   "net": "+5V",
+   "appliedV": 5.2,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "On the regulated +5 V output of U3 (§2-25). Sheet 1. 5.2 V is Table 2-2's nominal for TP12, lifted from 5.0 V by the germanium diode CR35."
+  },
+  "C10": {
+   "net": "-12V",
+   "appliedV": 12.0,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "Bypass on U2's regulated -12 V output (§2-26). Sheet 1. Entered as a magnitude."
+  },
+  "C8": {
+   "net": "-12VUR",
+   "appliedV": 18.0,
+   "railClass": "A",
+   "source": "inferred",
+   "note": "In parallel with C7 on the unregulated -12 V rail — the sheet puts it on U2's input side, although §2-26 groups it with the output bypasses C10 and C19. Sheet 1. Same derived 18 V as C7."
+  },
+  "C9": {
+   "net": "+12V",
+   "appliedV": 12.0,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "Bypass on U1's regulated +12 V output (§2-26). Sheet 1."
+  },
+  "C22": {
+   "net": "+12VUR",
+   "appliedV": 18.0,
+   "railClass": "A",
+   "source": "inferred",
+   "note": "0.22 µF ceramic in parallel with C6 on U1's input, although §2-26 describes it with the regulated side. Sheet 1. Same derived 18 V as C6."
+  },
+  "C14": {
+   "net": "+5VUR",
+   "appliedV": 8.5,
+   "railClass": "A",
+   "source": "inferred",
+   "note": "0.22 µF ceramic on the unregulated +5 V rail, in parallel with C20 and C21 just ahead of TP11 and U3's input. §2-25 lists it once among the 'filter capacitors C12, C13 and C14' and once as a bypass; the sheet says both sentences describe the same node. Not a bulk filter and not a recap candidate."
+  },
+  "C20": {
+   "net": "+5VUR",
+   "appliedV": 8.5,
+   "railClass": "A",
+   "source": "inferred",
+   "note": "Ceramic across the +5 V reservoir, with C21, filtering the high-frequency noise C12 and C13 cannot (§2-25). Sheet 1."
+  },
+  "C21": {
+   "net": "+5VUR",
+   "appliedV": 8.5,
+   "railClass": "A",
+   "source": "inferred",
+   "note": "The other half of the pair with C20. Sheet 1."
+  },
+  "C24": {
+   "net": "+75VUR",
+   "appliedV": 100.0,
+   "railClass": "A",
+   "source": "inferred",
+   "note": "0.022 µF 500 V ceramic across the unregulated +75 V rail with C1 and R6, filtering high-frequency noise (§2-28). Sheet 1. Derived rail voltage, as for C1."
+  },
+  "C25": {
+   "net": "+35VUR",
+   "appliedV": 45.0,
+   "railClass": "A",
+   "source": "inferred",
+   "note": "0.022 µF 500 V ceramic across the unregulated +35 V rail with C3 (§2-27). Sheet 1. Derived rail voltage, as for C3."
+  },
+  "C23": {
+   "net": "+5V",
+   "appliedV": 5.2,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "High-frequency filter on U3's regulated output (§2-25). Sheet 1."
+  },
+  "C16": {
+   "net": "+5V",
+   "appliedV": 5.2,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "With L7, the last filter on the +5 V rail before P41 (§2-25). Sheet 1."
+  },
+  "C17": {
+   "net": "75 AC secondary",
+   "appliedV": 101.0,
+   "railClass": "D",
+   "source": "inferred",
+   "note": "0.047 µF polypropylene straight across the 75 V ac secondary, after F1 and ahead of the CR1–CR4 bridge (§2-28). Sheet 1. It sees the winding peak in both polarities, which for a capacitor-input rectifier is the dc rail plus the rectifier drop — about 101 V on the derived 100 V rail. A 630 V part, so very heavily derated, as a suppression capacitor across a mains-derived winding should be."
+  },
+  "C18": {
+   "net": "35 AC secondary",
+   "appliedV": 46.0,
+   "railClass": "D",
+   "source": "inferred",
+   "note": "0.047 µF polypropylene across the 35 V ac secondary, after F2 and ahead of the CR9–CR12 bridge (§2-27). Sheet 1. Same derivation as C17, on the derived 45 V rail."
+  },
+  "C5": {
+   "net": "12 AC 1",
+   "appliedV": 18.0,
+   "railClass": "D",
+   "source": "inferred",
+   "note": "0.1 µF ceramic from the positive ac leg to COMMON, after F3 and ahead of the CR17–CR20 rectifier. Sheet 1. §2-26 calls it a bypass for the regulated +12 V supply, but the sheet puts it on the ac side. Sees the winding peak, about the same magnitude as the derived 18 V rail."
+  },
+  "C19": {
+   "net": "12 AC 2",
+   "appliedV": 18.0,
+   "railClass": "D",
+   "source": "inferred",
+   "note": "0.22 µF ceramic from the negative ac leg to COMMON, after F4 — the mirror of C5. Sheet 1. §2-26 groups it with the -12 V output bypasses; the sheet puts it on the ac side."
+  },
+  "C11": {
+   "net": "5 AC secondary",
+   "appliedV": 9.0,
+   "railClass": "D",
+   "source": "inferred",
+   "note": "0.1 µF ceramic across the 5 V ac secondary, after F5 and the common-mode choke L8, ahead of the CR25–CR28 bridge (§2-25). Sheet 1. Sees the winding peak, about the derived 8.5 V rail plus the rectifier drop."
+  }
+ }
+}

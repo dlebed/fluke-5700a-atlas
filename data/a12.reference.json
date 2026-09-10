@@ -1,0 +1,312 @@
+{
+  "_comment": [
+    "Curated A12 reference material: overview, circuit descriptions behind each test-point",
+    "group, the 3400-series diagnostic fault codes, per-part function notes and the places",
+    "the sources disagree.",
+    "",
+    "There is no study document for A12 in ../MD/, so everything here was read out of the",
+    "1996 Series II service manual directly: theory from §2-119 to §2-129, the bench",
+    "procedure from §5-17, the fault codes from §5-2, the parts from Table 6-15, and the",
+    "net names, device types and connector pins from Figure 7-14 sheets 1 to 3. Each entry",
+    "cites what it came from.",
+    "",
+    "The fault codes are curated rather than parsed. §5-2 prints them as prose keyed by",
+    "code, and the useful half of each is the verdict -- which assembly is at fault, and",
+    "what an IN-tolerance reading means -- which is not something a parser can lift out.",
+    "A12's range is 3400 to 3427, shared with A13: 3404-3409, 3424 and 3427 name A13 alone",
+    "and are not carried here. 3410 and 3411 are titled 'A12/A13' but their printed verdict",
+    "is A13, and they are kept with that verdict said plainly, because a technician who",
+    "reads 'A12/A13' on the display needs to be told which way to go.",
+    "",
+    "Fault codes 3412 to 3422 measure A12's own signals through the SDL line and the adc on",
+    "the DAC assembly (A11), not with a meter. That matters twice: a bad SDL path or a bad",
+    "A11 adc produces A12 fault codes, and the bands they quote are not always the bands",
+    "§5-17 quotes for the same signal probed directly (see the caveat on VREF)."
+  ],
+
+  "overview": {
+    "summary": "The precision half of the ac voltage function. A13 makes an ac sine wave of roughly the right amplitude; A12 decides what the amplitude should be and holds it there. It does that with two nested loops. The fast one is analog: an averaging converter rectifies the sensed output, an error integrator compares that current against the dc reference current from the DAC assembly (A11), and the result leaves as OSC CONT to drive A13's agc amplifier — quick load-regulation recovery and short-term stability, but not accurate enough on its own. The accurate one is thermal and runs under software: the same signal is applied alternately as ac and as dc to a Fluke thermal RMS sensor (U14), the two readings are compared through the RCL line, and a 15-bit dac trims the reference current until the ac/dc difference is zero. A second thermal sensor (U16) characterises the frequency response of the first. Everything else on the board — nine latching relays, an 82C55 and two driver ICs, a CMOS analog switch, a diagnostic multiplexer — exists to steer those two loops between ranges and frequencies. A12 also provides the amplitude control for the ac current function and, at low frequencies, for the Wideband AC Module (Option -03).",
+    "sections": "§2-119 … §2-129",
+    "note": "A12 generates no supply of its own except +5 OSC, which U25 regulates from +15 OSC. The ±15 OSC pair arrives on P501 1A/1C and 2A/2C with OSC COM on 3A/3C; ±44 S, ±17 S and SCOM arrive on P502 28A/28C, 29A/29C, 30A/30C, 31A/31C and 32A/32C; +5 LH and LH COM feed the digital section. L3/L4 with C34/C35 buffer ±15 OSC into the ±15A pair and L1/L2 with C86/C87 into the ±15B pair, so a fault that looks like one amplifier group misbehaving may be one of those four chokes. Two divider-derived references matter as much as the rails: +2.5 V from +5 LH through R52/R53, and −200 mV from −15 OSC through R57/R58, which exists only to bias the thermal-sensor protection comparators."
+  },
+
+  "railCircuits": {
+    "SIG": {
+      "rails": "SENSE HI in, OSC CONT out",
+      "filters": ["C22", "C25", "C26", "C27", "C28", "C29", "C30", "C31", "C42", "C43"],
+      "relay": ["K1", "K2", "K3", "K8"],
+      "driver": ["U1", "U2", "U3", "U5", "U7", "U9", "U11", "U26"],
+      "note": "The analog amplitude control loop, and the path §5-17 steps 1 to 7 walk end to end. K1 selects the input — SENSE HI in ac voltage operation, the DAC's 6.5 V reference during internal calibration. The SENSE HI and SENSE LO current cancellation circuits (U1, Q1, Q2, K8, K2B and U2) keep the sense lines from being loaded. K3 switches the 0 or 20 dB attenuator in Z2 ahead of buffer amplifier U3, which holds its output between 0.22 and 2.2 V across both voltage ranges; C22 and C25 couple that to rectifying amplifier U5/U7/Q3/Q4, whose full-wave rectified output current is summed against VREF at error integrator U11. U8A adds C42 to C43 below 119 Hz. The three-pole filter (U9B, U8B–U8D, C26–C31) and buffer U9A produce OSC CONT.",
+      "source": "§2-121 … §2-126"
+    },
+    "SENSOR": {
+      "rails": "SENSE HI in, RCL out",
+      "regulators": ["U10", "U26"],
+      "relay": ["K4", "K5", "K6", "K7", "K9"],
+      "driver": ["U12", "U13", "U15", "U17", "U30", "U31", "U19"],
+      "protection": ["U21", "U22", "Q14", "VR5", "VR6", "Z10", "CR12", "CR13"],
+      "note": "The ac/dc thermal transfer circuit, which is what makes the amplitude accurate rather than merely stable. The dc sense buffer (U30 with FETs Q8, Q9, Q10) and the ac sense buffer (U12A, U12B, U13, K4, Z3 and FETs Q6, Q7, Q11, Q12) alternately drive thermal RMS sensor U14; K7 and R31 set the drive level for the upper and lower halves of each range. U15B integrates the sensor output and the square-root amplifier (U15A, U15C, U17) keeps its settling time constant. The result reaches the RCL line through U19 and K6, and leaves on P501 12A/12C for the adc on A11. A second sensor, U16 with U15D, characterises the frequency response through K5, K9 and R34, with Z4 dividing its output in the 220 V range. Both sensors have their own 200 °C protection: U21A and the dc-buffer FETs for U14, U22D with Q14, VR5, VR6, Z10, CR12 and CR13 for U16. The 15-bit dac (U10 for bits 0–13, Q19 and R26 for bit 14, inverted by U26) is what the software actually trims.",
+      "source": "§2-127 … §2-129"
+    },
+    "COM": {
+      "rails": "OSC SENSE LO / OSC RCOM",
+      "note": "TP2 is the reference for every §5-17 measurement. The sheet 1 note is worth reading before assuming any two commons on this board are the same point: connections drawn with a 3 are a single-point connection, those drawn with a 2 are ground-plane connections, and those drawn with a 1 are bussed and connected to ground at one point. OSC COM (P501 3A/3C), SCOM (P502 32A/32C) and LH COM are all separate returns and none of them is TP2.",
+      "source": "Figure 7-14 sheet 1, notes 1–3"
+    }
+  },
+
+  "faultCodes": [
+    {
+      "code": "3400",
+      "title": "A12: 8255 Control Word",
+      "measure": "The diagnostics read back the control word of the 82C55 (U20).",
+      "expected": "The control word reads back as written",
+      "verdict": "A failure indicates A12 is probably at fault. U20 is the only device on the guarded digital bus on this board, so a control-word failure is U20, its +5 LH supply and C76, or the bus arriving on P502.",
+      "refs": ["U20", "C76"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3401",
+      "title": "A12: 8255 Port A",
+      "measure": "The diagnostics write data to port A of U20 and read it back.",
+      "expected": "Port A reads back what was written",
+      "verdict": "A failure indicates A12 is probably at fault. Port A is the shared DATA bus for both relay drivers (U23, U24) and the 14-bit dac U10, so a stuck bit here disables relay selection and dac loading together — which is worth knowing, because that combination looks like several unrelated faults at once.",
+      "refs": ["U20", "Z9", "U23", "U24", "U10"],
+      "source": "§5-2, §2-120"
+    },
+    {
+      "code": "3402",
+      "title": "A12: 8255 Port B",
+      "measure": "Port B of U20 is read while the instrument is dormant.",
+      "expected": "Port B reads its expected dormant state",
+      "verdict": "A failure indicates A12 is probably at fault. Port B carries the MUX bus (PB0–PB3) to diagnostic multiplexer U18 and the SW1–SW4 lines (PB4–PB7) to analog switch U19.",
+      "refs": ["U20", "U18", "U19"],
+      "source": "§5-2, §2-120"
+    },
+    {
+      "code": "3403",
+      "title": "A12: 8255 Port C",
+      "measure": "Port C of U20 is read while the instrument is dormant.",
+      "expected": "Port C reads its expected dormant state",
+      "verdict": "A failure indicates A12 is probably at fault. Port C carries GCAL, AC*/DC, DAC* and BIT14* on PC1–PC4 and the relay-driver strobes and enable on PC5–PC7.",
+      "refs": ["U20", "U23", "U24"],
+      "source": "§5-2, §2-120"
+    },
+    {
+      "code": "3410",
+      "title": "A12/A13: 22V Amp Bias Adj Error",
+      "measure": "At 1 V and 10 V, 1 kHz, signal AMP1 on the Oscillator Output assembly is measured through the SDL line.",
+      "expected": "AMP1 outside the 500 mV to 2 V band",
+      "verdict": "Despite the A12/A13 title, the manual's verdict is that the Oscillator Output assembly (A13) is probably at fault, and it names a specific adjustment: the zero setting of potentiometer R30 on the OSC SMD AMP assembly (A13A1). Nothing on A12 is implicated. Look here only if A13 checks out.",
+      "refs": [],
+      "source": "§5-2"
+    },
+    {
+      "code": "3411",
+      "title": "A12/A13: 22V Amp Nonfunctional",
+      "measure": "At 1 V and 10 V, 1 kHz, signal AMP1 on the Oscillator Output assembly is measured through the SDL line.",
+      "expected": "AMP1 greater than 2 V",
+      "verdict": "The same measurement as 3410 with a larger error, and the same verdict: the Oscillator Output assembly (A13) is probably at fault. The pair differ only in degree — 3410 is a maladjustment, 3411 is the amplifier not working.",
+      "refs": [],
+      "source": "§5-2"
+    },
+    {
+      "code": "3412",
+      "title": "A12 To A13 Interface Fault",
+      "measure": "At 1 V, 1 kHz, signal VREF on A12 is measured through the SDL line.",
+      "expected": "3.16 V ±100 mV",
+      "verdict": "A failure indicates A12 is probably at fault. VREF is the DAC assembly's output selected onto the board by K1, so an out-of-band reading is either K1 and its drive circuitry or the signal never arriving from A11 — confirm the same measurement at TP3 with a meter (§5-17 step 1) before condemning anything.",
+      "refs": ["K1", "TP3", "U23"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3413",
+      "title": "A12/A13: 14 Bit DAC Nonfunctional",
+      "measure": "At 1 V, 1 kHz, the 15-bit dac is set to 0 V, −1.58 V and −3.16 V in turn and 14 BIT DAC OUT is measured through the SDL line.",
+      "expected": "Each setting within ±100 mV",
+      "verdict": "A failure indicates A12 is probably at fault. This is the same circuit §5-17 step 5 checks at U26 pin 6, and it is driven from port A of U20, so rule out 3401 first: a stuck data-bus bit produces this code without anything being wrong with the dac.",
+      "refs": ["U10", "U26", "Q19", "R20", "R26"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3414",
+      "title": "A12/A13: Nonlinear Control Loop 2vrng",
+      "measure": "At 1 V, 1 kHz, signal ERROR INT. OUT is measured through the SDL line.",
+      "expected": "0 V ±5.0 V",
+      "verdict": "A failure indicates A12 is probably at fault. The integrator sitting outside a ±5 V window means the analog loop is not closing: either it has nothing to integrate against (VREF, the rectifying amplifier) or it cannot move the output (OSC CONT, or A13's agc amplifier at the far end). Check 3412 and 3413 first — both feed this node.",
+      "refs": ["U11", "U8", "C42", "C43"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3415",
+      "title": "A12/A13: Nonlinear Control Loop 20vrng",
+      "measure": "At 10 V, 1 kHz, signal ERROR INT. OUT is measured through the SDL line.",
+      "expected": "0 V ±5.0 V",
+      "verdict": "A failure indicates A12 is probably at fault. The same test as 3414 in the other voltage range. If 3415 fails and 3414 passes, the difference between the two ranges is what to look at: K3 and the 20 dB attenuator in Z2 ahead of the buffer amplifier, and K2's range switching in the current cancellation circuits.",
+      "refs": ["U11", "K3", "Z2", "K2"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3416",
+      "title": "A12/A13: DAC 15th Bit Fault",
+      "measure": "At 1 V, 1 kHz, bit 14 of the 15-bit dac is exercised.",
+      "expected": "Bit 14 changes the dac output as expected",
+      "verdict": "A failure indicates A12 is probably at fault, and the manual names the part: check FET Q19. Bit 14 is the one bit not generated inside U10 — it is Q19 switching R26 into the summing node under control line BIT14* — so this code isolates cleanly to three parts.",
+      "refs": ["Q19", "R26", "U20"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3417",
+      "title": "A12: DC Sensor Buffer Fault",
+      "measure": "At 1 V, 1 kHz, the dc sense buffer output is compared through the RCL line against the DAC assembly's output voltage.",
+      "expected": "Difference of 0 V ±500 µV",
+      "verdict": "A failure indicates A12 is probably at fault. This is the tightest band in the whole 3400 series — 500 µV — because the dc sense buffer is the reference arm of the ac/dc transfer and its offset becomes the instrument's ac error directly. Suspect U30 and the FETs that gate its output (Q8, Q9, Q10) before anything downstream.",
+      "refs": ["U30", "Q8", "Q9", "Q10", "U21"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3418",
+      "title": "A12: Sensor Loop/SQ. Root Amp Fault",
+      "measure": "At 2.19 V, 1 kHz, the dc sense buffer drives the main ac/dc sensor and the sensor output is compared through the RCL line against the DAC assembly's output voltage.",
+      "expected": "Difference of 0 V ±100 mV",
+      "verdict": "A failure indicates A12 is probably at fault. If 3417 passed, the buffer is good and this is the sensor and the loop around it: U14, integrator U15B, and the square-root amplifier U15A/U15C/U17. A sensor shut down by its own 200 °C protection (U21A) reads as this fault, so check that the protection is not tripped before replacing U14.",
+      "refs": ["U14", "U15", "U17", "U21"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3419",
+      "title": "A12: AC Sensor Buff (2V Range)",
+      "measure": "At 2.19 V, 1 kHz, the ac sense buffer drives the main ac/dc sensor and the sensor output is compared through the RCL line against the DAC assembly's output voltage.",
+      "expected": "Difference of 0 V ±160 mV",
+      "verdict": "A failure indicates A12 is probably at fault. The ac arm of the same comparison 3418 makes with the dc arm, so 3418 passing and 3419 failing points at the ac sense buffer specifically: U12A, U12B, U13, the 2.22 k and 20.0 k resistors of Z3 paralleled by K4 in the reset position, and FETs Q11 and Q12.",
+      "refs": ["U12", "U13", "Z3", "K4", "Q11", "Q12"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3420",
+      "title": "A12: AC Sensor Buff (20V Range)",
+      "measure": "At 21.9 V, 1 kHz, the ac sense buffer drives the main ac/dc sensor and the sensor output is compared through the RCL line against the DAC assembly's output voltage.",
+      "expected": "Difference of 0 V ±160 mV",
+      "verdict": "A failure indicates A12 is probably at fault. The same test as 3419 in the 22 V range, where K4 is set and only the 20 k resistor in Z3 is in circuit for a gain of 0.316 instead of 3.16. 3419 passing and 3420 failing is K4 or the 20 k section of Z3.",
+      "refs": ["U12", "U13", "Z3", "K4"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3421",
+      "title": "A12: AC Cal Sensor (2V Range)",
+      "measure": "At 2.19 V, 1 kHz, configured as for the 2 V range ac/ac calibration, the ac/ac sensor output is compared through the RCL line against the DAC assembly's output voltage.",
+      "expected": "Difference of 0 V ±100 mV",
+      "verdict": "A failure indicates A12 is probably at fault. This is the second sensor, U16, not the main one — it is what characterises the main sensor's frequency response, and it has no active circuitry at its input by design, so a failure is the sensor, its relay path (K5, K9 set, U19C, K6) or its protection circuit (U22D, Q14).",
+      "refs": ["U16", "K5", "K9", "U19", "K6", "U22", "Q14"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3422",
+      "title": "A12: AC Cal Sensor (20V Range)",
+      "measure": "At 21.9 V, 1 kHz, configured as for the 20 V range ac/ac calibration, the ac/ac sensor output is compared through the RCL line against the DAC assembly's output voltage.",
+      "expected": "Difference of 0 V ±100 mV",
+      "verdict": "A failure indicates A12 is probably at fault. The same sensor as 3421 with R34 in circuit — K9 is set in the 20 V range and bypasses R34 in the 2.2 V range — so 3421 passing and 3422 failing is K9 or R34.",
+      "refs": ["U16", "K9", "R34", "K5", "U19", "K6"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3423",
+      "title": "Assembly A12 Missing",
+      "measure": "At power up the instrument checks which assemblies respond. A12 does not.",
+      "expected": "A12 answers on the guarded digital bus",
+      "verdict": "A failure indicates A12 is probably at fault. Before suspecting the board, confirm it is seated: this code fires for a board that is out of its slot, on an extender that is not making contact, or not fitted at all. A12 is chip-selected by CS9* at 4040–4047.",
+      "refs": ["U20", "P502"],
+      "source": "§5-2, Table 2-11"
+    },
+    {
+      "code": "3425",
+      "title": "Assembly A12 Or A13 Not Responding",
+      "measure": "Communication with both oscillator assemblies is checked.",
+      "expected": "Both A12 and A13 respond",
+      "verdict": "The manual's verdict names no single board: one or both assemblies are not responding. Read it together with 3423 and 3424 — 3423 alone is A12, 3424 alone is A13, and 3425 without either usually means the bus or the supply they share rather than either board.",
+      "refs": ["U20"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3426",
+      "title": "A12: 8255 Was Reset",
+      "measure": "The control word of U20 is re-read and shows the device has been reset.",
+      "expected": "The control word still holds its programmed value",
+      "verdict": "A failure indicates A12 is probably at fault. A spontaneous reset points at U20's +5 LH supply and its decoupling, or at noise on the RESET line arriving from the motherboard, rather than at the device itself.",
+      "refs": ["U20", "C76", "C88"],
+      "source": "§5-2"
+    }
+  ],
+
+  "componentNotes": {
+    "U20": "The 82C55 programmable peripheral interface, and the only device on this board that talks to the CPU. Chip-selected as CS9* at 4040–4047 (Table 2-11). Its 24 outputs are everything: port A is the shared DATA bus to the relay drivers and the 14-bit dac, port B carries the MUX bus to U18 and SW1–SW4 to U19, port C carries GCAL, AC*/DC, DAC*, BIT14* and the two relay-driver strobes with their common enable. Runs from +5 LH, decoupled by C76.",
+    "U23": "Relay driver for the latching relays K1–K4, K6 and K8. Strobed by PC5 of U20 and enabled by PC7, with port A supplying the data. (§2-120)",
+    "U24": "Relay driver for the latching relays K5, K7 and K9. Strobed by PC6 of U20 and enabled by PC7. (§2-120)",
+    "U18": "The diagnostic multiplexer. Under the MUX bus from PB0–PB3 of U20 it applies one of ±15 V, VREF, the error-integrator output and the 14-bit dac output — divided down by Z5 and Z6 — to the SDL line, which A11's adc measures. Nearly every 3400-series code that quotes a voltage is measuring through this part. (§2-120)",
+    "U19": "The CMOS analog switch that selects which sensor output reaches the RCL line, under SW1–SW4 from port B of U20: U19A and U19B for the main sensor at the upper and lower halves of a range, U19C for the ac/ac sensor and U19D for its divided output in the 220 V range. (§2-127, §2-129)",
+    "U14": "The main ac/dc thermal RMS sensor, and the part that gives the instrument its ac accuracy. Fed alternately by the dc sense buffer and the ac sense buffer; the difference between the two readings is what the 15-bit dac is trimmed to null. Comparator U21A shuts its input path down above 200 °C junction temperature. Under the M12 thermal cover.",
+    "U16": "The ac/ac thermal sensor, used to characterise U14's frequency response. It has no active circuitry at its input and all its switching is done with relays, so that its own response stays flat. Protected by U22D, Q14, VR5, VR6, Z10, CR12 and CR13. Under the M12 thermal cover.",
+    "U10": "AD7534 14-bit dac. Bits 0 to 13 of the 15-bit reference dac; bit 14 is Q19 and R26 outside it. Its output is inverted by U26 to become 14 BIT DAC OUT and applied to the error integrator's summing node through R20. (§2-127)",
+    "U13": "The ac sense buffer's gain stage: nominally 0.316 in the 22 V range and 3.16 in the 2.2 V range, set by which resistors of Z3 K4 puts in circuit. Q11 and Q12 switch its feedback and output between the ac and dc halves of the transfer.",
+    "U25": "Three-terminal +5 V regulator. The only supply A12 makes for itself, from +15 OSC, and the source of +5 OSC for the analog switches and the relay coils. (§2-119)",
+    "U11": "The error integrator. With C43 above 119 Hz; U8A adds C42 below that under LFCOMP*, dropping the crossover by a factor of ten. Pin 6 is ERROR INT. OUT — §5-17 step 6 and fault codes 3414 and 3415.",
+    "U3": "The buffer amplifier: a non-inverting unity-gain stage whose output stays between 0.22 and 2.2 V in both voltage ranges because K3 switches the 0 or 20 dB attenuator in Z2 ahead of it. Output is TP4.",
+    "K1": "Input selection. Reset for normal ac voltage operation: SENSE HI to the averaging converter and the ac sense buffer, and the DAC's output as VREF. Set during internal calibration: VREF becomes the 6.5 V reference (BRF6, BSRF6) and the input becomes the DAC's own output lines. (§2-121)",
+    "K3": "Selects the 0 or 20 dB attenuator in Z2 ahead of buffer amplifier U3 — reset in the 2.2 V range, set in the 22 V range. (§2-123)",
+    "K4": "Selects the ac sense buffer's input resistance in Z3: set in the 22 V range for 20 kΩ, reset in the 2.2 V range to put 2.22 kΩ and 20.0 kΩ in parallel. (§2-127)",
+    "K7": "Selects whether the sensor is driven directly (set, for the lower part of each range) or through R31 (reset, for the upper part). (§2-127)",
+    "M12": "The oscillator thermal cover over U14 and U16. Both sensors work by comparing self-heating, so the cover is part of the measurement, not packaging — expect readings at TP6 and TP7 to drift with it off.",
+    "HS1": "Radial TO-8 heat sink. The parts list carries it but the drawing does not: it clips onto a device rather than occupying a silkscreened position of its own.",
+    "Z2": "The 0/20 dB input attenuator ahead of the buffer amplifier — the 18 kΩ and 2 kΩ resistors K3 switches in for the 22 V range. Also the network SENSE HI arrives on (pin 1). (§2-122, §2-123)",
+    "Z1": "The rectifying amplifier's feedback network: the two 2 kΩ resistors that CR5 (pins 6 and 5) and CR4 (pins 3 and 5) select for the positive and negative halves of the waveform. (§2-123)",
+    "Z3": "The ac sense buffer's gain-setting network — the 2.22 kΩ and 20.0 kΩ input resistors K4 selects between, and the 6.32 kΩ feedback resistor used during an ac transfer. (§2-127)"
+  },
+
+  "caveats": [
+    {
+      "title": "The locator page's own caption says it is a continuation, and it is not",
+      "text": "Chapter 7 PDF page 55 is the A12 component locator, drawing 5700A-1650, and the schematic sheets follow it on pages 56, 57 and 58 as 5700A-1050 (1 of 3), (2 of 3) and (3 of 3). But the printed caption on page 55 reads 'Figure 7-14. A12 Oscillator Control PCA (cont)' even though it is the first page of the figure — all four pages carry the '(cont)' form. The title-block drawing number is what settles it: 16xx is a component locator, 10xx is a schematic sheet. Page 59 is already A13's locator, 5700A-1651.",
+      "refs": []
+    },
+    {
+      "title": "U8 and U19 are the same device type on the board, and the 1996 parts list has them swapped",
+      "text": "Table 6-15 in the 1996 manual gives U8 as 'IC,ANALOG SWITCH,DG211,+-15V,175 OHMS,QUAD BILATERAL,DIP16', stock 586735, and U19 as 'CMOS DG444', stock 910708. The Rev 9 parts list groups both under one row, stock 910708, quad bilateral switch. Figure 7-14 annotates U8B and U8C 'DG444' on sheet 1 and U19A–U19D 'DG211' on sheet 2 — the opposite way round from the 1996 list. The photographed board settles it in practice: both U8 and U19 are marked DG444DJ. So the two are interchangeable in the sense that matters for a repair, but do not order a DG211 for U8 on the strength of the 1996 list without looking at the fitted part first. Note that both schematic annotations print 'ON= <175', which is the DG211's on-resistance figure, not the DG444's.",
+      "refs": ["U8", "U19"]
+    },
+    {
+      "title": "R50 is 47 Ω, not the 120 Ω the Rev 9 parts list gives it",
+      "text": "The Rev 9 list prints one row 'R 32, 50  RES,CF,120,+-5%,0.25W'. Every other source says otherwise: the 1996 list gives R50 its own row at RES,CF,47, Figure 7-14 sheet 2 annotates the part '47' beside the K6 coil, and the photographed board's R50 carries yellow-violet-black bands. R32 really is 120 Ω. The as-built row shown against R50 is the Rev 9 row and is reproduced as printed, but treat 47 Ω as the value.",
+      "refs": ["R50", "R32"]
+    },
+    {
+      "title": "U14 and U16 are described as two completely different parts by the two lists",
+      "text": "The Rev 9 list calls stock 842591 'RMS CONVERTER TESTED 400 OHM-A GRADE'. The 1996 list replaces it with stock 1577442, 'OP AMP LT1220CST ON 12 PIN ADAPTER BOARD', and adds note 1 — 'U14, U16, part number 1577442 are assemblies'. Chapter 2 and §5-17 both describe the part in circuit as a thermal RMS sensor (§5-17 step 9 calls TP7 'the output of the Fluke RMS Sensor'), which is the Rev 9 description. The most likely reading is that the later part is a replacement module built around an LT1220 that plugs into the same twelve-pin footprint, but the manuals nowhere say so. Both are recorded; check what is actually fitted before ordering.",
+      "refs": ["U14", "U16"]
+    },
+    {
+      "title": "R55 appears twice in the 1996 parts list",
+      "text": "Table 6-15 lists R55 once in the group 'R1,R2,R55  RES,CF,30K,+-5%,0.25W' (quantity 3) and again on its own as 'R55  RESISTOR A52R,RES,CF,30K,+-5%,0.25W' (quantity 1). Both rows carry the same stock number, 368753, and the same value, so nothing is ambiguous about the part — but the two rows together imply four pieces for three designators. The Rev 9 list has only the grouped row. The dataset carries the second row's description, which is the more specific of the two.",
+      "refs": ["R55", "R1", "R2"]
+    },
+    {
+      "title": "Most of A12's resistors were re-sourced between the two revisions",
+      "text": "Twenty-four rows of Table 6-15 fail to join between the Rev 9 and 1996 lists on stock number while agreeing exactly on value, tolerance and rating — the whole carbon-film and metal-film population, plus CR6–CR8, Q1, Q2, VR1–VR3 and Z5. These are a change of supplier rather than a change of part, and they are why so many components on this board carry an 'as built' row that says the same thing twice with a different number. The one substantive difference in that set is Z5: 10 kΩ ±2% in the 1996 list, ±5% in Rev 9.",
+      "refs": ["Z5"]
+    },
+    {
+      "title": "§5-17 step 4's oscilloscope settings and its own figure disagree",
+      "text": "Step 4 says to set the oscilloscope to 2 V/div and 200 µs/div for the waveform at the anode of CR4, and step 6 says 500 mV/div and 200 µs/div for the one at U11 pin 6. Both figures (5-27, 5-28) are annotated 1 V and 10 ms. At the 1 kHz the procedure calls for, 200 µs/div is the setting that shows the waveform the figures draw; the figure annotations look like reused artwork. Use the step's settings.",
+      "refs": ["CR4", "U11"]
+    },
+    {
+      "title": "The board has no test point on any supply rail",
+      "text": "All eight test points are signal points. Nothing on A12 brings out +15 OSC, −15 OSC, ±15A, ±15B, +5 OSC, ±17 S, ±44 S or +5 LH at a loop, and Chapter 2 tabulates no supply for this assembly, so there is no published nominal for any of them here. Measure them at the P501 and P502 pins listed in the overview, against the return each belongs to, and use Table 2-10 (A17's regulated outputs) for what they should be — they are A17's supplies, not A12's.",
+      "refs": ["P501", "P502", "U25"]
+    },
+    {
+      "title": "The manufacturer columns are OCR of a scan, and some of them are visibly wrong",
+      "text": "The manufacturer supply code and manufacturer part number come from the scanned Rev 9 list and are carried through as read. Several are mangled — HS1's part number reads 'j2zees', R59/R60's reads 'MFSS5SD4991F' for what is plainly MF55D4991F, VR3's reads 'AN751A' for 1N751A — and VR1/VR2's '1N748' is a 3.9 V device where the description on the same row says 10.0 V, so it is more likely a misread of 1N758. Treat the Fluke stock number, which is a single isolated six- or seven-digit field and survives OCR cleanly, as the reliable key.",
+      "refs": ["HS1", "R59", "R60", "VR1", "VR2", "VR3"]
+    }
+  ]
+}

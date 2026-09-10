@@ -1,0 +1,28 @@
+1996 parts: R19-21,R29,R31,R41,R48 expands to 7 designators but Tot Qty is 10
+1996 parts: unparsed designator token(s) ['I', 'TO-220-7'] in 'U5,I,TO-220-7'
+Rev9 parts: stock no 780478 (C30,C31) did not join on stock number
+Rev9 parts: stock no 832105 (CR7) did not join on stock number
+Rev9 parts: H2 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 464016 (H2) did not join on stock number
+Rev9 parts: stock no 786483 (H32) did not join on stock number
+Rev9 parts: stock no 761338 (HR5) did not join on stock number
+Rev9 parts: K6 is in the Rev 9 list but not the 1996 list -- same row as K3,K5,K8, stock 769307, which did join
+Rev9 parts: K7 is in the Rev 9 list but not the 1996 list -- same row as K3,K5,K8, stock 769307, which did join
+Rev9 parts: stock no 786509 (M2) did not join on stock number
+Rev9 parts: stock no 786491 (M3) did not join on stock number
+Rev9 parts: MP4 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 680967 (MP4) did not join on stock number
+Rev9 parts: stock no 786434 (MP11) did not join on stock number
+R23: Rev 9 groups it with R32 (stock 746214) but the 1996 list gives it stock 811802 -- part changed between revisions
+Rev9 parts: stock no 807917 (U5) did not join on stock number
+Rev9 parts: stock no 810275 (VR1,VR17,VR21,VR31,VR32) did not join on stock number
+Rev9 parts: stock no 810267 (VR2,VR8,VR24) did not join on stock number
+Rev9 parts: stock no 822205 (VR3) did not join on stock number
+Rev9 parts: stock no 810325 (VR4) did not join on stock number
+Rev9 parts: stock no 811927 (VR7,VR16) did not join on stock number
+Rev9 parts: stock no 820480 (VR11) did not join on stock number
+Rev9 parts: stock no 820456 (VR13) did not join on stock number
+Rev9 parts: stock no 820415 (VR18,VR22) did not join on stock number
+Rev9 parts: stock no 810259 (VR29) did not join on stock number
+Rev9 parts: stock no 810291 (VR33,VR34) did not join on stock number
+no manufacturer part number for R128 (RESISTOR SMR,RES,CERM,200K,+-1%,0.1W,100)

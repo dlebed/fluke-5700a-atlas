@@ -1,0 +1,13 @@
+Rev9 parts: C89 dropped -- numbered outside this board's C range, so the scan has run two designators from stock 820530 together
+Rev9 parts: L121 dropped -- numbered outside this board's L range, so the scan has run two designators from stock 174763 together
+Rev9 parts: stock no 369660 (Q1) did not join on stock number
+R81: Rev 9 groups it with R11,R13 (stock 820308) but the 1996 list gives it stock 816595 -- part changed between revisions
+R82: Rev 9 groups it with R11,R13 (stock 820308) but the 1996 list gives it stock 816595 -- part changed between revisions
+Rev9 parts: stock no 248658 (R14) did not join on stock number
+Rev9 parts: stock no 109710 (R56,R57) did not join on stock number
+Rev9 parts: stock no 820464 (VR3) did not join on stock number
+Rev9 parts: XU3 dropped -- numbered outside this board's XU range, so the scan has run two designators from stock 478016 together
+Rev9 parts: stock no 855150 (Z3) did not join on stock number
+no manufacturer part number for C57 (CAP,CER,2000PF,+-5%,50V,C0G)
+no manufacturer part number for C58 (CAP,CER,2000PF,+-5%,50V,C0G)
+no manufacturer part number for Z4 (RNET,MF,POLY,SIP,1752 LO V DIVIDER)

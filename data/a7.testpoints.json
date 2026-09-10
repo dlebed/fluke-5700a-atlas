@@ -1,0 +1,522 @@
+{
+ "_comment": [
+  "A7 Current/High-Resolution Oscillator PCA — test point expectations.",
+  "",
+  "Every value here is read from the 1996 Series II service manual's text layer",
+  "(§5-7, §5-8 and the §5-2 fault codes) or from the test point legends printed",
+  "on Figure 7-7 sheets 1 and 4. Chapter 2 tabulates no supply for this board --",
+  "A7 makes none, it consumes what A17 and A19 send it -- so there is no supply",
+  "table to parse and nothing here came from one.",
+  "",
+  "TWO COMMONS, and they are not interchangeable. §5-7 note (after step 2):",
+  "'All measurements are referenced to SCOM (TP20) unless otherwise specified.'",
+  "§5-8 note (after step 1): 'All measurements are referenced to LHCOM (TP18).'",
+  "Carrying one into the other section's measurement gives a plausible wrong",
+  "answer on a healthy board.",
+  "",
+  "TP6 is in this file but not in Table 6-8; assemble.py marks it notInParts.",
+  "See the 'TP6' caveat in a7.reference.json for the three sources that say it",
+  "exists. TP14 and TP15 exist nowhere: the numbering jumps 13 -> 16.",
+  "",
+  "Anything marked inferred:true was derived rather than read; the note says",
+  "from what. Anything with noPublishedValue:true is a real probe target the",
+  "manuals never give a number for."
+ ],
+ "assembly": "A7",
+
+ "rails": {
+  "CUR": {
+   "label": "Current section signals",
+   "com": "TP20",
+   "color": "#5ec2a8"
+  },
+  "OUT": {
+   "label": "Output switching and binding-post nets",
+   "com": "TP20",
+   "color": "#d9534f"
+  },
+  "HIRES": {
+   "label": "Hi-Res oscillator",
+   "com": "TP18",
+   "color": "#4fa3d1"
+  },
+  "DIAG": {
+   "label": "Diagnostic monitor line",
+   "com": "TP18",
+   "color": "#e0b13a"
+  },
+  "COM": {
+   "label": "Commons",
+   "com": "TP20",
+   "color": "#9aa0a6"
+  }
+ },
+
+ "testpoints": [
+  {
+   "ref": "TP1",
+   "signal": "INPUT HI",
+   "rail": "CUR",
+   "kind": "wire-loop",
+   "refPoint": "TP2",
+   "unit": "V",
+   "source": "§5-7 step 11; Figure 7-7 sheet 1 legend (PG1C7)",
+   "note": "The selected input to the current loop, after K1 and the U5B/Q20-Q23 input switching: the 22 V range of the DAC (A11) in dc, the 22 V range of the Oscillator Output (A13) in ac, or the buffered 13 V reference BRF13 during current gain calibration. §5-7 step 11 is the only step that measures it, and it is the one step in §5-7 that names its own common (TP2) rather than using SCOM. Read the two states below as one step: the manual runs dc first, then ac, without moving the leads.",
+   "states": [
+    {
+     "label": "2 mA dc, operate",
+     "nominal": 20,
+     "tolerancePct": 0.25,
+     "setup": "Jumper E1 replaced and the external ac reference removed (the note before step 11). Set the Calibrator to 2 mA dc, operate.",
+     "source": "§5-7 step 11",
+     "onFail": ["K1", "Q20", "Q21", "Q22", "Q23", "U5", "U7"]
+    },
+    {
+     "label": "2 mA ac at 1 kHz, operate",
+     "nominal": 20,
+     "tolerancePct": 25,
+     "setup": "Set the Calibrator to 2 mA ac at 1 kHz, operate, and measure ac at the same point.",
+     "condition": "±25 % is what the manual prints, and it is a hundred times looser than the dc band in the same step. Recorded as printed — see the 'TP1 ac band' caveat.",
+     "source": "§5-7 step 11",
+     "onFail": ["K1", "Q20", "Q21", "Q22", "Q23", "U5", "U7"]
+    }
+   ]
+  },
+  {
+   "ref": "TP2",
+   "signal": "INPUT LO",
+   "rail": "COM",
+   "kind": "wire-loop",
+   "isReturn": true,
+   "source": "Figure 7-7 sheet 1 legend (PG1C7); §5-7 step 11",
+   "note": "The return of the selected input pair — DAC OUT LO / R COM in dc, OSC SENSE LO / OS COM in ac, whichever Q20-Q23 have connected. §5-7 step 11 measures TP1 against this loop and not against SCOM, which is the point of having it."
+  },
+  {
+   "ref": "TP3",
+   "signal": "NEGATIVE FB",
+   "rail": "CUR",
+   "kind": "wire-loop",
+   "refPoint": "TP20",
+   "nominal": 2.0,
+   "tolerancePct": 10,
+   "unit": "V",
+   "inferred": true,
+   "condition": "Jumper E1 cut, external variable ac reference on TP19, Calibrator set to 200 mA standby, external reference 4.6 V at 1 kHz. Ac volts.",
+   "source": "§5-7 step 8, with the level from §5-7 step 7",
+   "note": "Output of the negative feedback buffer U2, which follows the low side of the selected HR2 shunt through K5A/K6A/K8A/K9A. The published test is RELATIVE: step 8 has you note the ac voltage at Q6's collector and then verify TP3 matches it to ±0.01 %. The absolute 2.0 V ±10 % here is step 7's band for that same Q6 collector reading under the same setup, carried across so that the point is scoreable on its own — it is not printed for TP3. The ±0.01 % match is the real acceptance criterion and it is much tighter than ±10 %.",
+   "onFail": ["U2", "K5", "K6", "K8", "K9", "HR2"]
+  },
+  {
+   "ref": "TP4",
+   "signal": "POSITIVE FB",
+   "rail": "CUR",
+   "kind": "wire-loop",
+   "refPoint": "TP20",
+   "unit": "V",
+   "source": "§5-7 steps 9, 10 and 14; Figure 7-7 sheet 1 legend (PG1C7)",
+   "note": "Output of the positive feedback buffer U3, following the high side of the selected shunt through K5B/K6B/K8B/K9B. Three §5-7 steps use it and they want different things, hence the two states: steps 9 and 10 check it against a noted reading, step 14 uses it as the compliance limiter's own output and asks for a ceiling.",
+   "states": [
+    {
+     "label": "200 mA standby, external ac reference 4.6 V at 1 kHz (steps 9 and 10)",
+     "nominal": 2.0,
+     "tolerancePct": 10,
+     "setup": "Jumper E1 cut, external variable ac reference on TP19. Calibrator to 200 mA, standby; external reference 4.6 V at 1 kHz.",
+     "condition": "Inferred level. Step 9's published test is that TP4 matches the ac voltage at HR2 pin 5 to ±0.1 %, and step 10's is that U4 pin 6 matches TP4 to ±0.01 %. Neither prints an absolute value; the 2.0 V ±10 % is step 7's band for the same signal one buffer upstream.",
+     "source": "§5-7 steps 9 and 10, with the level from §5-7 step 7",
+     "onFail": ["U3", "K5", "K6", "K8", "K9", "U4", "HR2"]
+    },
+    {
+     "label": "Compliance limiter, ceiling before the trip (step 14)",
+     "nominal": 11,
+     "tolerancePct": 5,
+     "setup": "Jumper E1 replaced. Short the Calibrator output, set 2 mA dc, operate, monitor TP4 with a DMM, then REMOVE the short.",
+     "condition": "This is an upper limit, not a target: the voltage must NOT EXCEED 11 V ±5 % before the Calibrator trips to standby. A lower peak is not a fault. The trip itself is the expected behaviour of the step.",
+     "source": "§5-7 step 14",
+     "onFail": ["Q24", "Q25", "CR10", "CR11", "R79", "R80", "R81", "R82", "R83", "R84", "R85", "R86", "RT1", "RT2"]
+    }
+   ]
+  },
+  {
+   "ref": "TP5",
+   "signal": "OUT LO",
+   "rail": "OUT",
+   "kind": "wire-loop",
+   "refPoint": "TP20",
+   "noPublishedValue": true,
+   "source": "Figure 7-7 sheet 1 legend (PG1D1)",
+   "note": "The output-low return, on P211 pins 1A/1C, switched by the non-latching relay K15 whenever an output is called for. §5-7 measures nothing here and no band is published. Worth knowing that it is dead with the instrument in standby and that K15 does not hold state — see the 'cold continuity' caveat.",
+   "onFail": ["K15", "U11"]
+  },
+  {
+   "ref": "TP6",
+   "signal": "INT OUT HI",
+   "rail": "OUT",
+   "kind": "wire-loop",
+   "refPoint": "TP20",
+   "noPublishedValue": true,
+   "notInParts": true,
+   "source": "Figure 7-7 sheet 1 legend (PG1D1)",
+   "note": "The internal output path, on P211 pins 3A/3C, used during internal calibration: §2-198 sends A7's output through INT OUT HI to the calibrated 100 Ω and 10 Ω resistors on the Ohms Main assembly (A10). No band is published anywhere. This is also the one test point Table 6-8 leaves out of its jumper row — see the 'TP6' caveat.",
+   "onFail": ["K14", "K12", "K13"]
+  },
+  {
+   "ref": "TP7",
+   "signal": "I OUT",
+   "rail": "OUT",
+   "kind": "wire-loop",
+   "refPoint": "TP20",
+   "noPublishedValue": true,
+   "source": "Figure 7-7 sheet 1 legend (PG1D1)",
+   "note": "The output current node on P211 pins 11A/11C, after K12 — which routes it to the OUTPUT HI binding post when set and to the AUX CURRENT OUTPUT post when reset. No published expectation; it carries whatever current the Calibrator has been set to.",
+   "hazard": "Live output. §5-7 step 2 has the OUTPUT HI and OUTPUT LO binding posts jumpered together and the board sourcing up to 200 mA throughout the section.",
+   "onFail": ["K12", "K14", "U11"]
+  },
+  {
+   "ref": "TP8",
+   "signal": "I-GUARD",
+   "rail": "OUT",
+   "kind": "wire-loop",
+   "refPoint": "TP20",
+   "noPublishedValue": true,
+   "source": "Figure 7-7 sheet 1 legend (PG1D1)",
+   "note": "The current guard, U4's output through R44, on P211 pins 10A/10C and P212 pins 4A/4C. §2-195: it is driven to the same voltage as the output across the external load, so that leakage and cable capacitance do not steal output current. §5-7 step 10 checks the buffer at U4 pin 6 rather than here, and publishes no absolute level for either.",
+   "onFail": ["U4", "R44", "L12", "C69", "R60"]
+  },
+  {
+   "ref": "TP9",
+   "signal": "CUR/COMP MONITOR",
+   "rail": "CUR",
+   "kind": "wire-loop",
+   "refPoint": "TP20",
+   "nominal": 0.238,
+   "tolerancePct": 10,
+   "unit": "V",
+   "condition": "Dc volts. 10 Ω 1 % resistor across the Calibrator output, Calibrator set to 200 mA at 1 kHz, operate, and the current output EDITED until the OUT HI binding post reads 2.0 V ac ±0.01 V. Without that trim the 0.238 V means nothing.",
+   "source": "§5-7 step 13",
+   "note": "Output of the absolute-value circuit built round U6 (§2-197): U6B makes a negative half-wave of its input, R30 and R31 sum it back at U6A's input, and C14 averages the result, so this node is always a positive dc voltage representing the average of whichever side of the shunt U5A/U5C/U5D have selected. It is also the third of the five signals the diagnostic multiplexer U12 puts on SDL, which is how fault codes 2706 and 2709 measure it.",
+   "onFail": ["U5", "U6", "C14", "R28", "R29", "R30", "R31", "R32", "R33", "R34", "R36", "CR3", "CR4"]
+  },
+  {
+   "ref": "TP10",
+   "signal": "SDL",
+   "rail": "DIAG",
+   "kind": "wire-loop",
+   "refPoint": "TP18",
+   "unit": "V",
+   "source": "§5-2 fault codes 2705 and 2712; Figure 7-7 sheet 1 legend (PG3B8)",
+   "note": "The self-diagnostic line, on P211 pins 27A/27C, clamped to ±5 LH by CR1 and CR2 and fed through R1. It is the output of the diagnostic multiplexer U12, enabled onto the line by PC6, and it is measured by the adc on the DAC assembly (A11) — not by anything on this board. Whichever of the five monitored points PB0-PB2 have selected appears here: DUMMY LOAD, OVEN TEMP and CUR/COMP MONITOR from the current section, HI-RES LOOP and HI-RES CLOCK from the hi-res section. The two states below are the only two the manual gives a number for, and BOTH are software-driven: the channel is selected by the diagnostic routine, not from the front panel, so a bench reading here without the diagnostics running is whatever channel was last left selected.",
+   "states": [
+    {
+     "label": "Diagnostic multiplexer on OVEN TEMP (fault code 2705)",
+     "nominal": 0.7,
+     "tolerance": 0.27,
+     "setup": "Under diagnostics, with U12 selected to the OVEN TEMP channel. The band is the fault code's own ±10 % ±0.2 V, entered here as ±0.27 V.",
+     "condition": "The HR2 hybrid heater voltage, divided by R42/R43. Only meaningful once the hybrid is warmed up and regulating.",
+     "source": "§5-2 fault code 2705",
+     "onFail": ["U12", "R42", "R43", "Q1", "Q14", "HR2", "C15", "R3", "C1"]
+    },
+    {
+     "label": "Diagnostic multiplexer on HI-RES CLOCK (fault code 2712)",
+     "nominal": 2.5,
+     "tolerance": 0.2,
+     "setup": "Under diagnostics, with U12 selected to the HI-RES CLOCK channel.",
+     "condition": "The 2 MHz REF filtered by R63 and C49 into a dc level, so it reads the presence of the reference divider chain rather than its frequency.",
+     "source": "§5-2 fault code 2712",
+     "onFail": ["U12", "R63", "C49", "U14", "U13", "U15", "Z2"]
+    }
+   ]
+  },
+  {
+   "ref": "TP11",
+   "signal": "VCO INPUT",
+   "rail": "HIRES",
+   "kind": "wire-loop",
+   "refPoint": "TP18",
+   "noPublishedValue": true,
+   "condition": "§5-8 steps 6, 7 and 8 use this as an INJECTION point, not a measurement point: power down, cut jumper E2, and connect an external variable dc reference of 2 to 12 V here, common to TP18.",
+   "source": "§5-8 steps 6, 7 and 8; Figure 7-7 sheet 1 legend (PG4D4)",
+   "note": "The VCO control voltage — the loop filter's output at U20 pin 7 through E2, feeding varactor CR9 through R55. In normal locked operation it sits somewhere in the 2 to 12 V range that tunes U19 across 6 to 12 MHz, but the manuals publish no band for it: what they publish is the divided version, HI-RES LOOP (R53/R54), which fault codes 2713-2717 measure on SDL, and only 2717 states a band — within 25 % ±1.0 V of the expected voltage. Replace E2 before continuing; step 8 says so outright and a board left with E2 cut has an open phase-locked loop and no working ac function.",
+   "onFail": ["U20", "CR9", "U19", "R53", "R54", "R55", "E2"]
+  },
+  {
+   "ref": "TP12",
+   "signal": "2 MHz REF",
+   "rail": "HIRES",
+   "kind": "wire-loop",
+   "refPoint": "TP18",
+   "nominal": 2,
+   "tolerancePct": 0.01,
+   "unit": "MHz",
+   "inferred": true,
+   "condition": "Calibrator set to 2 V at 1 kHz, operate. Oscilloscope: a square wave like Figure 5-13.",
+   "source": "§5-8 step 3 (the 2 MHz); tolerance inferred — see note",
+   "note": "The reference input to synthesiser U16, made by dividing A17's 8 MHz system clock by four in U14A and U14B. §5-8 step 3 asks only that a 2 MHz signal like Figure 5-13 is present and prints no tolerance at all; the ±0.01 % here is INFERRED from the fact that the whole chain is crystal-derived on A17 and from the ±0.01 % §5-8 steps 9 and 10 apply to the frequencies further down the same chain. Treat a reading a few hundred Hz out as a measurement artefact, not a fault; treat a reading that is not 2 MHz at all as U14, U13 or the 8 MHz clock from A17.",
+   "onFail": ["U14", "U13", "U15", "Z2", "R78", "C47", "C48", "R76", "R77", "C59", "L10"]
+  },
+  {
+   "ref": "TP13",
+   "signal": "6-12 MHz",
+   "rail": "HIRES",
+   "kind": "wire-loop",
+   "refPoint": "TP18",
+   "unit": "MHz",
+   "source": "§5-8 steps 4, 6, 7 and 8; Figure 7-7 sheet 1 legend (PG4C5)",
+   "note": "The VCO output — U19's divided output at U16 pin 3, and the node the whole phase-locked loop closes on. It is the busiest test point in §5-8: step 4 checks it locked, and steps 6, 7 and 8 all drive it open-loop from an external dc reference on TP11 with E2 cut.",
+   "states": [
+    {
+     "label": "Locked: 2 V at 1 kHz, operate (step 4)",
+     "nominal": 10,
+     "tolerance": 0.001,
+     "setup": "Jumper E2 intact. Calibrator to 2 V at 1 kHz, operate. Oscilloscope for the waveform (Figure 5-14) and a frequency counter for the reading.",
+     "condition": "The manual states the band as 9.999 MHz to 10.001 MHz, which is ±1 kHz on 10 MHz. Correct here and §5-8 says to skip to step 9.",
+     "source": "§5-8 step 4",
+     "onFail": ["U19", "CR9", "U16", "U20", "U18", "Q15", "VR3", "L4", "C36", "C35", "C34"]
+    },
+    {
+     "label": "Open loop: E2 cut, 2 to 12 V dc on TP11 (step 6)",
+     "nominal": 9,
+     "tolerance": 3,
+     "setup": "Power down, cut E2, connect an external variable dc reference of 2 to 12 V to TP11 (common TP18). Power up, set 2 V at 1 kHz, frequency counter here.",
+     "condition": "The test is that the frequency CHANGES with the voltage, not that it hits a value: §5-8 step 6's note says outright that the voltage-to-frequency ratio is not important. Sweeping the reference from 2 V to 12 V must move the counter from about 6 MHz to about 12 MHz, which is the 9 ±3 MHz recorded here.",
+     "source": "§5-8 step 6",
+     "onFail": ["U19", "CR9", "L4", "C36", "R55", "E2"]
+    }
+   ]
+  },
+  {
+   "ref": "TP16",
+   "signal": "HI RES OUTPUT",
+   "rail": "HIRES",
+   "kind": "wire-loop",
+   "refPoint": "TP18",
+   "unit": "kHz",
+   "source": "§5-8 step 10; Figure 7-7 sheet 1 legend (PG4B1)",
+   "note": "The assembly's hi-res output, on P212 pins 28A/28C as P LOCK HI, and the signal the Oscillator Output assembly (A13) phase-locks its oscillator to. Ten Hz to 1.2 MHz square wave. §5-8 step 10 checks two frequencies with a counter and the waveform against Figure 5-15. A fault here presents everywhere in ac, on every assembly downstream of A13 — which is why it is worth checking before condemning A13.",
+   "states": [
+    {
+     "label": "2 V at 1 kHz, operate",
+     "nominal": 1,
+     "tolerancePct": 0.01,
+     "setup": "Oscilloscope and frequency counter on TP16, Calibrator set to 2 V at 1 kHz, operate.",
+     "source": "§5-8 step 10",
+     "onFail": ["U18", "U15", "Q16", "U21", "U17", "R91", "R92", "R93", "L11", "C39", "C68"]
+    },
+    {
+     "label": "2 V at 100 kHz",
+     "nominal": 100,
+     "tolerancePct": 0.01,
+     "setup": "Same connections, Calibrator set to 2 V at 100 kHz.",
+     "condition": "This one exercises the other output range: U21A's ÷2 of U17's reference divider rather than U21B's ÷2 of the divide-by-N counter, selected by HI-RES RANGE through U15C onto U18B and U18C.",
+     "source": "§5-8 step 10",
+     "onFail": ["U18", "U15", "Q16", "U21", "U17"]
+    }
+   ]
+  },
+  {
+   "ref": "TP17",
+   "signal": "SCOM",
+   "rail": "COM",
+   "kind": "wire-loop",
+   "isReturn": true,
+   "source": "Figure 7-7 sheet 1 legend (PG4B1)",
+   "note": "An analog common loop placed in the hi-res section, beside Q17's source. It is the SAME net as TP20, brought over here for convenience. It is NOT the common §5-8 tells you to use: every §5-8 measurement is referenced to LHCOM (TP18). Using this one instead is the mistake the two-common layout invites."
+  },
+  {
+   "ref": "TP18",
+   "signal": "LHCOM",
+   "rail": "COM",
+   "kind": "wire-loop",
+   "isReturn": true,
+   "source": "§5-8 step 1 note; Figure 7-7 sheet 1 legend (PG4D4)",
+   "note": "The logic-half common, on P212 pins 11A/11C, and the reference for EVERY §5-8 measurement — the note after step 1 says so without qualification. It is also the common for the external dc reference injected at TP11 in steps 6, 7 and 8."
+  },
+  {
+   "ref": "TP19",
+   "signal": "DC AMP HYBRID OUT",
+   "rail": "CUR",
+   "kind": "wire-loop",
+   "refPoint": "TP20",
+   "noPublishedValue": true,
+   "condition": "§5-7 step 1 uses this as an INJECTION point, not a measurement point: turn the Calibrator off, cut jumper E1, and connect an external variable ac reference here, common to TP20. Steps 3 to 10 then set that reference to 7.0 V, 6.4 V, 6.3 V or 4.6 V at 1 kHz depending on the range under test.",
+   "source": "§5-7 steps 1 to 10; Figure 7-7 sheet 1 legend (PG1C6)",
+   "note": "The output of the dc amplifier on the HR2 hybrid, and the node E1 breaks. In normal closed-loop operation it is whatever the error amplifier needs to drive the complementary drive circuit — the manuals publish no level for it, which is why it is an injection point rather than a check. Replace or reconnect E1 and remove the external reference before step 11; the note between steps 10 and 11 says so, and a board left with E1 cut has an open current loop.",
+   "onFail": ["HR2", "Z1", "E1", "C4", "C5"]
+  },
+  {
+   "ref": "TP20",
+   "signal": "SCOM",
+   "rail": "COM",
+   "kind": "wire-loop",
+   "isReturn": true,
+   "source": "§5-7 step 2 note; Figure 7-7 sheet 1 legend (PG1B6)",
+   "note": "The analog common of the current section, on P211 pins 5A/5C as S COM, and the reference for every §5-7 measurement unless the step says otherwise — the note after step 2 is explicit. Step 11 is the one exception: it references TP2. It is also the common for the external ac reference injected at TP19 in step 1. Same net as TP17."
+  }
+ ],
+
+ "probePoints": [
+  {
+   "id": "K2-11",
+   "label": "K2 pin 11 (complementary drive, positive side)",
+   "component": "K2",
+   "refPoint": "TP20",
+   "source": "§5-7 step 3",
+   "note": "Waveform check only: §5-7 step 3 asks for a signal similar to Figure 5-6 with the Calibrator at 200 µA standby and the external ac reference at 7.0 V, 1 kHz on TP19. No amplitude is printed — Figure 5-6's graticule is labelled 1 V and 10 ms, which reads as roughly 1 V/div and 10 ms/div and not as an acceptance band. K2 reset routes the drive to the 220 µA/2.2 mA amplifiers; K2 set routes it to the 22 mA/220 mA amplifier.",
+   "onFail": ["Q2", "Q3", "Q18", "Q19", "K2", "R4", "R5", "R6", "R7", "R8", "R9", "R35", "R66", "R67", "R68"]
+  },
+  {
+   "id": "K2-6",
+   "label": "K2 pin 6 (complementary drive, negative side)",
+   "component": "K2",
+   "refPoint": "TP20",
+   "source": "§5-7 step 3",
+   "note": "The mirror of K2 pin 11, checked in the same step against Figure 5-7 and with the same setup. The pair is what tells a failed drive transistor from a failed relay: one waveform missing is a transistor, both missing is K2 or the hybrid output at TP19.",
+   "onFail": ["Q2", "Q3", "Q18", "Q19", "K2"]
+  },
+  {
+   "id": "Q4-C",
+   "label": "Collector of Q4 (220 µA / 2.2 mA transconductance amplifier)",
+   "component": "Q4",
+   "refPoint": "TP20",
+   "nominal": 2.0,
+   "tolerancePct": 10,
+   "unit": "V",
+   "condition": "Ac volts, E1 cut, external ac reference on TP19. Step 4: Calibrator 200 µA standby, reference 6.4 V ±0.1 V at 1 kHz. Step 5: Calibrator 2 mA standby, reference 6.4 V at 1 kHz. Both expect the same 2.0 V ac ±10 %.",
+   "source": "§5-7 steps 4 and 5",
+   "note": "Q4 is the PNP half of the 220 µA/2.2 mA amplifier (2N3906 on sheet 2, grouped with Q3 and Q19 in Table 6-8). Before suspecting the amplifier, §5-7 says to verify the shunt: 10 kΩ on HR2 for the 220 µA range, 1 kΩ for 2.2 mA, connected to SCOM through the range relays and the 1.2 Ω dummy load R14. Note that Figures 5-8 to 5-11 print 10 kΩ for ALL FOUR ranges — see the 'Figures 5-8 to 5-11' caveat before reading a shunt value off one.",
+   "onFail": ["Q4", "Q5", "K3", "HR2", "R10", "R11", "R12", "R13", "R14", "K5", "K7", "K10", "K13", "C6", "C7"]
+  },
+  {
+   "id": "Q6-C",
+   "label": "Collector of Q6 (22 mA / 220 mA transconductance amplifier)",
+   "component": "Q6",
+   "refPoint": "TP20",
+   "nominal": 2.0,
+   "tolerancePct": 10,
+   "unit": "V",
+   "condition": "Ac volts, E1 cut, external ac reference on TP19. Step 6: Calibrator 20 mA standby, reference 6.3 V ±0.1 V at 1 kHz. Step 7: Calibrator 200 mA standby, reference 4.6 V ±0.1 V at 1 kHz. Step 8 reuses step 7's setup and reading.",
+   "source": "§5-7 steps 6, 7 and 8",
+   "note": "Q6 is one of the MPSU56 PNP drivers of the 22 mA/220 mA amplifier; with K4 set, Q10-Q13 join Q6-Q9 as Darlingtons for the 220 mA range. Shunt to verify first: 100 Ω for 22 mA, 10 Ω for 220 mA. This reading is also the reference value step 8 compares TP3 against to ±0.01 %, so note it before moving the probe.",
+   "onFail": ["Q6", "Q7", "Q8", "Q9", "Q10", "Q11", "Q12", "Q13", "K4", "HR2", "R14", "K5", "K7", "K8", "K9", "K10", "K13", "C12", "C13"]
+  },
+  {
+   "id": "HR2-5",
+   "label": "HR2 pin 5 of the resistor network (positive feedback input)",
+   "component": "HR2",
+   "refPoint": "TP20",
+   "source": "§5-7 step 9",
+   "note": "Ac volts, with the Calibrator at 200 mA standby and the external reference at 4.6 V, 1 kHz. Step 9 has you note this reading and then verify TP4 matches it to ±0.1 %; no absolute level is printed for either. Beware the pin numbering: the HR2 ASSY drawing on sheet 2 gives the HYBRID row and the RNET row separate pin numbers, and this is the RNET row's pin 5.",
+   "onFail": ["U3", "HR2", "K5", "K6", "K8", "K9"]
+  },
+  {
+   "id": "U4-6",
+   "label": "U4 pin 6 (I-guard buffer output)",
+   "component": "U4",
+   "refPoint": "TP20",
+   "source": "§5-7 step 10",
+   "note": "Ac volts, same setup as steps 8 and 9. Step 10 has you note TP4 and then verify U4 pin 6 matches it to ±0.01 %. U4 is an LF356B voltage follower; its output leaves the board as I-GUARD on P211 10A/10C through R44 and L12.",
+   "onFail": ["U4", "R44", "L12", "R60", "C69"]
+  },
+  {
+   "id": "Z1-8",
+   "label": "Z1 pin 8 (10:1 divider, input leg)",
+   "component": "Z1",
+   "refPoint": "TP20",
+   "nominal": 1.818,
+   "tolerancePct": 0.35,
+   "unit": "V",
+   "condition": "Dc volts, Calibrator set to 2 mA dc, operate. E1 replaced and the external reference removed.",
+   "source": "§5-7 step 12",
+   "note": "Z1 is the precision dual 10:1 matched divider (marked 4R08 on sheet 1) that sets the loop's ratio: 20 V in gives 1.818 V at the divider tap and forces 2.2 V across the selected shunt. Pins 8 and 3 are the two legs and step 12 wants the SAME value at both — a difference between them is the network, not the amplifier.",
+   "onFail": ["Z1", "HR2"]
+  },
+  {
+   "id": "Z1-3",
+   "label": "Z1 pin 3 (10:1 divider, feedback leg)",
+   "component": "Z1",
+   "refPoint": "TP20",
+   "nominal": 1.818,
+   "tolerancePct": 0.35,
+   "unit": "V",
+   "condition": "Dc volts, Calibrator set to 2 mA dc, operate.",
+   "source": "§5-7 step 12",
+   "note": "The other leg of Z1, measured in the same step and to the same band. Both legs equal and correct means the divider and the hybrid's dc amplifier are both good.",
+   "onFail": ["Z1", "HR2"]
+  },
+  {
+   "id": "U13-4",
+   "label": "U13 pin 4 (8 MHz reference, amplified)",
+   "component": "U13",
+   "refPoint": "TP18",
+   "source": "§5-8 step 2",
+   "note": "Oscilloscope only: an 8 MHz square wave like Figure 5-12, with the Calibrator at 2 V, 1 kHz, operate. U13A is an NE522 comparator that lifts A17's CLK/CLK* pair to 5 V p-p. §5-8's own note calls the incoming pair 400 mV p-p, while §2-200 and §2-80 both call it 200 mV p-p — expect a few hundred mV and do not treat either figure as a limit. If there is no 8 MHz here, check U15 pin 12 first (below) before condemning U13.",
+   "onFail": ["U13", "Z2", "R78", "C47", "R76", "R77", "C59", "L10", "U15"]
+  },
+  {
+   "id": "U15-12",
+   "label": "U15 pin 12 (HI-RES ON/OFF)",
+   "component": "U15",
+   "refPoint": "TP18",
+   "source": "§5-8 step 2",
+   "note": "A logic level, not a voltage with a band: §5-8 step 2 says to verify that the control line HI-RES ON/OFF is a logic LOW here. Low means the hi-res oscillator is enabled. If it is not low, U7 — the 82C55 that generates it on PC7 — is the suspect and U13 is probably innocent.",
+   "onFail": ["U7", "U15"]
+  },
+  {
+   "id": "U19-8",
+   "label": "U19 pin 8 (VCO supply)",
+   "component": "U19",
+   "refPoint": "TP18",
+   "nominal": -5.25,
+   "tolerancePct": 7,
+   "unit": "V",
+   "condition": "Dc volts, Calibrator set to 2 V at 1 kHz, operate. Negative with respect to LHCOM.",
+   "source": "§5-8 step 5",
+   "note": "The MC1648 VCO's negative supply, made by U18A closing when HI-RES ON/OFF goes low, turning on Q15 and connecting VR3 (5.6 V) to the −17 LH rail. Sign matters: the manual prints it as −5.25 V and it is a negative rail. Absent here and the VCO cannot run at all, which presents as every one of fault codes 2713 to 2717 failing together.",
+   "onFail": ["U18", "Q15", "VR3", "R56", "R57", "R58", "R59", "C38", "R64", "C37"]
+  },
+  {
+   "id": "U16-14",
+   "label": "U16 pin 14 (phase detector 0V output)",
+   "component": "U16",
+   "refPoint": "TP18",
+   "source": "§5-8 step 7",
+   "note": "Logic behaviour, not a level. With E2 cut and TP11 driven so the counter on TP13 reads BELOW 10 MHz (~9.8 MHz), this pin must sit at a logic HIGH while pin 15 pulses. Drive it ABOVE 10 MHz (~10.2 MHz) and the two swap: pin 14 pulses and pin 15 goes high. Both stuck, or both pulsing, is U16 or its digital control.",
+   "onFail": ["U16", "U15", "U7", "C43", "L5"]
+  },
+  {
+   "id": "U16-15",
+   "label": "U16 pin 15 (phase detector 0R output)",
+   "component": "U16",
+   "refPoint": "TP18",
+   "source": "§5-8 step 7",
+   "note": "The complement of pin 14, checked in the same step: pulsing below 10 MHz, high above it. §2-201 gives the sense — the R output pulses when the feedback frequency is LOW or lagging, the V output when it is high or leading, and both stay high but for a short in-phase pulse when the loop is locked.",
+   "onFail": ["U16", "U15", "U7"]
+  },
+  {
+   "id": "U20-7",
+   "label": "U20 pin 7 (loop filter output)",
+   "component": "U20",
+   "refPoint": "TP18",
+   "source": "§5-8 step 8",
+   "note": "Polarity, not a level. With E2 cut and TP13 driven below 10 MHz (~9.8 MHz) this must be a POSITIVE dc voltage; driven above 10 MHz (~10.2 MHz) it must go NEGATIVE. That is the loop filter integrating the phase detector's two outputs and pushing the varactor the right way. Reconnect E2 before continuing — step 8 ends by saying so.",
+   "onFail": ["U20", "R45", "R46", "R47", "R48", "R49", "R50", "R51", "R52", "C25", "C26", "C27", "C28", "C29", "C30", "C31", "C32", "C33", "E2"]
+  },
+  {
+   "id": "U21-5",
+   "label": "U21 pin 5 (high output range, 12 kHz to 1.2 MHz)",
+   "component": "U21",
+   "refPoint": "TP18",
+   "source": "§5-8 step 9",
+   "note": "U21A's ÷2 of U17's reference-divider output. Frequency counter here, then set the Calibrator to 2 V at 1 MHz, 500 kHz, 200 kHz, 140 kHz, 100 kHz and 50 kHz in turn; at each, the counter must read the selected frequency to ±0.01 %. No single nominal is recorded because the expectation is 'whatever you selected' — six settings, one band. Failure here is U17 or U21.",
+   "onFail": ["U17", "U21", "C65", "C66", "C67", "C40", "C41", "C42"]
+  },
+  {
+   "id": "U21-9",
+   "label": "U21 pin 9 (low output range, 10 Hz to 12 kHz)",
+   "component": "U21",
+   "refPoint": "TP18",
+   "source": "§5-8 step 9",
+   "note": "U21B's ÷2 of U17's divide-by-N output, checked in the same step at 2 kHz, 120 Hz and 10 Hz. Same ±0.01 % band, same 'whatever you selected' expectation, so no nominal is recorded here either.",
+   "onFail": ["U17", "U21"]
+  }
+ ]
+}

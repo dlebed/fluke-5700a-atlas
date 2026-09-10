@@ -1,0 +1,2387 @@
+{
+ "_comment": [
+  "Hand corrections to the OCR pass, folded in by tools/build_coords.py.",
+  "Positions are pixels of .build/a21/drawing_full.png (5860 x 3580) for the",
+  "board and of .build/a21/schN_full.png (6380 x 3900, all five sheets) for",
+  "the sheets -- NOT of the downscaled images the browser loads. Every x,y is",
+  "a box centre.",
+  "",
+  "How this board read. The drawing gave 99 of 137 designators and 20 of",
+  "those were wrong -- almost all of them a label read off the neighbour",
+  "(C1 on C7, C3 on C30, C5 on C49, C70 on C10, U17 on U11, R1 on R13, Q1 on",
+  "VR2, L1 on TP10, K4 on C44, J4 on J1, J11 on C47, S1 on J2, X8 on C16) or",
+  "off a word of silkscreen (U1 on UNGUARDED, R23 on RS232C, W1 on the 1988",
+  "copyright, MP7 on U9's notch, J6 on the '16' of C16). Every marker was",
+  "rendered onto the drawing and looked at, and every part on the board is",
+  "placed by hand below, measured off a 100 px grid over the full-resolution",
+  "image, so nothing on the board is left to the reader.",
+  "",
+  "Marker style. Where the designator is printed inside the part's outline --",
+  "the twelve relays, the DIP ICs, the connectors, the fuses, the resistors",
+  "and capacitors of the TP6-TP7 row and the round cans C10, C16 and C70 --",
+  "the box is the printed body outline ('shape': 'rect' or 'circle'). Where",
+  "it is printed beside the part the box is a tight fit on the designator",
+  "text only. Test points are wire loops (a bare tick) or rectangular pads",
+  "(TP11, TP12, TP14, TP15); each box spans the label and the loop or pad",
+  "together so a probe is sent to the pad and not to the lettering.",
+  "",
+  "Sheets. The five sheets of 5700A-1009 were reviewed marker by marker; the",
+  "test point legend, the IC supply-pin table and the connector location",
+  "tables on sheet 1 are dropped wholesale and each test point is placed on",
+  "its flag symbol in the circuit body, in the zone the legend gives."
+ ],
+ "imageSize": {
+  "w": 5860,
+  "h": 3580
+ },
+ "sheetImageSize": {
+  "sh1": {
+   "w": 6380,
+   "h": 3900
+  },
+  "sh2": {
+   "w": 6380,
+   "h": 3900
+  },
+  "sh3": {
+   "w": 6380,
+   "h": 3900
+  },
+  "sh4": {
+   "w": 6380,
+   "h": 3900
+  },
+  "sh5": {
+   "w": 6380,
+   "h": 3900
+  }
+ },
+ "_boardComment": [
+  "Every part and test point on the drawing, placed by hand. Manual entries win over the reader."
+ ],
+ "board": {
+  "J1": {
+   "x": 2162,
+   "y": 3127,
+   "w": 1195,
+   "h": 325,
+   "shape": "rect",
+   "note": "Dashed connector outline, designator inside."
+  },
+  "J2": {
+   "x": 5085,
+   "y": 3102,
+   "w": 1160,
+   "h": 375,
+   "shape": "rect",
+   "note": "Dashed connector outline, J2 / RS232C inside."
+  },
+  "J3": {
+   "x": 3110,
+   "y": 1262,
+   "w": 850,
+   "h": 275,
+   "shape": "rect",
+   "note": "Dashed connector outline, J3 / 5205A inside."
+  },
+  "J4": {
+   "x": 2032,
+   "y": 1262,
+   "w": 855,
+   "h": 275,
+   "shape": "rect",
+   "note": "Dashed connector outline; J4 is printed on its top edge, 5220A inside. The reader had it on J1."
+  },
+  "J5": {
+   "x": 1080,
+   "y": 400,
+   "w": 340,
+   "h": 340,
+   "shape": "rect",
+   "note": "Dashed outline under VAR PHASE OUT."
+  },
+  "J6": {
+   "x": 535,
+   "y": 400,
+   "w": 340,
+   "h": 340,
+   "shape": "rect",
+   "note": "Dashed outline under PHASE LOCK IN. The reader had it on the '16' of C16."
+  },
+  "J7": {
+   "x": 5032,
+   "y": 1780,
+   "w": 1205,
+   "h": 340,
+   "shape": "rect",
+   "note": "Dashed BOOST AMP header outline; J7 printed on its top edge."
+  },
+  "J8": {
+   "x": 4550,
+   "y": 1402,
+   "w": 1210,
+   "h": 195,
+   "shape": "rect",
+   "note": "Long guarded header outline, J8 inside at the right end."
+  },
+  "J9": {
+   "x": 5020,
+   "y": 2445,
+   "w": 1100,
+   "h": 350,
+   "shape": "rect",
+   "note": "Header outline, J9 UNGUARDED inside."
+  },
+  "J11": {
+   "x": 4310,
+   "y": 1570,
+   "w": 220,
+   "h": 140,
+   "shape": "rect",
+   "note": "Small header outline below J8, designator inside. The reader had it on C47/C8."
+  },
+  "J12": {
+   "x": 4807,
+   "y": 1570,
+   "w": 225,
+   "h": 140,
+   "shape": "rect",
+   "note": "Small header outline below J8, designator inside."
+  },
+  "K1": {
+   "x": 3422,
+   "y": 840,
+   "w": 225,
+   "h": 440,
+   "shape": "rect",
+   "note": "Relay outline. The reader had an outline edge near J6."
+  },
+  "K2": {
+   "x": 2900,
+   "y": 675,
+   "w": 220,
+   "h": 770,
+   "shape": "rect",
+   "note": "Tall relay outline."
+  },
+  "K3": {
+   "x": 2667,
+   "y": 675,
+   "w": 225,
+   "h": 770,
+   "shape": "rect",
+   "note": "Tall relay outline."
+  },
+  "K4": {
+   "x": 3177,
+   "y": 840,
+   "w": 225,
+   "h": 440,
+   "shape": "rect",
+   "note": "Relay outline. The reader had it on C44."
+  },
+  "K5": {
+   "x": 1697,
+   "y": 843,
+   "w": 225,
+   "h": 443,
+   "shape": "rect",
+   "note": "Relay outline."
+  },
+  "K6": {
+   "x": 5587,
+   "y": 1102,
+   "w": 225,
+   "h": 665,
+   "shape": "rect",
+   "note": "Tall relay outline at the right edge."
+  },
+  "K7": {
+   "x": 4955,
+   "y": 992,
+   "w": 230,
+   "h": 445,
+   "shape": "rect",
+   "note": "Relay outline."
+  },
+  "K8": {
+   "x": 5312,
+   "y": 992,
+   "w": 225,
+   "h": 445,
+   "shape": "rect",
+   "note": "Relay outline."
+  },
+  "K9": {
+   "x": 4710,
+   "y": 992,
+   "w": 220,
+   "h": 445,
+   "shape": "rect",
+   "note": "Relay outline."
+  },
+  "K10": {
+   "x": 1697,
+   "y": 352,
+   "w": 225,
+   "h": 445,
+   "shape": "rect",
+   "note": "Relay outline."
+  },
+  "K11": {
+   "x": 1942,
+   "y": 843,
+   "w": 225,
+   "h": 443,
+   "shape": "rect",
+   "note": "Relay outline."
+  },
+  "K12": {
+   "x": 2272,
+   "y": 843,
+   "w": 225,
+   "h": 443,
+   "shape": "rect",
+   "note": "Relay outline."
+  },
+  "U1": {
+   "x": 5402,
+   "y": 2162,
+   "w": 595,
+   "h": 105,
+   "shape": "rect",
+   "note": "DIP outline, designator inside. The reader had it on 'UNGUARDED'."
+  },
+  "U2": {
+   "x": 2215,
+   "y": 2402,
+   "w": 1130,
+   "h": 265,
+   "shape": "rect",
+   "note": "Wide DIP outline, designator inside."
+  },
+  "U3": {
+   "x": 1945,
+   "y": 2795,
+   "w": 590,
+   "h": 110,
+   "shape": "rect",
+   "note": "DIP outline."
+  },
+  "U4": {
+   "x": 2762,
+   "y": 2805,
+   "w": 605,
+   "h": 160,
+   "shape": "rect",
+   "note": "DIP outline."
+  },
+  "U5": {
+   "x": 3597,
+   "y": 2162,
+   "w": 1135,
+   "h": 265,
+   "shape": "rect",
+   "note": "Wide DIP outline (DUART)."
+  },
+  "U6": {
+   "x": 3465,
+   "y": 2955,
+   "w": 410,
+   "h": 110,
+   "shape": "rect",
+   "note": "DIP outline."
+  },
+  "U7": {
+   "x": 3930,
+   "y": 3040,
+   "w": 50,
+   "h": 70,
+   "note": "The reader missed it. U7 is the only DIP whose designator is printed beside the outline: rotated, under the notch end of the body at 3898-4300 x 2900-3005."
+  },
+  "U8": {
+   "x": 4690,
+   "y": 2162,
+   "w": 720,
+   "h": 105,
+   "shape": "rect",
+   "note": "DIP outline, designator inside at the notch end."
+  },
+  "U9": {
+   "x": 2650,
+   "y": 1992,
+   "w": 590,
+   "h": 105,
+   "shape": "rect",
+   "note": "DIP outline."
+  },
+  "U10": {
+   "x": 2650,
+   "y": 1648,
+   "w": 590,
+   "h": 110,
+   "shape": "rect",
+   "note": "DIP outline. The reader missed it."
+  },
+  "U11": {
+   "x": 1910,
+   "y": 1992,
+   "w": 580,
+   "h": 105,
+   "shape": "rect",
+   "note": "DIP outline."
+  },
+  "U12": {
+   "x": 1910,
+   "y": 1650,
+   "w": 585,
+   "h": 110,
+   "shape": "rect",
+   "note": "DIP outline."
+  },
+  "U13": {
+   "x": 1247,
+   "y": 902,
+   "w": 205,
+   "h": 165,
+   "shape": "rect",
+   "note": "DIP outline. The reader missed it."
+  },
+  "U14": {
+   "x": 4460,
+   "y": 560,
+   "w": 1130,
+   "h": 260,
+   "shape": "rect",
+   "note": "Wide DIP outline."
+  },
+  "U16": {
+   "x": 3502,
+   "y": 360,
+   "w": 605,
+   "h": 160,
+   "shape": "rect",
+   "note": "DIP outline."
+  },
+  "U17": {
+   "x": 5392,
+   "y": 515,
+   "w": 615,
+   "h": 160,
+   "shape": "rect",
+   "note": "DIP outline. The reader had it on U11."
+  },
+  "U18": {
+   "x": 4020,
+   "y": 2485,
+   "w": 410,
+   "h": 110,
+   "shape": "rect",
+   "note": "DIP outline."
+  },
+  "F1": {
+   "x": 862,
+   "y": 400,
+   "w": 76,
+   "h": 180,
+   "shape": "rect",
+   "note": "Fuse outline between J6 and J5."
+  },
+  "F2": {
+   "x": 765,
+   "y": 400,
+   "w": 80,
+   "h": 180,
+   "shape": "rect",
+   "note": "Fuse outline between J6 and J5."
+  },
+  "R3": {
+   "x": 1247,
+   "y": 1120,
+   "w": 175,
+   "h": 70,
+   "shape": "rect",
+   "note": "Resistor outline under U13, designator inside."
+  },
+  "R4": {
+   "x": 1315,
+   "y": 492,
+   "w": 70,
+   "h": 175,
+   "shape": "rect",
+   "note": "Resistor outline right of J5, designator inside."
+  },
+  "R8": {
+   "x": 3810,
+   "y": 3022,
+   "w": 60,
+   "h": 175,
+   "shape": "rect",
+   "note": "Resistor outline left of U7, designator inside."
+  },
+  "R20": {
+   "x": 2425,
+   "y": 512,
+   "w": 70,
+   "h": 165,
+   "shape": "rect",
+   "note": "Resistor outline above K12, designator inside."
+  },
+  "R1": {
+   "x": 3717,
+   "y": 3255,
+   "w": 65,
+   "h": 190,
+   "shape": "rect",
+   "note": "Outline in the TP6-TP7 row, designator inside. The reader had it on R13."
+  },
+  "R2": {
+   "x": 3485,
+   "y": 3255,
+   "w": 65,
+   "h": 190,
+   "shape": "rect",
+   "note": "Outline in the TP6-TP7 row, designator inside."
+  },
+  "R9": {
+   "x": 3397,
+   "y": 3260,
+   "w": 65,
+   "h": 180,
+   "shape": "rect",
+   "note": "Outline in the TP6-TP7 row, designator inside."
+  },
+  "C5": {
+   "x": 3632,
+   "y": 3225,
+   "w": 75,
+   "h": 190,
+   "shape": "rect",
+   "note": "Outline in the TP6-TP7 row, designator inside. The reader had it on C49."
+  },
+  "C3": {
+   "x": 4777,
+   "y": 2748,
+   "w": 75,
+   "h": 185,
+   "shape": "rect",
+   "note": "Outline right of C41, designator inside. The reader had it on C30."
+  },
+  "C41": {
+   "x": 4682,
+   "y": 2748,
+   "w": 75,
+   "h": 185,
+   "shape": "rect",
+   "note": "Outline, designator inside."
+  },
+  "C42": {
+   "x": 4585,
+   "y": 2748,
+   "w": 70,
+   "h": 185,
+   "shape": "rect",
+   "note": "Outline, designator inside."
+  },
+  "C6": {
+   "x": 1412,
+   "y": 900,
+   "w": 90,
+   "h": 125,
+   "shape": "rect",
+   "note": "Bracket outline right of U13, designator inside."
+  },
+  "C7": {
+   "x": 1537,
+   "y": 900,
+   "w": 80,
+   "h": 125,
+   "shape": "rect",
+   "note": "Bracket outline right of C6, designator inside."
+  },
+  "C16": {
+   "x": 2480,
+   "y": 815,
+   "w": 140,
+   "h": 140,
+   "shape": "circle",
+   "note": "Round can between K12 and K3, designator inside."
+  },
+  "C10": {
+   "x": 5390,
+   "y": 2735,
+   "w": 225,
+   "h": 225,
+   "shape": "circle",
+   "note": "Large round can right of TP2; the C10 label sits under it."
+  },
+  "C70": {
+   "x": 4290,
+   "y": 1990,
+   "w": 220,
+   "h": 220,
+   "shape": "circle",
+   "note": "Large round can left of C28; the C70 label sits under its left side. The reader had it on C10."
+  },
+  "Q1": {
+   "x": 320,
+   "y": 838,
+   "w": 70,
+   "h": 50,
+   "note": "Label left of the lower TO-92 outline. The reader had it on VR2."
+  },
+  "Q2": {
+   "x": 320,
+   "y": 648,
+   "w": 70,
+   "h": 50,
+   "note": "Label left of the upper TO-92 outline."
+  },
+  "CR1": {
+   "x": 560,
+   "y": 1042,
+   "w": 44,
+   "h": 100,
+   "note": "Rotated label under the first of the four diodes."
+  },
+  "VR1": {
+   "x": 682,
+   "y": 1042,
+   "w": 44,
+   "h": 100,
+   "note": "Rotated label under the second diode."
+  },
+  "VR2": {
+   "x": 805,
+   "y": 1042,
+   "w": 44,
+   "h": 100,
+   "note": "Rotated label under the third diode."
+  },
+  "CR2": {
+   "x": 930,
+   "y": 1042,
+   "w": 44,
+   "h": 100,
+   "note": "Rotated label under the fourth diode."
+  },
+  "C36": {
+   "x": 3180,
+   "y": 195,
+   "w": 50,
+   "h": 100,
+   "note": "Rotated label above-right of the body left of U16."
+  },
+  "C47": {
+   "x": 4125,
+   "y": 245,
+   "w": 50,
+   "h": 115,
+   "note": "Rotated label left of its body, between TP12 and C8."
+  },
+  "C8": {
+   "x": 4260,
+   "y": 198,
+   "w": 50,
+   "h": 95,
+   "note": "Rotated label left of its bracket, between C47 and TP14."
+  },
+  "R14": {
+   "x": 3785,
+   "y": 680,
+   "w": 100,
+   "h": 50,
+   "note": "Label right of its body, between K1 and U14."
+  },
+  "C14": {
+   "x": 3770,
+   "y": 866,
+   "w": 105,
+   "h": 55,
+   "note": "Label above the first round can under U14."
+  },
+  "C15": {
+   "x": 3950,
+   "y": 866,
+   "w": 105,
+   "h": 55,
+   "note": "Label above the second round can under U14."
+  },
+  "C44": {
+   "x": 4070,
+   "y": 1025,
+   "w": 45,
+   "h": 105,
+   "note": "Rotated label above its body, left of C45."
+  },
+  "C45": {
+   "x": 4240,
+   "y": 1170,
+   "w": 50,
+   "h": 110,
+   "note": "Rotated label right of its body, under C9."
+  },
+  "C9": {
+   "x": 4238,
+   "y": 970,
+   "w": 50,
+   "h": 90,
+   "note": "Rotated label right of its bracket, right of C15."
+  },
+  "R5": {
+   "x": 3625,
+   "y": 1085,
+   "w": 70,
+   "h": 50,
+   "note": "Label under its vertical body, left of C43."
+  },
+  "C43": {
+   "x": 3680,
+   "y": 1205,
+   "w": 95,
+   "h": 50,
+   "note": "Label under the left end of its body, above-left of C13."
+  },
+  "C13": {
+   "x": 3750,
+   "y": 1325,
+   "w": 95,
+   "h": 50,
+   "note": "Label under the round can right of C43."
+  },
+  "L1": {
+   "x": 4590,
+   "y": 143,
+   "w": 70,
+   "h": 50,
+   "note": "Label above the choke outline, right of TP14. The reader had it on TP10."
+  },
+  "C34": {
+   "x": 4792,
+   "y": 115,
+   "w": 100,
+   "h": 50,
+   "note": "Label above its bracket, left of C33."
+  },
+  "C33": {
+   "x": 4902,
+   "y": 115,
+   "w": 100,
+   "h": 50,
+   "note": "Label above the round can at the top edge."
+  },
+  "CR3": {
+   "x": 5245,
+   "y": 128,
+   "w": 95,
+   "h": 50,
+   "note": "Label left of the upper diode near TP15."
+  },
+  "CR4": {
+   "x": 5245,
+   "y": 213,
+   "w": 95,
+   "h": 50,
+   "note": "Label left of the lower diode near TP15."
+  },
+  "C37": {
+   "x": 5370,
+   "y": 288,
+   "w": 95,
+   "h": 50,
+   "note": "Label right of its body, under CR4."
+  },
+  "R6": {
+   "x": 4485,
+   "y": 850,
+   "w": 45,
+   "h": 80,
+   "note": "Rotated label above its body, left of K9."
+  },
+  "R7": {
+   "x": 4565,
+   "y": 850,
+   "w": 45,
+   "h": 80,
+   "note": "Rotated label above its body, left of K9."
+  },
+  "C32": {
+   "x": 1587,
+   "y": 1490,
+   "w": 100,
+   "h": 50,
+   "note": "Label left of its body under J4."
+  },
+  "Z4": {
+   "x": 1837,
+   "y": 1520,
+   "w": 70,
+   "h": 50,
+   "note": "Label under the left end of the SIP outline above U12."
+  },
+  "R12": {
+   "x": 2325,
+   "y": 1490,
+   "w": 95,
+   "h": 50,
+   "note": "Label above-right of its body, between U12 and U10."
+  },
+  "C29": {
+   "x": 2235,
+   "y": 2115,
+   "w": 100,
+   "h": 50,
+   "note": "Label under its body, between U11 and U9."
+  },
+  "C31": {
+   "x": 1942,
+   "y": 2150,
+   "w": 90,
+   "h": 50,
+   "note": "Label right of its body, under U11."
+  },
+  "C22": {
+   "x": 1565,
+   "y": 2460,
+   "w": 50,
+   "h": 110,
+   "note": "Rotated label under its body, left of U2."
+  },
+  "C25": {
+   "x": 2875,
+   "y": 2240,
+   "w": 50,
+   "h": 110,
+   "note": "Rotated label left of its body, left of U5."
+  },
+  "C24": {
+   "x": 2405,
+   "y": 2780,
+   "w": 50,
+   "h": 110,
+   "note": "Rotated label right of its body, between U3 and U4."
+  },
+  "C30": {
+   "x": 3010,
+   "y": 1548,
+   "w": 95,
+   "h": 50,
+   "note": "Label above its body, left of R13."
+  },
+  "VR3": {
+   "x": 3257,
+   "y": 1567,
+   "w": 100,
+   "h": 50,
+   "note": "Label above the diode between R10 and R17."
+  },
+  "CR6": {
+   "x": 3447,
+   "y": 1547,
+   "w": 90,
+   "h": 50,
+   "note": "Label above the diode right of R16."
+  },
+  "CR5": {
+   "x": 3582,
+   "y": 1547,
+   "w": 95,
+   "h": 50,
+   "note": "Label above the rightmost diode of the row."
+  },
+  "R13": {
+   "x": 3010,
+   "y": 1872,
+   "w": 95,
+   "h": 50,
+   "note": "Label under its body, right of C30."
+  },
+  "R10": {
+   "x": 3190,
+   "y": 1952,
+   "w": 95,
+   "h": 50,
+   "note": "Label under its body."
+  },
+  "R17": {
+   "x": 3327,
+   "y": 1952,
+   "w": 95,
+   "h": 50,
+   "note": "Label under its body."
+  },
+  "R16": {
+   "x": 3430,
+   "y": 1952,
+   "w": 100,
+   "h": 50,
+   "note": "Label under its body, left of CR6."
+  },
+  "C28": {
+   "x": 4670,
+   "y": 2020,
+   "w": 95,
+   "h": 50,
+   "note": "Label right of its body, under the BOOST AMP outline."
+  },
+  "Z5": {
+   "x": 3007,
+   "y": 2607,
+   "w": 70,
+   "h": 50,
+   "note": "Label under the left end of the SIP outline above NORM CAL."
+  },
+  "S1": {
+   "x": 3222,
+   "y": 2880,
+   "w": 70,
+   "h": 50,
+   "note": "Label under the slide switch outline beneath NORM CAL. The reader had it on J2."
+  },
+  "Z2": {
+   "x": 3065,
+   "y": 3080,
+   "w": 70,
+   "h": 50,
+   "note": "Label under the vertical SIP outline left of U6. The reader had it on CR2."
+  },
+  "C26": {
+   "x": 3190,
+   "y": 3082,
+   "w": 95,
+   "h": 50,
+   "note": "Label above the long body under Z2."
+  },
+  "C27": {
+   "x": 3717,
+   "y": 2822,
+   "w": 100,
+   "h": 50,
+   "note": "Label above its body, right of U6."
+  },
+  "Z1": {
+   "x": 3565,
+   "y": 2767,
+   "w": 70,
+   "h": 50,
+   "note": "Label under the left end of the SIP outline above U6."
+  },
+  "C48": {
+   "x": 3522,
+   "y": 2412,
+   "w": 100,
+   "h": 50,
+   "note": "Label left of its bracket, above C46."
+  },
+  "C46": {
+   "x": 3537,
+   "y": 2578,
+   "w": 100,
+   "h": 50,
+   "note": "Label left of the round can, under C48."
+  },
+  "C49": {
+   "x": 4290,
+   "y": 2402,
+   "w": 95,
+   "h": 50,
+   "note": "Label under its bracket, left of J9."
+  },
+  "C4": {
+   "x": 5722,
+   "y": 2462,
+   "w": 65,
+   "h": 50,
+   "note": "Label above its body at the right edge."
+  },
+  "C40": {
+   "x": 5602,
+   "y": 2602,
+   "w": 45,
+   "h": 105,
+   "note": "Rotated label above its body, left of C21."
+  },
+  "C21": {
+   "x": 5655,
+   "y": 2602,
+   "w": 45,
+   "h": 105,
+   "note": "Rotated label above its body, right of C40."
+  },
+  "C50": {
+   "x": 4320,
+   "y": 2818,
+   "w": 95,
+   "h": 50,
+   "note": "Label under the round can left of C12."
+  },
+  "C12": {
+   "x": 4457,
+   "y": 2842,
+   "w": 90,
+   "h": 50,
+   "note": "Label under the round can left of C42."
+  },
+  "C1": {
+   "x": 4980,
+   "y": 2880,
+   "w": 45,
+   "h": 70,
+   "note": "Rotated label under its body, left of C11. The reader had it on C7."
+  },
+  "C11": {
+   "x": 5112,
+   "y": 2848,
+   "w": 100,
+   "h": 50,
+   "note": "Label under the round can left of TP2."
+  },
+  "R11": {
+   "x": 5732,
+   "y": 3255,
+   "w": 100,
+   "h": 50,
+   "note": "Label under the 1 W resistor body at the right edge, beside J2."
+  },
+  "TP1": {
+   "x": 1330,
+   "y": 3335,
+   "w": 110,
+   "h": 110,
+   "note": "Rotated label and the loop to its right, beside the A21 title."
+  },
+  "TP2": {
+   "x": 5255,
+   "y": 2805,
+   "w": 100,
+   "h": 190,
+   "note": "Label under C11/C10 and the loop above it."
+  },
+  "TP3": {
+   "x": 4385,
+   "y": 3260,
+   "w": 70,
+   "h": 235,
+   "note": "Rotated label and the loop under it, rightmost of the TP8/TP5/TP3 group."
+  },
+  "TP4": {
+   "x": 1522,
+   "y": 3335,
+   "w": 100,
+   "h": 110,
+   "note": "Rotated label and the loop to its left, under J1's left end."
+  },
+  "TP5": {
+   "x": 4290,
+   "y": 3260,
+   "w": 70,
+   "h": 235,
+   "note": "Rotated label and the loop under it, middle of the TP8/TP5/TP3 group."
+  },
+  "TP6": {
+   "x": 3262,
+   "y": 3335,
+   "w": 100,
+   "h": 110,
+   "note": "Rotated label and the loop to its right, left of R9."
+  },
+  "TP7": {
+   "x": 3842,
+   "y": 3375,
+   "w": 140,
+   "h": 165,
+   "note": "Label at the bottom edge and the loop above it, right of R1."
+  },
+  "TP8": {
+   "x": 4190,
+   "y": 3260,
+   "w": 70,
+   "h": 235,
+   "note": "Rotated label and the loop under it, leftmost of the TP8/TP5/TP3 group."
+  },
+  "TP9": {
+   "x": 3557,
+   "y": 3262,
+   "w": 60,
+   "h": 235,
+   "note": "Rotated label and the loop under it, between R2 and C5."
+  },
+  "TP10": {
+   "x": 1460,
+   "y": 268,
+   "w": 90,
+   "h": 140,
+   "note": "Rotated label and the loop to its left, right of R4."
+  },
+  "TP11": {
+   "x": 3915,
+   "y": 235,
+   "w": 110,
+   "h": 175,
+   "note": "Rotated label and the rectangular pad to its right, above U14."
+  },
+  "TP12": {
+   "x": 4027,
+   "y": 235,
+   "w": 110,
+   "h": 175,
+   "note": "Rotated label and the rectangular pad to its right, above U14."
+  },
+  "TP13": {
+   "x": 1900,
+   "y": 270,
+   "w": 90,
+   "h": 140,
+   "note": "Rotated label and the loop to its left, right of K10."
+  },
+  "TP14": {
+   "x": 4400,
+   "y": 205,
+   "w": 140,
+   "h": 230,
+   "note": "Label above the rectangular pad, between C8 and L1."
+  },
+  "TP15": {
+   "x": 5580,
+   "y": 268,
+   "w": 180,
+   "h": 125,
+   "note": "Label above the rectangular pad at the top-right corner."
+  }
+ },
+ "_dropComment": [
+  "Reader placements for parts that have no silkscreen designator; each is listed in notOnDrawing. Every other wrong read is replaced by a hand entry above, which already wins."
+ ],
+ "drop": {
+  "X8": "X8 is the 24-pin socket under U8; it has no silkscreen designator. The reader read the '8' of C16.",
+  "MP7": "MP7 is a swaged spacer with no silkscreen designator. The reader read the notch of U9.",
+  "W1": "W1 is the boost B-OUT HIGH cable, not a board part. The reader read the '1' of the 1988 copyright.",
+  "R23": "R23 is not printed on the drawing (see notOnDrawing). The reader read the 'RS232C' caption inside J2."
+ },
+ "_schematicComment": [
+  "Hand placements on the sheets: test points on their flag symbols, and designators the reader missed or misread."
+ ],
+ "schematic": {
+  "sh1": {
+   "J9": {
+    "x": 880,
+    "y": 700,
+    "w": 60,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "U1": {
+    "x": 1785,
+    "y": 740,
+    "w": 55,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "U2": {
+    "x": 2770,
+    "y": 1075,
+    "w": 55,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "U3": {
+    "x": 4528,
+    "y": 1085,
+    "w": 55,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "J1": {
+    "x": 6085,
+    "y": 727,
+    "w": 55,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "U4": {
+    "x": 4530,
+    "y": 1765,
+    "w": 55,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "Z1": {
+    "x": 2040,
+    "y": 1540,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol. Pull-up on the U2 side."
+   },
+   "Z2": {
+    "x": 2040,
+    "y": 1735,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol. Pull-up on the U2 side; Z2 is drawn a second time as the IEEE test jumper pull-up right of U4 (4665, 1695)."
+   },
+   "TP1": {
+    "x": 480,
+    "y": 2340,
+    "w": 135,
+    "h": 100,
+    "note": "On the flag symbol and its TP label in the circuit body, not the legend table. +5 LOGIC, zone B8."
+   },
+   "TP2": {
+    "x": 845,
+    "y": 2340,
+    "w": 135,
+    "h": 100,
+    "note": "On the flag symbol and its TP label in the circuit body, not the legend table. +12V."
+   },
+   "TP3": {
+    "x": 1205,
+    "y": 2340,
+    "w": 135,
+    "h": 100,
+    "note": "On the flag symbol and its TP label in the circuit body, not the legend table. -12V."
+   },
+   "TP4": {
+    "x": 268,
+    "y": 2765,
+    "w": 130,
+    "h": 95,
+    "note": "On the flag symbol and its TP label in the circuit body, not the legend table. +5 LOGIC COMMON."
+   },
+   "C10": {
+    "x": 465,
+    "y": 2757,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C40": {
+    "x": 645,
+    "y": 2757,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C11": {
+    "x": 825,
+    "y": 2757,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C41": {
+    "x": 1005,
+    "y": 2757,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C12": {
+    "x": 1187,
+    "y": 2757,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C42": {
+    "x": 1367,
+    "y": 2757,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "VR3": {
+    "x": 1272,
+    "y": 2935,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C46": {
+    "x": 1400,
+    "y": 3127,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C48": {
+    "x": 1578,
+    "y": 3127,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "R8": {
+    "x": 1515,
+    "y": 3355,
+    "w": 60,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "R9": {
+    "x": 1745,
+    "y": 2690,
+    "w": 55,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "Z5": {
+    "x": 1915,
+    "y": 3160,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol. The 10K network beside R9; drawn again on sheet 2."
+   },
+   "R10": {
+    "x": 2338,
+    "y": 3280,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "U18": {
+    "x": 1755,
+    "y": 3380,
+    "w": 60,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C50": {
+    "x": 2095,
+    "y": 3440,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C49": {
+    "x": 2285,
+    "y": 3440,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C21": {
+    "x": 3120,
+    "y": 2745,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol. Decoupling row."
+   },
+   "C22": {
+    "x": 3310,
+    "y": 2742,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol. Decoupling row."
+   },
+   "C24": {
+    "x": 3490,
+    "y": 2742,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol. Decoupling row."
+   },
+   "C25": {
+    "x": 3670,
+    "y": 2742,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol. Decoupling row."
+   },
+   "C26": {
+    "x": 3852,
+    "y": 2742,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol. Decoupling row."
+   },
+   "C27": {
+    "x": 4032,
+    "y": 2742,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol. Decoupling row."
+   },
+   "C28": {
+    "x": 4212,
+    "y": 2742,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol. Decoupling row."
+   },
+   "C29": {
+    "x": 4395,
+    "y": 2742,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol. Decoupling row."
+   },
+   "C30": {
+    "x": 4575,
+    "y": 2742,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol. Decoupling row."
+   },
+   "C31": {
+    "x": 4757,
+    "y": 2742,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol. Decoupling row."
+   },
+   "C32": {
+    "x": 4940,
+    "y": 2742,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol. Decoupling row."
+   }
+  },
+  "sh2": {
+   "Z2": {
+    "x": 1143,
+    "y": 1210,
+    "w": 55,
+    "h": 40,
+    "note": "Designator text beside its symbol. Pull-up above U5's data pins; drawn again beside U6B (3847, 2555)."
+   },
+   "Z5": {
+    "x": 2375,
+    "y": 760,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol. Pull-up on RXDA; drawn twice more on the CAL SWA/SWB lines (1067, 2717) and (1067, 2977)."
+   },
+   "TP5": {
+    "x": 3052,
+    "y": 660,
+    "w": 145,
+    "h": 130,
+    "note": "On the flag symbol and its TP label in the circuit body, not the legend table. RXDA, zone D5."
+   },
+   "TP6": {
+    "x": 3240,
+    "y": 660,
+    "w": 135,
+    "h": 130,
+    "note": "On the flag symbol and its TP label in the circuit body, not the legend table. TXDA, zone D4."
+   },
+   "TP7": {
+    "x": 2805,
+    "y": 1355,
+    "w": 145,
+    "h": 130,
+    "note": "On the flag symbol and its TP label in the circuit body, not the legend table. SERIAL CLOCK, zone C5."
+   },
+   "TP8": {
+    "x": 3222,
+    "y": 2500,
+    "w": 150,
+    "h": 130,
+    "note": "On the flag symbol and its TP label in the circuit body, not the legend table. Zone B4."
+   },
+   "TP9": {
+    "x": 3395,
+    "y": 2500,
+    "w": 145,
+    "h": 130,
+    "note": "On the flag symbol and its TP label in the circuit body, not the legend table. Zone B4."
+   },
+   "CR5": {
+    "x": 2065,
+    "y": 1082,
+    "w": 100,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "CR6": {
+    "x": 2110,
+    "y": 1298,
+    "w": 100,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "R1": {
+    "x": 3415,
+    "y": 662,
+    "w": 50,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "R2": {
+    "x": 3485,
+    "y": 2022,
+    "w": 50,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "U6": {
+    "x": 3640,
+    "y": 838,
+    "w": 80,
+    "h": 45,
+    "note": "On the U6D section; U6C (3640, 1127), U6A (3640, 1633) and U6B (3907, 2695) are the other three 1488 drivers."
+   },
+   "U7": {
+    "x": 3702,
+    "y": 1145,
+    "w": 85,
+    "h": 45,
+    "note": "On the U7C section; U7A (3702, 1425) and U7B (3967, 2908) are the other 1489 receivers."
+   },
+   "C1": {
+    "x": 4642,
+    "y": 642,
+    "w": 55,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "C3": {
+    "x": 5010,
+    "y": 640,
+    "w": 55,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "J2": {
+    "x": 5735,
+    "y": 750,
+    "w": 55,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "R11": {
+    "x": 4998,
+    "y": 1298,
+    "w": 60,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "C4": {
+    "x": 5188,
+    "y": 1310,
+    "w": 55,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "C5": {
+    "x": 4940,
+    "y": 2515,
+    "w": 55,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "Z1": {
+    "x": 620,
+    "y": 1595,
+    "w": 210,
+    "h": 40,
+    "note": "Spans the pair of Z1 sections on RPCLK/RPDRTINT left of U5; three more sections sit on the 5205AEN/5220ADIR/5220AEN lines at (1952, 2540), (2112, 2540), (2272, 2540)."
+   },
+   "U5": {
+    "x": 1730,
+    "y": 1735,
+    "w": 55,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "S1": {
+    "x": 1508,
+    "y": 3160,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol. CALIBRATION SWITCH."
+   }
+  },
+  "sh3": {
+   "C6": {
+    "x": 3030,
+    "y": 1128,
+    "w": 55,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "C7": {
+    "x": 3218,
+    "y": 1128,
+    "w": 55,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "R20": {
+    "x": 4310,
+    "y": 782,
+    "w": 100,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "C16": {
+    "x": 4370,
+    "y": 877,
+    "w": 90,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "R3": {
+    "x": 4110,
+    "y": 905,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "U13": {
+    "x": 3880,
+    "y": 960,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "R12": {
+    "x": 4275,
+    "y": 1217,
+    "w": 70,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "R13": {
+    "x": 4425,
+    "y": 1217,
+    "w": 70,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "K4": {
+    "x": 4805,
+    "y": 978,
+    "w": 55,
+    "h": 45,
+    "note": "Designator text beside its symbol. K4 contacts."
+   },
+   "J3": {
+    "x": 5870,
+    "y": 845,
+    "w": 55,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "J4": {
+    "x": 5872,
+    "y": 2240,
+    "w": 55,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "Z2": {
+    "x": 590,
+    "y": 1435,
+    "w": 185,
+    "h": 40,
+    "note": "Spans the pair of Z2 sections on EOI1/ATN1 left of U8."
+   },
+   "U8": {
+    "x": 1385,
+    "y": 1750,
+    "w": 55,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "U9": {
+    "x": 3128,
+    "y": 1670,
+    "w": 55,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "U10": {
+    "x": 3140,
+    "y": 2840,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "U12": {
+    "x": 3150,
+    "y": 3555,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "U11": {
+    "x": 3938,
+    "y": 2985,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "R17": {
+    "x": 4230,
+    "y": 1650,
+    "w": 70,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "R16": {
+    "x": 4388,
+    "y": 1650,
+    "w": 70,
+    "h": 45,
+    "note": "Designator text beside its symbol."
+   },
+   "Z4": {
+    "x": 4243,
+    "y": 2050,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "Z1": {
+    "x": 4955,
+    "y": 3015,
+    "w": 195,
+    "h": 40,
+    "note": "Spans the pair of Z1 sections under J4."
+   }
+  },
+  "sh4": {
+   "R4": {
+    "x": 2985,
+    "y": 350,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "VR1": {
+    "x": 3010,
+    "y": 580,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "VR2": {
+    "x": 3010,
+    "y": 795,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "R5": {
+    "x": 2985,
+    "y": 880,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "CR1": {
+    "x": 3238,
+    "y": 570,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "CR2": {
+    "x": 3275,
+    "y": 785,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "Q1": {
+    "x": 3425,
+    "y": 720,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol. Not the 'Q1, Q2' package legend caption above."
+   },
+   "Q2": {
+    "x": 3777,
+    "y": 720,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol. Not the 'Q1, Q2' package legend caption above."
+   },
+   "K10": {
+    "x": 4095,
+    "y": 610,
+    "w": 100,
+    "h": 40,
+    "note": "On the K10A contacts; K10B is at (4870, 920)."
+   },
+   "K12": {
+    "x": 4965,
+    "y": 390,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "F1": {
+    "x": 5132,
+    "y": 505,
+    "w": 75,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "F2": {
+    "x": 5137,
+    "y": 890,
+    "w": 80,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "J5": {
+    "x": 5442,
+    "y": 435,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "J6": {
+    "x": 5442,
+    "y": 752,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "J7": {
+    "x": 5937,
+    "y": 1235,
+    "w": 55,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "J11": {
+    "x": 1600,
+    "y": 1120,
+    "w": 60,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "J8": {
+    "x": 810,
+    "y": 1630,
+    "w": 55,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "TP10": {
+    "x": 1842,
+    "y": 2020,
+    "w": 140,
+    "h": 130,
+    "note": "On the flag symbol and its TP label in the circuit body, not the legend table. PA COM, zone C6."
+   },
+   "K2": {
+    "x": 2270,
+    "y": 1745,
+    "w": 60,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "K3": {
+    "x": 2270,
+    "y": 2340,
+    "w": 60,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "K1": {
+    "x": 1752,
+    "y": 2545,
+    "w": 60,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "K5": {
+    "x": 3170,
+    "y": 2370,
+    "w": 60,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "K6": {
+    "x": 4555,
+    "y": 1895,
+    "w": 60,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "K7": {
+    "x": 4580,
+    "y": 2145,
+    "w": 60,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "K8": {
+    "x": 4530,
+    "y": 2650,
+    "w": 60,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "K9": {
+    "x": 4530,
+    "y": 2975,
+    "w": 60,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "K11": {
+    "x": 3237,
+    "y": 3042,
+    "w": 75,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "J12": {
+    "x": 4845,
+    "y": 1745,
+    "w": 60,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C70": {
+    "x": 5647,
+    "y": 2885,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   }
+  },
+  "sh5": {
+   "TP12": {
+    "x": 1935,
+    "y": 450,
+    "w": 145,
+    "h": 140,
+    "note": "On the flag symbol and its TP label in the circuit body, not the legend table. Zone D6."
+   },
+   "TP11": {
+    "x": 2360,
+    "y": 450,
+    "w": 145,
+    "h": 140,
+    "note": "On the flag symbol and its TP label in the circuit body, not the legend table. Zone D5."
+   },
+   "TP13": {
+    "x": 2725,
+    "y": 450,
+    "w": 145,
+    "h": 140,
+    "note": "On the flag symbol and its TP label in the circuit body, not the legend table. Zone D5."
+   },
+   "TP15": {
+    "x": 3222,
+    "y": 780,
+    "w": 150,
+    "h": 140,
+    "note": "On the flag symbol and its TP label in the circuit body, not the legend table. RLH COM, zone D4."
+   },
+   "TP14": {
+    "x": 3395,
+    "y": 780,
+    "w": 145,
+    "h": 140,
+    "note": "On the flag symbol and its TP label in the circuit body, not the legend table. LH COM, zone D4."
+   },
+   "C13": {
+    "x": 2032,
+    "y": 780,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C43": {
+    "x": 2217,
+    "y": 780,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C15": {
+    "x": 2397,
+    "y": 780,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C45": {
+    "x": 2580,
+    "y": 780,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C14": {
+    "x": 2760,
+    "y": 780,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C44": {
+    "x": 2942,
+    "y": 780,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "J8": {
+    "x": 843,
+    "y": 1318,
+    "w": 55,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "L1": {
+    "x": 2035,
+    "y": 1450,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C33": {
+    "x": 2227,
+    "y": 1548,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C34": {
+    "x": 2422,
+    "y": 1548,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "R14": {
+    "x": 1782,
+    "y": 2240,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C47": {
+    "x": 1800,
+    "y": 2380,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "U14": {
+    "x": 2150,
+    "y": 2790,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C36": {
+    "x": 3635,
+    "y": 1315,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "U16": {
+    "x": 3400,
+    "y": 2020,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "U17": {
+    "x": 3400,
+    "y": 2570,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C37": {
+    "x": 3870,
+    "y": 2582,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "K1": {
+    "x": 4220,
+    "y": 1518,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol. Coil."
+   },
+   "K2": {
+    "x": 4430,
+    "y": 1540,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol. Coil."
+   },
+   "K3": {
+    "x": 4735,
+    "y": 1540,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol. Coil."
+   },
+   "K4": {
+    "x": 5020,
+    "y": 1515,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol. Coil."
+   },
+   "K5": {
+    "x": 5218,
+    "y": 1515,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol. Coil."
+   },
+   "K7": {
+    "x": 5410,
+    "y": 1515,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol. Coil."
+   },
+   "K6": {
+    "x": 4230,
+    "y": 2085,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol. Coil."
+   },
+   "K8": {
+    "x": 4520,
+    "y": 2065,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol. Coil."
+   },
+   "K9": {
+    "x": 4715,
+    "y": 2065,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol. Coil."
+   },
+   "K12": {
+    "x": 4910,
+    "y": 2060,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol. Coil."
+   },
+   "K10": {
+    "x": 5102,
+    "y": 2060,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol. Coil."
+   },
+   "K11": {
+    "x": 5300,
+    "y": 2060,
+    "w": 70,
+    "h": 40,
+    "note": "Designator text beside its symbol. Coil."
+   },
+   "R6": {
+    "x": 1690,
+    "y": 2925,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "R7": {
+    "x": 1690,
+    "y": 3010,
+    "w": 50,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C8": {
+    "x": 2055,
+    "y": 3005,
+    "w": 55,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "C9": {
+    "x": 1862,
+    "y": 3110,
+    "w": 55,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "CR3": {
+    "x": 2445,
+    "y": 2960,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   },
+   "CR4": {
+    "x": 2500,
+    "y": 3095,
+    "w": 65,
+    "h": 40,
+    "note": "Designator text beside its symbol."
+   }
+  }
+ },
+ "_dropSchematicComment": [
+  "Reader placements on a sheet that are not on the designator: legend tables, values, net names and neighbouring labels."
+ ],
+ "dropSchematic": {
+  "sh1": {
+   "C1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C15": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C4": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C6": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C9": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "CR1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "F1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "F2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J11": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J3": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J4": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J6": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "K1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "K6": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "K7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "L1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "MP1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "MP4": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "MP7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "Q1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "Q2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R12": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R16": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "S1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP10": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP11": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP12": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP13": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP14": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP15": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP6": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP9": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U10": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U11": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U6": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U9": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "VR1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "VR2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "W1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "W2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "X8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'."
+  },
+  "sh2": {
+   "C33": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C6": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "F1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J3": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J4": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J6": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J9": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "K1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "L1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "MP1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "MP4": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "MP7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "MP8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "Q1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "VR1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "W1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "W2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "X8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'."
+  },
+  "sh3": {
+   "C1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C10": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C12": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C13": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C22": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C4": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C9": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "F1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J11": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J12": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J6": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J9": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "K1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "L1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "MP1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "MP2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "MP4": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "Q1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R10": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "S1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U18": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U4": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U6": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "W1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "X8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "Z5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'."
+  },
+  "sh4": {
+   "C1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C10": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C12": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C4": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C6": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C9": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J3": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J4": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J9": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "L1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "MP7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "MP8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R3": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "S1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP12": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "VR3": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "W1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "X8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "Z2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "Z5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'."
+  },
+  "sh5": {
+   "C1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C10": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C11": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C26": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C3": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C4": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C6": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "C7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "F1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J11": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J3": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J4": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J6": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "J9": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "MP2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "MP4": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "MP5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "MP7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "Q1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "Q2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R10": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R11": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "R8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "S1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP3": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP4": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "TP9": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U11": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U4": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "U7": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "W1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "W2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "X8": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "Z1": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "Z2": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'.",
+   "Z5": "Not a designator on this sheet: the reader read a pin name, net label, value, caption or table entry. Every part drawn on this sheet is placed by hand under 'schematic'."
+  }
+ },
+ "_notOnDrawingComment": [
+  "MP1-MP10, MP21 and MP22 are swaged spacers (SPACER,SWAGE,.250 RND) with no",
+  "silkscreen designator; W1-W3 are the three boost cables, which leave the",
+  "board and are not drawn on it; X8 is the 24-pin socket under U8, drawn only",
+  "as U8's outline. R22 and R23 (RES,MF,200) are in the Rev 9 parts list but",
+  "are not printed anywhere on the drawing -- the R-series on the silkscreen",
+  "stops at R20 apart from R11."
+ ],
+ "notOnDrawing": [
+  "MP1",
+  "MP2",
+  "MP3",
+  "MP4",
+  "MP5",
+  "MP6",
+  "MP7",
+  "MP8",
+  "MP9",
+  "MP10",
+  "MP21",
+  "MP22",
+  "W1",
+  "W2",
+  "W3",
+  "X8",
+  "R22",
+  "R23"
+ ]
+}

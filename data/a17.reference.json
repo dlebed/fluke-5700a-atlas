@@ -1,0 +1,236 @@
+{
+  "_comment": [
+    "Curated A17 reference material: circuit descriptions from §2-70…§2-79, the",
+    "3600-series diagnostic fault codes from §5-2, and the places where the manuals",
+    "contradict each other.",
+    "A17 has no numbered troubleshooting section -- Chapter 5's component-level",
+    "procedures run 5-4 through 5-23 and stop at A18 -- so the fault codes are the",
+    "published procedure for this board, and they are what the app presents.",
+    "Every fault code below records the verdict for BOTH branches, because knowing",
+    "that an in-tolerance reading indicts a different assembly is the whole value of",
+    "the code; a reading with no verdict just moves the question."
+  ],
+
+  "overview": {
+    "summary": "Two unrelated jobs on one board. The regulator section takes unregulated dc from the Filter/PA Supply assembly (A18) and produces thirteen regulated rails plus one unregulated fused rail for the analog assemblies. The guard crossing section is a self-contained inguard computer -- a Hitachi 637A01Y0 microcontroller with external RAM, EPROM, watchdog and reset supervision -- that drives the guarded digital bus and talks to the unguarded CPU (A20) over a fibre-optic serial link. It also generates the 8 MHz sine wave several analog assemblies need. The two sections share only the board and its supplies, so a fault is usually in one or the other, and the test point numbering follows that split: TP1-TP19 are regulator, TP51-TP65 are digital.",
+    "connectors": "P801 / P802, DIN 41612 type C, 64-pin right angle, mating with J801 / J802 on the Analog Motherboard (A3).",
+    "source": "§2-70 … §2-79"
+  },
+
+  "railCircuits": {
+    "OSC": {
+      "rails": "+15 OSC / -15 OSC",
+      "regulators": ["U2", "U3"],
+      "filters": ["C1", "C2", "C4", "C5"],
+      "protection": ["CR2", "CR3", "CR5", "CR7"],
+      "tps": ["TP3", "TP5"],
+      "note": "Fixed TO-220 regulators from the unregulated +15 OSCR / -15 OSCR. C2 and C5 stabilise U2 and U3; CR3 and CR5 block reverse voltage, CR2 and CR7 protect against input shorts. Used exclusively by the Oscillator Output (A12) and Oscillator Control (A13) assemblies.",
+      "source": "§2-72"
+    },
+    "LH": {
+      "rails": "+5 RLH / +5 LH / -5 LH / +8 RLH",
+      "regulators": ["U8", "U11", "U12"],
+      "filters": ["C16", "C20", "C21", "C23", "C24"],
+      "protection": ["CR14", "CR16", "CR17", "CR20", "CR21", "CR24", "CR34", "CR35"],
+      "fuses": ["F1"],
+      "tps": ["TP11", "TP14", "TP15", "TP17"],
+      "note": "TO-3 regulators U11 (+5 RLH) and U8 (+5 LH) and TO-220 U12 (-5 LH). R13 with CR34/CR35 lifts U8 and U11 above their fixed +5 V, which is why +5 LH reads 5.1 V and +5 RLH reads 5.975 V rather than 5.0 V. +8 RLH is not regulated at all: it is the unregulated +5 LHR simply fused by F1.",
+      "source": "§2-73"
+    },
+    "S": {
+      "rails": "+44 S / -44 S / +17 S / -17 S / +15 S / -15 S",
+      "regulators": ["U4", "U6", "U7", "U9", "U10", "U13"],
+      "filters": ["C8", "C9", "C11", "C13", "C14", "C15", "C17", "C18", "C19", "C22", "C25", "C26", "C27", "C29", "C65", "C66"],
+      "protection": ["CR8", "CR11", "CR18", "CR19", "CR22", "CR23", "CR25", "CR26", "CR27", "CR28", "CR29", "CR30", "CR31", "CR32", "CR33", "VR1", "VR2", "VR3", "VR4", "VR5", "VR6"],
+      "tps": ["TP8", "TP12", "TP13", "TP16", "TP18", "TP19"],
+      "note": "S COM is the return for all six and is also connected to LH COM. The ±44 S pair are adjustable TO-39 regulators (U10, U13) fronted by emitter followers Q2 and Q1, which keep the regulator out of an excessive input-output differential during a short; PTC resistors R60 and R61 shunt 28 mA normally and limit to under 17 mA into a short. ±17 S are adjustable TO-3 regulators U6 and U7 set by R5/R6 and R10/R11. ±15 S are fixed TO-220 regulators U4 and U9 running off the ±17 SR inputs.",
+      "source": "§2-74"
+    },
+    "FR1": {
+      "rails": "+30 FR1",
+      "regulators": ["U1"],
+      "filters": ["C3", "C6", "C7"],
+      "protection": ["CR1", "CR4", "CR6"],
+      "tps": ["TP2"],
+      "note": "TO-39 regulator from the unregulated +30 FR1R, set by R1 and R2. FR1 COM is its own return, floating with respect to the other commons.",
+      "source": "§2-75"
+    },
+    "FR2": {
+      "rails": "+30 FR2",
+      "regulators": ["U5"],
+      "filters": ["C10", "C12", "C28"],
+      "protection": ["CR9", "CR10", "CR12"],
+      "tps": ["TP7"],
+      "note": "Identical circuit to FR1 with its own floating return: TO-39 regulator from +30 FR2R, set by R4 and R8.",
+      "source": "§2-76"
+    },
+    "DIGITAL": {
+      "rails": "VCC2 / GND2",
+      "regulators": [],
+      "filters": ["C54", "C55", "C56", "C57", "C59"],
+      "tps": ["TP52", "TP55", "TP58"],
+      "note": "The inguard computer: microcontroller U56 (Hitachi 637A01Y0, 16 KB internal EPROM) with 8 KB external static RAM U62, EPROM U64, watchdog counters U59/U63, reset supervisor U60 and reset switch SW51. Y51 (4.9152 MHz) clocks the microcontroller; Y52 (8.000 MHz) with U51 generates the 8 MHz sine wave for the analog assemblies. U57 drives the fibre-optic link to the unguarded CPU (A20). The section runs from +5 LH through choke L51, so a dead digital section with a dead +5 LH is an LH fault, not a digital one.",
+      "source": "§2-77 … §2-79"
+    }
+  },
+
+  "faultCodes": [
+    { "code": "3600", "title": "+17 S Supply Fault",
+      "measure": "Instrument dormant; the +17 S supply reads out of tolerance",
+      "com": "TP9", "hi": "TP8", "expected": "+17.0 V to +18.0 V",
+      "verdict": "Out of tolerance: A17 is faulty. In tolerance: the diagnostic circuit on the Switch Matrix assembly (A8) is faulty.",
+      "refs": ["TP8", "TP9", "U6"], "source": "§5-2" },
+
+    { "code": "3601", "title": "-17 S Supply Fault",
+      "measure": "Instrument dormant; the -17 S supply reads out of tolerance",
+      "com": "TP9", "hi": "TP12", "expected": "-17.0 V to -18.7 V",
+      "verdict": "Out of tolerance: A17 is faulty. In tolerance: the diagnostic circuit on the Switch Matrix assembly (A8) is faulty.",
+      "refs": ["TP12", "TP9", "U7"], "source": "§5-2" },
+
+    { "code": "3602", "title": "+15 S Supply Fault",
+      "measure": "Instrument dormant; the +15 S supply reads out of tolerance",
+      "com": "TP9", "hi": "TP18", "expected": "+14.2 V to +15.8 V",
+      "verdict": "Out of tolerance: A17 is faulty. In tolerance: the diagnostic circuit on the Oscillator Output assembly (A13) is faulty.",
+      "refs": ["TP18", "TP9", "U4"], "source": "§5-2" },
+
+    { "code": "3603", "title": "-15 S Supply Fault",
+      "measure": "Instrument dormant; the -15 S supply reads out of tolerance",
+      "com": "TP9", "hi": "TP19", "expected": "-14.2 V to -15.8 V",
+      "verdict": "Out of tolerance: A17 is faulty. In tolerance: the diagnostic circuit on the Oscillator Output assembly (A13) is faulty.",
+      "refs": ["TP19", "TP9", "U9"], "source": "§5-2" },
+
+    { "code": "3604", "title": "+42 S Supply Fault",
+      "measure": "Instrument dormant; the +44 S supply reads out of tolerance. Check the unregulated +44 S on A18 first (COM = A18 TP22, HI = A18 TP7, +45 V to +75 V); if that is good, measure the regulated rail here.",
+      "com": "TP9", "hi": "TP13", "expected": "+42.0 V to +45.6 V",
+      "verdict": "Unregulated out of tolerance: A18 is faulty. Regulated out of tolerance: A17 is faulty. Both in tolerance: the diagnostic circuit on the Oscillator Output assembly (A13) is faulty.",
+      "refs": ["TP13", "TP9", "U10", "Q2"], "source": "§5-2" },
+
+    { "code": "3605", "title": "-42 S Supply Fault",
+      "measure": "Instrument dormant; the -44 S supply reads out of tolerance. Check the unregulated -44 S on A18 first (COM = A18 TP22, HI = A18 TP9, -45 V to -75 V); if that is good, measure the regulated rail here.",
+      "com": "TP9", "hi": "TP16", "expected": "-42.0 V to -45.6 V",
+      "verdict": "Unregulated out of tolerance: A18 is faulty. Regulated out of tolerance: A17 is faulty. Both in tolerance: the diagnostic circuit on the Oscillator Output assembly (A13) is faulty.",
+      "refs": ["TP16", "TP9", "U13", "Q1"], "source": "§5-2" },
+
+    { "code": "3606", "title": "LH Com Ground Fault",
+      "measure": "The Current/Hi-Res assembly (A7) connects LH COM to the SDL line, where the ADC on the DAC assembly measures it against RCOM",
+      "com": "RCOM (A11)", "hi": "TP10", "expected": "0 V ±50 mV",
+      "verdict": "A shifted LH COM points at this assembly's LH return or the motherboard path to it; the measurement itself is made on A11, so a bad ADC reads the same way.",
+      "refs": ["TP10"], "source": "§5-2" },
+
+    { "code": "3607", "title": "-5 LH Supply Fault",
+      "measure": "Instrument dormant; the -5 LH supply reads out of tolerance. Check the unregulated -5 LH on A18 first (COM = A18 TP3, HI = A18 TP6, -8 V to -16 V); if that is good, measure the regulated rail here.",
+      "com": "TP10", "hi": "TP15", "expected": "-4.7 V to -5.3 V",
+      "verdict": "Unregulated out of tolerance: A18 is faulty. Regulated out of tolerance: A17 is faulty. Both in tolerance: the diagnostic circuit on the Switch Matrix assembly (A8) is faulty.",
+      "refs": ["TP15", "TP10", "U12"], "source": "§5-2" },
+
+    { "code": "3608", "title": "+5 RLH Supply Fault",
+      "measure": "Instrument dormant; the +5 RLH supply reads out of tolerance",
+      "com": "TP10", "hi": "TP14", "expected": "+4.9 V to +5.5 V as printed in §5-2 — but see the caveat: Table 2-10 and the sheet-1 annotation both give +5.55 V to +6.40 V",
+      "verdict": "Out of tolerance: A17 is faulty. In tolerance: the diagnostic circuit on the Switch Matrix assembly (A8) is faulty.",
+      "refs": ["TP14", "TP10", "U11"], "source": "§5-2" },
+
+    { "code": "3609", "title": "+8 RLH Supply Fault",
+      "measure": "Instrument dormant; the +8 RLH supply reads out of tolerance",
+      "com": "TP10", "hi": "TP17", "expected": "+10 V to +20 V",
+      "verdict": "Out of tolerance: replace fuse F1 on this assembly. In tolerance: the diagnostic circuit on the Switch Matrix assembly (A8) is faulty.",
+      "refs": ["TP17", "TP10", "F1"], "source": "§5-2" },
+
+    { "code": "3612", "title": "+15 OSC Supply Fault",
+      "measure": "Instrument dormant; the +15 OSC supply reads outside +14.2 V to +15.8 V. Check the unregulated +15 OSC on A18 first (COM = A18 TP4, HI = A18 TP2, +19 V to +35 V); if that is good, measure the regulated rail here.",
+      "com": "TP4", "hi": "TP3", "expected": "+14.2 V to +15.8 V",
+      "verdict": "Unregulated out of tolerance: A18 is faulty. Regulated out of tolerance: A17 is faulty. Both in tolerance: the diagnostic circuit on the Oscillator Control assembly (A12) is faulty.",
+      "refs": ["TP3", "TP4", "U2"], "source": "§5-2" },
+
+    { "code": "3613", "title": "-15 OSC Supply Fault",
+      "measure": "Instrument dormant; the -15 OSC supply reads outside -14.2 V to -15.8 V. Check the unregulated -15 OSC on A18 first (COM = A18 TP4, HI = A18 TP5, -19 V to -35 V); if that is good, measure the regulated rail here.",
+      "com": "TP4", "hi": "TP5", "expected": "-14.2 V to -15.8 V",
+      "verdict": "Unregulated out of tolerance: A18 is faulty. Regulated out of tolerance: A17 is faulty. Both in tolerance: the diagnostic circuit on the Oscillator Control assembly (A12) is faulty. Note that §5-2 misprints the assembly as (A7) in this entry and repeats TP5 for both the A18 and A17 measurements; the A17 point is TP5 on this board.",
+      "refs": ["TP5", "TP4", "U3"], "source": "§5-2" },
+
+    { "code": "3614", "title": "OSC Com Ground Fault",
+      "measure": "The Oscillator Control assembly (A12) connects OSC COM to the SDL line, where the ADC on the DAC assembly measures it against RCOM",
+      "com": "RCOM (A11)", "hi": "TP4", "expected": "0 V ±50 mV",
+      "verdict": "A shifted OSC COM points at this assembly's OSC return or the motherboard path to it; the measurement is made on A11, so a bad ADC reads the same way.",
+      "refs": ["TP4"], "source": "§5-2" },
+
+    { "code": "3615", "title": "S Com Ground Fault",
+      "measure": "The Current/Hi-Res assembly (A7) connects S COM to the SDL line, where the ADC on the DAC assembly measures it against RCOM",
+      "com": "RCOM (A11)", "hi": "TP9", "expected": "0 V ±50 mV",
+      "verdict": "A shifted S COM points at this assembly's S return or the motherboard path to it; the measurement is made on A11, so a bad ADC reads the same way.",
+      "refs": ["TP9"], "source": "§5-2" }
+  ],
+
+  "componentNotes": {
+    "U1": "TO-39 regulator for +30 FR1. Output set by R1/R2.",
+    "U2": "Fixed +15 V TO-220 regulator for +15 OSC.",
+    "U3": "Fixed -15 V TO-220 regulator for -15 OSC.",
+    "U4": "Fixed +15 V TO-220 regulator for +15 S, fed from the unregulated +17 SR.",
+    "U5": "TO-39 regulator for +30 FR2. Output set by R4/R8.",
+    "U6": "TO-3 low-dropout regulator for +17 S. Output set by R5/R6.",
+    "U7": "TO-3 low-dropout regulator for -17 S. Output set by R10/R11.",
+    "U8": "TO-3 +5 V regulator for +5 LH, lifted to 5.1 V by R13 with CR34/CR35.",
+    "U9": "Fixed -15 V TO-220 regulator for -15 S, fed from the unregulated -17 SR.",
+    "U10": "TO-39 adjustable regulator for +44 S. Output set by R14/R15; provides the current and thermal limiting.",
+    "U11": "TO-3 +5 V regulator for +5 RLH, lifted to 5.975 V by R13 with CR34/CR35.",
+    "U12": "Fixed -5 V TO-220 regulator for -5 LH.",
+    "U13": "TO-39 adjustable regulator for -44 S. Output set by R17/R18.",
+    "U51": "Hex inverter; with Y52 forms the 8 MHz oscillator whose output leaves at TP62.",
+    "U56": "Hitachi 637A01Y0 microcontroller, the inguard CPU. 16 KB internal EPROM, 256 bytes internal RAM, clocked by Y51 at 4.9152 MHz.",
+    "U57": "Open-collector AND driver for the fibre-optic transmit line (XMT, TP57).",
+    "U58": "PAL address decoder for the inguard memory map.",
+    "U59": "Watchdog counter. Its output reaches TP63 (POPIN).",
+    "U60": "Voltage supervisor, 4.55 V sense. Drives RES* (TP60) with the watchdog.",
+    "U62": "8K x 8 static CMOS RAM, external RAM for the inguard CPU at A000-BFFF.",
+    "U64": "EPROM in socket X3 on the 1996 board. The Rev 9 list and the photographed board carry Fluke 881698 (27C256) instead of 600137.",
+    "Q1": "Emitter follower ahead of U13, protecting it from an excessive input-output differential during a -44 S short.",
+    "Q2": "Emitter follower ahead of U10, doing the same job for +44 S.",
+    "F1": "3.15 A slow-blow. The only fuse on the board; it is what makes +8 RLH out of the unregulated +5 LHR, so an absent +8 RLH means check F1 before anything else.",
+    "R60": "PTC thermistor shunting U10. Passes 28 mA normally and limits to under 17 mA at 25 °C into an output short.",
+    "R61": "PTC thermistor shunting U13, the -44 S counterpart of R60.",
+    "SW51": "Inguard reset pushbutton.",
+    "Y51": "4.9152 MHz crystal for microcontroller U56. ECLK at TP61 is this divided by four.",
+    "Y52": "8.000 MHz crystal for the sine wave supplied to the analog assemblies, output at TP62.",
+    "L51": "3-turn choke feeding the guarded digital section from +5 LH.",
+    "T51": "8 MHz RF transformer coupling the sine wave off the board.",
+    "J801": "Board connector, DIN 41612 type C 64-pin right angle. Silkscreened and drawn as P801; see the caveat on the designator conflict.",
+    "J802": "Board connector, DIN 41612 type C 64-pin right angle. Silkscreened and drawn as P802; see the caveat on the designator conflict."
+  },
+
+  "caveats": [
+    {
+      "title": "The board connectors are called J801/J802 in the parts list and P801/P802 everywhere else",
+      "text": "Table 6-22 lists them as J801 and J802, while the component locator drawing, the schematic sheets and the board silkscreen all say P801 and P802. J801/J802 are also the names §2-19 gives the mating connectors on the Analog Motherboard (A3), so the parts list is naming this board's connectors after the sockets they plug into. A18's list does not do this — it names its own connectors P901/P902. The markers here are placed on the P801/P802 outlines; searching either name finds them.",
+      "refs": ["J801", "J802"]
+    },
+    {
+      "title": "Table 2-10 is missing the +15 S row",
+      "text": "§2-71 says the regulator section has thirteen regulated outputs and one unregulated one, and §2-74 describes the +15 S regulator U4 in full, but Table 2-10 lists only twelve rows and +15 S is the one absent. Its expectation here comes from fault code 3602.",
+      "refs": ["TP18", "U4"]
+    },
+    {
+      "title": "Table 2-10 loses the sign on the -15 S row",
+      "text": "The signal name is printed '15S' with the nominal '-15V' beside it. The sheet 1 legend gives TP19 = -15S, and fault code 3603 expects -14.2 V to -15.8 V, so the rail is negative and the printed name is simply missing its minus sign.",
+      "refs": ["TP19"]
+    },
+    {
+      "title": "The ±17 S nominals in Table 2-10 are the near limit, not the centre",
+      "text": "Table 2-10 gives +17.000 V ±475 mV, which would be a band of +16.53 V to +17.48 V. The annotation on schematic sheet 1 says +17.0 V to +17.95 V and fault code 3600 says +17.0 V to +18.0 V — the same width, shifted half a volt up. -17 S behaves the same way: table -17.000 V ±835 mV against sheet and fault code -17.03 V to -18.7 V. Two independent sources agreeing against the table is the reason the band shown here is theirs.",
+      "refs": ["TP8", "TP12"]
+    },
+    {
+      "title": "Fault code 3608 disagrees with Table 2-10 about +5 RLH",
+      "text": "§5-2 expects +4.9 V to +5.5 V at TP14. Table 2-10 gives +5.975 V ±425 mV and schematic sheet 1 annotates +5.55 V to +6.40 V — the two bands do not overlap at all. §2-73 explains why the rail is high: R13 with CR34/CR35 lifts U11 above its fixed +5 V. The expectation shown here follows the two agreeing sources, so a board reading 5.9 V is good even though 3608 would call it a failure.",
+      "refs": ["TP14", "U11", "R13", "CR34", "CR35"]
+    },
+    {
+      "title": "A17 has no numbered troubleshooting section",
+      "text": "Chapter 5's component-level procedures run from 5-4 (A5) to 5-23 (A18) and never reach A17. The published procedure for this board is the 3600-series fault codes in §5-2, which is what the Fault codes panel lists.",
+      "refs": []
+    },
+    {
+      "title": "Six parts changed between the 1996 and Rev 9 parts lists",
+      "text": "CR35, MP38, R19, U58, U64 and Y51 have different Fluke stock numbers in the two revisions (Y51's 4.9152 MHz crystal is 800367 in 1996 and 800357 in Rev 9), and Rev 9 adds MP23 (a guard-crossing shield) and MP24–MP27 (pop rivets) that the 1996 list does not have. Rev 9 also drops the 28-pin socket X3. The photographed board carries the Rev 9 EPROM (881698), so it is a Rev 9-era assembly. Both descriptions are kept: the info card shows the 1996 entry with the Rev 9 one beside it as 'as built'.",
+      "refs": ["CR35", "MP38", "R19", "U58", "U64", "Y51", "X3"]
+    }
+  ]
+}

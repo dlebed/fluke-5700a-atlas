@@ -1,0 +1,401 @@
+{
+ "_comment": [
+  "Curated A8 test point expectations, hand-authored from the 1996 Series II",
+  "service manual: §5-9 (pages 5-54 to 5-56) for the bench procedure, §5-2 for",
+  "the 3800-series fault codes, and §2-87 to §2-99 for what each node is.",
+  "Figure 7-8 sheets 1-4 were read alongside to confirm which net each test",
+  "point actually sits on, and the sheet 1 legend box (zone D1) is the source",
+  "of every signal name and printed page/zone reference below.",
+  "",
+  "There is no supply table for A8 in Chapter 2 and no rail is generated here.",
+  "All nine supplies arrive through P202 from A17 -- +8 RLH, +5 RLH, RLH COM,",
+  "+5 LH, LH COM, -5 LH, +17 S, S COM, -17 S -- each through a 6-turn choke",
+  "(L1-L4). So none of the ten test points is a supply rail; two are commons",
+  "and the other eight are signal points.",
+  "",
+  "What that means point by point:",
+  "",
+  "  * Only TP2 and TP4 carry a published bench value. §5-9 steps 4 and 5 give",
+  "    both as 2 V +/-6 mV with the Calibrator set to 2 V dc, operate, and both",
+  "    steps print the same Note: the reading can be as much as +/-0.12 V out",
+  "    if the DAC assembly is uncalibrated. That is a factor of twenty, so the",
+  "    tolerance recorded here is the tight one and the uncalibrated allowance",
+  "    is carried as a second state rather than averaged into it.",
+  "",
+  "  * TP1 and TP3 are inferred, and marked so. §2-92 states that the 4HR1",
+  "    resistor network divides by five and that the hybrid is a buffer, and",
+  "    §5-9 fixes the two ends of that chain at 2 V. TP1 is the divider input,",
+  "    so it sits at five times TP2; TP3 is the buffer output feeding the",
+  "    output stage, so it sits at TP4. Neither number is printed anywhere in",
+  "    the manual -- the identification is ours.",
+  "",
+  "  * TP6's two bands come from fault codes 3805 and 3808, which are the only",
+  "    published numbers for the internal cal zero amplifier. They apply in the",
+  "    configuration the self-diagnostics set up (input tied to RCOM through",
+  "    Q7), which is not a state you can reach from the front panel; the setup",
+  "    text says so.",
+  "",
+  "  * TP5, TP7 and TP10 have no published value at all and carry",
+  "    noPublishedValue rather than a guess. TP5 and TP7 are the two ends of a",
+  "    calibration amplifier that is only switched into circuit under software",
+  "    control, and TP10 is a multiplexer output whose level depends on which",
+  "    of eight channels U4 has selected.",
+  "",
+  "  * §5-9 uses two probe points that are not test points -- the cathode of",
+  "    CR2 (RLY+V) in step 2 and the cathode of CR6 in step 6. Both are in",
+  "    probePoints below, with the values the steps give.",
+  "",
+  "There is no single common on this board and §5-9 names a different one in",
+  "almost every step: TP9 (S COM) for step 2, TP8 (R COM) for steps 4 and 5,",
+  "and the front panel OUTPUT LO binding post for step 6. Do not carry one",
+  "step's common into the next."
+ ],
+ "rails": {
+  "DC22": {
+   "label": "DC 2.2 V attenuator and range amplifier",
+   "com": "TP8",
+   "color": "#d9534f"
+  },
+  "ZERO": {
+   "label": "Internal cal zero amplifier",
+   "com": "TP8",
+   "color": "#5ec2a8"
+  },
+  "DIAG": {
+   "label": "Diagnostics multiplexer",
+   "com": "TP9",
+   "color": "#4fa3d1"
+  },
+  "COM": {
+   "label": "Commons",
+   "com": "TP8",
+   "color": "#9c9c9c"
+  }
+ },
+ "testpoints": [
+  {
+   "ref": "TP1",
+   "signal": "DC ATT INPUT",
+   "rail": "DC22",
+   "kind": "wire-loop",
+   "refPoint": "TP8",
+   "nominal": 10,
+   "tolerance": 0.03,
+   "unit": "V",
+   "inferred": true,
+   "condition": "Calibrator set to 2 V dc, operate — the §5-9 step 4 setup. Dc.",
+   "source": "Inferred from §2-92 (the network divides by five) and §5-9 step 4 (TP2 = 2 V); Figure 7-8 sheet 1 legend gives the name and PG3 D6",
+   "note": "The input of the 5:1 attenuator: DAC OUT HI arriving through K1 at pin 10 of the Z1 resistor network on sheet 3. In the dc 2.2 V range the DAC assembly is set to its 11 V range, so with the front panel at 2 V this node carries 10 V and pin 8 (TP2) carries 2 V. The manual publishes no value for it — the 10 V is five times the published TP2 figure and nothing more. On an uncalibrated DAC it moves with TP2, so allow five times step 4's uncalibrated tolerance, about ±0.6 V, before calling it a fault.",
+   "onFail": [
+    "K1",
+    "K2",
+    "Z1"
+   ]
+  },
+  {
+   "ref": "TP2",
+   "signal": "DC ATT OUTPUT",
+   "rail": "DC22",
+   "kind": "wire-loop",
+   "refPoint": "TP8",
+   "unit": "V",
+   "source": "§5-9 step 4",
+   "note": "Pin 8 of the Z1 resistor network on sheet 3 — the tap of the 5:1 divider, and the node that feeds pin 11 of the dc amplifier hybrid. This is the first of the two §5-9 range checks; if it is right and TP4 is wrong the fault is in the buffer and output stage rather than in the divider.",
+   "states": [
+    {
+     "label": "Calibrated instrument",
+     "nominal": 2,
+     "tolerance": 0.006,
+     "setup": "Set the Calibrator to 2 V dc, operate. Meter low lead on TP8 (R COM).",
+     "source": "§5-9 step 4",
+     "onFail": [
+      "K1",
+      "K2",
+      "Z1"
+     ]
+    },
+    {
+     "label": "DAC assembly uncalibrated",
+     "nominal": 2,
+     "tolerance": 0.12,
+     "setup": "Same setup. Use this band, not the ±6 mV one, on an instrument that has not been calibrated since the repair.",
+     "source": "§5-9 step 4, printed Note",
+     "note": "The manual's own allowance, and it is twenty times the calibrated band. Judging a mid-repair instrument against ±6 mV sends you chasing a fault that is not there.",
+     "onFail": [
+      "K1",
+      "K2",
+      "Z1"
+     ]
+    }
+   ]
+  },
+  {
+   "ref": "TP3",
+   "signal": "BUFFER IN",
+   "rail": "DC22",
+   "kind": "wire-loop",
+   "refPoint": "TP8",
+   "nominal": 2,
+   "tolerance": 0.006,
+   "unit": "V",
+   "inferred": true,
+   "condition": "Calibrator set to 2 V dc, operate — the §5-9 step 4/5 setup. Dc.",
+   "source": "Inferred from §2-92 (the hybrid is a buffer amplifier) and §5-9 steps 4 and 5; Figure 7-8 sheet 1 legend gives the name and PG3 C4",
+   "note": "Despite the name, this is the hybrid's OUTPUT: pin 18 of HY1 through R23, which is the input of the 2.2 V range high-current output stage (U19, Q4, R25-R30, R32, CR7-CR9). §2-92 calls the temperature-controlled amplifier a buffer, and §5-9 fixes both ends of the chain at 2 V, so this node sits at 2 V too. No value is published for it. Right here with TP4 wrong puts the fault in the output stage; wrong here with TP2 right puts it in the hybrid. Allow ±0.12 V on an uncalibrated instrument, as steps 4 and 5 do.",
+   "onFail": [
+    "H2",
+    "R23",
+    "Q12",
+    "Q13"
+   ]
+  },
+  {
+   "ref": "TP4",
+   "signal": "2.2V OUT",
+   "rail": "DC22",
+   "kind": "wire-loop",
+   "refPoint": "TP8",
+   "unit": "V",
+   "source": "§5-9 step 5",
+   "note": "The output of the dc 2.2 V range, on sheet 3 at the junction of R29/R30 and the VR1/VR2 6.8 V clamp pair. It leaves for INT OUT HI through K27 and K30, and for the 220 mV divider through K16. The range supports 50 mA with current limiting, so a low reading here with TP3 correct points at the output stage rather than at the reference chain.",
+   "states": [
+    {
+     "label": "Calibrated instrument",
+     "nominal": 2,
+     "tolerance": 0.006,
+     "setup": "Set the Calibrator to 2 V dc, operate. Meter low lead on TP8 (R COM).",
+     "source": "§5-9 step 5",
+     "onFail": [
+      "H2",
+      "U19",
+      "Q4"
+     ]
+    },
+    {
+     "label": "DAC assembly uncalibrated",
+     "nominal": 2,
+     "tolerance": 0.12,
+     "setup": "Same setup. Use this band on an instrument that has not been calibrated since the repair.",
+     "source": "§5-9 step 5, printed Note",
+     "onFail": [
+      "H2",
+      "U19",
+      "Q4"
+     ]
+    }
+   ]
+  },
+  {
+   "ref": "TP5",
+   "signal": "ZERO AMP INPUT",
+   "rail": "ZERO",
+   "kind": "wire-loop",
+   "refPoint": "TP8",
+   "noPublishedValue": true,
+   "condition": "Whatever K29 has switched in. With the input tied to RCOM through Q7 — the self-diagnostic and checkpoint configuration — this node is at 0 V.",
+   "source": "§2-98; Figure 7-8 sheet 1 legend (PG1 C5)",
+   "note": "The summing node of the internal cal zero amplifier. Each dc range is channelled here through K29 and compared against 0 V, which is established by turning on FET Q7 to connect R COM — or Q11 instead of Q7 for the 220 mV range, so that the source impedance is 50 Ω. The manual publishes no level for this point, because what it sits at depends entirely on which range the software has switched in.",
+   "onFail": [
+    "K29",
+    "Q7",
+    "Q11",
+    "Q6",
+    "R43"
+   ]
+  },
+  {
+   "ref": "TP6",
+   "signal": "ZERO OUT",
+   "rail": "ZERO",
+   "kind": "wire-loop",
+   "refPoint": "TP8",
+   "unit": "V",
+   "source": "§5-2 fault codes 3805 and 3808",
+   "note": "The output of the internal cal zero amplifier (U20), before K31/K32 switch it onto the RCL line for the adc on A11 to read. The two bands below are the offsets the instrument's own self-diagnostics assert, in the configuration those tests set up: input tied to RCOM through Q7, ten readings averaged. You cannot force that configuration from the front panel, so treat these as what a failing 3805 or 3808 means rather than as a bench check. The matching noise tests are 3804 (low gain: spread of ten readings over 0.0001 V) and 3807 (high gain: over 0.0015 V), and the gain tests are 3806 (10 ±6 %) and 3809 (130 ±6 %).",
+   "states": [
+    {
+     "label": "Low gain (×10), input at RCOM",
+     "nominal": 0,
+     "maxAbs": 0.035,
+     "setup": "As set up by the self-diagnostics: Q7 on, K29 in the set (open) position, output routed to RCL by K31 and K32. Average of ten adc readings.",
+     "source": "§5-2 fault code 3805",
+     "onFail": [
+      "U20",
+      "U21",
+      "Q7",
+      "Z2",
+      "R44",
+      "R46",
+      "R47"
+     ]
+    },
+    {
+     "label": "High gain (×130), input at RCOM",
+     "nominal": 0,
+     "maxAbs": 0.155,
+     "setup": "As above but with Q6 on to select the gain of 130.",
+     "source": "§5-2 fault code 3808",
+     "onFail": [
+      "U20",
+      "U21",
+      "Q6",
+      "Q7",
+      "Z2",
+      "R44",
+      "R46",
+      "R47"
+     ]
+    }
+   ]
+  },
+  {
+   "ref": "TP7",
+   "signal": "RCL",
+   "rail": "ZERO",
+   "kind": "wire-loop",
+   "refPoint": "TP8",
+   "noPublishedValue": true,
+   "condition": "Whatever K31 and K32 have switched onto the line.",
+   "source": "§2-98; Figure 7-8 sheet 1 legend (PG1 A6)",
+   "note": "The line that carries the internal cal zero amplifier's output — or, during 2.2 V gain calibration, the 2.2 V range output itself — off the board on P201 pins 7A/7C to the adc amplifier on the DAC assembly (A11). Nothing is published for it because it carries a different signal in every calibration state. It is the point to check if every A8 calibration and diagnostic result is wrong at once while the circuits behind them measure good.",
+   "onFail": [
+    "K31",
+    "K32",
+    "P201"
+   ]
+  },
+  {
+   "ref": "TP8",
+   "signal": "R COM",
+   "rail": "COM",
+   "kind": "wire-loop",
+   "isReturn": true,
+   "source": "§5-9 steps 4 and 5; Figure 7-8 sheet 1 legend (PG1 A8)",
+   "note": "The precision common, arriving on P201 pins 10A/10C, and the reference for §5-9 steps 4 and 5. It is also the 0 V that the internal cal zero amplifier compares each range against, through Q7. §2-98 notes that U21's current-cancellation circuit exists precisely so that no current flows in this common — which is why it is the right lead to reference a millivolt-level measurement to, and why S COM (TP9) is not interchangeable with it."
+  },
+  {
+   "ref": "TP9",
+   "signal": "S COM",
+   "rail": "COM",
+   "kind": "wire-loop",
+   "isReturn": true,
+   "source": "§5-9 step 2; Figure 7-8 sheet 1 legend (PG3 A7)",
+   "note": "The guarded analog supply common, arriving on P202 pins 32A/32C beside the ±17 S rails, and the reference for §5-9 step 2's RLY+V measurement. It is the return for the ±17 S supplies and for the diagnostic dividers, not for the precision measurement path — use TP8 for that."
+  },
+  {
+   "ref": "TP10",
+   "signal": "SDL",
+   "rail": "DIAG",
+   "kind": "wire-loop",
+   "refPoint": "TP9",
+   "noPublishedValue": true,
+   "condition": "Whichever of the eight diagnostic channels U4 has selected, under control of PA0-PA2 and PC6 of U1.",
+   "source": "§2-88; Figure 7-8 sheet 1 legend (PG4 B6)",
+   "note": "The output of the 4051 diagnostic multiplexer (U4), leaving on P201 pins 6A/6C for the adc on A11. The eight channels are +8 RLH, the 2.2 V range output, +5 RLH, -5 LH, +17 S, -17 S, the assembly temperature from U3, and OVEN TEMP from the heated hybrid; OVEN TEMP, +5 RLH, -5 LH and +8 RLH are divided by eleven first, by Z5 and Z6. The only published level on this line is fault code 3824's OVEN TEMP figure of 0.7 V ±10 % ±0.2 V. Because the guarded rails of the whole analog section are read through here, a fault in U4 or in the ÷11 dividers shows up as several supply fault codes at once (3600, 3601, 3607, 3608, 3609) with every supply measuring perfectly on A17 and A18.",
+   "onFail": [
+    "U4",
+    "Z5",
+    "Z6",
+    "R22",
+    "U3"
+   ]
+  }
+ ],
+ "probePoints": [
+  {
+   "id": "CR2-cathode",
+   "label": "RLY+V, at the cathode of CR2",
+   "component": "CR2",
+   "refPoint": "TP9",
+   "unit": "V",
+   "source": "§5-9 step 2",
+   "note": "The motherboard non-latching relay supply, on sheet 4 in the MOTHERBOARD NON-LATCHING RELAY SUPPLY block, leaving for the Analog Motherboard on RLY+V. §2-88 explains the two levels: about 3.5 V holds the relays in, and about 7 V is applied for roughly 20 ms to pull them in, which keeps relay heating and thermal EMFs down. PC5 selects between them through U17 and Q1; CR1, Q2 and R10-R12 form a foldback current limit. There is no wire loop here — use a fine probe.",
+   "states": [
+    {
+     "label": "Holding (normal operation)",
+     "nominal": 4.5,
+     "tolerance": 0.5,
+     "setup": "Set the Calibrator to 10 V dc, operate. Oscilloscope on the cathode of CR2, common to TP9.",
+     "source": "§5-9 step 2",
+     "onFail": [
+      "U17",
+      "Q1",
+      "Q2",
+      "CR1",
+      "CR2",
+      "CR10",
+      "R6",
+      "R7",
+      "R8",
+      "R9",
+      "R10",
+      "R11",
+      "R12"
+     ]
+    },
+    {
+     "label": "Pull-in, on each EX SNS key press",
+     "nominal": 7.5,
+     "tolerance": 1.2,
+     "setup": "Same setup. Press the EX SNS key and watch for the momentary jump; it lasts about 20 ms, so trigger the scope rather than looking for a steady reading.",
+     "source": "§5-9 step 2",
+     "note": "§2-88 gives the two design levels as approximately 3.5 V and approximately 7 V; §5-9 step 2's measured bands are 4.5 V ±0.5 V and 7.5 V ±1.2 V. Both are recorded as printed — the step's numbers are the ones to judge against.",
+     "onFail": [
+      "U17",
+      "Q1",
+      "Q2",
+      "CR1",
+      "R10",
+      "R11",
+      "R12"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "CR6-cathode",
+   "label": "AC/DC mV output, at the cathode of CR6",
+   "component": "CR6",
+   "refPoint": "TP8",
+   "unit": "V",
+   "source": "§5-9 step 6",
+   "note": "The output of the 10:1 divider on sheet 2 — the node the schematic calls AC/DC mV, clamped to ±5.1 V by CR5/CR6 against VR3/VR4. §5-9 step 6 uses the front panel OUTPUT LO binding post as the common for this measurement, NOT a board test point; TP8 is recorded here only because the schema needs a designator, and the step's own wording should be followed. Readings are ac.",
+   "conflict": "§5-9 step 6 references this measurement to the OUTPUT LO binding post, which is not a part on this board and cannot be recorded as a refPoint. TP8 (R COM) is the nearest board common and reaches OUTPUT LO through K11/K21 and K33 in this range, but it is not what the step says. Use the binding post.",
+   "states": [
+    {
+     "label": "200 mV at 1 kHz",
+     "nominal": 0.2,
+     "tolerancePct": 1,
+     "setup": "Set the Calibrator to 200 mV at 1 kHz, operate. Meter low lead on the OUTPUT LO binding post.",
+     "source": "§5-9 step 6",
+     "onFail": [
+      "Z1",
+      "K5",
+      "K6",
+      "K9",
+      "K11",
+      "K16",
+      "K21",
+      "K33"
+     ]
+    },
+    {
+     "label": "20 mV at 1 kHz",
+     "nominal": 0.02,
+     "tolerancePct": 1,
+     "setup": "Set the Calibrator to 20 mV at 1 kHz, operate. Same common.",
+     "source": "§5-9 step 6",
+     "note": "This range cascades the 100:1 and 10:1 sections of Z1 for 1000:1 in total, with the Oscillator on its 22 V range. Right at 200 mV and wrong at 20 mV puts the fault in the 100:1 section (Z1 pins 7-5-6) and in K3 and K7 rather than in the 10:1 section both ranges share.",
+     "onFail": [
+      "Z1",
+      "K3",
+      "K7",
+      "K9",
+      "K11",
+      "K33"
+     ]
+    }
+   ]
+  }
+ ]
+}

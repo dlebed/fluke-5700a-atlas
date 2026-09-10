@@ -1,0 +1,48 @@
+1996 parts: C12,C15,C16,C18-25,C29-33,C35-48,C52,C57,C58,C60,C61,C101,C103,C105-107,C201,C203,C205-207,C301,C303, C305-307,C401,C403,C405-407,C501,C503,C505-507 expands to 60 designators but Tot Qty is 55
+1996 parts: TP1-4,TP10-17 expands to 12 designators but Tot Qty is 11
+Rev9 parts: H1 is in the Rev 9 list but not the 1996 list
+Rev9 parts: H2 is in the Rev 9 list but not the 1996 list
+Rev9 parts: H3 is in the Rev 9 list but not the 1996 list
+Rev9 parts: H4 is in the Rev 9 list but not the 1996 list
+Rev9 parts: H5 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 152207 (H1,H2,H3,H4,H5) did not join on stock number
+Rev9 parts: stock no 249060 (L5) did not join on stock number
+Rev9 parts: stock no 572990 (R11,R12,R15,R16,R17,R18) did not join on stock number
+Rev9 parts: stock no 573071 (R13,R14,R19,R20,R23,R24) did not join on stock number
+Rev9 parts: stock no 108936 (R56) did not join on stock number
+Rev9 parts: stock no 178392 (R62,R64,R65,R69) did not join on stock number
+Rev9 parts: stock no 186031 (R101,R201,R301,R401,R501) did not join on stock number
+Rev9 parts: stock no 820480 (VR2,VR3) did not join on stock number
+no manufacturer part number for H6 (LABEL,C-MOS INSTRUCTION)
+no manufacturer part number for R102 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R110 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R111 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R113 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R114 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R115 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R116 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R202 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R210 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R211 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R213 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R214 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R215 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R216 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R302 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R310 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R311 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R313 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R40 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R402 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R410 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R411 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R413 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R502 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R510 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R511 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R513 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R74 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R75 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R76 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R77 (RES,CF,10K,+-5%,0.25W)
+no manufacturer part number for R78 (RES,CF,10K,+-5%,0.25W)

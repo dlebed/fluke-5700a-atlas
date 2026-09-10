@@ -1,0 +1,3382 @@
+{
+ "assembly": "A21",
+ "generatedBy": "tools/build_coords.py",
+ "notOnDrawing": [
+  "MP1",
+  "MP2",
+  "MP3",
+  "MP4",
+  "MP5",
+  "MP6",
+  "MP7",
+  "MP8",
+  "MP9",
+  "MP10",
+  "MP21",
+  "MP22",
+  "R22",
+  "R23",
+  "W1",
+  "W2",
+  "W3",
+  "X8"
+ ],
+ "placement": {
+  "J1": {
+   "board": {
+    "x": 0.36894,
+    "y": 0.87346,
+    "w": 0.20392,
+    "h": 0.09078,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Dashed connector outline, designator inside.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.95376,
+     "y": 0.18641,
+     "w": 0.00862,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "J2": {
+   "board": {
+    "x": 0.86775,
+    "y": 0.86648,
+    "w": 0.19795,
+    "h": 0.10475,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Dashed connector outline, J2 / RS232C inside.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.8989,
+     "y": 0.19231,
+     "w": 0.00862,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "J3": {
+   "board": {
+    "x": 0.53072,
+    "y": 0.35251,
+    "w": 0.14505,
+    "h": 0.07682,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Dashed connector outline, J3 / 5205A inside.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.92006,
+     "y": 0.21667,
+     "w": 0.00862,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "J4": {
+   "board": {
+    "x": 0.34676,
+    "y": 0.35251,
+    "w": 0.1459,
+    "h": 0.07682,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Dashed connector outline; J4 is printed on its top edge, 5220A inside. The reader had it on J1.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.92038,
+     "y": 0.57436,
+     "w": 0.00862,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "J5": {
+   "board": {
+    "x": 0.1843,
+    "y": 0.11173,
+    "w": 0.05802,
+    "h": 0.09497,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Dashed outline under VAR PHASE OUT.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.85298,
+     "y": 0.11154,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "J6": {
+   "board": {
+    "x": 0.0913,
+    "y": 0.11173,
+    "w": 0.05802,
+    "h": 0.09497,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Dashed outline under PHASE LOCK IN. The reader had it on the '16' of C16.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.85298,
+     "y": 0.19282,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "J7": {
+   "board": {
+    "x": 0.8587,
+    "y": 0.49721,
+    "w": 0.20563,
+    "h": 0.09497,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Dashed BOOST AMP header outline; J7 printed on its top edge.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.93056,
+     "y": 0.31667,
+     "w": 0.00862,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "J8": {
+   "board": {
+    "x": 0.77645,
+    "y": 0.39162,
+    "w": 0.20648,
+    "h": 0.05447,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Long guarded header outline, J8 inside at the right end.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.12696,
+     "y": 0.41795,
+     "w": 0.00862,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    },
+    {
+     "sheet": "sh5",
+     "x": 0.13213,
+     "y": 0.33795,
+     "w": 0.00862,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "J9": {
+   "board": {
+    "x": 0.85666,
+    "y": 0.68296,
+    "w": 0.18771,
+    "h": 0.09777,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Header outline, J9 UNGUARDED inside.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.13793,
+     "y": 0.17949,
+     "w": 0.0094,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "J11": {
+   "board": {
+    "x": 0.73549,
+    "y": 0.43855,
+    "w": 0.03754,
+    "h": 0.03911,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Small header outline below J8, designator inside. The reader had it on C47/C8.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.25078,
+     "y": 0.28718,
+     "w": 0.0094,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "J12": {
+   "board": {
+    "x": 0.82031,
+    "y": 0.43855,
+    "w": 0.0384,
+    "h": 0.03911,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Small header outline below J8, designator inside.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.7594,
+     "y": 0.44744,
+     "w": 0.0094,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "K1": {
+   "board": {
+    "x": 0.58396,
+    "y": 0.23464,
+    "w": 0.0384,
+    "h": 0.12291,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Relay outline. The reader had an outline edge near J6.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.27461,
+     "y": 0.65256,
+     "w": 0.0094,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    },
+    {
+     "sheet": "sh5",
+     "x": 0.66144,
+     "y": 0.38923,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Coil."
+    }
+   ],
+   "schVerified": true
+  },
+  "K2": {
+   "board": {
+    "x": 0.49488,
+    "y": 0.18855,
+    "w": 0.03754,
+    "h": 0.21508,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Tall relay outline.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.3558,
+     "y": 0.44744,
+     "w": 0.0094,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    },
+    {
+     "sheet": "sh5",
+     "x": 0.69436,
+     "y": 0.39487,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Coil."
+    }
+   ],
+   "schVerified": true
+  },
+  "K3": {
+   "board": {
+    "x": 0.45512,
+    "y": 0.18855,
+    "w": 0.0384,
+    "h": 0.21508,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Tall relay outline.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.3558,
+     "y": 0.6,
+     "w": 0.0094,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    },
+    {
+     "sheet": "sh5",
+     "x": 0.74216,
+     "y": 0.39487,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Coil."
+    }
+   ],
+   "schVerified": true
+  },
+  "K4": {
+   "board": {
+    "x": 0.54215,
+    "y": 0.23464,
+    "w": 0.0384,
+    "h": 0.12291,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Relay outline. The reader had it on C44.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.75313,
+     "y": 0.25077,
+     "w": 0.00862,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. K4 contacts."
+    },
+    {
+     "sheet": "sh5",
+     "x": 0.78683,
+     "y": 0.38846,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Coil."
+    }
+   ],
+   "schVerified": true
+  },
+  "K5": {
+   "board": {
+    "x": 0.28959,
+    "y": 0.23547,
+    "w": 0.0384,
+    "h": 0.12374,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Relay outline.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.49687,
+     "y": 0.60769,
+     "w": 0.0094,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    },
+    {
+     "sheet": "sh5",
+     "x": 0.81787,
+     "y": 0.38846,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Coil."
+    }
+   ],
+   "schVerified": true
+  },
+  "K6": {
+   "board": {
+    "x": 0.95341,
+    "y": 0.30782,
+    "w": 0.0384,
+    "h": 0.18575,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Tall relay outline at the right edge.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.71395,
+     "y": 0.4859,
+     "w": 0.0094,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    },
+    {
+     "sheet": "sh5",
+     "x": 0.66301,
+     "y": 0.53462,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Coil."
+    }
+   ],
+   "schVerified": true
+  },
+  "K7": {
+   "board": {
+    "x": 0.84556,
+    "y": 0.27709,
+    "w": 0.03925,
+    "h": 0.1243,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Relay outline.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.71787,
+     "y": 0.55,
+     "w": 0.0094,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    },
+    {
+     "sheet": "sh5",
+     "x": 0.84796,
+     "y": 0.38846,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Coil."
+    }
+   ],
+   "schVerified": true
+  },
+  "K8": {
+   "board": {
+    "x": 0.90648,
+    "y": 0.27709,
+    "w": 0.0384,
+    "h": 0.1243,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Relay outline.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.71003,
+     "y": 0.67949,
+     "w": 0.0094,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    },
+    {
+     "sheet": "sh5",
+     "x": 0.70846,
+     "y": 0.52949,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Coil."
+    }
+   ],
+   "schVerified": true
+  },
+  "K9": {
+   "board": {
+    "x": 0.80375,
+    "y": 0.27709,
+    "w": 0.03754,
+    "h": 0.1243,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Relay outline.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.71003,
+     "y": 0.76282,
+     "w": 0.0094,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    },
+    {
+     "sheet": "sh5",
+     "x": 0.73903,
+     "y": 0.52949,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Coil."
+    }
+   ],
+   "schVerified": true
+  },
+  "K10": {
+   "board": {
+    "x": 0.28959,
+    "y": 0.09832,
+    "w": 0.0384,
+    "h": 0.1243,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Relay outline.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.64185,
+     "y": 0.15641,
+     "w": 0.01567,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "On the K10A contacts; K10B is at (4870, 920)."
+    },
+    {
+     "sheet": "sh5",
+     "x": 0.79969,
+     "y": 0.52821,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Coil."
+    }
+   ],
+   "schVerified": true
+  },
+  "K11": {
+   "board": {
+    "x": 0.3314,
+    "y": 0.23547,
+    "w": 0.0384,
+    "h": 0.12374,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Relay outline.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.50737,
+     "y": 0.78,
+     "w": 0.01176,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    },
+    {
+     "sheet": "sh5",
+     "x": 0.83072,
+     "y": 0.52821,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Coil."
+    }
+   ],
+   "schVerified": true
+  },
+  "K12": {
+   "board": {
+    "x": 0.38771,
+    "y": 0.23547,
+    "w": 0.0384,
+    "h": 0.12374,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Relay outline.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.77821,
+     "y": 0.1,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    },
+    {
+     "sheet": "sh5",
+     "x": 0.76959,
+     "y": 0.52821,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Coil."
+    }
+   ],
+   "schVerified": true
+  },
+  "U1": {
+   "board": {
+    "x": 0.92184,
+    "y": 0.60391,
+    "w": 0.10154,
+    "h": 0.02933,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "DIP outline, designator inside. The reader had it on 'UNGUARDED'.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.27978,
+     "y": 0.18974,
+     "w": 0.00862,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "U2": {
+   "board": {
+    "x": 0.37799,
+    "y": 0.67095,
+    "w": 0.19283,
+    "h": 0.07402,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Wide DIP outline, designator inside.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.43417,
+     "y": 0.27564,
+     "w": 0.00862,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "U3": {
+   "board": {
+    "x": 0.33191,
+    "y": 0.78073,
+    "w": 0.10068,
+    "h": 0.03073,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "DIP outline.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.70972,
+     "y": 0.27821,
+     "w": 0.00862,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "U4": {
+   "board": {
+    "x": 0.47133,
+    "y": 0.78352,
+    "w": 0.10324,
+    "h": 0.04469,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "DIP outline.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.71003,
+     "y": 0.45256,
+     "w": 0.00862,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "U5": {
+   "board": {
+    "x": 0.61382,
+    "y": 0.60391,
+    "w": 0.19369,
+    "h": 0.07402,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Wide DIP outline (DUART).",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.27116,
+     "y": 0.44487,
+     "w": 0.00862,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "U6": {
+   "board": {
+    "x": 0.5913,
+    "y": 0.82542,
+    "w": 0.06997,
+    "h": 0.03073,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "DIP outline.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.57053,
+     "y": 0.21487,
+     "w": 0.01254,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "On the U6D section; U6C (3640, 1127), U6A (3640, 1633) and U6B (3907, 2695) are the other three 1488 drivers."
+    }
+   ],
+   "schVerified": true
+  },
+  "U7": {
+   "board": {
+    "x": 0.67065,
+    "y": 0.84916,
+    "w": 0.00853,
+    "h": 0.01955,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The reader missed it. U7 is the only DIP whose designator is printed beside the outline: rotated, under the notch end of the body at 3898-4300 x 2900-3005.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.58025,
+     "y": 0.29359,
+     "w": 0.01332,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "On the U7C section; U7A (3702, 1425) and U7B (3967, 2908) are the other 1489 receivers."
+    }
+   ],
+   "schVerified": true
+  },
+  "U8": {
+   "board": {
+    "x": 0.80034,
+    "y": 0.60391,
+    "w": 0.12287,
+    "h": 0.02933,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "DIP outline, designator inside at the notch end.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.21708,
+     "y": 0.44872,
+     "w": 0.00862,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "U9": {
+   "board": {
+    "x": 0.45222,
+    "y": 0.55642,
+    "w": 0.10068,
+    "h": 0.02933,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "DIP outline.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.49028,
+     "y": 0.42821,
+     "w": 0.00862,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "U10": {
+   "board": {
+    "x": 0.45222,
+    "y": 0.46034,
+    "w": 0.10068,
+    "h": 0.03073,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "DIP outline. The reader missed it.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.49216,
+     "y": 0.72821,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "U11": {
+   "board": {
+    "x": 0.32594,
+    "y": 0.55642,
+    "w": 0.09898,
+    "h": 0.02933,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "DIP outline.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.61724,
+     "y": 0.76538,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "U12": {
+   "board": {
+    "x": 0.32594,
+    "y": 0.46089,
+    "w": 0.09983,
+    "h": 0.03073,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "DIP outline.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.49373,
+     "y": 0.91154,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "U13": {
+   "board": {
+    "x": 0.2128,
+    "y": 0.25196,
+    "w": 0.03498,
+    "h": 0.04609,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "DIP outline. The reader missed it.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.60815,
+     "y": 0.24615,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "U14": {
+   "board": {
+    "x": 0.76109,
+    "y": 0.15642,
+    "w": 0.19283,
+    "h": 0.07263,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Wide DIP outline.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.33699,
+     "y": 0.71538,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "U16": {
+   "board": {
+    "x": 0.59761,
+    "y": 0.10056,
+    "w": 0.10324,
+    "h": 0.04469,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "DIP outline.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.53292,
+     "y": 0.51795,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "U17": {
+   "board": {
+    "x": 0.92014,
+    "y": 0.14385,
+    "w": 0.10495,
+    "h": 0.04469,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "DIP outline. The reader had it on U11.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.53292,
+     "y": 0.65897,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "U18": {
+   "board": {
+    "x": 0.68601,
+    "y": 0.69413,
+    "w": 0.06997,
+    "h": 0.03073,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "DIP outline.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.27508,
+     "y": 0.86667,
+     "w": 0.0094,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "F1": {
+   "board": {
+    "x": 0.1471,
+    "y": 0.11173,
+    "w": 0.01297,
+    "h": 0.05028,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Fuse outline between J6 and J5.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.80439,
+     "y": 0.12949,
+     "w": 0.01176,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "F2": {
+   "board": {
+    "x": 0.13055,
+    "y": 0.11173,
+    "w": 0.01365,
+    "h": 0.05028,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Fuse outline between J6 and J5.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.80517,
+     "y": 0.22821,
+     "w": 0.01254,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R3": {
+   "board": {
+    "x": 0.2128,
+    "y": 0.31285,
+    "w": 0.02986,
+    "h": 0.01955,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Resistor outline under U13, designator inside.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.6442,
+     "y": 0.23205,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R4": {
+   "board": {
+    "x": 0.2244,
+    "y": 0.13743,
+    "w": 0.01195,
+    "h": 0.04888,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Resistor outline right of J5, designator inside.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.46787,
+     "y": 0.08974,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R8": {
+   "board": {
+    "x": 0.65017,
+    "y": 0.84413,
+    "w": 0.01024,
+    "h": 0.04888,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Resistor outline left of U7, designator inside.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.23746,
+     "y": 0.86026,
+     "w": 0.0094,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R20": {
+   "board": {
+    "x": 0.41382,
+    "y": 0.14302,
+    "w": 0.01195,
+    "h": 0.04609,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Resistor outline above K12, designator inside.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.67555,
+     "y": 0.20051,
+     "w": 0.01567,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R1": {
+   "board": {
+    "x": 0.6343,
+    "y": 0.90922,
+    "w": 0.01109,
+    "h": 0.05307,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Outline in the TP6-TP7 row, designator inside. The reader had it on R13.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.53527,
+     "y": 0.16974,
+     "w": 0.00784,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R2": {
+   "board": {
+    "x": 0.59471,
+    "y": 0.90922,
+    "w": 0.01109,
+    "h": 0.05307,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Outline in the TP6-TP7 row, designator inside.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.54624,
+     "y": 0.51846,
+     "w": 0.00784,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R9": {
+   "board": {
+    "x": 0.57969,
+    "y": 0.91061,
+    "w": 0.01109,
+    "h": 0.05028,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Outline in the TP6-TP7 row, designator inside.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.27351,
+     "y": 0.68974,
+     "w": 0.00862,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C5": {
+   "board": {
+    "x": 0.6198,
+    "y": 0.90084,
+    "w": 0.0128,
+    "h": 0.05307,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Outline in the TP6-TP7 row, designator inside. The reader had it on C49.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.77429,
+     "y": 0.64487,
+     "w": 0.00862,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C3": {
+   "board": {
+    "x": 0.81519,
+    "y": 0.7676,
+    "w": 0.0128,
+    "h": 0.05168,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Outline right of C41, designator inside. The reader had it on C30.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.78527,
+     "y": 0.1641,
+     "w": 0.00862,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C41": {
+   "board": {
+    "x": 0.79898,
+    "y": 0.7676,
+    "w": 0.0128,
+    "h": 0.05168,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Outline, designator inside.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.15752,
+     "y": 0.70692,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C42": {
+   "board": {
+    "x": 0.78242,
+    "y": 0.7676,
+    "w": 0.01195,
+    "h": 0.05168,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Outline, designator inside.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.21426,
+     "y": 0.70692,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C6": {
+   "board": {
+    "x": 0.24096,
+    "y": 0.2514,
+    "w": 0.01536,
+    "h": 0.03492,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Bracket outline right of U13, designator inside.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.47492,
+     "y": 0.28923,
+     "w": 0.00862,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C7": {
+   "board": {
+    "x": 0.26229,
+    "y": 0.2514,
+    "w": 0.01365,
+    "h": 0.03492,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Bracket outline right of C6, designator inside.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.50439,
+     "y": 0.28923,
+     "w": 0.00862,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C16": {
+   "board": {
+    "x": 0.42321,
+    "y": 0.22765,
+    "w": 0.02389,
+    "h": 0.03911,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Round can between K12 and K3, designator inside.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.68495,
+     "y": 0.22487,
+     "w": 0.01411,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C10": {
+   "board": {
+    "x": 0.9198,
+    "y": 0.76397,
+    "w": 0.0384,
+    "h": 0.06285,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Large round can right of TP2; the C10 label sits under it.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.07288,
+     "y": 0.70692,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C70": {
+   "board": {
+    "x": 0.73208,
+    "y": 0.55587,
+    "w": 0.03754,
+    "h": 0.06145,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Large round can left of C28; the C70 label sits under its left side. The reader had it on C10.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.88511,
+     "y": 0.73974,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "Q1": {
+   "board": {
+    "x": 0.05461,
+    "y": 0.23408,
+    "w": 0.01195,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label left of the lower TO-92 outline. The reader had it on VR2.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.53683,
+     "y": 0.18462,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Not the 'Q1, Q2' package legend caption above."
+    }
+   ],
+   "schVerified": true
+  },
+  "Q2": {
+   "board": {
+    "x": 0.05461,
+    "y": 0.18101,
+    "w": 0.01195,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label left of the upper TO-92 outline.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.59201,
+     "y": 0.18462,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Not the 'Q1, Q2' package legend caption above."
+    }
+   ],
+   "schVerified": true
+  },
+  "CR1": {
+   "board": {
+    "x": 0.09556,
+    "y": 0.29106,
+    "w": 0.00751,
+    "h": 0.02793,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label under the first of the four diodes.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.50752,
+     "y": 0.14615,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "VR1": {
+   "board": {
+    "x": 0.11638,
+    "y": 0.29106,
+    "w": 0.00751,
+    "h": 0.02793,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label under the second diode.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.47179,
+     "y": 0.14872,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "VR2": {
+   "board": {
+    "x": 0.13737,
+    "y": 0.29106,
+    "w": 0.00751,
+    "h": 0.02793,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label under the third diode.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.47179,
+     "y": 0.20385,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "CR2": {
+   "board": {
+    "x": 0.1587,
+    "y": 0.29106,
+    "w": 0.00751,
+    "h": 0.02793,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label under the fourth diode.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.51332,
+     "y": 0.20128,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C36": {
+   "board": {
+    "x": 0.54266,
+    "y": 0.05447,
+    "w": 0.00853,
+    "h": 0.02793,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label above-right of the body left of U16.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.56975,
+     "y": 0.33718,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C47": {
+   "board": {
+    "x": 0.70392,
+    "y": 0.06844,
+    "w": 0.00853,
+    "h": 0.03212,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label left of its body, between TP12 and C8.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.28213,
+     "y": 0.61026,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C8": {
+   "board": {
+    "x": 0.72696,
+    "y": 0.05531,
+    "w": 0.00853,
+    "h": 0.02654,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label left of its bracket, between C47 and TP14.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.3221,
+     "y": 0.77051,
+     "w": 0.00862,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R14": {
+   "board": {
+    "x": 0.6459,
+    "y": 0.18994,
+    "w": 0.01706,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label right of its body, between K1 and U14.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.27931,
+     "y": 0.57436,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C14": {
+   "board": {
+    "x": 0.64334,
+    "y": 0.2419,
+    "w": 0.01792,
+    "h": 0.01536,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label above the first round can under U14.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.4326,
+     "y": 0.2,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C15": {
+   "board": {
+    "x": 0.67406,
+    "y": 0.2419,
+    "w": 0.01792,
+    "h": 0.01536,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label above the second round can under U14.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.37571,
+     "y": 0.2,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C44": {
+   "board": {
+    "x": 0.69454,
+    "y": 0.28631,
+    "w": 0.00768,
+    "h": 0.02933,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label above its body, left of C45.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.46113,
+     "y": 0.2,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C45": {
+   "board": {
+    "x": 0.72355,
+    "y": 0.32682,
+    "w": 0.00853,
+    "h": 0.03073,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label right of its body, under C9.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.40439,
+     "y": 0.2,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C9": {
+   "board": {
+    "x": 0.72321,
+    "y": 0.27095,
+    "w": 0.00853,
+    "h": 0.02514,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label right of its bracket, right of C15.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.29185,
+     "y": 0.79744,
+     "w": 0.00862,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R5": {
+   "board": {
+    "x": 0.6186,
+    "y": 0.30307,
+    "w": 0.01195,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under its vertical body, left of C43.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.46787,
+     "y": 0.22564,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C43": {
+   "board": {
+    "x": 0.62799,
+    "y": 0.33659,
+    "w": 0.01621,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under the left end of its body, above-left of C13.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.34749,
+     "y": 0.2,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C13": {
+   "board": {
+    "x": 0.63993,
+    "y": 0.37011,
+    "w": 0.01621,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under the round can right of C43.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.3185,
+     "y": 0.2,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "L1": {
+   "board": {
+    "x": 0.78328,
+    "y": 0.03994,
+    "w": 0.01195,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label above the choke outline, right of TP14. The reader had it on TP10.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.31897,
+     "y": 0.37179,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C34": {
+   "board": {
+    "x": 0.81775,
+    "y": 0.03212,
+    "w": 0.01706,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label above its bracket, left of C33.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.37962,
+     "y": 0.39692,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C33": {
+   "board": {
+    "x": 0.83652,
+    "y": 0.03212,
+    "w": 0.01706,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label above the round can at the top edge.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.34906,
+     "y": 0.39692,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "CR3": {
+   "board": {
+    "x": 0.89505,
+    "y": 0.03575,
+    "w": 0.01621,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label left of the upper diode near TP15.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.38323,
+     "y": 0.75897,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "CR4": {
+   "board": {
+    "x": 0.89505,
+    "y": 0.0595,
+    "w": 0.01621,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label left of the lower diode near TP15.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.39185,
+     "y": 0.79359,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C37": {
+   "board": {
+    "x": 0.91638,
+    "y": 0.08045,
+    "w": 0.01621,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label right of its body, under CR4.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.60658,
+     "y": 0.66205,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R6": {
+   "board": {
+    "x": 0.76536,
+    "y": 0.23743,
+    "w": 0.00768,
+    "h": 0.02235,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label above its body, left of K9.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.26489,
+     "y": 0.75,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R7": {
+   "board": {
+    "x": 0.77901,
+    "y": 0.23743,
+    "w": 0.00768,
+    "h": 0.02235,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label above its body, left of K9.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.26489,
+     "y": 0.77179,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C32": {
+   "board": {
+    "x": 0.27082,
+    "y": 0.4162,
+    "w": 0.01706,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label left of its body under J4.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.77429,
+     "y": 0.70308,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Decoupling row."
+    }
+   ],
+   "schVerified": true
+  },
+  "Z4": {
+   "board": {
+    "x": 0.31348,
+    "y": 0.42458,
+    "w": 0.01195,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under the left end of the SIP outline above U12.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.66505,
+     "y": 0.52564,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R12": {
+   "board": {
+    "x": 0.39676,
+    "y": 0.4162,
+    "w": 0.01621,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label above-right of its body, between U12 and U10.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.67006,
+     "y": 0.31205,
+     "w": 0.01097,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C29": {
+   "board": {
+    "x": 0.3814,
+    "y": 0.59078,
+    "w": 0.01706,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under its body, between U11 and U9.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.68887,
+     "y": 0.70308,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Decoupling row."
+    }
+   ],
+   "schVerified": true
+  },
+  "C31": {
+   "board": {
+    "x": 0.3314,
+    "y": 0.60056,
+    "w": 0.01536,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label right of its body, under U11.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.74561,
+     "y": 0.70308,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Decoupling row."
+    }
+   ],
+   "schVerified": true
+  },
+  "C22": {
+   "board": {
+    "x": 0.26706,
+    "y": 0.68715,
+    "w": 0.00853,
+    "h": 0.03073,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label under its body, left of U2.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.51881,
+     "y": 0.70308,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Decoupling row."
+    }
+   ],
+   "schVerified": true
+  },
+  "C25": {
+   "board": {
+    "x": 0.49061,
+    "y": 0.6257,
+    "w": 0.00853,
+    "h": 0.03073,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label left of its body, left of U5.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.57524,
+     "y": 0.70308,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Decoupling row."
+    }
+   ],
+   "schVerified": true
+  },
+  "C24": {
+   "board": {
+    "x": 0.41041,
+    "y": 0.77654,
+    "w": 0.00853,
+    "h": 0.03073,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label right of its body, between U3 and U4.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.54702,
+     "y": 0.70308,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Decoupling row."
+    }
+   ],
+   "schVerified": true
+  },
+  "C30": {
+   "board": {
+    "x": 0.51365,
+    "y": 0.4324,
+    "w": 0.01621,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label above its body, left of R13.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.71708,
+     "y": 0.70308,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Decoupling row."
+    }
+   ],
+   "schVerified": true
+  },
+  "VR3": {
+   "board": {
+    "x": 0.5558,
+    "y": 0.43771,
+    "w": 0.01706,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label above the diode between R10 and R17.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.19937,
+     "y": 0.75256,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "CR6": {
+   "board": {
+    "x": 0.58823,
+    "y": 0.43212,
+    "w": 0.01536,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label above the diode right of R16.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.33072,
+     "y": 0.33282,
+     "w": 0.01567,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "CR5": {
+   "board": {
+    "x": 0.61126,
+    "y": 0.43212,
+    "w": 0.01621,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label above the rightmost diode of the row.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.32367,
+     "y": 0.27744,
+     "w": 0.01567,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R13": {
+   "board": {
+    "x": 0.51365,
+    "y": 0.52291,
+    "w": 0.01621,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under its body, right of C30.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.69357,
+     "y": 0.31205,
+     "w": 0.01097,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R10": {
+   "board": {
+    "x": 0.54437,
+    "y": 0.54525,
+    "w": 0.01621,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under its body.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.36646,
+     "y": 0.84103,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R17": {
+   "board": {
+    "x": 0.56775,
+    "y": 0.54525,
+    "w": 0.01621,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under its body.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.66301,
+     "y": 0.42308,
+     "w": 0.01097,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R16": {
+   "board": {
+    "x": 0.58532,
+    "y": 0.54525,
+    "w": 0.01706,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under its body, left of CR6.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.68777,
+     "y": 0.42308,
+     "w": 0.01097,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C28": {
+   "board": {
+    "x": 0.79693,
+    "y": 0.56425,
+    "w": 0.01621,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label right of its body, under the BOOST AMP outline.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.66019,
+     "y": 0.70308,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Decoupling row."
+    }
+   ],
+   "schVerified": true
+  },
+  "Z5": {
+   "board": {
+    "x": 0.51314,
+    "y": 0.72821,
+    "w": 0.01195,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under the left end of the SIP outline above NORM CAL.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.30016,
+     "y": 0.81026,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. The 10K network beside R9; drawn again on sheet 2."
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.37226,
+     "y": 0.19487,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Pull-up on RXDA; drawn twice more on the CAL SWA/SWB lines (1067, 2717) and (1067, 2977)."
+    }
+   ],
+   "schVerified": true
+  },
+  "S1": {
+   "board": {
+    "x": 0.54983,
+    "y": 0.80447,
+    "w": 0.01195,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under the slide switch outline beneath NORM CAL. The reader had it on J2.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.23636,
+     "y": 0.81026,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. CALIBRATION SWITCH."
+    }
+   ],
+   "schVerified": true
+  },
+  "Z2": {
+   "board": {
+    "x": 0.52304,
+    "y": 0.86034,
+    "w": 0.01195,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under the vertical SIP outline left of U6. The reader had it on CR2.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.31975,
+     "y": 0.44487,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Pull-up on the U2 side; Z2 is drawn a second time as the IEEE test jumper pull-up right of U4 (4665, 1695)."
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.17915,
+     "y": 0.31026,
+     "w": 0.00862,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Pull-up above U5's data pins; drawn again beside U6B (3847, 2555)."
+    },
+    {
+     "sheet": "sh3",
+     "x": 0.09248,
+     "y": 0.36795,
+     "w": 0.029,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Spans the pair of Z2 sections on EOI1/ATN1 left of U8."
+    }
+   ],
+   "schVerified": true
+  },
+  "C26": {
+   "board": {
+    "x": 0.54437,
+    "y": 0.86089,
+    "w": 0.01621,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label above the long body under Z2.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.60376,
+     "y": 0.70308,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Decoupling row."
+    }
+   ],
+   "schVerified": true
+  },
+  "C27": {
+   "board": {
+    "x": 0.6343,
+    "y": 0.78827,
+    "w": 0.01706,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label above its body, right of U6.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.63197,
+     "y": 0.70308,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Decoupling row."
+    }
+   ],
+   "schVerified": true
+  },
+  "Z1": {
+   "board": {
+    "x": 0.60836,
+    "y": 0.77291,
+    "w": 0.01195,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under the left end of the SIP outline above U6.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.31975,
+     "y": 0.39487,
+     "w": 0.00784,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Pull-up on the U2 side."
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.09718,
+     "y": 0.40897,
+     "w": 0.03292,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Spans the pair of Z1 sections on RPCLK/RPDRTINT left of U5; three more sections sit on the 5205AEN/5220ADIR/5220AEN lines at (1952, 2540), (2112, 2540), (2272, 2540)."
+    },
+    {
+     "sheet": "sh3",
+     "x": 0.77665,
+     "y": 0.77308,
+     "w": 0.03056,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Spans the pair of Z1 sections under J4."
+    }
+   ],
+   "schVerified": true
+  },
+  "C48": {
+   "board": {
+    "x": 0.60102,
+    "y": 0.67374,
+    "w": 0.01706,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label left of its bracket, above C46.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.24734,
+     "y": 0.80179,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C46": {
+   "board": {
+    "x": 0.60358,
+    "y": 0.72011,
+    "w": 0.01706,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label left of the round can, under C48.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.21944,
+     "y": 0.80179,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C49": {
+   "board": {
+    "x": 0.73208,
+    "y": 0.67095,
+    "w": 0.01621,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under its bracket, left of J9.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.35815,
+     "y": 0.88205,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C4": {
+   "board": {
+    "x": 0.97645,
+    "y": 0.68771,
+    "w": 0.01109,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label above its body at the right edge.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.81317,
+     "y": 0.3359,
+     "w": 0.00862,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C40": {
+   "board": {
+    "x": 0.95597,
+    "y": 0.72682,
+    "w": 0.00768,
+    "h": 0.02933,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label above its body, left of C21.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.1011,
+     "y": 0.70692,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C21": {
+   "board": {
+    "x": 0.96502,
+    "y": 0.72682,
+    "w": 0.00768,
+    "h": 0.02933,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label above its body, right of C40.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.48903,
+     "y": 0.70385,
+     "w": 0.01019,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol. Decoupling row."
+    }
+   ],
+   "schVerified": true
+  },
+  "C50": {
+   "board": {
+    "x": 0.7372,
+    "y": 0.78715,
+    "w": 0.01621,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under the round can left of C12.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.32837,
+     "y": 0.88205,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C12": {
+   "board": {
+    "x": 0.76058,
+    "y": 0.79385,
+    "w": 0.01536,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under the round can left of C42.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.18605,
+     "y": 0.70692,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C1": {
+   "board": {
+    "x": 0.84983,
+    "y": 0.80447,
+    "w": 0.00768,
+    "h": 0.01955,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label under its body, left of C11. The reader had it on C7.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.72759,
+     "y": 0.16462,
+     "w": 0.00862,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "C11": {
+   "board": {
+    "x": 0.87235,
+    "y": 0.79553,
+    "w": 0.01706,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under the round can left of TP2.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.12931,
+     "y": 0.70692,
+     "w": 0.01097,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "R11": {
+   "board": {
+    "x": 0.97816,
+    "y": 0.90922,
+    "w": 0.01706,
+    "h": 0.01397,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under the 1 W resistor body at the right edge, beside J2.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.78339,
+     "y": 0.33282,
+     "w": 0.0094,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "Designator text beside its symbol."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP1": {
+   "board": {
+    "x": 0.22696,
+    "y": 0.93156,
+    "w": 0.01877,
+    "h": 0.03073,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label and the loop to its right, beside the A21 title.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.07524,
+     "y": 0.6,
+     "w": 0.02116,
+     "h": 0.02564,
+     "placement": "verified",
+     "placementNote": "On the flag symbol and its TP label in the circuit body, not the legend table. +5 LOGIC, zone B8."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP2": {
+   "board": {
+    "x": 0.89676,
+    "y": 0.78352,
+    "w": 0.01706,
+    "h": 0.05307,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label under C11/C10 and the loop above it.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.13245,
+     "y": 0.6,
+     "w": 0.02116,
+     "h": 0.02564,
+     "placement": "verified",
+     "placementNote": "On the flag symbol and its TP label in the circuit body, not the legend table. +12V."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP3": {
+   "board": {
+    "x": 0.74829,
+    "y": 0.91061,
+    "w": 0.01195,
+    "h": 0.06564,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label and the loop under it, rightmost of the TP8/TP5/TP3 group.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.18887,
+     "y": 0.6,
+     "w": 0.02116,
+     "h": 0.02564,
+     "placement": "verified",
+     "placementNote": "On the flag symbol and its TP label in the circuit body, not the legend table. -12V."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP4": {
+   "board": {
+    "x": 0.25973,
+    "y": 0.93156,
+    "w": 0.01706,
+    "h": 0.03073,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label and the loop to its left, under J1's left end.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.04201,
+     "y": 0.70897,
+     "w": 0.02038,
+     "h": 0.02436,
+     "placement": "verified",
+     "placementNote": "On the flag symbol and its TP label in the circuit body, not the legend table. +5 LOGIC COMMON."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP5": {
+   "board": {
+    "x": 0.73208,
+    "y": 0.91061,
+    "w": 0.01195,
+    "h": 0.06564,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label and the loop under it, middle of the TP8/TP5/TP3 group.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.47837,
+     "y": 0.16923,
+     "w": 0.02273,
+     "h": 0.03333,
+     "placement": "verified",
+     "placementNote": "On the flag symbol and its TP label in the circuit body, not the legend table. RXDA, zone D5."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP6": {
+   "board": {
+    "x": 0.55666,
+    "y": 0.93156,
+    "w": 0.01706,
+    "h": 0.03073,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label and the loop to its right, left of R9.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.50784,
+     "y": 0.16923,
+     "w": 0.02116,
+     "h": 0.03333,
+     "placement": "verified",
+     "placementNote": "On the flag symbol and its TP label in the circuit body, not the legend table. TXDA, zone D4."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP7": {
+   "board": {
+    "x": 0.65563,
+    "y": 0.94274,
+    "w": 0.02389,
+    "h": 0.04609,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label at the bottom edge and the loop above it, right of R1.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.43966,
+     "y": 0.34744,
+     "w": 0.02273,
+     "h": 0.03333,
+     "placement": "verified",
+     "placementNote": "On the flag symbol and its TP label in the circuit body, not the legend table. SERIAL CLOCK, zone C5."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP8": {
+   "board": {
+    "x": 0.71502,
+    "y": 0.91061,
+    "w": 0.01195,
+    "h": 0.06564,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label and the loop under it, leftmost of the TP8/TP5/TP3 group.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.50502,
+     "y": 0.64103,
+     "w": 0.02351,
+     "h": 0.03333,
+     "placement": "verified",
+     "placementNote": "On the flag symbol and its TP label in the circuit body, not the legend table. Zone B4."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP9": {
+   "board": {
+    "x": 0.607,
+    "y": 0.91117,
+    "w": 0.01024,
+    "h": 0.06564,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label and the loop under it, between R2 and C5.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.53213,
+     "y": 0.64103,
+     "w": 0.02273,
+     "h": 0.03333,
+     "placement": "verified",
+     "placementNote": "On the flag symbol and its TP label in the circuit body, not the legend table. Zone B4."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP10": {
+   "board": {
+    "x": 0.24915,
+    "y": 0.07486,
+    "w": 0.01536,
+    "h": 0.03911,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label and the loop to its left, right of R4.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.28871,
+     "y": 0.51795,
+     "w": 0.02194,
+     "h": 0.03333,
+     "placement": "verified",
+     "placementNote": "On the flag symbol and its TP label in the circuit body, not the legend table. PA COM, zone C6."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP11": {
+   "board": {
+    "x": 0.66809,
+    "y": 0.06564,
+    "w": 0.01877,
+    "h": 0.04888,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label and the rectangular pad to its right, above U14.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.36991,
+     "y": 0.11538,
+     "w": 0.02273,
+     "h": 0.0359,
+     "placement": "verified",
+     "placementNote": "On the flag symbol and its TP label in the circuit body, not the legend table. Zone D5."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP12": {
+   "board": {
+    "x": 0.6872,
+    "y": 0.06564,
+    "w": 0.01877,
+    "h": 0.04888,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label and the rectangular pad to its right, above U14.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.30329,
+     "y": 0.11538,
+     "w": 0.02273,
+     "h": 0.0359,
+     "placement": "verified",
+     "placementNote": "On the flag symbol and its TP label in the circuit body, not the legend table. Zone D6."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP13": {
+   "board": {
+    "x": 0.32423,
+    "y": 0.07542,
+    "w": 0.01536,
+    "h": 0.03911,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Rotated label and the loop to its left, right of K10.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.42712,
+     "y": 0.11538,
+     "w": 0.02273,
+     "h": 0.0359,
+     "placement": "verified",
+     "placementNote": "On the flag symbol and its TP label in the circuit body, not the legend table. Zone D5."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP14": {
+   "board": {
+    "x": 0.75085,
+    "y": 0.05726,
+    "w": 0.02389,
+    "h": 0.06425,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label above the rectangular pad, between C8 and L1.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.53213,
+     "y": 0.2,
+     "w": 0.02273,
+     "h": 0.0359,
+     "placement": "verified",
+     "placementNote": "On the flag symbol and its TP label in the circuit body, not the legend table. LH COM, zone D4."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP15": {
+   "board": {
+    "x": 0.95222,
+    "y": 0.07486,
+    "w": 0.03072,
+    "h": 0.03492,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label above the rectangular pad at the top-right corner.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.50502,
+     "y": 0.2,
+     "w": 0.02351,
+     "h": 0.0359,
+     "placement": "verified",
+     "placementNote": "On the flag symbol and its TP label in the circuit body, not the legend table. RLH COM, zone D4."
+    }
+   ],
+   "schVerified": true
+  }
+ },
+ "layers": {},
+ "sheets": {}
+}

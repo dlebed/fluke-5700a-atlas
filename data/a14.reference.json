@@ -1,0 +1,250 @@
+{
+  "_comment": [
+    "Curated A14 reference data, hand-authored from the 1996 service manual text layer",
+    "(§2-155 to §2-167 for the circuit descriptions, §5-2 for the fault codes) and",
+    "checked against Figure 7-17 sheets 1-4 and Table 6-18.",
+    "",
+    "Fault codes are the part worth reading carefully. A14 and A15 are a matched pair --",
+    "A14's digital section drives A15's relays and A14's magnitude loop closes through",
+    "A15's series-pass circuit -- so most codes in the 31xx block name both boards, and",
+    "the title is not a verdict. What decides which board to suspect is which circuit",
+    "the code measures through, so each entry says that: MUX5 is A14's output peak",
+    "measure, MUX6 its absolute value circuit, MUX7 its reference and error amplifier.",
+    "A code whose title says A15 but which measures MUX6 or MUX7 is testing A14."
+  ],
+
+  "overview": {
+    "summary": "The high voltage half of the calibrator, and one of a pair -- A14 does not work without A15 and A15 does not work without A14. A14 carries transformer T1 and the sixteen relays that reconfigure it, so it is the board that turns the Power Amplifier's output into the 1100 V ac range, the +/-1100 V dc range and the 2.2 A range. It rectifies and filters those into +/-HVDC across C1 and into the VI+ / VI- pair for the current range. It measures its own output through a peak detector. And it carries the magnitude control loop that regulates all of it, plus the 82C55 and four driver ICs that operate every relay and control line on both assemblies. A17 and A18 are supplies that either work or do not; A14 is a servo, and most of its failures are the loop misbehaving rather than a part being dead.",
+    "sections": "§2-155 … §2-167",
+    "note": "The board is exposed on the extender card with the rear shield (MP3) removed, and it carries the 1100 V range output, +/-HVDC across C1 and the T1 secondary. C1 is 0.72 uF: charged to 1100 V it holds about 0.44 J, and with the 600 kilohm bleeder of R3-R5 the time constant is roughly 0.4 s. It does discharge, but confirm it before working near it."
+  },
+
+  "railCircuits": {
+    "HV": {
+      "rails": "+HVDC / -HVDC, HV OUT, +/-SP C",
+      "rectifier": ["CR1", "CR2", "CR3", "CR4"],
+      "filters": ["C1", "C2"],
+      "protection": ["VR2", "VR3", "VR4", "VR5", "R65", "R66", "R70", "R71"],
+      "tps": ["TP1"],
+      "note": "PA OUT DC drives the T1 primary through K1, with the other side returned to PA COM through R67. The secondary feeds bridge CR1-CR4 through K9 and K6 to make +/-HVDC; C1 filters it and R3-R5 form a 600 kilohm bleeder across it. HVDC is selected between the two polarities by K4 and K11 and reaches HV OUT through K5, K12 and K3. K14-K16 series the transformer windings for operation below 120 Hz. +/-SP C are made from the opposite rail by K4 and K8, clamped to 16 V by VR4 and VR5 through R65 and R66, with their dc level set by the series-pass circuit on A15.",
+      "source": "§2-156 … §2-158"
+    },
+    "MAG": {
+      "rails": "HVCL, AMPLITUDE, ERROR SIGNAL, QSQB",
+      "regulators": ["U1", "U2", "U3", "U4", "U6", "U7", "Q2", "Q4", "VR1", "C18"],
+      "tps": ["TP2", "TP3", "TP4"],
+      "note": "The regulator that sets the amplitude of HVCL and therefore the level of every high-voltage and high-current supply. Five blocks: the absolute value circuit (U2A/U2B, Q3, CR8, CR9) forms the dc equivalent of G OUT's positive peaks; signal/polarity selection (U2C, U6) subtracts the supply from it to make ERROR SIGNAL; the reference and error amplifier (U2D with C18 as integrator, U7B, Q4, VR1) balances that against a reference which changes with function -- 6.8 V in the HV dc range, 3.1 V in the 2 A dc range, 5.2 V in the 2 A ac function -- and produces AMPLITUDE; U4 generates the 1 kHz QSQB; and U3 switches between +AMPLITUDE and -AMPLITUDE through U7C/U7D and amplifies by 2.6 to make HVCL. PS OFF turns on Q2 to short C18 and force AMPLITUDE to zero until A15 is set up.",
+      "source": "§2-167"
+    },
+    "DIAG": {
+      "rails": "SDL, MUX5 / MUX6 / MUX7",
+      "regulators": ["U9", "U10", "U11", "U12", "U13", "U14", "U8"],
+      "tps": ["TP5"],
+      "note": "An 82C55 (U9) on the guarded digital bus drives four 5801 latching drivers: U10 for A14's non-latching relays K1-K6 and K8-K13, U11 for latching K7 here and K1-K3 on A15, U12 for K14-K16 plus seven FET and analog-switch control lines on both boards, and U13 for A15's K4-K12 and K14. U14, a 4051 addressed by PB4-PB7, multiplexes seven monitored points onto SDL for the adc on the DAC assembly: two hybrid oven temperatures and the dc HV amplifier output from A15, the series-pass current, and A14's own MUX5, MUX6 and MUX7. RST from U12 is inverted by U8E to make PS OFF.",
+      "source": "§2-163"
+    },
+    "COM": {
+      "rails": "PACOM",
+      "tps": ["TP6"],
+      "note": "Power amplifier common. §5-19 references every measurement on the assembly to TP6 unless it says otherwise; the VI rails in step 9 are the exception, referenced to VI COM at P612 pins 16A/C.",
+      "source": "§5-19"
+    }
+  },
+
+  "faultCodes": [
+    { "code": "3100", "title": "A14: 8255 Control Word",
+      "measure": "The diagnostics read back the control word of the 82C55 (U9).",
+      "expected": "The control word reads back as written",
+      "verdict": "A failure indicates A14 is probably at fault.",
+      "refs": ["U9"], "source": "§5-2" },
+
+    { "code": "3101", "title": "A14: 8255 Port A Fault",
+      "measure": "The diagnostics write and read data to port A of U9.",
+      "expected": "Data written to port A reads back",
+      "verdict": "A failure indicates A14 is probably at fault. Port A is the common input bus to all four 5801 drivers, so this failing means no relay on either assembly can be trusted.",
+      "refs": ["U9", "U10", "U11", "U12", "U13"], "source": "§5-2" },
+
+    { "code": "3102", "title": "A14: 8255 Port B Fault",
+      "measure": "The diagnostics read port B of U9.",
+      "expected": "Port B reads back correctly",
+      "verdict": "A failure indicates A14 is probably at fault. PB4-PB7 address the diagnostic multiplexer U14, so with this failing every other 31xx measurement is suspect.",
+      "refs": ["U9", "U14"], "source": "§5-2" },
+
+    { "code": "3103", "title": "A14: 8255 Port C Fault",
+      "measure": "The diagnostics read port C of U9.",
+      "expected": "Port C reads back correctly",
+      "verdict": "A failure indicates A14 is probably at fault. Port C carries the strobe and enable lines for the four drivers.",
+      "refs": ["U9", "U8", "U10", "U11", "U12", "U13"], "source": "§5-2" },
+
+    { "code": "3135", "title": "Assembly A14 Not Responding",
+      "measure": "The power-up survey of installed assemblies does not find A14.",
+      "expected": "The assembly responds",
+      "verdict": "A failure indicates A14 is probably at fault. Check that the board is seated, and that it has its supplies, before suspecting the digital section.",
+      "refs": ["U9", "P611", "P612"], "source": "§5-2" },
+
+    { "code": "3136", "title": "A14: 8255 Was Reset",
+      "measure": "The control word of U9 is re-read and shows the device has been reset.",
+      "expected": "The control word still holds its programmed value",
+      "verdict": "A failure indicates A14 is probably at fault. A spontaneous reset points at the supply to U9 or at noise on the guarded digital bus rather than at the device itself.",
+      "refs": ["U9", "C21", "C22", "C23"], "source": "§5-2" },
+
+    { "code": "3111", "title": "A15: HV +DC High Voltage Output Fault",
+      "measure": "dc 1100 V range at +220 V, +600 V and +1100 V. HV OUT is divided by R9-R13 and R64 into the output peak measure circuit to create MUX5, read via SDL by the adc on the DAC assembly (A11).",
+      "expected": "Output within ±12% of nominal",
+      "verdict": "Titled A15, but measured entirely through A14's divider and peak detector. If the output really is present and correct, suspect A14's MUX5 chain -- R9-R13, R64, U1B, C5, R17 -- rather than A15.",
+      "refs": ["R9", "R10", "R11", "R12", "R13", "R64", "U1", "C5", "R17"], "source": "§5-2" },
+
+    { "code": "3112", "title": "A15: HV +DC Ref/Error Amplitude Fault",
+      "measure": "dc 1100 V range at +220 V, +600 V and +1100 V. AMPLITUDE from A14's magnitude control is divided by R46/R47 into MUX7 and read via SDL.",
+      "expected": "AMPLITUDE = 0.0074 x nominal output, ±25% (the nominal AMPLITUDE-to-HV OUT gain is 135)",
+      "verdict": "Titled A15, but this is A14's reference and error amplifier. §5-20 step 2 (step 11) is the bench check.",
+      "refs": ["U2", "U7", "Q2", "Q4", "VR1", "C18", "R46", "R47"], "source": "§5-2" },
+
+    { "code": "3115", "title": "A15: HV -DC High Voltage Output Fault",
+      "measure": "As 3111 but at -220 V, -600 V and -1100 V.",
+      "expected": "Output within ±12% of nominal",
+      "verdict": "Same reading as 3111. Firing on one polarity only points at the polarity selection relays K4 and K11 rather than at the divider.",
+      "refs": ["R9", "R10", "R11", "R12", "R13", "R64", "U1", "K4", "K11"], "source": "§5-2" },
+
+    { "code": "3116", "title": "A15: HV -DC Reference/Error Amp Fault",
+      "measure": "As 3112 but at -220 V, -600 V and -1100 V.",
+      "expected": "AMPLITUDE = 0.0074 x nominal output, ±25%",
+      "verdict": "A14's reference and error amplifier again. 3112 and 3116 together, across both polarities, are a strong pointer at U2D or its integrator C18.",
+      "refs": ["U2", "U7", "Q2", "Q4", "VR1", "C18"], "source": "§5-2" },
+
+    { "code": "3117", "title": "A14/A15: HV +DC Current Error Amp Fault",
+      "measure": "dc +2.2 A range at +0.22 A, +0.6 A and +1.2 A. AMPLITUDE via MUX7.",
+      "expected": "AMPLITUDE within ±25% of the expected value",
+      "verdict": "A14's reference and error amplifier in the current function, where U7B switches R43-R45 to move the reference to 3.1 V.",
+      "refs": ["U2", "U7", "R43", "R44", "R45", "R40", "R41"], "source": "§5-2" },
+
+    { "code": "3118", "title": "A14/A15: HV -DC Current Error Amp Fault",
+      "measure": "dc -2.2 A range at -1.2 A. AMPLITUDE via MUX7.",
+      "expected": "AMPLITUDE within ±25% of the expected value",
+      "verdict": "As 3117, negative polarity.",
+      "refs": ["U2", "U7", "R43", "R44", "R45"], "source": "§5-2" },
+
+    { "code": "3119", "title": "A14/A15: HV +DC Current Abs. Value",
+      "measure": "+dc 2.2 A range at 0.22 A, 0.60 A and 1.2 A into the 1.2 ohm load on the Current assembly. G OUT from A15 drives A14's absolute value circuit; its output is divided by R55/R56 into MUX6.",
+      "expected": "Absolute value output = 2.17 x I, ±25%",
+      "verdict": "A14's absolute value circuit. §5-20 step 4 (step 13) is the bench check -- compare U2 pin 7 against the positive peaks of G OUT at P612 pin 12C.",
+      "refs": ["U2", "Q3", "CR8", "CR9", "C20", "R55", "R56"], "source": "§5-2" },
+
+    { "code": "3120", "title": "A14/A15: HV -DC Current Abs. Value",
+      "measure": "-dc 2.2 A range at -1.2 A, otherwise as 3119. The absolute value output is a positive voltage in both cases.",
+      "expected": "Absolute value output = 2.17 x I, ±25%",
+      "verdict": "As 3119. The output being positive for a negative current is the point of the circuit, not a fault.",
+      "refs": ["U2", "Q3", "CR8", "CR9", "C20"], "source": "§5-2" },
+
+    { "code": "3128", "title": "A14/A15: HV AC 1 kHz, Output (Lo)",
+      "measure": "ac 1100 V range at 220 V, 1 kHz. The output is divided and peak-detected into MUX5.",
+      "expected": "220 V ±12%",
+      "verdict": "A failure indicates A14 is probably at fault -- the manual says so outright for this code.",
+      "refs": ["U1", "C5", "R17", "R9", "R10", "R11", "R12", "R13", "R64", "CR6", "CR7"], "source": "§5-2" },
+
+    { "code": "3129", "title": "A14/A15: HV AC 1 kHz, Output (Mid)",
+      "measure": "ac 1100 V range at 600 V, 1 kHz, via MUX5.",
+      "expected": "600 V ±12%",
+      "verdict": "A failure indicates A14 is probably at fault.",
+      "refs": ["U1", "C5", "R17", "CR6", "CR7"], "source": "§5-2" },
+
+    { "code": "3130", "title": "A14/A15: HV AC 1 kHz, Output (Hi)",
+      "measure": "ac 1100 V range at 1100 V, 1 kHz, via MUX5.",
+      "expected": "1100 V ±12%",
+      "verdict": "A failure indicates A14 is probably at fault. Firing at Hi but not Lo or Mid points at the transformer and its range relays rather than at the peak detector.",
+      "refs": ["T1", "K1", "K5", "K12", "K3", "U1"], "source": "§5-2" },
+
+    { "code": "3131", "title": "A14/A15: HV AC 100 Hz, Output (Lo)",
+      "measure": "ac 1100 V range at 220 V. The title says 100 Hz; the body of the code says 50 Hz -- see the caveat.",
+      "expected": "220 V ±12%",
+      "verdict": "A failure indicates A14 is probably at fault. Below 120 Hz K14-K16 series the transformer windings, so this trio failing while the 1 kHz trio passes points straight at those three relays.",
+      "refs": ["K14", "K15", "K16", "T1", "U1"], "source": "§5-2" },
+
+    { "code": "3132", "title": "A14/A15: HV AC 100 Hz, Output (Mid)",
+      "measure": "ac 1100 V range at 600 V, 50 Hz per the body of the code, via MUX5.",
+      "expected": "600 V ±12%",
+      "verdict": "A failure indicates A14 is probably at fault.",
+      "refs": ["K14", "K15", "K16", "T1", "U1"], "source": "§5-2" },
+
+    { "code": "3133", "title": "A14/A15: HV AC 100 Hz, Output (Hi)",
+      "measure": "ac 1100 V range at 1100 V, 50 Hz per the body of the code, via MUX5.",
+      "expected": "1100 V ±12%",
+      "verdict": "A failure indicates A14 is probably at fault.",
+      "refs": ["K14", "K15", "K16", "T1", "U1"], "source": "§5-2" },
+
+    { "code": "3139", "title": "A14/A15/A16: 2.2 A AC Range Amplitude",
+      "measure": "ac 2.2 A range at 0.22 A, 0.6 A and 1.1 A at 1 kHz, 0.6 A at 40 Hz and 1.1 A at 50 Hz. AMPLITUDE via MUX7.",
+      "expected": "AMPLITUDE = I x 4.23 + 4.447, ±20%",
+      "verdict": "A14's reference and error amplifier in the 2 A ac function, where Q4 is off and R44 is in series with R45 to put the reference at 5.2 V.",
+      "refs": ["U2", "U7", "Q4", "R44", "R45", "R46", "R47"], "source": "§5-2" },
+
+    { "code": "3140", "title": "A14/A15/A16: 2.2 A AC Range Abs. Value",
+      "measure": "As 3139. G OUT drives the absolute value circuit; its output is divided into MUX6.",
+      "expected": "Absolute value output = 3.07 x I, ±10%",
+      "verdict": "A14's absolute value circuit. The tightest tolerance of the group at ±10%, so it is often the first of the pair to fire.",
+      "refs": ["U2", "Q3", "CR8", "CR9", "C20", "R55", "R56"], "source": "§5-2" },
+
+    { "code": "3508", "title": "A16/A14: 220 V AC Range Output Fault",
+      "measure": "22.1 V, 100 V and 219 V at several frequencies. The Power Amplifier output is routed to A14, divided and peak-detected, and read on SDL to be nominal ±10%. Then exit diagnostics, restore the configuration and measure the ac output of the Power Amplifier with a DMM: COM = A16 TP10, HI = A16 TP6.",
+      "com": "A16 TP10",
+      "hi": "A16 TP6",
+      "expected": "The Power Amplifier output is within tolerance at the DMM",
+      "verdict": "Out of tolerance: the Power Amplifier (A16) is probably at fault. In tolerance: A14 is probably at fault -- meaning its peak detector, not its high voltage section. This is the one code where a good reading convicts A14.",
+      "refs": ["U1", "C5", "R17", "CR6", "CR7", "TP1"], "source": "§5-2" }
+  ],
+
+  "componentNotes": {
+    "C1": "The HVDC filter, and the part most worth being careful about on this board. See the caveat on its voltage rating.",
+    "C18": "The error amplifier integrator, 1 uF tantalum. If it goes leaky, AMPLITUDE misbehaves and the 3112/3116/3117/3118/3139 family fires without any part having obviously failed. A tantalum in an integrator is the classic slow fault here.",
+    "C11": "22 uF 10 V tantalum on +5 LH. Worth attention in a recap: these rails come from A17's 2 A-limited regulators backed by A18's bulk, and a 10 V part on a 5-6 V rail is running at over half its rating.",
+    "C12": "22 uF 10 V tantalum on -5 LH. See C11.",
+    "C13": "22 uF 10 V tantalum on +5 RLH, which runs at +5.975 V nominal -- 60% of the part's rating. See C11.",
+    "U3": "The square wave amplifier: a single high-voltage op amp with a press-on heat sink, MP8. It runs from ±48 S per Figure 7-17 sheet 2.",
+    "U9": "The 82C55 that controls both A14 and A15. Nothing on either board moves without it.",
+    "T1": "The step-up/step-down transformer. K14-K16 series its windings below 120 Hz, which is why the low-frequency fault codes are a distinct group.",
+    "VR8": "18 V shunt regulator fed from -44 S through R22. It is not U3's supply, despite sitting near it.",
+    "MP3": "The rear high voltage shield. It has to come off to troubleshoot, and the board is then live and exposed on the extender card."
+  },
+
+  "caveats": [
+    { "title": "The troubleshooting procedure is printed as two sections whose numbering does not join up",
+      "text": "§5-19 has nine steps and §5-20 (Magnitude Control Circuit) has five, printed as 1 to 5. But §5-19 step 6 tells you, when the voltage across C1 is much greater than 227 V, to go to the magnitude control troubleshooting 'starting at step 10' -- a step 10 that does not exist in either section as printed. Nine plus five is fourteen, and 10 is the next number after §5-19's last, so §5-20's steps were 10 to 14 before a reprint renumbered them and left the cross-reference behind. The procedure here is the combined 1 to 14 sequence, which makes that reference land on the square wave generator check where it was written to land. Every step still cites the section it is printed in, so it can be found in the manual.",
+      "refs": ["C1"] },
+
+    { "title": "C1's voltage rating differs by a factor of ten between the parts list and the schematic",
+      "text": "Table 6-18 gives C1 as CAP,POLYES,0.72UF,+-20%,1300V. Figure 7-17 sheet 1 annotates the same part 0.72 uF, 13 kV. The capacitance agrees; only the rating disagrees, and by 10x. This is the main HVDC filter, sitting across a rail that reaches about 1100 V in normal use, so the difference matters for a replacement. Read the marking on the fitted part before sourcing one.",
+      "refs": ["C1"] },
+
+    { "title": "§2-167 names a switch U5C that does not exist on this board",
+      "text": "The theory of operation says 'Switch U5C is connected to the AMPLITUDE voltage.' There is no U5 in Table 6-18 and none on the schematic -- the parts list runs U1, U2, U3, U4, U6, U7 and up. The schematic and the rest of the same paragraph both show U7C, which is one of the two DG444 switches that chop between +AMPLITUDE and -AMPLITUDE. Read it as U7C.",
+      "refs": ["U7", "U3"] },
+
+    { "title": "Fault codes 3131 to 3133 are titled 100 Hz and specify 50 Hz",
+      "text": "All three are titled 'HV AC 100Hz, Output', and all three bodies say the instrument is configured with an amplitude at 50 Hz. Nothing else distinguishes them from 3128 to 3130, which are the same three amplitudes at 1 kHz. Either way the group tests operation below 120 Hz, where K14 to K16 series the transformer windings, so what it tells you is the same; but if you are reproducing the condition by hand, the body is the specific instruction and the title is not.",
+      "refs": ["K14", "K15", "K16"] },
+
+    { "title": "Five parts have different Fluke stock numbers in the two revisions",
+      "text": "R1 and R2 (644259 in 1996, 159608 in Rev 9), R3 to R5 (686774 / 109926), R22 (641115 / 109090), R70 and R71 (543355 / 220046) and VR1 (260695 / 820431). The descriptions are identical in both lists, and four of the five are carbon composition resistors, which reads as a supplier change rather than a design change. The Rev 9 numbers are recorded as 'as built' since Rev 9 is the revision the drawing and the photograph match.",
+      "refs": ["R1", "R2", "R3", "R4", "R5", "R22", "R70", "R71", "VR1"] },
+
+    { "title": "Table 6-18 prints K13 as K013, and the Rev 9 list prints J1 as Z1",
+      "text": "In the 1996 text layer the relay group reads 'K3,K5,K6 K9, K12,K013 K15, K16'. The leading zero is a typo for K13; the row's quantity of 8 confirms it. Separately, the scanned Rev 9 list renders the J1 connector row's designator as 'z1', which is a real and different part on this board -- Z1 is the 10 kilohm SIP resistor network, stock 412924. Both are corrected in the build, the second by stock number since no designator-keyed correction could tell the two Z1s apart.",
+      "refs": ["K13", "J1", "Z1"] },
+
+    { "title": "The photograph was taken with the high voltage shield fitted",
+      "text": "MP3 covers roughly the right-hand 40% of the board, so transformer T1, capacitor C1, connector P611 and relays K3, K4, K12 and K13 are not visible in it. Those parts have positions on the drawing and on the schematic sheets but none on the photograph, and the photo alignment is solved from landmarks in the visible portion only, so treat it as approximate. Drawing, Overlay and Swipe are reliable on the left-hand side of the board and tell you nothing on the right.",
+      "refs": ["MP3", "T1", "C1", "P611"] },
+
+    { "title": "Sheet 4 is a table, not a schematic",
+      "text": "Figure 7-17 sheet 4 carries no circuit. It is the relay state table for both assemblies: for each of fourteen instrument configurations -- dormant, ac and dc 220 V, ac and dc 1100 V, ac and dc 2.2 A, and the calibration setups -- it gives the position of every relay and FET on A14 and A15. R is the reset position of a latching relay, S the set position, and a mark means a non-latching relay is energised or a FET is on. It is the fastest way to answer 'should this relay be pulled in right now', so it is extracted and readable, but no component positions are placed on it.",
+      "refs": ["K7"] },
+
+    { "title": "How far each set of positions was checked",
+      "text": "Board: every one of the 177 parts was accounted for by eye — 161 markers reviewed tier by tier and 16 recorded as having no silkscreen designator. The reader placed 140 of them and 123 of those were right; 74 are now placed or corrected by hand, of which 30 were redrawn afterwards as the component's own body rather than its designator — the large parts especially, where the marker now covers T1's whole footprint, C1's can and U9's 40-pin package instead of the lettering beside them. Schematic sheet 1: every placed marker reviewed the same way, and a second reader (a vision-language model) run over the whole sheet as a cross-check, which independently flagged 12 of the 28 markers the review had already rejected. Sheet 2: the ambiguous and single tiers reviewed in full, the agreed tier sampled. Sheet 3: the agreed tier reviewed in full and the rest dropped except six spot-checked by hand. So a board marker is as good as this pipeline gets; a sheet-2 or sheet-3 marker in the agreed tier is probable rather than confirmed. Every marker carries the tier it came from, and the app shows it.",
+      "refs": [] },
+
+    { "title": "Manufacturer part numbers come from OCR of a scan and carry character errors",
+      "text": "The 1996 parts list has a real text layer and its designators, descriptions and Fluke stock numbers are exact. The manufacturer supply code and manufacturer part number exist only in the scanned Rev 9 list, and at that type size tesseract confuses 0 with O, 5 with S, and picks up the column rule as a leading letter -- VR1's 1N754A reads as 'J1N754ARR1', R35's MF50DVT1963F as 'IMFSODVT1963F'. The Fluke stock number is the identifier to order against; treat the manufacturer part number as a hint to be checked, not as data.",
+      "refs": ["VR1", "R35"] }
+  ]
+}

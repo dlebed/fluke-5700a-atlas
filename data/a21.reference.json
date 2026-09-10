@@ -1,0 +1,317 @@
+{
+  "_comment": [
+    "A21 Rear Panel PCA -- curated reference data.",
+    "Sources: §2-21 and §2-204 to §2-214 (theory), §5-2 fault codes 3700-3705",
+    "and 3708, Table 6-27 and the five sheets of 5700A-1009. Chapter 5 has no",
+    "section for this board; the fault codes are the published procedure."
+  ],
+  "overview": {
+    "summary": "Every auxiliary interface of the instrument on one board across the back of the chassis. An unguarded half, referenced to +5 LOGIC COMMON, holds the CPU interface (bus transceiver U1, address decoder PLD U8, the 3.6864 MHz clock regenerator U18), the IEEE-488 interface (TMS9914 U2 with 75160/75162 buffers U3 and U4 to connector J1), and the RS-232-C interface (68C681 DUART U5 with 1488 driver U6 and 1489 receiver U7 to J2). A guarded half, referenced to LH COM, holds an 82C55 (U14) and two 5801 relay drivers (U16, U17) on the guarded digital bus from J8 that control the board's twelve relays plus K12 on the analog motherboard. The relays route the 5725A boost amplifier signals between J8 and J7 (K1, K2, K6-K9), switch the PHASE LOCK IN (J6) and VARIABLE PHASE OUT (J5) BNCs (K10, K12), and handle the 5205A/5220A amplifier interfaces on J3 and J4 through latches U9/U10 and buffers U11/U12. The DUART's second channel is the 5725A's digital control link.",
+    "sections": "§2-21, §2-204 … §2-214",
+    "note": "Nothing on the board is measured by the calibrator's own adc, so the only fault codes are the 82C55 and DUART register tests, 3700-3705 and 3708. Everything else -- a dead GPIB, a silent serial port, a 5725A that will not talk -- presents as a remote-interface symptom and is worked from the theory and the sheets. Table 2-16 (VCO frequencies) belongs to the phase-locked loop on A13, which this board only feeds."
+  },
+  "railCircuits": {
+    "5V": {
+      "rails": "+5 LOGIC, +5 LOGIC COMMON",
+      "regulators": [],
+      "filters": [
+        "C21",
+        "C22",
+        "C24",
+        "C25",
+        "C26",
+        "C27",
+        "C28",
+        "C29",
+        "C30",
+        "C31",
+        "C32",
+        "C41",
+        "C46",
+        "C48"
+      ],
+      "protection": [
+        "Z1",
+        "Z2",
+        "Z5"
+      ],
+      "tps": [
+        "TP1",
+        "TP4"
+      ],
+      "note": "From A19 on J9. The 0.1 uF ceramics are one per IC (the sheet 1 row C21-C32 names U01-U11 under them); the SIP networks are pull-ups on the bus and control lines."
+    },
+    "12V": {
+      "rails": "+12V, -12V",
+      "regulators": [],
+      "filters": [
+        "C10",
+        "C12",
+        "C40",
+        "C42"
+      ],
+      "protection": [],
+      "tps": [
+        "TP2",
+        "TP3"
+      ],
+      "note": "From A19 on J9, for the 1488 line driver U6 and the clock comparator U18 only. C10 (68 uF) and C12 (10 uF) are the reservoirs; note the polarity marking on C12 that sheet 1 calls out."
+    },
+    "LH": {
+      "rails": "+5 LH, -5 LH, LH COM",
+      "regulators": [],
+      "filters": [
+        "C13",
+        "C14",
+        "C15",
+        "C43",
+        "C44",
+        "C45",
+        "C6",
+        "C7"
+      ],
+      "protection": [],
+      "tps": [
+        "TP11",
+        "TP12",
+        "TP14"
+      ],
+      "note": "From A17 via the motherboard and J8. Feeds the 82C55 U14 and the guarded logic; -5 LH is used only by the LF356 U13."
+    },
+    "RLH": {
+      "rails": "+5 RLH, RLH COM",
+      "regulators": [],
+      "filters": [
+        "C33",
+        "C34",
+        "C36",
+        "C37"
+      ],
+      "protection": [
+        "L1"
+      ],
+      "tps": [
+        "TP13",
+        "TP15"
+      ],
+      "note": "The relay coil supply from A17 through choke L1 (6 turns), feeding the +VS of drivers U16/U17 and all twelve relay coils. C33 (39 uF tantalum) is its reservoir."
+    },
+    "PACOM": {
+      "rails": "PA COM, B-SENSE HI, B-OUT HI, B-CURRENT",
+      "regulators": [],
+      "filters": [
+        "C70"
+      ],
+      "protection": [
+        "F1",
+        "F2"
+      ],
+      "tps": [
+        "TP10"
+      ],
+      "note": "The boost interface's analog lines from J8 to J7 through relays K1, K2, K6-K9. F1 and F2 are the 0.25 A fuses in the J5 and J6 BNC shell paths."
+    }
+  },
+  "faultCodes": [
+    {
+      "code": "3700",
+      "title": "A21: 8255 Control Word",
+      "measure": "The diagnostics software reads the control word of the 8255 IC on the Rear Panel assembly.",
+      "expected": "The control word reads back as written",
+      "verdict": "The 8255 is U14 on the guarded half of the board, on the guarded digital bus through J8. With 3701-3703 also failing, suspect J8, the +5 LH at TP11 or the bus before U14 itself; on its own, U14.",
+      "refs": [
+        "U14",
+        "J8",
+        "TP11"
+      ],
+      "source": "§5-2"
+    },
+    {
+      "code": "3701",
+      "title": "A21: 8255 Port A Fault",
+      "measure": "The diagnostics software writes and reads data to port A of the 8255 IC on the Rear Panel assembly.",
+      "expected": "Port A reads back what was written",
+      "verdict": "Port A of U14 is the input bus to relay driver U16 (K1-K5, K7). A failure here means the 5725A boost relays and the 5205A/5220A relays cannot be set; suspect U14, then a stuck input on U16 loading the port.",
+      "refs": [
+        "U14",
+        "U16"
+      ],
+      "source": "§5-2"
+    },
+    {
+      "code": "3702",
+      "title": "A21: 8255 Port B Fault",
+      "measure": "The diagnostics software reads port B of the 8255 IC on the Rear Panel assembly.",
+      "expected": "Port B reads back correctly",
+      "verdict": "Port B of U14 feeds relay driver U17 (K6, K8-K12 and the motherboard's K12 through RLY12*). A failure takes out the phase-lock and variable-phase switching and the boost current lines; suspect U14, then U17.",
+      "refs": [
+        "U14",
+        "U17"
+      ],
+      "source": "§5-2"
+    },
+    {
+      "code": "3703",
+      "title": "A21: 8255 Port C Fault",
+      "measure": "The diagnostics software reads port C of the 8255 IC on the Rear Panel assembly.",
+      "expected": "Port C reads back correctly",
+      "verdict": "PC0-PC2 are the CLEAR, STROBE and OUTPUT ENABLE lines shared by both relay drivers, so a port C fault leaves every relay on the board in whatever state it was last strobed to. Suspect U14.",
+      "refs": [
+        "U14",
+        "U16",
+        "U17"
+      ],
+      "source": "§5-2"
+    },
+    {
+      "code": "3704",
+      "title": "Assembly A21 Not Responding",
+      "measure": "At power up the instrument checks to see what assemblies are not installed. This test verifies that the Rear Panel is not responding.",
+      "expected": "The rear panel answers on the guarded digital bus",
+      "verdict": "The part that answers on the guarded bus is U14. Check J8 (the guarded rear panel I/O cable from the motherboard), the +5 LH at TP11 and LH COM at TP14, then U14. The unguarded CPU interface on J9 is a separate path and is tested by 3705.",
+      "refs": [
+        "U14",
+        "J8",
+        "TP11",
+        "TP14"
+      ],
+      "source": "§5-2"
+    },
+    {
+      "code": "3705",
+      "title": "A21: Rear Panel Data Bus Fault",
+      "measure": "The diagnostics software writes and reads from a register in the DUART on the Rear Panel assembly.",
+      "expected": "The DUART register reads back what was written",
+      "verdict": "This is the unguarded path: CPU bus on J9, transceiver U1, decoder U8 and the DUART U5. A failure with 3700-3704 passing means the CPU-side interface rather than the guarded one: check the +5 LOGIC at TP1, J9, U1, U8's RPDUARTCS* select, and finally U5. No clock at TP7 also fails this test, which points at U18.",
+      "refs": [
+        "U5",
+        "U1",
+        "U8",
+        "J9",
+        "TP1",
+        "TP7",
+        "U18"
+      ],
+      "source": "§5-2"
+    },
+    {
+      "code": "3708",
+      "title": "A21: 8255 Was Reset",
+      "measure": "The control word of the 8255 on the Rear Panel assembly is read.",
+      "expected": "The control word is still the one the software wrote",
+      "verdict": "A spontaneous reset of U14 points at its supply or at noise on the guarded bus rather than at the device, and it means every relay on the board has returned to its power-up state -- the 5725A disconnected and the phase-lock BNCs on internal. Check C47 on the RESET pin and the POP / CS12* reset network R6, R7, C8, C9, CR3 and CR4 (sheet 5 zone A5), then the +5 LH at TP11.",
+      "refs": [
+        "U14",
+        "C47",
+        "R6",
+        "R7",
+        "C8",
+        "C9",
+        "CR3",
+        "CR4",
+        "TP11"
+      ],
+      "source": "§5-2"
+    }
+  ],
+  "componentNotes": {
+    "U1": "74HCT245 bus transceiver between the CPU data bus RPD0-RPD7 on J9 and the board's own data bus D100-D107 (§2-214).",
+    "U2": "TMS9914 GPIB adapter: talker/listener protocol, internal buffer, interrupt to the CPU (§2-208).",
+    "U3": "75160A data buffer between the TMS9914 and the IEEE-488 connector J1.",
+    "U4": "75162A command-line buffer between the TMS9914 and J1.",
+    "U5": "68C681 DUART. Channel A is the RS-232-C port on J2; channel B is the 5725A control link on J7 (also on J10 for test). Its inputs monitor CTSA*, the 5725A cable interlock B-CINT* and both calibration switch lines; its outputs drive RTSA* and the 5205A/5220A latch enables (§2-209). Fault code 3705 tests it.",
+    "U6": "1488 quad RS-232-C line driver on +/-12 V: TX and RTS to J2, B-SCT to the 5725A on J7.",
+    "U7": "1489 quad RS-232-C line receiver: RX and CTS from J2, B-SCR from the 5725A.",
+    "U8": "C22V10 PLD decoding the five address lines into RPDUARTCS*, RPIEEECS*, Y52XXRD*, Y5205WR* and Y5220WR*, and buffering the regenerated clock into RPCLK (§2-206, §2-207).",
+    "U9": "74HCT374 octal latch holding the 5205A control word, enabled by 5205EN*.",
+    "U10": "74HCT374 octal latch holding the 5220A control word, enabled by 5220EN*.",
+    "U11": "74HCT244 buffer on the 5220A interface, enabled by 5220ADIR*.",
+    "U12": "74HCT244 buffer reading the amplifier status lines back (Y52XXRD*).",
+    "U13": "LF356 op amp on +5 LH / -5 LH: the 5205A sense amplifier on sheet 3.",
+    "U14": "82C55 programmable peripheral interface on the guarded digital bus via J8: port A drives U16, port B drives U17, PC0-PC2 are the drivers' CLEAR, STROBE and OUTPUT ENABLE (§2-213). Fault codes 3700-3704 and 3708 test it.",
+    "U16": "5801 relay driver for latching K2 and K3 and non-latching K1, K4, K5 and K7.",
+    "U17": "5801 relay driver for latching K6 and non-latching K8-K12, plus RLY12* (pin 13) for relay K12 on the Analog Motherboard.",
+    "U18": "NE522 high-speed comparator used as the differential amplifier that turns the CPU's 200 mV p-p 3.6864 MHz clock pair into the TTL clock RP3.68MHZ (§2-207). Runs from +/-12 V.",
+    "K1": "Non-latching, on the B IN line to BOOST IN for the 5725A (sheet 4 zone B6; §2-211).",
+    "K2": "Latching 4-form-C, part of the 5725A analog signal switching with K1, K6 and K7.",
+    "K3": "Latching 4-form-C, switches the 5205A sense and input lines (5205A SENSE LO/HI2, INPUT LO/HI) between J8 and the sheet-3 interface (sheet 4 zone B5).",
+    "K4": "Switches the 5205A connector J3's input and sense pins on sheet 3 (zone C2), driven by U16's K4SET.",
+    "K5": "Switches the 5220A INPUT LO/HI to J4 (sheet 4 zone B4); standby position is NC.",
+    "K6": "Latching, breaks the I/O lines to V-GUARD when the 5725A is not in use and routes B-RCL during 5725A calibration.",
+    "K7": "Boost B-SENSE LO / BPA-COM switching for the 5725A on J7 (sheet 4 zone B3).",
+    "K8": "Non-latching, I-RET to B-IRTN when the 5725A sources calibrator current.",
+    "K9": "Non-latching, B-CUR to B-CURRENT, with K8.",
+    "K10": "Non-latching DPDT: K10A switches PHASE LOCK IN from J6 to the Q1/Q2 limiter, K10B switches the J6 shell between chassis (through R19) and P LOCK LO (§2-212).",
+    "K11": "Non-latching, connects V-GUARD to V-GRD2 for the 5205A connector (sheet 4 zone A4).",
+    "K12": "Non-latching, connects VARIABLE PHASE OUT (J5) to P SHIFT and its shell to PA COM (§2-212). A different K12 on the Analog Motherboard is driven from U17's RLY12*.",
+    "Q1": "N-channel FET, with Q2, current-limiting the PHASE LOCK IN signal (§2-212).",
+    "Q2": "See Q1.",
+    "CR1": "With CR2, VR1, VR2, R4 and R5, the amplitude clamp protecting A13's phase-lock circuitry (§2-212).",
+    "CR3": "1N4448, with CR4, in the POP / CS12* / RESET network that feeds the 82C55's reset (sheet 5 zone A5, with R6, R7, C8 and C9). Fault code 3708 points here.",
+    "CR5": "1N4448 on the DUART's CAL SW inputs, sheet 2; not in the Rev 9 list (see the caveat).",
+    "F1": "0.25 A fast axial fuse in the VARIABLE PHASE OUT (J5) shell path, sheet 4 zone D2. §2-212 describes a resistor R18 here; the parts list and sheet have the fuse instead (see the caveat).",
+    "F2": "0.25 A fast axial fuse in the PHASE LOCK IN (J6) shell path through K10B, sheet 4 zone C2. §2-212 calls this protection R19; the board has F2.",
+    "J1": "IEEE-488 connector, 24-pin micro-ribbon; shell to chassis for shielding.",
+    "J2": "RS-232-C connector, 25-pin D.",
+    "J3": "15-socket D connector for the 5205A amplifier interface.",
+    "J4": "15-pin D connector for the 5220A amplifier interface.",
+    "J5": "VARIABLE PHASE OUT BNC.",
+    "J6": "PHASE LOCK IN BNC.",
+    "J7": "5725A amplifier interconnect: 32 signal contacts plus four cavities A1-A4 for the boost high-voltage and current lines; detail A on sheet 4 gives the pinout.",
+    "J8": "40-pin header: cable 4406 to the Analog Motherboard carrying the guarded digital bus, the LH/RLH supplies and all the boost analog lines (§2-211).",
+    "J9": "34-pin header: the unguarded CPU bus, +5 LOGIC and +/-12 V from the Digital Motherboard.",
+    "J11": "3-pin header (with the unlisted P11 mate) carrying V-GUARD and PA COM to the boost cable terminals TB1/TB2 (sheet 4 zone C7).",
+    "S1": "Rear panel CALIBRATION switch, NORMAL/ENABLE, read by the DUART as CAL SWA*/CAL SWB*.",
+    "W1": "Boost cable, B-OUT HIGH: the 5725A's high-voltage output from J7 cavity A1 to the motherboard.",
+    "W2": "Boost cable, B-SENSE HIGH, from J7 cavity A2.",
+    "W3": "Boost high-voltage cable.",
+    "X8": "24-pin socket for PLD U8, the one socketed part on the board.",
+    "L1": "6-turn choke in the +5 RLH relay supply.",
+    "R11": "1 k 1 W carbon composition from the RS-232-C chassis line to +5 LOGIC COMMON, the one power resistor on the board.",
+    "R20": "200 k feedback resistor on the LF356 sense amplifier U13.",
+    "Z4": "4.7 k SIP pull-ups on the 5220A interface lines BD0-BD3 at U11 (sheet 3 zone B3).",
+    "Z5": "10 k SIP pull-ups on the DUART's input lines and the CALIBRATION switch lines (sheet 2).",
+    "TP1": "+5 LOGIC. See the Test points tab.",
+    "TP10": "PA COM on the B SNS LO / BPA-COM path, sheet 4 zone C6. A return: the low lead for the boost analog lines only.",
+    "CR4": "See CR3.",
+    "R14": "1 k in series with WR* into the 82C55 (sheet 5 zone B6), not on the reset line.",
+    "R6": "15 k from POP into the reset network, with R7 (1 k, from CS12*), C8 (4700 pF) and C9 (470 pF): the RC that holds U14 in reset at power-up. Fault code 3708 points here.",
+    "R7": "See R6.",
+    "C47": "33 pF on the 82C55 RESET pin 35 (sheet 5 zone B6).",
+    "J12": "3-pin header (with the unlisted P12) on the B-IRTN line to J7 (sheet 4 zone C2)."
+  },
+  "caveats": [
+    {
+      "title": "No Chapter 5 section; the fault codes are the procedure",
+      "text": "Chapter 5's component-level sections run §5-4 to §5-23 and stop at A18. For this board the published procedure is fault codes 3700 to 3705 and 3708, all of which test the 82C55 U14 or the DUART U5, plus the theory in §2-204 to §2-214. A dead GPIB, serial port or 5725A link raises no code at all; those are worked from the sheets."
+    },
+    {
+      "title": "Two revisions with different stock numbers for the same parts",
+      "text": "Fourteen rows of the Rev 9 list carry stock numbers the 1996 list does not: every carbon-film resistor (R3-R10, R20 in the 573xxx series against the 1996 list's 348xxx and 441xxx), R1, C8, CR1-CR4, U6, U7 and VR1/VR2. They are the same parts renumbered, and joined by designator, so each shows its 1996 row with the Rev 9 row as the as-built alternative. C71, CR5, CR6, R22 and R23 exist only in the 1996 list -- added after Rev 9 -- and so have no manufacturer part number."
+    },
+    {
+      "title": "Test points are parts-list rows",
+      "text": "TP1-TP15 appear in Table 6-27 as 'JUMPER,WIRE,NONINSUL,0.200CTR', stock 816090, quantity 15 -- the same purchased wire loop as A7's E-links. They are real probe targets; their nets are named only in the sheet 1 legend."
+    },
+    {
+      "title": "No values are published for the board's own nodes",
+      "text": "The supply test points carry the bands of the tables that generate them (A19's Table 2-2, A17's Table 2-10) and are marked inferred; the serial lines and PA COM have no published value. A rail out of band here is checked at its source assembly before anything on this board."
+    },
+    {
+      "title": "No photograph",
+      "text": "No photograph of the rear panel board exists in this project, so the photo, overlay and swipe display modes have nothing to show."
+    },
+    {
+      "title": "§2-212 names R18 and R19, which the board does not have",
+      "text": "The theory says the BNC shell connections are protected by resistors R18 (J5) and R19 (J6). Neither appears in Table 6-27, on the locator or on sheet 4; in their places are the 0.25 A fuses F1 and F2. The description predates the change; the fuses are what to check."
+    },
+    {
+      "title": "K12 means two things",
+      "text": "K12 on this board switches the VARIABLE PHASE OUT BNC. §2-213 also says U17 'creates control line RLY12* which controls relay K12 on the Analog Motherboard assembly (A3)' -- a different relay on a different board, driven from here."
+    },
+    {
+      "title": "Designators on the sheets that are not in the parts list",
+      "text": "Sheet 2 draws S2, an 'UNUSED SWITCH' beside the CALIBRATION switch S1; sheet 4 draws P11 and P12 (the mates of J11 and J12) and the two boost cable terminals TB1 and TB2. None of them is in Table 6-27 or on the locator, so none is a part in this dataset."
+    }
+  ]
+}

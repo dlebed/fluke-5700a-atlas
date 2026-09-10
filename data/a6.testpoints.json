@@ -1,0 +1,365 @@
+{
+  "_comment": [
+    "Curated A6 test-point data. Hand-authored from the 1996 Series II service manual",
+    "and the Chapter 7 sheets rather than parsed; every value cites the section it came",
+    "from, and anything derived rather than printed is marked 'inferred': true.",
+    "",
+    "A6 has no supply table. Chapter 2 tabulates the supplies of A17, A18 and A19; it",
+    "tabulates none of A6's, because A6 generates none of the four rails it runs on.",
+    "+5 LH, -5 LH, +17 S and -17 S all arrive on P101 from the Regulator/Guard Crossing",
+    "assembly (A17) and are filtered by chokes on entry (2-217); the five local rails",
+    "-5F, +2.5, +12, -11 and -9.5 are made from those four by chokes, a divider and a",
+    "zener chain. None of the twelve test points is on a supply rail -- all twelve are",
+    "signal points -- so the only published expectations for them are the fourteen steps",
+    "of 5-5.",
+    "",
+    "Signal names and their sheet/zone references are transcribed from the legend box at",
+    "the top right of schematic sheet 1, which prints them as 'TP1 = 8MHz REFERENCE",
+    "(PG1D7)' -- page 1, zone D7. All twelve are non-insulated wire-loop jumpers: Table",
+    "6-7 lists them on one line, 'TP1-4,TP10-17  JUMPER,WIRE,NONINSUL,0.200CTR', stock",
+    "816090, so every one takes a clip lead rather than a probe tip.",
+    "",
+    "There is no TP5 to TP9 on this board. The numbering jumps because the Wideband",
+    "Output assembly (A5) carries TP1 to TP19 of its own, and 5-4's steps name several",
+    "of them -- a step that says TP5, TP7, TP9, TP18 or TP19 is on A5, not here.",
+    "",
+    "SIX of the twelve carry no published value at all, and that is the honest state of",
+    "the manual rather than an omission here. 5-5 checks TP1, TP13 and TP14 against a",
+    "printed waveform (Figures 5-2, 5-5) and gives no level for any of them; TP2 is an",
+    "injection point rather than a measurement; TP3's only verify is a swept range, not",
+    "a nominal; and TP11 is measured nowhere in Chapter 5. Those six carry",
+    "noPublishedValue with the expectation written out as prose in 'condition' and",
+    "'note'. Four of the five figures in 5-5's page range are waveforms, and a waveform",
+    "is not a nominal plus a tolerance -- see the 'waveform figures' caveat, which also",
+    "records that all five figures are printed with the same boilerplate 1V and 10 ms",
+    "axis labels regardless of what they show.",
+    "",
+    "Every measurement in 5-5 is referenced to SCOM, which the section's own note gives",
+    "as 'TP16 or TP17'. TP16 is used as the refPoint throughout because it is the one on",
+    "sheet 1, beside the phase-locked loop where most of the section's work happens;",
+    "TP17 is the same net at the output end of sheet 2, next to J1.",
+    "",
+    "Steps 6 to 9 all begin the same way: power down, pull shorting header E6 off the J6",
+    "pins, and connect an external variable dc reference of 2 to 13 V to TP2. That",
+    "breaks the loop and drives the vco by hand. E6 must go back on before anything is",
+    "believed -- the note after step 9 says so, and the warnings repeat it."
+  ],
+
+  "rails": {
+    "PLL": {
+      "label": "Phase-locked loop and divider (sheet 1)",
+      "com": "TP16",
+      "color": "#5ec2a8"
+    },
+    "AMP": {
+      "label": "Amplitude control, X10 amplifier and filters (sheets 2 and 3)",
+      "com": "TP17",
+      "color": "#e0b13a"
+    },
+    "COM": {
+      "label": "SCOM",
+      "com": "TP16",
+      "color": "#9aa0a6"
+    }
+  },
+
+  "testpoints": [
+    {
+      "ref": "TP1",
+      "signal": "8MHz REFERENCE",
+      "rail": "PLL",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "noPublishedValue": true,
+      "condition": "Calibrator set to 1 V at 1.2 MHz, operate. Oscilloscope: an 8 MHz square wave, the shape of Figure 5-2. No amplitude and no tolerance are published for it.",
+      "source": "§5-5 step 3",
+      "note": "The TTL-level 8 MHz reference that comparator U15A makes for synthesiser U1, and the first thing to look at when the loop will not lock. Its input is the instrument's 8 MHz system clock, CLK and CLK*, which arrives on P101 as a low-level differential sine wave -- §2-219 calls it about 200 mV p-p and the note printed beside §5-5 step 3 calls it 400 mV p-p (see the caveat) -- generated on the Regulator/Guard Crossing assembly (A17). If there is nothing here, §5-5 sends you first to U15 pin 5 to confirm that control line WB ON/OFF* is a logic high, because that line shuts the 8 MHz generator and the vco down whenever the Wideband module is not in use; a low there means the fault is on A5, not on this board. Only if WB ON/OFF* is right does the section blame U15A.",
+      "onFail": ["U15", "R84", "R85", "C62", "L16", "R83", "Z2"]
+    },
+    {
+      "ref": "TP2",
+      "signal": "PLL FILTER OUT",
+      "rail": "PLL",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "noPublishedValue": true,
+      "condition": "In normal operation a dc voltage that holds the vco between 32 and 64 MHz; the manuals publish no nominal for it. In §5-5 steps 6 to 9 it is an INPUT: E6 comes off the J6 pins and an external 2 to 13 V dc reference is connected here.",
+      "source": "§5-5 steps 6, 7, 8 and 9; §2-219 for the circuit",
+      "note": "The loop filter's output and the varactor bias line -- amplifier U2's output after L6, C53 and C17, driving CR1 and CR2 to pull the vco. It is the one test point on this board that the procedure drives rather than reads: removing E6 from J6 breaks the link between U2's output and the varactors, and the external reference then sets the vco frequency by hand so that the divider chain can be checked one stage at a time. Two consequences worth knowing before probing. First, the same voltage is divided down to make WB PLL DIAGNOSTICS, which A5 routes to the SDL line for fault codes 3905 and 3906, so a diagnostic complaint about the phase lock loop is a complaint about the voltage at this point. Second, nothing on this board reads correctly with E6 off -- put it back before believing anything.",
+      "onFail": ["U2", "L6", "C53", "C17", "E6", "J6"]
+    },
+    {
+      "ref": "TP3",
+      "signal": "VCO OUTPUT",
+      "rail": "PLL",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "noPublishedValue": true,
+      "condition": "E6 off the J6 pins, external dc reference on TP2, Calibrator at 1 V / 1.2 MHz operate, frequency counter here. Sweeping the reference from 2 V to 12 V must move this point from approximately 32 MHz to approximately 64 MHz. That is a swept range, not a nominal, so no number is carried below.",
+      "source": "§5-5 step 6",
+      "note": "The vco output itself, U3 pin 3, and the top of the divider chain: 32 to 64 MHz, which U4 halves to the 16-32 MHz top octave and U5 divides down for the other four. Step 7 also uses this point, but as a set point rather than a check -- it says to adjust the external reference until the counter here reads 64 MHz ±0.1%, and then to measure TP4 and U5's outputs against that. So the only thing §5-5 asks you to verify at TP3 is step 6's sweep. If the sweep is dead, the section names the vco circuit: U3 and the two MVAM125 varactors CR1 and CR2. Check the vco's own supply first, because §5-5 step 5 puts it one step earlier: U3 pin 8 must be -5 V ±7%, and Q2 and Q3 switch it off whenever WB ON/OFF* goes low.",
+      "onFail": ["U3", "CR1", "CR2", "Q2", "Q3", "U7"]
+    },
+    {
+      "ref": "TP4",
+      "signal": "VCO DIVIDER",
+      "rail": "PLL",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "nominal": 32,
+      "tolerancePct": 0.1,
+      "unit": "MHz",
+      "condition": "E6 off the J6 pins, external dc reference on TP2 adjusted until TP3 reads 64 MHz ±0.1%, Calibrator at 1 V / 1.2 MHz operate. Frequency counter here; 0.1% of 32 MHz is 32 kHz.",
+      "source": "§5-5 step 7",
+      "note": "The output of the divide-by-two flip-flop in U4, and the top octave the whole assembly works from: with the vco at 64 MHz this is 32 MHz, and §2-219 calls 16 to 32 MHz the top octave range required of this board. The check is a ratio dressed as a frequency -- TP3 is set to 64 MHz first, so a reading here that is not half of it means U4 rather than the vco. If TP4 is right, the section moves on to U5's four outputs (pins 15, 13, 4 and 2), which are the same signal divided by two, four, eight and sixteen; those are carried as probe points below.",
+      "onFail": ["U4", "C20"]
+    },
+    {
+      "ref": "TP10",
+      "signal": "MULTIPLEXER OUTPUT",
+      "rail": "PLL",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "nominal": 1.2,
+      "tolerancePct": 0.01,
+      "unit": "MHz",
+      "condition": "Calibrator set to 1 V at 1.2 MHz, operate. Frequency counter here; 0.01% of 1.2 MHz is 120 Hz. Oscilloscope at 500 mV/div and 500 ns/div shows the waveform of Figure 5-1.",
+      "source": "§5-5 step 2",
+      "note": "The best single point on the board, and the one §5-5 opens with: multiplexer U6's output, the 1 to 32 MHz square wave that everything downstream shapes. The nominal below is the 1.2 MHz of the section's standard setting; the real test is that it follows the Calibrator, so step 2 goes on to set 2, 5, 10, 20 and 30 MHz and requires each one within 0.01% of nominal, and step 10 repeats the 0.01% check while the U6 control lines are read against Table 5-1. Step 2 is also the section's branch point: if this is right, everything from step 3 to step 10 can be skipped and the work is downstream, in the amplitude control amplifier and the filters. Note that Figure 5-1's printed axis labels (1V, 10 ms) do not match a 1.2 MHz signal at 500 ns/div -- see the caveat.",
+      "onFail": ["U6", "U7", "U5", "U4"]
+    },
+    {
+      "ref": "TP11",
+      "signal": "AMPLITUDE CONTROL",
+      "rail": "AMP",
+      "kind": "wire-loop",
+      "refPoint": "TP17",
+      "noPublishedValue": true,
+      "condition": "A dc control voltage that rises with the requested output; the manuals publish no value measured at this point.",
+      "source": "Figure 7-6 sheet 1 test point legend (PG2B8); the net is P101 pin 25C, WB AMPLITUDE CONTROL from the Wideband Output assembly",
+      "note": "The gain command, and the one signal on this board that comes from A5 rather than going to it: WB AMPLITUDE CONTROL arrives on P101 25C from the thermal rms sensor loop on the Wideband Output assembly and sets the gain of differential amplifier U9 through pin 10 (§2-220). §5-5 never measures it. Fault codes 3910 and 3911 do put numbers on it -- 4.5 V ±1.0 V at a 3.5 V output and 10 MHz, 4.8 V ±1.0 V at 30 MHz, and 0.0 V ±0.7/0.8 V at a 1.2 V output -- but those readings are taken through a divider on A5 and the SDL line to the adc on A11, not with a meter here, and both codes blame A5. They are recorded in the fault code panel rather than carried as an expectation for TP11, because the manual does not say the two are the same voltage. What TP11 is genuinely good for is deciding which board is at fault when the wideband output is the wrong amplitude: if the control voltage moves with the setting and the output does not, the fault is on this side of P101.",
+      "onFail": ["U9", "R31", "R32", "C35"]
+    },
+    {
+      "ref": "TP12",
+      "signal": "WB AMP INPUT",
+      "rail": "AMP",
+      "kind": "wire-loop",
+      "refPoint": "TP17",
+      "noPublishedValue": true,
+      "condition": "The gain-controlled square wave, one emitter follower after U9 pin 6 and before the X10 gain stage. No level is published for it.",
+      "source": "Figure 7-6 sheet 1 test point legend (PG2D5); traced on sheet 2 of 3",
+      "note": "On sheet 2 this loop sits on Q4's emitter, where R52 (1K) returns it to SCOM and C42 couples it on through R54 into Q5. Q4's base is driven from U9 pin 6 through R50, so TP12 carries the amplitude control amplifier's output one follower later. §5-5 does not name TP12: step 11 puts the scope on pin 6 of U9 instead and compares it with Figure 5-5. That makes TP12 the convenient stand-in for step 11 -- a wire loop rather than an IC pin -- but it is a stand-in and not what the manual asks for, so no expectation is recorded here. Its value is as a divider between step 11 and step 12: signal at TP12 and none at TP13 puts the fault in the X10 amplifier, Q4 to Q6.",
+      "onFail": ["Q4", "R50", "R52", "C42", "U9"]
+    },
+    {
+      "ref": "TP13",
+      "signal": "WB AMP OUTPUT",
+      "rail": "AMP",
+      "kind": "wire-loop",
+      "refPoint": "TP17",
+      "noPublishedValue": true,
+      "condition": "Cable to A5 disconnected at J1 on the Wideband Output assembly, Calibrator set to 1 V at 1.2 MHz operate, oscilloscope ac coupled. The waveform of Figure 5-5 at approximately ten times the amplitude seen at pin 6 of U9. §2-220 gives the amplitude of this node over its whole range as 1.4 V p-p to 6.0 V p-p, which is a range and not a tolerance, so no number is carried below.",
+      "source": "§5-5 step 12; §2-220 for the 1.4 to 6.0 V p-p range",
+      "note": "The output of the X10 wideband amplifier -- Q4, Q5 and Q6 configured for a gain of ten -- taken on the FILTER INPUT net after R86 and C41, where it feeds whichever of the five five-pole filters is selected. The comparison, not the absolute level, is the test: step 11 looks at pin 6 of U9 and step 12 looks here, and the second must be about ten times the first. If it is not, §5-5 names Q4, Q5 and Q6. Note that the amplitude here tracks the requested output through the amplitude control loop, which is why the manual gives a factor rather than a voltage.",
+      "onFail": ["Q4", "Q5", "Q6", "R86", "C41", "C43", "C45", "C46"]
+    },
+    {
+      "ref": "TP14",
+      "signal": "WB OSC OUTPUT",
+      "rail": "AMP",
+      "kind": "wire-loop",
+      "refPoint": "TP17",
+      "noPublishedValue": true,
+      "condition": "Cable to A5 disconnected at J1 on the Wideband Output assembly. Calibrator set to 1 V at each of 1.2, 1.9, 2, 3.9, 4, 7.9, 8, 15.9, 16 and 30 MHz in turn: a distortion-free sine wave at every one. §2-216 and §2-221 give the full-scale level as a nominal 700 mV rms, with no tolerance.",
+      "source": "§5-5 step 14; §2-216 and §2-221 for the 700 mV rms full-scale figure",
+      "note": "The assembly's output: output driver Q7's emitter, ac coupled through C60 and out through R71 (75 ohm) to J1 and the 75 ohm coaxial cable to the Wideband Output assembly. The ten frequencies in step 14 are chosen in pairs that straddle the four filter changeover points -- 1.9/2, 3.9/4, 7.9/8, 15.9/16 -- so the step tests the switching as much as the filters. What it looks for is distortion, not amplitude: a square-ish or asymmetric waveform at one frequency and a clean sine at the next means the filter for that octave is not being switched in, which is step 13's territory (U8, U10, U11, U13) rather than the filter itself. Level is set by the amplitude control loop on A5 and so is not a property of this board.",
+      "onFail": ["Q7", "C60", "R71", "C61", "R63", "R64", "R65", "L15", "J1"]
+    },
+    {
+      "ref": "TP15",
+      "signal": "PLL FEEDBACK",
+      "rail": "PLL",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "nominal": 4.8,
+      "tolerancePct": 0.01,
+      "unit": "MHz",
+      "condition": "Calibrator set to 1 V at 1.2 MHz, operate. Frequency counter here; 0.01% of 4.8 MHz is 480 Hz. On an oscilloscope the waveform of Figure 5-3.",
+      "source": "§5-5 step 4",
+      "note": "The frequency fed back into synthesiser U1 pin 3, after the vco has been divided by eight in U4 and U5. §2-219 explains the number: the first divide-by-N counter in U1 divides the 8 MHz reference by 160 to give a 50 kHz phase-detector reference, and the second divides this feedback by 80 to 160 in unit steps, so pin 3 must sit between 4 MHz and 8 MHz whatever the output frequency. 4.8 MHz is what that works out to with the Calibrator at 1.2 MHz. Step 4 is the section's second branch point: if this is right, steps 5 to 9 can be skipped and the work moves to step 10 and the multiplexer. Steps 8 and 9 use TP15 differently again -- with E6 off, the Calibrator at 6 MHz and the external reference adjusted until the counter here reads a little under and then a little over 6 MHz, which is how U1's two phase-detector outputs and amplifier U2 are made to swing either way.",
+      "onFail": ["U4", "U5", "U1", "R11", "R12"]
+    },
+    {
+      "ref": "TP16",
+      "signal": "SCOM",
+      "rail": "COM",
+      "kind": "wire-loop",
+      "isReturn": true,
+      "source": "Figure 7-6 sheet 1 test point legend (PG1C4); §5-5's own note names TP16 or TP17 as the reference for every measurement in the section",
+      "note": "The S-supply common, brought out beside the phase-locked loop on sheet 1. It is the same net as TP17 -- the legend prints SCOM against both -- and the loop to use for anything on sheet 1. S COM itself arrives on P101 pins 24A/24C from the Regulator/Guard Crossing assembly. Note that it is not the only common on the board: LH COM comes in on 18A/18C and is what C1 and C3 return to, so a reading taken against the wrong one on the supply entry is a reading of the difference between two grounds."
+    },
+    {
+      "ref": "TP17",
+      "signal": "SCOM",
+      "rail": "COM",
+      "kind": "wire-loop",
+      "isReturn": true,
+      "source": "Figure 7-6 sheet 1 test point legend (PG2C1); §5-5's own note names TP16 or TP17 as the reference for every measurement in the section",
+      "note": "The same SCOM net as TP16, brought out at the far end of sheet 2 next to output connector J1 and TP14. Use this one for the output measurements of steps 12 and 14: at 30 MHz the length of the scope's ground lead is part of the measurement, and TP16 is the width of the board away."
+    }
+  ],
+
+  "probePoints": [
+    {
+      "id": "U15-5",
+      "label": "U15 pin 5 — WB ON/OFF*",
+      "component": "U15",
+      "refPoint": "TP16",
+      "noPublishedValue": true,
+      "condition": "Calibrator in the Wideband function. A logic high; the manual states no level.",
+      "source": "§5-5 step 3",
+      "note": "The gate on the whole assembly. WB ON/OFF* comes from the digital control circuit on the Wideband Output assembly (A5) through P101 and, when low, shuts down both the 8 MHz clock generator and the vco -- §2-219 says a comparator in U7 inverts it to turn Q3 on, which turns Q2 off and takes the -5 V supply away from U3. So a board that looks completely dead with no 8 MHz at TP1 and nothing at TP3 is the expected behaviour if this line is low, and the fault is then on A5. Check it before replacing anything here."
+    },
+    {
+      "id": "U3-8",
+      "label": "U3 pin 8 — vco supply",
+      "component": "U3",
+      "refPoint": "TP16",
+      "nominal": -5,
+      "tolerancePct": 7,
+      "unit": "V dc",
+      "condition": "Calibrator set to 1 V at 1.2 MHz, operate. DMM.",
+      "source": "§5-5 step 5",
+      "note": "The vco's own supply, switched rather than regulated: Q2 passes it and Q3, driven by a comparator in U7 from WB ON/OFF*, turns Q2 off when the Wideband module is not in use. A reading near zero here with WB ON/OFF* high means Q2, Q3 or U7 rather than U3. This is the only numeric dc expectation §5-5 publishes anywhere on the board."
+    },
+    {
+      "id": "U5-15",
+      "label": "U5 pin 15 — divide by 2",
+      "component": "U5",
+      "refPoint": "TP16",
+      "nominal": 16,
+      "tolerancePct": 0.1,
+      "unit": "MHz",
+      "condition": "E6 off the J6 pins, external dc reference on TP2 adjusted until TP3 reads 64 MHz ±0.1%. Frequency counter; 0.1% of 16 MHz is 16 kHz.",
+      "source": "§5-5 step 7",
+      "note": "First of the four binary counter outputs, and the 8-16 MHz octave. All four are checked in the same breath in step 7, each one half the last; a chain that stops part way through names U5 outright."
+    },
+    {
+      "id": "U5-13",
+      "label": "U5 pin 13 — divide by 4",
+      "component": "U5",
+      "refPoint": "TP16",
+      "nominal": 8,
+      "tolerancePct": 0.1,
+      "unit": "MHz",
+      "condition": "E6 off the J6 pins, external dc reference on TP2 adjusted until TP3 reads 64 MHz ±0.1%. Frequency counter.",
+      "source": "§5-5 step 7",
+      "note": "The 4-8 MHz octave. Not to be confused with the 8 MHz reference at TP1, which is a different signal from a different source."
+    },
+    {
+      "id": "U5-4",
+      "label": "U5 pin 4 — divide by 8",
+      "component": "U5",
+      "refPoint": "TP16",
+      "nominal": 4,
+      "tolerancePct": 0.1,
+      "unit": "MHz",
+      "condition": "E6 off the J6 pins, external dc reference on TP2 adjusted until TP3 reads 64 MHz ±0.1%. Frequency counter.",
+      "source": "§5-5 step 7",
+      "note": "The 2-4 MHz octave."
+    },
+    {
+      "id": "U5-2",
+      "label": "U5 pin 2 — divide by 16",
+      "component": "U5",
+      "refPoint": "TP16",
+      "nominal": 2,
+      "tolerancePct": 0.1,
+      "unit": "MHz",
+      "condition": "E6 off the J6 pins, external dc reference on TP2 adjusted until TP3 reads 64 MHz ±0.1%. Frequency counter.",
+      "source": "§5-5 step 7",
+      "note": "The 1-2 MHz octave, the bottom of the five ranges multiplexer U6 selects between."
+    },
+    {
+      "id": "U1-15",
+      "label": "U1 pin 15 — phase detector output 0R",
+      "component": "U1",
+      "refPoint": "TP16",
+      "noPublishedValue": true,
+      "condition": "E6 off the J6 pins, Calibrator at 1 V / 6 MHz operate, external dc reference on TP2 adjusted until the counter at TP15 reads a little UNDER 6 MHz (about 5.8 MHz). Oscilloscope: the waveform of Figure 5-4. No level is published.",
+      "source": "§5-5 step 8",
+      "note": "One of synthesiser U1's two phase-detector outputs. §2-219 explains what the step is doing: when the feedback frequency is below the 50 kHz reference, or lags it in phase, 0R pulses low while 0V stays high; when it is above, the roles swap. Driving TP15 either side of the wanted frequency by hand is what makes each output pulse in turn, which is why steps 8 and 9 set the counter first to 5.8 and then to 6.2 MHz."
+    },
+    {
+      "id": "U1-14",
+      "label": "U1 pin 14 — phase detector output 0V",
+      "component": "U1",
+      "refPoint": "TP16",
+      "noPublishedValue": true,
+      "condition": "E6 off the J6 pins, Calibrator at 1 V / 6 MHz operate, external dc reference on TP2 adjusted until the counter at TP15 reads a little OVER 6 MHz (about 6.2 MHz). Oscilloscope: the waveform of Figure 5-4. No level is published.",
+      "source": "§5-5 step 8",
+      "note": "The other phase-detector output, checked with the feedback frequency driven the other side of the reference. Both outputs sit high with brief coincident low pulses when the loop is locked, which is the condition §2-219 describes and which neither half of step 8 shows you -- the step deliberately unlocks the loop so that each output can be seen working on its own."
+    },
+    {
+      "id": "U2-6",
+      "label": "U2 pin 6 — loop amplifier output",
+      "component": "U2",
+      "refPoint": "TP16",
+      "noPublishedValue": true,
+      "condition": "E6 off the J6 pins, Calibrator at 1 V / 6 MHz operate. With the counter at TP15 below 6 MHz (about 5.8) the output must be a POSITIVE dc voltage; with it above 6 MHz (about 6.2) a NEGATIVE one. The manual gives the two polarities and no levels.",
+      "source": "§5-5 step 9",
+      "note": "The loop amplifier that turns U1's two phase-detector outputs into the varactor bias. The test is the sign change, not the size: what step 9 proves is that U2 responds in the right direction to the loop being driven off frequency. If it sits at one polarity whichever way TP15 is driven, U2 or its input network is at fault; if it swings correctly here but the vco does not follow, the fault is past E6 -- CR1, CR2 or U3."
+    },
+    {
+      "id": "U9-6",
+      "label": "U9 pin 6 — amplitude control amplifier output",
+      "component": "U9",
+      "refPoint": "TP17",
+      "noPublishedValue": true,
+      "condition": "Cable to A5 disconnected at J1 on the Wideband Output assembly, Calibrator set to 1 V at 1.2 MHz operate, oscilloscope ac coupled. The waveform of Figure 5-5. No level is published.",
+      "source": "§5-5 step 11",
+      "note": "The gain-controlled square wave leaving the differential amplifier in transistor array U9 (CA1302), whose gain is set by the AMPLITUDE CONTROL dc from A5 at pin 10. This and TP13 are the pair that step 12 compares: TP13 must be about ten times this. Step 11 is also where the section resumes if step 2 passed -- with a good multiplexer output at TP10, the fault is from here on."
+    },
+    {
+      "id": "U6-7",
+      "label": "U6 pin 7 — multiplexer select A",
+      "component": "U6",
+      "refPoint": "TP16",
+      "noPublishedValue": true,
+      "condition": "Calibrator at 1 V, operate, at each of the five frequencies of Table 5-1. Each pin is either -5 V or 0 V; which one depends on the range, so the table is the expectation rather than a single value.",
+      "source": "§5-5 step 10; Table 5-1",
+      "note": "One of the three ECL-level select lines for multiplexer U6, made by comparators in U7 from WB MUXA, WB MUXB and WB MUXC (§2-218). Read all three against the table in the same pass: the pattern, not any one pin, is what says whether the right octave has been selected. A wrong pattern with a good output frequency at TP10 is not possible, so the two halves of step 10 check each other."
+    },
+    {
+      "id": "U6-9",
+      "label": "U6 pin 9 — multiplexer select B",
+      "component": "U6",
+      "refPoint": "TP16",
+      "noPublishedValue": true,
+      "condition": "Calibrator at 1 V, operate, at each of the five frequencies of Table 5-1. Each pin is either -5 V or 0 V; which one depends on the range.",
+      "source": "§5-5 step 10; Table 5-1",
+      "note": "See U6 pin 7. Note that the table's B column is the one that differs between the 4.0 MHz and 8.0 MHz rows, so a stuck B line shows as those two ranges swapping."
+    },
+    {
+      "id": "U6-10",
+      "label": "U6 pin 10 — multiplexer select C",
+      "component": "U6",
+      "refPoint": "TP16",
+      "noPublishedValue": true,
+      "condition": "Calibrator at 1 V, operate, at each of the five frequencies of Table 5-1. Each pin is either -5 V or 0 V; which one depends on the range.",
+      "source": "§5-5 step 10; Table 5-1",
+      "note": "See U6 pin 7. If all three lines are wrong together, suspect U7 and the three WB MUX lines arriving from A5 on P101 rather than U6."
+    },
+    {
+      "id": "U13-collector",
+      "label": "U13 — collector of the transistor for the selected filter",
+      "component": "U13",
+      "refPoint": "TP17",
+      "noPublishedValue": true,
+      "condition": "Cable to A5 disconnected at J1 on the Wideband Output assembly. Calibrator at 1 V and 1.2, 2, 4, 8 and 16 MHz in turn. At each frequency the collector belonging to that octave must switch to a high level of about +17 V while every other one stays at a low of about -11 V. The manual writes both figures with a tilde and publishes no tolerance.",
+      "source": "§5-5 step 13",
+      "note": "U13 is a CA3183 five-transistor array and it is the filter switch drive: one transistor per octave, turning on the input and output FETs of that octave's five-pole filter (§2-221). Its partner U12 does the same job for the Filter Band Switch line, which brings the extra capacitors C110/C111 and their PIN diodes in below 70% of each range. The +17 V high comes straight from the +17 S rail and the -11 V low from the VR5 chain, so both levels are supply rails rather than logic thresholds. Two collectors high at once, or none, is the classic cause of a distorted output at one frequency in step 14; §5-5 sends you to U8, U10, U11 and U13."
+    }
+  ]
+}

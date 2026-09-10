@@ -1,0 +1,394 @@
+{
+  "_comment": [
+    "Curated A5 test-point data. Hand-authored from the 1996 Series II service manual",
+    "rather than parsed; every value cites the section or fault code it came from, and",
+    "anything derived rather than printed is marked 'inferred': true with the derivation",
+    "in the note.",
+    "",
+    "A5 has no supply table. Chapter 2 tabulates the supplies of A17, A18 and A19 and",
+    "none of A5's, because A5 generates none: +/-17 S, +5 LH, -5 LH and +5 RLH all",
+    "arrive on P111 and the board's only work on them is the six 6-turn chokes L1-L6,",
+    "which turn each into its own S-suffixed net (+17 S -> +17S, +5 RLH -> +SRLH). So",
+    "none of the nineteen test points is a supply rail; all nineteen are signal points,",
+    "and the published expectations for them are the nine steps of 5-4 and the",
+    "3900-series diagnostic fault codes.",
+    "",
+    "Signal names and their sheet/zone references are transcribed from the legend box at",
+    "the top right of schematic sheet 1, which prints them as 'TP1 = RMS SENSOR DC",
+    "(PG1B4)' -- page 1, zone B4. Note that eleven of the nineteen are on sheet 2, not",
+    "sheet 1: the legend lives on sheet 1 but names points across both.",
+    "",
+    "All nineteen are non-insulated wire loops. Table 6-6 lists them as one line,",
+    "'TP1-19 JUMPER,WIRE,NONINSUL,0.200CTR', stock 816090, Tot Qty 19, so every one",
+    "takes a clip lead rather than a probe tip.",
+    "",
+    "5-4 step 1's Note is unambiguous about the reference: 'All measurements are",
+    "referenced to SCOM (TP16) and all Calibrator outputs are from the Wideband Option",
+    "unless otherwise Noted.' So refPoint is TP16 everywhere except the two points that",
+    "5-4 step 6 drives from an external supply, where the step names TP19 (COM1) as the",
+    "low side.",
+    "",
+    "Every 5-4 step is run with the board on the 5700A-7001K extender card, its large",
+    "right front shield removed, the rear shield left in place, and a 50 ohm load on the",
+    "front panel type N connector -- see the warnings. On this board a test point has no",
+    "reading at all until the instrument is sourcing, which is why every condition below",
+    "names an instrument setting.",
+    "",
+    "Eight of the nineteen carry no published expectation at all and are marked",
+    "noPublishedValue. They are still real probe targets with real signal names, and",
+    "several of them are what 5-4 sends you to when a neighbouring reading is wrong.",
+    "",
+    "5-4 step 7 makes its one measurement at a component junction rather than a test",
+    "point; that is the probePoint."
+  ],
+
+  "rails": {
+    "SENSOR": {
+      "label": "RMS sensor and amplitude control",
+      "com": "TP16",
+      "color": "#e0b13a"
+    },
+    "AMP": {
+      "label": "Power amplifier chain",
+      "com": "TP16",
+      "color": "#5ec2a8"
+    },
+    "CTL": {
+      "label": "Overload and digital control",
+      "com": "TP16",
+      "color": "#4fa3d1"
+    },
+    "COM": {
+      "label": "Common",
+      "com": "TP16",
+      "color": "#9aa0a6"
+    }
+  },
+
+  "testpoints": [
+    {
+      "ref": "TP1",
+      "signal": "RMS SENSOR DC",
+      "rail": "SENSOR",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "unit": "V dc",
+      "source": "§5-4 steps 4, 5 and 8; fault code 3909",
+      "note": "The dc output of the thermal rms sensor circuit, which §2-225 names as 'available at TP1'. U1 is the thermal converter, U2A integrates its output and U2B/U3/U12A form the square-root amplifier that keeps the settling time constant; this loop is what makes the instrument's wideband amplitude flat. §5-4 steps 4 and 5 do not print an absolute number for it -- they say it must equal the ac volts just measured at TP7, which the same step puts at 7 V +/-10%, so the 7 V below is that reading and not a separate specification.",
+      "states": [
+        {
+          "label": "3.5 V at 1 kHz, operate (below 12 kHz)",
+          "nominal": 7,
+          "tolerancePct": 10,
+          "setup": "Measure the ac volts at TP7 first; TP1 must equal that reading within 10%.",
+          "source": "§5-4 step 4",
+          "inferred": true,
+          "onFail": ["U1", "U2", "U3"]
+        },
+        {
+          "label": "3.5 V at 12 kHz, operate (12 kHz to 1.1 MHz)",
+          "nominal": 7,
+          "tolerancePct": 10,
+          "setup": "Measure the ac volts at TP7 first; TP1 must equal that reading within 10%.",
+          "source": "§5-4 step 5",
+          "inferred": true,
+          "onFail": ["U1", "U2", "U3"]
+        },
+        {
+          "label": "At the overload trip point",
+          "nominal": 7.7,
+          "tolerancePct": 5,
+          "setup": "Remove E3 from J3, drive TP18 (low to TP19) from an external dc reference, set 3.5 V at 1.2 MHz operate, then raise the reference in 10 mV steps until TP5 goes positive. TP1 at that instant is the trip threshold.",
+          "source": "§5-4 step 8",
+          "onFail": ["U4", "VR2", "R21"]
+        },
+        {
+          "label": "Sensor linearity diagnostic, 6.5 V dc in",
+          "nominal": 6.5,
+          "tolerance": 0.47,
+          "setup": "Run by the instrument's own diagnostics: BRF6/BSRF6, the calibrated 6.5 V reference from A11, is switched into the sensor input.",
+          "source": "Fault code 3909",
+          "onFail": ["U1", "U2", "U3", "U5", "K3"]
+        }
+      ]
+    },
+    {
+      "ref": "TP2",
+      "signal": "RMS SENSOR OUTPUT",
+      "rail": "SENSOR",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "nominal": 2.22,
+      "tolerancePct": 10,
+      "unit": "V dc",
+      "condition": "3.5 V at 1 kHz or at 12 kHz, operate",
+      "source": "§5-4 steps 4 and 5",
+      "inferred": true,
+      "note": "The sensor output after U5 buffers it. The manual states this one as a ratio and not as a voltage: 'measure the dc voltage at TP2 and verify it is 0.317 times the voltage at TP1 +/-10%'. The 2.22 V here is 0.317 x 7 V, which is what TP1 reads under the same conditions -- so measure TP1 first and check the ratio if the two disagree. In the 12 kHz to 1.1 MHz range this node is what K10 connects to the RCL line for A11's adc to measure (§2-225).",
+      "onFail": ["U5", "K10"]
+    },
+    {
+      "ref": "TP3",
+      "signal": "AMPLITUDE CONTROL",
+      "rail": "CTL",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "unit": "V dc",
+      "source": "§5-4 step 6; fault codes 3910 and 3911",
+      "note": "U12B's output: the error between the rms sensor output and DAC OUT, sent to the Wideband Oscillator (A6) through R112 as the WB AMPLITUDE CONTROL line, where it sets A6's ac amplitude (§2-222 range 3). The four states below come from the diagnostics, which measure the same line through the R35/R36 divider and the multiplexer. §5-4 step 6 checks this point too but only for sign, so it is not one of the states: with E3 off, TP18 driven from an external dc reference and the Calibrator at 3.5 V, 12 kHz operate, the reading must be negative with 2 V on TP18 and must go positive at 3 V. There is no level to score there, only a direction -- if it fails, check U12B. A wrong reading here is as likely to be A6's fault as A5's; fault codes 3910 and 3911 are both titled 'A5/A6'.",
+      "states": [
+        {
+          "label": "3.5 V at 1.3 MHz, operate",
+          "nominal": 4.5,
+          "tolerance": 1.0,
+          "source": "Fault code 3910",
+          "onFail": ["U12", "R112", "R35", "R36"]
+        },
+        {
+          "label": "1.2 V at 1.3 MHz, operate",
+          "nominal": 0.0,
+          "tolerance": 0.7,
+          "source": "Fault code 3910",
+          "onFail": ["U12", "R112", "R35", "R36"]
+        },
+        {
+          "label": "3.5 V at 30 MHz, operate",
+          "nominal": 4.8,
+          "tolerance": 1.0,
+          "source": "Fault code 3911",
+          "onFail": ["U12", "R112", "R35", "R36"]
+        },
+        {
+          "label": "1.2 V at 30 MHz, operate",
+          "nominal": 0.0,
+          "tolerance": 0.8,
+          "source": "Fault code 3911",
+          "onFail": ["U12", "R112", "R35", "R36"]
+        }
+      ]
+    },
+    {
+      "ref": "TP4",
+      "signal": "DAC OUT",
+      "rail": "SENSOR",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "noPublishedValue": true,
+      "source": "Figure 7-5 sheet 1 legend (PG1D7)",
+      "note": "The DAC assembly's output after K11 ties DAC OUT HI and DAC SENSE HI together (§2-225). Above 1.2 MHz this is the amplitude the sensor is servoed to: U12B compares it against the sensor output and drives A6's amplitude control line until the two match. Neither §5-4 nor the fault codes tabulate a level for it, because the level is whatever amplitude the instrument has been asked for -- what can be checked is that TP4 tracks the setting and that TP18 follows it with E3 fitted.",
+      "onFail": ["K11", "E3", "J3"]
+    },
+    {
+      "ref": "TP5",
+      "signal": "OVERLOAD CONTROL",
+      "rail": "CTL",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "unit": "V dc",
+      "source": "§5-4 steps 4, 5 and 8",
+      "note": "U4B's output, which drives the gates of Q2 and Q3. When it is high the two FETs shunt the sensor's input and output to ground through R2 and R18 (200 ohm each), desensitising the sensor -- that is the normal state below 12 kHz, where the amplitude is controlled by A12 and A5's loop is doing overload protection only (§2-222 range 1, §2-226). Above 12 kHz the FETs must be off or the sensor cannot control anything, which is why the two states below are opposite signs rather than two values of one thing. The negative state's band is +/-20%, twice the usual, because it is a FET-off level rather than a rail.",
+      "states": [
+        {
+          "label": "3.5 V at 1 kHz, operate -- Q2 and Q3 on",
+          "nominal": 17,
+          "tolerancePct": 10,
+          "source": "§5-4 step 4",
+          "onFail": ["U4", "Q2", "Q3"]
+        },
+        {
+          "label": "3.5 V at 12 kHz, operate -- Q2 and Q3 off",
+          "nominal": -11.4,
+          "tolerancePct": 20,
+          "setup": "If this reading is wrong, §5-4 step 5 says to skip to step 8 rather than continue.",
+          "source": "§5-4 step 5",
+          "onFail": ["U4", "Q2", "Q3", "VR4"]
+        }
+      ]
+    },
+    {
+      "ref": "TP6",
+      "signal": "BRF6",
+      "rail": "SENSOR",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "noPublishedValue": true,
+      "source": "Figure 7-5 sheet 1 legend (PG1D6)",
+      "note": "The buffered 6.5 V reference arriving from the DAC assembly on P111 24C, with its sense line BSRF6 on 24A. §2-228 calls it 'the previously calibrated 6.5V reference BRF6' and it is what the instrument uses to calibrate the 10 dB, 20 dB and 40 dB attenuators, with K3A and K3B and K12 set to route it into the unity-gain amplifier. The manuals publish no expectation at this loop: the nearest tabulated band is fault code 3909's 6.5 V +/-0.47 V, and that is the *sensor's* response to this reference, not the reference itself. If 3909 fails and TP1 is wrong, check here before suspecting A5 -- the reference is A11's.",
+      "onFail": ["K3", "P111"]
+    },
+    {
+      "ref": "TP7",
+      "signal": "SENSOR INPUT",
+      "rail": "SENSOR",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "nominal": 7,
+      "tolerancePct": 10,
+      "unit": "V ac",
+      "condition": "3.5 V at 1 kHz or at 12 kHz, operate",
+      "source": "§5-4 steps 4 and 5",
+      "note": "The power amplifier output arriving at the thermal sensor. 7 V rms into the sensor for 3.5 V rms at the type N connector is the whole design: the unity-gain amplifier's 50 ohm source impedance (R96-R99 in parallel with the amplifier's own output resistance) halves it into the 50 ohm load. Measure this before TP1 -- both §5-4 steps say to note this reading and then check that TP1 matches it.",
+      "onFail": ["U1", "K2", "C7"]
+    },
+    {
+      "ref": "TP8",
+      "signal": "DC AMP INPUT",
+      "rail": "AMP",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "noPublishedValue": true,
+      "source": "Figure 7-5 sheet 1 legend (PG2A6)",
+      "note": "The input of the dc feedback amplifier U11B, which holds the 10 Hz to 1.1 MHz path's dc offset near zero (§2-223). The loop drives R103 into U11B and back through R106/R107 to Q17's gate, so in a working board this node sits at whatever U11B's summing junction needs -- close to zero, but the manuals tabulate nothing for it. §5-4 step 2 sends you to U11B when TP13 is wrong, which is the check this loop supports.",
+      "onFail": ["U11", "Q17"]
+    },
+    {
+      "ref": "TP9",
+      "signal": "10Hz-1MHz INPUT",
+      "rail": "AMP",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "nominal": 7,
+      "tolerancePct": 10,
+      "unit": "V ac",
+      "condition": "3.5 V at 1 kHz, operate",
+      "source": "§5-4 step 2",
+      "note": "The sine wave arriving from the Oscillator Output assembly (A13) through P111 and relay K1A in the set position. This is the first measurement §5-4 makes and the first thing to fail if the wrong oscillator is selected: below 1.1 MHz the input comes from A13, above 1.2 MHz from A6 through J1 instead. Not to be confused with the TP9 named in the Note between steps 4 and 5, which is on the DAC assembly.",
+      "onFail": ["K1"]
+    },
+    {
+      "ref": "TP10",
+      "signal": "X10 AMP BIAS 1",
+      "rail": "AMP",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "noPublishedValue": true,
+      "source": "Figure 7-5 sheet 1 legend (PG2B6)",
+      "note": "One of the two bias nodes of the x10 amplifier, at U11A's input on sheet 2. U11A is the servo that keeps the x10 amplifier's dc offset near zero (§2-223). No published expectation; §5-4 step 7 tests the amplifier by its gain rather than its bias.",
+      "onFail": ["U11"]
+    },
+    {
+      "ref": "TP11",
+      "signal": "X10 AMP BIAS 2",
+      "rail": "AMP",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "noPublishedValue": true,
+      "source": "Figure 7-5 sheet 1 legend (PG2D7)",
+      "note": "The second x10 amplifier bias node, at the Q6/VR3 end of the input stage on sheet 2. VR3 is the 16 V zener that sets it. No published expectation.",
+      "onFail": ["VR3", "Q6"]
+    },
+    {
+      "ref": "TP12",
+      "signal": "X10 AMP OUTPUT",
+      "rail": "AMP",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "nominal": 7.0,
+      "tolerancePct": 10,
+      "unit": "V ac",
+      "condition": "3.5 V between 1.2 MHz and 30 MHz, operate",
+      "source": "§2-223",
+      "inferred": true,
+      "note": "The output of the x10 amplifier, before K12 passes it to the unity-gain amplifier. §2-223 prints the requirement outright -- 'the x10 amplifier must produce 7.0V rms to give 3.5V rms into the 50 ohm load' -- but no tolerance with it. The +/-10% here is this dataset's, borrowed from the band §5-4 step 2 puts on TP13, which is the same node through K12 in the reset position. §5-4 tests this stage at TP13 instead and by ratio: step 7 says the level there must be ten times the input at the R46/R47/R49 junction.",
+      "onFail": ["Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10", "K12"]
+    },
+    {
+      "ref": "TP13",
+      "signal": "X1 AMP INPUT",
+      "rail": "AMP",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "nominal": 7,
+      "tolerancePct": 10,
+      "unit": "V ac",
+      "condition": "3.5 V at 1 kHz, operate",
+      "source": "§5-4 step 2",
+      "note": "The unity-gain amplifier's input, which K12 connects to either the x10 amplifier (reset, 1.2-30 MHz) or the 10 Hz to 1.1 MHz buffer (set, below 1.1 MHz). The 7 V +/-10% is the low-frequency case, with the signal arriving through Q17's buffer. §5-4 step 7 uses the same loop for the high-frequency case and states it as a ratio instead: a distortion-free 1.2 MHz sine ten times the amplitude at the x10 amplifier's input.",
+      "onFail": ["U11", "Q17", "K1", "K3", "K12"]
+    },
+    {
+      "ref": "TP14",
+      "signal": "10Hz-1MHz OUTPUT",
+      "rail": "AMP",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "nominal": 3.5,
+      "tolerancePct": 10,
+      "unit": "V ac",
+      "condition": "3.5 V at 1 kHz, operate",
+      "source": "§5-4 step 3",
+      "note": "The unity-gain amplifier's output, ahead of the attenuators. Reading 3.5 V here with 7 V at TP13 is the whole of §5-4 step 3: the stage has unity voltage gain into an open circuit and its 50 ohm source impedance halves that into the 50 ohm load, so 3.5 V at this loop is the amplifier working and the load connected. Q11-Q16 are the stage; R96-R99 in parallel with the amplifier's output resistance are the 50 ohms (§2-223).",
+      "onFail": ["Q11", "Q12", "Q13", "Q14", "Q15", "Q16"]
+    },
+    {
+      "ref": "TP15",
+      "signal": "10Hz-1.1MHz BUFFER",
+      "rail": "AMP",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "noPublishedValue": true,
+      "source": "Figure 7-5 sheet 1 legend (PG2A4)",
+      "note": "The output of the dc servo that sits under the 10 Hz to 1.1 MHz buffer -- U11B through R106/R107 into Q17's gate, clamped by CR5 and CR7 (sheet 2, zone A4). No published expectation. It is worth probing when TP13 is wrong at low frequency: §5-4 step 2 sends you to U11B, Q17, K1B, K3B and K12, and this loop is where that chain can be split.",
+      "onFail": ["U11", "Q17", "CR5", "CR7"]
+    },
+    {
+      "ref": "TP16",
+      "signal": "SCOM",
+      "rail": "COM",
+      "kind": "wire-loop",
+      "isReturn": true,
+      "source": "§5-4 step 1 Note; Figure 7-5 sheet 1 legend (PG1B8)",
+      "note": "The reference for every measurement in §5-4 -- the step 1 Note says so in as many words. SCOM is the analog supply common that arrives with +/-17 S on P111 21A/21C. It is not the same node as COM1 (TP19), which is the rms sensor circuit's own common, nor as the S1COM-S9COM shield commons of sheet 2, which the sheet's own legend box shows all tied to SCOM at a single point 'connection made with shield'."
+    },
+    {
+      "ref": "TP17",
+      "signal": "OUTPUT OFFSET",
+      "rail": "AMP",
+      "kind": "wire-loop",
+      "refPoint": "TP16",
+      "nominal": 0,
+      "maxAbs": 0.02,
+      "unit": "V dc",
+      "condition": "3.5 V or 1.2 V output, 1.3 MHz or 30 MHz, operate",
+      "source": "Fault codes 3912 and 3913",
+      "inferred": true,
+      "note": "The dc offset on the unity-gain amplifier's output. R115 (200k) and C81 (0.47 uF) filter the output node onto this loop with unity dc gain, so the 20 mV the fault codes require of 'the output of the Unity Gain Amplifier circuit ... via the OUTPUT OFFSET line' applies here as printed. Do not confuse it with the OUTPUT OFFSET signal the diagnostics actually read: that one is the same node divided by R41/R42 (180k/20k) and sent to U8's I02 input on sheet 3, and is a tenth of what this loop shows. The 20 mV is a limit rather than a band, so it is carried as maxAbs; the 'inferred' flag records that the fault codes state the limit for the circuit and this dataset attaches it to the loop.",
+      "onFail": ["Q11", "Q12", "Q13", "Q14", "Q15", "Q16", "R115", "C81"]
+    },
+    {
+      "ref": "TP18",
+      "signal": "AMPL. CONT. INPUT",
+      "rail": "SENSOR",
+      "kind": "wire-loop",
+      "refPoint": "TP19",
+      "noPublishedValue": true,
+      "source": "§5-4 steps 6 and 8; Figure 7-5 sheet 1 legend (PG1B3)",
+      "note": "A drive point rather than a measuring point, and the only one on this board. With E3 fitted across J3 it carries DAC OUT into U12B's comparison input; §5-4 steps 6 and 8 both begin by pulling E3 off and driving this loop from an external variable dc reference with its low on TP19, which substitutes a known amplitude demand for the DAC's. Both steps end with a Note telling you to remove the external supply and put E3 back -- leaving it off leaves the amplitude loop open.",
+      "onFail": ["E3", "J3", "U12"]
+    },
+    {
+      "ref": "TP19",
+      "signal": "COM1",
+      "rail": "COM",
+      "kind": "wire-loop",
+      "isReturn": true,
+      "source": "§5-4 step 6; Figure 7-5 sheet 1 legend (PG1A3)",
+      "note": "The rms sensor and amplitude control circuit's own common, and the low side §5-4 steps 6 and 8 name for the external dc reference applied to TP18. Sheet 1 draws COM1 as a separate symbol from SCOM throughout the sensor, comparator and square-root amplifier stages; it is not the reference for the rest of §5-4, which is SCOM at TP16."
+    }
+  ],
+
+  "probePoints": [
+    {
+      "id": "X10-IN",
+      "label": "X10 amplifier input (R46 / R47 / R49 junction)",
+      "component": "R47",
+      "refPoint": "TP16",
+      "unit": "V ac",
+      "noPublishedValue": true,
+      "condition": "3.5 V at 1.2 MHz, operate; oscilloscope ac coupled",
+      "source": "§5-4 step 7",
+      "note": "The one measurement §5-4 makes at a component junction rather than a loop. The step asks for a distortion-free 1.2 MHz sine wave here and gives no amplitude for it -- what is checked is the shape, and then the ratio: note this amplitude, move the probe to TP13, and the level there must be ten times larger. §2-223 puts the nominal full-scale input from A6 at 700 mV rms, which is consistent with the 7.0 V rms the x10 amplifier has to produce, but the step itself prints no number. A distorted or absent waveform here points at the coaxial cable into J1 and at A6, not at this board's amplifier.",
+      "onFail": ["J1", "R46", "R47", "R49", "C45"]
+    }
+  ]
+}

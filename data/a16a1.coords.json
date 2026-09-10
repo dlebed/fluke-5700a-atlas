@@ -1,0 +1,524 @@
+{
+ "assembly": "A16A1",
+ "generatedBy": "tools/build_coords.py",
+ "notOnDrawing": [
+  "MP3",
+  "R2"
+ ],
+ "placement": {
+  "R106": {
+   "board": {
+    "x": 0.33829,
+    "y": 0.25906,
+    "w": 0.05793,
+    "h": 0.05283,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.28069,
+     "y": 0.72946,
+     "w": 0.02091,
+     "h": 0.01046,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Z1": {
+   "board": {
+    "x": 0.62634,
+    "y": 0.25888,
+    "w": 0.01827,
+    "h": 0.06799,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.6256,
+     "y": 0.44965,
+     "w": 0.0081,
+     "h": 0.00826,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C52": {
+   "board": {
+    "x": 0.10206,
+    "y": 0.29724,
+    "w": 0.01844,
+    "h": 0.12277,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.21415,
+     "y": 0.82455,
+     "w": 0.01415,
+     "h": 0.0093,
+     "placement": "verified",
+     "placementNote": "10uF/35V on +5 RLH at the bottom left; the reader chose the C2* net label"
+    }
+   ],
+   "schVerified": true
+  },
+  "R103": {
+   "board": {
+    "x": 0.48893,
+    "y": 0.29163,
+    "w": 0.01844,
+    "h": 0.16532,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.44088,
+     "y": 0.8497,
+     "w": 0.01677,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R102": {
+   "board": {
+    "x": 0.51263,
+    "y": 0.29227,
+    "w": 0.01879,
+    "h": 0.16288,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.15073,
+     "y": 0.33241,
+     "w": 0.01727,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R104": {
+   "board": {
+    "x": 0.54615,
+    "y": 0.43643,
+    "w": 0.03914,
+    "h": 0.16826,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.44088,
+     "y": 0.88815,
+     "w": 0.01677,
+     "h": 0.00849,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R105": {
+   "board": {
+    "x": 0.73318,
+    "y": 0.50906,
+    "w": 0.058,
+    "h": 0.0525,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.15071,
+     "y": 0.2655,
+     "w": 0.0172,
+     "h": 0.00819,
+     "placement": "single"
+    }
+   ]
+  },
+  "C57": {
+   "board": {
+    "x": 0.77919,
+    "y": 0.50866,
+    "w": 0.04234,
+    "h": 0.05283,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.25959,
+     "y": 0.08062,
+     "w": 0.00975,
+     "h": 0.00724,
+     "placement": "verified",
+     "placementNote": "Decoupling on +5LH above U11; the reader chose the C7* net label"
+    }
+   ],
+   "schVerified": true
+  },
+  "C56": {
+   "board": {
+    "x": 0.82142,
+    "y": 0.50782,
+    "w": 0.04279,
+    "h": 0.0525,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.17826,
+     "y": 0.28768,
+     "w": 0.01288,
+     "h": 0.00837,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "C55": {
+   "board": {
+    "x": 0.08834,
+    "y": 0.55996,
+    "w": 0.01897,
+    "h": 0.1218,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.52311,
+     "y": 0.39512,
+     "w": 0.0174,
+     "h": 0.01334,
+     "placement": "single"
+    }
+   ]
+  },
+  "C53": {
+   "board": {
+    "x": 0.89676,
+    "y": 0.75277,
+    "w": 0.04436,
+    "h": 0.07239,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.18032,
+     "y": 0.42129,
+     "w": 0.01266,
+     "h": 0.00826,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "R101": {
+   "board": {
+    "x": 0.93212,
+    "y": 0.64253,
+    "w": 0.03236,
+    "h": 0.15912,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.15634,
+     "y": 0.3994,
+     "w": 0.01602,
+     "h": 0.00826,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C54": {
+   "board": {
+    "x": 0.46363,
+    "y": 0.28705,
+    "w": 0.01905,
+    "h": 0.12204,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.18608,
+     "y": 0.35443,
+     "w": 0.01253,
+     "h": 0.00826,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "U9": {
+   "board": {
+    "x": 0.18299,
+    "y": 0.47101,
+    "w": 0.15979,
+    "h": 0.08696,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.77529,
+     "y": 0.47991,
+     "w": 0.0081,
+     "h": 0.00826,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "U14": {
+   "board": {
+    "x": 0.36082,
+    "y": 0.47101,
+    "w": 0.15979,
+    "h": 0.08696,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.28956,
+     "y": 0.63765,
+     "w": 0.01273,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U13": {
+   "board": {
+    "x": 0.64691,
+    "y": 0.39855,
+    "w": 0.13918,
+    "h": 0.08696,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.56207,
+     "y": 0.64134,
+     "w": 0.01284,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U15": {
+   "board": {
+    "x": 0.90722,
+    "y": 0.39855,
+    "w": 0.13918,
+    "h": 0.08696,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; the reader had U10 here",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.56229,
+     "y": 0.84884,
+     "w": 0.01281,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U10": {
+   "board": {
+    "x": 0.15722,
+    "y": 0.77536,
+    "w": 0.20619,
+    "h": 0.14493,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; the reader put U10 on U15",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.52673,
+     "y": 0.21835,
+     "w": 0.01101,
+     "h": 0.00775,
+     "placement": "verified",
+     "placementNote": "The first 5801, label below its block; the reader chose PC3"
+    }
+   ],
+   "schVerified": true
+  },
+  "U12": {
+   "board": {
+    "x": 0.37113,
+    "y": 0.77536,
+    "w": 0.20619,
+    "h": 0.14493,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; the reader did not find it",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.52676,
+     "y": 0.3739,
+     "w": 0.01284,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U11": {
+   "board": {
+    "x": 0.67912,
+    "y": 0.71739,
+    "w": 0.38402,
+    "h": 0.26087,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline of the 40-pin 82C55",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.23069,
+     "y": 0.35434,
+     "w": 0.01168,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "P1": {
+   "board": {
+    "x": 0.36082,
+    "y": 0.14493,
+    "w": 0.33505,
+    "h": 0.15942,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Header outline; the reader put P1 on the 'A91' legend",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.10058,
+     "y": 0.5565,
+     "w": 0.0081,
+     "h": 0.00819,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "P2": {
+   "board": {
+    "x": 0.70619,
+    "y": 0.14493,
+    "w": 0.24227,
+    "h": 0.15942,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Header outline; the reader did not find it",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.09858,
+     "y": 0.12636,
+     "w": 0.00692,
+     "h": 0.00672,
+     "placement": "verified",
+     "placementNote": "The bus-side P2 at the left; the reader chose the PA2 pin label"
+    }
+   ],
+   "schVerified": true
+  },
+  "L4": {
+   "board": {
+    "x": 0.55155,
+    "y": 0.2029,
+    "w": 0.04124,
+    "h": 0.18841,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Choke outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.18396,
+     "y": 0.80827,
+     "w": 0.00755,
+     "h": 0.00724,
+     "placement": "verified",
+     "placementNote": "6-turn choke in the +5 RLH feed; the reader chose LC1*"
+    }
+   ],
+   "schVerified": true
+  },
+  "Z2": {
+   "board": {
+    "x": 0.23505,
+    "y": 0.32609,
+    "w": 0.01134,
+    "h": 0.06087,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label to the left of the SIP outline; the reader did not find it",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.19662,
+     "y": 0.70508,
+     "w": 0.00814,
+     "h": 0.00819,
+     "placement": "ambiguous"
+    }
+   ]
+  }
+ },
+ "layers": {},
+ "sheets": {}
+}

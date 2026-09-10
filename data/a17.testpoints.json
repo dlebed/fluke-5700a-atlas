@@ -1,0 +1,226 @@
+{
+  "_comment": [
+    "Curated A17 test-point data. Hand-authored from the service manuals rather than",
+    "parsed, because the printed sources need four corrections and disagree in two",
+    "places that no parser should resolve on its own:",
+    "  1. Table 2-10 prints the -15 S row's signal name as '15S', losing the sign. The",
+    "     legend on schematic sheet 1 gives it as -15S and the nominal is -15 V.",
+    "  2. Table 2-10 has no +15 S row at all, though §2-71 says the assembly has 13",
+    "     regulated outputs and §2-74 describes the +15 S regulator (U4). Its value here",
+    "     comes from fault code 3602.",
+    "  3. For the two 17 S rails the table's 'Nominal Output' cell is the near limit of",
+    "     the band, not its centre: it prints +17.000 V +/-475 mV, while the sheet-1",
+    "     annotation and fault code 3600 both give +17.0 V to +17.95 V -- a band of the",
+    "     same width centred on +17.475 V. The same holds for -17 S. Two independent",
+    "     sources agree against the table, so the band is taken from them and the",
+    "     table's printed cell is recorded in 'conflict'.",
+    "  4. Fault code 3608 gives +5 RLH as +4.9 V to +5.5 V, which does not overlap the",
+    "     +5.55 V to +6.40 V that Table 2-10 and the sheet-1 annotation both give. The",
+    "     two agreeing sources are used; the fault code is recorded in 'conflict' rather",
+    "     than dropped, because a technician following 3608 needs to know.",
+    "Signal names are transcribed from the legend boxes on schematic sheets 1 and 2.",
+    "TP59 does not exist -- the sheet-2 legend runs TP58, TP60.",
+    "'kind' separates the nine wire loops that are on the parts list (TP1, TP4, TP6,",
+    "TP8-TP10, TP12, TP55, TP58 -- 'JUMPER,WIRE,NONINSUL,0.200CTR', stock 816090) from",
+    "the plated eyelets, which are board features with no part number. The loops take a",
+    "clip lead; the eyelets take a probe tip.",
+    "'source' on every value says where it came from; 'inferred' marks values the",
+    "manuals do not state outright."
+  ],
+
+  "rails": {
+    "OSC":     { "label": "Oscillator supplies",          "com": "TP4",  "color": "#e0b13a" },
+    "LH":      { "label": "Logic/housekeeping supplies",  "com": "TP10", "color": "#4fa3d1" },
+    "S":       { "label": "S supplies",                   "com": "TP9",  "color": "#5ec2a8" },
+    "FR1":     { "label": "FR1 supply",                   "com": "TP1",  "color": "#d97b5a" },
+    "FR2":     { "label": "FR2 supply",                   "com": "TP6",  "color": "#7fb356" },
+    "DIGITAL": { "label": "Guarded digital section",      "com": "TP55", "color": "#9aa0a6" }
+  },
+
+  "testpoints": [
+    { "ref": "TP1", "signal": "FR1 COM", "rail": "FR1", "kind": "wire-loop",
+      "isReturn": true, "source": "Table 2-10; sheet 1 legend",
+      "note": "Return for +30 FR1. Floating with respect to the other commons." },
+
+    { "ref": "TP2", "signal": "+30 FR1", "rail": "FR1", "kind": "pad",
+      "refPoint": "TP1", "nominal": 30.96, "tolerance": 1.7, "unit": "V",
+      "currentLimit": "1 A", "ratedOutput": "85 mA", "regulated": true,
+      "condition": "Power on, standby", "source": "Table 2-10",
+      "note": "Sheet 1 annotates the output +29.30 V to +32.63 V, which is this band.",
+      "onFail": ["U1", "CR1", "CR4", "CR6", "R1", "R2", "C3", "C6", "C7"] },
+
+    { "ref": "TP6", "signal": "FR2 COM", "rail": "FR2", "kind": "wire-loop",
+      "isReturn": true, "source": "Table 2-10; sheet 1 legend",
+      "note": "Return for +30 FR2. Floating with respect to the other commons." },
+
+    { "ref": "TP7", "signal": "+30 FR2", "rail": "FR2", "kind": "pad",
+      "refPoint": "TP6", "nominal": 30.96, "tolerance": 1.7, "unit": "V",
+      "currentLimit": "1 A", "ratedOutput": "85 mA", "regulated": true,
+      "condition": "Power on, standby", "source": "Table 2-10",
+      "note": "Sheet 1 annotates the output +29.30 V to +32.63 V, which is this band.",
+      "onFail": ["U5", "CR9", "CR10", "CR12", "R4", "R8", "C10", "C28", "C12"] },
+
+    { "ref": "TP4", "signal": "OSC COM", "rail": "OSC", "kind": "wire-loop",
+      "isReturn": true, "source": "Table 2-10; sheet 1 legend",
+      "note": "Return for +15 OSC and -15 OSC. Fault code 3614 checks it for 0 V +/-50 mV against RCOM." },
+
+    { "ref": "TP3", "signal": "+15 OSC", "rail": "OSC", "kind": "pad",
+      "refPoint": "TP4", "nominal": 15, "tolerance": 0.8, "unit": "V",
+      "currentLimit": "2 A", "ratedOutput": "200 mA", "regulated": true,
+      "condition": "Power on, dormant", "source": "Table 2-10",
+      "note": "Fault code 3612 gives the same band, +14.2 V to +15.8 V. Used only by A12 and A13.",
+      "onFail": ["U2", "CR2", "CR3", "C1", "C2"] },
+
+    { "ref": "TP5", "signal": "-15 OSC", "rail": "OSC", "kind": "pad",
+      "refPoint": "TP4", "nominal": -15, "tolerance": 0.8, "unit": "V",
+      "currentLimit": "2 A", "ratedOutput": "200 mA", "regulated": true,
+      "condition": "Power on, dormant", "source": "Table 2-10",
+      "note": "Fault code 3613 gives the same band, -14.2 V to -15.8 V.",
+      "onFail": ["U3", "CR5", "CR7", "C4", "C5"] },
+
+    { "ref": "TP10", "signal": "LH COM", "rail": "LH", "kind": "wire-loop",
+      "isReturn": true, "source": "Table 2-10; sheet 1 legend",
+      "note": "Return for +5 LH, +5 RLH, -5 LH and +8 RLH. Tied to S COM (TP9) on this assembly. Fault code 3606 checks it for 0 V +/-50 mV against RCOM." },
+
+    { "ref": "TP11", "signal": "+5 LH", "rail": "LH", "kind": "pad",
+      "refPoint": "TP10", "nominal": 5.1, "tolerance": 0.3, "unit": "V",
+      "currentLimit": "2 A", "ratedOutput": "600 mA", "regulated": true,
+      "condition": "Power on, dormant", "source": "Table 2-10",
+      "note": "TO-3 regulator U8, raised above +5 V by R13 with CR34/CR35.",
+      "onFail": ["U8", "CR14", "CR16", "CR34", "CR35", "R13", "C16"] },
+
+    { "ref": "TP14", "signal": "+5 RLH", "rail": "LH", "kind": "pad",
+      "refPoint": "TP10", "nominal": 5.975, "tolerance": 0.425, "unit": "V",
+      "currentLimit": "2 A", "ratedOutput": "600 mA", "regulated": true,
+      "condition": "Power on, dormant", "source": "Table 2-10",
+      "conflict": "Fault code 3608 states +4.9 V to +5.5 V for this rail, which does not overlap the +5.55 V to +6.40 V given by Table 2-10 and by the sheet-1 annotation. The two agreeing sources are used here.",
+      "note": "Sheet 1 annotates the output +5.55 V to +6.40 V.",
+      "onFail": ["U11", "CR17", "CR20", "CR34", "CR35", "C20", "C21"] },
+
+    { "ref": "TP15", "signal": "-5 LH", "rail": "LH", "kind": "pad",
+      "refPoint": "TP10", "nominal": -5, "tolerance": 0.3, "unit": "V",
+      "currentLimit": "2 A", "ratedOutput": "400 mA", "regulated": true,
+      "condition": "Power on, dormant", "source": "Table 2-10",
+      "note": "Fault code 3607 gives the same band, -4.7 V to -5.3 V.",
+      "onFail": ["U12", "CR21", "CR24", "C23", "C24"] },
+
+    { "ref": "TP17", "signal": "+8 RLH", "rail": "LH", "kind": "pad",
+      "refPoint": "TP10", "nominal": 15, "tolerance": 5, "unit": "V",
+      "regulated": false, "condition": "Power on, dormant",
+      "source": "§5-2 fault code 3609",
+      "note": "The assembly's one unregulated output: the +5 LHR input fused by F1 (3.15 A slow-blow). Its value follows the unregulated input, so the band is wide. Out of tolerance means replace F1 first.",
+      "onFail": ["F1"] },
+
+    { "ref": "TP9", "signal": "S COM", "rail": "S", "kind": "wire-loop",
+      "isReturn": true, "source": "Table 2-10; sheet 1 legend",
+      "note": "Return for +/-44 S, +/-17 S and +/-15 S. Tied to LH COM (TP10) on this assembly, and 44 S COM and 17 S COM are tied together here. Fault code 3615 checks it for 0 V +/-50 mV against RCOM." },
+
+    { "ref": "TP8", "signal": "+17 S", "rail": "S", "kind": "wire-loop",
+      "refPoint": "TP9", "nominal": 17.475, "tolerance": 0.475, "unit": "V",
+      "currentLimit": "4 A", "ratedOutput": "1.0 A", "regulated": true,
+      "condition": "Power on, dormant",
+      "source": "Figure 7-21 sheet 1 annotation, agreeing with S5-2 fault code 3600",
+      "conflict": "Table 2-10 prints the nominal as +17.000 V +/-475 mV, which would place the band at +16.53 V to +17.48 V. The sheet-1 annotation (+17.0 V to +17.95 V) and fault code 3600 (+17.0 V to +18.0 V) both put it half a volt higher, so the table's nominal cell is read as the near limit of the band rather than its centre.",
+      "onFail": ["U6", "CR8", "CR11", "CR26", "R5", "R6", "C8", "C9", "C11"] },
+
+    { "ref": "TP12", "signal": "-17 S", "rail": "S", "kind": "wire-loop",
+      "refPoint": "TP9", "nominal": -17.865, "tolerance": 0.835, "unit": "V",
+      "currentLimit": "6 A", "ratedOutput": "1.0 A", "regulated": true,
+      "condition": "Power on, dormant",
+      "source": "Figure 7-21 sheet 1 annotation, agreeing with S5-2 fault code 3601",
+      "conflict": "Table 2-10 prints the nominal as -17.000 V +/-835 mV. The sheet-1 annotation (-17.03 V to -18.7 V) and fault code 3601 (-17.0 V to -18.7 V) agree with each other against it; see TP8 for the same discrepancy on the positive rail.",
+      "onFail": ["U7", "CR13", "CR15", "CR27", "R10", "R11", "C13", "C14", "C15"] },
+
+    { "ref": "TP18", "signal": "+15 S", "rail": "S", "kind": "pad",
+      "refPoint": "TP9", "nominal": 15, "tolerance": 0.8, "unit": "V",
+      "regulated": true, "condition": "Power on, dormant",
+      "source": "§5-2 fault code 3602, with §2-74",
+      "note": "Table 2-10 has no row for this rail even though §2-71 counts 13 regulated outputs. §2-74 describes it: fixed +15 V TO-220 regulator U4 from the unregulated +17 SR.",
+      "onFail": ["U4", "CR28", "CR29", "C27"] },
+
+    { "ref": "TP19", "signal": "-15 S", "rail": "S", "kind": "pad",
+      "refPoint": "TP9", "nominal": -15, "tolerance": 0.8, "unit": "V",
+      "currentLimit": "2 A", "ratedOutput": "300 mA", "regulated": true,
+      "condition": "Power on, dormant", "source": "Table 2-10",
+      "note": "Table 2-10 prints the signal name as '15S' with the sign lost; the sheet 1 legend gives -15S and the nominal is negative. Fault code 3603 gives the same band, -14.2 V to -15.8 V.",
+      "onFail": ["U9", "CR30", "CR31", "C29"] },
+
+    { "ref": "TP13", "signal": "+44 S", "rail": "S", "kind": "pad",
+      "refPoint": "TP9", "nominal": 44.15, "tolerance": 2.03, "unit": "V",
+      "currentLimit": "0.5 A", "ratedOutput": "140 mA", "regulated": true,
+      "condition": "Power on, dormant", "source": "Table 2-10",
+      "note": "Sheet 1 annotates +42.12 V to +46.18 V, which is this band. Fault code 3604 uses a slightly tighter +42.0 V to +45.6 V, and checks the unregulated +44 SR on A18 first.",
+      "onFail": ["U10", "Q2", "VR3", "VR4", "VR5", "R14", "R15", "R20", "R60", "CR18", "CR19", "CR25", "C17", "C18", "C19", "C65"] },
+
+    { "ref": "TP16", "signal": "-44 S", "rail": "S", "kind": "pad",
+      "refPoint": "TP9", "nominal": -44.15, "tolerance": 2.03, "unit": "V",
+      "currentLimit": "0.5 A", "ratedOutput": "140 mA", "regulated": true,
+      "condition": "Power on, dormant", "source": "Table 2-10",
+      "note": "Sheet 1 annotates -42.12 V to -46.18 V, which is this band. Fault code 3605 uses a slightly tighter -42.0 V to -45.6 V.",
+      "onFail": ["U13", "Q1", "VR1", "VR2", "VR6", "R17", "R18", "R19", "R61", "CR22", "CR23", "CR32", "CR33", "C22", "C25", "C26", "C66"] },
+
+    { "ref": "TP55", "signal": "GND2", "rail": "DIGITAL", "kind": "wire-loop",
+      "isReturn": true, "source": "Sheet 2 legend",
+      "note": "Guarded digital ground, by the input power filter. TP58 is the same node at the microcontroller." },
+
+    { "ref": "TP58", "signal": "GND2", "rail": "DIGITAL", "kind": "wire-loop",
+      "isReturn": true, "source": "Sheet 2 legend",
+      "note": "Guarded digital ground at the microcontroller. Same node as TP55." },
+
+    { "ref": "TP52", "signal": "VCC2", "rail": "DIGITAL", "kind": "pad",
+      "refPoint": "TP55", "nominal": 5.1, "tolerance": 0.3, "unit": "V",
+      "regulated": true, "inferred": true, "condition": "Power on, dormant",
+      "source": "inferred from §2-77 and Table 2-10 (+5 LH)",
+      "note": "Supply for the guarded digital section. Sheet 2 shows it as +5 LH from sheet 1 through the 3-turn choke L51, so the expectation here is +5 LH's; the manuals do not tabulate VCC2 separately." },
+
+    { "ref": "TP62", "signal": "8.0 MHz", "rail": "DIGITAL", "kind": "pad",
+      "refPoint": "TP55", "nominal": 8.0, "tolerance": 0.01, "unit": "MHz",
+      "inferred": true, "condition": "Power on",
+      "source": "inferred from Y52 (CRYSTAL,8.00MHZ) and §2-77",
+      "note": "The 8 MHz sine wave this assembly generates for the analog assemblies, from crystal Y52 and inverter U51. A frequency, not a level -- the manuals give no amplitude." },
+
+    { "ref": "TP61", "signal": "ECLK", "rail": "DIGITAL", "kind": "pad",
+      "refPoint": "TP55", "nominal": 1.2288, "tolerance": 0.002, "unit": "MHz",
+      "inferred": true, "condition": "Power on",
+      "source": "inferred from Y51 (4.9152 MHz) and the 6301 divide-by-four",
+      "note": "Enable clock of microcontroller U56. The 6301 core divides its 4.9152 MHz crystal by four, so a dead ECLK with a live TP62 points at Y51 or U56 rather than at the 8 MHz circuit." },
+
+    { "ref": "TP51", "noPublishedValue": true, "signal": "INT", "rail": "DIGITAL", "kind": "pad",
+      "refPoint": "TP55", "source": "Sheet 2 legend",
+      "note": "Interrupt line on the guarded digital bus, at the P802 connector end. Logic level; the manuals publish no expected value." },
+
+    { "ref": "TP53", "noPublishedValue": true, "signal": "PCLK", "rail": "DIGITAL", "kind": "pad",
+      "refPoint": "TP55", "source": "Sheet 2 legend",
+      "note": "Microcontroller port clock. Logic level; the manuals publish no expected value." },
+
+    { "ref": "TP54", "noPublishedValue": true, "signal": "SCLK", "rail": "DIGITAL", "kind": "pad",
+      "refPoint": "TP55", "source": "Sheet 2 legend",
+      "note": "Serial clock. Logic level; the manuals publish no expected value." },
+
+    { "ref": "TP56", "noPublishedValue": true, "signal": "RCV", "rail": "DIGITAL", "kind": "pad",
+      "refPoint": "TP55", "source": "Sheet 2 legend",
+      "note": "Receive side of the fibre-optic serial link to the unguarded CPU (A20). Logic level; the manuals publish no expected value." },
+
+    { "ref": "TP57", "noPublishedValue": true, "signal": "XMT", "rail": "DIGITAL", "kind": "pad",
+      "refPoint": "TP55", "source": "Sheet 2 legend",
+      "note": "Transmit side of the fibre-optic serial link to the unguarded CPU (A20), driven by U57. Logic level; the manuals publish no expected value." },
+
+    { "ref": "TP60", "noPublishedValue": true, "signal": "RES*", "rail": "DIGITAL", "kind": "pad",
+      "refPoint": "TP55", "source": "Sheet 2 legend",
+      "note": "Active-low reset from supervisor U60 and the watchdog. Should sit high once the instrument is running; a low here holds the inguard CPU in reset. Logic level; the manuals publish no expected value." },
+
+    { "ref": "TP63", "noPublishedValue": true, "signal": "POPIN", "rail": "DIGITAL", "kind": "pad",
+      "refPoint": "TP55", "source": "Sheet 2 legend",
+      "note": "Power-on-panic input from the watchdog counter U59. Logic level; the manuals publish no expected value." },
+
+    { "ref": "TP64", "noPublishedValue": true, "signal": "P61", "rail": "DIGITAL", "kind": "pad",
+      "refPoint": "TP55", "source": "Sheet 2 legend",
+      "note": "Microcontroller port line P61. Logic level; the manuals publish no expected value." },
+
+    { "ref": "TP65", "noPublishedValue": true, "signal": "P60", "rail": "DIGITAL", "kind": "pad",
+      "refPoint": "TP55", "source": "Sheet 2 legend",
+      "note": "Microcontroller port line P60. Logic level; the manuals publish no expected value." }
+  ],
+
+  "probePoints": []
+}

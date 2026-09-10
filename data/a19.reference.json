@@ -1,0 +1,162 @@
+{
+  "_comment": [
+    "Curated A19 reference material: what the board is, what each rail is built",
+    "from, what a handful of parts do, and every place two sources disagree.",
+    "",
+    "faultCodes is deliberately an empty list and not a missing key. No diagnostic",
+    "fault code in the manual names A19 -- see the first caveat, which says so in",
+    "the place a reader will look for it.",
+    "",
+    "Everything here cites its section. Where a number is derived rather than read,",
+    "the text says so and says from what."
+  ],
+
+  "overview": {
+    "summary": "The instrument's unguarded low-voltage supply, and a 1987 linear one throughout: five rails, four rectifier/reservoir pairs, three IC regulators and two discrete series-pass regulators, with no switching anywhere except the pulse transformer L8 ahead of the +5 V rectifier. It takes ac from the Transformer assembly (A22) through the Digital Motherboard (A4) and produces +75 V and +35 V for the front panel's display grid and anode drivers, +12 V and -12 V for logic and for the two 24 V dc chassis fans, and +5 V for the CPU. Every rail is brought out twice at the top edge of the board -- once unregulated, ahead of the regulator, and once regulated after it -- which is the diagnostic method the board was designed around: one probe pair says whether a dead rail is the transformer and rectifier or the regulator. A separate shut-down circuit kills the +75 V and +35 V supplies when the front panel stops refreshing the display, so both can read zero with nothing wrong with either regulator.",
+    "connectors": "P41, DIN 41612 type C, 64-pin right angle, into the Digital Motherboard (A4) alongside the CPU assembly (A20).",
+    "source": "§2-24 … §2-29"
+  },
+
+  "railCircuits": {
+    "75V": {
+      "rails": "+75V OUT, and the unregulated +75VUR behind it",
+      "fuses": ["F1"],
+      "rectifier": ["CR1", "CR2", "CR3", "CR4"],
+      "filters": ["C1", "C2", "C17", "C24"],
+      "regulators": ["Q1", "Q3", "VR6", "VR7", "Q4", "VR5", "R2", "R3", "Q2", "R1"],
+      "note": "Full-wave rectifier CR1–CR4 into C1, fused at 0.315 A by F1, bled by R6. VR6 (36 V) and VR7 (39 V) set 75 V at the base of the Q3/Q1 Darlington emitter follower, which drops two base-emitter volts — so the published nominal is 73 V rather than 75 V. Q4, VR5, R2 and R3 are the constant-current source that feeds the zener stack; R1 and Q2 are the current limit, the same arrangement as the +35 V supply. CR8 blocks reverse voltage, C2 bypasses and L1 filters the output. Q7 shuts the whole thing down by removing Q3's base drive.",
+      "source": "§2-28, §2-29"
+    },
+    "35V": {
+      "rails": "+35V OUT, and the unregulated +35VUR behind it",
+      "fuses": ["F2"],
+      "rectifier": ["CR9", "CR10", "CR11", "CR12"],
+      "filters": ["C3", "C4", "C18", "C25"],
+      "regulators": ["Q5", "VR14", "VR15", "CR13", "R5", "Q6"],
+      "note": "Full-wave rectifier CR9–CR12 into C3, fused at 0.125 A by F2, bled by R13. VR14 and VR15 (18 V each) set the output and Q5 follows them as an emitter follower; CR13 is a constant-current diode feeding the zeners and Q5's base. R5 and Q6 limit the current — an over-current drops enough across R5 to turn Q6 on and steal Q5's base drive. CR16 blocks reverse voltage, C4 bypasses and L2 filters the output. Q8 shuts it down by removing Q5's base drive.",
+      "source": "§2-27, §2-29"
+    },
+    "12V": {
+      "rails": "+12 VOLTS, -12 VOLTS, +12V FAN, -12V FAN, and the unregulated ±12VUR behind them",
+      "fuses": ["F3", "F4"],
+      "rectifier": ["CR17", "CR18", "CR19", "CR20"],
+      "filters": ["C5", "C6", "C7", "C8", "C9", "C10", "C19", "C22"],
+      "regulators": ["U1", "U2"],
+      "note": "One rectifier, CR17–CR20, makes both unregulated rails: C6 for the positive side and C7 for the negative, each ac leg fused at 2 A by F3 and F4. U1 (7812, tab at COMMON) and U2 (7912, tab at the negative input — do not let it touch chassis) do the regulating. CR21 and CR22 protect each regulator against an input short, CR23 and CR24 against reverse voltage. L3–L6 filter the four outgoing lines. R7 isolates the +12V FAN line from +12 V; there is no equivalent resistor in the -12V FAN line, whatever §2-26 says.",
+      "source": "§2-26"
+    },
+    "5V": {
+      "rails": "+5V, and the unregulated +5VUR behind it",
+      "fuses": ["F5"],
+      "rectifier": ["CR25", "CR26", "CR27", "CR28"],
+      "filters": ["C11", "C12", "C13", "C14", "C15", "C16", "C20", "C21", "C23"],
+      "regulators": ["U3", "CR35"],
+      "note": "The board's largest load and its largest capacitors: CR25–CR28 into C12 and C13, 22 000 µF apiece, fused at 3.15 A by F5, with L8 as a common-mode choke and C11 as a bypass ahead of the bridge. U3 is a low-dropout three-terminal regulator on a heat sink; CR35, a germanium diode between its ground pin and COMMON, lifts the output about 0.2 V, which is why the published nominal is 5.2 V. CR29 protects against an input short and CR30 against reverse voltage. L7 (33 µH) and C16 filter the output to P41.",
+      "source": "§2-25"
+    },
+    "CONTROL": {
+      "rails": "75VSD (PS-SD) and RESETL — the +35 V/+75 V shut-down circuit",
+      "pullups": ["R4", "R8", "R10"],
+      "driver": ["Q9", "Q10", "Q7", "Q8"],
+      "filters": [],
+      "note": "Not a supply. Two lines decide whether the +75 V and +35 V supplies run at all, so both belong in the first three minutes of any dead-display-supply fault. Normally 75VSD is low and RESETL is high, which turns Q9 on; Q9 pulls the CR31/CR32 and CR33/CR34 junctions low and holds Q7 and Q8 off, letting both constant-current sources drive their zener stacks. A display refresh fault drives 75VSD high through R4, saturating Q10 through R11 and turning Q9 off; a CPU reset pulls RESETL low and does the same. With Q9 off, R8 and R10 pull the junctions high, Q7 and Q8 saturate, and the base drive is removed from Q3 and Q5. R8 holds the +75 V supply off until it falls below 15.6 V and R10 holds the +35 V supply off to 7.8 V. R12 is Q9's turn-off resistor; CR32 and CR34 make sure Q7 and Q8 are off while Q9 is on.",
+      "source": "§2-29"
+    }
+  },
+
+  "faultCodes": [],
+
+  "componentNotes": {
+    "Q1": "TO-3 series-pass transistor for the +75 V supply, in a Darlington with Q3. Supplied as heat-sink assembly 665422 (with MP16, H5, MP24 and MP9/MP10).",
+    "Q2": "MPSA42. The +75 V current limit: turns on across R1 and steals Q3's base drive.",
+    "Q3": "MPSU10. Drives Q1 in the +75 V Darlington; the point the shut-down circuit attacks.",
+    "Q4": "2N5415 in a round metal can — see the caveat on its package. The +75 V constant-current source, with VR5, R2 and R3.",
+    "Q5": "TIP120 Darlington, TO-220. Emitter follower for the +35 V supply, held at 36 V by VR14 + VR15.",
+    "Q6": "MPSA42. The +35 V current limit, across R5.",
+    "Q7": "MPSU10. Shuts the +75 V supply down by removing Q3's base drive.",
+    "Q8": "MPSU10. Shuts the +35 V supply down by removing Q5's base drive.",
+    "Q9": "MPSU10. On during normal operation, holding Q7 and Q8 off through CR31/CR33.",
+    "Q10": "MPSU10. Turned on by 75VSD through R11; turns Q9 off and so trips the shut-down.",
+    "U1": "7812, tab at COMMON. Heat-sink assembly 665471 (with MP15/MP26, MP21, H2, MP8/MP27).",
+    "U2": "7912, tab at the -12 V unregulated INPUT rather than at common. The case is live at about -18 V.",
+    "U3": "SI-3052 low-dropout +5 V regulator, 2 A. Heat-sink assembly 665478 (with MP15/MP26, H11, MP8/MP27). Carries the whole logic load.",
+    "CR13": "Current-regulator diode, 3 mA. Feeds the VR14/VR15 stack and Q5's base. The 1996 list truncates its description at 'IF'; the Rev 9 list and the schematic both give 3.0 mA.",
+    "CR35": "1N276 germanium diode between U3's ground pin and COMMON. It is what makes the +5 V rail 5.2 V. A silicon substitute puts the rail near 5.6 V.",
+    "VR5": "6.2 V. Sets the +75 V constant-current source with Q4, R2 and R3.",
+    "VR6": "36 V. With VR7, sets the +75 V output.",
+    "VR7": "39 V. With VR6, sets the +75 V output.",
+    "VR14": "18 V. With VR15, sets the +35 V output.",
+    "VR15": "18 V. With VR14, sets the +35 V output.",
+    "R6": "Bleeder across C1 on the unregulated +75 V rail. It is what discharges 470 µF at about 100 V after power-down; give it a few seconds before working near C1.",
+    "R13": "Bleeder across C3 on the unregulated +35 V rail.",
+    "R7": "2 ohm, isolates the +12V FAN line from the +12 V logic rail.",
+    "L8": "Pulse transformer used as the common-mode choke ahead of the +5 V rectifier (§2-25). The parts list calls it TRANSFORMER,PULSE; the prefix files it with the inductors.",
+    "L7": "33 µH output filter for the +5 V rail, with C16.",
+    "C1": "470 µF 160 V reservoir for the unregulated +75 V supply. The largest stored energy on the board after C12/C13.",
+    "C3": "330 µF 100 V reservoir for the unregulated +35 V supply.",
+    "C6": "10 000 µF 25 V reservoir for the unregulated +12 V supply.",
+    "C7": "6800 µF 25 V reservoir for the unregulated -12 V supply.",
+    "C12": "22 000 µF 16 V, half the +5 V reservoir with C13.",
+    "C13": "22 000 µF 16 V, half the +5 V reservoir with C12.",
+    "C14": "0.22 µF ceramic. §2-25 lists it once among the +5 V 'filter capacitors C12, C13 and C14' and once as a bypass; the sheet settles it — it is a 0.22 µF ceramic in parallel with C20 and C21 on the unregulated rail, not bulk filtering.",
+    "P41": "DIN 41612 type C, 64 pin. Carries all four ac secondaries in and all five dc rails out; 75VSD arrives on pin 5C and RESETL on the pin sheet 1 marks PG1D7."
+  },
+
+  "caveats": [
+    {
+      "title": "No diagnostic fault code names A19, and there is no Chapter 5 procedure for it",
+      "text": "This is a finding rather than missing data, and it was confirmed by absence: A19 appears nowhere in Chapter 5. The 3600-series 'Supply Fault' codes (3600–3613) all name analog rails — ±17S, ±15S, ±42S, ±PA, ±15 OSC, +5LH — which come from the Regulator/Guard Crossing (A17) and Filter/PA Supply (A18) assemblies, not from here. Chapter 5's component-level sections run from §5-4 to §5-23 and stop at A18. That is consistent rather than surprising: A19 powers the CPU that would have to report a fault, so a dead A19 rail presents as an instrument that will not boot, not as a code on the display. The published description of this board is §2-24 to §2-29, which is what the rail circuits and component notes here are drawn from.",
+      "refs": []
+    },
+    {
+      "title": "Table 2-2 drops the sign on the -12 V row",
+      "text": "The -12 VOLTS row prints its Nominal Output as '12V', unsigned, exactly as the +12 VOLTS row above it does. Read literally the table asks for +12 V on the negative rail. TP10's nominal is signed here and carries the printed cell in its conflict field, so the correction is visible rather than silent. Nothing else in the table needed changing: the other four nominals are positive rails.",
+      "refs": ["TP10"]
+    },
+    {
+      "title": "Thirteen test points on the silkscreen, nine jumpers in the parts list",
+      "text": "The board is silkscreened TP1 to TP13 and the sheet 1 legend names all thirteen. Table 6-24 lists JUMPER,WIRE,NONINSUL for TP1-5, TP8, TP10, TP12 and TP13 only — nine, and the Tot Qty column agrees. So TP6 (RESETL), TP7 (+12VUR), TP9 (-12VUR) and TP11 (+5VUR) are labelled pads with no wire loop fitted. They are still real probe targets and are placed and carried here, marked notInParts; what they take is a probe tip rather than a clip lead. Both sources are right about their own subject, so neither has been 'corrected'.",
+      "refs": ["TP6", "TP7", "TP9", "TP11"]
+    },
+    {
+      "title": "The unregulated rail voltages are derived, not published",
+      "text": "Five of the thirteen test points — TP1, TP4, TP7, TP9, TP11 — are the unregulated side of each supply, and §2-24 says outright that they exist so the input voltages can be checked. No table in the manuals gives a value for any of them, and the schematic does not annotate them either: the +35VUR node carries TP4 and nothing else. So they are marked noPublishedValue rather than given an invented nominal, and the order-of-magnitude figures in their notes and in the capacitor audit are derived — from the regulated output plus the pass stage's headroom, from what each bleeder resistor's wattage implies, and from what the reservoir capacitor is rated at. Treat those as design points, not as acceptance limits: a reading 20% away from them is not evidence of a fault.",
+      "refs": ["TP1", "TP4", "TP7", "TP9", "TP11"]
+    },
+    {
+      "title": "Q4's package: TO-3 in the parts list, a round can on the schematic, and the schematic's own legend is mislabelled",
+      "text": "Table 6-24 gives Q4 as TRANSISTOR,SI,VCB=200V,1W,TO-3. The COMPONENT I.D. box on the schematic draws Q4 as a round metal can, bottom view, with a locating tab and C-E-B leads — TO-5/TO-39. Three things say the parts list is wrong about the package. A 1 W part in a TO-3 makes no sense; MP24 (INSUL PT,TO-3, qty 1) is accounted for by Q1's heat-sink assembly in footnote 1, while MP25 (INSUL PT,TRANSISTOR MOUNT,DAP,TO-5, qty 1) has no other home; and the schematic marks the device 2N5415, which is a TO-5 part. Note also that the legend box itself has an error — it carries two entries labelled Q4, the round can and a TO-220 with B-C-E leads, and no entry at all for Q5. The TO-220 entry is Q5's (TIP120). So 'trust the schematic over the parts list' is not a rule that survives contact with this box; the corroboration from MP25 is what settles it.",
+      "refs": ["Q4", "Q5", "MP24", "MP25"]
+    },
+    {
+      "title": "Three resistors are drawn one way on the schematic and listed another",
+      "text": "R6 is annotated 10K 2W 1% on the sheet but is RES,CC,10K,+-10%,2W in both parts lists — and a 1% carbon composition part does not exist, so the annotation cannot be taken at face value. R10 is marked CC on the sheet and listed RES,CF,51K; R11 is marked CC and listed RES,CF,33K on the same row as R9, which the sheet does not mark. R13 and R4 are CC in both. None of it changes what the parts do, but the parts list is the authority for what to order.",
+      "refs": ["R6", "R10", "R11"]
+    },
+    {
+      "title": "§2-26 says R7 isolates both fan lines; the schematic puts it in only one",
+      "text": "§2-26 reads 'R7 further isolates the ±12V FAN lines from the ±12V power lines'. On the sheet R7 (2 ohm, 1/2 W) sits in the +12V FAN branch alone, between U1's output and L3. The -12V FAN line comes straight off U2's output node through L6, with nothing in series. Worth knowing before chasing a voltage drop that only exists on one of the two fans.",
+      "refs": ["R7", "L3", "L6"]
+    },
+    {
+      "title": "What the two parts lists disagree about",
+      "text": "Thirteen rows differ between the 1996 Series II list (Table 6-24) and the Rev 9 list, and every one of them is a real revision difference rather than a scanning artefact. Two change the part: CR25–CR28 are DIODE,SI,50 PIV,3.0 AMP / MR850 in Rev 9 — which is what the schematic prints — and DIODE,SI,150 PIV,5.0 AMP in 1996; H2 changes from a stainless to a steel screw; M1/M2 and VR5 (1N753A in Rev 9) change stock number and supplier. The other nine are the carbon-film resistors R1, R2, R3/R12, R4, R6, R7, R8, R9/R11 and R10, whose descriptions are identical in both revisions but whose Fluke stock numbers are not — a re-sourcing, not a change of part. R5 and R13 kept their numbers. The Rev 9 entry is carried as 'as built' on each affected part, since Rev 9 is the revision the drawing and the photographed board match.",
+      "refs": ["CR25", "CR26", "CR27", "CR28", "H2", "VR5", "M1", "M2"]
+    },
+    {
+      "title": "C7's tolerance is printed two different ways",
+      "text": "Table 6-24 gives C7 as CAP,AL,6800UF,+-20%.25V — with a full stop where the comma between tolerance and rating belongs. The Rev 9 list, same stock number 782466, prints CAP,AL,6800UF,+30-20%,25V. The rating is 25 V either way and that is what the derating audit uses; only the tolerance band differs, and +30/-20% is the usual shape for an aluminium can of this age. The 1996 description is what this dataset carries, so the tolerance shown for C7 is the tighter of the two.",
+      "refs": ["C7"]
+    },
+    {
+      "title": "Ten transistors are ESD-marked, not six",
+      "text": "Table 6-24 puts a * against Q1, Q2/Q6, Q3/Q7-Q10 and Q4, Q5 — that is all ten transistors — as well as U1-U3, CR13, CR35 and all five zeners. Any summary that stops at 'Q1 to Q6' misses the four MPSU10s in the shut-down circuit, which are exactly the parts someone reaches for when the display supplies are dead.",
+      "refs": ["Q7", "Q8", "Q9", "Q10"]
+    },
+    {
+      "title": "The Q1 heat-sink footnote cites a stock number the parts list does not",
+      "text": "Footnote 1 of Table 6-24 says Q1 is heat-sink assembly 665422, consisting of 261347, 851907, 342672, 473165 and 152819. Four of those five are on the table (Q1, MP16, MP24, MP9/MP10). The fifth, 342672, is not: the table's TO-3 heat sink is H5, stock 342675. One digit apart, and one of the two is a typo. Order by description rather than by the footnote's number.",
+      "refs": ["Q1", "H5", "MP16", "MP24"]
+    }
+  ]
+}

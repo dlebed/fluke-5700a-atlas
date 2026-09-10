@@ -1,0 +1,744 @@
+{
+ "_comment": [
+  "A7 Current/High-Resolution Oscillator PCA — curated reference material.",
+  "",
+  "overview      what the board does, from §2-186 to §2-203.",
+  "railCircuits  the circuit behind each rail group in a7.testpoints.json.",
+  "faultCodes    §5-2 diagnostic codes 2700-2719, verbatim in substance.",
+  "componentNotes  what a part is for, where the parts-list description does",
+  "                not say. Device types in brackets are printed on Figure 7-7,",
+  "                not inferred: Table 6-8 gives none of them.",
+  "caveats       every place two sources disagree, with both readings shown.",
+  "",
+  "Nothing here is generated. Every statement is either quoted from the 1996",
+  "Series II service manual's text layer or read off the Rev 9 Chapter 7 sheets",
+  "at full resolution, and says which."
+ ],
+ "overview": {
+  "summary": "Two independent circuits on one board, sharing only the digital control and the self-diagnostic multiplexer — §5-6 says so outright and troubleshoots them in two separate sub-sections. The CURRENT section makes the instrument's dc and ac output current, 20 µA to 220 mA in four ranges (220 µA, 2.2 mA, 22 mA, 220 mA), ac from 40 Hz to 10 kHz. It is a transconductance loop: the 22 V range of the DAC (A11) in dc or of the Oscillator Output (A13) in ac arrives on B IN/B FB, K1 and Q20–Q23 select it and its return, Z1's precision dual 10:1 divider compares it with the feedback, the dc amplifier on the heated hybrid HR2 amplifies the difference, Q2/Q3/Q18/Q19 turn that into complementary drive, and K2 sends the drive either to the 220 µA/2.2 mA amplifier (Q4, Q5, K3) or to the 22 mA/220 mA amplifier (Q6–Q13, K4). Four four-terminal shunts bonded to the same heated substrate — 10 kΩ, 1 kΩ, 100 Ω, 10 Ω — sense the current, K5–K9 select which, and buffers U2 and U3 close the loop. 22 V in and a 10:1 divider means 2.2 V full scale across whichever shunt is selected. K10–K15 and K17 switch the output, U4 buffers the guard, Q24/Q25 clamp compliance to ±11 V, and U5/U6 form an absolute-value monitor that reports current and compliance to the adc on A11. The 2.2 A range is not made here: A7 runs in its 22 mA range with K10 set, A15 multiplies by 100, and the current comes back on B CUR through K11. The HI-RES section makes a square wave from 10 Hz to 1.2 MHz with 4½-digit frequency resolution, which leaves on P LOCK HI and is what the Oscillator Output assembly (A13) phase-locks its oscillator to. A17's 8 MHz CLK/CLK* pair is squared up by comparator U13A and divided by four in U14 to 2 MHz REF; synthesiser U16 divides that by 2000 to 1 kHz and compares it against the VCO fed back through its own 6010-to-12000 divider; loop filter U20 drives varactor CR9 and the MC1648 VCO (U19) over 6 to 12 MHz; synthesiser U17 then divides by anything from 5 to 500 000, and U21 halves the result into the two output ranges that U18B/U18C select.",
+  "sections": "§2-186 … §2-203",
+  "connectors": "P211 and P212, DIN 41612 type C, right-angle, 64 pin each (Table 6-8, stock 807800). P211 carries the analog side — B IN, B FB, BRF13/BSRF13, OSC SENSE LO, R COM, DAC OUT LO, OS COM, AC CAL, B RCL/RCL, and the OUT LO / INT OUT HI / I OUT / I-GUARD output group. P212 carries the digital side — the guarded data and address bus, CS1*, CS7*, CS13*, WR*, RD*, RESET, POP, CLK/CLK*, RLY11*, P LOCK HI, and every supply the board uses.",
+  "note": "A7 generates no supply of its own. +17 S, −17 S and S COM, +5 LH, −5 LH and LH COM, +5 RLH, +8 RLH and RLH COM all arrive on P212 from the Regulator/Guard Crossing assembly (A17). Only ±17 LH is made locally, by chokes L7 and L8 with C52 and C53 from ±17 S — which is why the hi-res half's supplies are referenced to LH COM while the current half's are referenced to S COM even though they come from the same regulators. Note that +8 RLH is a misleading name: §2-73 says it is the UNREGULATED +5 LHR from the Filter assembly fused at 3.15 A by F1 on A17, and fault code 3609 accepts +10 V to +20 V for it. It powers the HR2 heater through Q1 and nothing else on this board."
+ },
+ "railCircuits": {
+  "CUR": {
+   "rails": "The transconductance loop: INPUT HI/LO, NEGATIVE FB, POSITIVE FB, DC AMP HYBRID OUT, CUR/COMP MONITOR",
+   "regulators": [
+    "HR2",
+    "Z1",
+    "U2",
+    "U3",
+    "U4",
+    "U5",
+    "U6",
+    "Q2",
+    "Q3",
+    "Q4",
+    "Q5",
+    "Q6",
+    "Q7",
+    "Q8",
+    "Q9",
+    "Q10",
+    "Q11",
+    "Q12",
+    "Q13",
+    "Q18",
+    "Q19"
+   ],
+   "filters": [
+    "C6",
+    "C7",
+    "C12",
+    "C13",
+    "C14",
+    "C4",
+    "C5"
+   ],
+   "tps": [
+    "TP1",
+    "TP2",
+    "TP3",
+    "TP4",
+    "TP9",
+    "TP19",
+    "TP20"
+   ],
+   "note": "§2-187 to §2-197. The loop closes through Z1: the selected 22 V input and the two feedback voltages from U2 and U3 meet at a dual matched 10:1 divider, and the difference drives HR2's dc amplifier. K2 chooses which transconductance amplifier gets the complementary drive; K3 shunts R10 and R12 with R11 and R13 to move the small amplifier from 220 µA to 2.2 mA; K4 adds Q10–Q13 as Darlingtons on Q6–Q9 to move the large one from 22 mA to 220 mA. K5–K9 select which of HR2's four shunts is in circuit (Table 2-15). RT1 and RT2 sit in the emitters of the compliance clamp transistors Q24 and Q25 with R85 and R86."
+  },
+  "OUT": {
+   "rails": "OUT LO, INT OUT HI, I OUT, I-GUARD, B CUR, IHV",
+   "regulators": [
+    "K10",
+    "K11",
+    "K12",
+    "K13",
+    "K14",
+    "K15",
+    "K16",
+    "K17",
+    "U4"
+   ],
+   "filters": [
+    "R14",
+    "C69",
+    "C71",
+    "L12"
+   ],
+   "tps": [
+    "TP5",
+    "TP6",
+    "TP7",
+    "TP8"
+   ],
+   "note": "§2-193 to §2-195. K13 reset switches the 1.2 Ω dummy load R14 across the output, which is what stops switching transients and what every current diagnostic measures into. K15 connects the return lines whenever an output is called for and K14 connects the signal to K12, which sends it to the OUTPUT HI binding post when set and to the AUX CURRENT OUTPUT post when reset. K10 set diverts the output to A15 on IHV for the 2.2 A range and K11 set brings the amplified current back on B CUR. U4 buffers the guard so cable leakage does not steal output current. K14, K15 and K17 are the three non-latching relays: they drop out with the power off."
+  },
+  "HIRES": {
+   "rails": "8 MHZ, 2 MHZ REF, 6-12 MHZ, VCO INPUT, HI RES OUTPUT, P LOCK HI",
+   "regulators": [
+    "U13",
+    "U14",
+    "U15",
+    "U16",
+    "U17",
+    "U18",
+    "U19",
+    "U20",
+    "U21",
+    "Q15",
+    "Q16",
+    "Q17",
+    "VR3",
+    "CR9"
+   ],
+   "filters": [
+    "C25",
+    "C26",
+    "C27",
+    "C28",
+    "C29",
+    "C30",
+    "C31",
+    "C32",
+    "C33",
+    "C34",
+    "C35",
+    "C36",
+    "C37",
+    "C38",
+    "C39",
+    "C40",
+    "C43",
+    "C47",
+    "C48",
+    "C59",
+    "C65",
+    "C66",
+    "C67",
+    "C68"
+   ],
+   "tps": [
+    "TP11",
+    "TP12",
+    "TP13",
+    "TP16",
+    "TP17",
+    "TP18"
+   ],
+   "note": "§2-199 to §2-203. Everything downstream of U16 runs off the phase-locked loop being locked, so a fault at any point in the chain looks like a frequency fault at the output. The VCO supply is switched: U18A closes when HI-RES ON/OFF goes low, turning on Q15, which connects VR3 (5.6 V) to −17 LH and gives U19 its −5.25 V. R53/R54 divide the VCO control voltage down into HI-RES LOOP for the diagnostic multiplexer, which is the node fault codes 2713–2717 measure. R63 and C49 filter 2 MHz REF into HI-RES CLOCK for fault code 2712. Q17 (VN10KM) gates the output, and U18D connects the square wave to P LOCK HI."
+  },
+  "DIAG": {
+   "rails": "SDL, and the five points U12 multiplexes onto it",
+   "regulators": [
+    "U12",
+    "U7",
+    "R1",
+    "CR1",
+    "CR2"
+   ],
+   "filters": [
+    "R39",
+    "R40",
+    "R42",
+    "R43",
+    "R53",
+    "R54",
+    "R63",
+    "C49"
+   ],
+   "tps": [
+    "TP10"
+   ],
+   "note": "§2-186. U12 is a 4051 8-to-1 analog multiplexer with five inputs used: DUMMY LOAD (across R14, through R40), OVEN TEMP (the HR2 heater voltage divided by R42/R43), CUR/COMP MONITOR (U6A's output), HI-RES LOOP (the VCO control voltage divided by R53/R54) and HI-RES CLOCK (2 MHz REF filtered by R63/C49). PB0–PB2 of U7 choose the channel and PC6 enables the output onto SDL, where the adc on the DAC assembly (A11) measures it. CR1 and CR2 clamp SDL to ±5 LH. Because the adc is on another board, every 27xx code that quotes a voltage is really a statement about A11's reading of A7's node."
+  },
+  "COM": {
+   "rails": "S COM and LH COM",
+   "tps": [
+    "TP17",
+    "TP18",
+    "TP20"
+   ],
+   "note": "Two commons on one board with a test point each, and §5-7 and §5-8 use different ones. S COM (TP20, and TP17 which is the same net) returns the current section on P211 pins 5A/5C; LH COM (TP18) returns the logic and hi-res sections on P212 pins 11A/11C. RLH COM, the relay-driver return, has no test point at all. §2-74 notes that S COM and LH COM are connected to each other on A17, which is why an error is a small offset rather than an open circuit — and therefore why it is easy to miss."
+  }
+ },
+ "faultCodes": [
+  {
+   "code": "2700",
+   "title": "A7: 8255 Control Word",
+   "measure": "The diagnostics software reads back the control word of the 82C55 (U7).",
+   "expected": "The control word reads back as it was written",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault. Nothing else on this board can be believed while this code stands: U7 drives all four relay drivers, the diagnostic multiplexer and every FET control line, so a 2705, 2706, 2709, 2710 or 2712–2717 raised alongside it is being measured through hardware that is not known to be listening.",
+   "refs": [
+    "U7"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2701",
+   "title": "A7: 8255 Port A Fault",
+   "measure": "The diagnostics software writes and reads data to port A of the 82C55 (U7).",
+   "expected": "What is written to port A reads back",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault. Port A is the CONTROL BUS: it carries the desired state of all seventeen relays and programs both synthesisers U16 and U17, so a port A fault takes out the current ranges and the hi-res frequency together.",
+   "refs": [
+    "U7",
+    "U8",
+    "U9",
+    "U10",
+    "U11",
+    "U16",
+    "U17"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2702",
+   "title": "A7: 8255 Port B Fault",
+   "measure": "The diagnostics software reads port B of the 82C55 (U7).",
+   "expected": "Port B reads back correctly",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault. Port B carries the diagnostic multiplexer's channel select (PB0–PB2), the four FET control lines (PB3–PB5, PB7) and HI-RES RANGE (PB6).",
+   "refs": [
+    "U7",
+    "U12",
+    "U5",
+    "U18"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2703",
+   "title": "A7: 8255 Port C Fault",
+   "measure": "The diagnostics software reads port C of the 82C55 (U7).",
+   "expected": "Port C reads back correctly",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault. Port C carries the relay-driver enables and strobes (PC0–PC5), the diagnostic output enable (PC6) and HI-RES ON/OFF (PC7) — so this code can present as relays that will not change state and as a dead hi-res oscillator at the same time.",
+   "refs": [
+    "U7",
+    "U8",
+    "U9",
+    "U10",
+    "U11",
+    "U12"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2705",
+   "title": "A7: Oven Regulation Fault",
+   "measure": "OVEN TEMP — the heater voltage of the current hybrid — is divided down, connected to the SDL line by U12, and measured by the adc circuit on the DAC assembly (A11).",
+   "expected": "0.7 V ±10 % ±0.2 V",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault. The test exists to confirm the hybrid is warmed up and regulating, so read it as a thermal statement: too low can mean the heater is not being driven (Q1, R3, C15, the control amplifier inside HR2), too high can mean it is being driven flat out and never reaching setpoint. Give the instrument time before believing it, and refit MP6 — running the hybrid uncovered changes the thermal load.",
+   "refs": [
+    "HR2",
+    "Q1",
+    "Q14",
+    "R3",
+    "R42",
+    "R43",
+    "C15",
+    "C1",
+    "U12"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2706",
+   "title": "A7: Current Compliance Fault",
+   "measure": "The Current assembly is put into each of its four ranges, dc and ac, with the output connected to the 1.2 Ω load resistor R14. The compliance voltage is measured on the OUTPUT side of the shunt through the current/compliance voltage monitor.",
+   "expected": "Within 10 % of the expected compliance voltage",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault. Which ranges fail is the useful signal: all four points at the monitor itself (U5, U6, C14) or at the dummy load path (K13, R14); one or two points at the shunt selection for those ranges (K5–K9) or at the amplifier that serves them.",
+   "refs": [
+    "U5",
+    "U6",
+    "C14",
+    "R14",
+    "K13",
+    "K5",
+    "K6",
+    "K7",
+    "K8",
+    "K9",
+    "HR2"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2707",
+   "title": "A7: Hardware Initialization Fault",
+   "measure": "The diagnostics software attempts to set the Current hardware into its test configuration.",
+   "expected": "The hardware accepts the configuration",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault. This is a setup failure rather than a measurement, so it usually arrives with 2700–2703: the software could not get the board into a state worth measuring.",
+   "refs": [
+    "U7",
+    "U8",
+    "U9",
+    "U10",
+    "U11"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2709",
+   "title": "A7: Current Magnitude Fault",
+   "measure": "The Current assembly is put into each of its four ranges, dc and ac, with the output connected to the 1.2 Ω load resistor R14, and the current is calculated from the voltage drop across the shunt resistance.",
+   "expected": "Within 10 % of the expected current",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault. This is the loop itself rather than the monitor: input switching, Z1, HR2's dc amplifier, the complementary drive and the transconductance amplifiers. If 2706 is clean and this is not, the monitor is reading correctly and the current really is wrong.",
+   "refs": [
+    "Z1",
+    "HR2",
+    "K1",
+    "K2",
+    "K3",
+    "K4",
+    "Q2",
+    "Q3",
+    "Q4",
+    "Q5",
+    "Q6",
+    "Q18",
+    "Q19",
+    "R14"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2710",
+   "title": "A7: Dummy Load Current Fault",
+   "measure": "The Current assembly is put into each of its dc ranges with the output connected to the 1.2 Ω load resistor R14, and the resulting voltage on DUMMY LOAD is connected to the SDL line and measured by the adc on the DAC assembly (A11).",
+   "expected": "Within 10 % ±5 mA of the output current",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault. This measures the same current as 2709 by a different route — across R14 through R40 rather than across the shunt — so 2709 and 2710 failing together points at the current, and 2710 alone points at R14, R40, K13 or the multiplexer channel.",
+   "refs": [
+    "R14",
+    "R40",
+    "K13",
+    "U12"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2711",
+   "title": "Assembly A7 Is Not Responding",
+   "measure": "At power up the instrument checks which assemblies are installed and whether each responds.",
+   "expected": "A7 responds",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault. Check the obvious first: the board seated in its slot, and the guarded digital bus reaching it on P212 — the chip select decode (CS1*, CS7*, CS13*), RESET and the +5 LH supply. A board that is genuinely absent raises this too, so it is not by itself evidence of a failed part.",
+   "refs": [
+    "U7",
+    "P212",
+    "R37",
+    "R38",
+    "C16",
+    "C17",
+    "C54"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2712",
+   "title": "A7: Hi-Res Clock Fault",
+   "measure": "HI-RES CLOCK — 2 MHz REF filtered by R63 and C49 — is connected to the SDL line by U12 and measured by the adc on the DAC assembly (A11).",
+   "expected": "2.5 V ±200 mV",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault. This is the presence of the reference divider chain, not its accuracy: U13A squaring A17's 8 MHz CLK/CLK*, U15D gating it with HI-RES ON/OFF, and U14A/U14B dividing by four. A fault here also has an off-board cause worth eliminating — if U13 is good, the 8 MHz is coming from A17.",
+   "refs": [
+    "U13",
+    "U14",
+    "U15",
+    "R63",
+    "C49",
+    "U12",
+    "Z2",
+    "R76",
+    "R77",
+    "C59",
+    "L10"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2713",
+   "title": "A7: Hi-Res Loop In 100 Hz Range",
+   "measure": "The instrument is set for 2.0 V at 100 Hz. The VCO's input voltage is resistively divided into HI-RES LOOP, connected to SDL by U12 and measured by the adc on the DAC assembly (A11).",
+   "expected": "The VCO control voltage the 100 Hz range should need. §5-2 states a band only for 2717 — within 25 % ±1.0 V of the expected voltage — and the same test is being made here.",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault. Read 2713–2717 as a set, not one at a time: all five failing together is the VCO or its supply (§5-8 steps 5 and 6), because every range drives the VCO over the same 6–12 MHz span. One or two failing is the divider programming or the output range switching (§5-8 steps 7, 9 and 10).",
+   "refs": [
+    "U19",
+    "CR9",
+    "U20",
+    "R53",
+    "R54",
+    "U12",
+    "U16"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2714",
+   "title": "A7: Hi-Res Loop In 1 kHz Range",
+   "measure": "The instrument is set for 2.0 V at 900 Hz. HI-RES LOOP is measured on SDL as for 2713.",
+   "expected": "The VCO control voltage the 1 kHz range should need",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault. Note the frequency: 900 Hz, not 1 kHz — the code names the range and the diagnostic uses a point inside it.",
+   "refs": [
+    "U19",
+    "CR9",
+    "U20",
+    "R53",
+    "R54",
+    "U12",
+    "U16",
+    "U17"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2715",
+   "title": "A7: Hi-Res Loop In 10 kHz Range",
+   "measure": "The instrument is set for 2.0 V at 11 kHz. HI-RES LOOP is measured on SDL as for 2713.",
+   "expected": "The VCO control voltage the 10 kHz range should need",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault. 11 kHz is inside the 12 kHz–119.99 kHz range's neighbour, which is the point: the diagnostic walks the range boundaries.",
+   "refs": [
+    "U19",
+    "CR9",
+    "U20",
+    "R53",
+    "R54",
+    "U12",
+    "U16",
+    "U17",
+    "U21",
+    "U18"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2716",
+   "title": "A7: Hi-Res Loop In 100 kHz Range",
+   "measure": "The instrument is set for 2.0 V at 70 kHz. HI-RES LOOP is measured on SDL as for 2713.",
+   "expected": "The VCO control voltage the 100 kHz range should need",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault.",
+   "refs": [
+    "U19",
+    "CR9",
+    "U20",
+    "R53",
+    "R54",
+    "U12",
+    "U16",
+    "U17",
+    "U21",
+    "U18"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2717",
+   "title": "A7: Hi-Res Loop In 1 MHz Range",
+   "measure": "The instrument is set for 2.0 V at 121 kHz, then 600 kHz, then 1.19 MHz. HI-RES LOOP is measured on SDL at each frequency.",
+   "expected": "Within 25 % ±1.0 V of the expected VCO input voltage",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault. This is the only one of the five loop codes that publishes a band, and it is the one that exercises the widest span of the VCO's tuning curve — three frequencies across the top range. If 2713–2716 pass and only this fails, suspect the top of the VCO's range: CR9's bias at the high end, U19, and U21A's ÷2 path through U18B.",
+   "refs": [
+    "U19",
+    "CR9",
+    "U20",
+    "R53",
+    "R54",
+    "U12",
+    "U16",
+    "U17",
+    "U21",
+    "U18"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2718",
+   "title": "Fault In Setting Up AC For Diagnostics",
+   "measure": "The diagnostics software attempts to set the Hi-Resolution Oscillator hardware into its test configuration.",
+   "expected": "The hardware accepts the configuration",
+   "verdict": "A failure indicates the Current/Hi-Res assembly (A7) is probably at fault. Like 2707 this is a setup failure rather than a measurement, and it is the hi-res half's version of it: the CONTROL BUS loading U16 and U17 through U15A/U15B with CS7*, CS13* and WR*.",
+   "refs": [
+    "U7",
+    "U15",
+    "U16",
+    "U17",
+    "R61",
+    "R62",
+    "C45",
+    "C46"
+   ],
+   "source": "§5-2"
+  },
+  {
+   "code": "2719",
+   "title": "A7: 8255 Was Reset",
+   "measure": "The control word of the 82C55 (U7) is found to be incorrect during operation.",
+   "expected": "The control word is still what the software last wrote",
+   "verdict": "A failure indicates the Current/Hi-Res assembly is probably at fault. This is the code that says the part was configured correctly and has since lost it, which points at the RESET line and its network (R37, C16) and at the +5 LH supply's integrity as much as at U7 itself.",
+   "refs": [
+    "U7",
+    "R37",
+    "C16",
+    "C18"
+   ],
+   "source": "§5-2"
+  }
+ ],
+ "componentNotes": {
+  "HR2": "The current hybrid: an op amp die on a heated substrate, bonded to the four four-terminal shunt resistors (10 kΩ, 1 kΩ, 100 Ω, 10 Ω) that sense output current in the four ranges. §2-189 and §2-191. Its dc amplifier is the loop's error amplifier, its heater is held at 50 °C by the control circuit on sheet 2 driving Q1's base, and its 42 Ω heater element runs from Q1's collector to S COM. Covered by MP6. Everything about the board's dc accuracy depends on it, and fault code 2705 is its thermal check.",
+  "Z1": "The precision dual 10:1 matched divider, printed 4R08 on sheet 1: two 40 kΩ / 4 kΩ legs. It sets the loop's ratio — 22 V full scale in becomes 2.2 V across the selected shunt — so a mismatch between its legs is a gain error in every current range at once. §5-7 step 12 measures pins 8 and 3 and wants 1.818 V dc ±0.35 % at both.",
+  "Z2": "A six-pin cermet SIP of five 10 kΩ elements, used as pull-ups: three of them bias U13B's unused input on sheet 4 with R90, and one sets U13A's threshold.",
+  "Z3": "A resistor network in the AC CAL path around U22 on sheet 1. The two parts lists disagree about what it is — see the 'Z3 and Z4' caveat — and the schematic draws it as four 10 kΩ elements, which is the Rev 9 description and not the 1996 one.",
+  "Z4": "Listed by the 1996 Table 6-8 on the same row as Z3, and by nothing else: it is on no schematic sheet, is not on the locator drawing, and Rev 9's Table 6-8 does not list it. See the 'Z3 and Z4' caveat.",
+  "R14": "The 1.2 Ω 2 W wirewound dummy load, switched across the output by K13 when reset. §2-193 puts it there to stop switching transients; every current diagnostic — fault codes 2706, 2709 and 2710 — measures into it, and Figures 5-8 to 5-11 show it at the end of the relay chain in each range.",
+  "U2": "LT1007 precision low-noise op amp, the NEGATIVE FB BUFFER: a voltage follower isolating the low side of the selected shunt (through K5A/K6A/K8A/K9A) from the rest of the feedback circuit. Its output is TP3. §5-7 step 8.",
+  "U3": "LT1007, the POS FB BUFFER: the mirror of U2 on the high side of the shunt, through K5B/K6B/K8B/K9B. Its output is TP4. §5-7 step 9.",
+  "U4": "LF356B JFET-input op amp, the I-GUARD BUFFER: a voltage follower that drives the guard to the same potential as the output across the external load, so leakage and cable capacitance do not steal output current (§2-195). Its output leaves on P211 through R44 and L12 as I-GUARD, and reaches the rear panel through K11 on the Motherboard when the rear posts are in use.",
+  "U5": "DG444 quad bilateral switch. U5B is input selection, closed with K1 set for the 13 V reference during current calibration (FET4); U5A, U5C and U5D switch the current/compliance monitor between the input and output sides of the shunt (FET3). §2-188 and §2-197.",
+  "U6": "LT1013 dual precision op amp forming the absolute-value circuit of the current/compliance monitor: U6B makes a negative half-wave of its input, R30/R31 sum it back at U6A, and C14 averages the result so CUR/COMP MONITOR (TP9) is always a positive dc voltage. §2-197.",
+  "U7": "The 82C55 programmable peripheral interface, and the whole board's digital control. Port A is the CONTROL BUS to the four relay drivers and both synthesisers; port B carries the diagnostic channel select, FET1–FET4 and HI-RES RANGE; port C carries the driver enables and strobes, the diagnostic output enable and HI-RES ON/OFF. §2-186. Fault codes 2700–2703, 2707 and 2719 are all about this part.",
+  "U8": "UCN5801A, an eight-channel latching relay driver. U8, U9 and U10 between them drive the fourteen latching relays K1–K13 and K16; PC0 enables U8 and PC3 strobes it.",
+  "U9": "UCN5801A latching relay driver. PC1 enables U9 and U10 together; PC4 strobes U9.",
+  "U10": "UCN5801A latching relay driver. PC1 enables it with U9; PC5 strobes it.",
+  "U11": "UCN5800A, a four-channel driver for the three NON-latching relays K14, K15 and K17. It also generates RLY11*, which controls K11 on the Motherboard — the relay that routes I-GUARD to the rear panel. PC2 strobes it.",
+  "U12": "MM74HC4051 8-to-1 analog multiplexer, the diagnostic circuit. Five channels are used: DUMMY LOAD, OVEN TEMP, CUR/COMP MONITOR, HI-RES LOOP and HI-RES CLOCK. PB0–PB2 select, PC6 enables the output onto SDL. §2-186.",
+  "U13": "NE522 high-speed comparator. U13A amplifies A17's low-level CLK/CLK* pair up to a 5 V p-p 8 MHz square wave; U13B is spare with its output not connected. §5-8 step 2 probes pin 4.",
+  "U14": "74HC74 dual D flip-flop, dividing the 8 MHz clock by four to make 2 MHz REF, the reference for synthesiser U16. §5-8 step 3 names U14A and U14B as the suspects when TP12 is wrong.",
+  "U15": "74HC02 quad two-input NOR gate. U15A gates CS7*/WR* into U16, U15B gates CS13*/WR* into U17, U15C carries HI-RES RANGE to U18B/U18C, and U15D gates the 8 MHz clock with HI-RES ON/OFF. §5-8 step 2 measures HI-RES ON/OFF at pin 12.",
+  "U16": "MC145145-1 phase-locked loop synthesiser: a reference divider taking 2 MHz REF down to the 1 kHz phase comparison frequency, a programmable divider taking the VCO feedback down by 6010 to 12000 in one-digit steps, and the phase detector whose 0V (pin 14) and 0R (pin 15) outputs drive the loop filter. §2-201, §5-8 step 7.",
+  "U17": "MC145146-1 synthesiser, the 5-500K output divider: its reference divider makes 24 kHz–2.4 MHz at pin 18 and its divide-by-N counter makes 20 Hz–24 kHz at pin 15, for a total division of anything from 5 to 500 000. §2-202, §5-8 step 9.",
+  "U18": "DG444 quad bilateral switch in the hi-res section. U18A switches the VCO's supply (with Q15 and VR3), U18B and U18C select which output range reaches the output stage, and U18D connects the square wave to P LOCK HI. §5-8 steps 5 and 10.",
+  "U19": "MC1648 ECL voltage-controlled oscillator, tuned by varactor CR9 over 6 to 12 MHz — a deliberate 2:1 range. Its supply is the −5.25 V ±7 % at pin 8 that §5-8 step 5 measures, made by VR3 through Q15 from −17 LH. L4 (3.3 µH) is its tank inductor.",
+  "U20": "LT1013 dual op amp, the LOOP FILTER: U20A and U20B amplify and filter the phase detector's outputs and set CR9's bias. §5-8 step 8 checks pin 7 for a positive dc voltage below 10 MHz and a negative one above.",
+  "U21": "74LS74 dual D flip-flop. U21A halves U17's reference-divider output for the 12 kHz–1.2 MHz range and U21B halves its divide-by-N output for the 10 Hz–12 kHz range. §5-8 step 9 counts pin 5 and pin 9.",
+  "U22": "LF356B JFET-input op amp in the AC CAL path, outside the current loop entirely: during ac current frequency characterisation K17B ties the output side of the selected shunt to S COM and K17A sends the resulting 2 V through U22 onto AC CAL, which runs to the rms sensor on A12. §2-198. A board that passes every step of §5-7 but fails ac current calibration points here rather than at the amplifiers.",
+  "Q1": "TIP32 PNP, the HR2 heater pass transistor: emitter on +8 RLH, collector into the hybrid's 42 Ω heater element, base driven by HR2's own control amplifier. C15 sits across it. Table 6-8 supplies it as stock 665448, an assembly of the heat sink (816587) and the device (369660) — order the assembly number.",
+  "Q14": "TIP120 NPN Darlington. §2-189: it protects the hybrid if Q1 fails, by shunting the heater drive to RLH COM.",
+  "Q15": "2N4401 NPN, the VCO supply switch: turned on by U18A when HI-RES ON/OFF goes low, connecting VR3 to −17 LH so U19 has its −5.25 V.",
+  "Q16": "2N3904 NPN emitter follower driving the hi-res output into U18D through C39.",
+  "Q17": "VN10KM VMOS switch on the hi-res output. Note the type: the schematic prints VN10KM and Table 6-8 prints VM10KM — see the caveat.",
+  "Q24": "TIP125 PNP Darlington, the positive half of the compliance limiter — with Q25 it clamps the output to ±11 V. §2-196, §5-7 step 14.",
+  "Q25": "TIP120 NPN Darlington, the negative half of the compliance limiter.",
+  "RT1": "Disc thermistor in Q24's emitter with R85, giving the compliance clamp a thermal limit as well as a voltage one. Rev 9 gives its manufacturer part as a Raychem RXE017 polymeric PTC.",
+  "RT2": "The mirror of RT1, in Q25's emitter with R86.",
+  "CR9": "MVAM125 varactor, the VCO's tuning element. It is the most delicate part in the phase-locked loop and Table 6-8 does NOT mark it with the ESD asterisk, unlike almost every semiconductor around it.",
+  "CR10": "FDH300, one of the two clamp diodes between the compliance limiter's two halves. §5-7 step 14 names CR10 and CR11 with Q24 and Q25.",
+  "CR11": "FDH300, the other compliance limiter clamp diode.",
+  "CR1": "One of the two clamp diodes on the SDL diagnostic line, to +5 LH. Sheet 3.",
+  "CR2": "The other SDL clamp diode, to −5 LH. Sheet 3.",
+  "VR3": "5.6 V zener, switched onto −17 LH by Q15 to make the VCO's −5.25 V supply. §5-8 step 5.",
+  "E1": "A wire link, not a connector: §5-7 step 1 tells you to CUT it, which opens the current feedback loop at HR2's output so that an external ac reference can be injected at TP19. The note between steps 10 and 11 tells you to replace or reconnect it. Same part as the test points, stock 816090.",
+  "E2": "The other wire link, in the phase-locked loop between U20's output and the VCO's control input. §5-8 step 6 cuts it so an external 2–12 V dc reference can be injected at TP11; step 8 ends by telling you to reconnect it. Left cut, the hi-res oscillator never locks and every ac function on the instrument is wrong.",
+  "K2": "Switches the complementary drive: reset sends it to the 220 µA/2.2 mA amplifier, set sends it to the 22 mA/220 mA amplifier. §5-7 step 3 scopes pins 11 and 6 against Figures 5-6 and 5-7.",
+  "K13": "Connects the 1.2 Ω dummy load R14 to the output when RESET — which is the state it is in during diagnostics and during current range switching. Reset is the loaded state, not the unloaded one; the sheet 2 chart note says so.",
+  "K16": "Switches B RCL to RCL on P211. The two parts lists both group it with the 2-form-C latching relays; both schematic sheets draw it as a 4FCL. See the 'K16' caveat before ordering one.",
+  "K17": "Energised only during ac current flatness characterisation: K17B ties the output side of the shunt to S COM and K17A sends the resulting 2 V through U22 onto AC CAL. Non-latching.",
+  "MP6": "The moulded cover over the HR2 hybrid and its resistor network. Sheet 2 labels it 5700A-2010 HYBRID SHIELD while Table 6-8 calls it MOLDED COVER, HYBRID, R-NET. Refit it before judging fault code 2705 — running the hybrid uncovered changes its thermal load.",
+  "XU1": "One of two 8-pin IC sockets. Which two ICs sit in them is the one thing the manuals disagree about: the 1996 list says XU1 and XU2, Rev 9 says XU2 and XU3. See the 'sockets' caveat.",
+  "XU2": "The other 8-pin IC socket named by the 1996 list. Both lists agree there are two of them, stock 478016."
+ },
+ "caveats": [
+  {
+   "title": "Two sub-sections, one numbered sequence — and one cross-reference that no longer lands",
+   "text": "§5-6 is a heading with no numbered steps of its own: four lines saying the current and hi-res circuits are independent and are troubleshot separately. The steps live in §5-7 Current Section (14 of them) and §5-8 Hi-Res Oscillator Section (10), each printed numbered from 1. This dataset walks them as one 24-step sequence because that is the only shape it has, so §5-8's steps 1–10 appear here as steps 15–24 and each step names the section it came from. That renumbering is this dataset's and not the manual's, and it breaks one printed cross-reference: §5-8 step 4 ends 'If the signal and frequency are correct, skip to step 9', meaning §5-8's own step 9 — which is step 23 here, not step 9. The cross-reference is also what settles the reading: it only resolves inside §5-8, so the two sub-sections really are separately numbered and this is not the A14 case where the manual's own numbering had been renumbered away.",
+   "refs": []
+  },
+  {
+   "title": "Two steps of §5-8 are truncated in this dataset by a parser fault, and lose their suspects",
+   "text": "Steps 17 and 18 here (§5-8 steps 3 and 4) used to end mid-sentence at 'similar to that shown in', losing 'Figure 5-13. If a failure is detected, check U14A and U14B.' and 'Figure 5-14. Also measure the frequency of this signal using a frequency counter and verify it is within 9.999 MHz to 10.001 MHz...'. The cause was in the shared procedure parser: it dropped any line beginning 'Figure n-m.' as a stray caption, and here that pattern falls at the start of a WRAPPED sentence rather than on a caption of its own. That has been fixed in tools/build_data.py — a line of that shape is now kept when the line above it has stopped mid-phrase, which is what tells a wrapped reference apart from a real caption — and both steps are complete above, with U14 linked again as a suspect. The note is kept because the belt and braces are worth keeping: TP12 also carries U14 in its onFail list, and TP13's first state carries the 9.999–10.001 MHz band and the counter instruction.",
+   "refs": [
+    "U14",
+    "TP12",
+    "TP13"
+   ]
+  },
+  {
+   "title": "TP6 exists; the 1996 parts list is one jumper short",
+   "text": "Table 6-8's jumper row reads 'TP1-5,TP7-13,TP16-20 JUMPER,WIRE,NONINSUL,0.200CTR 816090' with a Tot Qty of 17, skipping TP6. Three independent sources say TP6 is real: the test point legend on Figure 7-7 sheet 1 lists 'TP6 = INT OUT HI (PG1D1)' between TP5 and TP7; the locator drawing prints TP6 next to K10; and Rev 9's Table 6-8 gives stock 816090 a Tot Qty of 20 on a single row, which is 18 test points plus E1 and E2 — one more test point than the 1996 list's 17 plus 2. So the board has eighteen test points and the 1996 row undercounts by one. TP6 is carried here with notInParts set. Order stock 816090 if you need to replace it. TP14 and TP15, by contrast, genuinely do not exist: the numbering jumps from TP13 to TP16 in both legends and in both parts lists.",
+   "refs": [
+    "TP6",
+    "E1",
+    "E2"
+   ]
+  },
+  {
+   "title": "K16: both parts lists say 2 form C, both schematic sheets say 4 form C",
+   "text": "Table 6-8 groups K16 with K1–K3, K6, K7 and K10–K13 on the 'RELAY,ARMATURE,2 FORM C,5V,LATCH' row, stock 769307, Tot Qty 10 — and Rev 9's Table 6-8 prints exactly the same grouping, so this is not a scan artefact. The schematic disagrees twice: the bottom-view key on Figure 7-7 sheet 2 lists 4FCL as 'K4, K5, K8, K9, K16' and 2FCL as 'K1-K3, K6, K7, K10-K13', and sheet 3 draws K16 in U9's output group labelled 4FCL alongside K5 and K8. Both readings total seventeen relays, so exactly one of the two is wrong about K16 and no third source settles it. A 4 form C part has 16 pins and a 2 form C part has 10, so the board itself will tell you in a second — count the pads before ordering. This dataset carries the parts list's description, because the parts list is the authority for what to order, with this caveat attached.",
+   "refs": [
+    "K16",
+    "K4",
+    "K5",
+    "K8",
+    "K9"
+   ]
+  },
+  {
+   "title": "Figures 5-8 to 5-11 print the wrong shunt for three of the four ranges",
+   "text": "The four figures that go with §5-7 steps 4 to 7 each show the selected HR2 shunt, the relay chain and the 1.2 Ω load R14. All four print '10 kΩ HR2 SHUNT', which is only right for the 220 µA range. §2-191 and the step text both say the shunts are 10 kΩ for 220 µA, 1 kΩ for 2.2 mA, 100 Ω for 22 mA and 10 Ω for 220 mA. The relay lists differ too: Figure 5-9 shows K7C where step 5 says K7A, and Figure 5-10 shows K5 where step 6 says K5D. Use the step text and §2-191, not the figure. What the figures do get right on all four is the topology — selected shunt, relay chain, R14, S COM, with 2 V ac ±10 % across the shunt.",
+   "refs": [
+    "HR2",
+    "R14",
+    "K5",
+    "K7",
+    "K8",
+    "K9",
+    "K10",
+    "K13"
+   ]
+  },
+  {
+   "title": "§5-7 step 11 prints ±25 % for the ac reading and ±0.25 % for the dc one",
+   "text": "The same step, the same test point, the same 20 V: 'verify it is 20V dc ±0.25%' and then 'verify it is 20V ac ±25%'. A hundred-fold difference between the dc and ac acceptance bands for what is the same input attenuator makes ±25 % look like a lost decimal point. It is recorded here as printed, because nothing else in the manuals gives an ac band for this node and inventing ±0.25 % would be inventing a specification. Read a reading between 15 V and 25 V as passing the manual's printed test and as suspicious anyway.",
+   "refs": [
+    "TP1",
+    "TP2",
+    "K1",
+    "Q20",
+    "Q23"
+   ]
+  },
+  {
+   "title": "R11 and R13: 909 Ω in one list, 1 kΩ in the other, and the schematic sides with the first",
+   "text": "The 1996 Table 6-8 has R11 and R13 as 'RES,MF,909,+-1%,0.125W,100PPM' on stock 820308, and R81/R82 as 1 kΩ on stock 816595. Rev 9's Table 6-8 puts all four on stock 820308 and calls the row 1 kΩ, with manufacturer part MF50DVT1001F — which is a 1.00 kΩ part. Figure 7-7 sheet 2 prints '909 MF' beside both R11 and R13, so Rev 9's own schematic contradicts Rev 9's own parts list. R11 and R13 are the resistors K3 shunts across R10 and R12 to move the small transconductance amplifier from the 220 µA range to the 2.2 mA range, so the value is a gain term in one range only. This dataset carries the 1996 description (909 Ω) as the main entry and Rev 9's row as the as-built one; the manufacturer part number attached to R11 and R13 comes from that Rev 9 row and therefore reads 1001F. Measure before ordering.",
+   "refs": [
+    "R11",
+    "R13",
+    "R81",
+    "R82",
+    "R10",
+    "R12",
+    "K3"
+   ]
+  },
+  {
+   "title": "Z3 and Z4: three descriptions and one part that may not exist",
+   "text": "The 1996 Table 6-8 has one row, 'Z3,Z4 RNET,MF,POLY,SIP,1752 LO V DIVIDER', stock 645341, Tot Qty 2. Rev 9's Table 6-8 has 'Z 3 RES,CERM,NET,8 PINS,4 RES,10K', stock 855150, Tot Qty 1 — no Z4 at all. Figure 7-7 sheet 1 draws Z3 as four 10 kΩ elements around U22 in the AC CAL path, which is Rev 9's description and not the 1996 one, and neither the locator drawing nor any of the four sheets shows a Z4. So Z4 is named by exactly one source and is carried here unplaced rather than dropped, because dropping a part the authoritative parts list names would be a worse error than leaving it unplaced. If you are recapping or rebuilding, check the board for an 8-pin SIP position marked Z4 before ordering 645341.",
+   "refs": [
+    "Z3",
+    "Z4",
+    "U22",
+    "K17"
+   ]
+  },
+  {
+   "title": "The two IC sockets are named after different ICs by the two lists",
+   "text": "The 1996 Table 6-8 prints 'XU1,XU2 SOCKET ,SOCKET,IC,8 PIN', stock 478016, Tot Qty 2. Rev 9's Table 6-8 prints 'XU 2, 3' for the same stock number and the same Tot Qty of 2. Both agree there are two 8-pin sockets; they disagree about which ICs sit in them. Rev 9's reading is the physically plausible one — there is no U1 on this board at all, Table 6-8 runs U2 to U22 with no U1 row and the schematic has none, so an XU1 would be a socket under a part that does not exist, while U2 and U3 are the two LT1007 8-pin op amps that close the current feedback loop and are exactly the parts worth being able to swap. This dataset carries the 1996 list's XU1 and XU2 because that list is the authority for what to order, and the pipeline reports XU3 as dropped. Look at the board: two socketed 8-pin DIPs will settle it in a second.",
+   "refs": [
+    "XU1",
+    "XU2",
+    "U2",
+    "U3",
+    "U6",
+    "U20"
+   ]
+  },
+  {
+   "title": "C57 and C58 are on the drawing and on the schematic but not in Rev 9's parts list",
+   "text": "Rev 9's Table 6-8 runs C44, C59, C62 with no row for C57 or C58 at all, and the two therefore have no manufacturer part number in this dataset. They are certainly real: the locator drawing prints both, and Figure 7-7 sheet 1 draws C57 (2000 pF) across R79 and C58 (2000 pF) across R80 in the compliance limiter, on the base circuits of Q24 and Q25. The 1996 Table 6-8 lists them as 'CAP,CER,2000PF,+-5%,50V,C0G', stock 832618, Tot Qty 2. So this is an omission in the Rev 9 printed table rather than a revision difference — Rev 9's own sheet 1 shows the parts.",
+   "refs": [
+    "C57",
+    "C58",
+    "Q24",
+    "Q25",
+    "R79",
+    "R80"
+   ]
+  },
+  {
+   "title": "Four parts changed stock number between the two revisions",
+   "text": "Every one of these joins by designator rather than by stock number and is carried with an as-built entry. Q1: 1996 gives 665448, which note 1 defines as an assembly of heat sink 816587 and device 369660; Rev 9 lists the bare device, 369660, as a TIP32T. R14: 1996 gives 602182, Rev 9 gives 248658 with manufacturer part SPH21R20 — both a 1.2 Ω 2 W wirewound. R56 and R57: 1996 gives 887117, Rev 9 gives 109710 with manufacturer part GB4711 — both 470 Ω 1 W carbon composition. VR3: 1996 gives 277236, Rev 9 gives 820464 with manufacturer part 1N5232B — both a 5.6 V 500 mW zener. In each case the part is electrically the same and the number is not, so order by the 1996 number and expect the older one to be what is fitted.",
+   "refs": [
+    "Q1",
+    "R14",
+    "R56",
+    "R57",
+    "VR3"
+   ]
+  },
+  {
+   "title": "Q17's type number differs by one letter between the schematic and the parts list",
+   "text": "Table 6-8 describes Q17 as 'TRANSISTOR,SI,VMOS,PWR,TO-237,VM10KM' in both revisions; Figure 7-7 sheet 4 prints 'Q17 VN10KM' beside the symbol, and Rev 9's own manufacturer part column gives Siliconix V11809. VN10KM is a real Siliconix N-channel VMOS part in TO-237 and VM10KM is not a part number that exists, so the parts list has almost certainly dropped a stroke off the N. Order by Fluke stock 640516 and there is nothing to decide.",
+   "refs": [
+    "Q17"
+   ]
+  },
+  {
+   "title": "The board's own revision is recorded three different ways, and none of them is a letter",
+   "text": "The Manual Status Information table in Chapter 6 gives A7 as Fluke 764613 at revision level 203, and Table 6-1 gives the same part number. The photographed board carries no assembly revision at all on its silkscreen — only 'CURRENT/HI-RES' along one edge and the etch number '5700A-3021 REV M' along the other, with 'FLUKE U.S.A. COPYRIGHT 1988'. This dataset shows rev 203 because that is the manual's own statement about the assembly; the M is the printed-circuit artwork's revision and is a different thing. Neither is the stamped letter that A11, A19 and A9 carry.",
+   "refs": []
+  },
+  {
+   "title": "The CLK/CLK* level is given as 200 mV p-p in one place and 400 mV p-p in another",
+   "text": "§5-8's note after step 2 calls the incoming CLK and CLK* pair from A17 'a low level (400 mV p-p) signal'. §2-200, describing the same pair arriving at U13A on this board, calls it 200 mV p-p, and §2-80 on the A17 side says the same. Nothing resolves it, and nothing needs to: U13A is a comparator and what matters is that a differential signal of a few hundred millivolts is present. Do not treat either figure as an acceptance limit.",
+   "refs": [
+    "U13",
+    "R76",
+    "R77",
+    "C59",
+    "L10"
+   ]
+  },
+  {
+   "title": "The ESD asterisks in Table 6-8 skip parts that plainly need them",
+   "text": "Table 6-8 marks with an asterisk: HR2, Z1, CR1–CR4, CR10, CR11, every Q designator, U2 to U22, and VR3. It does NOT mark CR9 — the MVAM125 varactor, which is the most delicate device in the phase-locked loop — nor CR12, CR13, Z2, Z3 or Z4. Rev 9's asterisk column agrees. Treat the omission as an omission: handle CR9 with the same care as the transistors beside it.",
+   "refs": [
+    "CR9",
+    "CR12",
+    "CR13",
+    "Z2",
+    "Z3",
+    "Z4"
+   ]
+  },
+  {
+   "title": "Q6–Q13 and Q20–Q23 are named as ranges in the procedure and only their endpoints are linked",
+   "text": "Several §5-7 steps name a run of transistors — 'check Q6-Q13, K4' in steps 6 and 7, 'check K1, Q20-Q23' in step 11 — and the reference extractor picks designators out of the prose one token at a time, so those steps link only to Q6 and Q13, and to Q20 and Q23. The parts in between are named in the step's own text and are on the board; they are simply not clickable from it. The same applies to 'U18B, C, D' in step 24, which links U18 once. This is a property of the shared extractor rather than of A7's data.",
+   "refs": [
+    "Q6",
+    "Q7",
+    "Q8",
+    "Q9",
+    "Q10",
+    "Q11",
+    "Q12",
+    "Q13",
+    "Q20",
+    "Q21",
+    "Q22",
+    "Q23",
+    "U18"
+   ]
+  },
+  {
+   "title": "The schematic markers are machine reads, culled by rule, not reviewed one by one",
+   "text": "The board's 136 machine placements were every one rendered and looked at, and 50 were dropped. The four sheets' 379 were not: there was not the budget for it. What was done instead is a three-part cull, and the tier badge on each marker still says 'passes agreed' rather than 'checked by hand', so nothing here claims more than it is. First, only the agreed tier is kept — the pitfalls note measures a sheet's tiers as agreed 38/49, ambiguous 12/24, single 2/7, so the two weak tiers go wholesale. Second, the legend and chart blocks go, because that is where the confident errors are: sheet 1's TEST POINT INFORMATION box produced agreed markers for eight test points that all pointed at table rows, and sheet 2's relay bottom-view keys and state-chart notes produced agreed markers for K1, K6, K7, K8, K9, K12 and K15 sitting on caption text — both confirmed by rendering them. Third, test points are dropped from sheets they cannot be on. 180 of the 379 survive. Expect some of those to be wrong too.",
+   "refs": []
+  },
+  {
+   "title": "No test point has a marker on any schematic sheet, and no photo alignment exists",
+   "text": "Two things are deliberately left undone, both because doing them badly would be worse than not doing them. (1) Every test point marker the reader found on a sheet was on the legend table rather than on the net, so all of them were dropped; the flag symbols on the nets have not been measured to replace them. Until they are, use the zone reference each test point carries in its own source field — TP1 = INPUT HI (PG1C7), TP13 = 6-12 MHz (PG4C5) — which is the sheet's own legend answer. Clicking a test point will not turn a sheet to it. (2) The board photograph has no homography, so the Photo, Overlay and Swipe display modes are disabled for A7 and the app says so. The photograph is rotated 180 degrees with respect to the locator drawing, which is fine in itself, but two of the four hi-res shields and the HR2 hybrid cover are still fitted, and between them they hide most of the flat silkscreen on the right-hand third of the drawing — which is where the landmarks would have to come from. A solve fitted only to the board outline would look plausible and put markers on the wrong parts under the covers. Re-shoot with MP6 through MP10 off and it becomes an easy alignment.",
+   "refs": [
+    "MP6",
+    "MP7",
+    "MP8",
+    "MP9",
+    "MP10"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,7980 @@
+{
+ "assembly": "A11",
+ "generatedBy": "tools/build_coords.py",
+ "notOnDrawing": [
+  "A1",
+  "A2",
+  "H1",
+  "H2",
+  "H9",
+  "H10",
+  "H11",
+  "H12",
+  "H21",
+  "H26",
+  "H28",
+  "H32",
+  "M2",
+  "M3",
+  "MP1",
+  "MP2",
+  "MP3",
+  "MP4",
+  "MP5",
+  "MP6",
+  "MP7",
+  "MP8",
+  "MP9",
+  "MP10",
+  "MP11",
+  "MP31",
+  "R128",
+  "X1"
+ ],
+ "placement": {
+  "R118": {
+   "board": {
+    "x": 0.0605,
+    "y": 0.20831,
+    "w": 0.02353,
+    "h": 0.01314,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.07049,
+     "y": 0.51764,
+     "w": 0.01674,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R14": {
+   "board": {
+    "x": 0.26593,
+    "y": 0.16082,
+    "w": 0.02169,
+    "h": 0.01617,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.48807,
+     "y": 0.07205,
+     "w": 0.0157,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the 61.9M in the negative offset circuit, left of C21; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R2": {
+   "board": {
+    "x": 0.33829,
+    "y": 0.18623,
+    "w": 0.01331,
+    "h": 0.02264,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.34101,
+     "y": 0.70815,
+     "w": 0.0081,
+     "h": 0.00813,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "VR2": {
+   "board": {
+    "x": 0.32373,
+    "y": 0.18652,
+    "w": 0.00918,
+    "h": 0.03799,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.34468,
+     "y": 0.75612,
+     "w": 0.01431,
+     "h": 0.02086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "T1": {
+   "board": {
+    "x": 0.82988,
+    "y": 0.16544,
+    "w": 0.01216,
+    "h": 0.01617,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.47601,
+     "y": 0.75651,
+     "w": 0.01168,
+     "h": 0.01159,
+     "placement": "verified",
+     "placementNote": "the pulse transformer at the isolation barrier, feeding R49 into U10; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q35": {
+   "board": {
+    "x": 0.49362,
+    "y": 0.27814,
+    "w": 0.02205,
+    "h": 0.01658,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.86745,
+     "y": 0.59753,
+     "w": 0.01558,
+     "h": 0.01159,
+     "placement": "verified",
+     "placementNote": "the 2369 with R71 on its base and R72 in its collector; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q33": {
+   "board": {
+    "x": 0.52512,
+    "y": 0.25286,
+    "w": 0.00953,
+    "h": 0.03853,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.78676,
+     "y": 0.44602,
+     "w": 0.01558,
+     "h": 0.01159,
+     "placement": "verified",
+     "placementNote": "the 2369 with R43 on its base and R45 in its collector; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C5": {
+   "board": {
+    "x": 0.62059,
+    "y": 0.84747,
+    "w": 0.01262,
+    "h": 0.04234,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.11503,
+     "y": 0.44843,
+     "w": 0.01503,
+     "h": 0.01178,
+     "placement": "verified",
+     "placementNote": "the .22uF bypass on the +17 S rail beside L1; the reader's C5 hits were all on other sheets; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R125": {
+   "board": {
+    "x": 0.94562,
+    "y": 0.26175,
+    "w": 0.052,
+    "h": 0.02122,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.54497,
+     "y": 0.8174,
+     "w": 0.01669,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C108": {
+   "board": {
+    "x": 0.88995,
+    "y": 0.18647,
+    "w": 0.0081,
+    "h": 0.04224,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.5362,
+     "y": 0.92404,
+     "w": 0.01901,
+     "h": 0.01179,
+     "placement": "verified",
+     "placementNote": "the .22uF on U36's supply to LH COM; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R15": {
+   "board": {
+    "x": 0.17575,
+    "y": 0.43345,
+    "w": 0.02136,
+    "h": 0.02358,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.16295,
+     "y": 0.07795,
+     "w": 0.0157,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the 1.21K MF above the series linearity control; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR2": {
+   "board": {
+    "x": 0.12372,
+    "y": 0.4756,
+    "w": 0.02165,
+    "h": 0.01617,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.66268,
+     "y": 0.43135,
+     "w": 0.01285,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R115": {
+   "board": {
+    "x": 0.80978,
+    "y": 0.31053,
+    "w": 0.02434,
+    "h": 0.01314,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.40463,
+     "y": 0.89103,
+     "w": 0.01669,
+     "h": 0.00849,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R119": {
+   "board": {
+    "x": 0.07835,
+    "y": 0.28161,
+    "w": 0.0081,
+    "h": 0.04163,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.07051,
+     "y": 0.54926,
+     "w": 0.01663,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R117": {
+   "board": {
+    "x": 0.07942,
+    "y": 0.23301,
+    "w": 0.0081,
+    "h": 0.04143,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.07039,
+     "y": 0.48599,
+     "w": 0.01652,
+     "h": 0.00853,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR5": {
+   "board": {
+    "x": 0.1367,
+    "y": 0.35678,
+    "w": 0.0093,
+    "h": 0.03638,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.07044,
+     "y": 0.22485,
+     "w": 0.01536,
+     "h": 0.01185,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR8": {
+   "board": {
+    "x": 0.15923,
+    "y": 0.35613,
+    "w": 0.00953,
+    "h": 0.03699,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.53604,
+     "y": 0.87524,
+     "w": 0.0137,
+     "h": 0.01073,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "HR5": {
+   "board": {
+    "x": 0.34875,
+    "y": 0.23453,
+    "w": 0.02635,
+    "h": 0.02506,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.43084,
+     "y": 0.86008,
+     "w": 0.01218,
+     "h": 0.00813,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.41246,
+     "y": 0.14791,
+     "w": 0.0125,
+     "h": 0.00819,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "CR7": {
+   "board": {
+    "x": 0.28643,
+    "y": 0.3267,
+    "w": 0.02336,
+    "h": 0.02597,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.6094,
+     "y": 0.2109,
+     "w": 0.01234,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C111": {
+   "board": {
+    "x": 0.225,
+    "y": 0.49611,
+    "w": 0.02878,
+    "h": 0.01617,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.51083,
+     "y": 0.11205,
+     "w": 0.01884,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the .22uF polyester on pin 12 of HR6; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R111": {
+   "board": {
+    "x": 0.20984,
+    "y": 0.33168,
+    "w": 0.02159,
+    "h": 0.0481,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.8793,
+     "y": 0.07152,
+     "w": 0.01615,
+     "h": 0.00849,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q31": {
+   "board": {
+    "x": 0.22748,
+    "y": 0.31862,
+    "w": 0.00941,
+    "h": 0.03706,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.69813,
+     "y": 0.26153,
+     "w": 0.01558,
+     "h": 0.01159,
+     "placement": "verified",
+     "placementNote": "the 2369 driven through R40 from the comparator; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q32": {
+   "board": {
+    "x": 0.24671,
+    "y": 0.34566,
+    "w": 0.00918,
+    "h": 0.0388,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.75734,
+     "y": 0.24237,
+     "w": 0.01276,
+     "h": 0.00852,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "Q30": {
+   "board": {
+    "x": 0.28455,
+    "y": 0.37465,
+    "w": 0.00926,
+    "h": 0.039,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.61137,
+     "y": 0.19196,
+     "w": 0.01324,
+     "h": 0.01031,
+     "placement": "verified",
+     "placementNote": "the reader read this FET's Q30 label as U32"
+    }
+   ],
+   "schVerified": true
+  },
+  "VR10": {
+   "board": {
+    "x": 0.32708,
+    "y": 0.32304,
+    "w": 0.00941,
+    "h": 0.05173,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.53022,
+     "y": 0.07756,
+     "w": 0.01869,
+     "h": 0.01159,
+     "placement": "verified",
+     "placementNote": "the 10V zener to FR1 COM ahead of R39; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "VR24": {
+   "board": {
+    "x": 0.344,
+    "y": 0.33277,
+    "w": 0.02233,
+    "h": 0.05193,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.11447,
+     "y": 0.88574,
+     "w": 0.01686,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L2": {
+   "board": {
+    "x": 0.52112,
+    "y": 0.40626,
+    "w": 0.0093,
+    "h": 0.02264,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.25364,
+     "y": 0.42147,
+     "w": 0.01108,
+     "h": 0.01178,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R90": {
+   "board": {
+    "x": 0.55847,
+    "y": 0.46198,
+    "w": 0.02192,
+    "h": 0.02345,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.86957,
+     "y": 0.37487,
+     "w": 0.01423,
+     "h": 0.01041,
+     "placement": "verified",
+     "placementNote": "the reader read this 20K .1% resistor's R90 label as R50"
+    }
+   ],
+   "schVerified": true
+  },
+  "R88": {
+   "board": {
+    "x": 0.55842,
+    "y": 0.48238,
+    "w": 0.02182,
+    "h": 0.02314,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.78588,
+     "y": 0.3588,
+     "w": 0.01338,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R89": {
+   "board": {
+    "x": 0.55832,
+    "y": 0.50506,
+    "w": 0.02136,
+    "h": 0.02345,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.83683,
+     "y": 0.30186,
+     "w": 0.01338,
+     "h": 0.01428,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C85": {
+   "board": {
+    "x": 0.5378,
+    "y": 0.50224,
+    "w": 0.0093,
+    "h": 0.03758,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.30451,
+     "y": 0.4974,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the 22pF across U24's feedback, right of R75; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R100": {
+   "board": {
+    "x": 0.62925,
+    "y": 0.35674,
+    "w": 0.0081,
+    "h": 0.04163,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.91684,
+     "y": 0.53148,
+     "w": 0.01897,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the 330 at U28A's output, ahead of VR35 and VR36; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "VR33": {
+   "board": {
+    "x": 0.65043,
+    "y": 0.44282,
+    "w": 0.00949,
+    "h": 0.05254,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.83861,
+     "y": 0.53222,
+     "w": 0.0176,
+     "h": 0.01493,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR32": {
+   "board": {
+    "x": 0.66415,
+    "y": 0.41051,
+    "w": 0.02862,
+    "h": 0.052,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.80719,
+     "y": 0.62492,
+     "w": 0.01758,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR31": {
+   "board": {
+    "x": 0.68048,
+    "y": 0.41901,
+    "w": 0.01458,
+    "h": 0.07275,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.80693,
+     "y": 0.47086,
+     "w": 0.01675,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C93": {
+   "board": {
+    "x": 0.62854,
+    "y": 0.50803,
+    "w": 0.01929,
+    "h": 0.0481,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.75079,
+     "y": 0.16693,
+     "w": 0.0131,
+     "h": 0.00867,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR34": {
+   "board": {
+    "x": 0.62487,
+    "y": 0.43491,
+    "w": 0.00918,
+    "h": 0.05254,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.83852,
+     "y": 0.56717,
+     "w": 0.01764,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R116": {
+   "board": {
+    "x": 0.77629,
+    "y": 0.29954,
+    "w": 0.02533,
+    "h": 0.01913,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.40469,
+     "y": 0.92911,
+     "w": 0.01661,
+     "h": 0.00849,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R114": {
+   "board": {
+    "x": 0.84386,
+    "y": 0.31036,
+    "w": 0.02422,
+    "h": 0.01293,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.54308,
+     "y": 0.76343,
+     "w": 0.01689,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U25": {
+   "board": {
+    "x": 0.79572,
+    "y": 0.49603,
+    "w": 0.02124,
+    "h": 0.01658,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.47953,
+     "y": 0.15427,
+     "w": 0.02213,
+     "h": 0.01249,
+     "placement": "verified",
+     "placementNote": "the adc chip, printed ADC CHIP U25 inside its outline; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C89": {
+   "board": {
+    "x": 0.69749,
+    "y": 0.53427,
+    "w": 0.02124,
+    "h": 0.0159,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.64032,
+     "y": 0.10588,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the .1uF polypropylene on pin 24 of the adc chip; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C109": {
+   "board": {
+    "x": 0.8444,
+    "y": 0.35566,
+    "w": 0.02403,
+    "h": 0.0132,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.17165,
+     "y": 0.52461,
+     "w": 0.01869,
+     "h": 0.01159,
+     "placement": "verified",
+     "placementNote": "the .22uF on the +5 LH supply at U6's VCC pin, beside R37; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR9": {
+   "board": {
+    "x": 0.78546,
+    "y": 0.46131,
+    "w": 0.00941,
+    "h": 0.03758,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.67462,
+     "y": 0.5333,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the BA516 from +5 LH into U29, drawn above CR10; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "VR27": {
+   "board": {
+    "x": 0.78546,
+    "y": 0.40761,
+    "w": 0.00964,
+    "h": 0.0516,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.5172,
+     "y": 0.64158,
+     "w": 0.0174,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR28": {
+   "board": {
+    "x": 0.80673,
+    "y": 0.43674,
+    "w": 0.00957,
+    "h": 0.05193,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.60678,
+     "y": 0.64102,
+     "w": 0.01729,
+     "h": 0.0233,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR26": {
+   "board": {
+    "x": 0.80673,
+    "y": 0.38472,
+    "w": 0.00957,
+    "h": 0.05173,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.41375,
+     "y": 0.54263,
+     "w": 0.0175,
+     "h": 0.00855,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R126": {
+   "board": {
+    "x": 0.94558,
+    "y": 0.28443,
+    "w": 0.05189,
+    "h": 0.02142,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.70711,
+     "y": 0.88816,
+     "w": 0.01901,
+     "h": 0.01179,
+     "placement": "verified",
+     "placementNote": "the 56K from HEATER SEL to S COM, drawn right of R127; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "L1": {
+   "board": {
+    "x": 0.60391,
+    "y": 0.8287,
+    "w": 0.00903,
+    "h": 0.02122,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.13972,
+     "y": 0.42147,
+     "w": 0.01108,
+     "h": 0.01178,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R22": {
+   "board": {
+    "x": 0.04131,
+    "y": 0.56088,
+    "w": 0.02097,
+    "h": 0.02169,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.61578,
+     "y": 0.16756,
+     "w": 0.0125,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L10": {
+   "board": {
+    "x": 0.10212,
+    "y": 0.7652,
+    "w": 0.04729,
+    "h": 0.04163,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.76562,
+     "y": 0.22692,
+     "w": 0.01334,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the 6-turn choke in U5's output with R25 across it, feeding K1; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R30": {
+   "board": {
+    "x": 0.06195,
+    "y": 0.77045,
+    "w": 0.02526,
+    "h": 0.0292,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.73605,
+     "y": 0.31042,
+     "w": 0.01293,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q17": {
+   "board": {
+    "x": 0.1434,
+    "y": 0.76777,
+    "w": 0.02434,
+    "h": 0.02728,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.75118,
+     "y": 0.37282,
+     "w": 0.0157,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the high-voltage N-JFET in the DAC sense switching; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R26": {
+   "board": {
+    "x": 0.08446,
+    "y": 0.68974,
+    "w": 0.00964,
+    "h": 0.03699,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.67796,
+     "y": 0.29256,
+     "w": 0.01272,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R27": {
+   "board": {
+    "x": 0.09669,
+    "y": 0.68985,
+    "w": 0.01982,
+    "h": 0.03638,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.7203,
+     "y": 0.27281,
+     "w": 0.01245,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R3": {
+   "board": {
+    "x": 0.3362,
+    "y": 0.56237,
+    "w": 0.01354,
+    "h": 0.01597,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.75396,
+     "y": 0.70691,
+     "w": 0.0081,
+     "h": 0.00825,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR14": {
+   "board": {
+    "x": 0.33593,
+    "y": 0.62082,
+    "w": 0.02996,
+    "h": 0.02325,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.55003,
+     "y": 0.12063,
+     "w": 0.01901,
+     "h": 0.01489,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C110": {
+   "board": {
+    "x": 0.39145,
+    "y": 0.49521,
+    "w": 0.02973,
+    "h": 0.01617,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.48414,
+     "y": 0.1159,
+     "w": 0.01884,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the .22uF polyester on pin 2 of HR6, left of C111; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "VR3": {
+   "board": {
+    "x": 0.38586,
+    "y": 0.55105,
+    "w": 0.00957,
+    "h": 0.03758,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.75761,
+     "y": 0.76099,
+     "w": 0.01281,
+     "h": 0.00825,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR21": {
+   "board": {
+    "x": 0.43032,
+    "y": 0.54973,
+    "w": 0.0093,
+    "h": 0.05013,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.62068,
+     "y": 0.50219,
+     "w": 0.01594,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R61": {
+   "board": {
+    "x": 0.50718,
+    "y": 0.60034,
+    "w": 0.01584,
+    "h": 0.03611,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.76283,
+     "y": 0.17958,
+     "w": 0.01575,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the 1.5K CF from +44 S down to VR16; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "VR16": {
+   "board": {
+    "x": 0.51938,
+    "y": 0.6003,
+    "w": 0.01584,
+    "h": 0.05173,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.79722,
+     "y": 0.19822,
+     "w": 0.01701,
+     "h": 0.00814,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R70": {
+   "board": {
+    "x": 0.62214,
+    "y": 0.71513,
+    "w": 0.02151,
+    "h": 0.02573,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.81528,
+     "y": 0.69446,
+     "w": 0.01575,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the 20K 0.1% at U20A's inverting input; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R69": {
+   "board": {
+    "x": 0.65444,
+    "y": 0.71534,
+    "w": 0.02078,
+    "h": 0.02587,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.7439,
+     "y": 0.66201,
+     "w": 0.01289,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R68": {
+   "board": {
+    "x": 0.63878,
+    "y": 0.5987,
+    "w": 0.01224,
+    "h": 0.03738,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.69341,
+     "y": 0.67511,
+     "w": 0.01289,
+     "h": 0.00849,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R91": {
+   "board": {
+    "x": 0.64989,
+    "y": 0.59928,
+    "w": 0.01216,
+    "h": 0.03598,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.91399,
+     "y": 0.28122,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the 4.12K MF below VR29 and VR30; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "VR30": {
+   "board": {
+    "x": 0.66633,
+    "y": 0.6427,
+    "w": 0.00941,
+    "h": 0.05173,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.9464,
+     "y": 0.25806,
+     "w": 0.01976,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the 12V zener between R91 and R93; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R60": {
+   "board": {
+    "x": 0.57684,
+    "y": 0.59594,
+    "w": 0.01377,
+    "h": 0.04446,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.75486,
+     "y": 0.24226,
+     "w": 0.01261,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R108": {
+   "board": {
+    "x": 0.80821,
+    "y": 0.57783,
+    "w": 0.0081,
+    "h": 0.04163,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.27784,
+     "y": 0.66239,
+     "w": 0.01901,
+     "h": 0.01179,
+     "placement": "verified",
+     "placementNote": "the 1.8K on U31's PA7 output to LH COM; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C104": {
+   "board": {
+    "x": 0.8449,
+    "y": 0.75136,
+    "w": 0.0081,
+    "h": 0.04339,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.16722,
+     "y": 0.82514,
+     "w": 0.01669,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R106": {
+   "board": {
+    "x": 0.8449,
+    "y": 0.7044,
+    "w": 0.00811,
+    "h": 0.0415,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.19246,
+     "y": 0.81718,
+     "w": 0.01901,
+     "h": 0.01179,
+     "placement": "verified",
+     "placementNote": "the 12 from +5 LH into U9A, above C104; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R110": {
+   "board": {
+    "x": 0.8797,
+    "y": 0.55398,
+    "w": 0.01354,
+    "h": 0.08879,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.35466,
+     "y": 0.17208,
+     "w": 0.01822,
+     "h": 0.01048,
+     "placement": "verified",
+     "placementNote": "the reader read this 12 ohm resistor's R110 label as R118, which is on sheet 2"
+    }
+   ],
+   "schVerified": true
+  },
+  "VR6": {
+   "board": {
+    "x": 0.06828,
+    "y": 0.90329,
+    "w": 0.00926,
+    "h": 0.03718,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.61027,
+     "y": 0.0764,
+     "w": 0.01696,
+     "h": 0.01061,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "P401": {
+   "board": {
+    "x": 0.3267,
+    "y": 0.93044,
+    "w": 0.02785,
+    "h": 0.01644,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.04451,
+     "y": 0.06648,
+     "w": 0.01872,
+     "h": 0.01461,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.97439,
+     "y": 0.3758,
+     "w": 0.01829,
+     "h": 0.01073,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh4",
+     "x": 0.53198,
+     "y": 0.26141,
+     "w": 0.01913,
+     "h": 0.0104,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh5",
+     "x": 0.03143,
+     "y": 0.57369,
+     "w": 0.0191,
+     "h": 0.01071,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR12": {
+   "board": {
+    "x": 0.52062,
+    "y": 0.9041,
+    "w": 0.02583,
+    "h": 0.05187,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.46983,
+     "y": 0.39934,
+     "w": 0.01639,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R112": {
+   "board": {
+    "x": 0.5096,
+    "y": 0.8933,
+    "w": 0.02055,
+    "h": 0.05349,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.44098,
+     "y": 0.37708,
+     "w": 0.01689,
+     "h": 0.00832,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "CR13": {
+   "board": {
+    "x": 0.53648,
+    "y": 0.90532,
+    "w": 0.01883,
+    "h": 0.05241,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.47941,
+     "y": 0.43403,
+     "w": 0.01704,
+     "h": 0.00849,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L3": {
+   "board": {
+    "x": 0.57086,
+    "y": 0.8281,
+    "w": 0.00918,
+    "h": 0.02345,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.12864,
+     "y": 0.51309,
+     "w": 0.01108,
+     "h": 0.01178,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "L6": {
+   "board": {
+    "x": 0.63733,
+    "y": 0.82792,
+    "w": 0.00918,
+    "h": 0.0225,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.1432,
+     "y": 0.68979,
+     "w": 0.01187,
+     "h": 0.01178,
+     "placement": "verified",
+     "placementNote": "the 6-turn choke in the -5 LH rail; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R113": {
+   "board": {
+    "x": 0.49564,
+    "y": 0.89243,
+    "w": 0.01492,
+    "h": 0.05632,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.441,
+     "y": 0.41192,
+     "w": 0.01682,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L7": {
+   "board": {
+    "x": 0.67066,
+    "y": 0.8275,
+    "w": 0.00926,
+    "h": 0.02284,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.14241,
+     "y": 0.72461,
+     "w": 0.01187,
+     "h": 0.01178,
+     "placement": "verified",
+     "placementNote": "the 6-turn choke in the +5 RLH rail; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C106": {
+   "board": {
+    "x": 0.7774,
+    "y": 0.87455,
+    "w": 0.02411,
+    "h": 0.01334,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.53635,
+     "y": 0.55684,
+     "w": 0.01901,
+     "h": 0.01179,
+     "placement": "verified",
+     "placementNote": "the .22uF on the comparator's +5 LH supply to LH COM; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C102": {
+   "board": {
+    "x": 0.8368,
+    "y": 0.87428,
+    "w": 0.02418,
+    "h": 0.0132,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.19365,
+     "y": 0.40357,
+     "w": 0.01704,
+     "h": 0.00837,
+     "placement": "single"
+    }
+   ]
+  },
+  "P402": {
+   "board": {
+    "x": 0.72932,
+    "y": 0.92628,
+    "w": 0.02893,
+    "h": 0.01638,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.04467,
+     "y": 0.40239,
+     "w": 0.01979,
+     "h": 0.01096,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh3",
+     "x": 0.04195,
+     "y": 0.74462,
+     "w": 0.01998,
+     "h": 0.01125,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh6",
+     "x": 0.04957,
+     "y": 0.73279,
+     "w": 0.01932,
+     "h": 0.01079,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L5": {
+   "board": {
+    "x": 0.70373,
+    "y": 0.82712,
+    "w": 0.00926,
+    "h": 0.02264,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.1318,
+     "y": 0.6199,
+     "w": 0.01187,
+     "h": 0.01178,
+     "placement": "verified",
+     "placementNote": "the 6-turn choke in the +5 LH rail; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C103": {
+   "board": {
+    "x": 0.85884,
+    "y": 0.82512,
+    "w": 0.02418,
+    "h": 0.01334,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.19167,
+     "y": 0.69303,
+     "w": 0.01901,
+     "h": 0.01179,
+     "placement": "verified",
+     "placementNote": "the 33pF on U31's WR line to LH COM; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R103": {
+   "board": {
+    "x": 0.86652,
+    "y": 0.87395,
+    "w": 0.02395,
+    "h": 0.01334,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.10328,
+     "y": 0.41667,
+     "w": 0.01639,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R46": {
+   "board": {
+    "x": 0.51494,
+    "y": 0.14027,
+    "w": 0.02687,
+    "h": 0.02573,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.86644,
+     "y": 0.39487,
+     "w": 0.01272,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR12": {
+   "board": {
+    "x": 0.55893,
+    "y": 0.13942,
+    "w": 0.00957,
+    "h": 0.05173,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.84813,
+     "y": 0.42257,
+     "w": 0.01869,
+     "h": 0.01159,
+     "placement": "verified",
+     "placementNote": "the 10V zener between R45 and R46; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R53": {
+   "board": {
+    "x": 0.60125,
+    "y": 0.08526,
+    "w": 0.02487,
+    "h": 0.02762,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.55665,
+     "y": 0.72623,
+     "w": 0.01272,
+     "h": 0.00869,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C27": {
+   "board": {
+    "x": 0.21257,
+    "y": 0.19039,
+    "w": 0.01808,
+    "h": 0.04749,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.07043,
+     "y": 0.39439,
+     "w": 0.0123,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Z2": {
+   "board": {
+    "x": 0.40334,
+    "y": 0.20474,
+    "w": 0.01285,
+    "h": 0.01577,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.22339,
+     "y": 0.10615,
+     "w": 0.01256,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the 14K/11K network in the series linearity control; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q34": {
+   "board": {
+    "x": 0.51933,
+    "y": 0.16951,
+    "w": 0.03582,
+    "h": 0.01764,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.88936,
+     "y": 0.42021,
+     "w": 0.01272,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R72": {
+   "board": {
+    "x": 0.50052,
+    "y": 0.23028,
+    "w": 0.02142,
+    "h": 0.02304,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.86432,
+     "y": 0.56346,
+     "w": 0.01272,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C105": {
+   "board": {
+    "x": 0.89065,
+    "y": 0.55394,
+    "w": 0.01256,
+    "h": 0.08879,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.37447,
+     "y": 0.18177,
+     "w": 0.01901,
+     "h": 0.01179,
+     "placement": "verified",
+     "placementNote": "the .22uF from R110 to LH COM at U8A's supply; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "VR36": {
+   "board": {
+    "x": 0.6536,
+    "y": 0.38822,
+    "w": 0.01692,
+    "h": 0.07383,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.96819,
+     "y": 0.53207,
+     "w": 0.02241,
+     "h": 0.01493,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R51": {
+   "board": {
+    "x": 0.84446,
+    "y": 0.4285,
+    "w": 0.02572,
+    "h": 0.02566,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.27192,
+     "y": 0.5833,
+     "w": 0.0121,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C53": {
+   "board": {
+    "x": 0.88767,
+    "y": 0.33738,
+    "w": 0.01385,
+    "h": 0.04271,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.17396,
+     "y": 0.60246,
+     "w": 0.01272,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R127": {
+   "board": {
+    "x": 0.94552,
+    "y": 0.30719,
+    "w": 0.05204,
+    "h": 0.02129,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.66688,
+     "y": 0.88816,
+     "w": 0.01901,
+     "h": 0.01179,
+     "placement": "verified",
+     "placementNote": "the 56K from DAC DIAG SEL to S COM, drawn left of R126; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C44": {
+   "board": {
+    "x": 0.26973,
+    "y": 0.5631,
+    "w": 0.02709,
+    "h": 0.02485,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.49836,
+     "y": 0.3795,
+     "w": 0.01293,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C87": {
+   "board": {
+    "x": 0.52642,
+    "y": 0.46381,
+    "w": 0.02495,
+    "h": 0.02924,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.35525,
+     "y": 0.52347,
+     "w": 0.01281,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C95": {
+   "board": {
+    "x": 0.69768,
+    "y": 0.5002,
+    "w": 0.02174,
+    "h": 0.0159,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.68158,
+     "y": 0.41129,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the .1uF polypropylene on pin 9 of the reference divider network; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R107": {
+   "board": {
+    "x": 0.78044,
+    "y": 0.57623,
+    "w": 0.0081,
+    "h": 0.0419,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.278,
+     "y": 0.63144,
+     "w": 0.01682,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "HR6": {
+   "board": {
+    "x": 0.35785,
+    "y": 0.5951,
+    "w": 0.02762,
+    "h": 0.02456,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.64663,
+     "y": 0.85976,
+     "w": 0.01253,
+     "h": 0.0083,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.49305,
+     "y": 0.16382,
+     "w": 0.01484,
+     "h": 0.01091,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "Z8": {
+   "board": {
+    "x": 0.58798,
+    "y": 0.55644,
+    "w": 0.01285,
+    "h": 0.01604,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.82553,
+     "y": 0.42439,
+     "w": 0.0081,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR20": {
+   "board": {
+    "x": 0.50793,
+    "y": 0.65704,
+    "w": 0.01898,
+    "h": 0.05187,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.90772,
+     "y": 0.2981,
+     "w": 0.01969,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the 3.3V clamp from VR19 down to S COM; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "L4": {
+   "board": {
+    "x": 0.69493,
+    "y": 0.72121,
+    "w": 0.01339,
+    "h": 0.01631,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.27737,
+     "y": 0.50942,
+     "w": 0.01187,
+     "h": 0.01178,
+     "placement": "verified",
+     "placementNote": "the 6-turn choke in the -17 S rail feeding -17 SB; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R109": {
+   "board": {
+    "x": 0.86519,
+    "y": 0.71871,
+    "w": 0.0081,
+    "h": 0.0419,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.31443,
+     "y": 0.24201,
+     "w": 0.01901,
+     "h": 0.01179,
+     "placement": "verified",
+     "placementNote": "the 3K pull-down at U8A's input; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C40": {
+   "board": {
+    "x": 0.04189,
+    "y": 0.75404,
+    "w": 0.02541,
+    "h": 0.02438,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.77078,
+     "y": 0.30087,
+     "w": 0.0125,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C101": {
+   "board": {
+    "x": 0.80691,
+    "y": 0.87425,
+    "w": 0.02357,
+    "h": 0.01293,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.16252,
+     "y": 0.40382,
+     "w": 0.01597,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R104": {
+   "board": {
+    "x": 0.87829,
+    "y": 0.8012,
+    "w": 0.0081,
+    "h": 0.04231,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.13021,
+     "y": 0.43567,
+     "w": 0.01697,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R49": {
+   "board": {
+    "x": 0.77243,
+    "y": 0.13834,
+    "w": 0.02801,
+    "h": 0.02951,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.51643,
+     "y": 0.77718,
+     "w": 0.01269,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R59": {
+   "board": {
+    "x": 0.41553,
+    "y": 0.57241,
+    "w": 0.02572,
+    "h": 0.02465,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.69874,
+     "y": 0.30015,
+     "w": 0.01575,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the 56K beside Q52 (J2317), left of VR17 and VR18; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R93": {
+   "board": {
+    "x": 0.68892,
+    "y": 0.57849,
+    "w": 0.01675,
+    "h": 0.0419,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.94904,
+     "y": 0.20512,
+     "w": 0.01281,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C90": {
+   "board": {
+    "x": 0.70621,
+    "y": 0.57715,
+    "w": 0.01737,
+    "h": 0.04554,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.64126,
+     "y": 0.07232,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the .033uF polypropylene on pin 25 of the adc chip; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "Z10": {
+   "board": {
+    "x": 0.74141,
+    "y": 0.53074,
+    "w": 0.0111,
+    "h": 0.03665,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.6498,
+     "y": 0.23439,
+     "w": 0.01423,
+     "h": 0.01041,
+     "placement": "verified",
+     "placementNote": "the reader read this ladder network's Z10 label as Z12"
+    }
+   ],
+   "schVerified": true
+  },
+  "C88": {
+   "board": {
+    "x": 0.90167,
+    "y": 0.57081,
+    "w": 0.01233,
+    "h": 0.04244,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.4122,
+     "y": 0.36282,
+     "w": 0.01316,
+     "h": 0.00825,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR19": {
+   "board": {
+    "x": 0.53469,
+    "y": 0.65679,
+    "w": 0.00934,
+    "h": 0.052,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.90205,
+     "y": 0.26937,
+     "w": 0.01969,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the 3.3V clamp on ADCAMP OUT, drawn above VR20; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R44": {
+   "board": {
+    "x": 0.53637,
+    "y": 0.20696,
+    "w": 0.02496,
+    "h": 0.02122,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.80695,
+     "y": 0.47416,
+     "w": 0.01283,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C49": {
+   "board": {
+    "x": 0.14298,
+    "y": 0.44588,
+    "w": 0.02778,
+    "h": 0.02931,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.6175,
+     "y": 0.90268,
+     "w": 0.0123,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R39": {
+   "board": {
+    "x": 0.3585,
+    "y": 0.39424,
+    "w": 0.02572,
+    "h": 0.02465,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.5561,
+     "y": 0.08105,
+     "w": 0.01269,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C84": {
+   "board": {
+    "x": 0.5632,
+    "y": 0.36171,
+    "w": 0.02244,
+    "h": 0.01607,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.24984,
+     "y": 0.52346,
+     "w": 0.01878,
+     "h": 0.02055,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R75": {
+   "board": {
+    "x": 0.51501,
+    "y": 0.50206,
+    "w": 0.01423,
+    "h": 0.04396,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.2773,
+     "y": 0.50733,
+     "w": 0.01288,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR3": {
+   "board": {
+    "x": 0.07528,
+    "y": 0.55479,
+    "w": 0.00925,
+    "h": 0.03799,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.68226,
+     "y": 0.45314,
+     "w": 0.0125,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C30": {
+   "board": {
+    "x": 0.43189,
+    "y": 0.66123,
+    "w": 0.02468,
+    "h": 0.02082,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.75206,
+     "y": 0.20616,
+     "w": 0.01786,
+     "h": 0.01405,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R63": {
+   "board": {
+    "x": 0.54318,
+    "y": 0.59615,
+    "w": 0.01257,
+    "h": 0.04294,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.87332,
+     "y": 0.24782,
+     "w": 0.01276,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Z12": {
+   "board": {
+    "x": 0.41155,
+    "y": 0.75565,
+    "w": 0.02113,
+    "h": 0.02213,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.56269,
+     "y": 0.5319,
+     "w": 0.01251,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR5": {
+   "board": {
+    "x": 0.3781,
+    "y": 0.80457,
+    "w": 0.00907,
+    "h": 0.03779,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.81626,
+     "y": 0.63487,
+     "w": 0.013,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C13": {
+   "board": {
+    "x": 0.65478,
+    "y": 0.84382,
+    "w": 0.01499,
+    "h": 0.0484,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.11825,
+     "y": 0.67984,
+     "w": 0.0125,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C11": {
+   "board": {
+    "x": 0.72064,
+    "y": 0.84192,
+    "w": 0.01361,
+    "h": 0.05193,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.16171,
+     "y": 0.64319,
+     "w": 0.01661,
+     "h": 0.01178,
+     "placement": "verified",
+     "placementNote": "the .22uF bypass on the +5 LH rail after L5; the reader read this label as C111 as well and dropped both; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C1": {
+   "board": {
+    "x": 0.44813,
+    "y": 0.86228,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.13748,
+     "y": 0.22552,
+     "w": 0.0081,
+     "h": 0.00848,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "C2": {
+   "board": {
+    "x": 0.41922,
+    "y": 0.86228,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.10891,
+     "y": 0.27024,
+     "w": 0.0081,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C3": {
+   "board": {
+    "x": 0.60034,
+    "y": 0.36766,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.8819,
+     "y": 0.47347,
+     "w": 0.01344,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the 3300pF across U28A's feedback loop, above R99; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C4": {
+   "board": {
+    "x": 0.38776,
+    "y": 0.86228,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.16462,
+     "y": 0.31424,
+     "w": 0.0081,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C6": {
+   "board": {
+    "x": 0.6216,
+    "y": 0.80389,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.1682,
+     "y": 0.44817,
+     "w": 0.01266,
+     "h": 0.01309,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C7": {
+   "board": {
+    "x": 0.58759,
+    "y": 0.84431,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.10503,
+     "y": 0.49272,
+     "w": 0.0081,
+     "h": 0.00837,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "C8": {
+   "board": {
+    "x": 0.58759,
+    "y": 0.80389,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.15486,
+     "y": 0.49875,
+     "w": 0.0081,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C10": {
+   "board": {
+    "x": 0.73044,
+    "y": 0.84431,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.10873,
+     "y": 0.64504,
+     "w": 0.01261,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C14": {
+   "board": {
+    "x": 0.65391,
+    "y": 0.80389,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.17223,
+     "y": 0.67954,
+     "w": 0.01261,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C15": {
+   "board": {
+    "x": 0.68622,
+    "y": 0.84431,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.11823,
+     "y": 0.75008,
+     "w": 0.0127,
+     "h": 0.02121,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "C16": {
+   "board": {
+    "x": 0.68622,
+    "y": 0.7979,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.17227,
+     "y": 0.74941,
+     "w": 0.01274,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C17": {
+   "board": {
+    "x": 0.04252,
+    "y": 0.59132,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.1147,
+     "y": 0.10877,
+     "w": 0.01261,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C18": {
+   "board": {
+    "x": 0.47704,
+    "y": 0.86228,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.10706,
+     "y": 0.14991,
+     "w": 0.01268,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C21": {
+   "board": {
+    "x": 0.07058,
+    "y": 0.18653,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.51109,
+     "y": 0.06814,
+     "w": 0.01187,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C23": {
+   "board": {
+    "x": 0.0966,
+    "y": 0.34132,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.04725,
+     "y": 0.25615,
+     "w": 0.0157,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the .22uF on pin 10 of the reference hybrid HR5; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C24": {
+   "board": {
+    "x": 0.14762,
+    "y": 0.19311,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.09399,
+     "y": 0.58048,
+     "w": 0.01272,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C25": {
+   "board": {
+    "x": 0.17602,
+    "y": 0.19311,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.07036,
+     "y": 0.32475,
+     "w": 0.01239,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C26": {
+   "board": {
+    "x": 0.23129,
+    "y": 0.19311,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.07044,
+     "y": 0.35959,
+     "w": 0.0125,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C29": {
+   "board": {
+    "x": 0.44558,
+    "y": 0.26647,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.19089,
+     "y": 0.17487,
+     "w": 0.0157,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the 220pF across R10 at U38's input; the reader had it as a collision and dropped it; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C31": {
+   "board": {
+    "x": 0.45884,
+    "y": 0.66018,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.85326,
+     "y": 0.58764,
+     "w": 0.01693,
+     "h": 0.00965,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C32": {
+   "board": {
+    "x": 0.39116,
+    "y": 0.26647,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.20199,
+     "y": 0.27251,
+     "w": 0.01261,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C41": {
+   "board": {
+    "x": 0.04252,
+    "y": 0.54491,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.61366,
+     "y": 0.19923,
+     "w": 0.0157,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the .22uF in the Q11 current-limit release, below R22; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C42": {
+   "board": {
+    "x": 0.04592,
+    "y": 0.62575,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.73579,
+     "y": 0.21923,
+     "w": 0.01293,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C43": {
+   "board": {
+    "x": 0.09694,
+    "y": 0.73353,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.71089,
+     "y": 0.31083,
+     "w": 0.01272,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C45": {
+   "board": {
+    "x": 0.1335,
+    "y": 0.67964,
+    "w": 0.02891,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.66877,
+     "y": 0.52927,
+     "w": 0.01278,
+     "h": 0.00853,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C46": {
+   "board": {
+    "x": 0.17007,
+    "y": 0.34132,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.58016,
+     "y": 0.65657,
+     "w": 0.01272,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C47": {
+   "board": {
+    "x": 0.09235,
+    "y": 0.42455,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.56104,
+     "y": 0.80207,
+     "w": 0.01239,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C48": {
+   "board": {
+    "x": 0.09235,
+    "y": 0.40719,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.56328,
+     "y": 0.90971,
+     "w": 0.01265,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C52": {
+   "board": {
+    "x": 0.86565,
+    "y": 0.56886,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.13005,
+     "y": 0.48171,
+     "w": 0.01262,
+     "h": 0.00869,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C54": {
+   "board": {
+    "x": 0.89796,
+    "y": 0.34431,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.17001,
+     "y": 0.6819,
+     "w": 0.01283,
+     "h": 0.00869,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C55": {
+   "board": {
+    "x": 0.33759,
+    "y": 0.40419,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.55312,
+     "y": 0.1211,
+     "w": 0.01558,
+     "h": 0.01159,
+     "placement": "verified",
+     "placementNote": "the .22uF on U11's +30 FR1 supply, below VR10 and R39; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C56": {
+   "board": {
+    "x": 0.29422,
+    "y": 0.40569,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.55358,
+     "y": 0.20433,
+     "w": 0.01558,
+     "h": 0.01159,
+     "placement": "verified",
+     "placementNote": "the .22uF on U11's -18 FR1 supply; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C57": {
+   "board": {
+    "x": 0.08282,
+    "y": 0.34132,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.66012,
+     "y": 0.23061,
+     "w": 0.01558,
+     "h": 0.01159,
+     "placement": "verified",
+     "placementNote": "the 22pF across R40 at Q31's base; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C58": {
+   "board": {
+    "x": 0.68112,
+    "y": 0.13832,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.50941,
+     "y": 0.36338,
+     "w": 0.01262,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C59": {
+   "board": {
+    "x": 0.53571,
+    "y": 0.27485,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.75296,
+     "y": 0.41046,
+     "w": 0.01558,
+     "h": 0.01159,
+     "placement": "verified",
+     "placementNote": "the 100pF across R43 at Q33's base; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C60": {
+   "board": {
+    "x": 0.54847,
+    "y": 0.16916,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.82025,
+     "y": 0.38985,
+     "w": 0.01558,
+     "h": 0.01159,
+     "placement": "verified",
+     "placementNote": "the 1000pF across R45 in Q33's collector network; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C62": {
+   "board": {
+    "x": 0.53656,
+    "y": 0.22605,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.90903,
+     "y": 0.40376,
+     "w": 0.01558,
+     "h": 0.01159,
+     "placement": "verified",
+     "placementNote": "the .22uF from Q34's collector to FR1 COM; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C63": {
+   "board": {
+    "x": 0.65986,
+    "y": 0.25808,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.85114,
+     "y": 0.71623,
+     "w": 0.0184,
+     "h": 0.01079,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C64": {
+   "board": {
+    "x": 0.74116,
+    "y": 0.13772,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.53715,
+     "y": 0.86627,
+     "w": 0.01262,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C65": {
+   "board": {
+    "x": 0.67092,
+    "y": 0.25808,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.58411,
+     "y": 0.71657,
+     "w": 0.01558,
+     "h": 0.01159,
+     "placement": "verified",
+     "placementNote": "the .22uF on U10's +5 FR1 supply; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C67": {
+   "board": {
+    "x": 0.46939,
+    "y": 0.27844,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.82757,
+     "y": 0.56609,
+     "w": 0.01558,
+     "h": 0.01159,
+     "placement": "verified",
+     "placementNote": "the 100pF across R71 at Q35's base; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C76": {
+   "board": {
+    "x": 0.59745,
+    "y": 0.72156,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.83082,
+     "y": 0.20102,
+     "w": 0.01265,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C77": {
+   "board": {
+    "x": 0.58605,
+    "y": 0.72156,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.83088,
+     "y": 0.28593,
+     "w": 0.01254,
+     "h": 0.00969,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C78": {
+   "board": {
+    "x": 0.60799,
+    "y": 0.59731,
+    "w": 0.02976,
+    "h": 0.03443,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.8386,
+     "y": 0.33299,
+     "w": 0.01254,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C79": {
+   "board": {
+    "x": 0.57483,
+    "y": 0.72156,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.6563,
+     "y": 0.48935,
+     "w": 0.01276,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C80": {
+   "board": {
+    "x": 0.54048,
+    "y": 0.72156,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.68541,
+     "y": 0.50158,
+     "w": 0.01304,
+     "h": 0.00842,
+     "placement": "single"
+    }
+   ]
+  },
+  "C81": {
+   "board": {
+    "x": 0.55442,
+    "y": 0.59731,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.7433,
+     "y": 0.51366,
+     "w": 0.01191,
+     "h": 0.00849,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C86": {
+   "board": {
+    "x": 0.59099,
+    "y": 0.36677,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.35162,
+     "y": 0.44953,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the .22uF on U24's +17 SB supply, after R76; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C91": {
+   "board": {
+    "x": 0.68571,
+    "y": 0.62275,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.88269,
+     "y": 0.02992,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the .22uF on U26's +17 SB supply; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C92": {
+   "board": {
+    "x": 0.71854,
+    "y": 0.66916,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.88221,
+     "y": 0.10692,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the .22uF on U26's -17 SB supply; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C94": {
+   "board": {
+    "x": 0.55612,
+    "y": 0.53353,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.83826,
+     "y": 0.33611,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the 1000pF across R89; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "C96": {
+   "board": {
+    "x": 0.78401,
+    "y": 0.62874,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.63609,
+     "y": 0.64507,
+     "w": 0.01312,
+     "h": 0.00867,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C97": {
+   "board": {
+    "x": 0.70833,
+    "y": 0.38922,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.77581,
+     "y": 0.54815,
+     "w": 0.0131,
+     "h": 0.00855,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C98": {
+   "board": {
+    "x": 0.84184,
+    "y": 0.46407,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.53866,
+     "y": 0.61967,
+     "w": 0.01423,
+     "h": 0.01561,
+     "placement": "verified",
+     "placementNote": "the reader read this .22uF capacitor's C98 label as C18"
+    }
+   ],
+   "schVerified": true
+  },
+  "C100": {
+   "board": {
+    "x": 0.84099,
+    "y": 0.66766,
+    "w": 0.01361,
+    "h": 0.04491,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.19747,
+     "y": 0.36226,
+     "w": 0.01683,
+     "h": 0.0084,
+     "placement": "single"
+    }
+   ]
+  },
+  "C107": {
+   "board": {
+    "x": 0.8648,
+    "y": 0.32635,
+    "w": 0.0119,
+    "h": 0.04491,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.54016,
+     "y": 0.72865,
+     "w": 0.01901,
+     "h": 0.01179,
+     "placement": "verified",
+     "placementNote": "the .22uF across R114 at U35, to LH COM; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR1": {
+   "board": {
+    "x": 0.02381,
+    "y": 0.62425,
+    "w": 0.0119,
+    "h": 0.04491,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.6542,
+     "y": 0.24562,
+     "w": 0.01176,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR4": {
+   "board": {
+    "x": 0.3767,
+    "y": 0.7485,
+    "w": 0.0119,
+    "h": 0.04491,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.81808,
+     "y": 0.60325,
+     "w": 0.01293,
+     "h": 0.00814,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR6": {
+   "board": {
+    "x": 0.7432,
+    "y": 0.68563,
+    "w": 0.0119,
+    "h": 0.04491,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.08987,
+     "y": 0.59476,
+     "w": 0.01661,
+     "h": 0.01178,
+     "placement": "verified",
+     "placementNote": "the 1N4448 across S COM to LH COM, drawn beside CR8; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR8": {
+   "board": {
+    "x": 0.7432,
+    "y": 0.73952,
+    "w": 0.0119,
+    "h": 0.04491,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.11632,
+     "y": 0.5943,
+     "w": 0.01261,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR10": {
+   "board": {
+    "x": 0.78912,
+    "y": 0.54192,
+    "w": 0.02211,
+    "h": 0.0479,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.66909,
+     "y": 0.56456,
+     "w": 0.01721,
+     "h": 0.00855,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K1": {
+   "board": {
+    "x": 0.22109,
+    "y": 0.68862,
+    "w": 0.03061,
+    "h": 0.02695,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.82955,
+     "y": 0.25996,
+     "w": 0.02013,
+     "h": 0.01696,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh6",
+     "x": 0.74879,
+     "y": 0.24268,
+     "w": 0.0081,
+     "h": 0.00825,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K3": {
+   "board": {
+    "x": 0.33248,
+    "y": 0.68862,
+    "w": 0.03061,
+    "h": 0.02695,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.83395,
+     "y": 0.24262,
+     "w": 0.0081,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q1": {
+   "board": {
+    "x": 0.04592,
+    "y": 0.51497,
+    "w": 0.02551,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.32326,
+     "y": 0.66126,
+     "w": 0.01424,
+     "h": 0.01571,
+     "placement": "verified",
+     "placementNote": "the TIP120 driving the HR5 oven; the reader had put Q1 in the right-hand package legend"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q2": {
+   "board": {
+    "x": 0.04932,
+    "y": 0.34281,
+    "w": 0.02551,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.51586,
+     "y": 0.7265,
+     "w": 0.0081,
+     "h": 0.00837,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "Q9": {
+   "board": {
+    "x": 0.04932,
+    "y": 0.81138,
+    "w": 0.02551,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.70471,
+     "y": 0.12564,
+     "w": 0.01256,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the TO-220 pass transistor in the output buffer supply; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q10": {
+   "board": {
+    "x": 0.12109,
+    "y": 0.90569,
+    "w": 0.02891,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.73375,
+     "y": 0.15372,
+     "w": 0.01285,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q26": {
+   "board": {
+    "x": 0.50935,
+    "y": 0.80689,
+    "w": 0.02891,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.87598,
+     "y": 0.69436,
+     "w": 0.0157,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the VN0104 beside Q25 in the oscillator-select drive; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q53": {
+   "board": {
+    "x": 0.48044,
+    "y": 0.63174,
+    "w": 0.02891,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.57079,
+     "y": 0.49628,
+     "w": 0.01276,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q56": {
+   "board": {
+    "x": 0.67092,
+    "y": 0.37126,
+    "w": 0.02891,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.77985,
+     "y": 0.49998,
+     "w": 0.01323,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R1": {
+   "board": {
+    "x": 0.11429,
+    "y": 0.44401,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.36189,
+     "y": 0.64465,
+     "w": 0.0081,
+     "h": 0.00813,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "R6": {
+   "board": {
+    "x": 0.10884,
+    "y": 0.34132,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.04921,
+     "y": 0.13923,
+     "w": 0.0081,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R7": {
+   "board": {
+    "x": 0.14762,
+    "y": 0.34132,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.0703,
+     "y": 0.25546,
+     "w": 0.0081,
+     "h": 0.00814,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "R9": {
+   "board": {
+    "x": 0.19473,
+    "y": 0.19311,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.04572,
+     "y": 0.39449,
+     "w": 0.0081,
+     "h": 0.0083,
+     "placement": "single"
+    }
+   ]
+  },
+  "R10": {
+   "board": {
+    "x": 0.2517,
+    "y": 0.19461,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.16107,
+     "y": 0.1659,
+     "w": 0.0157,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the 2.49K MF at U38's inverting input; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R12": {
+   "board": {
+    "x": 0.40306,
+    "y": 0.23054,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.21739,
+     "y": 0.21889,
+     "w": 0.013,
+     "h": 0.00814,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R13": {
+   "board": {
+    "x": 0.40816,
+    "y": 0.23802,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.16319,
+     "y": 0.27308,
+     "w": 0.01272,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R16": {
+   "board": {
+    "x": 0.06037,
+    "y": 0.18653,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.37983,
+     "y": 0.06323,
+     "w": 0.01272,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R19": {
+   "board": {
+    "x": 0.03827,
+    "y": 0.88024,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.58671,
+     "y": 0.10215,
+     "w": 0.01243,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R20": {
+   "board": {
+    "x": 0.14371,
+    "y": 0.91018,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.73167,
+     "y": 0.1128,
+     "w": 0.01283,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R21": {
+   "board": {
+    "x": 0.08639,
+    "y": 0.87275,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.63857,
+     "y": 0.13907,
+     "w": 0.0123,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R23": {
+   "board": {
+    "x": 0.11429,
+    "y": 0.85329,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.69707,
+     "y": 0.18513,
+     "w": 0.01261,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R24": {
+   "board": {
+    "x": 0.06429,
+    "y": 0.57635,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.58496,
+     "y": 0.22467,
+     "w": 0.01261,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R25": {
+   "board": {
+    "x": 0.08503,
+    "y": 0.81587,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.76476,
+     "y": 0.19744,
+     "w": 0.01265,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R28": {
+   "board": {
+    "x": 0.1165,
+    "y": 0.72305,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.76513,
+     "y": 0.34197,
+     "w": 0.01272,
+     "h": 0.00814,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R29": {
+   "board": {
+    "x": 0.29167,
+    "y": 0.57545,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.52276,
+     "y": 0.48308,
+     "w": 0.0157,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the 10K in the range-select logic; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R31": {
+   "board": {
+    "x": 0.47194,
+    "y": 0.75299,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.8411,
+     "y": 0.67231,
+     "w": 0.0118,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R32": {
+   "board": {
+    "x": 0.09235,
+    "y": 0.37275,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.53405,
+     "y": 0.80225,
+     "w": 0.0125,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R33": {
+   "board": {
+    "x": 0.09235,
+    "y": 0.38922,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.56514,
+     "y": 0.87805,
+     "w": 0.01272,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R36": {
+   "board": {
+    "x": 0.85544,
+    "y": 0.56886,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.10335,
+     "y": 0.45314,
+     "w": 0.01262,
+     "h": 0.00869,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R37": {
+   "board": {
+    "x": 0.84439,
+    "y": 0.39072,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.17218,
+     "y": 0.47828,
+     "w": 0.01262,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R38": {
+   "board": {
+    "x": 0.87585,
+    "y": 0.34431,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.11246,
+     "y": 0.68204,
+     "w": 0.00935,
+     "h": 0.01031,
+     "placement": "verified",
+     "placementNote": "the reader read this 270 ohm resistor's R38 label as R3, which is on sheet 1"
+    }
+   ],
+   "schVerified": true
+  },
+  "R40": {
+   "board": {
+    "x": 0.21259,
+    "y": 0.39072,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.6616,
+     "y": 0.26804,
+     "w": 0.01304,
+     "h": 0.00818,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R41": {
+   "board": {
+    "x": 0.26241,
+    "y": 0.38263,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.70154,
+     "y": 0.20459,
+     "w": 0.01184,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R43": {
+   "board": {
+    "x": 0.51276,
+    "y": 0.25808,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.75311,
+     "y": 0.44889,
+     "w": 0.01283,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R45": {
+   "board": {
+    "x": 0.54847,
+    "y": 0.18802,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.82063,
+     "y": 0.42644,
+     "w": 0.01262,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R47": {
+   "board": {
+    "x": 0.4949,
+    "y": 0.20659,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.89504,
+     "y": 0.49356,
+     "w": 0.01254,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R48": {
+   "board": {
+    "x": 0.64932,
+    "y": 0.26108,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.87817,
+     "y": 0.69124,
+     "w": 0.02576,
+     "h": 0.01531,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R50": {
+   "board": {
+    "x": 0.55527,
+    "y": 0.25808,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.62784,
+     "y": 0.74536,
+     "w": 0.01272,
+     "h": 0.00852,
+     "placement": "single"
+    }
+   ]
+  },
+  "R52": {
+   "board": {
+    "x": 0.84779,
+    "y": 0.61377,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.31477,
+     "y": 0.52621,
+     "w": 0.01262,
+     "h": 0.00859,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R58": {
+   "board": {
+    "x": 0.41667,
+    "y": 0.3509,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.12685,
+     "y": 0.42698,
+     "w": 0.01312,
+     "h": 0.00867,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R62": {
+   "board": {
+    "x": 0.58844,
+    "y": 0.59731,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.78011,
+     "y": 0.30826,
+     "w": 0.01287,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R64": {
+   "board": {
+    "x": 0.41582,
+    "y": 0.5524,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.59017,
+     "y": 0.52107,
+     "w": 0.01488,
+     "h": 0.01293,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R65": {
+   "board": {
+    "x": 0.56344,
+    "y": 0.72156,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.62717,
+     "y": 0.46404,
+     "w": 0.01311,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R66": {
+   "board": {
+    "x": 0.55187,
+    "y": 0.72156,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.71246,
+     "y": 0.50443,
+     "w": 0.01326,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R71": {
+   "board": {
+    "x": 0.46939,
+    "y": 0.25808,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.82768,
+     "y": 0.60472,
+     "w": 0.01166,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R73": {
+   "board": {
+    "x": 0.42432,
+    "y": 0.3509,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.1191,
+     "y": 0.40485,
+     "w": 0.01292,
+     "h": 0.00825,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R74": {
+   "board": {
+    "x": 0.52075,
+    "y": 0.35569,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.2225,
+     "y": 0.50704,
+     "w": 0.0127,
+     "h": 0.00855,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R76": {
+   "board": {
+    "x": 0.52585,
+    "y": 0.5015,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.31462,
+     "y": 0.43028,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the 100 feeding U24's +17 SB pin with C86; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R77": {
+   "board": {
+    "x": 0.80612,
+    "y": 0.62874,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.48427,
+     "y": 0.61902,
+     "w": 0.01301,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R78": {
+   "board": {
+    "x": 0.82993,
+    "y": 0.46407,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.47324,
+     "y": 0.58979,
+     "w": 0.01615,
+     "h": 0.0117,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R79": {
+   "board": {
+    "x": 0.42517,
+    "y": 0.38683,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.08402,
+     "y": 0.68706,
+     "w": 0.01281,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R80": {
+   "board": {
+    "x": 0.42517,
+    "y": 0.41018,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.08395,
+     "y": 0.72555,
+     "w": 0.01292,
+     "h": 0.00842,
+     "placement": "single"
+    }
+   ]
+  },
+  "R81": {
+   "board": {
+    "x": 0.3818,
+    "y": 0.23204,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.0819,
+     "y": 0.76431,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the 100K 1% on the REF HEATER line, below R80; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R82": {
+   "board": {
+    "x": 0.43452,
+    "y": 0.3509,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.21585,
+     "y": 0.63163,
+     "w": 0.01847,
+     "h": 0.01,
+     "placement": "single"
+    }
+   ]
+  },
+  "R83": {
+   "board": {
+    "x": 0.45833,
+    "y": 0.41018,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.14027,
+     "y": 0.79892,
+     "w": 0.01312,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R84": {
+   "board": {
+    "x": 0.41582,
+    "y": 0.52844,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.1649,
+     "y": 0.79553,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the 4.7K beside R83 in the DAC HI DIAG divider; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R85": {
+   "board": {
+    "x": 0.71854,
+    "y": 0.61737,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.64033,
+     "y": 0.14192,
+     "w": 0.01281,
+     "h": 0.00877,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R86": {
+   "board": {
+    "x": 0.6432,
+    "y": 0.5524,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.72187,
+     "y": 0.13878,
+     "w": 0.01245,
+     "h": 0.00877,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R87": {
+   "board": {
+    "x": 0.65425,
+    "y": 0.5524,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.72173,
+     "y": 0.18006,
+     "w": 0.01231,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R92": {
+   "board": {
+    "x": 0.67687,
+    "y": 0.58024,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.94877,
+     "y": 0.2807,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the 2K to -17 S, right of R91; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R94": {
+   "board": {
+    "x": 0.79507,
+    "y": 0.62874,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.57196,
+     "y": 0.61925,
+     "w": 0.01273,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R95": {
+   "board": {
+    "x": 0.68793,
+    "y": 0.37275,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.80506,
+     "y": 0.49688,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the 1K at Q56's collector; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R96": {
+   "board": {
+    "x": 0.65425,
+    "y": 0.4985,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.80506,
+     "y": 0.58923,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the 1K at Q57's collector; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R97": {
+   "board": {
+    "x": 0.64201,
+    "y": 0.35269,
+    "w": 0.02551,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.83293,
+     "y": 0.48699,
+     "w": 0.0127,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R98": {
+   "board": {
+    "x": 0.6432,
+    "y": 0.4985,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.83281,
+     "y": 0.61855,
+     "w": 0.01281,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R99": {
+   "board": {
+    "x": 0.61054,
+    "y": 0.36766,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.8615,
+     "y": 0.49376,
+     "w": 0.01581,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the 1K into U28A, inside C3's feedback loop; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R105": {
+   "board": {
+    "x": 0.84099,
+    "y": 0.80689,
+    "w": 0.02551,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.13021,
+     "y": 0.66317,
+     "w": 0.01901,
+     "h": 0.01179,
+     "placement": "verified",
+     "placementNote": "the 1.2K in the WR line of the microprocessor interface; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "R123": {
+   "board": {
+    "x": 0.06037,
+    "y": 0.25808,
+    "w": 0.02891,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.07064,
+     "y": 0.58081,
+     "w": 0.01674,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R124": {
+   "board": {
+    "x": 0.92857,
+    "y": 0.24102,
+    "w": 0.02891,
+    "h": 0.02096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.54498,
+     "y": 0.84918,
+     "w": 0.01689,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP1": {
+   "board": {
+    "x": 0.77721,
+    "y": 0.0988,
+    "w": 0.01361,
+    "h": 0.0479,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "wire-loop test point: marker spans the vertical TPnn silkscreen and the short bar above it that is the loop itself",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.19446,
+     "y": 0.4534,
+     "w": 0.01978,
+     "h": 0.03927,
+     "placement": "verified",
+     "placementNote": "the wire-loop flag on the S COM node and its TP1 label; the reader had put TP1 on the TIP120 part number under Q1"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP2": {
+   "board": {
+    "x": 0.28741,
+    "y": 0.08832,
+    "w": 0.0119,
+    "h": 0.03293,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "plated eyelet: the drawing prints the TPnn silkscreen but draws no pad, so the marker is the label only",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.19137,
+     "y": 0.20538,
+     "w": 0.02276,
+     "h": 0.02667,
+     "placement": "verified",
+     "placementNote": "eyelet symbol and TP2 label on the REF13 node off HR5 pin 5"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP3": {
+   "board": {
+    "x": 0.30952,
+    "y": 0.1024,
+    "w": 0.01276,
+    "h": 0.04042,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "wire-loop test point: marker spans the vertical TPnn silkscreen and the short bar above it that is the loop itself",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.26672,
+     "y": 0.29513,
+     "w": 0.01962,
+     "h": 0.03333,
+     "placement": "verified",
+     "placementNote": "wire-loop symbol and TP3 label on the REFCOM mecca point"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP4": {
+   "board": {
+    "x": 0.55374,
+    "y": 0.08862,
+    "w": 0.0119,
+    "h": 0.03293,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "plated eyelet: the drawing prints the TPnn silkscreen but draws no pad, so the marker is the label only",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.27111,
+     "y": 0.5141,
+     "w": 0.02245,
+     "h": 0.02615,
+     "placement": "verified",
+     "placementNote": "eyelet symbol and TP4 label on CH1 SERIES B, annotated 0 to 18V"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP5": {
+   "board": {
+    "x": 0.42517,
+    "y": 0.08862,
+    "w": 0.0119,
+    "h": 0.03293,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "plated eyelet: the drawing prints the TPnn silkscreen but draws no pad, so the marker is the label only",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.34317,
+     "y": 0.2041,
+     "w": 0.02323,
+     "h": 0.0259,
+     "placement": "verified",
+     "placementNote": "eyelet symbol and TP5 label on CH1 FILTER INPUT, between Q4 and Q5"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP6": {
+   "board": {
+    "x": 0.56378,
+    "y": 0.08862,
+    "w": 0.0119,
+    "h": 0.03293,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "plated eyelet: the drawing prints the TPnn silkscreen but draws no pad, so the marker is the label only",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.27127,
+     "y": 0.59641,
+     "w": 0.02276,
+     "h": 0.02564,
+     "placement": "verified",
+     "placementNote": "eyelet symbol and TP6 label on CH1 SHUNT, annotated 0 to 5V"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP7": {
+   "board": {
+    "x": 0.3483,
+    "y": 0.08832,
+    "w": 0.0119,
+    "h": 0.03293,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "plated eyelet: the drawing prints the TPnn silkscreen but draws no pad, so the marker is the label only",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.27127,
+     "y": 0.63769,
+     "w": 0.02276,
+     "h": 0.02615,
+     "placement": "verified",
+     "placementNote": "eyelet symbol and TP7 label on CH2 FILTER INPUT, annotated 0 to 3V"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP8": {
+   "board": {
+    "x": 0.36905,
+    "y": 0.10329,
+    "w": 0.01276,
+    "h": 0.04192,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "wire-loop test point: marker spans the vertical TPnn silkscreen and the short bar above it that is the loop itself",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.82041,
+     "y": 0.40641,
+     "w": 0.01931,
+     "h": 0.03231,
+     "placement": "verified",
+     "placementNote": "wire-loop symbol and TP8 label on the DAC SENSE CAL node"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP9": {
+   "board": {
+    "x": 0.71395,
+    "y": 0.0994,
+    "w": 0.01361,
+    "h": 0.0479,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "wire-loop test point: marker spans the vertical TPnn silkscreen and the short bar above it that is the loop itself",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.71402,
+     "y": 0.08415,
+     "w": 0.0189,
+     "h": 0.03104,
+     "placement": "verified",
+     "placementNote": "wire-loop symbol and TP9 label on the +INPUT net out of K7; the reader found no TP9 on this sheet at all"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP10": {
+   "board": {
+    "x": 0.66207,
+    "y": 0.1012,
+    "w": 0.01361,
+    "h": 0.0524,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "wire-loop test point: marker spans the vertical TPnn silkscreen and the short bar above it that is the loop itself",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.6622,
+     "y": 0.18805,
+     "w": 0.02173,
+     "h": 0.03104,
+     "placement": "verified",
+     "placementNote": "wire-loop symbol and TP10 label on the -INPUT net; the reader found no TP10 on this sheet at all"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP11": {
+   "board": {
+    "x": 0.57347,
+    "y": 0.09162,
+    "w": 0.0119,
+    "h": 0.03892,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "plated eyelet: the drawing prints the TPnn silkscreen but draws no pad, so the marker is the label only",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.09075,
+     "y": 0.44953,
+     "w": 0.02577,
+     "h": 0.02575,
+     "placement": "verified",
+     "placementNote": "eyelet symbol and TP11 label on the ADCAMP SENSE net"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP12": {
+   "board": {
+    "x": 0.40255,
+    "y": 0.10629,
+    "w": 0.01276,
+    "h": 0.0479,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "wire-loop test point: marker spans the vertical TPnn silkscreen and the short bar above it that is the loop itself",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.86892,
+     "y": 0.61692,
+     "w": 0.02276,
+     "h": 0.03077,
+     "placement": "verified",
+     "placementNote": "wire-loop symbol and TP12 label on the ADC COM node between K2 and K4; the reader found no TP12 on this sheet at all"
+    }
+   ],
+   "schVerified": true
+  },
+  "U1": {
+   "board": {
+    "x": 0.13435,
+    "y": 0.40269,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.54113,
+     "y": 0.85103,
+     "w": 0.01334,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "U1A, the LF412A in the shunt linearity control; printed U1 A; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "U2": {
+   "board": {
+    "x": 0.17007,
+    "y": 0.40269,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.59623,
+     "y": 0.71,
+     "w": 0.01491,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "the LT1013 in the shunt linearity control, printed U2 B; the reader took the section letter into the designator and called it U28"
+    }
+   ],
+   "schVerified": true
+  },
+  "U5": {
+   "board": {
+    "x": 0.05017,
+    "y": 0.71257,
+    "w": 0.01531,
+    "h": 0.0479,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.69074,
+     "y": 0.24077,
+     "w": 0.01334,
+     "h": 0.01231,
+     "placement": "verified",
+     "placementNote": "the OPA548 output buffer, printed U5 inside the triangle; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "U7": {
+   "board": {
+    "x": 0.8818,
+    "y": 0.40419,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.14495,
+     "y": 0.65361,
+     "w": 0.01288,
+     "h": 0.01461,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "U8": {
+   "board": {
+    "x": 0.88095,
+    "y": 0.64521,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.37676,
+     "y": 0.44318,
+     "w": 0.01401,
+     "h": 0.00927,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh6",
+     "x": 0.44291,
+     "y": 0.12397,
+     "w": 0.01382,
+     "h": 0.00849,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "U9": {
+   "board": {
+    "x": 0.88861,
+    "y": 0.73353,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.35641,
+     "y": 0.05815,
+     "w": 0.01505,
+     "h": 0.01257,
+     "placement": "verified",
+     "placementNote": "U9B, the 74HC32 OR gate on A0 and A1; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "U12": {
+   "board": {
+    "x": 0.72619,
+    "y": 0.17904,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.46695,
+     "y": 0.32519,
+     "w": 0.01212,
+     "h": 0.01392,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U14": {
+   "board": {
+    "x": 0.57993,
+    "y": 0.2479,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.68414,
+     "y": 0.50961,
+     "w": 0.01272,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U15": {
+   "board": {
+    "x": 0.62075,
+    "y": 0.2479,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.81036,
+     "y": 0.80517,
+     "w": 0.01315,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U19": {
+   "board": {
+    "x": 0.57823,
+    "y": 0.65419,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.81906,
+     "y": 0.25603,
+     "w": 0.01575,
+     "h": 0.01231,
+     "placement": "verified",
+     "placementNote": "U19B, the OP227 in the adc null amplifier; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "U23": {
+   "board": {
+    "x": 0.45833,
+    "y": 0.35329,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.13264,
+     "y": 0.48167,
+     "w": 0.01281,
+     "h": 0.00877,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U24": {
+   "board": {
+    "x": 0.55782,
+    "y": 0.42156,
+    "w": 0.02891,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.34557,
+     "y": 0.49792,
+     "w": 0.0127,
+     "h": 0.00842,
+     "placement": "single"
+    }
+   ]
+  },
+  "U26": {
+   "board": {
+    "x": 0.68963,
+    "y": 0.66617,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.87115,
+     "y": 0.08065,
+     "w": 0.01581,
+     "h": 0.01249,
+     "placement": "verified",
+     "placementNote": "U26A, the 5532 between C91 and C92; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "U32": {
+   "board": {
+    "x": 0.85034,
+    "y": 0.27545,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.35767,
+     "y": 0.5165,
+     "w": 0.01742,
+     "h": 0.01257,
+     "placement": "verified",
+     "placementNote": "the 74HC138 decoder, printed beside its outline; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "U35": {
+   "board": {
+    "x": 0.81122,
+    "y": 0.27485,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.51845,
+     "y": 0.72871,
+     "w": 0.01262,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U36": {
+   "board": {
+    "x": 0.88946,
+    "y": 0.27545,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.51843,
+     "y": 0.9253,
+     "w": 0.01254,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U37": {
+   "board": {
+    "x": 0.77041,
+    "y": 0.17904,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.76235,
+     "y": 0.15757,
+     "w": 0.01251,
+     "h": 0.00825,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR4": {
+   "board": {
+    "x": 0.12211,
+    "y": 0.34581,
+    "w": 0.01361,
+    "h": 0.0509,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.07231,
+     "y": 0.19427,
+     "w": 0.02136,
+     "h": 0.01604,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR7": {
+   "board": {
+    "x": 0.43707,
+    "y": 0.16108,
+    "w": 0.0119,
+    "h": 0.04491,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.18044,
+     "y": 0.13751,
+     "w": 0.0123,
+     "h": 0.00814,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR11": {
+   "board": {
+    "x": 0.52942,
+    "y": 0.1497,
+    "w": 0.01531,
+    "h": 0.06287,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.87167,
+     "y": 0.35681,
+     "w": 0.01619,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR13": {
+   "board": {
+    "x": 0.64711,
+    "y": 0.17066,
+    "w": 0.01871,
+    "h": 0.04491,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.56951,
+     "y": 0.86305,
+     "w": 0.0214,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR17": {
+   "board": {
+    "x": 0.48129,
+    "y": 0.5479,
+    "w": 0.0119,
+    "h": 0.04491,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.73322,
+     "y": 0.26418,
+     "w": 0.01658,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR18": {
+   "board": {
+    "x": 0.4881,
+    "y": 0.38922,
+    "w": 0.0119,
+    "h": 0.04491,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.73333,
+     "y": 0.29272,
+     "w": 0.01673,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR22": {
+   "board": {
+    "x": 0.44388,
+    "y": 0.55389,
+    "w": 0.01361,
+    "h": 0.0509,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.62105,
+     "y": 0.53058,
+     "w": 0.01679,
+     "h": 0.00849,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR25": {
+   "board": {
+    "x": 0.7449,
+    "y": 0.38174,
+    "w": 0.0119,
+    "h": 0.04491,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.41154,
+     "y": 0.51587,
+     "w": 0.01976,
+     "h": 0.01171,
+     "placement": "verified",
+     "placementNote": "the 3.3V clamp on ADC INPUT, drawn above VR26; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "VR29": {
+   "board": {
+    "x": 0.66156,
+    "y": 0.53293,
+    "w": 0.0119,
+    "h": 0.04491,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.91371,
+     "y": 0.24053,
+     "w": 0.01675,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR35": {
+   "board": {
+    "x": 0.63895,
+    "y": 0.37485,
+    "w": 0.0119,
+    "h": 0.04491,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.94487,
+     "y": 0.53203,
+     "w": 0.01721,
+     "h": 0.00855,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Z4": {
+   "board": {
+    "x": 0.14286,
+    "y": 0.51497,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.59129,
+     "y": 0.4291,
+     "w": 0.0081,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Z5": {
+   "board": {
+    "x": 0.71173,
+    "y": 0.23353,
+    "w": 0.02721,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.72226,
+     "y": 0.12268,
+     "w": 0.0081,
+     "h": 0.00822,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "K2": {
+   "board": {
+    "x": 0.22772,
+    "y": 0.76587,
+    "w": 0.12755,
+    "h": 0.06287,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.81016,
+     "y": 0.53077,
+     "w": 0.0081,
+     "h": 0.0083,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh6",
+     "x": 0.79133,
+     "y": 0.24276,
+     "w": 0.0081,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K4": {
+   "board": {
+    "x": 0.22772,
+    "y": 0.83743,
+    "w": 0.12738,
+    "h": 0.06287,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.87608,
+     "y": 0.24233,
+     "w": 0.00824,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K5": {
+   "board": {
+    "x": 0.45731,
+    "y": 0.47545,
+    "w": 0.07262,
+    "h": 0.06347,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.60779,
+     "y": 0.19659,
+     "w": 0.01786,
+     "h": 0.01166,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K6": {
+   "board": {
+    "x": 0.33282,
+    "y": 0.83713,
+    "w": 0.07245,
+    "h": 0.06287,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.61039,
+     "y": 0.11724,
+     "w": 0.01339,
+     "h": 0.01231,
+     "placement": "verified",
+     "placementNote": "the 2FCL relay's own contact block in the adc amplifier input switching, drawn between K5 and K7; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "K7": {
+   "board": {
+    "x": 0.42568,
+    "y": 0.61527,
+    "w": 0.07245,
+    "h": 0.06257,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.73927,
+     "y": 0.38195,
+     "w": 0.0081,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K8": {
+   "board": {
+    "x": 0.33299,
+    "y": 0.76557,
+    "w": 0.07245,
+    "h": 0.06287,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.88733,
+     "y": 0.33455,
+     "w": 0.0231,
+     "h": 0.01616,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh6",
+     "x": 0.78158,
+     "y": 0.38193,
+     "w": 0.0081,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U10": {
+   "board": {
+    "x": 0.59949,
+    "y": 0.16587,
+    "w": 0.0665,
+    "h": 0.02695,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.55436,
+     "y": 0.77686,
+     "w": 0.01558,
+     "h": 0.01237,
+     "placement": "verified",
+     "placementNote": "the NE522 comparator, printed U10 inside the triangle; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "U11": {
+   "board": {
+    "x": 0.32109,
+    "y": 0.37754,
+    "w": 0.01803,
+    "h": 0.02395,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.54735,
+     "y": 0.16594,
+     "w": 0.01558,
+     "h": 0.01237,
+     "placement": "verified",
+     "placementNote": "the TL071 buffer, printed U11 inside the triangle; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "U13": {
+   "board": {
+    "x": 0.68163,
+    "y": 0.18084,
+    "w": 0.03129,
+    "h": 0.02695,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.46898,
+     "y": 0.44636,
+     "w": 0.01731,
+     "h": 0.01089,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U20": {
+   "board": {
+    "x": 0.64371,
+    "y": 0.66527,
+    "w": 0.03248,
+    "h": 0.02725,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.7685,
+     "y": 0.71344,
+     "w": 0.01575,
+     "h": 0.01231,
+     "placement": "verified",
+     "placementNote": "U20A, the LT1013 ahead of R70; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "U22": {
+   "board": {
+    "x": 0.37432,
+    "y": 0.34281,
+    "w": 0.03197,
+    "h": 0.02725,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.10323,
+     "y": 0.85371,
+     "w": 0.01273,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U27": {
+   "board": {
+    "x": 0.59796,
+    "y": 0.50958,
+    "w": 0.03197,
+    "h": 0.02725,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.79233,
+     "y": 0.186,
+     "w": 0.01985,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U28": {
+   "board": {
+    "x": 0.60374,
+    "y": 0.42156,
+    "w": 0.03163,
+    "h": 0.02725,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.74538,
+     "y": 0.37175,
+     "w": 0.01964,
+     "h": 0.00867,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U29": {
+   "board": {
+    "x": 0.70136,
+    "y": 0.44012,
+    "w": 0.0318,
+    "h": 0.02695,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.71597,
+     "y": 0.54835,
+     "w": 0.01238,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U31": {
+   "board": {
+    "x": 0.79983,
+    "y": 0.75629,
+    "w": 0.05765,
+    "h": 0.1018,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.23783,
+     "y": 0.68545,
+     "w": 0.01148,
+     "h": 0.00825,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U33": {
+   "board": {
+    "x": 0.43759,
+    "y": 0.6982,
+    "w": 0.1,
+    "h": 0.04311,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.50301,
+     "y": 0.41461,
+     "w": 0.01283,
+     "h": 0.00825,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U34": {
+   "board": {
+    "x": 0.43724,
+    "y": 0.81168,
+    "w": 0.10017,
+    "h": 0.04311,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh6",
+     "x": 0.65492,
+     "y": 0.37611,
+     "w": 0.01262,
+     "h": 0.00813,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U38": {
+   "board": {
+    "x": 0.39864,
+    "y": 0.16138,
+    "w": 0.03163,
+    "h": 0.02665,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.25432,
+     "y": 0.15359,
+     "w": 0.0157,
+     "h": 0.01231,
+     "placement": "verified",
+     "placementNote": "the LF356 in the series linearity control, printed U38 inside the triangle; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "U6": {
+   "board": {
+    "x": 0.87789,
+    "y": 0.48623,
+    "w": 0.02959,
+    "h": 0.05299,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.23023,
+     "y": 0.51322,
+     "w": 0.0081,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C12": {
+   "board": {
+    "x": 0.72959,
+    "y": 0.7994,
+    "w": 0.0216,
+    "h": 0.03802,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.19172,
+     "y": 0.63495,
+     "w": 0.02168,
+     "h": 0.01025,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C19": {
+   "board": {
+    "x": 0.03912,
+    "y": 0.28892,
+    "w": 0.02313,
+    "h": 0.04072,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.51768,
+     "y": 0.68848,
+     "w": 0.0127,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C20": {
+   "board": {
+    "x": 0.03912,
+    "y": 0.24341,
+    "w": 0.02313,
+    "h": 0.04072,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.56216,
+     "y": 0.68843,
+     "w": 0.01253,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C9": {
+   "board": {
+    "x": 0.54286,
+    "y": 0.80419,
+    "w": 0.0216,
+    "h": 0.03802,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.18389,
+     "y": 0.48908,
+     "w": 0.0081,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q11": {
+   "board": {
+    "x": 0.06769,
+    "y": 0.62545,
+    "w": 0.01582,
+    "h": 0.02784,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.61,
+     "y": 0.27478,
+     "w": 0.01197,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q12": {
+   "board": {
+    "x": 0.2398,
+    "y": 0.57216,
+    "w": 0.01701,
+    "h": 0.02994,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.52739,
+     "y": 0.38893,
+     "w": 0.01272,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q13": {
+   "board": {
+    "x": 0.20697,
+    "y": 0.57186,
+    "w": 0.01582,
+    "h": 0.02784,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.57559,
+     "y": 0.36612,
+     "w": 0.01293,
+     "h": 0.00822,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q14": {
+   "board": {
+    "x": 0.09048,
+    "y": 0.47545,
+    "w": 0.01565,
+    "h": 0.02754,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.62182,
+     "y": 0.36256,
+     "w": 0.01334,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "the reader read this J2317 FET's Q14 label as U14"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q15": {
+   "board": {
+    "x": 0.10816,
+    "y": 0.81198,
+    "w": 0.01565,
+    "h": 0.02754,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.65651,
+     "y": 0.32103,
+     "w": 0.01099,
+     "h": 0.01026,
+     "placement": "verified",
+     "placementNote": "the reader read this label as Q1, and put Q15 itself in the relay truth table"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q16": {
+   "board": {
+    "x": 0.14337,
+    "y": 0.72126,
+    "w": 0.01565,
+    "h": 0.02754,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.71102,
+     "y": 0.39603,
+     "w": 0.01272,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q18": {
+   "board": {
+    "x": 0.19065,
+    "y": 0.47455,
+    "w": 0.01582,
+    "h": 0.02784,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.53706,
+     "y": 0.44877,
+     "w": 0.0125,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q19": {
+   "board": {
+    "x": 0.15731,
+    "y": 0.47365,
+    "w": 0.01565,
+    "h": 0.02754,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.66075,
+     "y": 0.45359,
+     "w": 0.0157,
+     "h": 0.01231,
+     "placement": "verified",
+     "placementNote": "the 2N3904 in the range-select drive, between CR2 and CR3; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q20": {
+   "board": {
+    "x": 0.14014,
+    "y": 0.57246,
+    "w": 0.01701,
+    "h": 0.02994,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.61835,
+     "y": 0.4699,
+     "w": 0.01239,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q21": {
+   "board": {
+    "x": 0.17364,
+    "y": 0.57216,
+    "w": 0.01582,
+    "h": 0.02784,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.57502,
+     "y": 0.50205,
+     "w": 0.02082,
+     "h": 0.0083,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "Q22": {
+   "board": {
+    "x": 0.19235,
+    "y": 0.33713,
+    "w": 0.01565,
+    "h": 0.02754,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.5607,
+     "y": 0.60312,
+     "w": 0.01272,
+     "h": 0.00819,
+     "placement": "single"
+    }
+   ]
+  },
+  "Q23": {
+   "board": {
+    "x": 0.14337,
+    "y": 0.85749,
+    "w": 0.01565,
+    "h": 0.02754,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.71743,
+     "y": 0.61667,
+     "w": 0.0157,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the J2086 FET on REF COM in the sense switch; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q24": {
+   "board": {
+    "x": 0.1432,
+    "y": 0.81228,
+    "w": 0.01565,
+    "h": 0.02754,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.74757,
+     "y": 0.59538,
+     "w": 0.0157,
+     "h": 0.01154,
+     "placement": "verified",
+     "placementNote": "the second J2086 FET, drawn right of Q23; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q25": {
+   "board": {
+    "x": 0.50952,
+    "y": 0.84581,
+    "w": 0.01361,
+    "h": 0.02395,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.90498,
+     "y": 0.66531,
+     "w": 0.01278,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q3": {
+   "board": {
+    "x": 0.04966,
+    "y": 0.4524,
+    "w": 0.04609,
+    "h": 0.07994,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.55396,
+     "y": 0.72408,
+     "w": 0.01424,
+     "h": 0.01571,
+     "placement": "verified",
+     "placementNote": "the TIP32 in the 50C heater leg; the reader had put Q3 in the right-hand package legend"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q4": {
+   "board": {
+    "x": 0.45136,
+    "y": 0.17156,
+    "w": 0.01599,
+    "h": 0.02814,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.3258,
+     "y": 0.13628,
+     "w": 0.0081,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q5": {
+   "board": {
+    "x": 0.43622,
+    "y": 0.22335,
+    "w": 0.01565,
+    "h": 0.02754,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.30451,
+     "y": 0.21492,
+     "w": 0.0081,
+     "h": 0.00819,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "Q52": {
+   "board": {
+    "x": 0.48027,
+    "y": 0.58593,
+    "w": 0.01565,
+    "h": 0.02754,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.67921,
+     "y": 0.27452,
+     "w": 0.01297,
+     "h": 0.01177,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q57": {
+   "board": {
+    "x": 0.66531,
+    "y": 0.45689,
+    "w": 0.01565,
+    "h": 0.02754,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.77777,
+     "y": 0.59308,
+     "w": 0.01334,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q6": {
+   "board": {
+    "x": 0.46803,
+    "y": 0.22305,
+    "w": 0.01565,
+    "h": 0.02754,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.36469,
+     "y": 0.24922,
+     "w": 0.0081,
+     "h": 0.0083,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q7": {
+   "board": {
+    "x": 0.48503,
+    "y": 0.16108,
+    "w": 0.01582,
+    "h": 0.02784,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.29873,
+     "y": 0.26529,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q8": {
+   "board": {
+    "x": 0.08588,
+    "y": 0.9015,
+    "w": 0.02109,
+    "h": 0.03713,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.6102,
+     "y": 0.14269,
+     "w": 0.0081,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR1": {
+   "board": {
+    "x": 0.87075,
+    "y": 0.17186,
+    "w": 0.00952,
+    "h": 0.04551,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "20V zener right of T1, next to C108: the bowtie body with 'VR1' printed beside it. An earlier pass recorded no VR1 silkscreen -- there is one, at the far right of the board, and the reader's marker was a truncation of VR10 elsewhere.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.27089,
+     "y": 0.54712,
+     "w": 0.01661,
+     "h": 0.01178,
+     "placement": "verified",
+     "placementNote": "the 20V zener from -44 S to -25 S; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "MP7": {
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.50809,
+     "y": 0.62482,
+     "w": 0.0125,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "MP8": {
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.54283,
+     "y": 0.62485,
+     "w": 0.01296,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "A1": {
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.14521,
+     "y": 0.82615,
+     "w": 0.02355,
+     "h": 0.01282,
+     "placement": "verified",
+     "placementNote": "the DAC filter SIP block, printed A11-1 above 5700A-4043 and DAC FILTER SIP; the sheets never write A1, so the marker goes on the assembly number inside the SIP's dashed outline; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  },
+  "A2": {
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.31622,
+     "y": 0.60672,
+     "w": 0.02362,
+     "h": 0.01283,
+     "placement": "verified",
+     "placementNote": "the buffered reference SIP block, printed A11-2 above 5700A-4044 and BUFFERED REFERENCE SIP; the sheets never write A2, so the marker goes on the assembly number inside the SIP's dashed outline; found by find_in_image, verified by eye"
+    }
+   ],
+   "schVerified": true
+  }
+ },
+ "layers": {
+  "photo": {
+   "landmarks": [
+    {
+     "src": [
+      0.03886,
+      0.28841
+     ],
+     "dst": [
+      0.0479,
+      0.28061
+     ]
+    },
+    {
+     "src": [
+      0.0392,
+      0.2415
+     ],
+     "dst": [
+      0.04797,
+      0.23553
+     ]
+    },
+    {
+     "src": [
+      0.08282,
+      0.34132
+     ],
+     "dst": [
+      0.08979,
+      0.33277
+     ]
+    },
+    {
+     "src": [
+      0.09026,
+      0.47622
+     ],
+     "dst": [
+      0.09725,
+      0.46247
+     ]
+    },
+    {
+     "src": [
+      0.10212,
+      0.7652
+     ],
+     "dst": [
+      0.11029,
+      0.7394
+     ]
+    },
+    {
+     "src": [
+      0.10821,
+      0.8139
+     ],
+     "dst": [
+      0.11668,
+      0.78572
+     ]
+    },
+    {
+     "src": [
+      0.12109,
+      0.90569
+     ],
+     "dst": [
+      0.12929,
+      0.87365
+     ]
+    },
+    {
+     "src": [
+      0.12372,
+      0.4756
+     ],
+     "dst": [
+      0.12906,
+      0.46287
+     ]
+    },
+    {
+     "src": [
+      0.14286,
+      0.51497
+     ],
+     "dst": [
+      0.14755,
+      0.50046
+     ]
+    },
+    {
+     "src": [
+      0.14334,
+      0.85917
+     ],
+     "dst": [
+      0.14994,
+      0.83034
+     ]
+    },
+    {
+     "src": [
+      0.1434,
+      0.76777
+     ],
+     "dst": [
+      0.14926,
+      0.74332
+     ]
+    },
+    {
+     "src": [
+      0.14354,
+      0.81355
+     ],
+     "dst": [
+      0.14974,
+      0.78711
+     ]
+    },
+    {
+     "src": [
+      0.15689,
+      0.47558
+     ],
+     "dst": [
+      0.1608,
+      0.46302
+     ]
+    },
+    {
+     "src": [
+      0.19031,
+      0.47524
+     ],
+     "dst": [
+      0.19294,
+      0.46307
+     ]
+    },
+    {
+     "src": [
+      0.39145,
+      0.49521
+     ],
+     "dst": [
+      0.39024,
+      0.48457
+     ]
+    },
+    {
+     "src": [
+      0.41155,
+      0.75565
+     ],
+     "dst": [
+      0.4125,
+      0.73798
+     ]
+    },
+    {
+     "src": [
+      0.43475,
+      0.69785
+     ],
+     "dst": [
+      0.43397,
+      0.68329
+     ]
+    },
+    {
+     "src": [
+      0.50935,
+      0.80689
+     ],
+     "dst": [
+      0.50822,
+      0.7909
+     ]
+    },
+    {
+     "src": [
+      0.52112,
+      0.40626
+     ],
+     "dst": [
+      0.51937,
+      0.39934
+     ]
+    },
+    {
+     "src": [
+      0.5426,
+      0.80561
+     ],
+     "dst": [
+      0.54117,
+      0.79022
+     ]
+    },
+    {
+     "src": [
+      0.5632,
+      0.36171
+     ],
+     "dst": [
+      0.56112,
+      0.35602
+     ]
+    },
+    {
+     "src": [
+      0.58798,
+      0.55644
+     ],
+     "dst": [
+      0.58653,
+      0.54781
+     ]
+    },
+    {
+     "src": [
+      0.59099,
+      0.36677
+     ],
+     "dst": [
+      0.5887,
+      0.3616
+     ]
+    },
+    {
+     "src": [
+      0.60799,
+      0.59731
+     ],
+     "dst": [
+      0.6064,
+      0.58816
+     ]
+    },
+    {
+     "src": [
+      0.65391,
+      0.80389
+     ],
+     "dst": [
+      0.6522,
+      0.79046
+     ]
+    },
+    {
+     "src": [
+      0.69493,
+      0.72121
+     ],
+     "dst": [
+      0.69353,
+      0.71013
+     ]
+    },
+    {
+     "src": [
+      0.69768,
+      0.5002
+     ],
+     "dst": [
+      0.69633,
+      0.49444
+     ]
+    },
+    {
+     "src": [
+      0.70621,
+      0.57715
+     ],
+     "dst": [
+      0.70515,
+      0.56976
+     ]
+    },
+    {
+     "src": [
+      0.71173,
+      0.23353
+     ],
+     "dst": [
+      0.71056,
+      0.23189
+     ]
+    },
+    {
+     "src": [
+      0.74141,
+      0.53074
+     ],
+     "dst": [
+      0.74073,
+      0.52464
+     ]
+    },
+    {
+     "src": [
+      0.7774,
+      0.87455
+     ],
+     "dst": [
+      0.77579,
+      0.8607
+     ]
+    },
+    {
+     "src": [
+      0.79869,
+      0.75289
+     ],
+     "dst": [
+      0.79787,
+      0.74452
+     ]
+    },
+    {
+     "src": [
+      0.85034,
+      0.27545
+     ],
+     "dst": [
+      0.85052,
+      0.2744
+     ]
+    },
+    {
+     "src": [
+      0.87829,
+      0.8012
+     ],
+     "dst": [
+      0.87485,
+      0.78905
+     ]
+    },
+    {
+     "src": [
+      0.88946,
+      0.27545
+     ],
+     "dst": [
+      0.88876,
+      0.27516
+     ]
+    },
+    {
+     "src": [
+      0.92857,
+      0.24102
+     ],
+     "dst": [
+      0.92853,
+      0.2418
+     ]
+    }
+   ],
+   "approximate": true,
+   "transform": {
+    "H": [
+     0.966201473,
+     0.005282633,
+     0.007668167,
+     -0.000243459,
+     0.967429602,
+     0.002312874,
+     -0.029394651,
+     0.008489141,
+     1.0
+    ]
+   }
+  }
+ },
+ "sheets": {}
+}

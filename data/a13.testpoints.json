@@ -1,0 +1,345 @@
+{
+  "_comment": [
+    "Curated A13 test point expectations, hand-authored from the 1996 Series II",
+    "service manual: §5-18 (pages 5-72 to 5-74) for the bench procedure, §5-2 for",
+    "the 3400-series fault codes, and §2-130 to §2-138 for what each node is.",
+    "Figure 7-15 sheets 1-3 were read alongside to confirm which net each test",
+    "point actually sits on.",
+    "",
+    "There is no curated study document for A13 in ../MD/ and there is no supply",
+    "table for it in Chapter 2, so every value here was read out of the manual",
+    "text directly. What that means in practice:",
+    "",
+    "  * A13 has no supply of its own to tabulate. It takes +/-44 S, +/-17 S,",
+    "    +/-15 S, +/-5 LH, +5 RLH and their commons from A17 through P512, and",
+    "    makes only three rails locally: -12 S (U2, a 7912, from -17 S), +/-5 S",
+    "    (L1/L2 chokes from +/-5 LH) and the +1.4 V bias (R58/R59 from +15 S).",
+    "    None of the ten test points is a supply rail; all ten are signal points.",
+    "",
+    "  * Four of the ten have no published level at all. TP4, TP5, TP8 and TP9",
+    "    carry noPublishedValue rather than a guess. §5-18 checks TP4 and TP5",
+    "    only for correct inversion -- 'negative voltage', 'positive voltage' --",
+    "    and gives no magnitude, and TP8 and TP9 are checked for shape and phase",
+    "    on a scope. A waveform is not a nominal +/- a tolerance; the expectation",
+    "    is written as prose in condition/note, the way A14's TP2 and TP3 are.",
+    "",
+    "  * TP6's band is inferred, and marked so. §5-2 fault code 3408 publishes",
+    "    the band for the signal it calls INTEGRATOR OUT; the sheet 1 legend",
+    "    calls TP6 ERROR INTERGRATOR OUT. Figure 7-15 sheet 1 zone A7 shows both",
+    "    names on one node -- the output of U18, which also runs to the",
+    "    diagnostic multiplexer as 'INTERGRATOR OUT TO MUX CIRCUIT (PG3D6)'. The",
+    "    manual never writes 'TP6 reads 0 V', so the identification is ours.",
+    "",
+    "  * TP10 is the same net as TP2 with R110 (1 kohm) in series, so its level",
+    "    is TP2's into a high-impedance probe. That too is read off the sheet",
+    "    rather than published, and is marked inferred.",
+    "",
+    "Every measurement in §5-18 is referenced to TP1 (SCOM / OS COM); the section",
+    "says '(common to TP1)' at each step that names a common at all.",
+    "",
+    "Signal names and sheet zones are transcribed from the legend box at zone D8",
+    "of sheet 1, which prints them as 'TP1 = SCOM / OS COM (PG2C1)' -- page 2,",
+    "zone C1. Where the legend's zone disagrees with where the flag actually is",
+    "on the sheet, the note says so."
+  ],
+
+  "rails": {
+    "OSC": {
+      "label": "Quadrature oscillator loop",
+      "com": "TP1",
+      "color": "#5ec2a8"
+    },
+    "OUT": {
+      "label": "2.2 V / 22 V output amplifier",
+      "com": "TP1",
+      "color": "#d9534f"
+    },
+    "PLL": {
+      "label": "Phase-locked loop",
+      "com": "TP1",
+      "color": "#4fa3d1"
+    },
+    "PHASE": {
+      "label": "Phase shifter",
+      "com": "TP1",
+      "color": "#e0b13a"
+    },
+    "SUPPLY": {
+      "label": "Supplies and local regulators",
+      "com": "TP1",
+      "color": "#a78bda"
+    },
+    "COM": {
+      "label": "Common",
+      "com": "TP1",
+      "color": "#9aa0a6"
+    }
+  },
+
+  "testpoints": [
+    {
+      "ref": "TP1",
+      "signal": "SCOM / OS COM",
+      "rail": "COM",
+      "kind": "wire-loop",
+      "isReturn": true,
+      "source": "Figure 7-15 sheet 1 legend (PG2C1); Figure 7-15 sheet 2 zone C2",
+      "note": "The board's analog common, and the reference for every measurement §5-18 makes. On sheet 2 it is one node with ACOM and with OS COM at P511 pins 22A/22C, so the same loop serves as the return for the oscillator, the output amplifier and the phase-locked loop. §5-18's preamble also uses it as the far end of the second defeat jumper: SDL at P511 pin 11A/11C is strapped to TP1 to stop the software output monitor tripping the instrument to standby during troubleshooting. Leave that jumper in and every 34xx fault code reads meaningless."
+    },
+    {
+      "ref": "TP2",
+      "signal": "OSC OUT HI",
+      "rail": "OUT",
+      "kind": "wire-loop",
+      "refPoint": "TP1",
+      "unit": "V",
+      "source": "§5-18 steps 8, 8c and 10",
+      "note": "The assembly's output: the node that leaves on P511 pins 21A/21C as OSC OUT HI and reaches the OUTPUT binding posts in the 2.2 V and 22 V ranges. §5-18 prints the two ac levels as the Calibrator's own output setting, which is rms; the manual does not repeat the word 'rms' at either step, so read them as rms because that is what the front panel is set to. TP10 is the same net through R110 (1 kohm) and is the kinder place to hang a probe. The step 8c reading is dc and is only valid with S1 in the test position.",
+      "states": [
+        {
+          "label": "2.2 V range: 2 V at 1 kHz, operate",
+          "nominal": 2,
+          "tolerance": 0.05,
+          "setup": "Set the Calibrator for 2 V at 1 kHz, operate. S1 in the operate position (to the right).",
+          "condition": "Undistorted sine wave at 1 kHz with no offset.",
+          "source": "§5-18 step 8",
+          "onFail": ["U11", "U10", "K4", "R28", "S1", "Q13", "Q8", "Q14"]
+        },
+        {
+          "label": "22 V range: 20 V at 1 kHz, operate",
+          "nominal": 20,
+          "tolerance": 0.5,
+          "setup": "Set the Calibrator for 20 V at 1 kHz, operate.",
+          "condition": "Undistorted sine wave at 1 kHz.",
+          "source": "§5-18 step 10",
+          "onFail": ["K4", "R29", "U11", "U10"]
+        },
+        {
+          "label": "S1 in the test position (dc)",
+          "nominal": 3.2,
+          "tolerance": 0.3,
+          "setup": "Move S1 to the test position (to the left), which pulls the input of the A13A1 output stage low. Return it to operate afterwards -- step 8d.",
+          "condition": "Dc, not ac. This is the output stage sitting at its idle offset with its drive removed.",
+          "source": "§5-18 step 8c",
+          "note": "Correct here and the output stage is healthy, which points at the Oscillator Wideband SMD (A13A1, U30 on the silkscreen) instead. Wrong here and the fault is in the output stage on this board.",
+          "onFail": ["Q8", "Q14", "Q10", "Q11", "Q16", "Q17", "Q13", "VR3", "VR4"]
+        }
+      ]
+    },
+    {
+      "ref": "TP3",
+      "signal": "INT OSC OUT",
+      "rail": "OSC",
+      "kind": "wire-loop",
+      "refPoint": "TP1",
+      "nominal": 5.12,
+      "tolerance": 0.25,
+      "unit": "V",
+      "condition": "Sine wave at 100 Hz. Calibrator switched on, before any output is selected -- §5-18 step 2 is the step immediately after 'Turn on the Calibrator'.",
+      "source": "§5-18 step 2",
+      "note": "The fixed-amplitude output of the quadrature oscillator, taken at the oscillator amplifier (U9) and 180 degrees out of phase with SUMMING AMP OUT. The 5.12 V is stated as rms in the manual, which is the one place in §5-18 that says so outright. This is also the point §5-18 uses for the two later checks with no separate acceptance band of their own: step 6 walks the five frequency ranges (2 V at 100 Hz, 1 kHz, 10 kHz, 100 kHz and 1 MHz) looking for oscillation on each, and step 7 puts a frequency counter here at 2 V / 5 kHz and edits each frequency digit.",
+      "onFail": ["U9", "U7", "K1", "K2", "K3", "C19", "C21", "C22", "C24", "C25", "U3", "U6"]
+    },
+    {
+      "ref": "TP4",
+      "signal": "QUADRATURE AMP OUT",
+      "rail": "OSC",
+      "kind": "wire-loop",
+      "refPoint": "TP1",
+      "noPublishedValue": true,
+      "condition": "Steps 3 and 4 only: R6 lifted at one end and the summing amplifier input (the node of R1, R6 and U3 pin 5) jumpered first to +5 S and then to -5 S.",
+      "source": "§5-18 steps 3 and 4",
+      "note": "Output of the quadrature amplifier (U6), one of the two RC integrators in the oscillator loop, and 90 degrees from the oscillator amplifier. The manual publishes no level for it. What it does publish is polarity: with the summing amplifier input driven positive, TP4 must be positive; driven negative, TP4 must be negative. Every amplifier in this loop is inverting, and TP4 sits two inversions from the injection point, which is why it follows the input while TP5 and TP3 oppose it. In normal operation it is a sine wave of about the same amplitude as TP3 -- the four oscillator phases are equal-amplitude by design (§2-133) -- but no band is published, so none is recorded.",
+      "onFail": ["U6", "U5", "K1", "K2", "K3", "U15"]
+    },
+    {
+      "ref": "TP5",
+      "signal": "SUMMING AMP OUT",
+      "rail": "OSC",
+      "kind": "wire-loop",
+      "refPoint": "TP1",
+      "noPublishedValue": true,
+      "condition": "Steps 3 and 4 only: R6 lifted at one end and the summing amplifier input jumpered first to +5 S and then to -5 S.",
+      "source": "§5-18 steps 3 and 4",
+      "note": "Output of the unity-gain inverting summing amplifier (U3), the element that provides the 180 degrees of the oscillator loop's phase. Published only as a polarity: negative when the input is driven positive, positive when it is driven negative. In normal running it is the signal the phase-locked loop compares against the external reference in the 22 V range and below (§2-134), and it leaves sheet 1 as SUMMING AMP OUT to the phase lock circuit.",
+      "onFail": ["U3", "R1", "R6", "C3", "C5", "U19"]
+    },
+    {
+      "ref": "TP6",
+      "signal": "ERROR INTERGRATOR OUT",
+      "rail": "OSC",
+      "kind": "wire-loop",
+      "refPoint": "TP1",
+      "unit": "V",
+      "inferred": true,
+      "source": "§5-2 fault code 3408, read onto TP6 via Figure 7-15 sheet 1 zone A7",
+      "conflict": "Fault code 3408 names the signal INTEGRATOR OUT; the sheet 1 legend calls TP6 ERROR INTERGRATOR OUT (the sheet spells it that way) and sheet 3 labels the diagnostic multiplexer input INTERGRATOR OUT. Sheet 1 zone A7 shows all of these on one node: the output of U18, which runs to TP6 and away to the mux circuit at PG3D6. The bands below are therefore fault code 3408's, applied to TP6 on that identification. The manual nowhere prints an expected voltage against TP6 itself.",
+      "note": "Output of the error integrator, and the control voltage for the amplitude loop: U18 sums the rectified four-phase sum from CR1-CR4 and Z6 against a -12 V reference through R42/R43, and its output sets the resistance of multiplier U16, which trims the loop phase until the amplitude is stable (§2-133). A stuck rail here means the amplitude loop has run out of range. The diagnostic multiplexer reads this node through the Z2/Z3 divider, so 3408's band is the level at the node, not at SDL. §5-18 step 5 reaches the same circuit from the other direction: if the 100 Hz oscillation is missing, check CR1-CR4 and Z6 first, then that U18 is inverting, and only then suspect U16.",
+      "states": [
+        {
+          "label": "1 V ac at 100 Hz, 1 kHz or 10 kHz",
+          "nominal": 0,
+          "tolerance": 1,
+          "setup": "Set the Calibrator for 1 V ac at the range under test. Diagnostics do this themselves.",
+          "source": "§5-2 fault code 3408",
+          "onFail": ["U18", "U16", "Z6", "CR1", "CR2", "CR3", "CR4", "R42", "R43"]
+        },
+        {
+          "label": "1 V ac at 100 kHz",
+          "nominal": 0,
+          "tolerance": 2,
+          "source": "§5-2 fault code 3408",
+          "onFail": ["U18", "U16", "Z6", "CR1", "CR2", "CR3", "CR4"]
+        },
+        {
+          "label": "1 V ac at 1 MHz",
+          "nominal": 0,
+          "tolerance": 5,
+          "source": "§5-2 fault code 3408",
+          "note": "The band widens with frequency because the loop has less margin at the top range, where C19 alone is the quadrature amplifier's feedback.",
+          "onFail": ["U18", "U16", "Z6", "C19", "U6", "U9"]
+        }
+      ]
+    },
+    {
+      "ref": "TP7",
+      "signal": "LOOP FILTER OUT",
+      "rail": "PLL",
+      "kind": "wire-loop",
+      "refPoint": "TP1",
+      "unit": "V",
+      "condition": "Phase locked, 1 V ac, at each of the five frequency ranges. See the note for the unlocked case, which §5-18 gives without a tolerance.",
+      "source": "§5-2 fault code 3409",
+      "note": "Output of the loop filter integrator U31A, whose feedback capacitors C75-C84 are selected per range by multiplexer U17 through Z1 (§2-134). It drives multipliers U15 and U19, which pull the two RC integrators' unity-gain frequency until the loop locks. Two published readings, and they mean opposite things. Locked, fault code 3409 measures it at 0 V +/-5 V through the diagnostic multiplexer. NOT locked, §5-18 step 11c says it should be sitting at either +13 V or -13 V -- the integrator railed against its own +/-15 S supplies, which is what a charge pump with nothing to balance does. The manual gives no tolerance for the +/-13 V case, so no band is recorded for it. Correct at +/-13 V and unlocked points at U19 and/or U15 in the multiplier circuit; wrong there points at U17, U31A and the capacitors around them.",
+      "states": [
+        {
+          "label": "Phase locked, 1 V ac, any of the five ranges",
+          "nominal": 0,
+          "tolerance": 5,
+          "setup": "Set the Calibrator for 1 V ac. Diagnostics test all five ranges.",
+          "source": "§5-2 fault code 3409",
+          "onFail": ["U31", "U17", "Z1", "U21", "U22", "U23", "CR5", "CR6", "CR7", "CR8"]
+        }
+      ]
+    },
+    {
+      "ref": "TP8",
+      "signal": "P SHIFT OUT",
+      "rail": "PHASE",
+      "kind": "wire-loop",
+      "refPoint": "TP1",
+      "noPublishedValue": true,
+      "condition": "Dual-channel scope, one channel here and one on TP2. Calibrator at 2 V / 1 kHz, operate, with Phase Ctrls Menu > Phase Shift on.",
+      "source": "§5-18 step 12",
+      "note": "The variable-phase auxiliary output, sent to the rear panel as P SHIFT HI (P511 pins 9A/9C, with P SHIFT LO on 10A/10C). Fixed amplitude, same frequency as the output, shiftable over the full 360 degrees (§2-138). The published check is a comparison, not a level: with phase shift first turned on the two traces should be in phase, and turning the edit knob should walk TP8 through 360 degrees against TP2. The manual publishes no amplitude, so none is recorded. If it fails, the manual sends you to the control lines before the signal path: U27 pin 6 (INHPH) should be a logic low and pins 9 and 10 (BPH, APH) should toggle with the phase selected; if those are wrong the fault is U33.",
+      "onFail": ["U27", "U28", "U29", "U33", "Z4", "Z5"]
+    },
+    {
+      "ref": "TP9",
+      "signal": "P LOCK INPUT",
+      "rail": "PLL",
+      "kind": "wire-loop",
+      "refPoint": "TP1",
+      "noPublishedValue": true,
+      "condition": "Whatever external reference is driving the loop -- from the High-Resolution Oscillator on A7, or from the rear-panel PHASE LOCK IN jack.",
+      "source": "Figure 7-15 sheet 1 legend (PG2A8); Figure 7-15 sheet 2 zone A8",
+      "note": "The incoming phase-lock reference, taken after the L15 pulse transformer that isolates P LOCK HI / P LOCK LO from P512 pins 6A/6C and 5A/5C, and ahead of R64 into the U23B zero-crossing detector. The manuals tabulate no level here: it is an arriving external signal, not something A13 makes. What §5-18 step 11a does publish is what should come out of the detectors -- square waves at U23 pins 7 and 12 -- so use TP9 to establish that a reference is arriving at all, then move to U23. Capture range is about +/-5 percent of the nominal output frequency (§2-134).",
+      "onFail": ["L15", "C85", "R64", "R69", "U23", "R67"]
+    },
+    {
+      "ref": "TP10",
+      "signal": "ISOLATED OSC OUT HI",
+      "rail": "OUT",
+      "kind": "wire-loop",
+      "refPoint": "TP1",
+      "noPublishedValue": true,
+      "inferred": true,
+      "condition": "Same conditions as TP2. See the note.",
+      "source": "Figure 7-15 sheet 2 zone D2 (the R110 connection); no published level",
+      "note": "The same node as TP2, reached through R110 (1 kohm). That series resistor is the point of it: probing OSC OUT HI directly puts a scope probe's capacitance straight on the output amplifier, and TP10 lets you look at the output without doing that. Into a high-impedance probe it therefore reads what TP2 reads -- 2 V rms at 1 kHz in the 2.2 V range, 20 V rms in the 22 V range -- but the manual never says so and never gives TP10 a band of its own, so nothing is recorded as an expectation here. §5-18 uses TP2 for both range checks.",
+      "onFail": ["R110", "Q8", "Q14", "Q10", "Q11", "Q16", "Q17"]
+    }
+  ],
+
+  "probePoints": [
+    {
+      "id": "U8-6",
+      "label": "U8 pin 6 (fourth oscillator phase)",
+      "component": "U8",
+      "refPoint": "TP1",
+      "source": "§5-18 steps 3 and 4",
+      "note": "U8 inverts the quadrature amplifier's output to make the fourth of the four equal-amplitude phases, 90 degrees apart, that CR1-CR4 and Z6 rectify into the amplitude-control dc (§2-133). §5-18 checks it for polarity only, alongside TP3, TP4 and TP5: with the summing amplifier input driven positive this pin must go negative, and driven negative it must go positive. No level is published.",
+      "onFail": ["U8", "CR1", "CR2", "CR3", "CR4", "Z6"]
+    },
+    {
+      "id": "R87-drop",
+      "label": "Voltage drop across R87",
+      "component": "R87",
+      "refPoint": "TP1",
+      "nominal": 1,
+      "tolerancePct": 20,
+      "unit": "V",
+      "condition": "S1 in the test position (to the left). Return S1 to operate afterwards -- step 8d.",
+      "source": "§5-18 step 8b",
+      "note": "R87 is 100 ohms, so 1 V across it is 10 mA -- the bias current of the mid-stage current source on the Oscillator Wideband SMD (A13A1). Wrong here and that current source on the daughter card is the suspect; right here and the next reading, TP2 at about +3.2 V, decides between the daughter card and this board's output stage. Measure across the part, not to common: this is a drop, not a node voltage.",
+      "onFail": ["R87", "S1", "Q13"]
+    },
+    {
+      "id": "U23-7-12",
+      "label": "U23 pins 7 and 12 (zero crossing detector outputs)",
+      "component": "U23",
+      "refPoint": "TP1",
+      "source": "§5-18 step 11a",
+      "note": "The two LM319 comparators that square up the oscillator signal (SUMMING AMP OUT or INT OSC OUT, selected by Q7) and the external reference from TP9. Both outputs must be square waves; the step gives no level or duty cycle, only that the sine inputs are converted. Pin 12 is U23A (the oscillator side), pin 7 is U23B (the reference side).",
+      "onFail": ["U23", "R63", "R70", "R64", "CR10", "CR11", "Q7"]
+    },
+    {
+      "id": "U22-5-7",
+      "label": "U22 pins 5 and 7 (phase detector outputs)",
+      "component": "U22",
+      "refPoint": "TP1",
+      "source": "§5-18 step 11b",
+      "note": "The 74F112 dual JK flip-flop that forms the phase detector. With the loop NOT phase locked, one of these two pins should be pulsing -- whichever signal arrives first turns on its charge pump (CR5/CR6 positive, CR7/CR8 negative) and the other stays off. Locked, neither pulses, because neither signal reaches the detector first. Nothing pulsing while unlocked means U22 or the components around it.",
+      "onFail": ["U22", "U21", "U23", "CR5", "CR6", "CR7", "CR8"]
+    },
+    {
+      "id": "U27-6-9-10",
+      "label": "U27 pins 6, 9 and 10 (phase shifter control lines)",
+      "component": "U27",
+      "refPoint": "TP1",
+      "condition": "Calibrator at 2 V / 1 kHz, operate, with the phase shift function on.",
+      "source": "§5-18 step 12",
+      "note": "Pin 6 is INHPH and must be a logic low to enable the multiplexer; pins 9 and 10 are BPH and APH and must toggle between logic high and low as the selected phase shift changes. Wrong here and the fault is U33, the latch that drives the PHASE bus; right here and it is U27, U28 or the components around them.",
+      "onFail": ["U27", "U33"]
+    },
+    {
+      "id": "FREQ-DATA",
+      "label": "FREQ DATA bus D1-D7 at U32",
+      "component": "U32",
+      "refPoint": "TP1",
+      "condition": "Calibrator at 2 V / 5 kHz, operate, editing the frequency digits with the knob.",
+      "source": "§5-18 step 7",
+      "note": "Each bit must toggle between +5 V and ground as the frequency is edited. D0 is not checked -- it is used only during external phase lock. If the bus toggles correctly the fault is in resistive DACs U5 and/or U7, which set the integrators' input resistance as R = (256/X) x 2 kohm (§2-132); if it does not, U32 is the suspect.",
+      "onFail": ["U32", "U5", "U7", "U26"]
+    },
+    {
+      "id": "AMPL-DATA",
+      "label": "AMPL DATA bus A0-A7 at U12",
+      "component": "U12",
+      "refPoint": "TP1",
+      "condition": "Calibrator at 1 V / 1 kHz, operate, editing the amplitude digits.",
+      "source": "§5-18 step 9",
+      "note": "Same test as the frequency bus, one range up the signal chain: each bit must toggle between +5 V and ground as the amplitude is edited. Not toggling means U12; toggling with the output still wrong means resistive DAC U11, which is the coarse gain control of the output amplifier (§2-135).",
+      "onFail": ["U12", "U11", "U26"]
+    },
+    {
+      "id": "P511-21",
+      "label": "P511 pin 21A or 21C (OSC OUT HI)",
+      "component": "P511",
+      "refPoint": "TP1",
+      "unit": "V",
+      "source": "Figure 7-15 sheet 2 zone C2",
+      "note": "Where the assembly's output leaves the board. Same node as TP2, so the same expectations apply -- 2 V rms at 1 kHz in the 2.2 V range, 20 V rms in the 22 V range, per §5-18 steps 8 and 10. Both pins are the same node. Worth knowing when the question is whether the fault is on A13 or downstream of it: OS COM returns on 22A/22C and PA COM on 28A/28C."
+    }
+  ]
+}

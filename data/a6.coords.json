@@ -1,0 +1,8858 @@
+{
+ "assembly": "A6",
+ "generatedBy": "tools/build_coords.py",
+ "notOnDrawing": [
+  "E6",
+  "H1",
+  "H2",
+  "H3",
+  "H4",
+  "H5",
+  "H6",
+  "H10",
+  "MP1",
+  "MP2",
+  "MP5",
+  "MP6",
+  "MP7",
+  "MP8",
+  "MP9",
+  "MP10",
+  "MP11",
+  "MP12"
+ ],
+ "placement": {
+  "E4": {
+   "board": {
+    "x": 0.09,
+    "y": 0.26252,
+    "w": 0.02007,
+    "h": 0.0186,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.92026,
+     "y": 0.11103,
+     "w": 0.00857,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R78": {
+   "board": {
+    "x": 0.08416,
+    "y": 0.28554,
+    "w": 0.01743,
+    "h": 0.01296,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.93079,
+     "y": 0.32775,
+     "w": 0.01349,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "10K from Q9's source to -9.5, right edge of the 8-16MHz block"
+    }
+   ],
+   "schVerified": true
+  },
+  "C107": {
+   "board": {
+    "x": 0.15847,
+    "y": 0.14538,
+    "w": 0.02365,
+    "h": 0.0138,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.89101,
+     "y": 0.04072,
+     "w": 0.01686,
+     "h": 0.00907,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L404": {
+   "board": {
+    "x": 0.14936,
+    "y": 0.76694,
+    "w": 0.02762,
+    "h": 0.01787,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.79365,
+     "y": 0.58168,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 2-4MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R112": {
+   "board": {
+    "x": 0.14132,
+    "y": 0.24698,
+    "w": 0.0081,
+    "h": 0.05831,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.82146,
+     "y": 0.05948,
+     "w": 0.01793,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C112": {
+   "board": {
+    "x": 0.14674,
+    "y": 0.2466,
+    "w": 0.01327,
+    "h": 0.04755,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.76794,
+     "y": 0.04769,
+     "w": 0.01728,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R17": {
+   "board": {
+    "x": 0.79908,
+    "y": 0.34044,
+    "w": 0.04185,
+    "h": 0.02493,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.81755,
+     "y": 0.64954,
+     "w": 0.01268,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q103": {
+   "board": {
+    "x": 0.24963,
+    "y": 0.20051,
+    "w": 0.02323,
+    "h": 0.02466,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.61937,
+     "y": 0.1034,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 16-32MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "L103": {
+   "board": {
+    "x": 0.23734,
+    "y": 0.27729,
+    "w": 0.07669,
+    "h": 0.03664,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.66429,
+     "y": 0.02225,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 16-32MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "L102": {
+   "board": {
+    "x": 0.32401,
+    "y": 0.27851,
+    "w": 0.05192,
+    "h": 0.03239,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.5254,
+     "y": 0.02408,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 16-32MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "C110": {
+   "board": {
+    "x": 0.23263,
+    "y": 0.24477,
+    "w": 0.0081,
+    "h": 0.04305,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.5881,
+     "y": 0.04921,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 16-32MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR102": {
+   "board": {
+    "x": 0.26502,
+    "y": 0.19162,
+    "w": 0.0081,
+    "h": 0.05412,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.5891,
+     "y": 0.0839,
+     "w": 0.02229,
+     "h": 0.00907,
+     "placement": "single"
+    }
+   ]
+  },
+  "R109": {
+   "board": {
+    "x": 0.1946,
+    "y": 0.15593,
+    "w": 0.0081,
+    "h": 0.04208,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.65984,
+     "y": 0.07988,
+     "w": 0.01758,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R114": {
+   "board": {
+    "x": 0.39547,
+    "y": 0.14668,
+    "w": 0.02354,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.37819,
+     "y": 0.11921,
+     "w": 0.01736,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R86": {
+   "board": {
+    "x": 0.45221,
+    "y": 0.13241,
+    "w": 0.01985,
+    "h": 0.03121,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.08453,
+     "y": 0.33476,
+     "w": 0.01268,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R113": {
+   "board": {
+    "x": 0.39547,
+    "y": 0.17133,
+    "w": 0.02354,
+    "h": 0.01323,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.33833,
+     "y": 0.03707,
+     "w": 0.02101,
+     "h": 0.0152,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R84": {
+   "board": {
+    "x": 0.83993,
+    "y": 0.87692,
+    "w": 0.01997,
+    "h": 0.01547,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.08671,
+     "y": 0.14728,
+     "w": 0.01278,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R102": {
+   "board": {
+    "x": 0.39452,
+    "y": 0.23769,
+    "w": 0.02573,
+    "h": 0.02738,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.3543,
+     "y": 0.13257,
+     "w": 0.01747,
+     "h": 0.00895,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R61": {
+   "board": {
+    "x": 0.44262,
+    "y": 0.25285,
+    "w": 0.01696,
+    "h": 0.014,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.52034,
+     "y": 0.24759,
+     "w": 0.01335,
+     "h": 0.00884,
+     "placement": "verified",
+     "placementNote": "2.49K from +17S into R60, zone D4"
+    }
+   ],
+   "schVerified": true
+  },
+  "R60": {
+   "board": {
+    "x": 0.45563,
+    "y": 0.26809,
+    "w": 0.01746,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.54401,
+     "y": 0.26897,
+     "w": 0.01304,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R105": {
+   "board": {
+    "x": 0.35884,
+    "y": 0.24638,
+    "w": 0.02411,
+    "h": 0.01365,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.50254,
+     "y": 0.02487,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 16-32MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R31": {
+   "board": {
+    "x": 0.58803,
+    "y": 0.12499,
+    "w": 0.01746,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.14104,
+     "y": 0.61248,
+     "w": 0.01335,
+     "h": 0.00884,
+     "placement": "verified",
+     "placementNote": "7.32K from the WB AMPLITUDE CONTROL net into R32, zone B8"
+    }
+   ],
+   "schVerified": true
+  },
+  "R48": {
+   "board": {
+    "x": 0.62003,
+    "y": 0.12483,
+    "w": 0.01766,
+    "h": 0.01407,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.22302,
+     "y": 0.65748,
+     "w": 0.01335,
+     "h": 0.00884,
+     "placement": "verified",
+     "placementNote": "866 under L11 to -17S, zone B7"
+    }
+   ],
+   "schVerified": true
+  },
+  "VR3": {
+   "board": {
+    "x": 0.52498,
+    "y": 0.14291,
+    "w": 0.0177,
+    "h": 0.0131,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.1976,
+     "y": 0.62436,
+     "w": 0.01265,
+     "h": 0.00825,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R33": {
+   "board": {
+    "x": 0.60586,
+    "y": 0.25315,
+    "w": 0.02246,
+    "h": 0.01407,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.17804,
+     "y": 0.51683,
+     "w": 0.01272,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R47": {
+   "board": {
+    "x": 0.62121,
+    "y": 0.25294,
+    "w": 0.01723,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.21875,
+     "y": 0.56116,
+     "w": 0.01262,
+     "h": 0.00825,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R43": {
+   "board": {
+    "x": 0.63658,
+    "y": 0.25263,
+    "w": 0.01777,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.18575,
+     "y": 0.45622,
+     "w": 0.01293,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R42": {
+   "board": {
+    "x": 0.65275,
+    "y": 0.25253,
+    "w": 0.01754,
+    "h": 0.01407,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.15693,
+     "y": 0.43725,
+     "w": 0.01304,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C36": {
+   "board": {
+    "x": 0.64624,
+    "y": 0.16193,
+    "w": 0.01939,
+    "h": 0.08136,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.13381,
+     "y": 0.43901,
+     "w": 0.01335,
+     "h": 0.00884,
+     "placement": "verified",
+     "placementNote": "Input coupling cap on 1-32MHZ OUTPUT ahead of R42, zone C8"
+    }
+   ],
+   "schVerified": true
+  },
+  "R28": {
+   "board": {
+    "x": 0.72449,
+    "y": 0.2056,
+    "w": 0.01673,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.68826,
+     "y": 0.72696,
+     "w": 0.01268,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R27": {
+   "board": {
+    "x": 0.74152,
+    "y": 0.20559,
+    "w": 0.01708,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.75938,
+     "y": 0.80905,
+     "w": 0.01289,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C28": {
+   "board": {
+    "x": 0.75906,
+    "y": 0.20504,
+    "w": 0.01754,
+    "h": 0.01449,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.78466,
+     "y": 0.83791,
+     "w": 0.01293,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R26": {
+   "board": {
+    "x": 0.77333,
+    "y": 0.23904,
+    "w": 0.01731,
+    "h": 0.01463,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.79045,
+     "y": 0.78682,
+     "w": 0.01322,
+     "h": 0.00882,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "J6": {
+   "board": {
+    "x": 0.80652,
+    "y": 0.60769,
+    "w": 0.01084,
+    "h": 0.01407,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.50908,
+     "y": 0.2624,
+     "w": 0.00947,
+     "h": 0.00888,
+     "placement": "verified",
+     "placementNote": "Jumper on the PLL filter output between R6 and E6, zone D4"
+    }
+   ],
+   "schVerified": true
+  },
+  "C27": {
+   "board": {
+    "x": 0.78918,
+    "y": 0.23227,
+    "w": 0.00846,
+    "h": 0.0365,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.81573,
+     "y": 0.8376,
+     "w": 0.01268,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R216": {
+   "board": {
+    "x": 0.10123,
+    "y": 0.31754,
+    "w": 0.02342,
+    "h": 0.0138,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.86027,
+     "y": 0.22887,
+     "w": 0.01704,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C208": {
+   "board": {
+    "x": 0.12754,
+    "y": 0.34907,
+    "w": 0.02365,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.83525,
+     "y": 0.3217,
+     "w": 0.01715,
+     "h": 0.00972,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R77": {
+   "board": {
+    "x": 0.09577,
+    "y": 0.37898,
+    "w": 0.01673,
+    "h": 0.01338,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.87987,
+     "y": 0.33115,
+     "w": 0.01296,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R63": {
+   "board": {
+    "x": 0.08691,
+    "y": 0.45743,
+    "w": 0.01708,
+    "h": 0.0138,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.83462,
+     "y": 0.34416,
+     "w": 0.013,
+     "h": 0.00825,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R68": {
+   "board": {
+    "x": 0.06874,
+    "y": 0.49417,
+    "w": 0.01723,
+    "h": 0.01358,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.84602,
+     "y": 0.28042,
+     "w": 0.0123,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C55": {
+   "board": {
+    "x": 0.10778,
+    "y": 0.46997,
+    "w": 0.01731,
+    "h": 0.0138,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.88333,
+     "y": 0.3534,
+     "w": 0.01349,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "1000pF under R77 at Q9's source, right of the 8-16MHz block"
+    }
+   ],
+   "schVerified": true
+  },
+  "C308": {
+   "board": {
+    "x": 0.12507,
+    "y": 0.50709,
+    "w": 0.02388,
+    "h": 0.01365,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.82146,
+     "y": 0.49481,
+     "w": 0.01778,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L204": {
+   "board": {
+    "x": 0.15104,
+    "y": 0.44308,
+    "w": 0.02735,
+    "h": 0.01519,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.79365,
+     "y": 0.20288,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 8-16MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R35": {
+   "board": {
+    "x": 0.07855,
+    "y": 0.4174,
+    "w": 0.0081,
+    "h": 0.03218,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.86875,
+     "y": 0.29962,
+     "w": 0.01241,
+     "h": 0.01627,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R212": {
+   "board": {
+    "x": 0.14155,
+    "y": 0.41192,
+    "w": 0.0081,
+    "h": 0.04305,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.82136,
+     "y": 0.242,
+     "w": 0.01793,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C212": {
+   "board": {
+    "x": 0.1479,
+    "y": 0.41186,
+    "w": 0.01477,
+    "h": 0.04263,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.76789,
+     "y": 0.22953,
+     "w": 0.01728,
+     "h": 0.00865,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "CR203": {
+   "board": {
+    "x": 0.17633,
+    "y": 0.37634,
+    "w": 0.01331,
+    "h": 0.0698,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.73272,
+     "y": 0.27123,
+     "w": 0.02164,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q203": {
+   "board": {
+    "x": 0.24991,
+    "y": 0.36665,
+    "w": 0.03615,
+    "h": 0.02445,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.61937,
+     "y": 0.2822,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 8-16MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q303": {
+   "board": {
+    "x": 0.24993,
+    "y": 0.52657,
+    "w": 0.03578,
+    "h": 0.02006,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.62027,
+     "y": 0.4777,
+     "w": 0.01725,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C103": {
+   "board": {
+    "x": 0.33256,
+    "y": 0.23024,
+    "w": 0.02446,
+    "h": 0.01316,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.41942,
+     "y": 0.04908,
+     "w": 0.01747,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C105": {
+   "board": {
+    "x": 0.29715,
+    "y": 0.25056,
+    "w": 0.02407,
+    "h": 0.03386,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.48095,
+     "y": 0.02487,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 16-32MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "C207": {
+   "board": {
+    "x": 0.15936,
+    "y": 0.3082,
+    "w": 0.02354,
+    "h": 0.01351,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.89105,
+     "y": 0.22207,
+     "w": 0.01671,
+     "h": 0.00902,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L201": {
+   "board": {
+    "x": 0.23803,
+    "y": 0.3108,
+    "w": 0.02769,
+    "h": 0.01519,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.47754,
+     "y": 0.2873,
+     "w": 0.01628,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R204": {
+   "board": {
+    "x": 0.33171,
+    "y": 0.31471,
+    "w": 0.024,
+    "h": 0.01296,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.4798,
+     "y": 0.24882,
+     "w": 0.01708,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R206": {
+   "board": {
+    "x": 0.25133,
+    "y": 0.34339,
+    "w": 0.03623,
+    "h": 0.02606,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.61449,
+     "y": 0.32724,
+     "w": 0.01747,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C205": {
+   "board": {
+    "x": 0.29765,
+    "y": 0.41396,
+    "w": 0.03347,
+    "h": 0.02842,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.48143,
+     "y": 0.20733,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 8-16MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "L203": {
+   "board": {
+    "x": 0.23721,
+    "y": 0.44361,
+    "w": 0.07466,
+    "h": 0.03615,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.66476,
+     "y": 0.20288,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 8-16MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "L202": {
+   "board": {
+    "x": 0.32409,
+    "y": 0.44483,
+    "w": 0.02769,
+    "h": 0.0149,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.52571,
+     "y": 0.20681,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 8-16MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "L301": {
+   "board": {
+    "x": 0.23893,
+    "y": 0.47059,
+    "w": 0.02762,
+    "h": 0.01505,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.47759,
+     "y": 0.48286,
+     "w": 0.01607,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R304": {
+   "board": {
+    "x": 0.33111,
+    "y": 0.4822,
+    "w": 0.02458,
+    "h": 0.0138,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.4798,
+     "y": 0.44446,
+     "w": 0.01715,
+     "h": 0.01391,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C307": {
+   "board": {
+    "x": 0.16564,
+    "y": 0.49048,
+    "w": 0.02423,
+    "h": 0.01358,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.89119,
+     "y": 0.42369,
+     "w": 0.01678,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R306": {
+   "board": {
+    "x": 0.2491,
+    "y": 0.504,
+    "w": 0.02342,
+    "h": 0.0231,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.61444,
+     "y": 0.52304,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 4-8MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "C306": {
+   "board": {
+    "x": 0.2103,
+    "y": 0.51681,
+    "w": 0.02434,
+    "h": 0.01358,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.67349,
+     "y": 0.50929,
+     "w": 0.01736,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R309": {
+   "board": {
+    "x": 0.19427,
+    "y": 0.48263,
+    "w": 0.0081,
+    "h": 0.04221,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.65969,
+     "y": 0.45794,
+     "w": 0.01764,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R211": {
+   "board": {
+    "x": 0.22656,
+    "y": 0.40053,
+    "w": 0.0081,
+    "h": 0.04208,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.68103,
+     "y": 0.24304,
+     "w": 0.0165,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C210": {
+   "board": {
+    "x": 0.23248,
+    "y": 0.41069,
+    "w": 0.0081,
+    "h": 0.04221,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.58762,
+     "y": 0.23168,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 8-16MHz filter block. The reader's read on this sheet was rejected"
+    }
+   ],
+   "schVerified": true
+  },
+  "R302": {
+   "board": {
+    "x": 0.42751,
+    "y": 0.58565,
+    "w": 0.02624,
+    "h": 0.03908,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.35603,
+     "y": 0.52042,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 4-8MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R210": {
+   "board": {
+    "x": 0.26546,
+    "y": 0.40517,
+    "w": 0.0081,
+    "h": 0.04242,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.62226,
+     "y": 0.24402,
+     "w": 0.01728,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR202": {
+   "board": {
+    "x": 0.26477,
+    "y": 0.35762,
+    "w": 0.0081,
+    "h": 0.05476,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.58894,
+     "y": 0.26655,
+     "w": 0.02218,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R110": {
+   "board": {
+    "x": 0.26562,
+    "y": 0.23926,
+    "w": 0.0081,
+    "h": 0.042,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.62403,
+     "y": 0.06041,
+     "w": 0.03258,
+     "h": 0.01496,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR4": {
+   "board": {
+    "x": 0.44455,
+    "y": 0.87868,
+    "w": 0.01708,
+    "h": 0.01351,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.18151,
+     "y": 0.80458,
+     "w": 0.01265,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C209": {
+   "board": {
+    "x": 0.1943,
+    "y": 0.41744,
+    "w": 0.0081,
+    "h": 0.04208,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.55587,
+     "y": 0.23168,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 8-16MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R209": {
+   "board": {
+    "x": 0.19442,
+    "y": 0.32155,
+    "w": 0.0081,
+    "h": 0.04221,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.65971,
+     "y": 0.26247,
+     "w": 0.01747,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R203": {
+   "board": {
+    "x": 0.31739,
+    "y": 0.36146,
+    "w": 0.0081,
+    "h": 0.04096,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.45447,
+     "y": 0.24937,
+     "w": 0.01771,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L14": {
+   "board": {
+    "x": 0.50777,
+    "y": 0.29836,
+    "w": 0.01754,
+    "h": 0.01365,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.57658,
+     "y": 0.39357,
+     "w": 0.01251,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R59": {
+   "board": {
+    "x": 0.47875,
+    "y": 0.30382,
+    "w": 0.01708,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.53479,
+     "y": 0.30689,
+     "w": 0.01335,
+     "h": 0.00884,
+     "placement": "verified",
+     "placementNote": "14.3K from the Q5/Q6 node to -17S, zone C4"
+    }
+   ],
+   "schVerified": true
+  },
+  "R208": {
+   "board": {
+    "x": 0.35674,
+    "y": 0.34224,
+    "w": 0.02377,
+    "h": 0.0138,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.64582,
+     "y": 0.3173,
+     "w": 0.01758,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C202": {
+   "board": {
+    "x": 0.39049,
+    "y": 0.35311,
+    "w": 0.0327,
+    "h": 0.01602,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.40571,
+     "y": 0.32028,
+     "w": 0.01736,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C34": {
+   "board": {
+    "x": 0.48671,
+    "y": 0.3811,
+    "w": 0.01812,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.46869,
+     "y": 0.37123,
+     "w": 0.01283,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R205": {
+   "board": {
+    "x": 0.35873,
+    "y": 0.41141,
+    "w": 0.02423,
+    "h": 0.01358,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.50365,
+     "y": 0.20695,
+     "w": 0.01902,
+     "h": 0.01581,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R202": {
+   "board": {
+    "x": 0.39461,
+    "y": 0.40927,
+    "w": 0.02354,
+    "h": 0.01316,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.33872,
+     "y": 0.31466,
+     "w": 0.017,
+     "h": 0.00848,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "R58": {
+   "board": {
+    "x": 0.44319,
+    "y": 0.43531,
+    "w": 0.01708,
+    "h": 0.01338,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.46672,
+     "y": 0.39995,
+     "w": 0.01272,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R76": {
+   "board": {
+    "x": 0.37824,
+    "y": 0.45506,
+    "w": 0.01789,
+    "h": 0.01358,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.29207,
+     "y": 0.45652,
+     "w": 0.01285,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R40": {
+   "board": {
+    "x": 0.46307,
+    "y": 0.4799,
+    "w": 0.01731,
+    "h": 0.01296,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.24436,
+     "y": 0.90548,
+     "w": 0.01342,
+     "h": 0.00888,
+     "placement": "verified",
+     "placementNote": "10K from the -9.5 node to S COM beside C51, zone A7"
+    }
+   ],
+   "schVerified": true
+  },
+  "R308": {
+   "board": {
+    "x": 0.35674,
+    "y": 0.50586,
+    "w": 0.02369,
+    "h": 0.0138,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.64585,
+     "y": 0.51287,
+     "w": 0.01764,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C302": {
+   "board": {
+    "x": 0.44036,
+    "y": 0.5223,
+    "w": 0.02323,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.40921,
+     "y": 0.51387,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 4-8MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "L5": {
+   "board": {
+    "x": 0.70567,
+    "y": 0.45311,
+    "w": 0.01956,
+    "h": 0.02518,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.65736,
+     "y": 0.25567,
+     "w": 0.0081,
+     "h": 0.00834,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "R34": {
+   "board": {
+    "x": 0.49982,
+    "y": 0.34857,
+    "w": 0.03507,
+    "h": 0.01986,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.46482,
+     "y": 0.33952,
+     "w": 0.0128,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R55": {
+   "board": {
+    "x": 0.5126,
+    "y": 0.38257,
+    "w": 0.02723,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.42632,
+     "y": 0.26021,
+     "w": 0.01251,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR201": {
+   "board": {
+    "x": 0.3635,
+    "y": 0.38136,
+    "w": 0.0081,
+    "h": 0.05496,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.40132,
+     "y": 0.29472,
+     "w": 0.02142,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR1": {
+   "board": {
+    "x": 0.72135,
+    "y": 0.49398,
+    "w": 0.01731,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.62605,
+     "y": 0.2528,
+     "w": 0.01172,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R37": {
+   "board": {
+    "x": 0.73276,
+    "y": 0.71607,
+    "w": 0.02111,
+    "h": 0.01505,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.63205,
+     "y": 0.46283,
+     "w": 0.01278,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R57": {
+   "board": {
+    "x": 0.45107,
+    "y": 0.40256,
+    "w": 0.0081,
+    "h": 0.03051,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.49183,
+     "y": 0.33949,
+     "w": 0.01251,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R54": {
+   "board": {
+    "x": 0.52866,
+    "y": 0.38233,
+    "w": 0.01766,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.44183,
+     "y": 0.29202,
+     "w": 0.01308,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR2": {
+   "board": {
+    "x": 0.53915,
+    "y": 0.30951,
+    "w": 0.01754,
+    "h": 0.0138,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.26472,
+     "y": 0.29038,
+     "w": 0.01251,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R53": {
+   "board": {
+    "x": 0.54487,
+    "y": 0.38232,
+    "w": 0.01708,
+    "h": 0.0138,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.43208,
+     "y": 0.33028,
+     "w": 0.01251,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C39": {
+   "board": {
+    "x": 0.63624,
+    "y": 0.40551,
+    "w": 0.02423,
+    "h": 0.03615,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.34166,
+     "y": 0.35028,
+     "w": 0.01283,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R52": {
+   "board": {
+    "x": 0.58358,
+    "y": 0.45366,
+    "w": 0.01731,
+    "h": 0.014,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.37459,
+     "y": 0.32128,
+     "w": 0.01258,
+     "h": 0.00825,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R50": {
+   "board": {
+    "x": 0.63055,
+    "y": 0.44575,
+    "w": 0.01696,
+    "h": 0.01407,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.3397,
+     "y": 0.31218,
+     "w": 0.01293,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R56": {
+   "board": {
+    "x": 0.48655,
+    "y": 0.45715,
+    "w": 0.01847,
+    "h": 0.01316,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.47668,
+     "y": 0.23745,
+     "w": 0.01335,
+     "h": 0.00884,
+     "placement": "verified",
+     "placementNote": "330 1/2W feeding Q5's collector, zone D5"
+    }
+   ],
+   "schVerified": true
+  },
+  "R82": {
+   "board": {
+    "x": 0.55972,
+    "y": 0.4949,
+    "w": 0.01766,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.64167,
+     "y": 0.58956,
+     "w": 0.01342,
+     "h": 0.00888,
+     "placement": "verified",
+     "placementNote": "6.2K pull-up on U7 pin 2, zone B3"
+    }
+   ],
+   "schVerified": true
+  },
+  "R32": {
+   "board": {
+    "x": 0.57457,
+    "y": 0.25325,
+    "w": 0.01743,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.16483,
+     "y": 0.59358,
+     "w": 0.01272,
+     "h": 0.00867,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R46": {
+   "board": {
+    "x": 0.58994,
+    "y": 0.2532,
+    "w": 0.01766,
+    "h": 0.01407,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.28271,
+     "y": 0.45384,
+     "w": 0.01335,
+     "h": 0.00884,
+     "placement": "verified",
+     "placementNote": "49.9 from U9 pin 11 to SCOM, zone C6"
+    }
+   ],
+   "schVerified": true
+  },
+  "L10": {
+   "board": {
+    "x": 0.55809,
+    "y": 0.28824,
+    "w": 0.00869,
+    "h": 0.03218,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.22978,
+     "y": 0.30247,
+     "w": 0.01335,
+     "h": 0.00884,
+     "placement": "verified",
+     "placementNote": "6-turn choke from R44 to VR2 in the amplitude control amplifier, zone C7"
+    }
+   ],
+   "schVerified": true
+  },
+  "E5": {
+   "board": {
+    "x": 0.10162,
+    "y": 0.66506,
+    "w": 0.012,
+    "h": 0.0138,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.92242,
+     "y": 0.5484,
+     "w": 0.00914,
+     "h": 0.00872,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "R45": {
+   "board": {
+    "x": 0.63499,
+    "y": 0.35935,
+    "w": 0.0081,
+    "h": 0.03205,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.23793,
+     "y": 0.3417,
+     "w": 0.01287,
+     "h": 0.0172,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C52": {
+   "board": {
+    "x": 0.08038,
+    "y": 0.54493,
+    "w": 0.01766,
+    "h": 0.01347,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.88212,
+     "y": 0.34417,
+     "w": 0.0128,
+     "h": 0.01378,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R30": {
+   "board": {
+    "x": 0.71211,
+    "y": 0.36646,
+    "w": 0.01743,
+    "h": 0.014,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.64188,
+     "y": 0.72729,
+     "w": 0.01289,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C26": {
+   "board": {
+    "x": 0.73939,
+    "y": 0.37901,
+    "w": 0.01808,
+    "h": 0.014,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.84666,
+     "y": 0.83739,
+     "w": 0.01272,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R25": {
+   "board": {
+    "x": 0.71229,
+    "y": 0.39495,
+    "w": 0.01777,
+    "h": 0.014,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.82154,
+     "y": 0.76407,
+     "w": 0.013,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR2": {
+   "board": {
+    "x": 0.74751,
+    "y": 0.49461,
+    "w": 0.02228,
+    "h": 0.0257,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.6264,
+     "y": 0.28459,
+     "w": 0.01268,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R13": {
+   "board": {
+    "x": 0.79782,
+    "y": 0.48591,
+    "w": 0.01997,
+    "h": 0.01547,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.85199,
+     "y": 0.36935,
+     "w": 0.01257,
+     "h": 0.00811,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C22": {
+   "board": {
+    "x": 0.8408,
+    "y": 0.48512,
+    "w": 0.01953,
+    "h": 0.02912,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.85387,
+     "y": 0.40418,
+     "w": 0.01257,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C33": {
+   "board": {
+    "x": 0.64543,
+    "y": 0.36146,
+    "w": 0.0081,
+    "h": 0.03218,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.20305,
+     "y": 0.3452,
+     "w": 0.01283,
+     "h": 0.01281,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R8": {
+   "board": {
+    "x": 0.89388,
+    "y": 0.53462,
+    "w": 0.01119,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.48971,
+     "y": 0.32677,
+     "w": 0.0081,
+     "h": 0.00811,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L8": {
+   "board": {
+    "x": 0.88846,
+    "y": 0.49372,
+    "w": 0.0081,
+    "h": 0.0207,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.79274,
+     "y": 0.36945,
+     "w": 0.00947,
+     "h": 0.00888,
+     "placement": "verified",
+     "placementNote": "6-turn choke to -5LH beside C21, under the 10131, zone C2"
+    }
+   ],
+   "schVerified": true
+  },
+  "C408": {
+   "board": {
+    "x": 0.13195,
+    "y": 0.63555,
+    "w": 0.02384,
+    "h": 0.01323,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.83944,
+     "y": 0.69028,
+     "w": 0.01704,
+     "h": 0.00857,
+     "placement": "single"
+    }
+   ]
+  },
+  "L304": {
+   "board": {
+    "x": 0.14846,
+    "y": 0.60489,
+    "w": 0.02769,
+    "h": 0.01567,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.79365,
+     "y": 0.39921,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 4-8MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R71": {
+   "board": {
+    "x": 0.06241,
+    "y": 0.71022,
+    "w": 0.0081,
+    "h": 0.03177,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.93372,
+     "y": 0.39792,
+     "w": 0.01335,
+     "h": 0.00884,
+     "placement": "verified",
+     "placementNote": "75 between TP14 and J1, zone C1"
+    }
+   ],
+   "schVerified": true
+  },
+  "C60": {
+   "board": {
+    "x": 0.10239,
+    "y": 0.62732,
+    "w": 0.0081,
+    "h": 0.03197,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.88268,
+     "y": 0.39402,
+     "w": 0.01335,
+     "h": 0.00884,
+     "placement": "verified",
+     "placementNote": "Output coupling cap between Q7's emitter and R71, zone C1"
+    }
+   ],
+   "schVerified": true
+  },
+  "R312": {
+   "board": {
+    "x": 0.14051,
+    "y": 0.57375,
+    "w": 0.0081,
+    "h": 0.04277,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.82138,
+     "y": 0.43369,
+     "w": 0.01789,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C412": {
+   "board": {
+    "x": 0.14811,
+    "y": 0.73384,
+    "w": 0.0081,
+    "h": 0.04347,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.77003,
+     "y": 0.60764,
+     "w": 0.01725,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R412": {
+   "board": {
+    "x": 0.14215,
+    "y": 0.71936,
+    "w": 0.0081,
+    "h": 0.04347,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.82158,
+     "y": 0.61643,
+     "w": 0.018,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C312": {
+   "board": {
+    "x": 0.14681,
+    "y": 0.57379,
+    "w": 0.0081,
+    "h": 0.04332,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.76789,
+     "y": 0.42456,
+     "w": 0.01725,
+     "h": 0.00907,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR403": {
+   "board": {
+    "x": 0.17766,
+    "y": 0.70111,
+    "w": 0.0081,
+    "h": 0.05517,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.73489,
+     "y": 0.64968,
+     "w": 0.02175,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR303": {
+   "board": {
+    "x": 0.17807,
+    "y": 0.5385,
+    "w": 0.0081,
+    "h": 0.05461,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.73468,
+     "y": 0.46674,
+     "w": 0.02186,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L1": {
+   "board": {
+    "x": 0.68321,
+    "y": 0.78785,
+    "w": 0.0081,
+    "h": 0.0211,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.12281,
+     "y": 0.62872,
+     "w": 0.00947,
+     "h": 0.00888,
+     "placement": "verified",
+     "placementNote": "6-turn choke in the -5 LH feed between C1 and C2, zone B8"
+    }
+   ],
+   "schVerified": true
+  },
+  "C303": {
+   "board": {
+    "x": 0.33159,
+    "y": 0.55834,
+    "w": 0.02469,
+    "h": 0.01407,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.4173,
+     "y": 0.42827,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 4-8MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "L303": {
+   "board": {
+    "x": 0.23923,
+    "y": 0.60402,
+    "w": 0.02769,
+    "h": 0.01505,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.66429,
+     "y": 0.39921,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 4-8MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "L302": {
+   "board": {
+    "x": 0.32482,
+    "y": 0.60583,
+    "w": 0.05158,
+    "h": 0.03364,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.52508,
+     "y": 0.40262,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 4-8MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "C403": {
+   "board": {
+    "x": 0.33147,
+    "y": 0.71749,
+    "w": 0.02458,
+    "h": 0.0138,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.41758,
+     "y": 0.61211,
+     "w": 0.01736,
+     "h": 0.00848,
+     "placement": "single"
+    }
+   ]
+  },
+  "L403": {
+   "board": {
+    "x": 0.23751,
+    "y": 0.76701,
+    "w": 0.02735,
+    "h": 0.01547,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.66476,
+     "y": 0.58168,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 2-4MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "L402": {
+   "board": {
+    "x": 0.32298,
+    "y": 0.76825,
+    "w": 0.05158,
+    "h": 0.03344,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.52508,
+     "y": 0.58586,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 2-4MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R409": {
+   "board": {
+    "x": 0.19419,
+    "y": 0.64585,
+    "w": 0.0081,
+    "h": 0.04263,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.65989,
+     "y": 0.64101,
+     "w": 0.01758,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C309": {
+   "board": {
+    "x": 0.19411,
+    "y": 0.58236,
+    "w": 0.015,
+    "h": 0.04325,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.55808,
+     "y": 0.42665,
+     "w": 0.01693,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R311": {
+   "board": {
+    "x": 0.22658,
+    "y": 0.56236,
+    "w": 0.0081,
+    "h": 0.04292,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.68,
+     "y": 0.43848,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 4-8MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "C410": {
+   "board": {
+    "x": 0.23228,
+    "y": 0.73381,
+    "w": 0.01223,
+    "h": 0.04263,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.58913,
+     "y": 0.60955,
+     "w": 0.01715,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C310": {
+   "board": {
+    "x": 0.23241,
+    "y": 0.57104,
+    "w": 0.0081,
+    "h": 0.04292,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.58902,
+     "y": 0.42644,
+     "w": 0.01725,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR402": {
+   "board": {
+    "x": 0.26462,
+    "y": 0.68142,
+    "w": 0.0081,
+    "h": 0.05517,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.589,
+     "y": 0.64479,
+     "w": 0.0224,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R310": {
+   "board": {
+    "x": 0.26548,
+    "y": 0.56664,
+    "w": 0.0081,
+    "h": 0.04221,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.6222,
+     "y": 0.43927,
+     "w": 0.01715,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C409": {
+   "board": {
+    "x": 0.1944,
+    "y": 0.74502,
+    "w": 0.01023,
+    "h": 0.0425,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.55714,
+     "y": 0.61047,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 2-4MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR302": {
+   "board": {
+    "x": 0.26469,
+    "y": 0.52181,
+    "w": 0.0081,
+    "h": 0.05559,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.58891,
+     "y": 0.46108,
+     "w": 0.02272,
+     "h": 0.01997,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R503": {
+   "board": {
+    "x": 0.31624,
+    "y": 0.84636,
+    "w": 0.0081,
+    "h": 0.04158,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.45444,
+     "y": 0.81099,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "C301": {
+   "board": {
+    "x": 0.41309,
+    "y": 0.54893,
+    "w": 0.02804,
+    "h": 0.02925,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.33652,
+     "y": 0.45932,
+     "w": 0.01617,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R313": {
+   "board": {
+    "x": 0.38084,
+    "y": 0.56712,
+    "w": 0.02369,
+    "h": 0.03023,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.35221,
+     "y": 0.41706,
+     "w": 0.01721,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R305": {
+   "board": {
+    "x": 0.35867,
+    "y": 0.57204,
+    "w": 0.02411,
+    "h": 0.014,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.50286,
+     "y": 0.40314,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 4-8MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R405": {
+   "board": {
+    "x": 0.35873,
+    "y": 0.73401,
+    "w": 0.02423,
+    "h": 0.017,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.50286,
+     "y": 0.58639,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 2-4MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R413": {
+   "board": {
+    "x": 0.39463,
+    "y": 0.74641,
+    "w": 0.02346,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.35714,
+     "y": 0.60733,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 2-4MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "L3": {
+   "board": {
+    "x": 0.63846,
+    "y": 0.78822,
+    "w": 0.0081,
+    "h": 0.0211,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.11397,
+     "y": 0.8799,
+     "w": 0.00947,
+     "h": 0.00888,
+     "placement": "verified",
+     "placementNote": "6-turn choke in the -17 S feed between C5 and C6, zone A8"
+    }
+   ],
+   "schVerified": true
+  },
+  "R408": {
+   "board": {
+    "x": 0.35671,
+    "y": 0.66841,
+    "w": 0.02377,
+    "h": 0.0131,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.64608,
+     "y": 0.69568,
+     "w": 0.01758,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R402": {
+   "board": {
+    "x": 0.39458,
+    "y": 0.73383,
+    "w": 0.02592,
+    "h": 0.03023,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.35643,
+     "y": 0.69325,
+     "w": 0.01758,
+     "h": 0.00902,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR401": {
+   "board": {
+    "x": 0.36344,
+    "y": 0.70058,
+    "w": 0.01215,
+    "h": 0.05531,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.40937,
+     "y": 0.67297,
+     "w": 0.02129,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR301": {
+   "board": {
+    "x": 0.36335,
+    "y": 0.53627,
+    "w": 0.0081,
+    "h": 0.05503,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.40719,
+     "y": 0.4905,
+     "w": 0.02129,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R66": {
+   "board": {
+    "x": 0.53256,
+    "y": 0.60297,
+    "w": 0.018,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.1808,
+     "y": 0.71041,
+     "w": 0.01278,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R67": {
+   "board": {
+    "x": 0.52396,
+    "y": 0.65402,
+    "w": 0.01731,
+    "h": 0.0138,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.20579,
+     "y": 0.73903,
+     "w": 0.01237,
+     "h": 0.00811,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR5": {
+   "board": {
+    "x": 0.54365,
+    "y": 0.74626,
+    "w": 0.01793,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.18167,
+     "y": 0.84319,
+     "w": 0.01285,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR8": {
+   "board": {
+    "x": 0.56041,
+    "y": 0.74625,
+    "w": 0.01754,
+    "h": 0.01407,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.19241,
+     "y": 0.91447,
+     "w": 0.01278,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R39": {
+   "board": {
+    "x": 0.54984,
+    "y": 0.67678,
+    "w": 0.0172,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.20397,
+     "y": 0.83142,
+     "w": 0.01257,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R41": {
+   "board": {
+    "x": 0.5806,
+    "y": 0.7422,
+    "w": 0.0081,
+    "h": 0.03121,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.196,
+     "y": 0.86962,
+     "w": 0.01165,
+     "h": 0.00822,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C11": {
+   "board": {
+    "x": 0.84831,
+    "y": 0.67181,
+    "w": 0.018,
+    "h": 0.01351,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.32687,
+     "y": 0.31801,
+     "w": 0.01183,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C59": {
+   "board": {
+    "x": 0.7844,
+    "y": 0.7308,
+    "w": 0.01743,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.1133,
+     "y": 0.36018,
+     "w": 0.01272,
+     "h": 0.00811,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R6": {
+   "board": {
+    "x": 0.80129,
+    "y": 0.73106,
+    "w": 0.01146,
+    "h": 0.014,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.53824,
+     "y": 0.25986,
+     "w": 0.0081,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R72": {
+   "board": {
+    "x": 0.81745,
+    "y": 0.7312,
+    "w": 0.03761,
+    "h": 0.02076,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.41455,
+     "y": 0.11709,
+     "w": 0.01246,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L7": {
+   "board": {
+    "x": 0.76504,
+    "y": 0.61889,
+    "w": 0.01084,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.67295,
+     "y": 0.33205,
+     "w": 0.0081,
+     "h": 0.00834,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "R36": {
+   "board": {
+    "x": 0.71882,
+    "y": 0.76694,
+    "w": 0.015,
+    "h": 0.03636,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.61293,
+     "y": 0.49245,
+     "w": 0.013,
+     "h": 0.02126,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R38": {
+   "board": {
+    "x": 0.74357,
+    "y": 0.76743,
+    "w": 0.01084,
+    "h": 0.03664,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.58389,
+     "y": 0.42462,
+     "w": 0.01237,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C14": {
+   "board": {
+    "x": 0.82311,
+    "y": 0.64418,
+    "w": 0.0135,
+    "h": 0.04709,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.44146,
+     "y": 0.11733,
+     "w": 0.01208,
+     "h": 0.00822,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C10": {
+   "board": {
+    "x": 0.83316,
+    "y": 0.7,
+    "w": 0.01639,
+    "h": 0.02508,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.41454,
+     "y": 0.15206,
+     "w": 0.01241,
+     "h": 0.0081,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "R75": {
+   "board": {
+    "x": 0.4278,
+    "y": 0.61683,
+    "w": 0.02395,
+    "h": 0.02685,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.23414,
+     "y": 0.43436,
+     "w": 0.01254,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R3": {
+   "board": {
+    "x": 0.89133,
+    "y": 0.60192,
+    "w": 0.01154,
+    "h": 0.01358,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.35242,
+     "y": 0.33375,
+     "w": 0.0081,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C13": {
+   "board": {
+    "x": 0.91662,
+    "y": 0.62709,
+    "w": 0.01812,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.38931,
+     "y": 0.33008,
+     "w": 0.01268,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R73": {
+   "board": {
+    "x": 0.89579,
+    "y": 0.66915,
+    "w": 0.01746,
+    "h": 0.02769,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.38733,
+     "y": 0.28535,
+     "w": 0.01278,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L2": {
+   "board": {
+    "x": 0.70553,
+    "y": 0.7878,
+    "w": 0.0081,
+    "h": 0.02132,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.12281,
+     "y": 0.7107,
+     "w": 0.00947,
+     "h": 0.00888,
+     "placement": "verified",
+     "placementNote": "6-turn choke in the +5 LH feed above C4, zone B8"
+    }
+   ],
+   "schVerified": true
+  },
+  "L15": {
+   "board": {
+    "x": 0.08672,
+    "y": 0.82263,
+    "w": 0.01847,
+    "h": 0.02863,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.84807,
+     "y": 0.46807,
+     "w": 0.01241,
+     "h": 0.00867,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C507": {
+   "board": {
+    "x": 0.16332,
+    "y": 0.79806,
+    "w": 0.02377,
+    "h": 0.03329,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.89333,
+     "y": 0.79319,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "L504": {
+   "board": {
+    "x": 0.14944,
+    "y": 0.92003,
+    "w": 0.02746,
+    "h": 0.01532,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.79365,
+     "y": 0.76492,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR503": {
+   "board": {
+    "x": 0.17761,
+    "y": 0.8381,
+    "w": 0.0081,
+    "h": 0.05517,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.73476,
+     "y": 0.83246,
+     "w": 0.02143,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q503": {
+   "board": {
+    "x": 0.24929,
+    "y": 0.8538,
+    "w": 0.02307,
+    "h": 0.0216,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.62032,
+     "y": 0.84634,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "L501": {
+   "board": {
+    "x": 0.23745,
+    "y": 0.79925,
+    "w": 0.02723,
+    "h": 0.01547,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.47778,
+     "y": 0.84686,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R51": {
+   "board": {
+    "x": 0.60589,
+    "y": 0.42296,
+    "w": 0.01731,
+    "h": 0.01351,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.31255,
+     "y": 0.30689,
+     "w": 0.01335,
+     "h": 0.00884,
+     "placement": "verified",
+     "placementNote": "4.99K from +17S into R49, zone C6"
+    }
+   ],
+   "schVerified": true
+  },
+  "C506": {
+   "board": {
+    "x": 0.21055,
+    "y": 0.84471,
+    "w": 0.02461,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.67349,
+     "y": 0.87513,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "C503": {
+   "board": {
+    "x": 0.33107,
+    "y": 0.87846,
+    "w": 0.02966,
+    "h": 0.03386,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.41825,
+     "y": 0.7945,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "C505": {
+   "board": {
+    "x": 0.29648,
+    "y": 0.90178,
+    "w": 0.02423,
+    "h": 0.01365,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.48095,
+     "y": 0.76963,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "L503": {
+   "board": {
+    "x": 0.23735,
+    "y": 0.92763,
+    "w": 0.02792,
+    "h": 0.01532,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.66476,
+     "y": 0.76492,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "L502": {
+   "board": {
+    "x": 0.32479,
+    "y": 0.92872,
+    "w": 0.02769,
+    "h": 0.01525,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.52508,
+     "y": 0.76911,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "C509": {
+   "board": {
+    "x": 0.19408,
+    "y": 0.90773,
+    "w": 0.0081,
+    "h": 0.04263,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.55746,
+     "y": 0.79372,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R507": {
+   "board": {
+    "x": 0.19416,
+    "y": 0.87041,
+    "w": 0.00915,
+    "h": 0.04208,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.70762,
+     "y": 0.88717,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R509": {
+   "board": {
+    "x": 0.19419,
+    "y": 0.8108,
+    "w": 0.0081,
+    "h": 0.042,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.65984,
+     "y": 0.82382,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R511": {
+   "board": {
+    "x": 0.22643,
+    "y": 0.88568,
+    "w": 0.0081,
+    "h": 0.04305,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.68116,
+     "y": 0.80432,
+     "w": 0.01643,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R410": {
+   "board": {
+    "x": 0.26538,
+    "y": 0.72887,
+    "w": 0.0081,
+    "h": 0.04158,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.62235,
+     "y": 0.62199,
+     "w": 0.01721,
+     "h": 0.00848,
+     "placement": "single"
+    }
+   ]
+  },
+  "R513": {
+   "board": {
+    "x": 0.42437,
+    "y": 0.79411,
+    "w": 0.02446,
+    "h": 0.01338,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.35254,
+     "y": 0.78946,
+     "w": 0.01715,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR3": {
+   "board": {
+    "x": 0.44451,
+    "y": 0.81433,
+    "w": 0.017,
+    "h": 0.014,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.18149,
+     "y": 0.76584,
+     "w": 0.01285,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R508": {
+   "board": {
+    "x": 0.35677,
+    "y": 0.83113,
+    "w": 0.02477,
+    "h": 0.02898,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.64603,
+     "y": 0.87853,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "C502": {
+   "board": {
+    "x": 0.39436,
+    "y": 0.83346,
+    "w": 0.02384,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.40921,
+     "y": 0.87958,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R505": {
+   "board": {
+    "x": 0.3588,
+    "y": 0.89639,
+    "w": 0.02423,
+    "h": 0.014,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.50286,
+     "y": 0.76963,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R502": {
+   "board": {
+    "x": 0.41723,
+    "y": 0.8946,
+    "w": 0.02319,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.35365,
+     "y": 0.8822,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R504": {
+   "board": {
+    "x": 0.33267,
+    "y": 0.80402,
+    "w": 0.02392,
+    "h": 0.01338,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.48016,
+     "y": 0.81099,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "C501": {
+   "board": {
+    "x": 0.41726,
+    "y": 0.85511,
+    "w": 0.02354,
+    "h": 0.0138,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.32778,
+     "y": 0.81545,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR501": {
+   "board": {
+    "x": 0.36345,
+    "y": 0.86,
+    "w": 0.01038,
+    "h": 0.06298,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.40762,
+     "y": 0.85681,
+     "w": 0.02143,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR6": {
+   "board": {
+    "x": 0.54368,
+    "y": 0.80913,
+    "w": 0.018,
+    "h": 0.0138,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.18175,
+     "y": 0.8822,
+     "w": 0.01349,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "1N4448 of the FILTER SWITCH DRIVE chain, between CR5 and CR7"
+    }
+   ],
+   "schVerified": true
+  },
+  "P101": {
+   "board": {
+    "x": 0.54906,
+    "y": 0.89929,
+    "w": 0.0081,
+    "h": 0.04284,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.037,
+     "y": 0.20595,
+     "w": 0.01886,
+     "h": 0.01116,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.03246,
+     "y": 0.6566,
+     "w": 0.01894,
+     "h": 0.01737,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR5": {
+   "board": {
+    "x": 0.57686,
+    "y": 0.79639,
+    "w": 0.0081,
+    "h": 0.03316,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.15759,
+     "y": 0.91457,
+     "w": 0.01278,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR4": {
+   "board": {
+    "x": 0.5976,
+    "y": 0.79504,
+    "w": 0.0081,
+    "h": 0.03205,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.1654,
+     "y": 0.87607,
+     "w": 0.01257,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L12": {
+   "board": {
+    "x": 0.61386,
+    "y": 0.78036,
+    "w": 0.0081,
+    "h": 0.03232,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.19021,
+     "y": 0.62872,
+     "w": 0.01342,
+     "h": 0.00888,
+     "placement": "verified",
+     "placementNote": "6-turn choke between the -5LH and -5F nodes, zone B8"
+    }
+   ],
+   "schVerified": true
+  },
+  "C62": {
+   "board": {
+    "x": 0.85573,
+    "y": 0.80232,
+    "w": 0.02406,
+    "h": 0.02152,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.11548,
+     "y": 0.13065,
+     "w": 0.01435,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R83": {
+   "board": {
+    "x": 0.88328,
+    "y": 0.80278,
+    "w": 0.01997,
+    "h": 0.01588,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.24667,
+     "y": 0.11749,
+     "w": 0.01278,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R87": {
+   "board": {
+    "x": 0.94158,
+    "y": 0.84959,
+    "w": 0.01508,
+    "h": 0.03497,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.55324,
+     "y": 0.88705,
+     "w": 0.01246,
+     "h": 0.00822,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R80": {
+   "board": {
+    "x": 0.94157,
+    "y": 0.79261,
+    "w": 0.01508,
+    "h": 0.03609,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.08493,
+     "y": 0.33473,
+     "w": 0.01342,
+     "h": 0.00888,
+     "placement": "verified",
+     "placementNote": "1K in the WR* line into U14A, above C59, zone C8"
+    }
+   ],
+   "schVerified": true
+  },
+  "R116": {
+   "board": {
+    "x": 0.10165,
+    "y": 0.15975,
+    "w": 0.02492,
+    "h": 0.01588,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.86222,
+     "y": 0.04392,
+     "w": 0.01671,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L104": {
+   "board": {
+    "x": 0.14792,
+    "y": 0.27704,
+    "w": 0.02769,
+    "h": 0.01519,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.79333,
+     "y": 0.02225,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 16-32MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "C109": {
+   "board": {
+    "x": 0.19455,
+    "y": 0.25217,
+    "w": 0.00977,
+    "h": 0.04263,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.55635,
+     "y": 0.04921,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 16-32MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R106": {
+   "board": {
+    "x": 0.2523,
+    "y": 0.17543,
+    "w": 0.03646,
+    "h": 0.02341,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.61643,
+     "y": 0.14455,
+     "w": 0.01736,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R107": {
+   "board": {
+    "x": 0.19154,
+    "y": 0.20521,
+    "w": 0.02053,
+    "h": 0.05866,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.70648,
+     "y": 0.14367,
+     "w": 0.01621,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R111": {
+   "board": {
+    "x": 0.22681,
+    "y": 0.23483,
+    "w": 0.0081,
+    "h": 0.04361,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.68115,
+     "y": 0.06015,
+     "w": 0.01643,
+     "h": 0.01114,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C102": {
+   "board": {
+    "x": 0.39485,
+    "y": 0.19154,
+    "w": 0.024,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.40825,
+     "y": 0.13796,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 16-32MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R101": {
+   "board": {
+    "x": 0.39854,
+    "y": 0.28277,
+    "w": 0.02346,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.38937,
+     "y": 0.0267,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 16-32MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R81": {
+   "board": {
+    "x": 0.44076,
+    "y": 0.16388,
+    "w": 0.01731,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.31619,
+     "y": 0.1356,
+     "w": 0.01349,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "2K under C101 to SCOM, left of the 16-32MHz block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R62": {
+   "board": {
+    "x": 0.4984,
+    "y": 0.16714,
+    "w": 0.01743,
+    "h": 0.01351,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.58989,
+     "y": 0.35204,
+     "w": 0.01265,
+     "h": 0.00819,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C29": {
+   "board": {
+    "x": 0.67701,
+    "y": 0.28462,
+    "w": 0.01839,
+    "h": 0.05685,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.90402,
+     "y": 0.85609,
+     "w": 0.013,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R201": {
+   "board": {
+    "x": 0.40046,
+    "y": 0.43122,
+    "w": 0.02346,
+    "h": 0.01296,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.38961,
+     "y": 0.20799,
+     "w": 0.0165,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C201": {
+   "board": {
+    "x": 0.41581,
+    "y": 0.379,
+    "w": 0.0233,
+    "h": 0.01296,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.31698,
+     "y": 0.24084,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 8-16MHz filter block. The reader's read on this sheet was rejected"
+    }
+   ],
+   "schVerified": true
+  },
+  "C43": {
+   "board": {
+    "x": 0.53829,
+    "y": 0.43667,
+    "w": 0.0081,
+    "h": 0.03274,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.45339,
+     "y": 0.19663,
+     "w": 0.01219,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R29": {
+   "board": {
+    "x": 0.76966,
+    "y": 0.37833,
+    "w": 0.017,
+    "h": 0.01449,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.665,
+     "y": 0.72712,
+     "w": 0.01293,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R23": {
+   "board": {
+    "x": 0.79943,
+    "y": 0.36471,
+    "w": 0.04185,
+    "h": 0.02508,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.76526,
+     "y": 0.67837,
+     "w": 0.01268,
+     "h": 0.01859,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C305": {
+   "board": {
+    "x": 0.29634,
+    "y": 0.57446,
+    "w": 0.02354,
+    "h": 0.01296,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.48127,
+     "y": 0.40314,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 4-8MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R11": {
+   "board": {
+    "x": 0.78267,
+    "y": 0.58313,
+    "w": 0.04331,
+    "h": 0.02522,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.73014,
+     "y": 0.28153,
+     "w": 0.01172,
+     "h": 0.01604,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R14": {
+   "board": {
+    "x": 0.79946,
+    "y": 0.46517,
+    "w": 0.04192,
+    "h": 0.02493,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.88233,
+     "y": 0.36921,
+     "w": 0.01257,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C407": {
+   "board": {
+    "x": 0.16542,
+    "y": 0.65241,
+    "w": 0.02377,
+    "h": 0.0131,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.8934,
+     "y": 0.6128,
+     "w": 0.0165,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L401": {
+   "board": {
+    "x": 0.23883,
+    "y": 0.63567,
+    "w": 0.02746,
+    "h": 0.01783,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.47778,
+     "y": 0.66531,
+     "w": 0.01607,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R301": {
+   "board": {
+    "x": 0.39794,
+    "y": 0.60501,
+    "w": 0.024,
+    "h": 0.01407,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.3896,
+     "y": 0.40405,
+     "w": 0.01661,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "E3": {
+   "board": {
+    "x": 0.40695,
+    "y": 0.65217,
+    "w": 0.01123,
+    "h": 0.0138,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.28474,
+     "y": 0.5849,
+     "w": 0.0081,
+     "h": 0.00848,
+     "placement": "single"
+    }
+   ]
+  },
+  "C402": {
+   "board": {
+    "x": 0.4244,
+    "y": 0.65354,
+    "w": 0.02415,
+    "h": 0.01338,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.40985,
+     "y": 0.6988,
+     "w": 0.01715,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR1": {
+   "board": {
+    "x": 0.56991,
+    "y": 0.60798,
+    "w": 0.00838,
+    "h": 0.03636,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.17272,
+     "y": 0.79961,
+     "w": 0.01187,
+     "h": 0.00811,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "R506": {
+   "board": {
+    "x": 0.2491,
+    "y": 0.83132,
+    "w": 0.02361,
+    "h": 0.01327,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.61587,
+     "y": 0.88874,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R401": {
+   "board": {
+    "x": 0.40057,
+    "y": 0.76687,
+    "w": 0.02384,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.39015,
+     "y": 0.58762,
+     "w": 0.0295,
+     "h": 0.01413,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Z2": {
+   "board": {
+    "x": 0.88447,
+    "y": 0.86574,
+    "w": 0.013,
+    "h": 0.01588,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.17048,
+     "y": 0.07441,
+     "w": 0.00947,
+     "h": 0.00888,
+     "placement": "verified",
+     "placementNote": "Printed Z2 beside pins 1/2 of the SIP feeding U15A, zone D7"
+    }
+   ],
+   "schVerified": true
+  },
+  "C512": {
+   "board": {
+    "x": 0.1466,
+    "y": 0.88925,
+    "w": 0.0081,
+    "h": 0.04076,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.76814,
+     "y": 0.78751,
+     "w": 0.01736,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C510": {
+   "board": {
+    "x": 0.23225,
+    "y": 0.89659,
+    "w": 0.0081,
+    "h": 0.04263,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.58914,
+     "y": 0.79246,
+     "w": 0.01715,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L16": {
+   "board": {
+    "x": 0.8562,
+    "y": 0.84256,
+    "w": 0.02107,
+    "h": 0.01547,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.14634,
+     "y": 0.13706,
+     "w": 0.013,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R79": {
+   "board": {
+    "x": 0.91167,
+    "y": 0.90537,
+    "w": 0.00869,
+    "h": 0.03371,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.09032,
+     "y": 0.42367,
+     "w": 0.01311,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R108": {
+   "board": {
+    "x": 0.35699,
+    "y": 0.17848,
+    "w": 0.02361,
+    "h": 0.01323,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.64596,
+     "y": 0.1346,
+     "w": 0.01758,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR101": {
+   "board": {
+    "x": 0.3637,
+    "y": 0.2161,
+    "w": 0.0081,
+    "h": 0.05544,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.4091,
+     "y": 0.11227,
+     "w": 0.02101,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C406": {
+   "board": {
+    "x": 0.212,
+    "y": 0.67797,
+    "w": 0.02461,
+    "h": 0.0138,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.6736,
+     "y": 0.69222,
+     "w": 0.01747,
+     "h": 0.00902,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C17": {
+   "board": {
+    "x": 0.68957,
+    "y": 0.62079,
+    "w": 0.0081,
+    "h": 0.03163,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.5973,
+     "y": 0.30413,
+     "w": 0.01237,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R512": {
+   "board": {
+    "x": 0.13789,
+    "y": 0.86981,
+    "w": 0.01677,
+    "h": 0.0425,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.82173,
+     "y": 0.80262,
+     "w": 0.018,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C106": {
+   "board": {
+    "x": 0.20957,
+    "y": 0.18847,
+    "w": 0.024,
+    "h": 0.01274,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.67429,
+     "y": 0.13089,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 16-32MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "R103": {
+   "board": {
+    "x": 0.31746,
+    "y": 0.19663,
+    "w": 0.0081,
+    "h": 0.04065,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.45442,
+     "y": 0.0671,
+     "w": 0.01778,
+     "h": 0.00942,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R69": {
+   "board": {
+    "x": 0.49917,
+    "y": 0.20151,
+    "w": 0.0172,
+    "h": 0.01327,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.56901,
+     "y": 0.35215,
+     "w": 0.01251,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C206": {
+   "board": {
+    "x": 0.21041,
+    "y": 0.35383,
+    "w": 0.02429,
+    "h": 0.01285,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.67354,
+     "y": 0.31366,
+     "w": 0.01728,
+     "h": 0.00907,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R215": {
+   "board": {
+    "x": 0.17613,
+    "y": 0.33626,
+    "w": 0.0081,
+    "h": 0.04274,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.86029,
+     "y": 0.31526,
+     "w": 0.01682,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R213": {
+   "board": {
+    "x": 0.40135,
+    "y": 0.33862,
+    "w": 0.00952,
+    "h": 0.05643,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.33869,
+     "y": 0.21525,
+     "w": 0.01704,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C15": {
+   "board": {
+    "x": 0.85448,
+    "y": 0.58421,
+    "w": 0.01863,
+    "h": 0.01422,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.43176,
+     "y": 0.21848,
+     "w": 0.01289,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C31": {
+   "board": {
+    "x": 0.56675,
+    "y": 0.56004,
+    "w": 0.00819,
+    "h": 0.0371,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.58745,
+     "y": 0.53646,
+     "w": 0.01172,
+     "h": 0.00899,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R406": {
+   "board": {
+    "x": 0.24902,
+    "y": 0.66463,
+    "w": 0.0233,
+    "h": 0.02152,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.6146,
+     "y": 0.70576,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 2-4MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "C508": {
+   "board": {
+    "x": 0.12199,
+    "y": 0.81486,
+    "w": 0.0236,
+    "h": 0.01338,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.8396,
+     "y": 0.87611,
+     "w": 0.01704,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Z1": {
+   "board": {
+    "x": 0.46451,
+    "y": 0.91002,
+    "w": 0.01148,
+    "h": 0.01305,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.09508,
+     "y": 0.76047,
+     "w": 0.0081,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP1": {
+   "board": {
+    "x": 0.93094,
+    "y": 0.68297,
+    "w": 0.02564,
+    "h": 0.04644,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label with its loop bar 48 px to the right, between R73 and TP15",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.17885,
+     "y": 0.21932,
+     "w": 0.02368,
+     "h": 0.03394,
+     "placement": "verified",
+     "placementNote": "Flag on 8MHz REFERENCE, zone D7"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP2": {
+   "board": {
+    "x": 0.79368,
+    "y": 0.64149,
+    "w": 0.02906,
+    "h": 0.04025,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label with its loop bar to the right, beside J6 and L7",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.53433,
+     "y": 0.22794,
+     "w": 0.02368,
+     "h": 0.03394,
+     "placement": "verified",
+     "placementNote": "Flag on the loop filter output beside E6/J6, zone D4"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP3": {
+   "board": {
+    "x": 0.82342,
+    "y": 0.57585,
+    "w": 0.02393,
+    "h": 0.04334,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label with its loop bar directly below it",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.75343,
+     "y": 0.26188,
+     "w": 0.02368,
+     "h": 0.03394,
+     "placement": "verified",
+     "placementNote": "Flag on the vco output through R11, zone C2"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP4": {
+   "board": {
+    "x": 0.89299,
+    "y": 0.35542,
+    "w": 0.03248,
+    "h": 0.03715,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Loop bar 80 px LEFT of the label; box spans both",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.67474,
+     "y": 0.453,
+     "w": 0.01257,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP10": {
+   "board": {
+    "x": 0.68906,
+    "y": 0.23158,
+    "w": 0.03419,
+    "h": 0.04644,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Loop bar up and left of the label, above R70",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.93054,
+     "y": 0.59399,
+     "w": 0.02368,
+     "h": 0.03133,
+     "placement": "verified",
+     "placementNote": "Flag on 1-32MHZ OUTPUT above R70, zone B1"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP11": {
+   "board": {
+    "x": 0.57453,
+    "y": 0.14396,
+    "w": 0.03419,
+    "h": 0.06811,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label beside R31's, loop bar 127 px below the label",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.06809,
+     "y": 0.64223,
+     "w": 0.01632,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP12": {
+   "board": {
+    "x": 0.56889,
+    "y": 0.39721,
+    "w": 0.0359,
+    "h": 0.04025,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label with its loop bar 90 px to the right",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.39936,
+     "y": 0.23831,
+     "w": 0.01669,
+     "h": 0.00825,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP13": {
+   "board": {
+    "x": 0.4065,
+    "y": 0.25604,
+    "w": 0.03761,
+    "h": 0.03715,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label with its loop bar to the right, above R102",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.63019,
+     "y": 0.27827,
+     "w": 0.01654,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP14": {
+   "board": {
+    "x": 0.10103,
+    "y": 0.69907,
+    "w": 0.02564,
+    "h": 0.05573,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Vertical label with its loop bar to the right, above J1",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.92793,
+     "y": 0.37201,
+     "w": 0.01643,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP15": {
+   "board": {
+    "x": 0.91761,
+    "y": 0.67864,
+    "w": 0.02222,
+    "h": 0.07121,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Vertical label with its loop bar 150 px BELOW it",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.27624,
+     "y": 0.38303,
+     "w": 0.0221,
+     "h": 0.03264,
+     "placement": "verified",
+     "placementNote": "Flag on the F IN feedback net into U1 pin 3, zone C6"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP16": {
+   "board": {
+    "x": 0.68974,
+    "y": 0.6678,
+    "w": 0.03419,
+    "h": 0.04334,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Loop bar 54 px ABOVE the label, under C17",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.51642,
+     "y": 0.30398,
+     "w": 0.01705,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP17": {
+   "board": {
+    "x": 0.09368,
+    "y": 0.91827,
+    "w": 0.03077,
+    "h": 0.0743,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label near the bottom edge with its loop bar 95 px above it",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.89145,
+     "y": 0.44862,
+     "w": 0.01675,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C7": {
+   "board": {
+    "x": 0.64957,
+    "y": 0.84954,
+    "w": 0.02803,
+    "h": 0.05077,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline: the third of the five 4.7 uF tantalum cans in the bottom row (C49, C5, C7, C1, C3). The reader had it on CR403/R407",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.08991,
+     "y": 0.82923,
+     "w": 0.0125,
+     "h": 0.01046,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "C20": {
+   "board": {
+    "x": 0.71846,
+    "y": 0.60093,
+    "w": 0.0188,
+    "h": 0.0356,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Reader had it on C209's label",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.73623,
+     "y": 0.22363,
+     "w": 0.0125,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C49": {
+   "board": {
+    "x": 0.59162,
+    "y": 0.84954,
+    "w": 0.02803,
+    "h": 0.05077,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline: the leftmost of the five 4.7 uF tantalum cans in the bottom row. The reader never found it -- C44's marker was sitting on this label -- and it is the -5F reservoir, so the capacitor audit needs it placed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.22127,
+     "y": 0.65268,
+     "w": 0.01305,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C41": {
+   "board": {
+    "x": 0.45368,
+    "y": 0.19876,
+    "w": 0.0188,
+    "h": 0.06192,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Vertical label beside R81. Reader had it on C1's label",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.60321,
+     "y": 0.3011,
+     "w": 0.01188,
+     "h": 0.01416,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "J1": {
+   "board": {
+    "x": 0.09966,
+    "y": 0.76378,
+    "w": 0.02906,
+    "h": 0.04334,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "SMB coax connector at the left board edge, below TP14. Reader had it on P101's label",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.9667,
+     "y": 0.46034,
+     "w": 0.02827,
+     "h": 0.03381,
+     "placement": "verified",
+     "placementNote": "Coax symbol and its label, beside TP17 and the CONNECTOR TO WIDEBAND OUTPUT caption. The reader had J1 on U9's pin 11"
+    }
+   ],
+   "schVerified": true
+  },
+  "L6": {
+   "board": {
+    "x": 0.73846,
+    "y": 0.66006,
+    "w": 0.02222,
+    "h": 0.0356,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The 1500 uH loop filter choke. Reader had it on C506's label",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.56117,
+     "y": 0.26057,
+     "w": 0.00947,
+     "h": 0.00888,
+     "placement": "verified",
+     "placementNote": "1500uH in the PLL loop filter between R6 and R9, zone D4"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q3": {
+   "board": {
+    "x": 0.72786,
+    "y": 0.68885,
+    "w": 0.02222,
+    "h": 0.04025,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Reader had it on R303's label",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.58485,
+     "y": 0.46684,
+     "w": 0.00947,
+     "h": 0.00888,
+     "placement": "verified",
+     "placementNote": "2N4401 into R36/R37. The reader had read U8's 'Q3' pin label"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q4": {
+   "board": {
+    "x": 0.61162,
+    "y": 0.47709,
+    "w": 0.02051,
+    "h": 0.03715,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Reader had it on Q9's label",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.37467,
+     "y": 0.27043,
+     "w": 0.0081,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q5": {
+   "board": {
+    "x": 0.49897,
+    "y": 0.40588,
+    "w": 0.02051,
+    "h": 0.03715,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Reader had it on C105's label",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.47465,
+     "y": 0.28846,
+     "w": 0.0081,
+     "h": 0.00855,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "Q7": {
+   "board": {
+    "x": 0.09829,
+    "y": 0.50805,
+    "w": 0.0188,
+    "h": 0.03406,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline of the TO-39 output driver, between R63, R68 and C52. The reader had Q7 on C7's label -- one of the five tantalum cans and a genuinely different part, which check_data caught as a containment against C7's own body marker",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.86138,
+     "y": 0.37254,
+     "w": 0.0081,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q9": {
+   "board": {
+    "x": 0.08598,
+    "y": 0.34675,
+    "w": 0.02222,
+    "h": 0.04025,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Reader had it on C509's label",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.89683,
+     "y": 0.32251,
+     "w": 0.00952,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "SD210 beside R77/R78 right of the 8-16MHz block. The reader's read on this sheet was rejected"
+    }
+   ],
+   "schVerified": true
+  },
+  "R44": {
+   "board": {
+    "x": 0.59026,
+    "y": 0.39133,
+    "w": 0.02222,
+    "h": 0.0356,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Reader had it on R49's label",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.20302,
+     "y": 0.30949,
+     "w": 0.01272,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R64": {
+   "board": {
+    "x": 0.0694,
+    "y": 0.61734,
+    "w": 0.01538,
+    "h": 0.05573,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Vertical label beside R65, by the output driver. Reader had it on R69's label",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.84033,
+     "y": 0.42663,
+     "w": 0.01251,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R65": {
+   "board": {
+    "x": 0.0841,
+    "y": 0.61734,
+    "w": 0.01538,
+    "h": 0.05573,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The reader never found it; its neighbour R64 was misplaced onto R69",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.86383,
+     "y": 0.42731,
+     "w": 0.01335,
+     "h": 0.00884,
+     "placement": "verified",
+     "placementNote": "680 1/2W beside R64 under Q7's emitter, zone C1"
+    }
+   ],
+   "schVerified": true
+  },
+  "R74": {
+   "board": {
+    "x": 0.4453,
+    "y": 0.61053,
+    "w": 0.02222,
+    "h": 0.0356,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Reader had it on R79's label",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.2398,
+     "y": 0.45691,
+     "w": 0.01233,
+     "h": 0.00825,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U4": {
+   "board": {
+    "x": 0.8053,
+    "y": 0.5356,
+    "w": 0.02222,
+    "h": 0.0356,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Reader had it on U9's label",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.82344,
+     "y": 0.26819,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U9": {
+   "board": {
+    "x": 0.60598,
+    "y": 0.2969,
+    "w": 0.02222,
+    "h": 0.0356,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The CA1302 amplitude control amplifier. The reader never found it -- U4's marker was sitting on this label -- and pin 6 of it is what \u00a75-5 step 11 measures",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.22884,
+     "y": 0.49285,
+     "w": 0.0267,
+     "h": 0.02861,
+     "placement": "verified",
+     "placementNote": "CA1302 transistor array, the amplitude control amplifier. The reader's own read collided and was dropped, so it had no placement at all"
+    }
+   ],
+   "schVerified": true
+  },
+  "L9": {
+   "board": {
+    "x": 0.84667,
+    "y": 0.45449,
+    "w": 0.02222,
+    "h": 0.0356,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The reader never found it; L4's marker was sitting on this label",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.87703,
+     "y": 0.40287,
+     "w": 0.00947,
+     "h": 0.00888,
+     "placement": "verified",
+     "placementNote": "6-turn choke to -5LH under R14, zone C2"
+    }
+   ],
+   "schVerified": true
+  },
+  "U1": {
+   "board": {
+    "x": 0.86855,
+    "y": 0.76563,
+    "w": 0.08274,
+    "h": 0.02724,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.27687,
+     "y": 0.28265,
+     "w": 0.0081,
+     "h": 0.00811,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "U13": {
+   "board": {
+    "x": 0.49624,
+    "y": 0.84644,
+    "w": 0.07487,
+    "h": 0.02724,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.12516,
+     "y": 0.96576,
+     "w": 0.01285,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U15": {
+   "board": {
+    "x": 0.78615,
+    "y": 0.8418,
+    "w": 0.06427,
+    "h": 0.02724,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.17995,
+     "y": 0.13368,
+     "w": 0.01342,
+     "h": 0.00888,
+     "placement": "verified",
+     "placementNote": "Printed U15A: the NE522 half in the 8MHz clock generator, zone D7"
+    }
+   ],
+   "schVerified": true
+  },
+  "U2": {
+   "board": {
+    "x": 0.84615,
+    "y": 0.6356,
+    "w": 0.03145,
+    "h": 0.02755,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.4221,
+     "y": 0.26934,
+     "w": 0.0081,
+     "h": 0.00822,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U3": {
+   "board": {
+    "x": 0.71675,
+    "y": 0.55046,
+    "w": 0.06513,
+    "h": 0.02755,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.69423,
+     "y": 0.25235,
+     "w": 0.0081,
+     "h": 0.00811,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U5": {
+   "board": {
+    "x": 0.83709,
+    "y": 0.2839,
+    "w": 0.07419,
+    "h": 0.02693,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.72672,
+     "y": 0.52917,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "U7": {
+   "board": {
+    "x": 0.61641,
+    "y": 0.57152,
+    "w": 0.06547,
+    "h": 0.02755,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.61113,
+     "y": 0.64767,
+     "w": 0.0081,
+     "h": 0.00811,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "U6": {
+   "board": {
+    "x": 0.72786,
+    "y": 0.28421,
+    "w": 0.07385,
+    "h": 0.02786,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.8849,
+     "y": 0.69075,
+     "w": 0.0081,
+     "h": 0.00822,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U8": {
+   "board": {
+    "x": 0.61197,
+    "y": 0.65294,
+    "w": 0.07402,
+    "h": 0.02786,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.30411,
+     "y": 0.78989,
+     "w": 0.00917,
+     "h": 0.0121,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U10": {
+   "board": {
+    "x": 0.49128,
+    "y": 0.61579,
+    "w": 0.06581,
+    "h": 0.02879,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.4041,
+     "y": 0.70235,
+     "w": 0.02841,
+     "h": 0.03655,
+     "placement": "verified",
+     "placementNote": "The LM339 that makes FILTER BAND SWITCH, 16-32 MHZ FILTER and Q8/Q9 SELECT. The reader put U10 on P101's '25A' pin label"
+    }
+   ],
+   "schVerified": true
+  },
+  "U11": {
+   "board": {
+    "x": 0.49145,
+    "y": 0.69319,
+    "w": 0.06598,
+    "h": 0.02817,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.40429,
+     "y": 0.88159,
+     "w": 0.01158,
+     "h": 0.00811,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U12": {
+   "board": {
+    "x": 0.49607,
+    "y": 0.77028,
+    "w": 0.07487,
+    "h": 0.02786,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.12467,
+     "y": 0.73428,
+     "w": 0.01285,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C1": {
+   "board": {
+    "x": 0.67897,
+    "y": 0.85015,
+    "w": 0.02752,
+    "h": 0.04985,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.09392,
+     "y": 0.65658,
+     "w": 0.0081,
+     "h": 0.00829,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "C2": {
+   "board": {
+    "x": 0.66769,
+    "y": 0.71331,
+    "w": 0.02735,
+    "h": 0.04954,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.15179,
+     "y": 0.65337,
+     "w": 0.0081,
+     "h": 0.00822,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "C3": {
+   "board": {
+    "x": 0.70803,
+    "y": 0.85015,
+    "w": 0.02752,
+    "h": 0.04985,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.0942,
+     "y": 0.69838,
+     "w": 0.0081,
+     "h": 0.00864,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C4": {
+   "board": {
+    "x": 0.69675,
+    "y": 0.71331,
+    "w": 0.02735,
+    "h": 0.04954,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.15178,
+     "y": 0.73598,
+     "w": 0.0081,
+     "h": 0.00834,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.3999,
+     "y": 0.29237,
+     "w": 0.0081,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C5": {
+   "board": {
+    "x": 0.62085,
+    "y": 0.85046,
+    "w": 0.02735,
+    "h": 0.04954,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.08446,
+     "y": 0.87059,
+     "w": 0.0081,
+     "h": 0.00846,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "C6": {
+   "board": {
+    "x": 0.60957,
+    "y": 0.71362,
+    "w": 0.02718,
+    "h": 0.04923,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.14209,
+     "y": 0.86994,
+     "w": 0.00821,
+     "h": 0.00857,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C8": {
+   "board": {
+    "x": 0.63863,
+    "y": 0.71362,
+    "w": 0.02752,
+    "h": 0.04985,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.14796,
+     "y": 0.82843,
+     "w": 0.0081,
+     "h": 0.00857,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "C50": {
+   "board": {
+    "x": 0.5453,
+    "y": 0.71362,
+    "w": 0.02735,
+    "h": 0.04954,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.23099,
+     "y": 0.82798,
+     "w": 0.01237,
+     "h": 0.00857,
+     "placement": "single"
+    }
+   ]
+  },
+  "C51": {
+   "board": {
+    "x": 0.46444,
+    "y": 0.53467,
+    "w": 0.02769,
+    "h": 0.05015,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.27064,
+     "y": 0.90454,
+     "w": 0.01193,
+     "h": 0.00822,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q2": {
+   "board": {
+    "x": 0.76359,
+    "y": 0.69598,
+    "w": 0.01573,
+    "h": 0.02848,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.5588,
+     "y": 0.42768,
+     "w": 0.00947,
+     "h": 0.00888,
+     "placement": "verified",
+     "placementNote": "2N4401 driving R38, above Q3. The reader had read U8's 'Q2' pin label"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q6": {
+   "board": {
+    "x": 0.47812,
+    "y": 0.24861,
+    "w": 0.01675,
+    "h": 0.03034,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.57672,
+     "y": 0.26614,
+     "w": 0.0081,
+     "h": 0.00825,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q8": {
+   "board": {
+    "x": 0.41778,
+    "y": 0.47833,
+    "w": 0.01983,
+    "h": 0.03591,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.26032,
+     "y": 0.47644,
+     "w": 0.00952,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "SD210 of the Q8/Q9 SELECT switch, between R74 and R76"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q101": {
+   "board": {
+    "x": 0.38034,
+    "y": 0.21641,
+    "w": 0.01983,
+    "h": 0.03591,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.38175,
+     "y": 0.0678,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 16-32MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q102": {
+   "board": {
+    "x": 0.29778,
+    "y": 0.20526,
+    "w": 0.03179,
+    "h": 0.05759,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.45429,
+     "y": 0.05105,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 16-32MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q104": {
+   "board": {
+    "x": 0.1641,
+    "y": 0.19938,
+    "w": 0.0159,
+    "h": 0.02879,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.70835,
+     "y": 0.09248,
+     "w": 0.01628,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q105": {
+   "board": {
+    "x": 0.12342,
+    "y": 0.213,
+    "w": 0.01983,
+    "h": 0.03591,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.86444,
+     "y": 0.08115,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 16-32MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q201": {
+   "board": {
+    "x": 0.38017,
+    "y": 0.38204,
+    "w": 0.01983,
+    "h": 0.03591,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.36857,
+     "y": 0.24921,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 8-16MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q202": {
+   "board": {
+    "x": 0.29761,
+    "y": 0.37059,
+    "w": 0.03179,
+    "h": 0.05759,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.45638,
+     "y": 0.2334,
+     "w": 0.01789,
+     "h": 0.00895,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q205": {
+   "board": {
+    "x": 0.12581,
+    "y": 0.37833,
+    "w": 0.01983,
+    "h": 0.03591,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.86444,
+     "y": 0.26335,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 8-16MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q301": {
+   "board": {
+    "x": 0.38017,
+    "y": 0.53498,
+    "w": 0.01983,
+    "h": 0.03591,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.38174,
+     "y": 0.46814,
+     "w": 0.0165,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q302": {
+   "board": {
+    "x": 0.29744,
+    "y": 0.53189,
+    "w": 0.03179,
+    "h": 0.05759,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.45429,
+     "y": 0.42801,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 4-8MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q304": {
+   "board": {
+    "x": 0.16393,
+    "y": 0.52848,
+    "w": 0.01846,
+    "h": 0.03344,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.70829,
+     "y": 0.47021,
+     "w": 0.01639,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q305": {
+   "board": {
+    "x": 0.12342,
+    "y": 0.53932,
+    "w": 0.01983,
+    "h": 0.03591,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.86444,
+     "y": 0.46492,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 4-8MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q401": {
+   "board": {
+    "x": 0.38017,
+    "y": 0.70991,
+    "w": 0.01983,
+    "h": 0.03591,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.38143,
+     "y": 0.68063,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 2-4MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q402": {
+   "board": {
+    "x": 0.29744,
+    "y": 0.69412,
+    "w": 0.03197,
+    "h": 0.05789,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.45655,
+     "y": 0.61158,
+     "w": 0.01789,
+     "h": 0.00865,
+     "placement": "single"
+    }
+   ]
+  },
+  "Q403": {
+   "board": {
+    "x": 0.24855,
+    "y": 0.68824,
+    "w": 0.01504,
+    "h": 0.02724,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.62044,
+     "y": 0.66348,
+     "w": 0.01725,
+     "h": 0.00848,
+     "placement": "single"
+    }
+   ]
+  },
+  "Q404": {
+   "board": {
+    "x": 0.16359,
+    "y": 0.68916,
+    "w": 0.01641,
+    "h": 0.02972,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.70849,
+     "y": 0.65298,
+     "w": 0.01639,
+     "h": 0.00837,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q405": {
+   "board": {
+    "x": 0.12786,
+    "y": 0.70186,
+    "w": 0.01983,
+    "h": 0.03591,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.86444,
+     "y": 0.64974,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 2-4MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q501": {
+   "board": {
+    "x": 0.38034,
+    "y": 0.86687,
+    "w": 0.01983,
+    "h": 0.03591,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.38198,
+     "y": 0.83734,
+     "w": 0.01636,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q502": {
+   "board": {
+    "x": 0.29744,
+    "y": 0.85542,
+    "w": 0.03179,
+    "h": 0.05759,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.45476,
+     "y": 0.7945,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q504": {
+   "board": {
+    "x": 0.16325,
+    "y": 0.83622,
+    "w": 0.01846,
+    "h": 0.03344,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.70844,
+     "y": 0.83605,
+     "w": 0.01617,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q505": {
+   "board": {
+    "x": 0.12769,
+    "y": 0.84644,
+    "w": 0.01983,
+    "h": 0.03591,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.86349,
+     "y": 0.83403,
+     "w": 0.01746,
+     "h": 0.0089,
+     "placement": "verified",
+     "placementNote": "Label beside the symbol in the 1-2MHz filter block. The reader's read on this sheet was rejected"
+    }
+   ],
+   "schVerified": true
+  },
+  "C101": {
+   "board": {
+    "x": 0.41778,
+    "y": 0.2161,
+    "w": 0.02393,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label inside the body rect between Q101 and C41",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.3127,
+     "y": 0.06545,
+     "w": 0.0173,
+     "h": 0.00864,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; .1uF from the -9.5 node at R113 to SCOM, 1xx filter block, zone D6"
+    }
+   ],
+   "schVerified": true
+  },
+  "C108": {
+   "board": {
+    "x": 0.10188,
+    "y": 0.17121,
+    "w": 0.02393,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label under R116's at the top-left corner of the 1xx block",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.83519,
+     "y": 0.1395,
+     "w": 0.01715,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C111": {
+   "board": {
+    "x": 0.16462,
+    "y": 0.21889,
+    "w": 0.02359,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label under Q104 in the 1xx block",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.73466,
+     "y": 0.04791,
+     "w": 0.01597,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C203": {
+   "board": {
+    "x": 0.33248,
+    "y": 0.39536,
+    "w": 0.02393,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label in the body rect below Q202, same column as C103/C303/C403/C503",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.41746,
+     "y": 0.23377,
+     "w": 0.0173,
+     "h": 0.00864,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; .1uF to SCOM left of Q202, 2xx block, zone D5"
+    }
+   ],
+   "schVerified": true
+  },
+  "C211": {
+   "board": {
+    "x": 0.16496,
+    "y": 0.38483,
+    "w": 0.02359,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label under Q204 in the 2xx block",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.73258,
+     "y": 0.22964,
+     "w": 0.016,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C311": {
+   "board": {
+    "x": 0.16513,
+    "y": 0.54675,
+    "w": 0.02393,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label under Q304 in the 3xx block",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.7346,
+     "y": 0.42487,
+     "w": 0.0173,
+     "h": 0.00864,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; 180pF beside C312 above CR303, 3xx block, zone C3"
+    }
+   ],
+   "schVerified": true
+  },
+  "C401": {
+   "board": {
+    "x": 0.41829,
+    "y": 0.69969,
+    "w": 0.02393,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label inside the body rect right of Q401, same column as C201/C301/C501",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.33292,
+     "y": 0.63266,
+     "w": 0.01628,
+     "h": 0.00872,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "C405": {
+   "board": {
+    "x": 0.27915,
+    "y": 0.73963,
+    "w": 0.00803,
+    "h": 0.04025,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label printed to the LEFT of its body rect, which Q402's outline crowds -- not beside C403",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.48206,
+     "y": 0.58246,
+     "w": 0.0173,
+     "h": 0.00864,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; .1uF in series with R405 into L4xx, 4xx block, zone B5"
+    }
+   ],
+   "schVerified": true
+  },
+  "C411": {
+   "board": {
+    "x": 0.1653,
+    "y": 0.70836,
+    "w": 0.02393,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label under Q404 in the 4xx block",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.73463,
+     "y": 0.60808,
+     "w": 0.01586,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C511": {
+   "board": {
+    "x": 0.16513,
+    "y": 0.85511,
+    "w": 0.02393,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label under Q504 in the 5xx block",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.73476,
+     "y": 0.78774,
+     "w": 0.01571,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C61": {
+   "board": {
+    "x": 0.06872,
+    "y": 0.40495,
+    "w": 0.00803,
+    "h": 0.03406,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label inside the tall body rect left of R35",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.81106,
+     "y": 0.30013,
+     "w": 0.01319,
+     "h": 0.00858,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; The .1uF on the OUTPUT net, left of the R68/R35 junction, zone C2"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR103": {
+   "board": {
+    "x": 0.17692,
+    "y": 0.21022,
+    "w": 0.00803,
+    "h": 0.04799,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label left of the diode, under R115",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.73444,
+     "y": 0.08927,
+     "w": 0.02111,
+     "h": 0.00864,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; 4P473 to SCOM under Q104, 1xx block, zone D3"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR502": {
+   "board": {
+    "x": 0.2653,
+    "y": 0.8483,
+    "w": 0.00803,
+    "h": 0.05418,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label left of the diode, above R510",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.58905,
+     "y": 0.82749,
+     "w": 0.02111,
+     "h": 0.00864,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; 4P473 to SCOM left of Q503, 5xx block, zone A4"
+    }
+   ],
+   "schVerified": true
+  },
+  "E2": {
+   "board": {
+    "x": 0.38034,
+    "y": 0.29876,
+    "w": 0.01504,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label below R101, left of R214",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.28463,
+     "y": 0.15851,
+     "w": 0.0081,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L101": {
+   "board": {
+    "x": 0.23795,
+    "y": 0.14458,
+    "w": 0.02735,
+    "h": 0.01548,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label inside the choke outline, same column as L201/L301/L401/L501",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.47758,
+     "y": 0.10442,
+     "w": 0.01621,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R104": {
+   "board": {
+    "x": 0.32991,
+    "y": 0.15294,
+    "w": 0.02393,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label inside the hex body, same column as R204/R304/R504. Reader had it on a longer 4xx designator",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.47985,
+     "y": 0.06567,
+     "w": 0.01736,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R115": {
+   "board": {
+    "x": 0.17675,
+    "y": 0.17059,
+    "w": 0.00803,
+    "h": 0.04025,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label above CR103's",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.86023,
+     "y": 0.13291,
+     "w": 0.01693,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R207": {
+   "board": {
+    "x": 0.19368,
+    "y": 0.3808,
+    "w": 0.00803,
+    "h": 0.0418,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label right of the diode, above C209",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.7044,
+     "y": 0.32592,
+     "w": 0.0165,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R214": {
+   "board": {
+    "x": 0.40085,
+    "y": 0.30898,
+    "w": 0.00803,
+    "h": 0.04025,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label above R213's, right of E2",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.36587,
+     "y": 0.30157,
+     "w": 0.0173,
+     "h": 0.00864,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; 10K from the FET gate line down to the CR201 node, 2xx block, zone C6"
+    }
+   ],
+   "schVerified": true
+  },
+  "R303": {
+   "board": {
+    "x": 0.31692,
+    "y": 0.52353,
+    "w": 0.00803,
+    "h": 0.0418,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label right of Q302, same column as R103/R203/R503",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.45443,
+     "y": 0.44463,
+     "w": 0.01778,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R307": {
+   "board": {
+    "x": 0.19385,
+    "y": 0.53994,
+    "w": 0.00803,
+    "h": 0.0418,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label right of the diode, above C309",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.70639,
+     "y": 0.52154,
+     "w": 0.01628,
+     "h": 0.00872,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R403": {
+   "board": {
+    "x": 0.31675,
+    "y": 0.68359,
+    "w": 0.00803,
+    "h": 0.0418,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label right of Q402, same column as R103/R203/R503",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.45457,
+     "y": 0.62748,
+     "w": 0.01778,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R404": {
+   "board": {
+    "x": 0.3294,
+    "y": 0.64241,
+    "w": 0.02393,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label inside the hex body, same column as R204/R304/R504. Reader had it on R401's label",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.48008,
+     "y": 0.62683,
+     "w": 0.01758,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R407": {
+   "board": {
+    "x": 0.19385,
+    "y": 0.70774,
+    "w": 0.00803,
+    "h": 0.0418,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label right of the diode, above C409",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.70656,
+     "y": 0.70436,
+     "w": 0.01628,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R411": {
+   "board": {
+    "x": 0.2265,
+    "y": 0.72229,
+    "w": 0.00769,
+    "h": 0.0418,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label left of C410's, same column as R111/R211/R311/R511",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.68111,
+     "y": 0.62147,
+     "w": 0.01658,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R501": {
+   "board": {
+    "x": 0.40137,
+    "y": 0.91641,
+    "w": 0.02393,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label inside the body rect below R502, same column as R101/R201/R301/R401",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.39,
+     "y": 0.76963,
+     "w": 0.0173,
+     "h": 0.00864,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; 220 1/2W from +12 into the C503 node, 5xx block, zone A5"
+    }
+   ],
+   "schVerified": true
+  },
+  "R510": {
+   "board": {
+    "x": 0.2653,
+    "y": 0.8935,
+    "w": 0.00803,
+    "h": 0.04241,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label under CR502's, same column as R110/R210/R310/R410",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.6223,
+     "y": 0.80502,
+     "w": 0.01725,
+     "h": 0.00865,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q204": {
+   "board": {
+    "x": 0.16376,
+    "y": 0.36378,
+    "w": 0.01607,
+    "h": 0.0291,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline of the TO-92 measured by eye off a pixel grid; the reader's Q204 was a misread and was dropped",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.70651,
+     "y": 0.27408,
+     "w": 0.0173,
+     "h": 0.00864,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; 6544 in the 2xx block, left of CR203, zone C3"
+    }
+   ],
+   "schVerified": true
+  },
+  "C35": {
+   "board": {
+    "x": 0.60564,
+    "y": 0.16563,
+    "w": 0.00803,
+    "h": 0.03406,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label inside the body rect left of C38/C36, under R48",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.15511,
+     "y": 0.54262,
+     "w": 0.01308,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C38": {
+   "board": {
+    "x": 0.63197,
+    "y": 0.16563,
+    "w": 0.00803,
+    "h": 0.03406,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label inside the body rect, between C35 and C36",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.26689,
+     "y": 0.61817,
+     "w": 0.01262,
+     "h": 0.00855,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C30": {
+   "board": {
+    "x": 0.70821,
+    "y": 0.16563,
+    "w": 0.00803,
+    "h": 0.03406,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label inside the body rect right of R70; the reader had this designator off a longer one and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.92691,
+     "y": 0.68695,
+     "w": 0.01326,
+     "h": 0.00862,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; The .1uF from the R70 junction to SCOM, under the 1-32MHZ OUTPUT flag, zone B1"
+    }
+   ],
+   "schVerified": true
+  },
+  "R70": {
+   "board": {
+    "x": 0.69487,
+    "y": 0.19102,
+    "w": 0.00803,
+    "h": 0.03406,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label inside the body rect left of C30, above TP10; the reader had this designator off a longer one and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.9247,
+     "y": 0.65144,
+     "w": 0.01326,
+     "h": 0.00862,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; 270 from 1-32MHZ OUTPUT down to C30 and -5LH, zone B1"
+    }
+   ],
+   "schVerified": true
+  },
+  "L11": {
+   "board": {
+    "x": 0.55897,
+    "y": 0.18978,
+    "w": 0.00803,
+    "h": 0.03313,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label inside the choke bracket right of C46; the reader had this designator off a longer one and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.22236,
+     "y": 0.61519,
+     "w": 0.01156,
+     "h": 0.00825,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C46": {
+   "board": {
+    "x": 0.5388,
+    "y": 0.2161,
+    "w": 0.00803,
+    "h": 0.03715,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label inside the tall body rect left of L11",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.58232,
+     "y": 0.22808,
+     "w": 0.01243,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R21": {
+   "board": {
+    "x": 0.80222,
+    "y": 0.19009,
+    "w": 0.00803,
+    "h": 0.03251,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; first of the six-part row R21 R20 C25 R22 R19 R16; the reader had R21 on R212's label and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.82676,
+     "y": 0.47122,
+     "w": 0.01172,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R20": {
+   "board": {
+    "x": 0.81556,
+    "y": 0.19009,
+    "w": 0.00803,
+    "h": 0.03251,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; second of the row, between R21 and C25",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.80583,
+     "y": 0.53191,
+     "w": 0.01278,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C25": {
+   "board": {
+    "x": 0.82906,
+    "y": 0.19009,
+    "w": 0.00803,
+    "h": 0.03251,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; third of the row, the wider body between R20 and R22",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.78637,
+     "y": 0.56697,
+     "w": 0.013,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R22": {
+   "board": {
+    "x": 0.84239,
+    "y": 0.19009,
+    "w": 0.00803,
+    "h": 0.03251,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; fourth of the row, between C25 and R19",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.82714,
+     "y": 0.50306,
+     "w": 0.01278,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R19": {
+   "board": {
+    "x": 0.85607,
+    "y": 0.19009,
+    "w": 0.00803,
+    "h": 0.03251,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; fifth of the row, between R22 and R16",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.7844,
+     "y": 0.5321,
+     "w": 0.01289,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R16": {
+   "board": {
+    "x": 0.86889,
+    "y": 0.19009,
+    "w": 0.00803,
+    "h": 0.03251,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; last of the row, right of R19",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.76904,
+     "y": 0.45557,
+     "w": 0.01257,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C44": {
+   "board": {
+    "x": 0.44205,
+    "y": 0.35418,
+    "w": 0.00803,
+    "h": 0.03251,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label inside the tall body rect left of C45; the reader had this designator off a longer one and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.49561,
+     "y": 0.40915,
+     "w": 0.01241,
+     "h": 0.00832,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C45": {
+   "board": {
+    "x": 0.46393,
+    "y": 0.34396,
+    "w": 0.01744,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label inside the body rect right of C44",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.4938,
+     "y": 0.26937,
+     "w": 0.01251,
+     "h": 0.0086,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C42": {
+   "board": {
+    "x": 0.56752,
+    "y": 0.35108,
+    "w": 0.01744,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label inside the body rect above R55/R54/R53",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.4016,
+     "y": 0.29311,
+     "w": 0.01319,
+     "h": 0.00858,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; The .1uF coupling Q4's emitter to R54 and Q5, zone C5"
+    }
+   ],
+   "schVerified": true
+  },
+  "C37": {
+   "board": {
+    "x": 0.60769,
+    "y": 0.36625,
+    "w": 0.00803,
+    "h": 0.03251,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label inside the body rect right of R44, left of R45/C33",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.26282,
+     "y": 0.34772,
+     "w": 0.01258,
+     "h": 0.00842,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C23": {
+   "board": {
+    "x": 0.83265,
+    "y": 0.36625,
+    "w": 0.00803,
+    "h": 0.03498,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label inside the body rect right of R17/R23",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.73812,
+     "y": 0.59621,
+     "w": 0.01257,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R18": {
+   "board": {
+    "x": 0.84615,
+    "y": 0.36966,
+    "w": 0.00803,
+    "h": 0.03498,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label between C23 and R24",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.84062,
+     "y": 0.62721,
+     "w": 0.01268,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R24": {
+   "board": {
+    "x": 0.85966,
+    "y": 0.36966,
+    "w": 0.00803,
+    "h": 0.03498,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label between R18 and C24; the reader had this designator off a longer one and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.79441,
+     "y": 0.67841,
+     "w": 0.01314,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C24": {
+   "board": {
+    "x": 0.87248,
+    "y": 0.36625,
+    "w": 0.00803,
+    "h": 0.03498,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label right of R24, left of TP4",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.79654,
+     "y": 0.71336,
+     "w": 0.03232,
+     "h": 0.00882,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C47": {
+   "board": {
+    "x": 0.8053,
+    "y": 0.39752,
+    "w": 0.01744,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label inside the body rect below R23, above R15",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.76717,
+     "y": 0.71358,
+     "w": 0.01243,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R9": {
+   "board": {
+    "x": 0.68838,
+    "y": 0.47678,
+    "w": 0.01368,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label below L5, left of CR1",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.59905,
+     "y": 0.25953,
+     "w": 0.00979,
+     "h": 0.00862,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; 20K from the PLL loop filter into the CR1/CR2 varactor pair, zone C4"
+    }
+   ],
+   "schVerified": true
+  },
+  "C18": {
+   "board": {
+    "x": 0.75385,
+    "y": 0.45418,
+    "w": 0.01744,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label inside the body rect above CR2, right of L5",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.63214,
+     "y": 0.31611,
+     "w": 0.01272,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R15": {
+   "board": {
+    "x": 0.79932,
+    "y": 0.4418,
+    "w": 0.01744,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; top of the R15/R14/R13 stack, below C47; the reader had this designator off a longer one and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.88625,
+     "y": 0.28037,
+     "w": 0.01257,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R49": {
+   "board": {
+    "x": 0.63043,
+    "y": 0.46347,
+    "w": 0.01744,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label directly below R50's, above Q4",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.31286,
+     "y": 0.3459,
+     "w": 0.01319,
+     "h": 0.00858,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; 10K directly below R51 in the +17S divider, zone C6"
+    }
+   ],
+   "schVerified": true
+  },
+  "C40": {
+   "board": {
+    "x": 0.59744,
+    "y": 0.51331,
+    "w": 0.01744,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label inside the body rect below Q4, left of C32; the reader had this designator off a longer one and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.35181,
+     "y": 0.23667,
+     "w": 0.01319,
+     "h": 0.00858,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; The .1uF from +17S to SCOM above Q4's collector, zone D6"
+    }
+   ],
+   "schVerified": true
+  },
+  "C32": {
+   "board": {
+    "x": 0.6359,
+    "y": 0.51331,
+    "w": 0.01744,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label inside the body rect right of C40; the reader had this designator off a longer one and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.58216,
+     "y": 0.73734,
+     "w": 0.01326,
+     "h": 0.00862,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; the .1uF -5LH decoupler on the comparator's pin 12, left of R30, zone B4"
+    }
+   ],
+   "schVerified": true
+  },
+  "C21": {
+   "board": {
+    "x": 0.86786,
+    "y": 0.5096,
+    "w": 0.00803,
+    "h": 0.03251,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label inside the body rect right of C22, left of L8; the reader had this designator off a longer one and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.82294,
+     "y": 0.37276,
+     "w": 0.01193,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R7": {
+   "board": {
+    "x": 0.88051,
+    "y": 0.53313,
+    "w": 0.01368,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label left of R8, below L8; the reader had this designator off a longer one and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.48973,
+     "y": 0.28861,
+     "w": 0.0081,
+     "h": 0.00811,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R12": {
+   "board": {
+    "x": 0.90718,
+    "y": 0.4904,
+    "w": 0.00803,
+    "h": 0.03251,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label inside the body rect right of L8",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.69974,
+     "y": 0.43394,
+     "w": 0.01257,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C19": {
+   "board": {
+    "x": 0.76581,
+    "y": 0.54458,
+    "w": 0.00803,
+    "h": 0.03251,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label inside the tall body rect above R11",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.70357,
+     "y": 0.3351,
+     "w": 0.01246,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C48": {
+   "board": {
+    "x": 0.91812,
+    "y": 0.57276,
+    "w": 0.00803,
+    "h": 0.03498,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label inside the body rect right of R3, above C13",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.30404,
+     "y": 0.38825,
+     "w": 0.01322,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C16": {
+   "board": {
+    "x": 0.87692,
+    "y": 0.63437,
+    "w": 0.00803,
+    "h": 0.03251,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label inside the tall body rect right of U2, above R4/R5",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.43162,
+     "y": 0.29508,
+     "w": 0.01278,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C53": {
+   "board": {
+    "x": 0.71897,
+    "y": 0.63282,
+    "w": 0.01744,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label inside the body rect below C20, above L6",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.56296,
+     "y": 0.22158,
+     "w": 0.0125,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C54": {
+   "board": {
+    "x": 0.45094,
+    "y": 0.65139,
+    "w": 0.00803,
+    "h": 0.03251,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label right of its two pads, below R74; the reader had this designator off a longer one and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.23611,
+     "y": 0.49869,
+     "w": 0.0125,
+     "h": 0.00848,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR7": {
+   "board": {
+    "x": 0.44513,
+    "y": 0.74056,
+    "w": 0.01795,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label below C401's row, above CR3; the reader had this designator off a longer one and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.18173,
+     "y": 0.92005,
+     "w": 0.01265,
+     "h": 0.00883,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R4": {
+   "board": {
+    "x": 0.86752,
+    "y": 0.66997,
+    "w": 0.01368,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label left of R5, below C16; the reader had this designator off a longer one and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.31978,
+     "y": 0.22877,
+     "w": 0.0081,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R5": {
+   "board": {
+    "x": 0.87915,
+    "y": 0.66997,
+    "w": 0.01368,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label right of R4, left of R73; the reader had this designator off a longer one and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.31974,
+     "y": 0.26699,
+     "w": 0.0081,
+     "h": 0.00822,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "C9": {
+   "board": {
+    "x": 0.89402,
+    "y": 0.7161,
+    "w": 0.01368,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label inside the body rect below R4/R5; the reader had this designator off a longer one and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.35627,
+     "y": 0.28916,
+     "w": 0.0081,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L4": {
+   "board": {
+    "x": 0.66017,
+    "y": 0.78762,
+    "w": 0.00803,
+    "h": 0.02105,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label in the L12 L3 L4 L1 L2 choke row, third from the left; the reader had this designator off a longer one and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.11807,
+     "y": 0.80209,
+     "w": 0.00979,
+     "h": 0.00862,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; 6-turn choke in the +17S feed above C8, below L3's rail, zone A8"
+    }
+   ],
+   "schVerified": true
+  },
+  "C58": {
+   "board": {
+    "x": 0.7294,
+    "y": 0.80929,
+    "w": 0.01744,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label inside the body rect above C57, right of L2/R36",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.19887,
+     "y": 0.04813,
+     "w": 0.01246,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR9": {
+   "board": {
+    "x": 0.56068,
+    "y": 0.80898,
+    "w": 0.01795,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label right of CR6's, above the second of the two diodes",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.21563,
+     "y": 0.91384,
+     "w": 0.01326,
+     "h": 0.00862,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; 1N4448, the second of the pair CR8/CR9 in the -11/-9.5 clamp string, zone A7"
+    }
+   ],
+   "schVerified": true
+  },
+  "C57": {
+   "board": {
+    "x": 0.73094,
+    "y": 0.84923,
+    "w": 0.00803,
+    "h": 0.03251,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label inside the tall body rect below C58, right of C3",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.18895,
+     "y": 0.16815,
+     "w": 0.01326,
+     "h": 0.00862,
+     "placement": "verified",
+     "placementNote": "Placed by eye off a pixel grid; The .1uF from the NE522's pin 13 -5LH node to SCOM, zone D7"
+    }
+   ],
+   "schVerified": true
+  },
+  "C56": {
+   "board": {
+    "x": 0.89299,
+    "y": 0.83746,
+    "w": 0.00803,
+    "h": 0.03251,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label left of C12's body, above Z2",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.09225,
+     "y": 0.46842,
+     "w": 0.013,
+     "h": 0.00857,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C12": {
+   "board": {
+    "x": 0.91043,
+    "y": 0.81858,
+    "w": 0.01744,
+    "h": 0.01393,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; label inside the body rect right of C56, below R83",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.27724,
+     "y": 0.16796,
+     "w": 0.01293,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R85": {
+   "board": {
+    "x": 0.87966,
+    "y": 0.89133,
+    "w": 0.00803,
+    "h": 0.03251,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Placed by eye off a pixel grid; vertical label below Z2, right of R84",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.08681,
+     "y": 0.1091,
+     "w": 0.01293,
+     "h": 0.00811,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U14": {
+   "board": {
+    "x": 0.78598,
+    "y": 0.76904,
+    "w": 0.06444,
+    "h": 0.02755,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye. The reader had U14 on U11's label and it was dropped",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.2192,
+     "y": 0.41994,
+     "w": 0.01721,
+     "h": 0.00819,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "E6": {
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.51066,
+     "y": 0.24204,
+     "w": 0.01863,
+     "h": 0.0188,
+     "placement": "verified",
+     "placementNote": "the 2-position jumper receptacle above the J6 link on the loop filter output beside TP2, drawn as a small labelled box; the reader had E6 on U4's E/Q pin labels."
+    }
+   ],
+   "schVerified": true
+  }
+ },
+ "layers": {
+  "photo": {
+   "landmarks": [
+    {
+     "src": [
+      0.0723,
+      0.2047
+     ],
+     "dst": [
+      0.07,
+      0.2276
+     ],
+     "note": "Top-left mounting hole, centre"
+    },
+    {
+     "src": [
+      0.9261,
+      0.2022
+     ],
+     "dst": [
+      0.9465,
+      0.2305
+     ],
+     "note": "Top-right mounting hole, centre"
+    },
+    {
+     "src": [
+      0.0709,
+      0.9164
+     ],
+     "dst": [
+      0.0735,
+      0.8794
+     ],
+     "note": "Bottom-left mounting hole, centre, beside TP17"
+    },
+    {
+     "src": [
+      0.927,
+      0.9143
+     ],
+     "dst": [
+      0.9412,
+      0.8969
+     ],
+     "note": "Bottom-right mounting hole, centre, beside R79"
+    }
+   ],
+   "approximate": true,
+   "transform": {
+    "H": [
+     1.004482005,
+     0.008219443,
+     -0.004178675,
+     0.000289622,
+     0.933263206,
+     0.036955919,
+     -0.025309248,
+     0.017864738,
+     1.0
+    ]
+   }
+  }
+ },
+ "sheets": {
+  "sh1": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.0066,
+     "y0": 0.0188,
+     "x1": 0.9882,
+     "y1": 0.9815
+    }
+   }
+  },
+  "sh2": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.0096,
+     "y0": 0.0172,
+     "x1": 0.9906,
+     "y1": 0.9844
+    }
+   }
+  },
+  "sh3": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.0,
+     "y0": 0.0173,
+     "x1": 0.9894,
+     "y1": 0.9832
+    }
+   }
+  }
+ }
+}

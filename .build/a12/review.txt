@@ -1,0 +1,30 @@
+1996 parts: duplicate designator R55
+Rev9 parts: stock no 698720 (CR6,CR7,CR8) did not join on stock number
+Rev9 parts: stock no 806497 (Q1) did not join on stock number
+Rev9 parts: stock no 806489 (Q2) did not join on stock number
+Rev9 parts: stock no 574251 (R1,R2,R55) did not join on stock number
+Rev9 parts: stock no 719641 (R3) did not join on stock number
+Rev9 parts: stock no 573279 (R4,R12) did not join on stock number
+Rev9 parts: stock no 573170 (R5,R13,R25,R48,R52,R53) did not join on stock number
+Rev9 parts: stock no 573451 (R14) did not join on stock number
+Rev9 parts: stock no 573329 (R15) did not join on stock number
+Rev9 parts: stock no 641043 (R16) did not join on stock number
+Rev9 parts: stock no 573139 (R17,R39) did not join on stock number
+Rev9 parts: stock no 573238 (R21) did not join on stock number
+Rev9 parts: stock no 573584 (R22,R24,R29,R66) did not join on stock number
+Rev9 parts: stock no 720078 (R26) did not join on stock number
+Rev9 parts: stock no 643494 (R32,R50) did not join on stock number
+Rev9 parts: stock no 721597 (R35,R36,R40,R41) did not join on stock number
+Rev9 parts: stock no 573444 (R43,R63,R64,R65) did not join on stock number
+Rev9 parts: stock no 573246 (R44) did not join on stock number
+Rev9 parts: stock no 573402 (R46) did not join on stock number
+Rev9 parts: stock no 573147 (R47) did not join on stock number
+Rev9 parts: stock no 573394 (R49,R54,R56) did not join on stock number
+Rev9 parts: stock no 720425 (R57) did not join on stock number
+Rev9 parts: stock no 719468 (R58) did not join on stock number
+Rev9 parts: stock no 573311 (R62) did not join on stock number
+U8: Rev 9 groups it with U19 (stock 910708) but the 1996 list gives it stock 586735 -- part changed between revisions
+Rev9 parts: stock no 842591 (U14,U16) did not join on stock number
+Rev9 parts: stock no 698696 (VR1,VR2) did not join on stock number
+Rev9 parts: stock no 722926 (VR3) did not join on stock number
+Rev9 parts: stock no 364000 (Z5) did not join on stock number

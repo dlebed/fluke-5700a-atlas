@@ -1,0 +1,182 @@
+{
+  "_comment": [
+    "A10 Ohms Main PCA -- test point expectations, hand-written.",
+    "",
+    "A10 is the one assembly so far whose published expectations are RESISTANCES",
+    "rather than voltages. The board generates no supply and regulates nothing:",
+    "it takes +/-17 S, S COM, +5 LH / LH COM and +5 RLH / RLH COM from the",
+    "motherboard through P302 and passes them straight to one op amp and nine",
+    "relay drivers. Chapter 2 tabulates none of those rails at an A10 test point,",
+    "and 5-12 measures no voltage anywhere -- every one of its four steps is a",
+    "four- or two-wire ohmmeter reading taken across TP2-TP5.",
+    "",
+    "So the five test points carry no nominal of their own. TP1 is a return; the",
+    "other four are the ohmmeter's terminals, and what has a published value is",
+    "the resistance BETWEEN them. Those seven values are carried as probePoints,",
+    "one per resistance, each citing the step or table it came from.",
+    "",
+    "Signal names and zone references are transcribed from the legend box at",
+    "sheet 1 zone C1, which prints them as 'TP1 = SCOM (PG1B8)'. Four of the five",
+    "printed zones agree with where the flag actually sits; TP3's does not -- see",
+    "the 'legend zone' caveat in data/a10.reference.json."
+  ],
+
+  "rails": {
+    "OHMS": {
+      "label": "Resistance strings and their four-wire connections",
+      "com": "TP3",
+      "color": "#5ec2a8"
+    },
+    "S": {
+      "label": "±17 S analog supply (U1 calibration buffer only)",
+      "com": "TP1",
+      "color": "#a78bda"
+    },
+    "LH": {
+      "label": "+5 LH logic and +5 RLH relay-coil supplies",
+      "color": "#4fa3d1"
+    }
+  },
+
+  "testpoints": [
+    {
+      "ref": "TP1",
+      "signal": "SCOM",
+      "rail": "S",
+      "kind": "wire-loop",
+      "isReturn": true,
+      "source": "Figure 7-10 sheet 1 test point legend (PG1B8); the net is P302 pins 32A/32C, S COM",
+      "note": "The S-supply common, and the reference for the only two supply rails on the board that a meter can usefully be put on: +17 S at P302 30A/30C and -17 S at 31A/31C. It is NOT the common for anything digital -- the relay drivers sit on RLH COM and the logic on LH COM, and neither of those is brought out to a test point on this assembly. §5-12 never uses TP1: all four of its connections are ohmmeter leads onto the resistance strings. Where TP1 earns its keep is confirming that U1's supplies are present before believing an ohms calibration fault, because U1 is the only active analog device on the board."
+    },
+    {
+      "ref": "TP2",
+      "signal": "OHMS SENSE LO",
+      "rail": "OHMS",
+      "kind": "wire-loop",
+      "noPublishedValue": true,
+      "source": "Figure 7-10 sheet 1 test point legend (PG1A7); the net is P301 pins 25A/25C, OHMS SENSE LO",
+      "note": "The sense-low terminal of the four-wire measurement, and §5-12 step 2's '8505A SENSE LO'. The net is the low side of whichever string is selected -- K27B for the 1x string, K39B for the 1.9x string -- and it leaves the board on P301 pins 25A/25C toward the Ohms Cal assembly (A9), where relays connect it to the SENSE LO binding post. No voltage is published for it: it is a four-wire sense lead, and the whole point of a four-wire connection is that no current and therefore no drop appears on it."
+    },
+    {
+      "ref": "TP3",
+      "signal": "OHMS OUT LO",
+      "rail": "OHMS",
+      "kind": "wire-loop",
+      "noPublishedValue": true,
+      "source": "Figure 7-10 sheet 1 test point legend, which prints PG1A8; the flag is drawn in zone A7 (see caveat). The net is P301 pins 24A/24C, OHMS OUT LO",
+      "note": "The current-return terminal of the measurement -- §5-12 step 2's '8505A IN LO', and step 4's 'IN LO' for the two-wire 100 MΩ check. The net is the low side of the selected string through K27A (1x) or K39A (1.9x) and leaves on P301 pins 24A/24C. It is the closest thing A10 has to a measurement common, which is why the probe points below use it as their refPoint, but it is not a supply common and it is not SCOM."
+    },
+    {
+      "ref": "TP4",
+      "signal": "INT OUT HI",
+      "rail": "OHMS",
+      "kind": "wire-loop",
+      "noPublishedValue": true,
+      "source": "Figure 7-10 sheet 1 test point legend (PG1D8); the net is P301 pins 30A/30C, INT OUT HI",
+      "note": "The high end of the selected resistance -- §5-12 step 2's '8505A IN HI' and step 4's 'IN HI'. K1 in the reset position connects the top of a string here; for the 100 MΩ value K5, a non-latching reed, connects it instead and the four-wire connection is abandoned. Motherboard relays carry this net on to the OUTPUT HI binding post. It is also the port through which the Current assembly (A7) injects 0.13 mA to 130 mA during fault codes 3325-3335."
+    },
+    {
+      "ref": "TP5",
+      "signal": "INT SENSE HI",
+      "rail": "OHMS",
+      "kind": "wire-loop",
+      "noPublishedValue": true,
+      "source": "Figure 7-10 sheet 1 test point legend (PG1D8); the net is P301 pins 28A/28C, INT SENSE HI",
+      "note": "The sense-high terminal -- §5-12 step 2's '8505A SENSE HI'. K2 in the reset position connects the top of the selected string here. There is no INT SENSE HI path for the 100 MΩ value, which is two-wire only, so TP5 is unused in §5-12 step 4 and reads open there rather than wrong."
+    }
+  ],
+
+  "probePoints": [
+    {
+      "id": "ohms-10",
+      "label": "10 Ω across TP4/TP3, sensed at TP5/TP2",
+      "component": "Z1",
+      "refPoint": "TP3",
+      "nominal": 10,
+      "tolerancePct": 0.07,
+      "unit": "Ω",
+      "condition": "Calibrator set to 10 Ω, operate, EXT SNS. A10 on the extender card, powered. Four-terminal ohmmeter (Fluke 8505A or equivalent): IN HI to TP4, IN LO to TP3, SENSE HI to TP5, SENSE LO to TP2.",
+      "source": "§5-12 step 2",
+      "note": "The one value §5-12 spells out in full; steps 3 and Table 5-2 repeat the same connection for the rest. The 10 Ω element itself is the bottom resistor of the 1x string inside Z1. Everything between the test points and it is relay contacts, which is why step 2's failure branch sends you to the relay chart (schematic sheets 3 and 4) rather than to a component.",
+      "onFail": ["K1", "K2", "K15", "K16", "K27", "Z1"]
+    },
+    {
+      "id": "ohms-19",
+      "label": "19 Ω across TP4/TP3, sensed at TP5/TP2",
+      "component": "Z1",
+      "refPoint": "TP3",
+      "nominal": 19,
+      "tolerancePct": 0.07,
+      "unit": "Ω",
+      "condition": "Calibrator set to 19 Ω, operate, EXT SNS. Same four-terminal connection as the 10 Ω check.",
+      "source": "§5-12 step 3 and Table 5-2",
+      "note": "The first of the 1.9x series. The 19 Ω element is in Z1, in the same package as the 1x low decades, but it is reached through a different set of relays -- K35/K36 and K39 rather than K15/K16 and K27 -- so a 1.9x series that is wrong at every value while the 1x series is right is a relay fault, not a network fault.",
+      "onFail": ["K1", "K2", "K35", "K36", "K37", "K39", "Z1"]
+    },
+    {
+      "id": "ohms-100",
+      "label": "100 Ω across TP4/TP3, sensed at TP5/TP2",
+      "component": "Z1",
+      "refPoint": "TP3",
+      "nominal": 100,
+      "tolerancePct": 0.03,
+      "unit": "Ω",
+      "condition": "Calibrator set to 100 Ω, operate, EXT SNS. Same four-terminal connection as the 10 Ω check.",
+      "source": "§5-12 step 3 and Table 5-2",
+      "note": "100 Ω is the 90 Ω and 10 Ω elements of Z1 in series. Note the tolerance tightens here: Table 5-2 allows ±0.07 % at 10 Ω and 19 Ω and ±0.03 % from 100 Ω up, because the lead and contact resistance that the four-wire connection cannot remove is a larger fraction of a smaller value.",
+      "onFail": ["K1", "K2", "K15", "K16", "K27", "Z1"]
+    },
+    {
+      "id": "ohms-190",
+      "label": "190 Ω across TP4/TP3, sensed at TP5/TP2",
+      "component": "Z1",
+      "refPoint": "TP3",
+      "nominal": 190,
+      "tolerancePct": 0.03,
+      "unit": "Ω",
+      "condition": "Calibrator set to 190 Ω, operate, EXT SNS. Same four-terminal connection as the 10 Ω check.",
+      "source": "§5-12 step 3 and Table 5-2",
+      "note": "The 171 Ω and 19 Ω elements of Z1 in series.",
+      "onFail": ["K1", "K2", "K35", "K36", "K37", "K39", "Z1"]
+    },
+    {
+      "id": "ohms-1k",
+      "label": "1 kΩ across TP4/TP3, sensed at TP5/TP2",
+      "component": "Z1",
+      "refPoint": "TP3",
+      "nominal": 1000,
+      "tolerancePct": 0.03,
+      "unit": "Ω",
+      "condition": "Calibrator set to 1 kΩ, operate, EXT SNS. Same four-terminal connection as the 10 Ω check.",
+      "source": "§5-12 step 3 and Table 5-2",
+      "note": "The whole 1x low-decade half of Z1: 900 + 90 + 10. This is also the node where Z2's 9 kΩ element joins the string to make 10 kΩ, so a 1 kΩ that is right and a 10 kΩ that is wrong points at Z2 rather than Z1.",
+      "onFail": ["K1", "K2", "K15", "K16", "K27", "Z1"]
+    },
+    {
+      "id": "ohms-1k9",
+      "label": "1.9 kΩ across TP4/TP3, sensed at TP5/TP2",
+      "component": "Z1",
+      "refPoint": "TP3",
+      "nominal": 1900,
+      "tolerancePct": 0.03,
+      "unit": "Ω",
+      "condition": "Calibrator set to 1.9 kΩ, operate, EXT SNS. Same four-terminal connection as the 10 Ω check.",
+      "source": "§5-12 step 3 and Table 5-2",
+      "note": "The whole 1.9x low-decade half of Z1: 1710 + 171 + 19. Table 5-2 stops here. Nothing between 1.9 kΩ and 100 MΩ has a published bench tolerance -- for 10 kΩ to 19 MΩ the only published expectations are the ratio and check fault codes 3313 to 3332.",
+      "onFail": ["K1", "K2", "K35", "K36", "K37", "K39", "Z1"]
+    },
+    {
+      "id": "ohms-100m",
+      "label": "100 MΩ across TP4/TP3 (two-wire)",
+      "component": "R1",
+      "refPoint": "TP3",
+      "nominal": 100000000,
+      "tolerancePct": 5.0,
+      "unit": "Ω",
+      "condition": "Ohmmeter set up for a TWO-wire resistance measurement: IN HI to TP4, IN LO to TP3 only. Calibrator set to 100 MΩ, operate, INT SNS -- note INT SNS here, where every other step in §5-12 uses EXT SNS.",
+      "source": "§5-12 step 4",
+      "note": "The only two-wire measurement in the procedure and the only one with a percentage tolerance rather than a part-per-ten-thousand one, because a 90 MΩ film resistor cannot be held to 0.03 % and because at 100 MΩ the sense leads would contribute more error than they remove. 100 MΩ is R1 (90 MΩ) in series with the top of the decade string at the 10 MΩ tap. K5, a non-latching reed, is what puts it in circuit -- so unlike the lower values this path CANNOT be traced with the power off. The printed step 4 ends 'check relay K5 and90.' with the rest of the sentence reflowed to the head of step 1; see the 'step 4' caveat.",
+      "onFail": ["K5", "R1", "Z2"]
+    }
+  ]
+}

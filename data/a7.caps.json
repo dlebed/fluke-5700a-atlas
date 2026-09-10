@@ -1,0 +1,180 @@
+{
+ "_comment": [
+  "Which rail each capacitor sits on, and what that rail runs at.",
+  "The rated voltage is NOT here -- it is read from the parts list at run time,",
+  "so a corrected BOM corrects this too.",
+  "",
+  "source: 'schematic' means the net was traced on the Chapter 7 sheet named in",
+  "the note, at full resolution. Every one of the twenty entries here was traced;",
+  "none is inferred. appliedV: null would mean untraced, and nothing here is.",
+  "",
+  "A7 has twenty electrolytics: sixteen tantalum and four aluminium. The rail",
+  "voltages come from A17's dataset, which reads them off Table 2-10 and the",
+  "Figure 7-21 sheet 1 annotations -- +17 S is 17.475 V and -17 S is -17.865 V,",
+  "not a round 17 -- because A7 makes no supply of its own and every rail here",
+  "arrives on P212. Magnitudes are entered unsigned.",
+  "",
+  "railClass is how much energy is behind the rail, which decides what a shorted",
+  "part does. These letters are this board's:",
+  "  A  +/-17 S from A17's regulators, referenced to S COM. Regulated, and not",
+  "     fused anywhere on this board -- A17's protection is upstream of P212.",
+  "  B  +5 LH, -5 LH and +5 RLH logic supplies from A17, referenced to LH COM.",
+  "     Regulated.",
+  "  C  +/-17 LH, made on THIS board by chokes L7 and L8 from +/-17 S. Same",
+  "     energy as class A, different common -- the only rails A7 derives itself.",
+  "  D  +8 RLH, which is not what its name suggests: 2-73 says it is the",
+  "     UNREGULATED +5 LHR from the Filter assembly, fused at 3.15 A by F1 on",
+  "     A17, and fault code 3609 accepts +10 V to +20 V for it. The one rail on",
+  "     this board whose voltage is not tightly held. No electrolytic sits",
+  "     directly across it: C15, which used to be recorded on it, is across",
+  "     Q1's emitter-base junction instead -- see that entry.",
+  "  E  a node inside a circuit rather than a rail.",
+  "",
+  "Audit note, 2026-08: C15 was re-traced and corrected from 15 V to 0.8 V.",
+  "Nothing else on this board changed. The board's tightest tantalums are now",
+  "the 4.7 uF 25 V population on +/-17 S and +/-17 LH, at 70-72 % of rating."
+ ],
+ "assembly": "A7",
+ "caps": {
+  "C15": {
+   "net": "Across Q1 (TIP32) emitter-base — +8 RLH emitter stub to HR2 pin 6",
+   "appliedV": 0.8,
+   "railClass": "E",
+   "source": "schematic",
+   "note": "CORRECTED 2026-08 by the tantalum audit. This entry previously read 15 V — 94 % of a 16 V part, the worst ratio in the instrument — on the strength of C15 being 'across Q1 collector to emitter'. Re-read at 400 dpi on Figure 7-7 sheet 2 of 4 (Ch7 PDF page 27), in the HYBRID HEATER CONTROL CIRCUIT block, that is not what the sheet draws. Q1 is a TIP32 PNP. Its EMITTER goes up to the +8 RLH stub. Its COLLECTOR goes down-left to the node that carries C1 (0.22 µF to S COM) and then across to HR2 pin 1, the 42 Ω heater element. Its BASE leaves the base bar horizontally to the right and runs to HR2 pin 6, the hybrid's heater-control output — and C15's second plate lands on THAT line, at the junction dot between the base bar and pin 6. So C15 bridges emitter to base, not emitter to collector: it is the pass transistor's base-emitter bypass. The E-B junction forward-conducts, so the voltage across C15 is clamped at V_EB, about 0.7-0.8 V while the heater is driven, falling to zero when the hybrid stops sinking base current. The base cannot be pulled above the emitter (pin 6 only sinks, through an internal resistor to S COM), so there is no reverse case either. 0.8 V matches the identical construct on A15 (C14 across Q8, C19 across Q18), on A11 (C19/C20 across Q2/Q3) and on A16 (C45 across Q38) — all TIP32 heater pass transistors, all with the tantalum across E-B, all the same 2.2 µF part family. Polarity: the sheet marks '+' on the +8 RLH plate, which is correct, the emitter being the positive end of a conducting PNP E-B junction. 5 % of a 16 V rating. The 16 V part is right where it is and needs no upsizing; the earlier advice to fit 25 V or 35 V was based on the wrong node. The +8 RLH rail itself (§2-73: the unregulated +5 LHR fused at 3.15 A by F1 on A17; fault code 3609 accepts +10 V to +20 V) never appears across this capacitor."
+  },
+  "C7": {
+   "net": "-17 S",
+   "appliedV": 17.865,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "Sheet 2 of 4: decoupling the -17 S rail at the 220 µA/2.2 mA transconductance amplifier, beside R12/R13 and K3. 72 % of a 25 V part — the whole board's 4.7 µF/25 V population sits at this ratio on the ±17 rails, which is fine but leaves no margin for a rail that has drifted."
+  },
+  "C24": {
+   "net": "-17 S",
+   "appliedV": 17.865,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "Sheet 3 of 4: the -17 S bypass on the load side of choke L3, at the supply entry from P212 pins 6A/6C. Its partner on the source side of L3 is C61."
+  },
+  "C61": {
+   "net": "-17 S",
+   "appliedV": 17.865,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "Sheet 3 of 4: the -17 S bypass on the source side of choke L3, straight across P212 pins 6A/6C to S COM. Same rail and same margin as C24."
+  },
+  "C38": {
+   "net": "-17 LH",
+   "appliedV": 17.865,
+   "railClass": "C",
+   "source": "schematic",
+   "note": "Sheet 4 of 4: bypasses the -17 LH rail to LH COM at Q15's emitter, in the VCO supply switch. -17 LH is +/-17 S brought through choke L8, so it runs at the same magnitude with a different common."
+  },
+  "C53": {
+   "net": "-17 LH",
+   "appliedV": 17.865,
+   "railClass": "C",
+   "source": "schematic",
+   "note": "Sheet 3 of 4: the reservoir for the -17 LH rail that choke L8 derives from -17 S, to LH COM. This is the rail U20's loop filter and the VCO supply switch run on."
+  },
+  "C6": {
+   "net": "+17 S",
+   "appliedV": 17.475,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "Sheet 2 of 4: decoupling +17 S at the 220 µA/2.2 mA transconductance amplifier, the mirror of C7. 70 % of a 25 V part."
+  },
+  "C23": {
+   "net": "+17 S",
+   "appliedV": 17.475,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "Sheet 3 of 4: the +17 S bypass on the load side of choke L2, at the supply entry from P212 pins 7A/7C. Its partner on the source side of L2 is C60."
+  },
+  "C60": {
+   "net": "+17 S",
+   "appliedV": 17.475,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "Sheet 3 of 4: the +17 S bypass on the source side of choke L2, straight across P212 pins 7A/7C to S COM."
+  },
+  "C52": {
+   "net": "+17 LH",
+   "appliedV": 17.475,
+   "railClass": "C",
+   "source": "schematic",
+   "note": "Sheet 3 of 4: the reservoir for the +17 LH rail that choke L7 derives from +17 S, to LH COM."
+  },
+  "C13": {
+   "net": "-17 S",
+   "appliedV": 17.865,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "Sheet 2 of 4: a 47 µF aluminium can on -17 S at the 22 mA/220 mA transconductance amplifier, where the current is. 36 % of a 50 V part, so voltage is not its problem — capacitance loss and ESR are, and this is one of only four wet electrolytics on the board. It and C12 are the reservoirs for the stage that sources up to 220 mA."
+  },
+  "C12": {
+   "net": "+17 S",
+   "appliedV": 17.475,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "Sheet 2 of 4: the +17 S half of the 22 mA/220 mA amplifier's reservoir pair with C13. Aluminium, 47 µF, 35 % of a 50 V part."
+  },
+  "C21": {
+   "net": "+5 LH",
+   "appliedV": 5.1,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "Sheet 3 of 4: bypasses the +5 LH logic rail to LH COM on the load side of choke L1, at the supply entry from P212 pins 13A/13C. 5.1 V is A17's TP11 value from Table 2-10."
+  },
+  "C22": {
+   "net": "-5 LH",
+   "appliedV": 5.0,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "Sheet 3 of 4: the -5 LH half of the logic supply entry, on the load side of choke L9 from P212 pins 9A/9C. -5 LH feeds U13's negative supply and the SDL clamp diode CR2."
+  },
+  "C40": {
+   "net": "+5 LH",
+   "appliedV": 5.1,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "Sheet 4 of 4: decoupling +5 LH at synthesiser U17's supply pin, in the 5-500K divider."
+  },
+  "C43": {
+   "net": "+5 LH",
+   "appliedV": 5.1,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "Sheet 4 of 4: decoupling +5 LH at synthesiser U16's supply pin, behind choke L5 (6 turns), in the phase detector/divider block."
+  },
+  "C70": {
+   "net": "+5 LH, in series with R95 — the relay drivers' power-on CLR network",
+   "appliedV": 5.1,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "Sheet 3 of 4, and NOT a decoupler despite looking like one: C70 (47 µF) runs from +5 LH down to a node that R95 (1.5 kΩ) ties to LH COM, and that node is the CLR input of relay drivers U8, U9 and U10. It is the power-on reset that clears the latches before the software writes to them. At steady state no current flows through R95, so the node sits at LH COM and the full +5 LH stands across the capacitor — 10 % of a 50 V part. What matters here is not voltage margin but capacitance: a dried-out C70 shortens or loses the CLR pulse, and the relays come up in whatever state they were left in."
+  },
+  "C37": {
+   "net": "VCO supply, U19 pin 8 (-5.25 V)",
+   "appliedV": 5.25,
+   "railClass": "E",
+   "source": "schematic",
+   "note": "Sheet 4 of 4: the VCO's supply bypass, from U19 pin 8 to LH COM with its + plate on LH COM. The -5.25 V is made by VR3 (5.6 V) switched onto -17 LH by Q15, with R64 (10 Ω) between the zener and the chip — so this capacitor sits on the chip side of R64 and sees 5.25 V, not the 17.9 V of the rail feeding it. §5-8 step 5 measures exactly this node. 21 % of a 25 V part."
+  },
+  "C39": {
+   "net": "Hi-res output coupling, Q16 emitter to U18D pin 7",
+   "appliedV": 5,
+   "railClass": "E",
+   "source": "schematic",
+   "note": "Sheet 4 of 4: the coupling capacitor between the output emitter follower Q16 and the analog switch U18D that puts the square wave onto P LOCK HI. Its + plate is on Q16's emitter, which is driven from a 0 to +5 V logic swing through R91/R92 and pulled down by R93 (3 kΩ) to -17 S, so the DC on that plate cannot exceed about +5 V in normal operation — 20 % of a 25 V part. The rail bound is what to use if Q16 fails on: its collector is +17 S, which would put the node at 17.5 V and this part at 70 %. Recorded at the operating value rather than the rail, which is the lesson A12's C1 and C2 taught."
+  },
+  "C14": {
+   "net": "Current/compliance monitor averaging, across U6A's feedback",
+   "appliedV": 2.5,
+   "railClass": "E",
+   "source": "schematic",
+   "note": "Sheet 1 of 4, and the one capacitor on this board that is functional rather than decoupling: C14 sits across R32 in U6A's feedback and averages the absolute-value circuit's output into the dc voltage that appears at TP9 as CUR/COMP MONITOR (§2-197). One plate is U6A's summing node at a virtual ground, the other its output, which runs from about 0.24 V at 200 mA (§5-7 step 13) up to roughly 2.2 V at full scale — so 2.5 V is the operating ceiling, 7 % of this 6.8 µF/35 V aluminium can. Voltage is not the risk here; capacitance is. A drifted C14 changes the settling time of every ac current measurement the diagnostics make, so it presents as fault codes 2706 and 2709 being intermittent or range-dependent rather than as ripple. If U6A saturated it could reach the ±17 S rails, which is still only half the rating."
+  }
+ }
+}

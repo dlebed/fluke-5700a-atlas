@@ -1,0 +1,128 @@
+{
+  "_comment": [
+    "A16A1 Power Amplifier Digital Control SIP PCA -- curated reference data.",
+    "Sources: §2-140 (theory), §2-66 (the +/-PA supply control lines it drives),",
+    "§5-2 fault codes 3500-3503, 3521 and 3530, Table 6-21 and sheet 5700A-1071.",
+    "Chapter 5 has no section for this board, so the six fault codes are the",
+    "published procedure and are carried as faultCodes here."
+  ],
+  "overview": {
+    "summary": "The digital half of the Power Amplifier, on its own SIP plugged into the bottom of A16. An 82C55 programmable peripheral interface (U11) on the guarded digital bus generates 24 outputs: port A is a common data bus into two 5801 relay drivers, U10 for the four latching relays K1-K4 on A16 (lines LC0*-LC7*) and U12 for the non-latching relays K10-K17 and FETs Q57/Q58 (lines C0*-C7*), each driver strobed and enabled from port C. Port B goes through the two LM339 comparators U13 and U15 to make control lines SW0-SW7: SW0-SW2 feed the 74LS138 decoder U9, whose CONT0*-CONT7* outputs switch FETs and solid-state switches on A16; SW3 drives Q50/Q51; and SW4-SW7 leave through the motherboard to the Filter/PA Supply (A18) to set the +PA and -PA supplies to their +/-185 V or +/-365 V modes. A 4051 analog multiplexer (U14), addressed by PC0-PC3, selects one of eight diagnostic MUX signals from A16 onto the SDL line for the adc on the DAC assembly.",
+    "sections": "§2-140, §2-66",
+    "note": "Everything this board does is visible only through A16: its outputs drive A16's relays and switches, and its one input from the analog side is the eight MUX lines. Fault codes 3500 to 3503 exercise U11 directly; 3521 is the power-up 'is A16 responding' test that is really asking whether this SIP answers on the bus; 3530 catches a lost control word. The two 26-pin headers P1 and P2 are the whole interface, and reseating the SIP is the first step for any of those codes."
+  },
+  "railCircuits": {
+    "LH": {
+      "rails": "+5 LH, +5 RLH, LH COM, RLH COM",
+      "regulators": [],
+      "filters": ["C52", "C55", "C57"],
+      "protection": ["L4"],
+      "tps": [],
+      "note": "The SIP has no regulator of its own: +5 LH arrives on P2 for the logic and +5 RLH through choke L4 for the relay drivers' +VS pins. C52 (15 uF aluminium) is the one electrolytic on the board, the reservoir on the +5 RLH side."
+    },
+    "CTRL": {
+      "rails": "LC0*-LC7*, C0*-C7*, CONT0*-CONT7*, SW0-SW7",
+      "regulators": ["U11", "U10", "U12", "U13", "U15", "U9"],
+      "filters": ["C53", "C54", "C56"],
+      "protection": ["Z1", "Z2", "R101", "R102"],
+      "tps": [],
+      "note": "The control lines leave on P1 (relay drives and CONT*) and P2 (SW0-SW7). Z1 is the 47 k pull-up network on the comparator outputs, Z2 the 4.7 k dividers on the MUX inputs. R101/C53 and R102/C54 form the RC network on U11's reset."
+    }
+  },
+  "faultCodes": [
+    {
+      "code": "3500",
+      "title": "A16: 8255 Control Word",
+      "measure": "The diagnostics software reads the control word of the 8255 IC on the Power Amplifier assembly.",
+      "expected": "The control word reads back as written",
+      "verdict": "The manual blames the Power Amplifier (A16), but the 8255 is U11 on this SIP. Check that the SIP is seated on P1 and P2 and that the guarded digital bus reaches it from A16's P702 before suspecting U11 itself. With 3501-3503 also failing, suspect the bus or the SIP's +5 LH; on its own, U11.",
+      "refs": ["U11", "P1", "P2"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3501",
+      "title": "A16: 8255 Port A",
+      "measure": "The diagnostics software writes and reads data to port A of the 8255 IC on the Power Amplifier assembly.",
+      "expected": "Port A reads back what was written",
+      "verdict": "Port A of U11 is the common input bus to both 5801 relay drivers, so a failure here means no relay on A16 can be trusted; every relay-dependent symptom on A16 is downstream of it. Suspect U11 first, then a stuck input on U10 or U12 loading the bus.",
+      "refs": ["U11", "U10", "U12"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3502",
+      "title": "A16: 8255 Port B",
+      "measure": "The diagnostics software reads port B of the 8255 IC on the Power Amplifier assembly.",
+      "expected": "Port B reads back correctly",
+      "verdict": "Port B feeds the two LM339 comparators that make SW0-SW7, so a failure here takes out the CONT* lines through U9, the SW3 FET drive and the +/-PA supply mode lines to A18 together. Suspect U11, then a shorted comparator input on U13 or U15.",
+      "refs": ["U11", "U13", "U15"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3503",
+      "title": "A16: 8255 Port C",
+      "measure": "The diagnostics software reads port C of the 8255 IC on the Power Amplifier assembly.",
+      "expected": "Port C reads back correctly",
+      "verdict": "Port C carries the strobe and enable lines for the relay drivers (PC4-PC7) and the multiplexer address (PC0-PC3). A failure here means the relays cannot be strobed and the diagnostics cannot select a MUX signal, so expect it alongside every other 35xx code. Suspect U11.",
+      "refs": ["U11", "U14"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3521",
+      "title": "Assembly A16 Is Not Responding",
+      "measure": "At power up the instrument checks to see what assemblies are not installed. This test verifies that the Power Amplifier is not responding.",
+      "expected": "The Power Amplifier answers on the guarded digital bus",
+      "verdict": "The part that answers is U11 on this SIP, so 'A16 not responding' with A16 fitted means the SIP is missing, unseated on P1/P2, without +5 LH, or has a dead U11. Check the headers and the +5 LH at P2 before anything on the main board.",
+      "refs": ["U11", "P1", "P2"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3530",
+      "title": "A16: 8255 Was Reset",
+      "measure": "The control word of the 8255 on the Power Amplifier is read.",
+      "expected": "The control word is still the one the software wrote",
+      "verdict": "A spontaneous reset of U11 points at its supply or at noise on the guarded digital bus rather than at the device -- and it means every relay on A16 has silently returned to its power-up state, so expect a crop of unrelated-looking symptoms alongside it. Check the reset RC network R101/C53 and R102/C54 and the +5 LH at P2.",
+      "refs": ["U11", "R101", "R102", "C53", "C54", "P2"],
+      "source": "§5-2"
+    }
+  ],
+  "componentNotes": {
+    "U11": "82C55 programmable peripheral interface, the heart of the board: three ports, 24 outputs, driven from the guarded digital bus through P2. Port A is the data bus to both relay drivers, port B goes through the comparators to make SW0-SW7, and port C supplies the driver strobes and enables (PC4-PC7) and the multiplexer address (PC0-PC3). Fault codes 3500-3503, 3521 and 3530 all test this device.",
+    "U10": "5801 BiMOS relay driver for the four latching relays K1-K4 on A16 (LC0*-LC7*), strobed by PC7 and enabled by PC5. Latching relays only need to be energised for 10 ms, so its outputs are pulsed. Note there is a different U10 on A16 itself, an LM34 temperature sensor.",
+    "U12": "5801 BiMOS relay driver for the non-latching relays K10-K17 on A16 (C0*-C7*), strobed by PC4 and enabled by PC6; C0* also drives FETs Q57 and Q58 on A16. Non-latching relays must be held energised, so this driver's outputs stay on.",
+    "U13": "LM339 quad comparator making SW0-SW3 from port B bits PB0-PB3, pulled up by Z1. SW0-SW2 address decoder U9; SW3 drives FETs Q50 and Q51 on A16.",
+    "U15": "LM339 quad comparator making SW4-SW7 from PB4-PB7. These four lines leave through the motherboard to the Filter/PA Supply (A18) as +HI/LO V, LO/HI I, +ON/OFF and H/LV S, and set the +/-PA supplies to +/-185 V or +/-365 V (§2-66).",
+    "U9": "74LS138 3-to-8 line decoder driven by SW0-SW2, producing CONT0*-CONT7* for the FETs and solid-state switches on A16. Note there is a different U9 on A16 itself, a chopper-stabilised op amp.",
+    "U14": "4051 analog multiplexer addressed by PC0-PC3 of U11. It selects one of the eight diagnostic MUX signals from A16 (loop status, +PA, -PA, output, temperature, dc input, heater state) onto the SDL line for the adc on the DAC assembly. Every 35xx code that measures something on A16 measures it through this device.",
+    "Z1": "47 k SIP pull-up network on the open-collector comparator outputs SW0-SW7. Note there is a different Z1 on A16, the attenuator network.",
+    "Z2": "4.7 k SIP resistor network dividing the MUX signals down to a level the adc can read (§2-140).",
+    "L4": "6-turn choke in the +5 RLH feed to the relay drivers, keeping relay switching noise off the logic supply.",
+    "C52": "15 uF 35 V aluminium electrolytic, the reservoir on the +5 RLH side of L4 and the only electrolytic on the board.",
+    "R101": "1 k metal film with C53 in the 82C55 reset network; fault code 3530 points here.",
+    "R102": "16 k with C54, the second RC in the reset network.",
+    "P1": "26-pin right-angle header carrying the relay drive lines LC0*-LC7*, C0*-C7* and CONT0*-CONT7* into A16.",
+    "P2": "26-pin right-angle header carrying the guarded digital bus, the +5 LH / +5 RLH supplies, the eight MUX inputs and SW0-SW7. The SIP's whole connection to the instrument is P1 and P2.",
+    "MP3": "10-pin right-angle header, unused in the circuit; a test header. Note there is a different MP3 on A16, the air duct divider."
+  },
+  "caveats": [
+    {
+      "title": "Its fault codes are titled A16",
+      "text": "Codes 3500, 3501, 3502, 3503, 3521 and 3530 all say 'the 8255 IC on the Power Amplifier assembly' and end 'the Power Amplifier assembly (A16) is probably at fault'. There is no 8255 on A16: it is U11 here. The codes are carried on this board rather than on A16 because the parts they exercise are here, and A16's own dataset points across to this one."
+    },
+    {
+      "title": "Designators collide with A16",
+      "text": "The SIP numbers its parts in the same series as its parent. U9 is a 74LS138 decoder here and a chopper-stabilised op amp on A16; U10 is a 5801 relay driver here and an LM34 temperature sensor there; Z1 is a 47 k pull-up network here and the 400 k/4 k attenuator there; C57 is 0.22 uF polyester here and 100 pF 1000 V ceramic there; R2 is 1 k here and 10 k there; MP3 is a 10-pin header here and the air duct divider there. Read every designator in §2-140 as belonging to this board and everything in §2-141 onward as belonging to A16."
+    },
+    {
+      "title": "No test points, no supply table, no photograph",
+      "text": "The drawing and the sheet carry no test points, no Chapter 2 table covers the board and no photograph of it exists in this project, so the Test points tab is empty, the photo display modes have nothing to show and the recap audit covers the one electrolytic. The one measurable point worth recording, U11's reset pin, is given as a probe point."
+    },
+    {
+      "title": "R2 appears in the parts list but not on the drawing",
+      "text": "Table 6-21 lists 'R2,R106 RES,CF,1K' for a quantity of two, but the locator drawing 5700A-1671 prints only R106, and the sheet draws a single 1 k resistor R106 on the SDL line and nothing named R2. R2 is kept in the parts list and marked not-on-drawing rather than invented a position."
+    },
+    {
+      "title": "The drawing prints 'A91' in its corner",
+      "text": "Locator 5700A-1671 carries the legend 'A91' at its top left where the other locators print the assembly number. It is the artwork's own identifier, not a designator; the assembly is A16A1 (Figure 7-20, Table 6-21)."
+    }
+  ]
+}

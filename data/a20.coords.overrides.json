@@ -1,0 +1,815 @@
+{
+  "_comment": [
+    "Hand corrections to the OCR pass, folded in by tools/build_coords.py.",
+    "Positions are pixels of .build/a20/drawing_full.png (6120 x 2035) for the",
+    "board, and of .build/a20/schN_full.png for the sheets -- NOT of the",
+    "downscaled images the browser loads. The five sheets are all different",
+    "sizes, so sheetImageSize carries one entry per sheet."
+  ],
+  "imageSize": { "w": 6120, "h": 2035 },
+  "sheetImageSize": {
+    "sh1": { "w": 6340, "h": 3880 },
+    "sh2": { "w": 6375, "h": 3865 },
+    "sh3": { "w": 6353, "h": 3881 },
+    "sh4": { "w": 6378, "h": 3880 },
+    "sh5": { "w": 6360, "h": 3886 }
+  },
+  "_dropComment": [
+    "Fifteen board markers the reader placed on another part's label. Every one",
+    "of the 126 markers it produced was rendered onto drawing_full.png and looked",
+    "at, tier by tier. The result:", "", "    agreed      85 of 85 correct",
+    "    single       6 of 6  correct", "    ambiguous    6 of 9  correct",
+    "    collision   13 of 26 correct", "",
+    "which is the pattern references/pitfalls.md predicts, with one pleasant",
+    "surprise: `agreed` was clean on this board, as it was on A12's, rather than",
+    "carrying the four bad markers A17's did. The collisions are all one shape --",
+    "two designators contesting a single silkscreen label, one of them right --",
+    "so they come in pairs: C1 landed on C126, C104 on C109, C124 on C129, C14",
+    "and C16 on C10 and C11, C15 on C152, C9 and C4 on C2 and C9, R7 on C131,",
+    "U1 on TP5, U2 on U20, U5 on U8, U4 on U41.", "",
+    "These are dropped rather than nudged, because a marker on a neighbour's",
+    "label is worse than no marker: it sends a probe to the wrong part and it",
+    "makes the coverage badge lie in the comfortable direction. Dropped, they",
+    "count as unplaced, which is the truth. Placing them by hand is outstanding",
+    "work and is listed as such in the report.", "",
+    "T1 and DS1 are a different case and are also in notOnDrawing below: they are",
+    "Series II designators for parts this build calls T51 and CR1, so there is no",
+    "silkscreen anywhere on this drawing for them to sit on. The reader's DS1",
+    "marker had merged several unrelated reads and spanned a third of the board,",
+    "which is the A18 MP2 and A19 H7 failure again -- a truncation or a merge",
+    "quietly promoting a part with no designator into one that looks placed.",
+    "",
+    "That outstanding work is now done: C1, C4, C9, C104, C124, U1, U2, U4 and U5",
+    "are hand-placed in the board block below, on the labels and outlines that are",
+    "actually theirs. They stay listed here because the entry records what the",
+    "reader got wrong, and build_coords.py prefers a hand placement over a read in",
+    "any case. C14, C15, C16 and R7 stay dropped and are now in notOnDrawing as",
+    "well: the reader's reads for them were on C10, C11, C152 and C131, and the",
+    "parts themselves are Series II surface-mount and not on this build."
+  ],
+  "drop": [
+    "C1", "C4", "C9", "C14", "C15", "C16", "C104", "C124", "DS1", "R7", "T1",
+    "U1", "U2", "U4", "U5"
+  ],
+  "_notOnDrawingComment": [
+    "Parts with no silkscreen designator on the locator drawing. Counting them",
+    "as unplaced would make the coverage badge lie and send someone hunting for",
+    "a rivet that was never drawn. Three groups:", "",
+    "  The IC sockets X5, X6, X8, X10, X13 and X15-X24. A socket has no",
+    "  designator of its own -- it sits under the IC it holds and is named after",
+    "  it. Fourteen of them, and they are the reason this board can be repaired",
+    "  at all: every EPROM, the RAM, the EEPROM and the processor are socketed.",
+    "",
+    "  The hardware: H3-H6 (rivets), M3/M4 (adhesive rubber feet), MP1/MP2 (the",
+    "  nylon ejector ears) and MP7/MP8 (adhesive pads). None is drawn with a",
+    "  designator. Note MP1 means two different things in the two parts lists --",
+    "  the bare printed circuit board in the Series II list, an ejector in Rev",
+    "  9's -- and neither has a silkscreen label either way.", "",
+    "  DS1 and XBT1, which are Series II surface-mount parts that do not exist",
+    "  on this build at all. The reset lamp here is CR1 and the cell is soldered",
+    "  in at BT1, so there is no DS1 or XBT1 footprint on the drawing to place",
+    "  them on. They stay in the parts list because a Series II board would need",
+    "  them.", "",
+    "  The Series II surface-mount parts that this build simply does not have:",
+    "  C7, C14, C15, C16, C18, C107, C142 (0.1uF 0805 bypass), R2 and R7 (zero",
+    "  ohm 1206), R8 and R9 (75R) and R10-R17 (10K and 1K 1206). Every one is in",
+    "  the 1996 Series II list with no as-built counterpart in Rev 9, and that",
+    "  turns out to be the whole rule on this board: of the 28 parts listed only",
+    "  as Series II, the 26 that are not test points appear on neither the",
+    "  drawing nor any of the five sheets, while every Series II part that does",
+    "  carry an as-built row is placed. The through-hole build does the same job",
+    "  with the resistor networks Z1-Z5, which is visible on sheet 1 as 4.7K",
+    "  network sections where the SMD board had discretes. Each was searched for",
+    "  with find_in_image over the whole drawing and looked at in full-resolution",
+    "  crops; the reader's own hits for them on sheets 1-5 were rendered and are",
+    "  every one a pin or port label -- R16 on A16, R17 on A17, R2 on A21, C14 on",
+    "  D14, C15 on D15, C16 on CLK, C18 on D10, C7 on the O7 pin of U15.",
+    "",
+    "  R81, which is the odd one out: it is in the Rev 9 list, not the Series II",
+    "  one, sharing stock number 573030 and a quantity of two with R82. Only one",
+    "  150R footprint is drawn, and it is labelled R82; sheet 4 likewise shows a",
+    "  single R82 150 across the 3.6864MHZCLK output. find_in_image found no R81",
+    "  on the drawing or on sheet 4 and no reader pass on any of the six images",
+    "  produced one. Recorded here as a parts-list-to-artwork discrepancy rather",
+    "  than hunted for further."
+  ],
+  "notOnDrawing": [
+    "X5", "X6", "X8", "X10", "X13", "X15", "X16", "X17", "X18", "X19", "X20",
+    "X21", "X22", "X23", "X24", "H3", "H4", "H5", "H6", "M3", "M4", "MP1",
+    "MP2", "MP7", "MP8", "DS1", "XBT1", "T1", "C7", "C14", "C15", "C16",
+    "C18", "C107", "C142", "R2", "R7", "R8", "R9", "R10", "R11", "R12",
+    "R13", "R14", "R15", "R16", "R17", "R81"
+  ],
+  "_boardComment": [
+    "Every test point placed by hand, which is the rule rather than a reaction to",
+    "a bad read: on this drawing the pad is a short dash 40-75 px from its",
+    "silkscreen number, and a marker centred on the number sends a probe to the",
+    "wrong place. Each box below spans the number and the pad together, measured",
+    "off a 50 px grid over drawing_full.png.", "",
+    "Nine were measured pad and label: TP1, TP3, TP4, TP5, TP7, TP8, TP9, TP10",
+    "and TP11. Four -- TP6, TP12, TP13 and TP14 -- are the reader's verified",
+    "label box widened by a margin, because their pads could not be told apart",
+    "from neighbouring artwork at the grid resolution used: TP6's from SW1's",
+    "switch outline, and TP13/TP14's from the polarity marking under BT1. Those",
+    "four are honest to within about 60 px and are flagged here rather than",
+    "presented as measurements.", "",
+    "TP4 and TP9 needed placing outright as well as widening. TP4's only read was",
+    "on TP1's label at the far left of the board, 5 000 px from where it belongs,",
+    "and TP9 was never found at all -- the same TP9 blind spot A18 hit, where the",
+    "reader takes the 9 for an S.", "",
+    "The thirteen sit in four groups: TP1 alone at the top left corner, TP3 and",
+    "TP8 together left of centre, TP12 alone above U23, TP4-TP7 and TP9-TP11 in",
+    "the row across the top right beside SW1 and U1, and TP13/TP14 across the",
+    "battery BT1. That matches the sheet 1 legend's own page references, which",
+    "put TP1 and TP3 on sheet 1, TP4-TP8 on sheet 4 and TP9-TP14 on sheet 5.",
+    "",
+    "Below the test points, nineteen parts the reader either misplaced or never",
+    "found at all. Two shapes, following the drawing: where the designator is",
+    "printed inside a component outline the marker is that outline -- the DIPs U1,",
+    "U2, U4, U5, U9, U27, U32 and the resistor network Z2, the transformer can",
+    "T51, and the two electrolytics C1 and C17 as circles -- and where it is",
+    "printed beside its part the marker is a tight box on the text, sized like the",
+    "board's other label markers: C4, C9, C104, C122, C124, C133, CR4 and CR7.",
+    "The outlines were flood-filled from the designator and the circles measured",
+    "from the ink extent; every one was rendered onto drawing_full.png and looked",
+    "at before it was written here."
+  ],
+  "board": {
+    "TP1": {
+      "x": 235,
+      "y": 288,
+      "w": 180,
+      "h": 48,
+      "note": "Pad and number together. The pad is the dash about 75 px left of the label, at the top left corner of the board above C108."
+    },
+    "TP3": {
+      "x": 1641,
+      "y": 340,
+      "w": 95,
+      "h": 110,
+      "note": "Pad and number together; the pad is the vertical tick about 75 px above the label. TP3 and TP8 are a pair, left of U15."
+    },
+    "TP4": {
+      "x": 5421,
+      "y": 234,
+      "w": 95,
+      "h": 85,
+      "note": "Pad and number together. Placed outright: the reader's only TP4 read was on TP1's label at the far left of the board."
+    },
+    "TP5": { "x": 5555, "y": 237, "w": 100, "h": 85, "note": "Pad and number together, in the top-right row between TP4 and TP10." },
+    "TP6": {
+      "x": 5110,
+      "y": 252,
+      "w": 145,
+      "h": 90,
+      "note": "The reader's verified label box, widened. TP6's pad could not be separated from SW1's switch outline at the grid resolution used, so this covers the label and the artwork immediately around it rather than a measured pad."
+    },
+    "TP7": { "x": 5288, "y": 235, "w": 95, "h": 85, "note": "Pad and number together; leftmost of the TP7/TP4/TP5 group, above R3." },
+    "TP8": {
+      "x": 1760,
+      "y": 338,
+      "w": 95,
+      "h": 110,
+      "note": "Pad and number together; the pad is the vertical tick above the label. Second digital common, on the same net as TP4."
+    },
+    "TP9": {
+      "x": 5931,
+      "y": 271,
+      "w": 95,
+      "h": 90,
+      "note": "Pad and number together. The reader never found TP9 at all -- the same blind spot A18 hit, where the 9 reads as an S and the marker is attributed to TP5. Placed outright, at the right-hand end of the top row beside CR1."
+    },
+    "TP10": { "x": 5680, "y": 195, "w": 115, "h": 90, "note": "Pad and number together; TP10's label sits one line above the rest of the row, with its pad below it." },
+    "TP11": { "x": 5811, "y": 254, "w": 112, "h": 85, "note": "Pad and number together; the pad is below the label here rather than above." },
+    "TP12": {
+      "x": 3539,
+      "y": 220,
+      "w": 110,
+      "h": 95,
+      "note": "The reader's verified label box, widened. TP12 stands alone above U23; its pad was not separately measured."
+    },
+    "TP13": {
+      "x": 5160,
+      "y": 1648,
+      "w": 110,
+      "h": 85,
+      "note": "The reader's verified label box, widened. TP13 and TP14 sit either side of the polarity marking under BT1, which could not be told from a pad at the grid resolution used. On the photographed board TP13 is the square pad and TP14 the round one, both directly across the soldered cell."
+    },
+    "TP14": { "x": 5411, "y": 1648, "w": 110, "h": 85, "note": "The reader's verified label box, widened; see TP13." },
+    "U10": { "x": 1392, "y": 1306, "w": 465, "h": 61, "shape": "rect", "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye" },
+    "U11": { "x": 910, "y": 1307, "w": 299, "h": 61, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U13": { "x": 3835, "y": 979, "w": 530, "h": 165, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U15": { "x": 2173, "y": 368, "w": 604, "h": 165, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U16": { "x": 3042, "y": 366, "w": 605, "h": 165, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U17": { "x": 2172, "y": 680, "w": 604, "h": 165, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U18": { "x": 3041, "y": 677, "w": 604, "h": 165, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U19": { "x": 2171, "y": 983, "w": 602, "h": 165, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U20": { "x": 3040, "y": 980, "w": 606, "h": 165, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U21": { "x": 2170, "y": 1297, "w": 604, "h": 166, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U22": { "x": 3039, "y": 1295, "w": 605, "h": 166, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U25": { "x": 2912, "y": 1590, "w": 376, "h": 60, "shape": "rect", "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye" },
+    "U26": { "x": 4030, "y": 1587, "w": 374, "h": 61, "shape": "rect", "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye" },
+    "U28": { "x": 1009, "y": 1593, "w": 376, "h": 59, "shape": "rect", "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye" },
+    "U29": { "x": 1499, "y": 1593, "w": 373, "h": 60, "shape": "rect", "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye" },
+    "U3": { "x": 367, "y": 907, "w": 258, "h": 61, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U30": { "x": 2008, "y": 1592, "w": 375, "h": 61, "shape": "rect", "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye" },
+    "U31": { "x": 4610, "y": 1291, "w": 731, "h": 166, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U33": { "x": 3834, "y": 1293, "w": 463, "h": 166, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U52": { "x": 5849, "y": 849, "w": 263, "h": 60, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U6": { "x": 1394, "y": 1100, "w": 462, "h": 60, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U8": { "x": 904, "y": 478, "w": 1177, "h": 272, "shape": "rect", "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye" },
+    "C1": {
+      "x": 4437,
+      "y": 1648,
+      "w": 140,
+      "h": 140,
+      "shape": "circle",
+      "note": "Can outline measured from the drawing's ink extent, checked by eye. The reader had put C1 on C126's label; the part itself is the lone can above P62, right of C3."
+    },
+    "C4": {
+      "x": 5651,
+      "y": 843,
+      "w": 53,
+      "h": 34,
+      "shape": "rect",
+      "note": "Label box measured off the glyph run, checked by eye. The reader had put C4 on C9's label at the far left of the board; C4 is in fact between C12 and U52."
+    },
+    "C9": {
+      "x": 242,
+      "y": 1203,
+      "w": 52,
+      "h": 35,
+      "shape": "rect",
+      "note": "Label box measured off the glyph run, checked by eye. The reader had put C9 on C2's label; C9 is one of the two crystal load capacitors beside Y1, next to R4."
+    },
+    "C17": {
+      "x": 5331,
+      "y": 788,
+      "w": 140,
+      "h": 140,
+      "shape": "circle",
+      "note": "Can outline measured from the drawing's ink extent, checked by eye. The 47uF aluminium can between R51 and C13; the reader never found it."
+    },
+    "C104": {
+      "x": 341,
+      "y": 1422,
+      "w": 112,
+      "h": 35,
+      "shape": "rect",
+      "note": "Label box measured off the glyph run, checked by eye. The reader had put C104 on C109's label; C104 is the bypass capacitor left of T51."
+    },
+    "C122": {
+      "x": 2649,
+      "y": 1307,
+      "w": 113,
+      "h": 35,
+      "shape": "rect",
+      "note": "Label box measured off the glyph run, checked by eye. Between U21 and U22 in the bypass row; the reader never found it."
+    },
+    "C124": {
+      "x": 4223,
+      "y": 362,
+      "w": 109,
+      "h": 34,
+      "shape": "rect",
+      "note": "Label box measured off the glyph run, checked by eye. The reader had put C124 on C129's label; C124 sits left of U24 at the top of the board."
+    },
+    "C133": {
+      "x": 3527,
+      "y": 1156,
+      "w": 113,
+      "h": 34,
+      "shape": "rect",
+      "note": "Label box measured off the glyph run, checked by eye. Between U22 and U33; the reader never found it. The 'C' of the label touches the capacitor outline, which is why the glyph run had to be extended left by hand."
+    },
+    "CR4": {
+      "x": 5891,
+      "y": 417,
+      "w": 84,
+      "h": 33,
+      "shape": "rect",
+      "note": "Label box measured off the glyph run, checked by eye. Top of the right-hand diode column, above CR3; the reader never found it."
+    },
+    "CR7": {
+      "x": 5656,
+      "y": 401,
+      "w": 82,
+      "h": 34,
+      "shape": "rect",
+      "note": "Label box measured off the glyph run, checked by eye. Top of the left-hand diode column, above CR6; the reader never found it."
+    },
+    "T51": {
+      "x": 551,
+      "y": 1505,
+      "w": 176,
+      "h": 176,
+      "shape": "rect",
+      "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye. The 8 MHz transformer can, between C104 and C111."
+    },
+    "U1": {
+      "x": 5420,
+      "y": 396,
+      "w": 123,
+      "h": 62,
+      "shape": "rect",
+      "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye. The reader had put U1 on TP5's label."
+    },
+    "U2": {
+      "x": 5331,
+      "y": 626,
+      "w": 260,
+      "h": 61,
+      "shape": "rect",
+      "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye. The reader had put U2 on U20's label, half the board away."
+    },
+    "U4": {
+      "x": 302,
+      "y": 1310,
+      "w": 295,
+      "h": 63,
+      "shape": "rect",
+      "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye. The reader had put U4 on U41's label."
+    },
+    "U5": {
+      "x": 902,
+      "y": 904,
+      "w": 465,
+      "h": 61,
+      "shape": "rect",
+      "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye. The reader had put U5 on U8's label; U5 is the PLD in the row with U3 and Z1."
+    },
+    "U9": {
+      "x": 768,
+      "y": 1093,
+      "w": 262,
+      "h": 61,
+      "shape": "rect",
+      "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye. Between Y1 and C106; the reader never found it."
+    },
+    "U27": {
+      "x": 3467,
+      "y": 1589,
+      "w": 378,
+      "h": 60,
+      "shape": "rect",
+      "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye. In the bottom row between C127 and C126; the reader never found it."
+    },
+    "U32": {
+      "x": 4812,
+      "y": 1585,
+      "w": 126,
+      "h": 59,
+      "shape": "rect",
+      "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye. Left of C132 near the battery; the reader never found it."
+    },
+    "Z2": {
+      "x": 5295,
+      "y": 1109,
+      "w": 297,
+      "h": 61,
+      "shape": "rect",
+      "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye. Below R54 and above BT1; the reader never found it."
+    }
+  },
+  "_dropSchematicComment": [
+    "Sheet 1 was reviewed marker by marker; sheets 2 to 5 were not, and everything",
+    "on them is dropped rather than shipped unchecked. That is a deliberate",
+    "decision and the reason is measured, not assumed.", "",
+    "On sheet 1 the reader placed 79 markers. Reviewing them gave:", "",
+    "    agreed tier   14 of 31 correct",
+    "    test points    1 of 11 correct", "",
+    "-- about 60% wrong in the *best* tier, which is worse than the third-to-half",
+    "references/pitfalls.md leads you to expect and squarely in A14's territory.",
+    "Every failure mode the pitfalls file names is here in one sheet:", "",
+    "  Pin and port labels read as designators. This is the dominant one on a",
+    "  processor board, because the sheets are wall-to-wall pin numbers: TP4 landed",
+    "  on U5's IO4 pin, TP6 on IO6, TP8 on IO8, TP9 on IO2, M4 on I12, R16 on A16,",
+    "  R17 on A17, R2 on A21, C13 on D13, C15 on D15, P61 on D11, U25 on D05,",
+    "  U27 on D07, U10 on IPL1*/IPL2*, TP7 on D12. Every one of those is a real",
+    "  designator on this board sitting on a pin label that merely looks like it.",
+    "",
+    "  The test point legend block, which is the offender the pitfalls file warns",
+    "  arrives looking trustworthy. The thirteen-line 'TP1 = CLK (PG1D5)' table in",
+    "  the top right corner produced markers for TP10, TP12, TP13 and TP14 that",
+    "  point at the table rather than at a net. build_coords.py's own legend",
+    "  detector caught exactly these four and said so; the rest of the table's",
+    "  damage it could not see.", "",
+    "  A second legend block the detector knows nothing about: the SPARES box,",
+    "  where the unused sections of the resistor networks are drawn. Z3 and Z5",
+    "  both landed there. The designator is right and the position answers a",
+    "  question nobody asked -- Z3's working sections are all over the sheet.",
+    "",
+    "  A caption read as a designator: C2 landed on the 'ON' of 'EXCEPTION VECTOR",
+    "  PULLUPS'.", "",
+    "Fourteen sheet 1 markers survived review and are kept: C104, C106, C109 and",
+    "C111 in the bypass row, C8 and C9 at the crystal, CR1 at the not-reset",
+    "indicator, R3 and R4, TP3 on the ECLK flag (the only test point the reader",
+    "got right anywhere), U6, U8, U11 and Y1. Those are the parts \u00a72-31 and \u00a72-32",
+    "name for the reset and clock circuits, which is the half of this sheet a",
+    "technician actually opens.", "",
+    "Sheets 2 to 5 are dropped wholesale. Their reader output is versioned so the",
+    "review can be done from exactly these reads without re-running tesseract --",
+    "that is what the .build/a20 stanza in .gitignore is for -- but shipping ~200",
+    "unreviewed markers of which, on this evidence, more than half would be wrong",
+    "is worse than shipping none: a wrong marker on a sheet sends a probe to the",
+    "wrong net while the badge calls it 'agreed'."
+  ],
+  "dropSchematic": {
+    "sh1": [
+      "BT1", "C1", "C10", "C101", "C11", "C12", "C125", "C13", "C14", "C15",
+      "C16", "C18", "C2", "C3", "C4", "C5", "C6", "C7", "C81", "C82", "DS1",
+      "H5", "M4", "P61", "P62", "R1", "R12", "R13", "R15", "R16", "R17",
+      "R2", "R5", "R6", "R7", "R8", "SW1", "T1", "TP10", "TP12", "TP13",
+      "TP14", "TP4", "TP5", "TP6", "TP7", "TP8", "TP9", "U1", "U10", "U17",
+      "U2", "U22", "U25", "U26", "U27", "U28", "U3", "U4", "U5", "X8", "Z1",
+      "Z2", "Z3", "Z5"
+    ],
+    "sh2": [
+      "BT1", "C115", "C116", "C118", "C12", "C14", "C17", "C7", "C8", "C80",
+      "C81", "CR5", "CR6", "CR7", "CR8", "DS1", "H5", "MP1", "P62", "R1",
+      "R10", "R11", "R12", "R13", "R14", "R15", "R16", "R2", "R3", "R4",
+      "R5", "R6", "R7", "R8", "SW1", "T1", "TP4", "U1", "U11", "U13", "U15",
+      "U16", "U17", "U2", "U29", "U3", "U4", "U5", "U6", "U8", "U9", "Y1",
+      "Z2"
+    ],
+    "sh3": [
+      "BT1", "C1", "C10", "C100", "C11", "C119", "C12", "C122", "C123",
+      "C124", "C13", "C14", "C15", "C18", "C2", "C3", "C4", "C5", "C6", "C7",
+      "C8", "C80", "C81", "C82", "C9", "DS1", "H4", "H5", "P62", "R1", "R10",
+      "R11", "R12", "R13", "R14", "R15", "R16", "R17", "R2", "R3", "R4",
+      "R5", "R6", "R7", "R8", "R82", "SW1", "T1", "U1", "U11", "U17", "U19",
+      "U21", "U26", "U4", "U5", "Y1", "Y3", "Z2"
+    ],
+    "sh4": [
+      "BT1", "C1", "C10", "C125", "C126", "C128", "C14", "C144", "C2", "C3",
+      "C5", "C6", "C7", "C8", "C80", "C82", "DS1", "H5", "M4", "P61", "P62",
+      "R1", "R2", "R5", "R6", "R7", "R8", "R82", "SW1", "T1", "T51", "TP4",
+      "TP5", "TP6", "TP7", "TP8", "U1", "U10", "U11", "U20", "U22", "U25",
+      "U26", "U27", "U28", "U29", "U3", "U5", "U6", "Z1", "Z3"
+    ],
+    "sh5": [
+      "BT1", "C1", "C11", "C131", "C132", "C133", "C14", "C143", "C144",
+      "C152", "C17", "C2", "C4", "C5", "C6", "C7", "CR2", "CR4", "DS1", "M4",
+      "R1", "R12", "R51", "R52", "R53", "R54", "R55", "R56", "R58", "R60",
+      "R7", "SW1", "T1", "TP12", "TP13", "TP14", "TP7", "U18", "U22", "U25",
+      "U26", "U28", "U33", "U4", "U5", "U6", "U8", "U9", "X5", "Y1", "Y3",
+      "Z1", "Z2", "Z3", "Z4", "Z5"
+    ]
+  },
+  "_sheetsComment": [
+    "The zone grid of each sheet, measured off the printed frame: columns 8 to 1",
+    "left to right and rows D to A top to bottom, with 'frame' the inner border",
+    "in normalised sheet coordinates. Zone labels for every placement are derived",
+    "from these rather than typed, which also makes them checkable against the",
+    "page/zone references the sheet 1 test point legend prints for all thirteen",
+    "points."
+  ],
+  "sheets": {
+    "sh1": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.005, "y0": 0.0242, "x1": 0.9877, "y1": 0.9812 }
+      }
+    },
+    "sh2": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.0118, "y0": 0.0194, "x1": 0.9892, "y1": 0.9816 }
+      }
+    },
+    "sh3": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.0055, "y0": 0.025, "x1": 0.9892, "y1": 0.9822 }
+      }
+    },
+    "sh4": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.011, "y0": 0.024, "x1": 0.9893, "y1": 0.9817 }
+      }
+    },
+    "sh5": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.0063, "y0": 0.0262, "x1": 0.9892, "y1": 0.9817 }
+      }
+    }
+  },
+  "_layersComment": [
+    "Registration of the photograph against the locator drawing, from which",
+    "build_coords.py solves the board -> photo homography. 'src' is board space",
+    "(the drawing), 'dst' is photo space; both are normalised, not pixels.",
+    "",
+    "Every 'src' below is a board position already reviewed marker by marker and",
+    "sitting in the 'board' block above, so each pair is a correspondence someone",
+    "can check -- open the drawing at C123 and the photograph at C123 and see the",
+    "same spot -- rather than a sample of a matrix. The matching 'dst' was found",
+    "by cross-correlation: the locator drawing *is* the silkscreen artwork and the",
+    "photograph shows the same artwork in yellow ink, so a yellow-ink mask of the",
+    "photo (R-B, which keeps the silkscreen and drops the blue board, the black",
+    "packages and the white EPROM labels) was matched patch by patch against the",
+    "drawing's own ink, and the fit re-solved and re-matched until it stopped",
+    "moving. None of the landmarks is on a designator's *text*: the drawing prints",
+    "much of that inside the part outline where the board prints it outside, so a",
+    "300 px patch is matched on the outlines around the point and the offset that",
+    "wins is applied to the reviewed coordinate.", "",
+    "Nothing here is on an ejector lever, a mounting hole or a standoff. Both of",
+    "this board's levers are photographed swung out of their stowed position, so",
+    "besides standing proud of the PCB the way references/pitfalls.md warns about,",
+    "they are not even where the drawing draws them.", "",
+    "How good it is, measured rather than asserted. The same cross-correlation was",
+    "run at all 112 reviewed board positions; 79 of them peaked unambiguously and",
+    "are the population the fit was judged against. Against those 79 the shipped",
+    "homography lands a median 4.8 px, p90 8.6 px and worst 13.4 px out, in pixels",
+    "of the 3400 px photo the browser loads -- comparable with A19's 3.7/11.2/15.0",
+    "and better than A9's 9.2/23.9/24.1. The 26 landmarks kept below are one per",
+    "cell of a 10x3 grid over the board, chosen by peak sharpness, and the",
+    "homography they give agrees with the one fitted to all 79 to within 3.5 px",
+    "everywhere on the board -- i.e. the fit is anchored across the whole board",
+    "rather than in one region and extrapolated.", "",
+    "The residual that is left is not noise and does not come out with more",
+    "landmarks: it is a smooth field that changes sign along the board, which is",
+    "the signature of the scan of a D-size drawing rather than of the camera. No",
+    "single projective transform removes it. It is worst at the right-hand end,",
+    "where fitting the middle alone would have put the R52-R61/CR1-CR8 column 20",
+    "px out; the fit below spreads that error instead of concentrating it.",
+    "",
+    "Checked the way that actually catches a bad fit: all 112 reviewed markers",
+    "were drawn onto the photograph through this homography and looked at, from",
+    "C108/TP1/R5 at the left edge through U15-U22 and P61/P62 in the middle to",
+    "TP9/CR1-CR8/R52-R61/U52/Z4/C145 at the right. Every one lands on its own",
+    "part."
+  ],
+  "layers": {
+    "photo": {
+      "landmarks": [
+        {
+          "note": "C100",
+          "src": [0.03119, 0.3083],
+          "dst": [0.03847, 0.34662]
+        },
+        {
+          "note": "C82",
+          "src": [0.07034, 0.84701],
+          "dst": [0.07699, 0.8312]
+        },
+        {
+          "note": "C109",
+          "src": [0.09077, 0.57749],
+          "dst": [0.09627, 0.58944]
+        },
+        {
+          "note": "C128",
+          "src": [0.12453, 0.734],
+          "dst": [0.12885, 0.73035]
+        },
+        {
+          "note": "C106",
+          "src": [0.16834, 0.51719],
+          "dst": [0.17082, 0.53599]
+        },
+        {
+          "note": "C130",
+          "src": [0.29042, 0.82769],
+          "dst": [0.29115, 0.81804]
+        },
+        {
+          "note": "C117",
+          "src": [0.29457, 0.34251],
+          "dst": [0.29477, 0.37942]
+        },
+        {
+          "note": "C115",
+          "src": [0.29601, 0.19966],
+          "dst": [0.29615, 0.24835]
+        },
+        {
+          "note": "U30",
+          "src": [0.31506, 0.78096],
+          "dst": [0.31547, 0.77593]
+        },
+        {
+          "note": "U17",
+          "src": [0.38227, 0.35592],
+          "dst": [0.38238, 0.39266]
+        },
+        {
+          "note": "U15",
+          "src": [0.38261, 0.20279],
+          "dst": [0.38248, 0.25272]
+        },
+        {
+          "note": "C125",
+          "src": [0.43588, 0.8165],
+          "dst": [0.43589, 0.81205]
+        },
+        {
+          "note": "C120",
+          "src": [0.4368, 0.40986],
+          "dst": [0.43625, 0.44235]
+        },
+        {
+          "note": "C118",
+          "src": [0.43708, 0.25627],
+          "dst": [0.43645, 0.30242]
+        },
+        {
+          "note": "C127",
+          "src": [0.5252, 0.81707],
+          "dst": [0.52455, 0.81288]
+        },
+        {
+          "note": "C123",
+          "src": [0.56389, 0.2172],
+          "dst": [0.56258, 0.26699]
+        },
+        {
+          "note": "C113",
+          "src": [0.56554, 0.41336],
+          "dst": [0.56435, 0.446]
+        },
+        {
+          "note": "C126",
+          "src": [0.61534, 0.73391],
+          "dst": [0.61419, 0.73731]
+        },
+        {
+          "note": "C131",
+          "src": [0.68693, 0.55693],
+          "dst": [0.6856, 0.577]
+        },
+        {
+          "note": "C3",
+          "src": [0.75121, 0.72995],
+          "dst": [0.74958, 0.73344]
+        },
+        {
+          "note": "C152",
+          "src": [0.82911, 0.47728],
+          "dst": [0.82648, 0.50543]
+        },
+        {
+          "note": "BT1",
+          "src": [0.86224, 0.70894],
+          "dst": [0.85887, 0.71388]
+        },
+        {
+          "note": "R3",
+          "src": [0.87312, 0.15053],
+          "dst": [0.86918, 0.20966]
+        },
+        {
+          "note": "C144",
+          "src": [0.90458, 0.6086],
+          "dst": [0.90003, 0.62224]
+        },
+        {
+          "note": "TP9",
+          "src": [0.96912, 0.13317],
+          "dst": [0.96235, 0.19409]
+        },
+        {
+          "note": "C145",
+          "src": [0.97346, 0.69999],
+          "dst": [0.96636, 0.70478]
+        }
+      ]
+    }
+  },
+  "schematic": {
+    "sh5": {
+      "BT1": { "x": 3544, "y": 2992, "w": 198, "h": 211 },
+      "C2": { "x": 3096, "y": 1660, "w": 183, "h": 126 },
+      "C4": { "x": 3724, "y": 1892, "w": 121, "h": 131 },
+      "C10": { "x": 3637, "y": 2663, "w": 157, "h": 124 },
+      "C11": { "x": 3893, "y": 2669, "w": 175, "h": 131 },
+      "C12": { "x": 3804, "y": 862, "w": 157, "h": 116 },
+      "C13": { "x": 3355, "y": 1329, "w": 185, "h": 108 },
+      "C131": { "x": 2678, "y": 3394, "w": 170, "h": 103 },
+      "C132": { "x": 2859, "y": 3393, "w": 162, "h": 106 },
+      "C133": { "x": 3038, "y": 3385, "w": 180, "h": 116 },
+      "C143": { "x": 2495, "y": 3399, "w": 170, "h": 98 },
+      "C144": { "x": 2308, "y": 3403, "w": 178, "h": 106 },
+      "C145": { "x": 2126, "y": 3411, "w": 173, "h": 95 },
+      "C152": { "x": 3230, "y": 3382, "w": 183, "h": 126 },
+      "CR2": { "x": 5231, "y": 1240, "w": 152, "h": 142 },
+      "CR3": { "x": 5228, "y": 1733, "w": 167, "h": 144 },
+      "CR4": { "x": 5439, "y": 1814, "w": 173, "h": 95 },
+      "R51": { "x": 5446, "y": 1117, "w": 191, "h": 136 },
+      "R52": { "x": 5058, "y": 1252, "w": 162, "h": 160 },
+      "R53": { "x": 5048, "y": 1748, "w": 167, "h": 157 },
+      "R54": { "x": 3458, "y": 1816, "w": 191, "h": 139 },
+      "R55": { "x": 4341, "y": 1444, "w": 175, "h": 172 },
+      "R56": { "x": 3445, "y": 1164, "w": 129, "h": 144 },
+      "R57": { "x": 3162, "y": 1262, "w": 149, "h": 165 },
+      "R58": { "x": 3837, "y": 1009, "w": 191, "h": 157 },
+      "R59": { "x": 3566, "y": 1328, "w": 191, "h": 121 },
+      "R60": { "x": 4645, "y": 1440, "w": 160, "h": 154 },
+      "R61": { "x": 4676, "y": 1930, "w": 191, "h": 142 },
+      "U31": { "x": 954, "y": 1673, "w": 523, "h": 981 },
+      "U32": { "x": 2480, "y": 1148, "w": 324, "h": 219 },
+      "U33": { "x": 4273, "y": 2504, "w": 358, "h": 600 },
+      "U52": { "x": 3811, "y": 1693, "w": 330, "h": 219 },
+      "Y3": { "x": 3709, "y": 2547, "w": 167, "h": 72 },
+      "Z2": { "x": 1468, "y": 973, "w": 500, "h": 229 },
+      "Z4": { "x": 4246, "y": 1798, "w": 273, "h": 391 },
+      "Z5": { "x": 3116, "y": 2259, "w": 407, "h": 201 },
+      "TP9": { "x": 2124, "y": 1017, "w": 151, "h": 176 },
+      "TP10": { "x": 1949, "y": 1018, "w": 174, "h": 171 },
+      "TP11": { "x": 1890, "y": 1713, "w": 164, "h": 172 },
+      "TP12": { "x": 3472, "y": 2210, "w": 181, "h": 163 },
+      "TP13": { "x": 3592, "y": 2805, "w": 179, "h": 103 },
+      "TP14": { "x": 3792, "y": 2892, "w": 183, "h": 133 }
+    },
+    "sh4": {
+      "C1": { "x": 2248, "y": 1064, "w": 165, "h": 110 },
+      "C3": { "x": 2439, "y": 1063, "w": 187, "h": 120 },
+      "C80": { "x": 1259, "y": 2508, "w": 163, "h": 150 },
+      "C81": { "x": 1598, "y": 2619, "w": 180, "h": 94 },
+      "C82": { "x": 1813, "y": 2574, "w": 167, "h": 94 },
+      "C125": { "x": 1576, "y": 2948, "w": 178, "h": 103 },
+      "C126": { "x": 1762, "y": 2949, "w": 178, "h": 114 },
+      "C127": { "x": 1948, "y": 2947, "w": 172, "h": 105 },
+      "C128": { "x": 2146, "y": 2949, "w": 185, "h": 114 },
+      "C129": { "x": 2333, "y": 2949, "w": 167, "h": 118 },
+      "C130": { "x": 2519, "y": 2953, "w": 185, "h": 131 },
+      "L80": { "x": 1448, "y": 2491, "w": 159, "h": 129 },
+      "L81": { "x": 1652, "y": 2493, "w": 146, "h": 107 },
+      "P61": { "x": 4243, "y": 1292, "w": 365, "h": 1658 },
+      "P62": { "x": 1906, "y": 1284, "w": 337, "h": 1658 },
+      "R82": { "x": 2883, "y": 2581, "w": 131, "h": 103 },
+      "T51": { "x": 2265, "y": 2531, "w": 313, "h": 256 },
+      "U25": { "x": 2507, "y": 768, "w": 314, "h": 258 },
+      "U26": { "x": 1280, "y": 776, "w": 395, "h": 492 },
+      "U27": { "x": 1266, "y": 1275, "w": 393, "h": 472 },
+      "U28": { "x": 3463, "y": 769, "w": 414, "h": 478 },
+      "U29": { "x": 3468, "y": 1243, "w": 450, "h": 429 },
+      "U30": { "x": 3460, "y": 1686, "w": 445, "h": 427 },
+      "TP4": { "x": 2346, "y": 1930, "w": 177, "h": 185 },
+      "TP5": { "x": 2353, "y": 1287, "w": 157, "h": 170 },
+      "TP6": { "x": 2763, "y": 930, "w": 170, "h": 165 },
+      "TP7": { "x": 2550, "y": 1291, "w": 159, "h": 183 },
+      "TP8": { "x": 2571, "y": 1921, "w": 185, "h": 198 }
+    },
+    "sh1": {
+      "C5": { "x": 389, "y": 1191, "w": 150, "h": 94 },
+      "C6": { "x": 584, "y": 1289, "w": 170, "h": 85 },
+      "C100": { "x": 2811, "y": 3065, "w": 170, "h": 101 },
+      "C101": { "x": 2995, "y": 3066, "w": 176, "h": 103 },
+      "C102": { "x": 3179, "y": 3063, "w": 176, "h": 97 },
+      "C103": { "x": 3362, "y": 3062, "w": 167, "h": 103 },
+      "C105": { "x": 3742, "y": 3069, "w": 163, "h": 92 },
+      "C108": { "x": 4108, "y": 3064, "w": 170, "h": 90 },
+      "C110": { "x": 4475, "y": 3062, "w": 170, "h": 90 },
+      "R1": { "x": 1574, "y": 823, "w": 124, "h": 108 },
+      "R5": { "x": 2258, "y": 927, "w": 166, "h": 104 },
+      "SW1": { "x": 203, "y": 1189, "w": 219, "h": 153 },
+      "U1": { "x": 716, "y": 1094, "w": 205, "h": 254 },
+      "U2": { "x": 1395, "y": 1248, "w": 254, "h": 587 },
+      "U3": { "x": 2144, "y": 720, "w": 280, "h": 332 },
+      "U4": { "x": 2800, "y": 988, "w": 330, "h": 549 },
+      "U5": { "x": 3710, "y": 736, "w": 353, "h": 526 },
+      "U8": { "x": 2121, "y": 2485, "w": 447, "h": 1424 },
+      "U9": { "x": 3815, "y": 1980, "w": 305, "h": 558 },
+      "U10": { "x": 4714, "y": 2637, "w": 301, "h": 533 },
+      "Z1": { "x": 1194, "y": 2595, "w": 672, "h": 200 },
+      "Z3": { "x": 195, "y": 950, "w": 161, "h": 113 },
+      "TP1": { "x": 2741, "y": 475, "w": 161, "h": 170 }
+    },
+    "sh2": {
+      "C17": { "x": 661, "y": 2482, "w": 174, "h": 118 },
+      "C113": { "x": 1317, "y": 2628, "w": 174, "h": 102 },
+      "C115": { "x": 1502, "y": 2623, "w": 166, "h": 102 },
+      "C116": { "x": 1684, "y": 2623, "w": 166, "h": 113 },
+      "C117": { "x": 1869, "y": 2623, "w": 172, "h": 118 },
+      "C118": { "x": 2050, "y": 2621, "w": 166, "h": 118 },
+      "CR5": { "x": 988, "y": 1879, "w": 141, "h": 146 },
+      "CR6": { "x": 884, "y": 2371, "w": 128, "h": 146 },
+      "CR7": { "x": 691, "y": 2308, "w": 207, "h": 108 },
+      "CR8": { "x": 977, "y": 2043, "w": 151, "h": 125 },
+      "R6": { "x": 1085, "y": 2240, "w": 141, "h": 110 },
+      "U13": { "x": 1705, "y": 1092, "w": 402, "h": 773 },
+      "U15": { "x": 3235, "y": 953, "w": 374, "h": 895 },
+      "U16": { "x": 3232, "y": 1887, "w": 359, "h": 929 },
+      "U17": { "x": 4458, "y": 957, "w": 356, "h": 923 },
+      "U18": { "x": 4457, "y": 1895, "w": 371, "h": 916 }
+    },
+    "sh3": {
+      "C119": { "x": 921, "y": 2647, "w": 194, "h": 104 },
+      "C120": { "x": 1113, "y": 2645, "w": 165, "h": 100 },
+      "C122": { "x": 1296, "y": 2644, "w": 178, "h": 109 },
+      "C123": { "x": 1479, "y": 2644, "w": 163, "h": 117 },
+      "C124": { "x": 1658, "y": 2639, "w": 179, "h": 115 },
+      "U19": { "x": 1247, "y": 979, "w": 362, "h": 913 },
+      "U20": { "x": 1235, "y": 1902, "w": 350, "h": 897 },
+      "U21": { "x": 2276, "y": 979, "w": 350, "h": 913 },
+      "U22": { "x": 2267, "y": 1901, "w": 347, "h": 900 }
+    }
+  }
+}

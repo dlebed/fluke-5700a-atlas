@@ -1,0 +1,173 @@
+{
+ "_comment": [
+  "Hand corrections to the reader's output for A16A1, in pixels of the",
+  "full-resolution crops in .build/a16a1/ (see imageSize / sheetImageSize).",
+  "Board boxes for the ICs, the headers and L4 follow the printed body outline,",
+  "since the designator sits inside it; the rest are the reader's label boxes,",
+  "each looked at on the drawing."
+ ],
+ "imageSize": {
+  "w": 3880,
+  "h": 1380
+ },
+ "sheetImageSize": {
+  "sh1": {
+   "w": 6360,
+   "h": 3870
+  }
+ },
+ "_boardComment": [
+  "The reader placed 21 of 26 and got 18 right. P1 landed on the 'A91' artwork",
+  "legend, U10 on U15's label, and R2 on the E of 'CONTROLLER'. Every position",
+  "below was read off scripts/page_grid.py over drawing_full.png."
+ ],
+ "board": {
+  "U9": {
+   "x": 710,
+   "y": 650,
+   "w": 620,
+   "h": 120,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "U14": {
+   "x": 1400,
+   "y": 650,
+   "w": 620,
+   "h": 120,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "U13": {
+   "x": 2510,
+   "y": 550,
+   "w": 540,
+   "h": 120,
+   "shape": "rect",
+   "note": "Body outline; designator inside"
+  },
+  "U15": {
+   "x": 3520,
+   "y": 550,
+   "w": 540,
+   "h": 120,
+   "shape": "rect",
+   "note": "Body outline; the reader had U10 here"
+  },
+  "U10": {
+   "x": 610,
+   "y": 1070,
+   "w": 800,
+   "h": 200,
+   "shape": "rect",
+   "note": "Body outline; the reader put U10 on U15"
+  },
+  "U12": {
+   "x": 1440,
+   "y": 1070,
+   "w": 800,
+   "h": 200,
+   "shape": "rect",
+   "note": "Body outline; the reader did not find it"
+  },
+  "U11": {
+   "x": 2635,
+   "y": 990,
+   "w": 1490,
+   "h": 360,
+   "shape": "rect",
+   "note": "Body outline of the 40-pin 82C55"
+  },
+  "P1": {
+   "x": 1400,
+   "y": 200,
+   "w": 1300,
+   "h": 220,
+   "shape": "rect",
+   "note": "Header outline; the reader put P1 on the 'A91' legend"
+  },
+  "P2": {
+   "x": 2740,
+   "y": 200,
+   "w": 940,
+   "h": 220,
+   "shape": "rect",
+   "note": "Header outline; the reader did not find it"
+  },
+  "L4": {
+   "x": 2140,
+   "y": 280,
+   "w": 160,
+   "h": 260,
+   "shape": "rect",
+   "note": "Choke outline; designator inside"
+  },
+  "Z2": {
+   "x": 912,
+   "y": 450,
+   "w": 44,
+   "h": 84,
+   "note": "Label to the left of the SIP outline; the reader did not find it"
+  }
+ },
+ "drop": {
+  "R2": "The reader found R2 on the E of 'CONTROLLER ASS 775320'. R2 is not printed on the drawing (see notOnDrawing)."
+ },
+ "_schematicComment": [
+  "Five sheet positions corrected. The reader put C52 on C2*, C57 on C7*, L4 on",
+  "LC1*, P2 on PA2 and U10 on PC3; in each case one of its own alternate reads",
+  "was the right label and is used here."
+ ],
+ "schematic": {
+  "sh1": {
+   "C52": {
+    "x": 1362,
+    "y": 3191,
+    "w": 90,
+    "h": 36,
+    "note": "10uF/35V on +5 RLH at the bottom left; the reader chose the C2* net label"
+   },
+   "C57": {
+    "x": 1651,
+    "y": 312,
+    "w": 62,
+    "h": 28,
+    "note": "Decoupling on +5LH above U11; the reader chose the C7* net label"
+   },
+   "L4": {
+    "x": 1170,
+    "y": 3128,
+    "w": 48,
+    "h": 28,
+    "note": "6-turn choke in the +5 RLH feed; the reader chose LC1*"
+   },
+   "P2": {
+    "x": 627,
+    "y": 489,
+    "w": 44,
+    "h": 26,
+    "note": "The bus-side P2 at the left; the reader chose the PA2 pin label"
+   },
+   "U10": {
+    "x": 3350,
+    "y": 845,
+    "w": 70,
+    "h": 30,
+    "note": "The first 5801, label below its block; the reader chose PC3"
+   }
+  }
+ },
+ "dropSchematic": {
+  "sh1": {
+   "R2": "R2 is not drawn on the sheet; the reader put it on RD*"
+  }
+ },
+ "_notOnDrawingComment": [
+  "MP3 is the unlabelled 10-pin test header and R2 is listed but not printed on",
+  "the drawing or drawn on the sheet (see the caveat in a16a1.reference.json)."
+ ],
+ "notOnDrawing": [
+  "MP3",
+  "R2"
+ ]
+}

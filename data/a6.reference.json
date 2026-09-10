@@ -1,0 +1,243 @@
+{
+  "_comment": [
+    "Curated A6 reference data: what the board does, what its rails are, the fault",
+    "codes that name it, and the places the two manuals disagree with each other or",
+    "with the board. Hand-authored from the 1996 Series II service manual (§2-215 to",
+    "§2-221 for the theory, §5-2 for the fault codes, §5-5 for the procedure) and from",
+    "the three Chapter 7 sheets, Figure 7-6.",
+    "",
+    "Everything here is prose for a person, so it says what a number means as well as",
+    "what it is. Where a figure is derived rather than printed, it says so."
+  ],
+
+  "overview": {
+    "summary": "The frequency source of the Wideband AC Voltage option, and the only board in the instrument that exists solely to make a variable-frequency square wave and filter it into a sine. A6 generates 1.1 MHz to 30 MHz with two-digit resolution at a nominal full-scale output of 700 mV rms, and hands it to the Wideband Output assembly (A5) through connector J1 and a 75 ohm coaxial cable. Four blocks make it up. A phase-locked loop and divider chain -- comparator U15A making an 8 MHz TTL reference from the instrument's CLK/CLK* sine, synthesiser U1 (MC145145) with its two divide-by-N counters and phase detector, loop amplifier U2, varactors CR1/CR2, vco U3 (MC1648) running 32 to 64 MHz, flip-flop U4 and binary counter U5 dividing it down, and multiplexer U6 picking one of five octaves -- produces the ECL-level square wave. An amplitude control amplifier built round transistor array U9 (CA1302) sets its level from the WB AMPLITUDE CONTROL dc that A5's thermal rms sensor loop sends back. An X10 wideband amplifier, Q4/Q5/Q6, raises it to 1.4 to 6.0 V p-p. And five five-pole LC filters, one per octave (1-2, 2-4, 4-8, 8-16 and 16-32 MHz), each switched in by FETs and PIN diodes under transistor arrays U12 and U13, turn the square wave into a sine before output driver Q7. The board makes none of its own power: +5 LH, -5 LH, +17 S and -17 S all arrive from the Regulator/Guard Crossing assembly (A17) on P101.",
+    "sections": "§2-215, §2-216 … §2-221",
+    "option": "THIS BOARD IS ONLY FITTED TO INSTRUMENTS WITH THE -03 WIDEBAND AC VOLTAGE OPTION. On a 5700A or 5720A without option -03 there is no A6, no A5, no Type N connector on the front panel, and the two card slots in front of A7 are empty — nothing is missing or has been removed. Figure 7-6, Table 6-7 and §5-5 are all captioned \"(Option -03)\" for the same reason. A6 and A5 are always fitted together: the module is the pair, A6 the oscillator and A5 the output amplifier, and neither is useful alone. If the instrument in front of you has a Type N WIDEBAND connector on the front panel then it has the option and both boards are in it; A6 sits between A5 and A7 in the analog card cage (Figure 4-5), with A5 nearer the front panel.",
+    "note": "A6 makes no supply that Chapter 2 tabulates. §2-217 lists what it does make from the four rails that arrive on P101: chokes L1/L2/L3/L4 filter -5 LH, +5 LH, -17 S and +17 S on entry; L12 and C49 buffer -5 LH again into -5F; R66 and R67 divide +5 LH to make the +2.5 V reference for the comparators in U7, U10 and U11; VR1 with R39 drops +17 S to +12; and VR5, CR8, CR9, R40 and R41 with VR4 make -12, -11 and -9.5 from -17 S. Two commons come in and they are not the same net: LH COM on P101 18A/18C, which C1 and C3 return to, and S COM on 24A/24C, which is SCOM and what both test point loops are on."
+  },
+
+  "railCircuits": {
+    "PLL": {
+      "rails": "8MHz REFERENCE, VCO OUTPUT (32-64 MHz), PLL FEEDBACK (4-8 MHz), 1-32 MHZ OUTPUT",
+      "regulators": ["U15", "U1", "U2", "U3", "U4", "U5", "U6", "U14"],
+      "filters": ["L6", "C53", "C17", "C18", "C19"],
+      "rectifier": ["CR1", "CR2"],
+      "tps": ["TP1", "TP2", "TP3", "TP4", "TP10", "TP15"],
+      "note": "A 50 kHz-reference phase-locked loop with a divide-by-eight in the feedback path. Comparator U15A squares the instrument's 8 MHz CLK/CLK* sine into a TTL reference for synthesiser U1; U1's first divide-by-N counter divides that by 160 to give 50 kHz for one input of its internal phase detector. The vco U3 runs at 32 to 64 MHz, U4 halves it and U5 divides that by four again, so U1 pin 3 sees 4 to 8 MHz; U1's second counter divides that by 80 to 160 in unit steps, under frequency data latched from the guarded digital bus through the NOR gates in U14 (chip select CS14 and WR forming the strobe). The loop locks when the two phase-detector inputs match. Its outputs 0V (pin 14) and 0R (pin 15) drive amplifier U2, whose output biases varactors CR1 and CR2 through the L6/C53/C17 filter to pull the vco. Multiplexer U6 then selects the octave: 16-32 MHz straight from U4, and 8-16, 4-8, 2-4 and 1-2 MHz from U5 pins 15, 13, 4 and 2. WB ON/OFF* shuts the whole thing down through U7 and Q3/Q2 when the module is not in use.",
+      "source": "§2-219"
+    },
+    "AMP": {
+      "rails": "AMPLITUDE CONTROL, FILTER INPUT, FILTER OUTPUT, WB OSC OUTPUT",
+      "regulators": ["U9", "Q4", "Q5", "Q6", "Q7", "U12", "U13", "U8", "U10", "U11", "U7"],
+      "filters": ["L101", "L102", "L103", "L104", "L201", "L202", "L203", "L204",
+                  "L301", "L302", "L303", "L304", "L401", "L402", "L403", "L404",
+                  "L501", "L502", "L503", "L504"],
+      "rectifier": [],
+      "tps": ["TP11", "TP12", "TP13", "TP14", "TP17"],
+      "note": "The level and shape half of the board. Transistor array U9 (CA1302) is wired as a differential gain-control amplifier whose gain is set by the dc on pin 10 -- WB AMPLITUDE CONTROL, generated by the thermal rms sensor loop on A5 and arriving on P101 25C, so this board does not set its own amplitude any more than A13 does. Its output at pin 6 goes through follower Q4 to the X10 wideband amplifier, Q4/Q5/Q6, whose output is a square wave of 1.4 to 6.0 V p-p on the FILTER INPUT net. Five five-pole LC filters follow, one per octave, and only one is connected at a time: input FET Qx01 and output FET Qx05 are turned on by a transistor in U13 from the octave's own select line, and below 70% of a range PIN diodes CRx02/CRx03 switch extra capacitors Cx10/Cx11 in under U12 and the Filter Band Switch line. FETs Q8 and Q9 isolate the two top filters from the three lower ones so that their input and output capacitance does not load the high-frequency response. Output driver Q7 drives J1 through C60 and R71.",
+      "source": "§2-220, §2-221"
+    },
+    "SUPPLY": {
+      "rails": "+17 S, -17 S, +5 LH, -5 LH (from A17 on P101); -5F, +2.5, +12, -12, -11, -9.5 (local)",
+      "regulators": ["VR1", "VR4", "VR5"],
+      "filters": ["L1", "L2", "L3", "L4", "L12", "C1", "C2", "C3", "C4",
+                  "C5", "C6", "C7", "C8", "C49", "C50", "C51"],
+      "rectifier": ["CR8", "CR9"],
+      "fuses": [],
+      "tps": ["TP16", "TP17"],
+      "note": "There is no fuse and no regulator IC on this assembly. All four incoming rails are regulated on A17 and protected there, upstream of P101, so a short here is limited by A17 rather than by anything on this board. On entry each rail meets a 4.7 uF tantalum and a 6-turn choke and then another 4.7 uF: C1/L1/C2 on -5 LH, C3/L2/C4 on +5 LH, C5/L3/C6 on -17 S, C7/L4/C8 on +17 S. Note that C1 and C3 return to LH COM while C2 and C4 return to SCOM. L12 and C49 buffer -5 LH once more into -5F for the ECL parts. R66 and R67, 1K each, halve +5 LH into the +2.5 V reference used by the comparators in U7, U10 and U11. VR1 (5.1 V) with load resistor R39 (12K) sets +12 below +17 S, with C50 across it; VR4 (5.1 V) with R41 (12K) sets -12 above -17 S; and VR5 (6.2 V) with CR8, CR9 and R40 (10K) makes -11 and then -9.5, with C51 on the -9.5 node. The -11 V that §5-5 step 13 calls the low level of U13's collectors is that VR5 node, and the ~+17 V high is +17 S itself.",
+      "source": "§2-217"
+    }
+  },
+
+  "muxSelect": {
+    "title": "Multiplexer U6 select lines by output frequency",
+    "source": "Table 5-1, §5-5 step 10 (printed \"Verifying Multiplexer U6\")",
+    "rows": [
+      {"out": "Wideband output", "a": "A — pin 7", "b": "B — pin 9", "c": "C — pin 10", "tp10": "TP10 (1-32 MHz)"},
+      {"out": "1.2 MHz", "a": "-5 V", "b": "-5 V", "c": "-5 V", "tp10": "1.2 MHz"},
+      {"out": "2.0 MHz", "a": "0 V", "b": "-5 V", "c": "-5 V", "tp10": "2.0 MHz"},
+      {"out": "4.0 MHz", "a": "-5 V", "b": "0 V", "c": "0 V", "tp10": "4.0 MHz"},
+      {"out": "8.0 MHz", "a": "-5 V", "b": "-5 V", "c": "0 V", "tp10": "8.0 MHz"},
+      {"out": "16.0 MHz", "a": "0 V", "b": "0 V", "c": "-5 V", "tp10": "16.0 MHz"}
+    ],
+    "note": "Read all three lines at each frequency and check TP10's frequency in the same pass; §5-5 step 10 requires TP10 within 0.01% as well. The three lines are made by comparators in U7 from WB MUXA, WB MUXB and WB MUXC, which arrive from the digital control circuit on A5 (§2-218), so a pattern that is wrong on all three points at U7 or at P101 rather than at U6. Two oddities of the printed table are worth knowing: the 1.2 MHz and 2.0 MHz rows select the same 1-2 MHz filter (1.2 MHz is inside that octave), and the pattern is not a plain binary count -- the 4.0 MHz row sets B and C together while 8.0 MHz sets only C. The table is transcribed exactly as printed."
+  },
+
+  "faultCodes": [
+    {
+      "code": "3904",
+      "title": "Optional Assemblies A5/A6 Are Missing",
+      "measure": "At power up the instrument checks which assemblies respond. This test verifies that the Wideband Output is not responding.",
+      "expected": "The Wideband module answers",
+      "verdict": "The manual attributes this to the Wideband Output assembly (A5), because A5 is the board that carries the 8255 the instrument talks to; A6 has no digital interface of its own and answers to nothing. Before replacing anything, check that the option is meant to be fitted at all — on an instrument without option -03 there is no A5 and no A6, and this code is then a configuration question rather than a fault. If the option is fitted, check that both boards are seated and that the front panel really has a Type N WIDEBAND connector.",
+      "refs": ["P101"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3905",
+      "title": "A6: Phase Lock Loop At 10MHz",
+      "measure": "The Wideband assemblies are configured to 3.5V at 1.3 MHz, 1.2V at 1.3 MHz, 2.0V at 3.0 MHz, 1.0V at 4.1 MHz, 3.3V at 5.0 MHz, 2.0V at 6.0 MHz, 2.0V at 7.0 MHz and 2.0V at 7.9 MHz. The input voltage to the vco circuit is resistively divided into WB PLL DIAGNOSTICS, routed to A5 and connected to the SDL line for the adc on the DAC assembly (A11) to read.",
+      "expected": "Within 25% ±0.75 V of the expected value at each of the eight settings",
+      "com": "SCOM (TP16 or TP17)",
+      "verdict": "A failure indicates the Wideband Oscillator (A6) assembly is probably at fault — this is one of only two codes in the whole instrument that names A6 outright. The voltage being measured is the loop filter output, which is TP2, so the code and §5-5 steps 6 to 9 are looking at the same node from opposite ends: the code reads it through a divider and the adc, the procedure drives it by hand. If the code fails, put a meter on TP2 and confirm the loop is locking before suspecting the diagnostic path. Because the reading travels through A5, A11's adc and the SDL line, a fault anywhere along that path can raise this code with a healthy A6 — check codes 3910 to 3913 and A11's own codes before condemning this board.",
+      "refs": ["TP2", "U1", "U2", "U3", "CR1", "CR2", "P101"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3906",
+      "title": "A6: Phase Lock Loop At 30MHz",
+      "measure": "Same measurement as 3905 with the Wideband assemblies configured to 3.5V at 30.0 MHz and 1.2V at 30.0 MHz.",
+      "expected": "Within 25% ±0.75 V of the expected value",
+      "com": "SCOM (TP16 or TP17)",
+      "verdict": "A failure indicates the Wideband Oscillator (A6) assembly is probably at fault. 3906 failing while 3905 passes is the useful case: the loop locks at the low end and not at the top of the range, which points at the vco reaching the end of its pull range (U3, CR1, CR2 and the varactor bias network) or at the top-octave path — U4's divide-by-two and the 16-32 MHz filter — rather than at the reference or the synthesiser.",
+      "refs": ["TP2", "U3", "CR1", "CR2", "U4"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3910",
+      "title": "A5/A6: Ampl. Control At 10MHz",
+      "measure": "The Wideband assemblies are configured for a 3.5V and a 1.2V output at 1.3 MHz. WB AMPLITUDE CONTROL, the control signal this board receives from A5, is divided and connected to the SDL line for the adc on A11.",
+      "expected": "4.5 V ±1.0 V at the 3.5 V level; 0.0 V ±0.7 V at the 1.2 V level",
+      "com": "SCOM (TP16 or TP17)",
+      "verdict": "The manual attributes a failure to the Wideband Output assembly (A5), which is where the signal is generated. It is listed here because the same line arrives on this board at P101 25C and is brought out to TP11, so this code is the closest thing the manuals publish to an expectation at TP11 — but the reading is taken through A5's divider rather than at the loop, so the numbers are not carried as a TP11 expectation. Where the code helps on this board is deciding which side of P101 a wrong output level is on: A5 setting the control voltage correctly and A6 not following means the amplitude control amplifier U9 or the X10 stage.",
+      "refs": ["TP11", "U9"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3911",
+      "title": "A5/A6: Ampl. Control At 30MHz",
+      "measure": "Same as 3910 with both outputs set at 30.0 MHz.",
+      "expected": "4.8 V ±1.0 V at the 3.5 V level; 0.0 V ±0.8 V at the 1.2 V level",
+      "com": "SCOM (TP16 or TP17)",
+      "verdict": "Attributed to A5 as 3910 is. The 30 MHz version failing alone says the loop cannot get enough amplitude at the top of the band, which on this side of P101 means the 16-32 MHz filter path or the X10 amplifier's high-frequency response rather than the control loop.",
+      "refs": ["TP11", "U9", "Q4", "Q5", "Q6"],
+      "source": "§5-2"
+    },
+    {
+      "code": "3912",
+      "title": "A5/A6: Output Offset At 10MHz",
+      "measure": "With the Wideband assemblies stepped through eight settings from 1.3 MHz to 7.9 MHz, the output of the Unity Gain Amplifier circuit on A5 is measured on the OUTPUT OFFSET line.",
+      "expected": "dc offset less than 20 mV",
+      "verdict": "A failure indicates the Wideband Output assembly (A5) is probably at fault. It is listed here only so that the pairing is visible: every 39xx code that names both boards is measured on A5, and none of them is measured on A6.",
+      "refs": [],
+      "source": "§5-2"
+    },
+    {
+      "code": "3913",
+      "title": "A5/A6: Output Offset At 30MHz",
+      "measure": "Same as 3912 with the assemblies configured to 3.5V and 1.2V at 30.0 MHz.",
+      "expected": "dc offset less than 20 mV",
+      "verdict": "A failure indicates the Wideband Output assembly (A5) is probably at fault.",
+      "refs": [],
+      "source": "§5-2"
+    },
+    {
+      "code": "3922",
+      "title": "A5/A6: Wideband Initialization Fault",
+      "measure": "Raised when the diagnostics software could not set the Wideband hardware up for testing at all.",
+      "expected": "The Wideband assemblies accept their diagnostic configuration",
+      "verdict": "A failure indicates the Wideband Output assembly (A5) is probably at fault. Treat it as a gate on the rest of the 39xx series rather than as a finding: if the hardware could not be configured, none of 3905 to 3913 measured what it says it measured, so fix this first and re-run before reading anything into a phase lock loop complaint against A6.",
+      "refs": [],
+      "source": "§5-2"
+    }
+  ],
+
+  "componentNotes": {
+    "U1": "MC145145, the synthesiser: two programmable divide-by-N counters and a phase detector in one CMOS package, and the only part on the board on the guarded digital bus. Frequency data is latched into it through the NOR gates in U14, which gate chip select CS14 and WR into a strobe. Its first counter divides the 8 MHz reference by 160 to 50 kHz; its second divides the feedback at pin 3 by 80 to 160. Outputs 0V (pin 14) and 0R (pin 15) are the phase detector's, and §5-5 step 8 looks at both against Figure 5-4.",
+    "U2": "LF356, the loop amplifier: takes U1's two phase-detector outputs and produces the varactor bias, filtered by L6, C53 and C17. §5-5 step 9 checks it by polarity rather than by level — a positive dc output when the feedback is low and a negative one when it is high.",
+    "U3": "MC1648, the voltage-controlled oscillator, running 32 to 64 MHz under the bias on varactors CR1 and CR2. Its supply is switched, not regulated: Q2 passes the -5 V and Q3 turns Q2 off from WB ON/OFF* through U7, so a dead vco with the module deselected is normal. §5-5 step 5 measures the supply at pin 8 and is the only numeric dc expectation the section publishes.",
+    "U4": "MC10131, a dual ECL D master/slave flip-flop used as the divide-by-two that turns the vco's 32-64 MHz into the 16-32 MHz top octave. TP4 is its output.",
+    "U5": "MC10154, the 4-bit ECL binary counter dividing U4's output by two, four, eight and sixteen at pins 15, 13, 4 and 2 to give the other four octaves. §5-5 step 7 checks all four in one pass. Note the description in the two parts lists disagrees about its rating — 12 MHz in the 1996 list, 125 MHz in Rev 9 — which is a typographic difference rather than a different part; a 12 MHz counter could not do this job.",
+    "U6": "MC10164, the 8-to-1 ECL multiplexer that picks which of the five octaves reaches the output. Its three select lines are pins 7, 9 and 10, driven by comparators in U7 from WB MUXA/B/C; Table 5-1 gives the pattern for each range. TP10 is its output and the single most useful point on the board.",
+    "U7": "LM339 quad comparator, and it does two unrelated jobs. Three of its sections invert and level-shift WB MUXA, WB MUXB and WB MUXC into ECL levels for U6; the fourth inverts WB ON/OFF* to drive Q3, which switches the vco supply off through Q2. Its reference is the +2.5 V that R66 and R67 divide from +5 LH.",
+    "U8": "CD4028, the BCD-to-decimal decoder that turns WB MUXA/B/C into the four filter-select lines. Its outputs are inverted and level-shifted by U10 and U11 into 16-32 MHz FILTER, 8-16 MHz FILTER, 4-8 MHz FILTER, 2-4 MHz FILTER, 1-2 MHz FILTER and Q8/Q9 SELECT.",
+    "U9": "CA1302 transistor array, wired as the differential gain-control amplifier that sets the output amplitude. The dc on pin 10 is WB AMPLITUDE CONTROL from A5; the gain-controlled square wave leaves on pin 6. §5-5 step 11 looks at pin 6 against Figure 5-5, and step 12 requires TP13 to be about ten times it.",
+    "U10": "LM339, three sections inverting and level-shifting U8's decoded outputs into filter select lines, and one section handling WB FBS to make FILTER BAND SWITCH.",
+    "U11": "LM339, the remaining filter select lines. U8, U10, U11 and U13 are what §5-5 step 13 names when one octave's filter will not switch in.",
+    "U12": "CA3183 five-transistor array driving the PIN diodes CRx02 and CRx03 through Qx03 and Qx04, which switch the extra capacitors Cx10 and Cx11 into each filter below 70% of its range.",
+    "U13": "CA3183 five-transistor array, one transistor per octave, driving the input and output FETs of the selected filter. §5-5 step 13 checks it by watching one collector go to about +17 V while the other four stay at about -11 V as the output frequency is stepped through 1.2, 2, 4, 8 and 16 MHz.",
+    "U14": "MC74HC02 quad NOR, gating chip select CS14 and WR from the guarded digital bus into the strobe that latches frequency data into U1. The only other digital part on the board.",
+    "U15": "NE522 high-speed comparator. Section A squares the instrument's low-level 8 MHz CLK/CLK* sine into the TTL reference for U1; pin 5 carries WB ON/OFF*, which §5-5 step 3 has you check first when there is no 8 MHz at TP1.",
+    "Q7": "BFR96 output driver: takes the selected filter's output and drives J1 through C60 and the 75 ohm build-out resistor R71. TP14 is on its emitter.",
+    "Q8": "SD210 FET, one of the pair that isolates the 16-32 MHz and 8-16 MHz filters from the three lower ones when a high-frequency range is selected, so that the lower filters' input and output capacitance does not load the response (§2-221). Driven by Q8/Q9 SELECT from U10.",
+    "Q9": "SD210 FET, the partner of Q8 on the output side of the same isolation.",
+    "VR1": "5.1 V zener that, with R39, sets the local +12 rail below +17 S. C50 is across it.",
+    "VR5": "6.2 V zener that, with CR8, CR9 and R40, sets the -11 and then the -9.5 rails below -17 S. C51 is on the -9.5 node. The -11 V level §5-5 step 13 quotes for U13's unselected collectors is this rail.",
+    "J1": "SMB coax connector, the assembly's only signal output: the sine wave leaves here on the 75 ohm cable MP10 to the Wideband Output assembly. §5-5 steps 11 to 14 all begin by disconnecting that cable at the A5 end, not at this one.",
+    "J6": "Two-pin header carrying the link between the loop filter and the varactor bias. Shorting header E6 normally sits on it; §5-5 steps 6 to 9 pull E6 off so that TP2 can be driven from an external reference, and the note after step 9 says to put it back.",
+    "E6": "The shorting header on J6 — the one part on this board that a troubleshooting session removes and must put back. Every reading on the assembly is wrong with it off.",
+    "MP1": "Front shield. §5-5 step 1 has both shields off and the board on an extender; they are part of the board's screening at 30 MHz, so refit them before judging a marginal output.",
+    "MP2": "Rear shield — see MP1.",
+    "MP10": "The 75 ohm RF cable from J1 to the Wideband Output assembly. A stock item in its own right (761304), and worth suspecting before either board when the output is present at TP14 and absent at A5."
+  },
+
+  "caveats": [
+    {
+      "title": "This board only exists on an instrument with option -03",
+      "text": "A6 is half of the Wideband AC Voltage module and is fitted only to 5700A and 5720A instruments carrying option -03; the other half is the Wideband Output assembly (A5). Figure 7-6, Table 6-7 and §5-5 are all captioned \"(Option -03)\". On an instrument without the option the two slots in front of A7 in the analog card cage are simply empty and the front panel has no Type N WIDEBAND connector — nothing has been removed. The quickest check is the front panel: a Type N connector means the option is fitted and both boards are in the cage.",
+      "refs": []
+    },
+    {
+      "title": "The 1996 parts list undercounts two rows, and the drawing settles both",
+      "text": "Table 6-7 prints a Tot Qty of 11 against 'TP1-4,TP10-17', which is twelve designators, and a Tot Qty of 55 against a 0.1 uF polyester row that lists sixty. Both printed totals are wrong and the designator lists are right. For the test points there are three independent confirmations: the locator drawing shows all twelve loops, the sheet 1 legend names all twelve, and Rev 9 folds the test points into the E2-E5 jumper row (same part, stock 816090) with a Tot Qty of 16 — four jumpers plus twelve test points. For the capacitors, Rev 9 prints the same sixty designators with a Tot Qty of 60. The dataset carries twelve test points and sixty capacitors.",
+      "refs": ["TP1", "TP17", "E2", "C12"]
+    },
+    {
+      "title": "Rev 9 merges R48 into the 10K resistor row, and loses a whole row doing it",
+      "text": "The Rev 9 copy of Table 6-7 prints 'R 40, 48, 74-78, 102, 110, ...' as one row with a single description (RES,MF,866,+-1%,0.125W,50PPM), a single stock number (816603) and a Tot Qty of 33, and it carries no 697102 row anywhere. The 1996 list has the two separately: R48 alone as the 866 ohm metal film, and R40 with thirty-one others as 10K carbon film, 32 + 1 = 33. Schematic sheet 1 settles it — it prints 10K beside R40 and 866 beside R48. This dataset pins the Rev 9 row to R48, so R48 keeps its manufacturer columns and the other thirty-two carry the 1996 description with no as-built row. That absence is honest: the Rev 9 list genuinely does not name them, and giving them one would have claimed thirty-two 10K resistors were 866 ohm parts.",
+      "refs": ["R40", "R48", "R74", "R102"]
+    },
+    {
+      "title": "Five parts differ between the two revisions, and one of them is on the photographed board",
+      "text": "Six Rev 9 rows fail to join on stock number, and every one is a genuine change rather than a scan error. L5 is 0.20 uH (stock 886809) in the 1996 list and 0.18 uH (249060) in Rev 9 — and the photographed board carries the 1996 part, its body marked 0.20, so this instrument predates that change. The other five are second-source substitutions at the same value: R11/R12/R15-R18/R21/R22 51 ohm (414540 → 572990), R13/R14/R19/R20/R23/R24/R70 270 ohm (348789 → 573071), R56 330 ohm 0.5 W (686789 → 108936), R62/R64/R65/R69 680 ohm 0.5 W (687803 → 178392), R101/R201/R301/R401/R501 220 ohm 0.5 W (643442 → 186031) and VR2/VR3 10 V zeners (473744 → 820480). All are shown as as-built entries on the part cards.",
+      "refs": ["L5", "R11", "R13", "R56", "R62", "R101", "VR2"]
+    },
+    {
+      "title": "Rev 9 adds five transistor spacers the 1996 list does not have",
+      "text": "H1 to H5, 'SPACER,TRANSISTOR MOUNT,DAP,TO-5', stock 152207, Tot Qty 5, appear only in the Rev 9 copy of Table 6-7. There are five TO-39 transistors on this board — Q102, Q202, Q302, Q402 and Q502, the five filter drivers — which is where the five spacers go. They are hardware with no silkscreen designator, so they are carried as parts and marked notOnDrawing rather than counted as unplaced.",
+      "refs": ["H1", "H5", "Q102", "Q502"]
+    },
+    {
+      "title": "The five waveform figures are printed with the same boilerplate axis labels",
+      "text": "Figures 5-1 to 5-5 (TP10, TP1, TP15, U1 pins 14 and 15, U9 pin 6) are all captioned with '1V' on the vertical axis and '10 ms' on the horizontal, whatever they show. That cannot be right for any of them: §5-5 step 2 tells you to set the scope to 500 mV/div and 500 ns/div for the 1.2 MHz signal at TP10, and 10 ms/div would put eighty thousand cycles of an 8 MHz reference in one division at TP1. Read the figures for shape only. This dataset therefore carries no numeric level for TP1, TP13, TP14, U1 pins 14/15 or U9 pin 6, and states the expectation as prose with noPublishedValue instead — a waveform is not a nominal plus a tolerance, and inventing one from the figure's own labels would have been inventing it from boilerplate.",
+      "refs": ["TP1", "TP10", "TP13", "TP14", "TP15"]
+    },
+    {
+      "title": "The CLK/CLK* level is given twice and differently",
+      "text": "§2-219 describes the 8 MHz system clock arriving from the Regulator/Guard Crossing assembly as 'a low level (~200 mV p-p) 8 MHz sine wave'. The note printed inside §5-5, between steps 3 and 4, calls the same signal 'a low-level (400 mV p-p) signal'. Nothing settles which is meant, so both are recorded; either way the point of the note is the same, that the input is far below logic level and looking for a TTL edge at P101 is looking for something that is not there. What matters on the bench is that U15A squares it, so judge the clock at TP1 rather than at the connector.",
+      "refs": ["U15", "TP1", "P101"]
+    },
+    {
+      "title": "§5-5's opening line names the wrong assembly",
+      "text": "The section is headed 'Troubleshooting the Wideband Oscillator Assembly (A6)' and its first sentence reads 'Proceed as follows to troubleshoot the Wideband Oscillator assembly (A5)'. A5 is the Wideband Output assembly, whose own section is §5-4. The heading is right and the sentence is a typographic error; the fourteen steps that follow are unambiguously about this board — they name TP1 to TP17, U1 to U15 and J6, all of which are A6's.",
+      "refs": []
+    },
+    {
+      "title": "§5-5 never names jumper E6 in a way the dataset can link",
+      "text": "Steps 6, 7, 8 and 9 all begin 'remove shorting header E6 from the J6 pins'. The step-reference extractor recognises the designator families the manuals use for measurable parts and does not include E, so E6 is not offered as a chip on those four steps; J6, the header it sits on, is, and it is in the same place on the board. The sentence still says what to do. Reading the four steps without fitting E6 back afterwards is the real risk, and the warnings say so.",
+      "refs": ["E6", "J6"]
+    },
+    {
+      "title": "Table 5-1's own caption is corrupted in the text layer",
+      "text": "The 1996 list of tables gives 'Table 5-1. Verifying Multiplexer U 6' and the table's printed caption reads 'Verifying Multiplexer U66'. It is U6, the 8-to-1 ECL multiplexer, and the table's own columns name its pins 7, 9 and 10, which are U6's select inputs. The table is carried in this dataset under the corrected name.",
+      "refs": ["U6"]
+    },
+    {
+      "title": "The sheet 1 legend's own zone references check out, with one boundary case",
+      "text": "The test point legend prints a page and zone against every entry — 'TP1 = 8MHz REFERENCE (PG1D7)' — which is a free check on both the sheet frames and the placements, because the zone can be derived from the marker's own position. Eleven of the twelve agree exactly. The twelfth, TP13, derives as sheet 2 zone C3 where the legend prints C4: its flag sits within a few tens of pixels of the C4/C3 column boundary at the middle of the sheet, so this is a boundary case rather than a disagreement about where the point is. The marker was reviewed by eye and is on the flag, beside the FILTER INPUT arrow.",
+      "refs": ["TP13"]
+    },
+    {
+      "title": "There is no TP5 to TP9 on this board",
+      "text": "The test point numbering runs TP1-TP4 and then jumps to TP10-TP17. TP5 to TP9 are on the Wideband Output assembly (A5), which has TP1 to TP19 of its own, and §5-4 names several of them — its step 4 measures TP5 and TP7, its step 6 uses TP18 and TP19. A step that mentions any of those is on A5, not here. The two boards are worked on together often enough that this is worth checking before hunting for a loop that does not exist.",
+      "refs": []
+    },
+    {
+      "title": "The board's revision letter is stamped, not printed",
+      "text": "The locator drawing and the Chapter 6 duplicate both print 'WIDEBAND OSC ASSEMBLY 761098 REV' with the letter left blank, as on A8, A9, A11 and A19. The letter comes from the board itself: the photographed assembly is inked REV H over etch 5700A-3010 REV C. The Manual Status Information table gives this assembly revision level 104, which is a different numbering scheme again — the same table gives A7 203 and A8 105.",
+      "refs": []
+    }
+  ]
+}

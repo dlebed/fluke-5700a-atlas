@@ -1,0 +1,88 @@
+{
+ "_comment": [
+  "Which rail each capacitor sits on, and what that rail runs at.",
+  "The rated voltage is NOT here -- it is read from the parts list description",
+  "at run time, so a corrected BOM corrects this too. Read the warning below",
+  "about which parts list that is on this board.",
+  "",
+  "A20 is a logic board and it shows: it makes no supply of its own, and every",
+  "electrolytic and tantalum on it sits on the single +5 V rail that arrives",
+  "from the Digital Power Supply (A19) on P61/P62. All four were traced on a",
+  "sheet rather than inferred, so every entry here has source 'schematic' and",
+  "no appliedV is a guess. There are no aluminium electrolytics at all on the",
+  "Series II surface-mount build and exactly one on the through-hole build --",
+  "C17, which the two lists disagree about; see below.",
+  "",
+  "The other fifty-odd capacitors on this board are ceramic, polyester or",
+  "C0G/NP0 bypass and timing parts. They neither dry out nor grow ESR, so they",
+  "are outside recap mode's remit and are not entered here. That is a deliberate",
+  "omission, not an unfinished audit: the electrolytic population of this",
+  "assembly really is four parts.",
+  "",
+  "*** The two parts lists give different ratings for three of these four. ***",
+  "The 1996 Series II list describes the surface-mount build; the Rev 9 list",
+  "describes the through-hole build, which is what the locator drawing, the",
+  "photograph and this instrument actually carry. Recap mode reads the rating",
+  "out of the *main* description, which is the Series II one wherever both",
+  "lists have the designator. Where they differ:",
+  "    C5    Series II 15 uF 35 V tantalum;  Rev 9 15 uF 20 V tantalum",
+  "    C17   Series II 47 uF 16 V tantalum;  Rev 9 47 uF 35 V ALUMINIUM",
+  "    C100  Series II 2.2 uF 20 V tantalum; Rev 9 2.2 uF 16 V tantalum",
+  "C5 is the one that matters, and it errs in the dangerous direction: the app",
+  "will score it against 35 V while the part in the instrument is a 20 V one.",
+  "The margin is still large -- 5.2 V on a 20 V part is 26% -- so nothing here",
+  "is close to trouble either way, but check the part in front of you before",
+  "ordering. C17 errs the other way and is scored more harshly than the fitted",
+  "part deserves. Each note below gives both figures.",
+  "",
+  "source is used strictly:",
+  "  'schematic'  the net was traced on the named sheet AND the voltage on it is",
+  "               published. All four qualify: every one is on +5 V, whose",
+  "               nominal Table 2-2 gives as 5.2 V.",
+  "  'inferred'   would mean the net was traced but nothing states its voltage.",
+  "               Nothing on this board needed it.",
+  "",
+  "railClass is how much energy is behind the rail, which decides what a shorted",
+  "part does. Only one class occurs here:",
+  "  B  the output of a three-terminal IC regulator -- A19's U3, a low-dropout",
+  "     +5 V type on a heat sink, current limited and thermally protected, and",
+  "     fused ahead of the regulator by F5 (3.15 A slow-blow, §2-25). The fuse",
+  "     and the regulator are both on A19, not here, so a capacitor failing",
+  "     short on this board takes the whole instrument's logic supply down and",
+  "     the protection that responds is on another assembly. There is no fuse of",
+  "     any kind on A20 -- neither parts list has an F designator."
+ ],
+
+ "assembly": "A20",
+
+ "caps": {
+  "C1": {
+   "net": "+5V",
+   "appliedV": 5.2,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "The board's bulk reservoir for the +5 V logic rail, with C3 (0.1 uF) beside it. Traced on sheet 4, zone C5, where the rail arrives from P61/P62 and TP6 is brought out. 220 uF on a 10 V part at 5.2 V is 52% of rating -- the tightest margin of the four, and the usual one for a bulk tantalum. Both parts lists agree on 220 uF 10 V, so this is the one entry where the two builds cannot disagree. If it fails short it drops the logic supply for the whole instrument; the protection is A19's F5 and U3's own current limit, both on that board."
+  },
+  "C5": {
+   "net": "+5V (U1 CT timing pin)",
+   "appliedV": 5.2,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "The reset pulse timing capacitor: sheet 1 shows it from U1 pin 3 (CT) to ground, and §2-31 says the 195 ms reset pulse duration is set by it. The CT node only ramps to a fraction of the rail in normal operation, but the worst case it can reach is the +5 V rail itself, which is what is entered. This is the capacitor to suspect if the instrument comes up erratically at switch-on rather than not at all -- a dried-out C5 shortens the reset pulse. Rating: the Series II part is 35 V and the through-hole part fitted here is 20 V, so the app scores it at 15% of rating while the fitted part is at 26%. Both are comfortable."
+  },
+  "C17": {
+   "net": "+5V through CR7 (NVMOE* power-up delay)",
+   "appliedV": 4.5,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "The EEPROM write-protect delay. Traced on sheet 2: +5 V feeds CR7 (1N4002) into this node, C17 holds it to ground, and CR6 (a 5082 Schottky) takes it on to NVMOE*, which R6 (6.2 k) pulls up. §2-39: R6, CR6 and C17 hold NVMOE* at a valid logic low for typically 37.3 ms at power-up, 26.8 ms minimum and 49.6 ms maximum, which is what stops the calibration constants being corrupted while the rail is coming up. 4.5 V is the rail less CR7's drop; the node cannot exceed 5.2 V even with CR7 shorted. This is the only aluminium electrolytic on the board -- and only on the through-hole build. Rev 9 gives 47 uF 35 V ALUMINIUM, SOLV PROOF; the Series II list gives 47 uF 16 V tantalum. So the app scores it at 28% of a 16 V rating while the can actually fitted is a 35 V aluminium at 13%. Being the one aluminium part here, it is also the one whose capacitance will actually have fallen with age -- and if it has, the power-up write-protect window shortens."
+  },
+  "C100": {
+   "net": "+5V",
+   "appliedV": 5.2,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "First capacitor in sheet 1's 'BYPASS CAPACITORS' row, directly across +5 V to ground beside the processor, and the only non-0.1 uF part in that row -- it is the local bulk reserve for U8's supply pins rather than a bypass. Traced on sheet 1. Rating: Series II 20 V, Rev 9 16 V, so 26% or 33% of rating respectively. Neither is a concern."
+  }
+ }
+}

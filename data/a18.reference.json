@@ -1,0 +1,201 @@
+{
+  "_comment": [
+    "Reference material for A18, transcribed from §2-22, §2-56–2-69, §2-142, §5-2 and",
+    "Table 2-13 of the 1996 Series II service manual. This is the context a repair",
+    "needs but that no parts list carries: what each rail is built from, which fault",
+    "code sends you to this board, and what a given transistor is actually doing.",
+    "",
+    "Fault codes are the usual way a diagnosis starts -- the instrument reports one,",
+    "and the code says which board to open and what to measure. Each entry keeps the",
+    "manual's branch logic, because 'in tolerance' and 'out of tolerance' send you to",
+    "different assemblies."
+  ],
+
+  "overview": {
+    "summary": "Two functionally independent sections share one board: a low-voltage filter/regulator section that turns transformer ac into unregulated dc for the Regulator/Guard Crossing assembly (A17) plus three locally regulated rails for the DAC (A11); and a power amplifier output supply that produces the switched, current-limited ±PA rails for the Power Amplifier (A16) output stage.",
+    "connectors": "P901 / P902, DIN 41612 type C, 64-pin right angle, mating with J901 / J902 on the Analog Motherboard (A3).",
+    "source": "§2-22"
+  },
+
+  "railCircuits": {
+    "OSC": { "rails": "+15 OSCR / -15 OSCR", "rectifier": ["CR3"],
+      "filters": ["C4", "C6"], "fuses": ["F1", "F2"], "tps": ["TP2", "TP5"],
+      "note": "Full-wave centre-tapped from bridge CR3. C4 filters +15 OSCR, C6 filters -15 OSCR. Fused 1.6 A slow-blow.",
+      "source": "§2-58" },
+
+    "LH": { "rails": "+5 LHR / -5 LHR", "rectifier": ["CR1", "CR2", "CR4", "CR5"],
+      "filters": ["C2", "C3", "C5", "C1"], "fuses": [], "tps": ["TP1", "TP6"],
+      "note": "Four discrete diodes in a bridge. C2 and C3 filter +5 LHR, C5 filters -5 LHR, C1 damps transients. This pair is unfused.",
+      "source": "§2-59" },
+
+    "44S": { "rails": "+44 SR / -44 SR", "rectifier": ["CR6"],
+      "filters": ["C7", "C8"], "fuses": ["F3", "F5"], "tps": ["TP7", "TP9"],
+      "note": "Full-wave centre-tapped from bridge CR6. C7 filters +44 SR, C8 filters -44 SR. Fused 0.5 A slow-blow.",
+      "source": "§2-60" },
+
+    "17S": { "rails": "+17 SR / -17 SR", "rectifier": ["CR8", "CR10", "CR12", "CR13"],
+      "filters": ["C13", "C14", "C15", "C16"], "fuses": [], "tps": ["TP10", "TP14"],
+      "note": "Four discrete diodes in a bridge. C13/C14 filter +17 SR, C15/C16 filter -17 SR. No fuses — this winding is protected by the triac crowbar (CR19).",
+      "source": "§2-60" },
+
+    "FR1": { "rails": "+5 FR1R → +5 FR1, -18 FR1R → -18 FR1",
+      "rectifier": ["CR15", "CR17"], "filters": ["C19", "C20", "C21", "C22"],
+      "fuses": ["F8", "F9"], "regulators": ["U2", "U3"],
+      "tps": ["TP17", "TP18", "TP20", "TP21"],
+      "note": "+5 FR1R from bridge CR15 and C19, fused F8 1.6 A; regulated to +5 FR1 by U2 with C20 and protection diode CR16. -18 FR1R from bridge CR17 and C21, fused F9 0.5 A; regulated to -18 FR1 by U3 with C22 and protection diode CR18.",
+      "source": "§2-62" },
+
+    "FR1R": { "rails": "+30 FR1R", "rectifier": ["CR14"], "filters": ["C18"],
+      "fuses": ["F7"], "tps": ["TP15"],
+      "note": "Full-wave bridge CR14 with filter cap C18, fused F7 0.5 A slow-blow.",
+      "source": "§2-63" },
+
+    "FR2": { "rails": "+30 FR2R, -5 FR2", "rectifier": ["CR7", "CR11"],
+      "filters": ["C9", "C11", "C12"], "fuses": ["F4", "F6"], "regulators": ["U1"],
+      "tps": ["TP8", "TP13"],
+      "note": "+30 FR2R from bridge CR7 and C9, fused F4 0.5 A. -5 FR2 from bridge CR11 and C11, regulated by U1 with bypass C12 and protection diode CR9, fused F6 315 mA.",
+      "source": "§2-64" },
+
+    "PA": { "rails": "±250 V and ±500 V unregulated, +PA and -PA regulated",
+      "rectifier": ["CR222", "CR217", "CR218", "CR220", "CR221", "CR223", "CR224",
+                    "CR227", "CR228"],
+      "filters": ["C201", "C203", "C204", "C206", "C202", "C205"],
+      "fuses": ["F201", "F202", "F203", "F204"],
+      "tps": ["TP209", "TP210", "TP211", "TP212", "TP201", "TP204", "TP203"],
+      "note": "PA LAC1/LAC2 (~200 V rms, fused F202/F203) feed bridge CR222 for the unregulated ±250 V rails. PA HAC1/HAC2 (~400 V rms, fused F201/F204) feed the eight-diode bridge for ±500 V. At ±185 V output, current comes only from the lower-voltage taps.",
+      "source": "§2-67" },
+
+    "CONTROL": { "rails": "+HI/LO V, +LO/HI I, +ON/OFF, -H/LV S",
+      "pullups": ["Z201"], "level_shift": ["U201"], "relay": ["K201"], "driver": ["Q217"],
+      "tps": ["TP205", "TP206", "TP207", "TP208"],
+      "note": "Mode control comes from the Power Amplifier Digital Control SIP (A16A1) on A16; the only control element on A18 is the quad comparator U201. Z201 pulls all four lines up. Pulling +HI/LO V and +ON/OFF low sets +PA to +365 V; releasing +HI/LO V drops it to 185 V. +LO/HI I switches Q217, which drives relay K201 to select the current limit for both supplies.",
+      "source": "§2-66" }
+  },
+
+  "paSupplySettings": {
+    "title": "±PA supply settings at different outputs",
+    "source": "Table 2-13",
+    "rows": [
+      { "output": "Less than 22 V ac or dc", "pa": "+185 V", "npa": "-185 V" },
+      { "output": "22 to 110 V dc", "pa": "+185 V", "npa": "-185 V" },
+      { "output": "110 to 220 V dc", "pa": "+365 V", "npa": "-185 V" },
+      { "output": "-220 to -110 V dc", "pa": "+185 V", "npa": "-365 V" },
+      { "output": "22 to 101 V ac (f < 120 kHz)", "pa": "+185 V", "npa": "-185 V" }
+    ]
+  },
+
+  "currentLimit": {
+    "title": "±PA current limit, selected by K201",
+    "source": "§2-69",
+    "rows": [
+      { "state": "K201 de-energised", "limit": "~90 mA", "used": "normal ranges" },
+      { "state": "K201 energised", "limit": "~150 mA", "used": "1100 V dc range, 2.2 A range" }
+    ],
+    "note": "Output current is sensed across R202/R201 between the emitter and base of Q203. An overcurrent must persist about 75 ms for C209 to charge past the U201C threshold, at which point Q207 diverts the zener bias and shuts +PA off; Q218 pulls the threshold to near zero as hysteresis, so the supply cycles on and off while the overload lasts. Q206 is a second, undelayed limit that trips at 0.5 A for short circuits. The -PA side is the same, except it also shuts off whenever +PA does."
+  },
+
+  "faultCodes": [
+    { "code": "3507", "title": "A16: PA Supplies Are Off",
+      "measure": "Measured +PA/-PA reads between 40 V and 80 V",
+      "expected": "±185 V or ±365 V",
+      "verdict": "Test switch S201 on A18 is in the ±44 SR test position. Return it to the ±PA position.",
+      "refs": ["S201"], "source": "§5-2" },
+
+    { "code": "3604", "title": "+42S Supply Fault",
+      "measure": "Unregulated +44 S on A18: COM = TP22, HI = TP7",
+      "expected": "+45 V to +75 V", "com": "TP22", "hi": "TP7",
+      "lo": 45, "hiLimit": 75, "unit": "V",
+      "verdict": "Out of tolerance → A18 is faulty. In tolerance → measure regulated +44 S on A17 (COM = TP9, HI = TP13, +42.0 to +45.6 V): out → A17 faulty, in → A13 diagnostic circuit faulty.",
+      "refs": ["TP22", "TP7"], "source": "§5-2" },
+
+    { "code": "3605", "title": "-42S Supply Fault",
+      "measure": "Unregulated -44 S on A18: COM = TP22, HI = TP9",
+      "expected": "-45 V to -75 V", "com": "TP22", "hi": "TP9",
+      "lo": -75, "hiLimit": -45, "unit": "V",
+      "verdict": "Out of tolerance → A18 is faulty. In tolerance → measure regulated -44 S on A17 (COM = TP9, HI = TP16, -42.0 to -45.6 V): out → A17 faulty, in → A13 diagnostic circuit faulty.",
+      "refs": ["TP22", "TP9"], "source": "§5-2" },
+
+    { "code": "3607", "title": "-5LH Supply Fault",
+      "measure": "Unregulated -5 LH on A18: COM = TP3, HI = TP6",
+      "expected": "-8 V to -16 V", "com": "TP3", "hi": "TP6",
+      "lo": -16, "hiLimit": -8, "unit": "V",
+      "verdict": "Out of tolerance → A18 is faulty. In tolerance → measure regulated -5 LH on A17 (COM = TP10, HI = TP15, -4.7 to -5.3 V): out → A17 faulty, in → A8 diagnostic circuit faulty.",
+      "refs": ["TP3", "TP6"], "source": "§5-2" },
+
+    { "code": "3610", "title": "+PA Supply Fault",
+      "measure": "Power off, remove A16. DMM COM = TP203, HI = TP201. Jumper TP207 to TP203 and power on. Then add a second jumper, TP205 to TP203.",
+      "expected": "+180 V ±10% with one jumper, then +360 V ±10% with both",
+      "com": "TP203", "hi": "TP201",
+      "verdict": "Either voltage out of tolerance → A18 is probably at fault. Both in tolerance → A16 is probably at fault.",
+      "refs": ["TP203", "TP201", "TP207", "TP205"], "source": "§5-2" },
+
+    { "code": "3611", "title": "-PA Supply Fault",
+      "measure": "Check logic levels at TP205 and TP207, then +PA with COM = TP203, HI = TP201",
+      "expected": "TP205 logic high (8 V), TP207 logic low; +PA 180 V ±10%",
+      "com": "TP203", "hi": "TP201",
+      "verdict": "Wrong logic levels → A16 digital control circuit is faulty. +PA out of tolerance → A18 probably at fault. In tolerance → call up 200 V from the keyboard; +PA should go to 360 V ±10%. In tolerance → A16 diagnostic circuit; out of tolerance → check TP205 for a logic low before assuming A18 is at fault.",
+      "refs": ["TP205", "TP207", "TP203", "TP201"], "source": "§5-2" },
+
+    { "code": "3612", "title": "+15 OSC Supply Fault",
+      "measure": "Unregulated +15 OSC on A18: COM = TP4, HI = TP2",
+      "expected": "+19 V to +35 V", "com": "TP4", "hi": "TP2",
+      "lo": 19, "hiLimit": 35, "unit": "V",
+      "verdict": "Out of tolerance → A18 is faulty. In tolerance → measure regulated +15 OSC on A17 (COM = TP4, HI = TP3, +14.2 to +15.8 V): out → A17 faulty, in → A12 diagnostic circuit faulty.",
+      "refs": ["TP4", "TP2"], "source": "§5-2" },
+
+    { "code": "3613", "title": "-15 OSC Supply Fault",
+      "measure": "Unregulated -15 OSC on A18: COM = TP4, HI = TP5",
+      "expected": "-19 V to -35 V", "com": "TP4", "hi": "TP5",
+      "lo": -35, "hiLimit": -19, "unit": "V",
+      "verdict": "Out of tolerance → A18 is faulty. In tolerance → measure regulated -15 OSC on A17 (COM = TP4, HI = TP5, -14.2 to -15.8 V): out → A17 faulty, in → A12 diagnostic circuit faulty.",
+      "refs": ["TP4", "TP5"], "source": "§5-2" }
+  ],
+
+  "componentNotes": {
+    "CR19": "Triac in the line-overvoltage crowbar. With VR20/VR21 setting an 82 V trip, it shorts the ±17 V transformer secondary and blows the primary fuse if the instrument is plugged into too high a line voltage for its selector setting (§2-61).",
+    "VR20": "82 V zener, half of the triac crowbar trip reference (§2-61).",
+    "VR21": "82 V zener, half of the triac crowbar trip reference (§2-61).",
+    "R1": "560 Ω 2 W, triac gate circuit with C23 (§2-61).",
+    "C23": "Triac gate RC with R1 (§2-61).",
+    "U1": "-5 V regulator for -5 FR2. The schematic marks it 79L05ACG, a 100 mA part; Table 6-23 prints 0.5 A, which does not match the device.",
+    "U2": "+5 V regulator for +5 FR1, on heat sink MP3.",
+    "U3": "-18 V regulator for -18 FR1.",
+    "U201": "Quad comparator (LM339). A: -ON/OFF level shift. B: -HI/LO V level shift. C: +PA current limit. D: -PA current limit.",
+    "Q201": "N-MOS 500 V pass device selecting the +500 V rail for +PA in the +365 V mode (§2-68).",
+    "Q202": "N-MOS 500 V series pass device for +PA; its gate voltage sets the regulated output (§2-68).",
+    "Q204": "Current source biasing VR212 and VR216 (§2-68).",
+    "Q205": "Shorts VR216 in the +185 V mode (§2-68).",
+    "Q207": "Shuts +PA off by diverting the zener bias current when U201C signals an overcurrent (§2-69).",
+    "Q208": "Shorts VR214, VR215 and VR219 in the +185 V mode (§2-68).",
+    "Q203": "+PA current sense, delayed about 75 ms by C209 charging through R214 (§2-69).",
+    "Q206": "Fast +PA current limit, trips at 0.5 A with no delay for short-circuit protection (§2-69).",
+    "Q218": "Pulls the U201C threshold to near zero as hysteresis, so the +PA supply cycles rather than chatters (§2-69).",
+    "Q211": "-PA current sense (§2-69).",
+    "Q214": "Fast -PA current limit (§2-69).",
+    "Q215": "P-MOS 500 V pass device selecting the -500 V rail for -PA (§2-68).",
+    "Q216": "P-MOS 500 V series pass device for -PA (§2-68).",
+    "Q217": "Relay driver for K201, switched by control line +LO/HI I (§2-66).",
+    "K201": "Selects the ±PA current limit: de-energised ≈90 mA, energised ≈150 mA (§2-69).",
+    "Z201": "5 × 100 kΩ SIP pulling up the four ±PA control lines (§2-66).",
+    "S201": "Test switch. Moved toward the top edge of the board it substitutes the ±44 SR supplies for ±PA so the Power Amplifier can be troubleshot at reduced voltage. Return it before normal operation or the instrument reports fault 3507. Power down before operating it.",
+    "RT1": "50 Ω PTC thermistor in series with the S201 reduced-voltage test path.",
+    "RT2": "50 Ω PTC thermistor in series with the S201 reduced-voltage test path.",
+    "J201": "+PA output jumper. §5-23 step 9 loads the supply here with 1 kΩ 10 W to test current limiting.",
+    "J202": "-PA output jumper. §5-23 step 14 loads the supply here with 1 kΩ 10 W to test current limiting.",
+    "CR222": "800 V 1 A bridge producing the unregulated ±250 V rails from PA LAC1/LAC2 (§2-67).",
+    "C209": "+PA current-limit timing capacitor; sets the ~75 ms delay with R214 (§2-69).",
+    "C210": "-PA current-limit timing capacitor (§2-69)."
+  },
+
+  "caveats": [
+    { "title": "F201–F204 rating disagrees between sources",
+      "text": "Table 6-23 lists F201–F204 as 0.2 A slow-blow (Fluke 851949); Figure 7-22 sheet 2 annotates all four as \"2A\". A ±PA current limit of 90/150 mA makes the 0.2 A parts-list value the consistent one. Check what is actually fitted before replacing.",
+      "refs": ["F201", "F202", "F203", "F204"] },
+    { "title": "S201 must be returned to the ±PA position",
+      "text": "Left in the test position the ±44 SR rails stand in for ±PA and the instrument reports fault 3507.",
+      "refs": ["S201"] },
+    { "title": "Steps 9 and 14 deliberately force current limit",
+      "text": "Use the specified 1 kΩ 10 W load (Fluke P/N 157933) and expect a cycling waveform climbing to ±180 V and dropping to 0 V — not a steady rail.",
+      "refs": ["J201", "J202"] }
+  ]
+}

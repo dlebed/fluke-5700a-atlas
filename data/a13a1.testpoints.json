@@ -1,0 +1,66 @@
+{
+  "_comment": [
+    "A13A1 Oscillator Wideband SMD PCA -- test point expectations.",
+    "Two test points are drawn on sheet 5700A-1052 and one of them (TP1) is on",
+    "the locator drawing; neither is in the parts list, and no table or",
+    "section publishes a value for either. They are recorded as probe targets",
+    "with no published value, with what the sheet and §2-136 say about the",
+    "node, rather than invented as numbers. The rails are A13's +155 V and",
+    "-125 V arriving on P1/P2 and the SCOM return; §5-18 step 8 on A13 is the",
+    "published bench check that decides whether this card is at fault."
+  ],
+  "rails": {
+    "HV": {
+      "label": "+155 V / -125 V amplifier supplies (from A13 via P1 and P2)",
+      "com": "P1",
+      "color": "#d1495b"
+    },
+    "OUT": {
+      "label": "Output driver lines to A13 (+DRIVE, -DRIVE, +BOOT, -BOOT, COLL, EMIT, BASE)",
+      "com": "P1",
+      "color": "#5ec2a8"
+    }
+  },
+  "testpoints": [
+    {
+      "ref": "TP1",
+      "signal": "U2 OUT (dc zero)",
+      "rail": "OUT",
+      "kind": "pad",
+      "refPoint": "P1",
+      "unit": "V",
+      "noPublishedValue": true,
+      "notInParts": true,
+      "condition": "Power on, output stage in operate",
+      "source": "Sheet 5700A-1052 (zone B7), locator drawing; §2-136",
+      "note": "Output of U2 (TL071), the amplifier that corrects the input stage's inherent offset, and the node R30 trims: §2-136 says 'potentiometer R30 adjusts the dc zero at the output of U2'. The manuals give no voltage for it. Take it against SCOM (P1 pins 4, 9, 10, 12); a node that will not trim to the dc zero with R30 points at U1/U2 and the CR6 clamp before it points at the input stage.",
+      "onFail": ["U2", "U1", "R30", "R25", "CR6", "C11"]
+    },
+    {
+      "ref": "TP2",
+      "signal": "OFFSET",
+      "rail": "OUT",
+      "kind": "pad",
+      "refPoint": "P1",
+      "unit": "V",
+      "noPublishedValue": true,
+      "notInParts": true,
+      "condition": "Power on",
+      "source": "Sheet 5700A-1052 (zone B8): the OFFSET line from P1 pin 5",
+      "note": "The OFFSET input as it arrives from A13 on P1 pin 5, drawn on the sheet only -- the locator does not print it. No value is published; it is the dc correction A13 sends this card, so compare it with A13's own offset node rather than expecting a number.",
+      "onFail": ["P1"]
+    }
+  ],
+  "probePoints": [
+    {
+      "id": "R30-wiper",
+      "label": "R30 wiper -- dc zero adjustment",
+      "component": "R30",
+      "refPoint": "P1",
+      "unit": "V",
+      "noPublishedValue": true,
+      "source": "§2-136",
+      "note": "The 1 k cermet trimmer that sets the dc zero at U2's output. Turn it only with the 22 V range output monitored; no factory setting is published."
+    }
+  ]
+}

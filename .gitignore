@@ -1,0 +1,273 @@
+# Build intermediates. The full-resolution crops and the OCR tiles are large
+# and are regenerated from the service manual PDFs by tools/extract_assets.sh,
+# so they are not worth versioning.
+.build/*
+!.build/a5/
+!.build/a7/
+!.build/a8/
+!.build/a9/
+!.build/a10/
+!.build/a11/
+!.build/a12/
+!.build/a13/
+!.build/a14/
+!.build/a15/
+!.build/a16/
+!.build/a17/
+!.build/a18/
+!.build/a6/
+!.build/a20/
+!.build/a4/
+!.build/a16a1/
+!.build/a13a1/
+!.build/a21/
+
+!.build/a19/
+.build/a19/*
+# A19 has one schematic sheet. Same reasoning as every other board here:
+# tesseract is not deterministic, the reader's output is the input to
+# build_coords.py, and data/a19.coords.overrides.json names its corrections
+# against exactly these reads -- re-running the reader renumbers them.
+!.build/a19/ocr_board.json
+!.build/a19/ocr_sh1.json
+!.build/a19/extracted.json
+!.build/a19/review.txt
+
+.build/a5/*
+# A5 has three schematic sheets. Same reasoning as every board below:
+# tesseract is not deterministic, the reader's output is the input to
+# build_coords.py, and data/a5.coords.overrides.json names 129 dropped sheet
+# markers against exactly these reads -- re-running the reader renumbers them.
+!.build/a5/ocr_board.json
+!.build/a5/ocr_sh1.json
+!.build/a5/ocr_sh2.json
+!.build/a5/ocr_sh3.json
+!.build/a5/extracted.json
+!.build/a5/review.txt
+.build/a11/*
+# A11 is the widest board here: six schematic sheets, so six reader passes on
+# top of the board's own. tesseract is not bit-for-bit reproducible, and
+# data/a11.coords.json is built from exactly these files, so they are versioned.
+!.build/a11/ocr_board.json
+!.build/a11/ocr_sh1.json
+!.build/a11/ocr_sh2.json
+!.build/a11/ocr_sh3.json
+!.build/a11/ocr_sh4.json
+!.build/a11/ocr_sh5.json
+!.build/a11/ocr_sh6.json
+!.build/a11/extracted.json
+!.build/a11/review.txt
+.build/a12/*
+# Same for A12: three schematic sheets, and tesseract is not deterministic, so
+# the reader's output is versioned rather than regenerated.
+!.build/a12/ocr_board.json
+!.build/a12/ocr_sh1.json
+!.build/a12/ocr_sh2.json
+!.build/a12/ocr_sh3.json
+!.build/a12/extracted.json
+!.build/a12/review.txt
+.build/a13/*
+# A13 has three sheets. Same reasoning as the boards below: tesseract is not
+# deterministic, the reader's output is the input to build_coords.py, and the
+# coordinates in data/ cannot be rebuilt without exactly these reads.
+!.build/a13/ocr_board.json
+!.build/a13/ocr_sh1.json
+!.build/a13/ocr_sh2.json
+!.build/a13/ocr_sh3.json
+!.build/a13/extracted.json
+!.build/a13/review.txt
+
+.build/a14/*
+# A14 has four sheets; sheet 4 is the relay state table and gets no OCR pass.
+!.build/a14/ocr_board.json
+!.build/a14/ocr_sh1.json
+!.build/a14/ocr_sh2.json
+!.build/a14/ocr_sh3.json
+!.build/a14/extracted.json
+!.build/a14/review.txt
+!.build/a14/vlm/
+.build/a14/vlm/*/tile_*.png
+
+.build/a15/*
+# Same for A15. Its Chapter 6 OCR is kept too: three scanned pages of the Rev 9
+# parts list whose designator column needs the fix table in build_data.py, and
+# re-running tesseract over them is slow and not bit-for-bit reproducible.
+!.build/a15/ocr_board.json
+!.build/a15/ocr_sh1.json
+!.build/a15/ocr_sh2.json
+!.build/a15/extracted.json
+!.build/a15/review.txt
+
+.build/a16/*
+# Same for A16, and it is not hypothetical here: A16's reader output was left
+# out of the first commits, and re-running tesseract produced fourteen markers
+# the coordinate review had never seen and lost four it had approved. The
+# overrides file records what that cost. Keep the reader's output.
+!.build/a16/ocr_board.json
+!.build/a16/ocr_sh1.json
+!.build/a16/ocr_sh2.json
+!.build/a16/ocr_sh3.json
+!.build/a16/extracted.json
+!.build/a16/review.txt
+
+.build/a17/*
+# Same for A17: the reader's output is the input to build_coords.py and takes a
+# long multi-pass tesseract run to reproduce.
+!.build/a17/ocr_board.json
+!.build/a17/ocr_sh1.json
+!.build/a17/ocr_sh2.json
+!.build/a17/extracted.json
+!.build/a17/review.txt
+
+.build/a18/*
+# The reader's output is kept: it is the input to tools/build_coords.py, it
+# takes a long multi-pass tesseract run to reproduce, and the coordinates in
+# data/ cannot be rebuilt without it.
+!.build/a18/ocr_board.json
+!.build/a18/ocr_sh1.json
+!.build/a18/ocr_sh2.json
+!.build/a18/extracted.json
+!.build/a18/review.txt
+
+.build/a6/*
+# Same for A6: three schematic sheets, so four reader passes in all, and
+# data/a6.coords.overrides.json names its dropped and hand-placed markers
+# against these exact reads. tesseract is not bit-for-bit reproducible, so
+# re-running it would renumber them and quietly lose the review.
+!.build/a6/ocr_board.json
+!.build/a6/ocr_sh1.json
+!.build/a6/ocr_sh2.json
+!.build/a6/ocr_sh3.json
+!.build/a6/extracted.json
+!.build/a6/review.txt
+
+.build/a20/*
+# A20 is the largest board in the instrument: five schematic sheets, so six
+# reader passes in all. tesseract is not bit-for-bit reproducible and
+# data/a20.coords.overrides.json names its dropped and reassigned markers one by
+# one against exactly these reads, so re-running the reader would renumber them.
+!.build/a20/ocr_board.json
+!.build/a20/ocr_sh1.json
+!.build/a20/ocr_sh2.json
+!.build/a20/ocr_sh3.json
+!.build/a20/ocr_sh4.json
+!.build/a20/ocr_sh5.json
+!.build/a20/extracted.json
+!.build/a20/review.txt
+
+.build/a7/*
+# Same for A7: four schematic sheets, so five reader passes in all, and the
+# board's silkscreen reads poorly enough that data/a7.coords.overrides.json is
+# written against these exact reads -- 50 dropped markers named one by one.
+# Re-running tesseract would move them.
+!.build/a7/ocr_board.json
+!.build/a7/ocr_sh1.json
+!.build/a7/ocr_sh2.json
+!.build/a7/ocr_sh3.json
+!.build/a7/ocr_sh4.json
+!.build/a7/extracted.json
+!.build/a7/review.txt
+
+.build/a10/*
+# Same for A10. Only sheets 1 and 2 get a reader pass -- sheets 3 and 4 of
+# Figure 7-10 are the relay state tables and carry no circuit -- but
+# data/a10.coords.overrides.json names 45 dropped sheet markers one by one
+# against these exact reads, so re-running tesseract would move them.
+!.build/a10/ocr_board.json
+!.build/a10/ocr_sh1.json
+!.build/a10/ocr_sh2.json
+!.build/a10/extracted.json
+!.build/a10/review.txt
+
+.build/a8/*
+# Same for A8: five schematic sheets, but only sheet 1's reads were reviewed
+# and kept, and data/a8.coords.overrides.json names 326 individual sheet drops
+# against these exact reads. Re-running tesseract would renumber them.
+!.build/a8/ocr_board.json
+!.build/a8/ocr_sh1.json
+!.build/a8/ocr_sh2.json
+!.build/a8/ocr_sh3.json
+!.build/a8/ocr_sh4.json
+!.build/a8/extracted.json
+!.build/a8/review.txt
+
+.build/a9/*
+# Same for A9, and it is the sharpest case of the lot: all 278 sheet markers
+# were reviewed against these reads and six were *reassigned* rather than
+# dropped. A reassignment only means anything beside the read it corrects.
+!.build/a9/ocr_board.json
+!.build/a9/ocr_sh1.json
+!.build/a9/ocr_sh2.json
+!.build/a9/ocr_sh3.json
+!.build/a9/ocr_sh4.json
+!.build/a9/extracted.json
+!.build/a9/review.txt
+
+.build/a4/*
+# Same for A4: three schematic sheets, so four reader passes, and
+# data/a4.coords.overrides.json names its dropped and hand-placed markers
+# against exactly these reads. tesseract is not bit-for-bit reproducible, so
+# re-running it would renumber them. The Chapter 6 OCR is kept for the same
+# reason A15's is -- the manufacturer columns on Rev 9 page 20 need the fix
+# tables in build_data.py, and those fixes are written against this read.
+!.build/a4/ocr_board.json
+!.build/a4/ocr_sh1.json
+!.build/a4/ocr_sh2.json
+!.build/a4/ocr_sh3.json
+!.build/a4/extracted.json
+!.build/a4/review.txt
+
+# tools/spaces.py is imported by the other tools, so Python caches it here.
+__pycache__/
+
+# Subagent worktrees are separate checkouts of this same repo.
+.claude/worktrees/
+
+# Machine-local Claude Code state. The skill under .claude/skills is versioned
+# on purpose -- it documents this pipeline and belongs with it.
+.claude/settings.local.json
+.claude/.cc-writes/
+
+# Built by tools/make_release.sh. Everything in it is a copy of something
+# already tracked here, so versioning it would only double the repository.
+dist/
+
+# A service record exported from the app: readings taken against one physical
+# instrument. That is the operator's data rather than the tool's and is not
+# reproducible from anything in here, so it stays out of the repository -- an
+# untargeted `git add -A` would otherwise sweep it in.
+test-logs/
+
+.DS_Store
+
+# Exports dropped in from Author Mode, folded into data/<asm>.coords.overrides.json
+# by tools/fold_overrides.py. The overrides file is the permanent record; a copy of
+# the export left beside it would be a second answer to the same question.
+manual-data/
+
+.build/a16a1/*
+# A16A1 has one schematic sheet. Same reasoning as every other board here: the
+# reader is not deterministic and data/a16a1.coords.overrides.json names its
+# corrections against exactly these reads.
+!.build/a16a1/ocr_board.json
+!.build/a16a1/ocr_sh1.json
+!.build/a16a1/extracted.json
+!.build/a16a1/review.txt
+
+.build/a13a1/*
+# A13A1 has one schematic sheet; same reasoning.
+!.build/a13a1/ocr_board.json
+!.build/a13a1/ocr_sh1.json
+!.build/a13a1/extracted.json
+!.build/a13a1/review.txt
+
+.build/a21/*
+# A21 has five schematic sheets; same reasoning.
+!.build/a21/ocr_board.json
+!.build/a21/ocr_sh1.json
+!.build/a21/ocr_sh2.json
+!.build/a21/ocr_sh3.json
+!.build/a21/ocr_sh4.json
+!.build/a21/ocr_sh5.json
+!.build/a21/extracted.json
+!.build/a21/review.txt

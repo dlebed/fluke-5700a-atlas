@@ -1,0 +1,2806 @@
+{
+ "id": "A20",
+ "name": "CPU PCA",
+ "pca": "761072",
+ "rev": "F",
+ "components": [
+  {
+   "ref": "BT1",
+   "kind": "battery",
+   "desc": "BATTERY,LITHIUM,3.0V,0.500AH",
+   "fluke": "821439",
+   "mfrCode": "67237",
+   "mfrPart": "ES1045-01",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "C1",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,TA,220UF,+-20%,10V,7343H",
+   "fluke": "106021",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,TA,220UF,+-20%,10V",
+    "fluke": "474288",
+    "mfrCode": "56289",
+    "mfrPart": "199D227xX0003EA3",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C2",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C3",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C4",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C5",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,TA,15UF,+-20%,35V,7343",
+   "fluke": "690252",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,TA,15UF,+-20%.20V",
+    "fluke": "807610",
+    "mfrCode": "56289",
+    "mfrPart": "199D1s6xo020pa1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C6",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C7",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "C8",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,22PF,+-1%,50V,C0G,0805",
+   "fluke": "867663",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,CER,22PF,+-2%,50V,C0G",
+    "fluke": "714832",
+    "mfrCode": "04222",
+    "mfrPart": "SR215A220GAT",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C9",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,22PF,+-1%,50V,C0G,0805",
+   "fluke": "867663",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,CER,22PF,+-2%,50V,C0G",
+    "fluke": "714832",
+    "mfrCode": "04222",
+    "mfrPart": "SR215A220GAT",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C10",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,22PF,+-1%,50V,C0G,0805",
+   "fluke": "867663",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,CER,22PF,+-2%,50V,C0G",
+    "fluke": "714832",
+    "mfrCode": "04222",
+    "mfrPart": "SR215A220GAT",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C11",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,22PF,+-1%,50V,C0G,0805",
+   "fluke": "867663",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,CER,22PF,+-2%,50V,C0G",
+    "fluke": "714832",
+    "mfrCode": "04222",
+    "mfrPart": "SR215A220GAT",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C12",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.22UF,+-10%,25V,X7R,1206",
+   "fluke": "106625",
+   "qty": 3,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.22UF,+-10%,50V",
+    "fluke": "706028",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/.22K0050RCB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C13",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.22UF,+-10%,25V,X7R,1206",
+   "fluke": "106625",
+   "qty": 3,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.22UF,+-10%,50V",
+    "fluke": "706028",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/.22K0050RCB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C14",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "C15",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "C16",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "C17",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,TA,47UF,+-20%,16V,7343",
+   "fluke": "644994",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,AL,47UF,+-20%,35V,SOLV PROOF",
+    "fluke": "643312",
+    "mfrCode": "62643",
+    "mfrPart": "LR3 5VB470M10X15LLV",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C18",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "C80",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.22UF,+-10%,25V,X7R,1206",
+   "fluke": "106625",
+   "qty": 3,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,CER,0.22UF,+80-20%,50V,Z5U",
+    "fluke": "649939",
+    "mfrCode": "04222",
+    "mfrPart": "SR215E224MAA",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C81",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,330PF,+-5%,50V,C0G,0805",
+   "fluke": "512038",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,CER,120PF,+-5%,50V,C0OG",
+    "fluke": "721142",
+    "mfrCode": "04222",
+    "mfrPart": "SR215A1210AT",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C82",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,150PF,+-5%,50V,C0G,0805",
+   "fluke": "866533",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,CER,120PF,+-5%,50V,C0OG",
+    "fluke": "721142",
+    "mfrCode": "04222",
+    "mfrPart": "SR215A1210AT",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C100",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,TA,2.2UF,+-20%,20V,3528",
+   "fluke": "854760",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,TA,2.2UF,+-20%,16V",
+    "fluke": "706804",
+    "mfrCode": "56289",
+    "mfrPart": "199D225x0016AA1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C101",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C102",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C103",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C104",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C105",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C106",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C107",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "C108",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C109",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C110",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C111",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C113",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C115",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C116",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C117",
+   "kind": "cap",
+   "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+   "fluke": "649913",
+   "mfrCode": "60935",
+   "mfrPart": "185-2/0.1K0050RAB",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "C118",
+   "kind": "cap",
+   "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+   "fluke": "649913",
+   "mfrCode": "60935",
+   "mfrPart": "185-2/0.1K0050RAB",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "C119",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C120",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C122",
+   "kind": "cap",
+   "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+   "fluke": "649913",
+   "mfrCode": "60935",
+   "mfrPart": "185-2/0.1K0050RAB",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "C123",
+   "kind": "cap",
+   "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+   "fluke": "649913",
+   "mfrCode": "60935",
+   "mfrPart": "185-2/0.1K0050RAB",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "C124",
+   "kind": "cap",
+   "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+   "fluke": "649913",
+   "mfrCode": "60935",
+   "mfrPart": "185-2/0.1K0050RAB",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "C125",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C126",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C127",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C128",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C129",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C130",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C131",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C132",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C133",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C142",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "C143",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "C144",
+   "kind": "cap",
+   "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+   "fluke": "649913",
+   "mfrCode": "60935",
+   "mfrPart": "185-2/0.1K0050RAB",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "C145",
+   "kind": "cap",
+   "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+   "fluke": "649913",
+   "mfrCode": "60935",
+   "mfrPart": "185-2/0.1K0050RAB",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "C152",
+   "kind": "cap",
+   "desc": "CAPACITOR SMR,CAP,CER,0.1UF,+-10%,50V,X7R,0805",
+   "fluke": "690500",
+   "qty": 37,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CAP,POLYES,0.1UF,+-10%,50V",
+    "fluke": "649913",
+    "mfrCode": "60935",
+    "mfrPart": "185-2/0.1K0050RAB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "CR1",
+   "kind": "diode",
+   "desc": "LED,RED,T1-3/4,5MM LEAD SPACING",
+   "fluke": "723486",
+   "mfrCode": "25088",
+   "mfrPart": "LDH1111-329",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "CR2",
+   "kind": "diode",
+   "desc": "DIODE,GF1B SMR,DIODE,SI,100V,1A,DO-214",
+   "fluke": "912451",
+   "qty": 3,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "DIODE,SI,100 PIV,1.0 AMP",
+    "fluke": "742874",
+    "mfrCode": "65940",
+    "mfrPart": "1N4002A",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "CR3",
+   "kind": "diode",
+   "desc": "DIODE,GF1B SMR,DIODE,SI,100V,1A,DO-214",
+   "fluke": "912451",
+   "qty": 3,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "DIODE,SI,100 PIV,1.0 AMP",
+    "fluke": "742874",
+    "mfrCode": "65940",
+    "mfrPart": "1N4002A",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "CR4",
+   "kind": "diode",
+   "desc": "DIODE,BAT54A SMR,DIODE,SI,SCHOTT,DUAL,30V,200MA,SOT-23",
+   "fluke": "942594",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "DIODE,SI,SCHOTTKY BARRIER,SMALL SIGNL",
+    "fluke": "313247",
+    "mfrCode": "28480",
+    "mfrPart": "5082-6264 T25",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "CR5",
+   "kind": "diode",
+   "desc": "DIODE,BAT54A SMR,DIODE,SI,SCHOTT,DUAL,30V,200MA,SOT-23",
+   "fluke": "942594",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "DIODE,SI,SCHOTTKY BARRIER,SMALL SIGNL",
+    "fluke": "313247",
+    "mfrCode": "28480",
+    "mfrPart": "5082-6264 T25",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "CR6",
+   "kind": "diode",
+   "desc": "DIODE,BAT54A SMR,DIODE,SI,SCHOTT,DUAL,30V,200MA,SOT-23",
+   "fluke": "942594",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "DIODE,SI,SCHOTTKY BARRIER,SMALL SIGNL",
+    "fluke": "313247",
+    "mfrCode": "28480",
+    "mfrPart": "5082-6264 T25",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "CR7",
+   "kind": "diode",
+   "desc": "DIODE,GF1B SMR,DIODE,SI,100V,1A,DO-214",
+   "fluke": "912451",
+   "qty": 3,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "DIODE,SI,100 PIV,1.0 AMP",
+    "fluke": "742874",
+    "mfrCode": "65940",
+    "mfrPart": "1N4002A",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "CR8",
+   "kind": "diode",
+   "desc": "DIODE,BAT54A SMR,DIODE,SI,SCHOTT,DUAL,30V,200MA,SOT-23",
+   "fluke": "942594",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "DIODE,SI,SCHOTTKY BARRIER,SMALL SIGNL",
+    "fluke": "313247",
+    "mfrCode": "28480",
+    "mfrPart": "5082-6264 T25",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "DS1",
+   "kind": "led",
+   "desc": "LED,RED,BR1101W,1.6 MCD,20MA,1.7V,1206,TAPE",
+   "fluke": "804788",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "H3",
+   "kind": "mech",
+   "desc": "RIVET,AL,.089 DIA,.344 L,SEMI-TUBULAR,OVAL HEAD",
+   "fluke": "838458",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "mfrCode": null,
+   "mfrPart": "COMMERCIAL"
+  },
+  {
+   "ref": "H4",
+   "kind": "mech",
+   "desc": "RIVET,AL,.089 DIA,.344 L,SEMI-TUBULAR,OVAL HEAD",
+   "fluke": "838458",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "mfrCode": null,
+   "mfrPart": "COMMERCIAL"
+  },
+  {
+   "ref": "H5",
+   "kind": "mech",
+   "desc": "RIVET,AL,.089 DIA,.344 L,SEMI-TUBULAR,OVAL HEAD",
+   "fluke": "838458",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "mfrCode": null,
+   "mfrPart": "COMMERCIAL"
+  },
+  {
+   "ref": "H6",
+   "kind": "mech",
+   "desc": "RIVET,AL,.089 DIA,.344 L,SEMI-TUBULAR,OVAL HEAD",
+   "fluke": "838458",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "mfrCode": null,
+   "mfrPart": "COMMERCIAL"
+  },
+  {
+   "ref": "L80",
+   "kind": "inductor",
+   "desc": "INDUCTOR SMR,INDUCTOR,10UH,+-10%,.015ADC",
+   "fluke": "105965",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CHOKE,3 TURN",
+    "fluke": "452888",
+    "mfrCode": "89536",
+    "mfrPart": "1452888",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "L81",
+   "kind": "inductor",
+   "desc": "INDUCTOR SMR,INDUCTOR,10UH,+-10%,.015ADC",
+   "fluke": "105965",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CHOKE,3 TURN",
+    "fluke": "452888",
+    "mfrCode": "89536",
+    "mfrPart": "1452888",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "M3",
+   "kind": "mech",
+   "desc": "FOOT,ADHESIVE,RUBBER,GREY,.44X.20",
+   "fluke": "358341",
+   "mfrCode": "28213",
+   "mfrPart": "swJ-5003",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "M4",
+   "kind": "mech",
+   "desc": "FOOT,ADHESIVE,RUBBER,GREY,.44X.20",
+   "fluke": "358341",
+   "mfrCode": "28213",
+   "mfrPart": "swJ-5003",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "MP1",
+   "kind": "mech",
+   "desc": "5700A-3006,A-20, MAIN CPU, PCB",
+   "fluke": "1591062",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "EJECTOR,PWB,NYLON",
+    "fluke": "494724",
+    "mfrCode": "32559",
+    "mfrPart": "cp-66",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "MP2",
+   "kind": "mech",
+   "desc": "EJECTOR,PWB,NYLON",
+   "fluke": "494724",
+   "mfrCode": "32559",
+   "mfrPart": "cp-66",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "MP7",
+   "kind": "mech",
+   "desc": "PAD,ADHESIVE",
+   "fluke": "735365",
+   "mfrCode": "89536",
+   "mfrPart": "735365",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "MP8",
+   "kind": "mech",
+   "desc": "PAD,ADHESIVE",
+   "fluke": "735365",
+   "mfrCode": "89536",
+   "mfrPart": "735365",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "P61",
+   "kind": "connector",
+   "desc": "CONNECTOR ,CONN,DIN41612,TYPE C,RT ANG,64 PIN",
+   "fluke": "802402",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CONN,D1N41612,TYPE C,RT ANG,64 PIN",
+    "fluke": "807800",
+    "mfrCode": "28213",
+    "mfrPart": "726450D2TB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "P62",
+   "kind": "connector",
+   "desc": "CONNECTOR ,CONN,DIN41612,TYPE C,RT ANG,64 PIN",
+   "fluke": "802402",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CONN,D1N41612,TYPE C,RT ANG,64 PIN",
+    "fluke": "807800",
+    "mfrCode": "28213",
+    "mfrPart": "726450D2TB",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "R1",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,470,+-5%,.125W,200PPM,1206",
+   "fluke": "740506",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,CF,470,+-5%,0.25W",
+    "fluke": "573121",
+    "mfrCode": "59124",
+    "mfrPart": "cF1-44710B",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "R2",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,0,+.05 MAX,.125W,1206",
+   "fluke": "810747",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "R3",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,470,+-5%,.125W,200PPM,1206",
+   "fluke": "740506",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,CF,470,+-5%,0.25W",
+    "fluke": "573121",
+    "mfrCode": "59124",
+    "mfrPart": "cF1-44710B",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "R4",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,10M,+-5%,.125W,400PPM,1206",
+   "fluke": "783274",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,CF,10M,+-5%,0.25W",
+    "fluke": "696971",
+    "mfrCode": "59124",
+    "mfrPart": "cF1-4106u8B",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "R5",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,1.8K,+-5%,.125W,200PPM,1206",
+   "fluke": "746453",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,CF,1.8K,+-5%,0.25W",
+    "fluke": "573220",
+    "mfrCode": "59124",
+    "mfrPart": "cF1-4182u0B",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "R6",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,6.2K,+-5%,.125W,200PPM,1206",
+   "fluke": "746016",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,CF,6.2K,+-5%,0.25W",
+    "fluke": "573345",
+    "mfrCode": "59124",
+    "mfrPart": "cF1-4622u0B",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "R7",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,0,+.05 MAX,.125W,1206",
+   "fluke": "810747",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "R8",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,75,+-5%,.125W,200PPM,1206",
+   "fluke": "811323",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "R9",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,75,+-5%,.125W,200PPM,1206",
+   "fluke": "811323",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "R10",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,10K,+-1%,.125W,100PPM,1206",
+   "fluke": "769794",
+   "qty": 7,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "R11",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,10K,+-1%,.125W,100PPM,1206",
+   "fluke": "769794",
+   "qty": 7,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "R12",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,10K,+-1%,.125W,100PPM,1206",
+   "fluke": "769794",
+   "qty": 7,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "R13",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,10K,+-1%,.125W,100PPM,1206",
+   "fluke": "769794",
+   "qty": 7,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "R14",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,10K,+-1%,.125W,100PPM,1206",
+   "fluke": "769794",
+   "qty": 7,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "R15",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,10K,+-1%,.125W,100PPM,1206",
+   "fluke": "769794",
+   "qty": 7,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "R16",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,10K,+-1%,.125W,100PPM,1206",
+   "fluke": "769794",
+   "qty": 7,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "R17",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,1K,+-1%,.125W,100PPM,1206",
+   "fluke": "783241",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "R51",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,5.11K,+-1%,.125W,100PPM,1206",
+   "fluke": "810663",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,MF,5.11K,+-1%,0.125W,100PPM",
+    "fluke": "720342",
+    "mfrCode": "91637",
+    "mfrPart": "CMF-555111F T-1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "R52",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,5.11K,+-1%,.125W,100PPM,1206",
+   "fluke": "810663",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,MF,5.11K,+-1%,0.125W,100PPM",
+    "fluke": "720342",
+    "mfrCode": "91637",
+    "mfrPart": "CMF-555111F T-1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "R53",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,5.11K,+-1%,.125W,100PPM,1206",
+   "fluke": "810663",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,MF,5.11K,+-1%,0.125W,100PPM",
+    "fluke": "720342",
+    "mfrCode": "91637",
+    "mfrPart": "CMF-555111F T-1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "R54",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,5.11K,+-1%,.125W,100PPM,1206",
+   "fluke": "810663",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,MF,5.11K,+-1%,0.125W,100PPM",
+    "fluke": "720342",
+    "mfrCode": "91637",
+    "mfrPart": "CMF-555111F T-1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "R55",
+   "kind": "res",
+   "desc": "RES,MF,10K,+-1%,0.125W,100PPM",
+   "fluke": "719476",
+   "mfrCode": "91637",
+   "mfrPart": "CMF-551002F T-1",
+   "qty": null,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "R56",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,1K,+-1%,.125W,100PPM,1206",
+   "fluke": "783241",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,MF,1K,+-1%,0.125W,100PPM",
+    "fluke": "719468",
+    "mfrCode": "91637",
+    "mfrPart": "CMF-551001F T-1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "R57",
+   "kind": "res",
+   "desc": "RES,MF,1K,+-1%,0.125W,100PPM",
+   "fluke": "719468",
+   "mfrCode": "91637",
+   "mfrPart": "CMF-551001F T-1",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "R58",
+   "kind": "res",
+   "desc": "RESISTOR,CERMET,39.2K,+-1%,0.1W,100PPM,0805,TAPE",
+   "fluke": "943092",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,MF,39.2K,+-1%,0.125W,25PPM",
+    "fluke": "312207",
+    "mfrCode": "91637",
+    "mfrPart": "CMF-553922F T-9",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "R59",
+   "kind": "res",
+   "desc": "RESISTOR,CERMET,39.2K,+-1%,0.1W,100PPM,0805,TAPE",
+   "fluke": "943092",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,MF,39.2K,+-1%,0.125W,25PPM",
+    "fluke": "312207",
+    "mfrCode": "91637",
+    "mfrPart": "CMF-553922F T-9",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "R60",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,1M,+-1%,.125W,100PPM,1206",
+   "fluke": "836387",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,MF,1M,+-1%,0.125W,1OOPPM",
+    "fluke": "719492",
+    "mfrCode": "91637",
+    "mfrPart": "CMF-551004F T-1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "R61",
+   "kind": "res",
+   "desc": "RESISTOR SMR,RES,CERM,1M,+-1%,.125W,100PPM,1206",
+   "fluke": "836387",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,MF,1M,+-1%,0.125W,1OOPPM",
+    "fluke": "719492",
+    "mfrCode": "91637",
+    "mfrPart": "CMF-551004F T-1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "R81",
+   "kind": "res",
+   "desc": "RES,CF,150,+-5%,0.25W",
+   "fluke": "573030",
+   "mfrCode": "59124",
+   "mfrPart": "CF1-41510B",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "R82",
+   "kind": "res",
+   "desc": "RES,CF,150,+-5%,0.25W",
+   "fluke": "573030",
+   "mfrCode": "59124",
+   "mfrPart": "CF1-41510B",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "SW1",
+   "kind": "switch",
+   "desc": "SWITCH, MICRO, PUSHBUTTON, SPST, MOMENTARY, 24VDC@30MA, SMT, TAPE",
+   "fluke": "1589043",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "SWITCH,PUSHBUTTON,SPST,MOMENTARY",
+    "fluke": "782656",
+    "mfrCode": "72884",
+    "mfrPart": "SKHHAM",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "T1",
+   "kind": "transformer",
+   "desc": "TRANSFORMER,SIGNAL,1:1,0.3-150MHZ,1515,TAPE",
+   "fluke": "690669",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "T51",
+   "kind": "transformer",
+   "desc": "TRANSFORMER 8 MHZ",
+   "fluke": "813477",
+   "mfrCode": "89536",
+   "mfrPart": "813477",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "TP1",
+   "kind": "testpoint",
+   "desc": "CONNECTOR,TERMINAL,TEST POINT,1510,TAPE",
+   "fluke": "602125",
+   "qty": 13,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "JUMPER,WIRE,NONINSUL,0.200CTR",
+    "fluke": "816090",
+    "mfrCode": "91984",
+    "mfrPart": "j150T1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "TP3",
+   "kind": "testpoint",
+   "desc": "CONNECTOR,TERMINAL,TEST POINT,1510,TAPE",
+   "fluke": "602125",
+   "qty": 13,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "JUMPER,WIRE,NONINSUL,0.200CTR",
+    "fluke": "816090",
+    "mfrCode": "91984",
+    "mfrPart": "j150T1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "TP4",
+   "kind": "testpoint",
+   "desc": "CONNECTOR,TERMINAL,TEST POINT,1510,TAPE",
+   "fluke": "602125",
+   "qty": 13,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "JUMPER,WIRE,NONINSUL,0.200CTR",
+    "fluke": "816090",
+    "mfrCode": "91984",
+    "mfrPart": "j150T1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "TP5",
+   "kind": "testpoint",
+   "desc": "CONNECTOR,TERMINAL,TEST POINT,1510,TAPE",
+   "fluke": "602125",
+   "qty": 13,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "JUMPER,WIRE,NONINSUL,0.200CTR",
+    "fluke": "816090",
+    "mfrCode": "91984",
+    "mfrPart": "j150T1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "TP6",
+   "kind": "testpoint",
+   "desc": "CONNECTOR,TERMINAL,TEST POINT,1510,TAPE",
+   "fluke": "602125",
+   "qty": 13,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "JUMPER,WIRE,NONINSUL,0.200CTR",
+    "fluke": "816090",
+    "mfrCode": "91984",
+    "mfrPart": "j150T1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "TP7",
+   "kind": "testpoint",
+   "desc": "CONNECTOR,TERMINAL,TEST POINT,1510,TAPE",
+   "fluke": "602125",
+   "qty": 13,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "JUMPER,WIRE,NONINSUL,0.200CTR",
+    "fluke": "816090",
+    "mfrCode": "91984",
+    "mfrPart": "j150T1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "TP8",
+   "kind": "testpoint",
+   "desc": "CONNECTOR,TERMINAL,TEST POINT,1510,TAPE",
+   "fluke": "602125",
+   "qty": 13,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "JUMPER,WIRE,NONINSUL,0.200CTR",
+    "fluke": "816090",
+    "mfrCode": "91984",
+    "mfrPart": "j150T1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "TP9",
+   "kind": "testpoint",
+   "desc": "CONNECTOR,TERMINAL,TEST POINT,1510,TAPE",
+   "fluke": "602125",
+   "qty": 13,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "JUMPER,WIRE,NONINSUL,0.200CTR",
+    "fluke": "816090",
+    "mfrCode": "91984",
+    "mfrPart": "j150T1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "TP10",
+   "kind": "testpoint",
+   "desc": "CONNECTOR,TERMINAL,TEST POINT,1510,TAPE",
+   "fluke": "602125",
+   "qty": 13,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "JUMPER,WIRE,NONINSUL,0.200CTR",
+    "fluke": "816090",
+    "mfrCode": "91984",
+    "mfrPart": "j150T1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "TP11",
+   "kind": "testpoint",
+   "desc": "CONNECTOR,TERMINAL,TEST POINT,1510,TAPE",
+   "fluke": "602125",
+   "qty": 13,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "JUMPER,WIRE,NONINSUL,0.200CTR",
+    "fluke": "816090",
+    "mfrCode": "91984",
+    "mfrPart": "j150T1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "TP12",
+   "kind": "testpoint",
+   "desc": "CONNECTOR,TERMINAL,TEST POINT,1510,TAPE",
+   "fluke": "602125",
+   "qty": 13,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "JUMPER,WIRE,NONINSUL,0.200CTR",
+    "fluke": "816090",
+    "mfrCode": "91984",
+    "mfrPart": "j150T1",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "TP13",
+   "kind": "testpoint",
+   "desc": "CONNECTOR,TERMINAL,TEST POINT,1510,TAPE",
+   "fluke": "602125",
+   "qty": 13,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "TP14",
+   "kind": "testpoint",
+   "desc": "CONNECTOR,TERMINAL,TEST POINT,1510,TAPE",
+   "fluke": "602125",
+   "qty": 13,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "U1",
+   "kind": "ic",
+   "desc": "BPLR TL7705A SMR,IC,VOLT SUPERVISOR,5V SENSE,SOIC",
+   "fluke": "780502",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,voLT SUPERVISOR,4.55V SENSE INPUT",
+    "fluke": "780577",
+    "mfrCode": "01295",
+    "mfrPart": "TI7705acpP",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U2",
+   "kind": "ic",
+   "desc": "IC, LOGIC, 74AC05, 2.0V-6.0V, HEX INVERTER W/OPEN DRAIN OUTPUTS, SOIC14, TAPE",
+   "fluke": "1589152",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "ic,LSTTL,HEX INVERTER W/OPEN COLLECT?",
+    "fluke": "394536",
+    "mfrCode": "04713",
+    "mfrPart": "SN74LSO5N",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U3",
+   "kind": "ic",
+   "desc": "CMOS 74HCU04 SMR,IC,CMOS,HEX INVERTER,UNBUFFERED,SOIC",
+   "fluke": "806893",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,CMOS,HEX INVERTER,UNBUFFERED",
+    "fluke": "741199",
+    "mfrCode": "04713",
+    "mfrPart": "MC74HCUO4N",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U4",
+   "kind": "ic",
+   "desc": "IC, LOGIC, 74HC4020, 2.0V-6.0V, 14-STAGE BINARY COUNTER, CLR, SOIC16, TAPE",
+   "fluke": "1589004",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "IC,CMOS,14 STAGE BINARY COUNTER",
+    "fluke": "807701",
+    "mfrCode": "04713",
+    "mfrPart": "Mc74HC4020N",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U5",
+   "kind": "ic",
+   "desc": "IC, PLD, ATF22V10C, 5.0V, 500-GATE, EE, PROGRAMMED, U5, SOICW24, TAPE",
+   "fluke": "1609625",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "IC,CMOS,PROG LOG,35NS,5700A-90760",
+    "fluke": "845271",
+    "mfrCode": "89536",
+    "mfrPart": "845271",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U6",
+   "kind": "ic",
+   "desc": "IC, PLD, ATF22V10C, 5.0V, 500-GATE, EE, PROGRAMMED, U6, SOICW24, TAPE",
+   "fluke": "1609633",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,CMOS,PROG LOGIC,25NS,5700A-90761",
+    "fluke": "845250",
+    "mfrCode": "89536",
+    "mfrPart": "845250",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U8",
+   "kind": "ic",
+   "desc": "IC,MICROPROCESSOR,MC68HC000,16 BIT,5V,10 MHZ,PLCC68,TAPE",
+   "fluke": "866777",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,CMOS,16 BIT MPU,8 MHZ,DIP",
+    "fluke": "816926",
+    "mfrCode": "04713",
+    "mfrPart": "MC68HCO0O0P-8",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U9",
+   "kind": "ic",
+   "desc": "CMOS 74HC32 SMR,IC,CMOS,QUAD 2 INPUT OR GATE,SOIC",
+   "fluke": "783712",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "IC,CMOS,QUAD 2 INPUT OR GATE",
+    "fluke": "817312",
+    "mfrCode": "04713",
+    "mfrPart": "Mc74HC32N",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U10",
+   "kind": "ic",
+   "desc": "IC, PLD, ATF22V10C, 5.0V, 500-GATE, EE, PROGRAMMED, U10, SOICW24, TAPE",
+   "fluke": "1609640",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,CMOS,PROG LOGIC,35NS,5700A-90762",
+    "fluke": "845268",
+    "mfrCode": "89536",
+    "mfrPart": "845268",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U11",
+   "kind": "ic",
+   "desc": "IC, LOGIC, 74HC4020, 2.0V-6.0V, 14-STAGE BINARY COUNTER, CLR, SOIC16, TAPE",
+   "fluke": "1589004",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "IC,CMOS,14 STAGE BINARY COUNTER",
+    "fluke": "807701",
+    "mfrCode": "04713",
+    "mfrPart": "Mc74HC4020N",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U13",
+   "kind": "ic",
+   "desc": "IC,MEMORY,EEPROM,28C256,256KB,32KX8,5V,250NS,HIGH ENDURANCE,PLCC32,TAPE",
+   "fluke": "1588978",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,NMOS,32K X 8 EEPROM,250NS",
+    "fluke": "875260",
+    "mfrCode": "33297",
+    "mfrPart": "JUPD28Cc256c-25",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U15",
+   "kind": "ic",
+   "desc": "EPROM,PROGRAMMED 27010,A20U015",
+   "fluke": "761262",
+   "mfrCode": "89536",
+   "mfrPart": "761262",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "U16",
+   "kind": "ic",
+   "desc": "EPROM,PROGRAMMED 27010,A20U016",
+   "fluke": "761361",
+   "mfrCode": "89536",
+   "mfrPart": "761361",
+   "qty": null,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "U17",
+   "kind": "ic",
+   "desc": "EPROM,PROGRAMMED 27010,A20U017",
+   "fluke": "761379",
+   "mfrCode": "89536",
+   "mfrPart": "1761379",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "U18",
+   "kind": "ic",
+   "desc": "EPROM,PROGRAMMED 27010,A20U018",
+   "fluke": "775247",
+   "mfrCode": "89536",
+   "mfrPart": "775247",
+   "qty": null,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "U19",
+   "kind": "ic",
+   "desc": "IC,MEMORY,SRAM,7C1021,1MB,64KX16,5V,15NS,TSOP44,TAPE",
+   "fluke": "1609432",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,cMOS,32K X 8 STATIC RAM,120 NSEC",
+    "fluke": "800250",
+    "mfrCode": "33297",
+    "mfrPart": "D43256c12L",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U20",
+   "kind": "ic",
+   "desc": "Ic,cMOS,32K X 8 STATIC RAM,120 NSEC",
+   "fluke": "800250",
+   "mfrCode": "33297",
+   "mfrPart": "D43256c12L",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "U21",
+   "kind": "ic",
+   "desc": "Ic,cMOS,32K X 8 STATIC RAM,120 NSEC",
+   "fluke": "800250",
+   "mfrCode": "33297",
+   "mfrPart": "D43256c12L",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "U22",
+   "kind": "ic",
+   "desc": "Ic,cMOS,32K X 8 STATIC RAM,120 NSEC",
+   "fluke": "800250",
+   "mfrCode": "33297",
+   "mfrPart": "D43256c12L",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "U25",
+   "kind": "ic",
+   "desc": "CMOS 74HCT244 SMR,IC,CMOS,OCTL LINE DRVR,SOIC",
+   "fluke": "742593",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,CMOS,OCTL LINE DRVR W/3-ST ouT",
+    "fluke": "741892",
+    "mfrCode": "01295",
+    "mfrPart": "SN74HCT244N",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U26",
+   "kind": "ic",
+   "desc": "CMOS 74HCT245 SMR,IC,CMOS,OCTAL BUS TRANSCEIVER,SOIC",
+   "fluke": "742577",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,CMOS,OCTAL BUS TRANSCEIVER",
+    "fluke": "722017",
+    "mfrCode": "18324",
+    "mfrPart": "74HCT245N",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U27",
+   "kind": "ic",
+   "desc": "CMOS 74HCT244 SMR,IC,CMOS,OCTL LINE DRVR,SOIC",
+   "fluke": "742593",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,CMOS,OCTL LINE DRVR W/3-ST ouT",
+    "fluke": "741892",
+    "mfrCode": "01295",
+    "mfrPart": "SN74HCT244N",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U28",
+   "kind": "ic",
+   "desc": "CMOS 74HCT244 SMR,IC,CMOS,OCTL LINE DRVR,SOIC",
+   "fluke": "742593",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,CMOS,OCTL LINE DRVR W/3-ST ouT",
+    "fluke": "741892",
+    "mfrCode": "01295",
+    "mfrPart": "SN74HCT244N",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U29",
+   "kind": "ic",
+   "desc": "CMOS 74HCT244 SMR,IC,CMOS,OCTL LINE DRVR,SOIC",
+   "fluke": "742593",
+   "qty": 4,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,CMOS,OCTL LINE DRVR W/3-ST ouT",
+    "fluke": "741892",
+    "mfrCode": "01295",
+    "mfrPart": "SN74HCT244N",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U30",
+   "kind": "ic",
+   "desc": "CMOS 74HCT245 SMR,IC,CMOS,OCTAL BUS TRANSCEIVER,SOIC",
+   "fluke": "742577",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,CMOS,OCTAL BUS TRANSCEIVER",
+    "fluke": "722017",
+    "mfrCode": "18324",
+    "mfrPart": "74HCT245N",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U31",
+   "kind": "ic",
+   "desc": "CMOS 68C681 SM,IC,CMOS,DUAL CHANNEL UART,PLCC",
+   "fluke": "866785",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,CMOS,DUAL CHANNEL UART (DUART)",
+    "fluke": "799494",
+    "mfrCode": "66419",
+    "mfrPart": "xus\u00e96\u00e9scic",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U32",
+   "kind": "ic",
+   "desc": "IC, LOGIC, DS75451, 5.0V, SERIES DUAL PERIPHERAL DRIVERS, SOIC8, TAPE",
+   "fluke": "1589055",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,TTL,DUAL AND DRVR W/OPEN COLLECTOR",
+    "fluke": "393959",
+    "mfrCode": "01295",
+    "mfrPart": "SN75451BP",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U33",
+   "kind": "ic",
+   "desc": "IC,REAL TIME CLOCK-CALENDAR,ICM7170,5V,PARALLEL,ALARM,SO24,TAPE",
+   "fluke": "1588991",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,CMOS,CLOCK CALENDAR",
+    "fluke": "807693",
+    "mfrCode": "34371",
+    "mfrPart": "ITS9263",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "U52",
+   "kind": "ic",
+   "desc": "BIPOLAR LM324 SMR,IC,OP AMP,QUAD,LOW POWER,SOIC",
+   "fluke": "742569",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "Ic,OP AMP,QUAD,14 PIN DIP",
+    "fluke": "402669",
+    "mfrCode": "27014",
+    "mfrPart": "LM324N",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "X5",
+   "kind": "socket",
+   "desc": "SOCKET,IC,24 PIN",
+   "fluke": "812198",
+   "mfrCode": "00779",
+   "mfrPart": "2-641932-3",
+   "qty": 3,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "X6",
+   "kind": "socket",
+   "desc": "SOCKET,IC,24 PIN",
+   "fluke": "812198",
+   "mfrCode": "00779",
+   "mfrPart": "2-641932-3",
+   "qty": 3,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "X8",
+   "kind": "socket",
+   "desc": "SOCKET,IC,64 PIN",
+   "fluke": "483842",
+   "mfrCode": "00779",
+   "mfrPart": "643575-3",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "X10",
+   "kind": "socket",
+   "desc": "SOCKET,IC,24 PIN",
+   "fluke": "812198",
+   "mfrCode": "00779",
+   "mfrPart": "2-641932-3",
+   "qty": 3,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "X13",
+   "kind": "socket",
+   "desc": "SOCKET,IC,28 PIN",
+   "fluke": "448217",
+   "mfrCode": "91506",
+   "mfrPart": "228-AG39D",
+   "qty": null,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "X15",
+   "kind": "socket",
+   "desc": "SOCKET,IC,32 PIN",
+   "fluke": "807156",
+   "mfrCode": "00779",
+   "mfrPart": "2-644018-3",
+   "qty": 10,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "X16",
+   "kind": "socket",
+   "desc": "SOCKET,IC,32 PIN",
+   "fluke": "807156",
+   "mfrCode": "00779",
+   "mfrPart": "2-644018-3",
+   "qty": 10,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "X17",
+   "kind": "socket",
+   "desc": "SOCKET,IC,32 PIN",
+   "fluke": "807156",
+   "mfrCode": "00779",
+   "mfrPart": "2-644018-3",
+   "qty": 10,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "X18",
+   "kind": "socket",
+   "desc": "SOCKET,IC,32 PIN",
+   "fluke": "807156",
+   "mfrCode": "00779",
+   "mfrPart": "2-644018-3",
+   "qty": 10,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "X19",
+   "kind": "socket",
+   "desc": "SOCKET,IC,32 PIN",
+   "fluke": "807156",
+   "mfrCode": "00779",
+   "mfrPart": "2-644018-3",
+   "qty": 10,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "X20",
+   "kind": "socket",
+   "desc": "SOCKET,IC,32 PIN",
+   "fluke": "807156",
+   "mfrCode": "00779",
+   "mfrPart": "2-644018-3",
+   "qty": 10,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "X21",
+   "kind": "socket",
+   "desc": "SOCKET,IC,32 PIN",
+   "fluke": "807156",
+   "mfrCode": "00779",
+   "mfrPart": "2-644018-3",
+   "qty": 10,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "X22",
+   "kind": "socket",
+   "desc": "SOCKET,IC,32 PIN",
+   "fluke": "807156",
+   "mfrCode": "00779",
+   "mfrPart": "2-644018-3",
+   "qty": 10,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "X23",
+   "kind": "socket",
+   "desc": "SOCKET,IC,32 PIN",
+   "fluke": "807156",
+   "mfrCode": "00779",
+   "mfrPart": "2-644018-3",
+   "qty": 10,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "X24",
+   "kind": "socket",
+   "desc": "SOCKET,IC,32 PIN",
+   "fluke": "807156",
+   "mfrCode": "00779",
+   "mfrPart": "2-644018-3",
+   "qty": 10,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "XBT1",
+   "kind": "connector",
+   "desc": "CONNECTOR,HOLDER,BATTERY,2450 COIN,SURFACE MOUNT,TAPE",
+   "fluke": "1588957",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II"
+  },
+  {
+   "ref": "Y1",
+   "kind": "crystal",
+   "desc": "CRYSTAL,7.3728MHZ,50/100PPM,20PF,PLASTIC ENCAPSULATED,SMD,TAPE",
+   "fluke": "106648",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CRYSTAL,7.3728MHZ,+-1,%,HC-18U",
+    "fluke": "742049",
+    "mfrCode": "SW664",
+    "mfrPart": "NDK 073",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "Y3",
+   "kind": "crystal",
+   "desc": "CRYSTAL SMR,CRYSTAL,32.768KHZ,20PPM,SURFACE MT",
+   "fluke": "106754",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "CRYSTAL,32.768KHZ,+-5SPPM",
+    "fluke": "811943",
+    "mfrCode": "61429",
+    "mfrPart": "FOx-032",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "Z1",
+   "kind": "resnet",
+   "desc": "RESISTOR NETWORK,CERMET,BUSSED,15 RES,16 TERM,3.3K,+-",
+   "fluke": "1589028",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,CERM,DIP,16 PIN,15 RES,3 .3K,+-5%",
+    "fluke": "837666",
+    "mfrCode": "91637",
+    "mfrPart": "MDP16-01-3327",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "Z2",
+   "kind": "resnet",
+   "desc": "RESISTOR SMR,RES,CERM,SOIC,16 PIN,15 RES,4.7K,+-2%",
+   "fluke": "838060",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,CERM,DIP,16 PIN,15 RES,4.7K,+-5%",
+    "fluke": "416834",
+    "mfrCode": "91637",
+    "mfrPart": "MDP16-01-4727",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "Z3",
+   "kind": "resnet",
+   "desc": "RESISTOR SMR,RES,CERM,SOIC,16 PIN,15 RES,4.7K,+-2%",
+   "fluke": "838060",
+   "qty": 2,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,CERM,DIP,16 PIN,15 RES,4.7K,+-5%",
+    "fluke": "416834",
+    "mfrCode": "91637",
+    "mfrPart": "MDP16-01-4727",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  },
+  {
+   "ref": "Z4",
+   "kind": "resnet",
+   "desc": "RES,CERM,SIP,10 PIN,5 RES,10K,+-2%",
+   "fluke": "529990",
+   "mfrCode": "91637",
+   "mfrPart": "CSC10A-03-101G",
+   "qty": null,
+   "esd": false,
+   "notes": null,
+   "src": "Rev 9 only",
+   "descOcr": true
+  },
+  {
+   "ref": "Z5",
+   "kind": "resnet",
+   "desc": "RESISTOR SMR,RES,CERM,SOIC,16 PIN,15 RES,100K,+-2%",
+   "fluke": "910745",
+   "qty": 1,
+   "esd": false,
+   "notes": null,
+   "src": "1996 Series II",
+   "asBuilt": {
+    "desc": "RES,CERM,DIP,14 PIN,13 RES,100K,+-5%",
+    "fluke": "404624",
+    "mfrCode": "91637",
+    "mfrPart": "MDP14-01-1047",
+    "src": "Rev 9 (as built)",
+    "descOcr": true
+   }
+  }
+ ],
+ "supplyTables": {},
+ "procedureSteps": []
+}

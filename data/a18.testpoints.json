@@ -1,0 +1,287 @@
+{
+  "_comment": [
+    "Curated A18 test-point data. Hand-authored from the service manuals rather than",
+    "parsed, because the printed tables need three corrections that no parser should",
+    "guess at:",
+    "  1. Tables 2-8/2-9 print negative rails as unsigned magnitudes ('-44 SR ... 60V'",
+    "     means -60 V). Every nominal here is signed.",
+    "  2. The '+30 FR2R' row of Table 2-8 is shifted one cell against 'FR2 COM', losing",
+    "     its nominal. The value is taken from the +30 FR1R row, which is the same",
+    "     circuit (CR7/C9 vs CR14/C18) at the same rating.",
+    "  3. The +/-PA rails have no single correct voltage; what they should read depends",
+    "     on which mode the supply is jumpered into, so they carry a states[] list.",
+    "Signal names are transcribed from the legend boxes on schematic sheets 1 and 2.",
+    "'source' on every value says where it came from; 'inferred' marks the one value",
+    "the manuals do not state outright."
+  ],
+
+  "rails": {
+    "OSC":     { "label": "Oscillator supplies",        "com": "TP4",   "color": "#e0b13a" },
+    "LH":      { "label": "Logic/housekeeping supplies","com": "TP3",   "color": "#4fa3d1" },
+    "44S":     { "label": "+/-44 S supplies",           "com": "TP22",  "color": "#8f7fd4" },
+    "17S":     { "label": "+/-17 S supplies",           "com": "TP12",  "color": "#5ec2a8" },
+    "FR1":     { "label": "FR1 supplies",               "com": "TP19",  "color": "#d97b5a" },
+    "FR1R":    { "label": "FR1R unregulated supply",    "com": "TP16",  "color": "#c76ba8" },
+    "FR2":     { "label": "FR2 supplies",               "com": "TP11",  "color": "#7fb356" },
+    "PA":      { "label": "Power amplifier supplies",   "com": "TP203", "color": "#d1495b" },
+    "CONTROL": { "label": "+/-PA control lines",        "com": "TP203", "color": "#9aa0a6" }
+  },
+
+  "testpoints": [
+    { "ref": "TP1", "signal": "+5 LHR", "rail": "LH", "kind": "wire-loop",
+      "refPoint": "TP3", "nominal": 12, "tolerance": 4, "unit": "V",
+      "rippleMaxPP": 3, "ratedOutput": "3.5 A", "regulated": false,
+      "condition": "Power on, standby", "source": "Table 2-8" },
+
+    { "ref": "TP6", "signal": "-5 LHR", "rail": "LH", "kind": "wire-loop",
+      "refPoint": "TP3", "nominal": -12, "tolerance": 4, "unit": "V",
+      "rippleMaxPP": 2, "ratedOutput": "400 mA", "regulated": false,
+      "condition": "Power on, standby", "source": "Table 2-8" },
+
+    { "ref": "TP3", "signal": "LH COM", "rail": "LH", "kind": "wire-loop",
+      "isReturn": true, "source": "Table 2-8",
+      "note": "Return for +5 LHR and -5 LHR." },
+
+    { "ref": "TP2", "signal": "+15 OSCR", "rail": "OSC", "kind": "wire-loop",
+      "refPoint": "TP4", "nominal": 27, "tolerance": 8, "unit": "V",
+      "rippleMaxPP": 2, "ratedOutput": "200 mA", "regulated": false,
+      "condition": "Power on, standby", "source": "Table 2-8" },
+
+    { "ref": "TP5", "signal": "-15 OSCR", "rail": "OSC", "kind": "wire-loop",
+      "refPoint": "TP4", "nominal": -27, "tolerance": 8, "unit": "V",
+      "rippleMaxPP": 2, "ratedOutput": "200 mA", "regulated": false,
+      "condition": "Power on, standby", "source": "Table 2-8" },
+
+    { "ref": "TP4", "signal": "OSC COM", "rail": "OSC", "kind": "wire-loop",
+      "isReturn": true, "source": "Table 2-8",
+      "note": "Return for +15 OSCR and -15 OSCR." },
+
+    { "ref": "TP7", "signal": "+44 SR", "rail": "44S", "kind": "wire-loop",
+      "refPoint": "TP22", "nominal": 60, "tolerance": 15, "unit": "V",
+      "rippleMaxPP": 3, "ratedOutput": "155 mA", "regulated": false,
+      "condition": "Power on, standby", "source": "Table 2-8" },
+
+    { "ref": "TP9", "signal": "-44 SR", "rail": "44S", "kind": "wire-loop",
+      "refPoint": "TP22", "nominal": -60, "tolerance": 15, "unit": "V",
+      "rippleMaxPP": 3, "ratedOutput": "460 mA", "regulated": false,
+      "condition": "Power on, standby", "source": "Table 2-8" },
+
+    { "ref": "TP22", "signal": "44 S CT", "rail": "44S", "kind": "wire-loop",
+      "isReturn": true, "source": "Table 2-8 / sheet 1 legend",
+      "note": "44 S COM. Tied to 17 S COM on the Regulator/Guard Crossing assembly (A17)." },
+
+    { "ref": "TP10", "signal": "+17 SR", "rail": "17S", "kind": "wire-loop",
+      "refPoint": "TP12", "nominal": 27, "tolerance": 8, "unit": "V",
+      "rippleMaxPP": 3, "ratedOutput": "1.3 A", "regulated": false,
+      "condition": "Power on, standby", "source": "Table 2-8" },
+
+    { "ref": "TP14", "signal": "-17 SR", "rail": "17S", "kind": "wire-loop",
+      "refPoint": "TP12", "nominal": -27, "tolerance": 8, "unit": "V",
+      "rippleMaxPP": 3, "ratedOutput": "1.3 A", "regulated": false,
+      "condition": "Power on, standby", "source": "Table 2-8" },
+
+    { "ref": "TP12", "signal": "17 S COM", "rail": "17S", "kind": "wire-loop",
+      "isReturn": true, "source": "Table 2-8",
+      "note": "Tied to 44 S COM on the Regulator/Guard Crossing assembly (A17)." },
+
+    { "ref": "TP17", "signal": "+5 FR1R", "rail": "FR1", "kind": "wire-loop",
+      "refPoint": "TP19", "nominal": 12, "tolerance": 4, "unit": "V",
+      "rippleMaxPP": 2, "ratedOutput": "400 mA", "regulated": false,
+      "condition": "Power on, standby", "source": "Table 2-8" },
+
+    { "ref": "TP20", "signal": "-18 FR1R", "rail": "FR1", "kind": "wire-loop",
+      "refPoint": "TP19", "nominal": -27, "tolerance": 8, "unit": "V",
+      "rippleMaxPP": 2, "ratedOutput": "50 mA", "regulated": false,
+      "condition": "Power on, standby", "source": "Table 2-8" },
+
+    { "ref": "TP18", "signal": "+5 FR1", "rail": "FR1", "kind": "wire-loop",
+      "refPoint": "TP19", "nominal": 5, "tolerance": 0.3, "unit": "V",
+      "currentLimit": "2 A", "ratedOutput": "0.1 A", "regulated": true,
+      "condition": "Power on, standby", "source": "Table 2-9",
+      "note": "Regulated by U2 (MC78L05)." },
+
+    { "ref": "TP21", "signal": "-18 FR1", "rail": "FR1", "kind": "wire-loop",
+      "refPoint": "TP19", "nominal": -18, "tolerance": 0.9, "unit": "V",
+      "currentLimit": "2 A", "ratedOutput": "0.05 A", "regulated": true,
+      "condition": "Power on, standby", "source": "Table 2-9",
+      "note": "Regulated by U3 (MC7918)." },
+
+    { "ref": "TP19", "signal": "FR1 COM", "rail": "FR1", "kind": "wire-loop",
+      "isReturn": true, "source": "Tables 2-8 and 2-9",
+      "note": "Return for +5 FR1R, +5 FR1 and -18 FR1." },
+
+    { "ref": "TP15", "signal": "+30 FR1R", "rail": "FR1R", "kind": "wire-loop",
+      "refPoint": "TP16", "nominal": 50, "tolerance": 15, "unit": "V",
+      "rippleMaxPP": 3, "ratedOutput": "85 mA", "regulated": false,
+      "condition": "Power on, standby", "source": "Table 2-8" },
+
+    { "ref": "TP16", "signal": "FR1R COM", "rail": "FR1R", "kind": "wire-loop",
+      "isReturn": true, "source": "Table 2-8",
+      "note": "Return for the unregulated +30 FR1R supply only." },
+
+    { "ref": "TP8", "signal": "+30 FR2R", "rail": "FR2", "kind": "wire-loop",
+      "refPoint": "TP11", "nominal": 50, "tolerance": 15, "unit": "V",
+      "rippleMaxPP": 3, "ratedOutput": "85 mA", "regulated": false,
+      "condition": "Power on, standby", "source": "Table 2-8 (nominal recovered)",
+      "note": "Table 2-8 prints this row shifted one cell, losing the nominal. 50 V is taken from the identical +30 FR1R circuit; both are a bridge plus filter cap off the same style of transformer winding." },
+
+    { "ref": "TP13", "signal": "-5 FR2", "rail": "FR2", "kind": "wire-loop",
+      "refPoint": "TP11", "nominal": -5, "tolerance": 0.3, "unit": "V",
+      "currentLimit": "0.15 A", "ratedOutput": "0.03 A", "regulated": true,
+      "condition": "Power on, standby", "source": "Table 2-9",
+      "note": "Regulated by U1 (MC79L05)." },
+
+    { "ref": "TP11", "signal": "FR2 COM", "rail": "FR2", "kind": "wire-loop",
+      "isReturn": true, "source": "Tables 2-8 and 2-9",
+      "note": "Return for +30 FR2R and -5 FR2." },
+
+    { "ref": "TP203", "signal": "PA COM", "rail": "PA", "kind": "wire-loop",
+      "isReturn": true, "source": "Sheet 2 legend / §5-23 step 1",
+      "note": "PACOM. Reference every measurement in the §5-23 procedure to this point." },
+
+    { "ref": "TP201", "signal": "+PA OUT", "rail": "PA", "kind": "hv-socket",
+      "hazard": "HIGH VOLTAGE", "refPoint": "TP203", "unit": "V",
+      "states": [
+        { "label": "Standby (supply off)", "nominal": 0, "maxAbs": 1.0,
+          "source": "§5-23 step 6",
+          "onFail": ["Q207"] },
+        { "label": "+180 V mode", "nominal": 190, "tolerancePct": 10,
+          "setup": "Jumper TP207 to PACOM (TP203)", "source": "§5-23 step 7",
+          "onFail": ["U201", "Q203", "Q206", "Q205", "Q202", "VR212", "VR207"] },
+        { "label": "+360 V mode", "nominal": 370, "tolerancePct": 10,
+          "setup": "Jumper TP207 and TP205 to PACOM (TP203)", "source": "§5-23 step 8",
+          "onFail": ["Q205", "VR216"] }
+      ] },
+
+    { "ref": "TP204", "signal": "-PA OUT", "rail": "PA", "kind": "hv-socket",
+      "hazard": "HIGH VOLTAGE", "refPoint": "TP203", "unit": "V",
+      "states": [
+        { "label": "Standby (supply off)", "nominal": 0, "maxAbs": 1.0,
+          "source": "§5-23 step 11",
+          "onFail": ["Q212"] },
+        { "label": "-180 V mode", "nominal": -190, "tolerancePct": 10,
+          "setup": "Jumper TP207 to PACOM (TP203)", "source": "§5-23 step 12",
+          "onFail": ["U201", "Q211", "Q214", "Q210", "Q216", "VR232", "VR238"] },
+        { "label": "-360 V mode", "nominal": -370, "tolerancePct": 10,
+          "setup": "Jumper TP207 and TP208 to PACOM (TP203)", "source": "§5-23 step 13",
+          "onFail": ["Q210", "VR226"] }
+      ] },
+
+    { "ref": "TP209", "signal": "+500V", "rail": "PA", "kind": "hv-socket",
+      "hazard": "HIGH VOLTAGE", "refPoint": "TP203",
+      "nominal": 565, "tolerancePct": 10, "unit": "V",
+      "rippleMaxPP": 5, "condition": "Power on, standby, A16 removed",
+      "source": "§5-23 step 3",
+      "onFail": ["CR217", "CR218", "CR220", "CR221", "CR223", "CR224",
+                 "CR227", "CR228", "F201", "F204"] },
+
+    { "ref": "TP211", "signal": "-500V", "rail": "PA", "kind": "hv-socket",
+      "hazard": "HIGH VOLTAGE", "refPoint": "TP203",
+      "nominal": -565, "tolerancePct": 10, "unit": "V",
+      "rippleMaxPP": 5, "condition": "Power on, standby, A16 removed",
+      "source": "§5-23 step 3",
+      "onFail": ["CR217", "CR218", "CR220", "CR221", "CR223", "CR224",
+                 "CR227", "CR228", "F201", "F204"] },
+
+    { "ref": "TP210", "signal": "+PA RAW", "rail": "PA", "kind": "hv-socket",
+      "hazard": "HIGH VOLTAGE", "refPoint": "TP203", "unit": "V",
+      "states": [
+        { "label": "Standby / +180 V mode", "nominal": 280, "tolerancePct": 10,
+          "source": "§5-23 step 5",
+          "onFail": ["VR211", "VR214", "VR215", "VR219", "Q208", "Q201",
+                     "CR201", "CR203", "CR208", "CR210"] },
+        { "label": "+360 V mode", "nominal": 480, "tolerancePct": 10,
+          "setup": "Jumper TP207 and TP205 to PACOM (TP203)", "source": "§5-23 step 8",
+          "onFail": ["Q208", "VR214", "VR215", "VR219",
+                     "CR201", "CR203", "CR208", "CR210"] }
+      ] },
+
+    { "ref": "TP212", "signal": "-PA RAW", "rail": "PA", "kind": "hv-socket",
+      "hazard": "HIGH VOLTAGE", "refPoint": "TP203", "unit": "V",
+      "states": [
+        { "label": "Standby / -180 V mode", "nominal": -280, "tolerancePct": 10,
+          "source": "§5-23 step 10",
+          "onFail": ["VR231", "VR230", "VR229", "VR225", "Q209", "Q215",
+                     "CR234", "CR235", "CR239", "CR243"] },
+        { "label": "-360 V mode", "nominal": -480, "tolerancePct": 10,
+          "setup": "Jumper TP207 and TP208 to PACOM (TP203)", "source": "§5-23 step 13",
+          "onFail": ["Q209", "VR225", "VR229", "VR230",
+                     "CR234", "CR235", "CR239", "CR243"] }
+      ] },
+
+    { "ref": "TP205", "signal": "+HI/LO V", "rail": "CONTROL", "kind": "wire-loop",
+      "refPoint": "TP203", "nominal": 12, "tolerance": 4, "unit": "V",
+      "condition": "Power on, standby (control line released)",
+      "source": "§5-23 step 4",
+      "note": "Pulled up through Z201. Pulling it low with +ON/OFF selects the +365 V mode.",
+      "onFail": ["Z201", "U201"] },
+
+    { "ref": "TP207", "signal": "+ON/OFF", "rail": "CONTROL", "kind": "wire-loop",
+      "refPoint": "TP203", "nominal": 12, "tolerance": 4, "unit": "V",
+      "condition": "Power on, standby (control line released)",
+      "source": "§5-23 step 4",
+      "note": "Pulled up through Z201. Pulling it low turns the +/-PA supplies on.",
+      "onFail": ["Z201", "U201"] },
+
+    { "ref": "TP208", "signal": "-H/LV (S)", "rail": "CONTROL", "kind": "wire-loop",
+      "refPoint": "TP203", "nominal": 12, "tolerance": 4, "unit": "V",
+      "condition": "Power on, standby (control line released)",
+      "source": "§5-23 step 4",
+      "note": "Pulled up through Z201. U201 level-shifts it to drive the -PA PMOSFETs.",
+      "onFail": ["Z201", "U201"] },
+
+    { "ref": "TP206", "signal": "+LO/HI I", "rail": "CONTROL", "kind": "wire-loop",
+      "refPoint": "TP203", "nominal": 2.65, "tolerance": 0.65, "unit": "V",
+      "condition": "Power on, standby (control line released, A12-A16 out)",
+      "inferred": true,
+      "source": "Measured 2.65 V on a bench unit with A12-A16 removed, and bounded by Figure 7-22 sheet 2 zone A7. NOT §5-23 step 4: that gives +12 V +/-4 V for TP205/207/208 only, and this net cannot reach it.",
+      "note": "Not a Z201 control line like TP205/207/208, despite tapping the same pull-up bus. R251 (4.7 K to +5LHR) swamps Z201's 100 K, and the level is that pull-up loaded by Q217's own base current -- which is why it rests near 2.6 V and not at 5 V. VR245 clamps the net at 3.3 V, so +12 V is not reachable here at all. Limits: 3.3 V is the clamp, 2.0 V is the same node with a low-gain Q217. Around 0 V means the line is being held low or R251 has gone open; around 5 V means Q217's base is open and K201 will never pull in. Drives Q217, which switches relay K201 to select the current limit for both +/-PA supplies.",
+      "onFail": [ "R251", "VR245", "Q217", "Z201" ] }
+  ],
+
+  "probePoints": [
+    { "id": "CR235-K", "label": "CR235 cathode", "component": "CR235",
+      "refPoint": "TP203", "nominal": -280, "tolerancePct": 10, "unit": "V",
+      "rippleMaxPP": 5, "source": "§5-23 step 2",
+      "note": "Unregulated -250 V supply. CR239 cathode is the same node.",
+      "onFail": ["CR222", "F202", "F203"] },
+
+    { "id": "CR208-A", "label": "CR208 anode", "component": "CR208",
+      "refPoint": "TP203", "nominal": 280, "tolerancePct": 10, "unit": "V",
+      "rippleMaxPP": 5, "source": "§5-23 step 2",
+      "note": "Unregulated +250 V supply. CR203 anode is the same node.",
+      "onFail": ["CR222", "F202", "F203"] },
+
+    { "id": "VR211-K", "label": "VR211 cathode", "component": "VR211",
+      "refPoint": "TP203", "nominal": 140, "tolerancePct": 20, "unit": "V",
+      "source": "§5-23 step 5",
+      "note": "Checked only when TP210 is out of tolerance.",
+      "onFail": ["VR211", "VR214", "VR215", "VR219", "Q208"] },
+
+    { "id": "VR231-A", "label": "VR231 anode", "component": "VR231",
+      "refPoint": "TP203", "nominal": -140, "tolerancePct": 20, "unit": "V",
+      "source": "§5-23 step 10",
+      "note": "Checked only when TP212 is out of tolerance.",
+      "onFail": ["VR231", "VR230", "VR229", "VR225", "Q209"] },
+
+    { "id": "U201-1", "label": "U201 pin 1", "component": "U201",
+      "refPoint": "TP203", "nominal": -12, "tolerance": 4, "unit": "V",
+      "source": "§5-23 step 7",
+      "note": "Output of the +PA current-limit comparator (U201C). A wrong reading here means the +PA supply is in current limit.",
+      "onFail": ["U201", "Q203", "Q206"] },
+
+    { "id": "U201-2", "label": "U201 pin 2", "component": "U201",
+      "refPoint": "TP203", "nominal": 12, "tolerance": 4, "unit": "V",
+      "source": "§5-23 step 12",
+      "note": "Output of the -PA current-limit comparator (U201D). A wrong reading here means the -PA supply is in current limit.",
+      "onFail": ["U201", "Q211", "Q214"] },
+
+    { "id": "U201-13", "label": "U201 pin 13", "component": "U201",
+      "refPoint": "TP203", "nominal": -12, "tolerance": 4, "unit": "V",
+      "source": "§5-23 step 4", "onFail": ["Z201", "U201"] },
+
+    { "id": "U201-14", "label": "U201 pin 14", "component": "U201",
+      "refPoint": "TP203", "nominal": -12, "tolerance": 4, "unit": "V",
+      "source": "§5-23 step 4", "onFail": ["Z201", "U201"] }
+  ]
+}

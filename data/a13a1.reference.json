@@ -1,0 +1,78 @@
+{
+  "_comment": [
+    "A13A1 Oscillator Wideband SMD PCA -- curated reference data.",
+    "Sources: §2-136 and §2-137 (theory), §5-18 step 8 on A13 (the one bench",
+    "check that names this card), Table 6-17 and sheet 5700A-1052. Chapter 5",
+    "has no section for the card and no fault code names it."
+  ],
+  "overview": {
+    "summary": "A surface-mount daughter card on the Oscillator Output assembly (A13), 'U30' on A13's silkscreen, that is the gain block of the 22 V output amplifier. It is an operational amplifier built from discrete parts to get the speed, output power and breakdown voltage a 22 V rms output at 1.2 MHz needs. The input stage is a differential pair Q2/Q3 buffered by source follower Q1, with its transconductance set by R3, R4 and R26; its inherent offset is corrected by U1 and U2, with R30 trimming the dc zero at U2's output, and Q3's output is level-shifted through VR5-VR7 into the mid stage. Q4 is a high-impedance current sink biasing the input stage at about 10 mA. The mid stage is a common-emitter Miller-compensated gain stage, Q5, biased to 10 mA by Q6, current-limited by R12 and Q4, with the dominant pole set by C5; it drives common-base level shifter Q13 on A13. The only parts of the output stage on the card are its input transistors Q7 and Q8, biased by R17 and CR4/CR5 to about 40 mA, which drive A13's bootstrapped complementary Darlington output stage.",
+    "sections": "§2-136, §2-137",
+    "note": "The card runs from A13's +155 V and -125 V rails and its output driver lines carry the full output swing, so it is live at high voltage whenever A13 is in operate. Nothing in Chapter 5 addresses it directly: §5-18 step 8 puts A13's S1 in the test position, checks 1 V across A13's R87 (the card's 10 mA current source) and +3.2 V at A13's TP2, and decides between this card and A13's output stage from those two readings."
+  },
+  "railCircuits": {
+    "HV": {
+      "rails": "+155 V, -125 V, SCOM",
+      "regulators": ["VR1", "VR2", "VR3", "VR4", "VR5", "VR6", "VR7"],
+      "filters": ["C1", "C3", "C4", "C6", "C7", "C8", "C12", "C13"],
+      "protection": ["R7", "R16", "R18", "R19", "R21", "R27", "R28", "R29"],
+      "tps": ["TP1", "TP2"],
+      "note": "The card makes no supply. +155 V and -125 V arrive on P1 (+LV, -LV) and P2 and are decoupled by the 0.22 uF ceramics; the zeners are level shifters (VR5-VR7 between input and mid stage, VR1/VR2 in the mid-stage bias, VR3/VR4 clamping the offset amplifier) rather than regulators. The 47 ohm resistors are base stoppers on the high-frequency transistors."
+    },
+    "OUT": {
+      "rails": "+DRIVE, -DRIVE, +BOOT, -BOOT, COLL, EMIT, BASE",
+      "regulators": ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "U1", "U2"],
+      "filters": ["C2", "C5", "C9", "C10", "C11"],
+      "protection": ["CR4", "CR5", "CR6", "CR9", "CR10", "R12"],
+      "tps": ["TP1"],
+      "note": "The signal path: P1 (-INPUT, GM1, GM2, OFFSET) in, P2 (the drive and bootstrap lines to A13's output stage) out. C5 is the Miller compensation capacitor that sets the dominant pole; CR4/CR5 with R17 set the 40 mA output bias; R12 with Q4 is the mid-stage current limit."
+    }
+  },
+  "faultCodes": [],
+  "componentNotes": {
+    "Q1": "N-channel JFET source follower buffering the input differential pair (§2-136).",
+    "Q2": "One half of the input differential pair with Q3; MMBTH10.",
+    "Q3": "The other half of the input pair; its output is level-shifted by VR5-VR7 into the mid stage.",
+    "Q4": "High-impedance current sink biasing the input stage at about 10 mA; also the mid-stage current limiter with R12. §5-18 step 8 measures this 10 mA as 1 V across A13's R87.",
+    "Q5": "The mid stage: a common-emitter, Miller-compensated (C5) gain stage biased to 10 mA by Q6, driving common-base level shifter Q13 on A13.",
+    "Q6": "Sets the mid stage's 10 mA bias with its associated components.",
+    "Q7": "Input transistor of the output stage's positive side, driving A13's Q8. The only output-stage parts on the card are Q7 and Q8.",
+    "Q8": "Input transistor of the output stage's negative side, driving A13's Q14.",
+    "Q9": "MMBT3904 in the mid-stage bias chain with VR1.",
+    "U1": "OP-07 precision op amp in the offset-correction loop with U2 (§2-136).",
+    "U2": "TL071; its output is the dc zero that R30 trims, and TP1 is that node.",
+    "R30": "1 k cermet trimmer that adjusts the dc zero at U2's output. The only adjustment on the card.",
+    "R25": "Selected at test: 1.8 k, 2 k or 2.2 k (Table 6-17 note 1, and the sheet's '* typical value is 1.8K'). Replace with the same value as the part removed.",
+    "R14": "Table 6-17 (1996) prints 750 ohm, stock 746404; the Rev 9 list prints 620 ohm, stock 745984, for the same position. The dataset carries the 1996 value with the Rev 9 row as the as-built alternative; the card in hand decides.",
+    "R17": "150 ohm 1 % that, with CR4 and CR5, sets the output stage's 40 mA class-A bias (§2-136).",
+    "R12": "27 ohm mid-stage current-limit resistor sensed by Q4.",
+    "C5": "10 pF Miller compensation capacitor on Q5, which with the input stage transconductance sets the amplifier's dominant pole.",
+    "CR4": "BAV99 dual diode with CR5 and R17 in the output bias chain.",
+    "CR5": "See CR4.",
+    "CR6": "BAV99 clamp around the offset amplifier U1.",
+    "CR10": "BAV99 in the mid-stage bias; printed 'C10' in the 1996 parts list by a typesetting error (see the caveat).",
+    "VR5": "One of three 6.2 V zeners (VR5-VR7) that level-shift Q3's output down into the mid stage.",
+    "VR2": "22 V zener in the mid-stage bias with Q9.",
+    "VR3": "3.3 V zener, with VR4, clamping the offset amplifier's inputs.",
+    "P1": "12-pin right-angle header: -INPUT, GM1/GM2, OFFSET, +LV/-LV and the SCOM returns from A13.",
+    "P2": "12-pin right-angle header: the +BOOT/-BOOT, +DRIVE/-DRIVE, COLL, EMIT, BASE and +HV/-HV lines to A13's output stage."
+  },
+  "caveats": [
+    {
+      "title": "Two parts-list rows are wrong in the 1996 manual",
+      "text": "Table 6-17 prints the dual diode row as 'CR4-6,CR9,C10' for a quantity of five. The fifth is CR10 -- the drawing and the sheet both print CR10, and C10 is the 1000 pF capacitor on its own row two lines up. Left alone the row overwrote C10's description with the diode's. And 'Q2,Q4,Q5' is printed against a quantity of four: the fourth is Q7, which the Rev 9 list names on the same row and the sheet draws as an MMBTH10. Both are corrected in the build from the Rev 9 list."
+    },
+    {
+      "title": "R14 differs between the two parts lists",
+      "text": "The 1996 list gives R14 as 750 ohm (stock 746404) and the Rev 9 list as 620 ohm (stock 745984). Neither the sheet nor the theory says which; the dataset shows the 1996 value with the Rev 9 row as the as-built alternative."
+    },
+    {
+      "title": "No section, no fault code, no photograph",
+      "text": "Chapter 5 never addresses the card and no diagnostic fault code names it; §5-18 step 8 on A13 is the whole published method. No photograph of the card exists in this project, so the photo display modes have nothing to show, and the two test points are recorded without values because none is published."
+    },
+    {
+      "title": "The drawing prints 'A92' in its corner",
+      "text": "Locator 5700A-1652 carries 'A92' at its left where other locators print the assembly number. It is the artwork's identifier, not a designator; the assembly is A13A1 (Figure 7-16, Table 6-17), and on A13's silkscreen and drawing it is 'U30'."
+    }
+  ]
+}

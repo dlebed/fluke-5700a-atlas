@@ -1,0 +1,3098 @@
+{
+ "_comment": [
+  "Hand corrections layered over the OCR seed by tools/build_coords.py.",
+  "Board coordinates are pixels of .build/a11/drawing_full.png (5880 x 3340);",
+  "schematic coordinates are pixels of the matching sch<n>_full.png. A11's six",
+  "sheets were each cropped separately and no two are the same size, so",
+  "sheetImageSize carries one entry per sheet.",
+  "",
+  "A11's drawing reads well -- the silkscreen is clear of the component",
+  "outlines -- but the reader still mis-attributed 57 of its 243 markers, almost",
+  "all of them a label read as a neighbouring designator: C100 on C106's label,",
+  "R28 on VR28's, U8 on Q8's, C16 on C19's. Every board marker was rendered and",
+  "looked at; the 57 wrong ones were replaced by a hand position where the real",
+  "silkscreen could be found and dropped where it could not.",
+  "",
+  "171 positions here were measured off a gridded crop of drawing_full.png and",
+  "then re-rendered and checked one by one before being kept.",
+  "",
+  "The six sheets were reviewed the same way, marker by marker, and they fared",
+  "far worse than the board: of 506 machine reads, 245 were right. A schematic",
+  "is mostly text that is not a designator, so the reader places markers on pin",
+  "names, bus labels, zone references, part numbers, captions and title blocks",
+  "with the same confidence it places real ones. Sheet 6, the microprocessor",
+  "interface, kept 33 of 86. What survived is recorded by omission -- anything",
+  "not in dropSchematic below was looked at and kept."
+ ],
+ "imageSize": {
+  "w": 5880,
+  "h": 3340
+ },
+ "sheetImageSize": {
+  "sh1": {
+   "w": 6320,
+   "h": 3820
+  },
+  "sh2": {
+   "w": 6370,
+   "h": 3900
+  },
+  "sh3": {
+   "w": 6420,
+   "h": 3881
+  },
+  "sh4": {
+   "w": 6350,
+   "h": 3898
+  },
+  "sh5": {
+   "w": 6325,
+   "h": 3844
+  },
+  "sh6": {
+   "w": 6313,
+   "h": 3818
+  }
+ },
+ "_boardComment": [
+  "x,y are the marker centre in drawing_full.png pixels; w,h its size.",
+  "",
+  "All twelve test points are placed here rather than taken from OCR, because a",
+  "test point's marker has to sit on what you probe. A11 prints them in one row",
+  "along the top edge of the board, each as vertical text reading bottom to top.",
+  "Six of them -- TP1 TP3 TP8 TP9 TP10 TP12 -- carry a short bar drawn directly",
+  "above the text: that bar is the wire loop, and those six are exactly the six",
+  "that have a line in the parts list (816090-style purchased loops). Their",
+  "markers span bar and label together. The other six -- TP2 TP4 TP5 TP6 TP7",
+  "TP11 -- have no line in the parts list and no pad drawn on the artwork at",
+  "all; they are plated eyelets, and their markers are the label only. That is",
+  "recorded per test point in 'note' so the distinction is not lost."
+ ],
+ "board": {
+  "C1": {
+   "x": 2635,
+   "y": 2880,
+   "w": 150,
+   "h": 70
+  },
+  "C2": {
+   "x": 2465,
+   "y": 2880,
+   "w": 150,
+   "h": 70
+  },
+  "C3": {
+   "x": 3530,
+   "y": 1228,
+   "w": 70,
+   "h": 130
+  },
+  "C4": {
+   "x": 2280,
+   "y": 2880,
+   "w": 150,
+   "h": 70
+  },
+  "C6": {
+   "x": 3655,
+   "y": 2685,
+   "w": 70,
+   "h": 130
+  },
+  "C7": {
+   "x": 3455,
+   "y": 2820,
+   "w": 70,
+   "h": 130
+  },
+  "C8": {
+   "x": 3455,
+   "y": 2685,
+   "w": 70,
+   "h": 130
+  },
+  "C10": {
+   "x": 4295,
+   "y": 2820,
+   "w": 70,
+   "h": 130
+  },
+  "C14": {
+   "x": 3845,
+   "y": 2685,
+   "w": 70,
+   "h": 130
+  },
+  "C15": {
+   "x": 4035,
+   "y": 2820,
+   "w": 70,
+   "h": 130
+  },
+  "C16": {
+   "x": 4035,
+   "y": 2665,
+   "w": 70,
+   "h": 130
+  },
+  "C17": {
+   "x": 250,
+   "y": 1975,
+   "w": 150,
+   "h": 70
+  },
+  "C18": {
+   "x": 2805,
+   "y": 2880,
+   "w": 150,
+   "h": 70
+  },
+  "C21": {
+   "x": 415,
+   "y": 623,
+   "w": 70,
+   "h": 130
+  },
+  "C23": {
+   "x": 568,
+   "y": 1140,
+   "w": 70,
+   "h": 130
+  },
+  "C24": {
+   "x": 868,
+   "y": 645,
+   "w": 70,
+   "h": 130
+  },
+  "C25": {
+   "x": 1035,
+   "y": 645,
+   "w": 70,
+   "h": 130
+  },
+  "C26": {
+   "x": 1360,
+   "y": 645,
+   "w": 70,
+   "h": 130
+  },
+  "C29": {
+   "x": 2620,
+   "y": 890,
+   "w": 70,
+   "h": 130
+  },
+  "C31": {
+   "x": 2698,
+   "y": 2205,
+   "w": 150,
+   "h": 70
+  },
+  "C32": {
+   "x": 2300,
+   "y": 890,
+   "w": 70,
+   "h": 130
+  },
+  "C41": {
+   "x": 250,
+   "y": 1820,
+   "w": 150,
+   "h": 70
+  },
+  "C42": {
+   "x": 270,
+   "y": 2090,
+   "w": 70,
+   "h": 130
+  },
+  "C43": {
+   "x": 570,
+   "y": 2450,
+   "w": 150,
+   "h": 70
+  },
+  "C45": {
+   "x": 785,
+   "y": 2270,
+   "w": 170,
+   "h": 80
+  },
+  "C46": {
+   "x": 1000,
+   "y": 1140,
+   "w": 70,
+   "h": 130
+  },
+  "C47": {
+   "x": 543,
+   "y": 1418,
+   "w": 150,
+   "h": 70
+  },
+  "C48": {
+   "x": 543,
+   "y": 1360,
+   "w": 150,
+   "h": 70
+  },
+  "C52": {
+   "x": 5090,
+   "y": 1900,
+   "w": 70,
+   "h": 130
+  },
+  "C54": {
+   "x": 5280,
+   "y": 1150,
+   "w": 70,
+   "h": 130
+  },
+  "C55": {
+   "x": 1985,
+   "y": 1350,
+   "w": 70,
+   "h": 130
+  },
+  "C56": {
+   "x": 1730,
+   "y": 1355,
+   "w": 150,
+   "h": 70
+  },
+  "C57": {
+   "x": 487,
+   "y": 1140,
+   "w": 70,
+   "h": 130
+  },
+  "C58": {
+   "x": 4005,
+   "y": 462,
+   "w": 150,
+   "h": 70
+  },
+  "C59": {
+   "x": 3150,
+   "y": 918,
+   "w": 150,
+   "h": 70
+  },
+  "C60": {
+   "x": 3225,
+   "y": 565,
+   "w": 150,
+   "h": 70
+  },
+  "C62": {
+   "x": 3155,
+   "y": 755,
+   "w": 150,
+   "h": 70
+  },
+  "C63": {
+   "x": 3880,
+   "y": 862,
+   "w": 70,
+   "h": 130
+  },
+  "C64": {
+   "x": 4358,
+   "y": 460,
+   "w": 150,
+   "h": 70
+  },
+  "C65": {
+   "x": 3945,
+   "y": 862,
+   "w": 70,
+   "h": 130
+  },
+  "C67": {
+   "x": 2760,
+   "y": 930,
+   "w": 150,
+   "h": 70
+  },
+  "C76": {
+   "x": 3513,
+   "y": 2410,
+   "w": 70,
+   "h": 130
+  },
+  "C77": {
+   "x": 3446,
+   "y": 2410,
+   "w": 70,
+   "h": 130
+  },
+  "C78": {
+   "x": 3575,
+   "y": 1995,
+   "w": 175,
+   "h": 115
+  },
+  "C79": {
+   "x": 3380,
+   "y": 2410,
+   "w": 70,
+   "h": 130
+  },
+  "C80": {
+   "x": 3178,
+   "y": 2410,
+   "w": 70,
+   "h": 130
+  },
+  "C81": {
+   "x": 3260,
+   "y": 1995,
+   "w": 70,
+   "h": 130
+  },
+  "C86": {
+   "x": 3475,
+   "y": 1225,
+   "w": 70,
+   "h": 130
+  },
+  "C91": {
+   "x": 4032,
+   "y": 2080,
+   "w": 150,
+   "h": 70
+  },
+  "C92": {
+   "x": 4225,
+   "y": 2235,
+   "w": 70,
+   "h": 130
+  },
+  "C94": {
+   "x": 3270,
+   "y": 1782,
+   "w": 150,
+   "h": 70
+  },
+  "C96": {
+   "x": 4610,
+   "y": 2100,
+   "w": 70,
+   "h": 130
+  },
+  "C97": {
+   "x": 4165,
+   "y": 1300,
+   "w": 150,
+   "h": 70
+  },
+  "C98": {
+   "x": 4950,
+   "y": 1550,
+   "w": 70,
+   "h": 130
+  },
+  "C100": {
+   "x": 4945,
+   "y": 2230,
+   "w": 80,
+   "h": 150
+  },
+  "C107": {
+   "x": 5085,
+   "y": 1090,
+   "w": 70,
+   "h": 150
+  },
+  "CR1": {
+   "x": 140,
+   "y": 2085,
+   "w": 70,
+   "h": 150
+  },
+  "CR4": {
+   "x": 2215,
+   "y": 2500,
+   "w": 70,
+   "h": 150
+  },
+  "CR6": {
+   "x": 4370,
+   "y": 2290,
+   "w": 70,
+   "h": 150
+  },
+  "CR8": {
+   "x": 4370,
+   "y": 2470,
+   "w": 70,
+   "h": 150
+  },
+  "CR10": {
+   "x": 4640,
+   "y": 1810,
+   "w": 130,
+   "h": 160
+  },
+  "K1": {
+   "x": 1300,
+   "y": 2300,
+   "w": 180,
+   "h": 90
+  },
+  "K3": {
+   "x": 1955,
+   "y": 2300,
+   "w": 180,
+   "h": 90
+  },
+  "Q1": {
+   "x": 270,
+   "y": 1720,
+   "w": 150,
+   "h": 80
+  },
+  "Q2": {
+   "x": 290,
+   "y": 1145,
+   "w": 150,
+   "h": 80
+  },
+  "Q9": {
+   "x": 290,
+   "y": 2710,
+   "w": 150,
+   "h": 80
+  },
+  "Q10": {
+   "x": 712,
+   "y": 3025,
+   "w": 170,
+   "h": 80
+  },
+  "Q26": {
+   "x": 2995,
+   "y": 2695,
+   "w": 170,
+   "h": 80
+  },
+  "Q53": {
+   "x": 2825,
+   "y": 2110,
+   "w": 170,
+   "h": 80
+  },
+  "Q56": {
+   "x": 3945,
+   "y": 1240,
+   "w": 170,
+   "h": 80
+  },
+  "R1": {
+   "x": 672,
+   "y": 1483,
+   "w": 150,
+   "h": 70
+  },
+  "R6": {
+   "x": 640,
+   "y": 1140,
+   "w": 70,
+   "h": 130
+  },
+  "R7": {
+   "x": 868,
+   "y": 1140,
+   "w": 70,
+   "h": 130
+  },
+  "R9": {
+   "x": 1145,
+   "y": 645,
+   "w": 70,
+   "h": 130
+  },
+  "R10": {
+   "x": 1480,
+   "y": 650,
+   "w": 150,
+   "h": 70
+  },
+  "R12": {
+   "x": 2370,
+   "y": 770,
+   "w": 150,
+   "h": 70
+  },
+  "R13": {
+   "x": 2400,
+   "y": 795,
+   "w": 150,
+   "h": 70
+  },
+  "R16": {
+   "x": 355,
+   "y": 623,
+   "w": 70,
+   "h": 130
+  },
+  "R19": {
+   "x": 225,
+   "y": 2940,
+   "w": 150,
+   "h": 70
+  },
+  "R20": {
+   "x": 845,
+   "y": 3040,
+   "w": 70,
+   "h": 130
+  },
+  "R21": {
+   "x": 508,
+   "y": 2915,
+   "w": 150,
+   "h": 70
+  },
+  "R23": {
+   "x": 672,
+   "y": 2850,
+   "w": 150,
+   "h": 70
+  },
+  "R24": {
+   "x": 378,
+   "y": 1925,
+   "w": 70,
+   "h": 130
+  },
+  "R25": {
+   "x": 500,
+   "y": 2725,
+   "w": 70,
+   "h": 130
+  },
+  "R28": {
+   "x": 685,
+   "y": 2415,
+   "w": 70,
+   "h": 130
+  },
+  "R29": {
+   "x": 1715,
+   "y": 1922,
+   "w": 150,
+   "h": 70
+  },
+  "R31": {
+   "x": 2775,
+   "y": 2515,
+   "w": 150,
+   "h": 70
+  },
+  "R32": {
+   "x": 543,
+   "y": 1245,
+   "w": 150,
+   "h": 70
+  },
+  "R33": {
+   "x": 543,
+   "y": 1300,
+   "w": 150,
+   "h": 70
+  },
+  "R36": {
+   "x": 5030,
+   "y": 1900,
+   "w": 70,
+   "h": 130
+  },
+  "R37": {
+   "x": 4965,
+   "y": 1305,
+   "w": 150,
+   "h": 70
+  },
+  "R38": {
+   "x": 5150,
+   "y": 1150,
+   "w": 70,
+   "h": 130
+  },
+  "R40": {
+   "x": 1250,
+   "y": 1305,
+   "w": 70,
+   "h": 130
+  },
+  "R41": {
+   "x": 1543,
+   "y": 1278,
+   "w": 70,
+   "h": 130
+  },
+  "R43": {
+   "x": 3015,
+   "y": 862,
+   "w": 70,
+   "h": 130
+  },
+  "R45": {
+   "x": 3225,
+   "y": 628,
+   "w": 150,
+   "h": 70
+  },
+  "R47": {
+   "x": 2910,
+   "y": 690,
+   "w": 150,
+   "h": 70
+  },
+  "R48": {
+   "x": 3818,
+   "y": 872,
+   "w": 70,
+   "h": 130
+  },
+  "R50": {
+   "x": 3265,
+   "y": 862,
+   "w": 70,
+   "h": 130
+  },
+  "R52": {
+   "x": 4985,
+   "y": 2050,
+   "w": 70,
+   "h": 130
+  },
+  "R58": {
+   "x": 2450,
+   "y": 1172,
+   "w": 70,
+   "h": 130
+  },
+  "R62": {
+   "x": 3460,
+   "y": 1995,
+   "w": 70,
+   "h": 130
+  },
+  "R64": {
+   "x": 2445,
+   "y": 1845,
+   "w": 150,
+   "h": 70
+  },
+  "R65": {
+   "x": 3313,
+   "y": 2410,
+   "w": 70,
+   "h": 130
+  },
+  "R66": {
+   "x": 3245,
+   "y": 2410,
+   "w": 70,
+   "h": 130
+  },
+  "R71": {
+   "x": 2760,
+   "y": 862,
+   "w": 150,
+   "h": 70
+  },
+  "R73": {
+   "x": 2495,
+   "y": 1172,
+   "w": 70,
+   "h": 130
+  },
+  "R74": {
+   "x": 3062,
+   "y": 1188,
+   "w": 150,
+   "h": 70
+  },
+  "R76": {
+   "x": 3092,
+   "y": 1675,
+   "w": 70,
+   "h": 130
+  },
+  "R77": {
+   "x": 4740,
+   "y": 2100,
+   "w": 70,
+   "h": 130
+  },
+  "R78": {
+   "x": 4880,
+   "y": 1550,
+   "w": 70,
+   "h": 130
+  },
+  "R79": {
+   "x": 2500,
+   "y": 1292,
+   "w": 150,
+   "h": 70
+  },
+  "R80": {
+   "x": 2500,
+   "y": 1370,
+   "w": 150,
+   "h": 70
+  },
+  "R81": {
+   "x": 2245,
+   "y": 775,
+   "w": 70,
+   "h": 130
+  },
+  "R82": {
+   "x": 2555,
+   "y": 1172,
+   "w": 70,
+   "h": 130
+  },
+  "R83": {
+   "x": 2695,
+   "y": 1370,
+   "w": 150,
+   "h": 70
+  },
+  "R84": {
+   "x": 2445,
+   "y": 1765,
+   "w": 150,
+   "h": 70
+  },
+  "R85": {
+   "x": 4225,
+   "y": 2062,
+   "w": 70,
+   "h": 130
+  },
+  "R86": {
+   "x": 3782,
+   "y": 1845,
+   "w": 70,
+   "h": 130
+  },
+  "R87": {
+   "x": 3847,
+   "y": 1845,
+   "w": 70,
+   "h": 130
+  },
+  "R92": {
+   "x": 3980,
+   "y": 1938,
+   "w": 70,
+   "h": 130
+  },
+  "R94": {
+   "x": 4675,
+   "y": 2100,
+   "w": 70,
+   "h": 130
+  },
+  "R95": {
+   "x": 4045,
+   "y": 1245,
+   "w": 70,
+   "h": 130
+  },
+  "R96": {
+   "x": 3847,
+   "y": 1665,
+   "w": 70,
+   "h": 130
+  },
+  "R97": {
+   "x": 3775,
+   "y": 1178,
+   "w": 150,
+   "h": 70
+  },
+  "R98": {
+   "x": 3782,
+   "y": 1665,
+   "w": 70,
+   "h": 130
+  },
+  "R99": {
+   "x": 3590,
+   "y": 1228,
+   "w": 70,
+   "h": 130
+  },
+  "R105": {
+   "x": 4945,
+   "y": 2695,
+   "w": 150,
+   "h": 80
+  },
+  "R123": {
+   "x": 355,
+   "y": 862,
+   "w": 170,
+   "h": 70
+  },
+  "R124": {
+   "x": 5460,
+   "y": 805,
+   "w": 170,
+   "h": 70
+  },
+  "TP1": {
+   "x": 4570,
+   "y": 330,
+   "w": 80,
+   "h": 160,
+   "note": "wire-loop test point: marker spans the vertical TPnn silkscreen and the short bar above it that is the loop itself"
+  },
+  "TP2": {
+   "x": 1690,
+   "y": 295,
+   "w": 70,
+   "h": 110,
+   "note": "plated eyelet: the drawing prints the TPnn silkscreen but draws no pad, so the marker is the label only"
+  },
+  "TP3": {
+   "x": 1820,
+   "y": 342,
+   "w": 75,
+   "h": 135,
+   "note": "wire-loop test point: marker spans the vertical TPnn silkscreen and the short bar above it that is the loop itself"
+  },
+  "TP4": {
+   "x": 3256,
+   "y": 296,
+   "w": 70,
+   "h": 110,
+   "note": "plated eyelet: the drawing prints the TPnn silkscreen but draws no pad, so the marker is the label only"
+  },
+  "TP5": {
+   "x": 2500,
+   "y": 296,
+   "w": 70,
+   "h": 110,
+   "note": "plated eyelet: the drawing prints the TPnn silkscreen but draws no pad, so the marker is the label only"
+  },
+  "TP6": {
+   "x": 3315,
+   "y": 296,
+   "w": 70,
+   "h": 110,
+   "note": "plated eyelet: the drawing prints the TPnn silkscreen but draws no pad, so the marker is the label only"
+  },
+  "TP7": {
+   "x": 2048,
+   "y": 295,
+   "w": 70,
+   "h": 110,
+   "note": "plated eyelet: the drawing prints the TPnn silkscreen but draws no pad, so the marker is the label only"
+  },
+  "TP8": {
+   "x": 2170,
+   "y": 345,
+   "w": 75,
+   "h": 140,
+   "note": "wire-loop test point: marker spans the vertical TPnn silkscreen and the short bar above it that is the loop itself"
+  },
+  "TP9": {
+   "x": 4198,
+   "y": 332,
+   "w": 80,
+   "h": 160,
+   "note": "wire-loop test point: marker spans the vertical TPnn silkscreen and the short bar above it that is the loop itself"
+  },
+  "TP10": {
+   "x": 3893,
+   "y": 338,
+   "w": 80,
+   "h": 175,
+   "note": "wire-loop test point: marker spans the vertical TPnn silkscreen and the short bar above it that is the loop itself"
+  },
+  "TP11": {
+   "x": 3372,
+   "y": 306,
+   "w": 70,
+   "h": 130,
+   "note": "plated eyelet: the drawing prints the TPnn silkscreen but draws no pad, so the marker is the label only"
+  },
+  "TP12": {
+   "x": 2367,
+   "y": 355,
+   "w": 75,
+   "h": 160,
+   "note": "wire-loop test point: marker spans the vertical TPnn silkscreen and the short bar above it that is the loop itself"
+  },
+  "U1": {
+   "x": 790,
+   "y": 1345,
+   "w": 160,
+   "h": 80
+  },
+  "U2": {
+   "x": 1000,
+   "y": 1345,
+   "w": 160,
+   "h": 80
+  },
+  "U5": {
+   "x": 295,
+   "y": 2380,
+   "w": 90,
+   "h": 160
+  },
+  "U7": {
+   "x": 5185,
+   "y": 1350,
+   "w": 160,
+   "h": 80
+  },
+  "U8": {
+   "x": 5180,
+   "y": 2155,
+   "w": 160,
+   "h": 80
+  },
+  "U9": {
+   "x": 5225,
+   "y": 2450,
+   "w": 160,
+   "h": 80
+  },
+  "U12": {
+   "x": 4270,
+   "y": 598,
+   "w": 160,
+   "h": 80
+  },
+  "U14": {
+   "x": 3410,
+   "y": 828,
+   "w": 160,
+   "h": 80
+  },
+  "U15": {
+   "x": 3650,
+   "y": 828,
+   "w": 160,
+   "h": 80
+  },
+  "U19": {
+   "x": 3400,
+   "y": 2185,
+   "w": 160,
+   "h": 80
+  },
+  "U23": {
+   "x": 2695,
+   "y": 1180,
+   "w": 160,
+   "h": 80
+  },
+  "U24": {
+   "x": 3280,
+   "y": 1408,
+   "w": 170,
+   "h": 80
+  },
+  "U26": {
+   "x": 4055,
+   "y": 2225,
+   "w": 160,
+   "h": 80
+  },
+  "U32": {
+   "x": 5000,
+   "y": 920,
+   "w": 160,
+   "h": 80
+  },
+  "U35": {
+   "x": 4770,
+   "y": 918,
+   "w": 160,
+   "h": 80
+  },
+  "U36": {
+   "x": 5230,
+   "y": 920,
+   "w": 160,
+   "h": 80
+  },
+  "U37": {
+   "x": 4530,
+   "y": 598,
+   "w": 160,
+   "h": 80
+  },
+  "VR4": {
+   "x": 718,
+   "y": 1155,
+   "w": 80,
+   "h": 170
+  },
+  "VR7": {
+   "x": 2570,
+   "y": 538,
+   "w": 70,
+   "h": 150
+  },
+  "VR11": {
+   "x": 3113,
+   "y": 500,
+   "w": 90,
+   "h": 210
+  },
+  "VR13": {
+   "x": 3805,
+   "y": 570,
+   "w": 110,
+   "h": 150
+  },
+  "VR17": {
+   "x": 2830,
+   "y": 1830,
+   "w": 70,
+   "h": 150
+  },
+  "VR18": {
+   "x": 2870,
+   "y": 1300,
+   "w": 70,
+   "h": 150
+  },
+  "VR22": {
+   "x": 2610,
+   "y": 1850,
+   "w": 80,
+   "h": 170
+  },
+  "VR25": {
+   "x": 4380,
+   "y": 1275,
+   "w": 70,
+   "h": 150
+  },
+  "VR29": {
+   "x": 3890,
+   "y": 1780,
+   "w": 70,
+   "h": 150
+  },
+  "VR35": {
+   "x": 3757,
+   "y": 1252,
+   "w": 70,
+   "h": 150
+  },
+  "Z4": {
+   "x": 840,
+   "y": 1720,
+   "w": 160,
+   "h": 80
+  },
+  "Z5": {
+   "x": 4185,
+   "y": 780,
+   "w": 160,
+   "h": 80
+  },
+  "K2": {
+   "x": 1339,
+   "y": 2558,
+   "w": 750,
+   "h": 210,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K4": {
+   "x": 1339,
+   "y": 2797,
+   "w": 749,
+   "h": 210,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K5": {
+   "x": 2689,
+   "y": 1588,
+   "w": 427,
+   "h": 212,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K6": {
+   "x": 1957,
+   "y": 2796,
+   "w": 426,
+   "h": 210,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K7": {
+   "x": 2503,
+   "y": 2055,
+   "w": 426,
+   "h": 209,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K8": {
+   "x": 1958,
+   "y": 2557,
+   "w": 426,
+   "h": 210,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U10": {
+   "x": 3525,
+   "y": 554,
+   "w": 391,
+   "h": 90,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U11": {
+   "x": 1888,
+   "y": 1261,
+   "w": 106,
+   "h": 80,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U13": {
+   "x": 4008,
+   "y": 604,
+   "w": 184,
+   "h": 90,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U20": {
+   "x": 3785,
+   "y": 2222,
+   "w": 191,
+   "h": 91,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U22": {
+   "x": 2201,
+   "y": 1145,
+   "w": 188,
+   "h": 91,
+   "shape": "rect",
+   "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye"
+  },
+  "U27": {
+   "x": 3516,
+   "y": 1702,
+   "w": 188,
+   "h": 91,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U28": {
+   "x": 3550,
+   "y": 1408,
+   "w": 186,
+   "h": 91,
+   "shape": "rect",
+   "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye"
+  },
+  "U29": {
+   "x": 4124,
+   "y": 1470,
+   "w": 187,
+   "h": 90,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U31": {
+   "x": 4703,
+   "y": 2526,
+   "w": 339,
+   "h": 340,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U33": {
+   "x": 2573,
+   "y": 2332,
+   "w": 588,
+   "h": 144,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U34": {
+   "x": 2571,
+   "y": 2711,
+   "w": 589,
+   "h": 144,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U38": {
+   "x": 2344,
+   "y": 539,
+   "w": 186,
+   "h": 89,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U6": {
+   "x": 5162,
+   "y": 1624,
+   "w": 174,
+   "h": 177,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "C12": {
+   "x": 4290,
+   "y": 2670,
+   "w": 127,
+   "h": 127,
+   "shape": "circle",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "C19": {
+   "x": 230,
+   "y": 965,
+   "w": 136,
+   "h": 136,
+   "shape": "circle",
+   "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+  },
+  "C20": {
+   "x": 230,
+   "y": 813,
+   "w": 136,
+   "h": 136,
+   "shape": "circle",
+   "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+  },
+  "C9": {
+   "x": 3192,
+   "y": 2686,
+   "w": 127,
+   "h": 127,
+   "shape": "circle",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "Q11": {
+   "x": 398,
+   "y": 2089,
+   "w": 93,
+   "h": 93,
+   "shape": "circle",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "Q12": {
+   "x": 1410,
+   "y": 1911,
+   "w": 100,
+   "h": 100,
+   "shape": "circle",
+   "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+  },
+  "Q13": {
+   "x": 1217,
+   "y": 1910,
+   "w": 93,
+   "h": 93,
+   "shape": "circle",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "Q14": {
+   "x": 532,
+   "y": 1588,
+   "w": 92,
+   "h": 92,
+   "shape": "circle",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "Q15": {
+   "x": 636,
+   "y": 2712,
+   "w": 92,
+   "h": 92,
+   "shape": "circle",
+   "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+  },
+  "Q16": {
+   "x": 843,
+   "y": 2409,
+   "w": 92,
+   "h": 92,
+   "shape": "circle",
+   "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+  },
+  "Q18": {
+   "x": 1121,
+   "y": 1585,
+   "w": 93,
+   "h": 93,
+   "shape": "circle",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "Q19": {
+   "x": 925,
+   "y": 1582,
+   "w": 92,
+   "h": 92,
+   "shape": "circle",
+   "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+  },
+  "Q20": {
+   "x": 824,
+   "y": 1912,
+   "w": 100,
+   "h": 100,
+   "shape": "circle",
+   "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+  },
+  "Q21": {
+   "x": 1021,
+   "y": 1911,
+   "w": 93,
+   "h": 93,
+   "shape": "circle",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "Q22": {
+   "x": 1131,
+   "y": 1126,
+   "w": 92,
+   "h": 92,
+   "shape": "circle",
+   "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+  },
+  "Q23": {
+   "x": 843,
+   "y": 2864,
+   "w": 92,
+   "h": 92,
+   "shape": "circle",
+   "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+  },
+  "Q24": {
+   "x": 842,
+   "y": 2713,
+   "w": 92,
+   "h": 92,
+   "shape": "circle",
+   "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+  },
+  "Q25": {
+   "x": 2996,
+   "y": 2825,
+   "w": 80,
+   "h": 80,
+   "shape": "circle",
+   "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+  },
+  "Q3": {
+   "x": 292,
+   "y": 1511,
+   "w": 271,
+   "h": 267,
+   "shape": "rect",
+   "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye"
+  },
+  "Q4": {
+   "x": 2654,
+   "y": 573,
+   "w": 94,
+   "h": 94,
+   "shape": "circle",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "Q5": {
+   "x": 2565,
+   "y": 746,
+   "w": 92,
+   "h": 92,
+   "shape": "circle",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "Q52": {
+   "x": 2824,
+   "y": 1957,
+   "w": 92,
+   "h": 92,
+   "shape": "circle",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "Q57": {
+   "x": 3912,
+   "y": 1526,
+   "w": 92,
+   "h": 92,
+   "shape": "circle",
+   "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+  },
+  "Q6": {
+   "x": 2752,
+   "y": 745,
+   "w": 92,
+   "h": 92,
+   "shape": "circle",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "Q7": {
+   "x": 2852,
+   "y": 538,
+   "w": 93,
+   "h": 93,
+   "shape": "circle",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "Q8": {
+   "x": 505,
+   "y": 3011,
+   "w": 124,
+   "h": 124,
+   "shape": "circle",
+   "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+  },
+  "VR1": {
+   "x": 5120,
+   "y": 574,
+   "w": 56,
+   "h": 152,
+   "note": "20V zener right of T1, next to C108: the bowtie body with 'VR1' printed beside it. An earlier pass recorded no VR1 silkscreen -- there is one, at the far right of the board, and the reader's marker was a truncation of VR10 elsewhere."
+  }
+ },
+ "_dropComment": [
+  "OCR hits confirmed wrong by rendering them on the drawing, and for which no",
+  "real silkscreen could be found to move them to.",
+  "",
+  "A1 and A2 are the two SIP daughter boards (DAC FILTER and DAC BUFFERED",
+  "REFERENCE). Their markers sat on C102 and on Z5's outline. No 'A1' or 'A2'",
+  "silkscreen was found anywhere on the drawing in a full gridded sweep, so they",
+  "are in notOnDrawing rather than guessed at. Both outlines ARE on the drawing --",
+  "an unlabelled long narrow rectangle under HR5 and another under HR6 -- but the",
+  "drawing never says which is which, and nothing on it or on the sheets settles",
+  "that, so neither outline is claimed. Both are placed on their sheets, where",
+  "the blocks are captioned A11-1 and A11-2.",
+  "",
+  "VR1's marker was a truncation of VR10. The real VR1 silkscreen does exist, at",
+  "the far right of the board beside T1 and C108; VR1 is placed there by hand and",
+  "is no longer dropped.",
+  "H1 (a screw) and H2 (a C-MOS handling form) have no silkscreen and move to",
+  "notOnDrawing; X1, a 40-pin IC socket, sits under its IC and is not labelled.",
+  "",
+  "R128 is not dropped and not placed. It is a 200K 0805 chip resistor that",
+  "appears only in the 1996 parts list, and no R128 silkscreen was found on the",
+  "drawing: the R124..R127 column it would belong to ends at R127. Its one",
+  "machine read, on sheet 6, turned out to be R108's label. It is in notOnDrawing",
+  "rather than guessed at."
+ ],
+ "drop": [
+  "A1",
+  "A2",
+  "H1",
+  "H2",
+  "X1"
+ ],
+ "_notOnDrawingComment": [
+  "Parts in the list of replaceable parts that carry no silkscreen designator on",
+  "the assembly drawing: screws, nuts, rivets, spacers, ejectors, heat sinks,",
+  "shields, moulded covers, the static bag and the C-MOS handling form. X1 is",
+  "the 40-pin IC socket, which is drawn only as the outline under its IC.",
+  "They stay in the parts list and remain searchable; there is simply nothing on",
+  "the drawing to point at.",
+  "",
+  "A1, A2 and R128 join them for a narrower reason. A1 and A2 are the two SIP",
+  "daughter boards; their outlines are drawn but carry no designator, and see",
+  "the drop comment above for why neither outline is claimed. R128 is a 200K",
+  "0805 chip resistor whose R124..R127 column on the drawing ends at R127 -- a",
+  "gridded sweep and a search of the artwork found no R128 anywhere."
+ ],
+ "notOnDrawing": [
+  "A1",
+  "A2",
+  "H1",
+  "H2",
+  "H9",
+  "H10",
+  "H11",
+  "H12",
+  "H21",
+  "H26",
+  "H28",
+  "H32",
+  "M2",
+  "M3",
+  "MP1",
+  "MP2",
+  "MP3",
+  "MP4",
+  "MP5",
+  "MP6",
+  "MP7",
+  "MP8",
+  "MP9",
+  "MP10",
+  "MP11",
+  "MP31",
+  "R128",
+  "X1"
+ ],
+ "_dropSchematicComment": [
+  "Reads on a sheet that are not the designator they were taken for, dropped",
+  "per sheet. Three kinds dominate, and all three are visible once the sheet is",
+  "rendered rather than read as numbers:",
+  "",
+  "1. The package pinout legend. Every A11 sheet carries a column of FRONT/TOP",
+  "   package views captioned with the designators they apply to -- sheet 1's is",
+  "   the whole right-hand column, 34 markers. The parts are real and are drawn",
+  "   somewhere, but not there, so the marker is wrong while the name is right.",
+  "2. The test point legend table. TP1 = SCOM (PG1 C7) and so on: the table is",
+  "   crisp text in a neat column and the reader prefers it to the flag symbol",
+  "   on the net. The table's own zone references say which sheet each test",
+  "   point really lives on, and only TP1 is on sheet 1.",
+  "3. Ordinary text read as a designator -- a net name (RLH COM as Z5, +5 FR1 as",
+  "   X1), a part value (TIP120 as TP1, 10V as Q5), a word in a note (HR6 as H1,",
+  "   REF HEATER as R7, WIRE LOOP TYPE as L7), a pin number (11 as T1)."
+ ],
+ "dropSchematic": {
+  "sh1": [
+   "Z2",
+   "K1",
+   "K2",
+   "K4",
+   "CR5",
+   "VR1",
+   "VR12",
+   "Q4",
+   "Q6",
+   "Q7",
+   "Q8",
+   "Q9",
+   "Q11",
+   "Q12",
+   "Q13",
+   "Q14",
+   "Q15",
+   "Q16",
+   "Q17",
+   "Q18",
+   "Q19",
+   "Q20",
+   "Q21",
+   "Q22",
+   "Q23",
+   "Q26",
+   "Q30",
+   "Q33",
+   "Q34",
+   "Q52",
+   "Q53",
+   "Q56",
+   "Z5",
+   "X1",
+   "L5",
+   "A1",
+   "Q5",
+   "A2",
+   "H1",
+   "T1",
+   "R7",
+   "L1",
+   "M2",
+   "VR7",
+   "L7",
+   "M3",
+   "U2",
+   "U8",
+   "Z10",
+   "C3",
+   "K5",
+   "L10",
+   "TP2",
+   "TP3",
+   "TP5",
+   "TP6",
+   "TP7",
+   "TP8",
+   "TP9",
+   "TP11",
+   "TP12"
+  ],
+  "sh2": [
+   "C55",
+   "MP1",
+   "Q3",
+   "H10",
+   "U10",
+   "VR2",
+   "K7",
+   "C10",
+   "Z5",
+   "L6",
+   "U29",
+   "C77",
+   "L7",
+   "L2",
+   "U5",
+   "H1",
+   "VR1",
+   "L5",
+   "U7",
+   "Q1",
+   "L1",
+   "U6",
+   "CR7",
+   "U8",
+   "Q2",
+   "T1",
+   "C1",
+   "C7",
+   "U1",
+   "L10",
+   "A1",
+   "K3",
+   "K5",
+   "M2",
+   "K4",
+   "TP1",
+   "U14",
+   "C8",
+   "U28"
+  ],
+  "sh3": [
+   "TP5",
+   "C55",
+   "R3",
+   "L7",
+   "C4",
+   "VR4",
+   "U1",
+   "Z5",
+   "U2",
+   "C3",
+   "U10",
+   "T1",
+   "C5",
+   "C6",
+   "C18",
+   "K1",
+   "U11",
+   "U5",
+   "VR7",
+   "K7",
+   "Z2",
+   "R1",
+   "U32",
+   "C1",
+   "Q5",
+   "Q2",
+   "CR1",
+   "Q1",
+   "A2",
+   "L5",
+   "L1",
+   "X1",
+   "K5",
+   "U25",
+   "Q7",
+   "VR1",
+   "C7",
+   "R7"
+  ],
+  "sh4": [
+   "C1",
+   "C7",
+   "L6",
+   "C55",
+   "R1",
+   "H1",
+   "Z2",
+   "L7",
+   "VR1",
+   "VR8",
+   "M3",
+   "T1",
+   "VR4",
+   "C9",
+   "U5",
+   "C5",
+   "A2",
+   "X1",
+   "A1",
+   "U1",
+   "L1",
+   "U7",
+   "Q5",
+   "C8"
+  ],
+  "sh5": [
+   "VR7",
+   "U10",
+   "H1",
+   "C1",
+   "L2",
+   "C8",
+   "L1",
+   "U15",
+   "T1",
+   "X1",
+   "U8",
+   "C4",
+   "U2",
+   "Z5",
+   "C86",
+   "A1",
+   "A2",
+   "Z2",
+   "L5",
+   "U25",
+   "C18",
+   "L6",
+   "U5",
+   "U7",
+   "L3",
+   "K5",
+   "VR1",
+   "K1",
+   "L7",
+   "U6",
+   "C7",
+   "Z12",
+   "R50"
+  ],
+  "sh6": [
+   "Q4",
+   "Q5",
+   "Q6",
+   "Q3",
+   "L2",
+   "L1",
+   "R6",
+   "C5",
+   "VR1",
+   "T1",
+   "Q10",
+   "A2",
+   "R3",
+   "C7",
+   "C2",
+   "C4",
+   "C3",
+   "Q1",
+   "X1",
+   "H1",
+   "A1",
+   "VR2",
+   "M2",
+   "VR3",
+   "VR4",
+   "C6",
+   "VR7",
+   "L4",
+   "R2",
+   "Z2",
+   "C32",
+   "C15",
+   "U5",
+   "C17",
+   "U6",
+   "C11",
+   "R1",
+   "L5",
+   "L6",
+   "VR8",
+   "C8",
+   "Q7",
+   "Q8",
+   "Q2",
+   "U7",
+   "K6",
+   "Q11",
+   "U11",
+   "R7",
+   "L7",
+   "TP5",
+   "C1",
+   "R118"
+  ]
+ },
+ "_schematicComment": [
+  "Positions measured by eye off a gridded crop of the matching sch<n>_full.png",
+  "and re-rendered to check, in that sheet's own pixels (sheetImageSize).",
+  "",
+  "A test point's marker goes on the flag symbol on the net, never on the row",
+  "in the legend table that names its signal. The table's zone reference is the",
+  "check: TP1 = SCOM (PG1 C7) puts TP1 on sheet 1 beside the S COM node, which",
+  "is where its marker is."
+ ],
+ "schematic": {
+  "sh1": {
+   "TP1": {
+    "x": 1229,
+    "y": 1732,
+    "w": 125,
+    "h": 150,
+    "note": "the wire-loop flag on the S COM node and its TP1 label; the reader had put TP1 on the TIP120 part number under Q1"
+   },
+   "Q1": {
+    "x": 2043,
+    "y": 2526,
+    "w": 90,
+    "h": 60,
+    "note": "the TIP120 driving the HR5 oven; the reader had put Q1 in the right-hand package legend"
+   },
+   "Q3": {
+    "x": 3501,
+    "y": 2766,
+    "w": 90,
+    "h": 60,
+    "note": "the TIP32 in the 50C heater leg; the reader had put Q3 in the right-hand package legend"
+   },
+   "C6": {
+    "x": 1063,
+    "y": 1712,
+    "w": 80,
+    "h": 50
+   },
+   "L1": {
+    "x": 883,
+    "y": 1610,
+    "w": 70,
+    "h": 45
+   },
+   "L2": {
+    "x": 1603,
+    "y": 1610,
+    "w": 70,
+    "h": 45
+   },
+   "L3": {
+    "x": 813,
+    "y": 1960,
+    "w": 70,
+    "h": 45
+   },
+   "C5": {
+    "x": 727,
+    "y": 1713,
+    "w": 95,
+    "h": 45,
+    "note": "the .22uF bypass on the +17 S rail beside L1; the reader's C5 hits were all on other sheets; found by find_in_image, verified by eye"
+   },
+   "C11": {
+    "x": 1022,
+    "y": 2457,
+    "w": 105,
+    "h": 45,
+    "note": "the .22uF bypass on the +5 LH rail after L5; the reader read this label as C111 as well and dropped both; found by find_in_image, verified by eye"
+   },
+   "L4": {
+    "x": 1753,
+    "y": 1946,
+    "w": 75,
+    "h": 45,
+    "note": "the 6-turn choke in the -17 S rail feeding -17 SB; found by find_in_image, verified by eye"
+   },
+   "L5": {
+    "x": 833,
+    "y": 2368,
+    "w": 75,
+    "h": 45,
+    "note": "the 6-turn choke in the +5 LH rail; found by find_in_image, verified by eye"
+   },
+   "L6": {
+    "x": 905,
+    "y": 2635,
+    "w": 75,
+    "h": 45,
+    "note": "the 6-turn choke in the -5 LH rail; found by find_in_image, verified by eye"
+   },
+   "L7": {
+    "x": 900,
+    "y": 2768,
+    "w": 75,
+    "h": 45,
+    "note": "the 6-turn choke in the +5 RLH rail; found by find_in_image, verified by eye"
+   },
+   "VR1": {
+    "x": 1712,
+    "y": 2090,
+    "w": 105,
+    "h": 45,
+    "note": "the 20V zener from -44 S to -25 S; found by find_in_image, verified by eye"
+   },
+   "CR6": {
+    "x": 568,
+    "y": 2272,
+    "w": 105,
+    "h": 45,
+    "note": "the 1N4448 across S COM to LH COM, drawn beside CR8; found by find_in_image, verified by eye"
+   }
+  },
+  "sh2": {
+   "U2": {
+    "x": 3798,
+    "y": 2769,
+    "w": 95,
+    "h": 40,
+    "note": "the LT1013 in the shunt linearity control, printed U2 B; the reader took the section letter into the designator and called it U28"
+   },
+   "Q14": {
+    "x": 3961,
+    "y": 1414,
+    "w": 85,
+    "h": 40,
+    "note": "the reader read this J2317 FET's Q14 label as U14"
+   },
+   "Q15": {
+    "x": 4182,
+    "y": 1252,
+    "w": 70,
+    "h": 40,
+    "note": "the reader read this label as Q1, and put Q15 itself in the relay truth table"
+   },
+   "TP2": {
+    "x": 1219,
+    "y": 801,
+    "w": 145,
+    "h": 104,
+    "note": "eyelet symbol and TP2 label on the REF13 node off HR5 pin 5"
+   },
+   "TP3": {
+    "x": 1699,
+    "y": 1151,
+    "w": 125,
+    "h": 130,
+    "note": "wire-loop symbol and TP3 label on the REFCOM mecca point"
+   },
+   "TP4": {
+    "x": 1727,
+    "y": 2005,
+    "w": 143,
+    "h": 102,
+    "note": "eyelet symbol and TP4 label on CH1 SERIES B, annotated 0 to 18V"
+   },
+   "TP5": {
+    "x": 2186,
+    "y": 796,
+    "w": 148,
+    "h": 101,
+    "note": "eyelet symbol and TP5 label on CH1 FILTER INPUT, between Q4 and Q5"
+   },
+   "TP6": {
+    "x": 1728,
+    "y": 2326,
+    "w": 145,
+    "h": 100,
+    "note": "eyelet symbol and TP6 label on CH1 SHUNT, annotated 0 to 5V"
+   },
+   "TP7": {
+    "x": 1728,
+    "y": 2487,
+    "w": 145,
+    "h": 102,
+    "note": "eyelet symbol and TP7 label on CH2 FILTER INPUT, annotated 0 to 3V"
+   },
+   "TP8": {
+    "x": 5226,
+    "y": 1585,
+    "w": 123,
+    "h": 126,
+    "note": "wire-loop symbol and TP8 label on the DAC SENSE CAL node"
+   },
+   "TP12": {
+    "x": 5535,
+    "y": 2406,
+    "w": 145,
+    "h": 120,
+    "note": "wire-loop symbol and TP12 label on the ADC COM node between K2 and K4; the reader found no TP12 on this sheet at all"
+   },
+   "C23": {
+    "x": 301,
+    "y": 999,
+    "w": 100,
+    "h": 45,
+    "note": "the .22uF on pin 10 of the reference hybrid HR5; found by find_in_image, verified by eye"
+   },
+   "C29": {
+    "x": 1216,
+    "y": 682,
+    "w": 100,
+    "h": 45,
+    "note": "the 220pF across R10 at U38's input; the reader had it as a collision and dropped it; found by find_in_image, verified by eye"
+   },
+   "C41": {
+    "x": 3909,
+    "y": 777,
+    "w": 100,
+    "h": 45,
+    "note": "the .22uF in the Q11 current-limit release, below R22; found by find_in_image, verified by eye"
+   },
+   "C110": {
+    "x": 3084,
+    "y": 452,
+    "w": 120,
+    "h": 45,
+    "note": "the .22uF polyester on pin 2 of HR6, left of C111; found by find_in_image, verified by eye"
+   },
+   "C111": {
+    "x": 3254,
+    "y": 437,
+    "w": 120,
+    "h": 45,
+    "note": "the .22uF polyester on pin 12 of HR6; found by find_in_image, verified by eye"
+   },
+   "Q9": {
+    "x": 4489,
+    "y": 490,
+    "w": 80,
+    "h": 45,
+    "note": "the TO-220 pass transistor in the output buffer supply; found by find_in_image, verified by eye"
+   },
+   "Q17": {
+    "x": 4785,
+    "y": 1454,
+    "w": 100,
+    "h": 45,
+    "note": "the high-voltage N-JFET in the DAC sense switching; found by find_in_image, verified by eye"
+   },
+   "Q19": {
+    "x": 4209,
+    "y": 1769,
+    "w": 100,
+    "h": 48,
+    "note": "the 2N3904 in the range-select drive, between CR2 and CR3; found by find_in_image, verified by eye"
+   },
+   "Q23": {
+    "x": 4570,
+    "y": 2405,
+    "w": 100,
+    "h": 45,
+    "note": "the J2086 FET on REF COM in the sense switch; found by find_in_image, verified by eye"
+   },
+   "Q24": {
+    "x": 4762,
+    "y": 2322,
+    "w": 100,
+    "h": 45,
+    "note": "the second J2086 FET, drawn right of Q23; found by find_in_image, verified by eye"
+   },
+   "Q26": {
+    "x": 5580,
+    "y": 2708,
+    "w": 100,
+    "h": 45,
+    "note": "the VN0104 beside Q25 in the oscillator-select drive; found by find_in_image, verified by eye"
+   },
+   "R10": {
+    "x": 1026,
+    "y": 647,
+    "w": 100,
+    "h": 45,
+    "note": "the 2.49K MF at U38's inverting input; found by find_in_image, verified by eye"
+   },
+   "R14": {
+    "x": 3109,
+    "y": 281,
+    "w": 100,
+    "h": 45,
+    "note": "the 61.9M in the negative offset circuit, left of C21; found by find_in_image, verified by eye"
+   },
+   "R15": {
+    "x": 1038,
+    "y": 304,
+    "w": 100,
+    "h": 45,
+    "note": "the 1.21K MF above the series linearity control; found by find_in_image, verified by eye"
+   },
+   "R29": {
+    "x": 3330,
+    "y": 1884,
+    "w": 100,
+    "h": 45,
+    "note": "the 10K in the range-select logic; found by find_in_image, verified by eye"
+   },
+   "U1": {
+    "x": 3447,
+    "y": 3319,
+    "w": 85,
+    "h": 45,
+    "note": "U1A, the LF412A in the shunt linearity control; printed U1 A; found by find_in_image, verified by eye"
+   },
+   "U5": {
+    "x": 4400,
+    "y": 939,
+    "w": 85,
+    "h": 48,
+    "note": "the OPA548 output buffer, printed U5 inside the triangle; found by find_in_image, verified by eye"
+   },
+   "U38": {
+    "x": 1620,
+    "y": 599,
+    "w": 100,
+    "h": 48,
+    "note": "the LF356 in the series linearity control, printed U38 inside the triangle; found by find_in_image, verified by eye"
+   },
+   "Z2": {
+    "x": 1423,
+    "y": 414,
+    "w": 80,
+    "h": 45,
+    "note": "the 14K/11K network in the series linearity control; found by find_in_image, verified by eye"
+   },
+   "L10": {
+    "x": 4877,
+    "y": 885,
+    "w": 85,
+    "h": 45,
+    "note": "the 6-turn choke in U5's output with R25 across it, feeding K1; found by find_in_image, verified by eye"
+   },
+   "A1": {
+    "x": 925,
+    "y": 3222,
+    "w": 150,
+    "h": 50,
+    "note": "the DAC filter SIP block, printed A11-1 above 5700A-4043 and DAC FILTER SIP; the sheets never write A1, so the marker goes on the assembly number inside the SIP's dashed outline; found by find_in_image, verified by eye"
+   }
+  },
+  "sh3": {
+   "R38": {
+    "x": 722,
+    "y": 2647,
+    "w": 60,
+    "h": 40,
+    "note": "the reader read this 270 ohm resistor's R38 label as R3, which is on sheet 1"
+   },
+   "Q30": {
+    "x": 3925,
+    "y": 745,
+    "w": 85,
+    "h": 40,
+    "note": "the reader read this FET's Q30 label as U32"
+   },
+   "C55": {
+    "x": 3551,
+    "y": 470,
+    "w": 100,
+    "h": 45,
+    "note": "the .22uF on U11's +30 FR1 supply, below VR10 and R39; found by find_in_image, verified by eye"
+   },
+   "C56": {
+    "x": 3554,
+    "y": 793,
+    "w": 100,
+    "h": 45,
+    "note": "the .22uF on U11's -18 FR1 supply; found by find_in_image, verified by eye"
+   },
+   "C57": {
+    "x": 4238,
+    "y": 895,
+    "w": 100,
+    "h": 45,
+    "note": "the 22pF across R40 at Q31's base; found by find_in_image, verified by eye"
+   },
+   "C59": {
+    "x": 4834,
+    "y": 1593,
+    "w": 100,
+    "h": 45,
+    "note": "the 100pF across R43 at Q33's base; found by find_in_image, verified by eye"
+   },
+   "C60": {
+    "x": 5266,
+    "y": 1513,
+    "w": 100,
+    "h": 45,
+    "note": "the 1000pF across R45 in Q33's collector network; found by find_in_image, verified by eye"
+   },
+   "C62": {
+    "x": 5836,
+    "y": 1567,
+    "w": 100,
+    "h": 45,
+    "note": "the .22uF from Q34's collector to FR1 COM; found by find_in_image, verified by eye"
+   },
+   "C65": {
+    "x": 3750,
+    "y": 2781,
+    "w": 100,
+    "h": 45,
+    "note": "the .22uF on U10's +5 FR1 supply; found by find_in_image, verified by eye"
+   },
+   "C67": {
+    "x": 5313,
+    "y": 2197,
+    "w": 100,
+    "h": 45,
+    "note": "the 100pF across R71 at Q35's base; found by find_in_image, verified by eye"
+   },
+   "C109": {
+    "x": 1102,
+    "y": 2036,
+    "w": 120,
+    "h": 45,
+    "note": "the .22uF on the +5 LH supply at U6's VCC pin, beside R37; found by find_in_image, verified by eye"
+   },
+   "Q31": {
+    "x": 4482,
+    "y": 1015,
+    "w": 100,
+    "h": 45,
+    "note": "the 2369 driven through R40 from the comparator; found by find_in_image, verified by eye"
+   },
+   "Q33": {
+    "x": 5051,
+    "y": 1731,
+    "w": 100,
+    "h": 45,
+    "note": "the 2369 with R43 on its base and R45 in its collector; found by find_in_image, verified by eye"
+   },
+   "Q35": {
+    "x": 5569,
+    "y": 2319,
+    "w": 100,
+    "h": 45,
+    "note": "the 2369 with R71 on its base and R72 in its collector; found by find_in_image, verified by eye"
+   },
+   "U10": {
+    "x": 3559,
+    "y": 3015,
+    "w": 100,
+    "h": 48,
+    "note": "the NE522 comparator, printed U10 inside the triangle; found by find_in_image, verified by eye"
+   },
+   "U11": {
+    "x": 3514,
+    "y": 644,
+    "w": 100,
+    "h": 48,
+    "note": "the TL071 buffer, printed U11 inside the triangle; found by find_in_image, verified by eye"
+   },
+   "VR10": {
+    "x": 3404,
+    "y": 301,
+    "w": 120,
+    "h": 45,
+    "note": "the 10V zener to FR1 COM ahead of R39; found by find_in_image, verified by eye"
+   },
+   "VR12": {
+    "x": 5445,
+    "y": 1640,
+    "w": 120,
+    "h": 45,
+    "note": "the 10V zener between R45 and R46; found by find_in_image, verified by eye"
+   },
+   "T1": {
+    "x": 3056,
+    "y": 2936,
+    "w": 75,
+    "h": 45,
+    "note": "the pulse transformer at the isolation barrier, feeding R49 into U10; found by find_in_image, verified by eye"
+   }
+  },
+  "sh5": {
+   "Z10": {
+    "x": 4110,
+    "y": 901,
+    "w": 90,
+    "h": 40,
+    "note": "the reader read this ladder network's Z10 label as Z12"
+   },
+   "R90": {
+    "x": 5500,
+    "y": 1441,
+    "w": 90,
+    "h": 40,
+    "note": "the reader read this 20K .1% resistor's R90 label as R50"
+   },
+   "C98": {
+    "x": 3407,
+    "y": 2382,
+    "w": 90,
+    "h": 60,
+    "note": "the reader read this .22uF capacitor's C98 label as C18"
+   },
+   "TP11": {
+    "x": 574,
+    "y": 1728,
+    "w": 163,
+    "h": 99,
+    "note": "eyelet symbol and TP11 label on the ADCAMP SENSE net"
+   },
+   "C3": {
+    "x": 5578,
+    "y": 1820,
+    "w": 85,
+    "h": 45,
+    "note": "the 3300pF across U28A's feedback loop, above R99; found by find_in_image, verified by eye"
+   },
+   "C85": {
+    "x": 1926,
+    "y": 1912,
+    "w": 100,
+    "h": 45,
+    "note": "the 22pF across U24's feedback, right of R75; found by find_in_image, verified by eye"
+   },
+   "C86": {
+    "x": 2224,
+    "y": 1728,
+    "w": 100,
+    "h": 45,
+    "note": "the .22uF on U24's +17 SB supply, after R76; found by find_in_image, verified by eye"
+   },
+   "C89": {
+    "x": 4050,
+    "y": 407,
+    "w": 100,
+    "h": 45,
+    "note": "the .1uF polypropylene on pin 24 of the adc chip; found by find_in_image, verified by eye"
+   },
+   "C90": {
+    "x": 4056,
+    "y": 278,
+    "w": 100,
+    "h": 45,
+    "note": "the .033uF polypropylene on pin 25 of the adc chip; found by find_in_image, verified by eye"
+   },
+   "C91": {
+    "x": 5583,
+    "y": 115,
+    "w": 100,
+    "h": 45,
+    "note": "the .22uF on U26's +17 SB supply; found by find_in_image, verified by eye"
+   },
+   "C92": {
+    "x": 5580,
+    "y": 411,
+    "w": 100,
+    "h": 45,
+    "note": "the .22uF on U26's -17 SB supply; found by find_in_image, verified by eye"
+   },
+   "C94": {
+    "x": 5302,
+    "y": 1292,
+    "w": 100,
+    "h": 45,
+    "note": "the 1000pF across R89; found by find_in_image, verified by eye"
+   },
+   "C95": {
+    "x": 4311,
+    "y": 1581,
+    "w": 100,
+    "h": 45,
+    "note": "the .1uF polypropylene on pin 9 of the reference divider network; found by find_in_image, verified by eye"
+   },
+   "CR9": {
+    "x": 4267,
+    "y": 2050,
+    "w": 100,
+    "h": 45,
+    "note": "the BA516 from +5 LH into U29, drawn above CR10; found by find_in_image, verified by eye"
+   },
+   "R76": {
+    "x": 1990,
+    "y": 1654,
+    "w": 100,
+    "h": 45,
+    "note": "the 100 feeding U24's +17 SB pin with C86; found by find_in_image, verified by eye"
+   },
+   "R81": {
+    "x": 518,
+    "y": 2938,
+    "w": 100,
+    "h": 45,
+    "note": "the 100K 1% on the REF HEATER line, below R80; found by find_in_image, verified by eye"
+   },
+   "R84": {
+    "x": 1043,
+    "y": 3058,
+    "w": 100,
+    "h": 45,
+    "note": "the 4.7K beside R83 in the DAC HI DIAG divider; found by find_in_image, verified by eye"
+   },
+   "R91": {
+    "x": 5781,
+    "y": 1081,
+    "w": 100,
+    "h": 45,
+    "note": "the 4.12K MF below VR29 and VR30; found by find_in_image, verified by eye"
+   },
+   "R92": {
+    "x": 6001,
+    "y": 1079,
+    "w": 100,
+    "h": 45,
+    "note": "the 2K to -17 S, right of R91; found by find_in_image, verified by eye"
+   },
+   "R95": {
+    "x": 5092,
+    "y": 1910,
+    "w": 100,
+    "h": 45,
+    "note": "the 1K at Q56's collector; found by find_in_image, verified by eye"
+   },
+   "R96": {
+    "x": 5092,
+    "y": 2265,
+    "w": 100,
+    "h": 45,
+    "note": "the 1K at Q57's collector; found by find_in_image, verified by eye"
+   },
+   "R99": {
+    "x": 5449,
+    "y": 1898,
+    "w": 100,
+    "h": 45,
+    "note": "the 1K into U28A, inside C3's feedback loop; found by find_in_image, verified by eye"
+   },
+   "R100": {
+    "x": 5799,
+    "y": 2043,
+    "w": 120,
+    "h": 45,
+    "note": "the 330 at U28A's output, ahead of VR35 and VR36; found by find_in_image, verified by eye"
+   },
+   "U25": {
+    "x": 3033,
+    "y": 593,
+    "w": 140,
+    "h": 48,
+    "note": "the adc chip, printed ADC CHIP U25 inside its outline; found by find_in_image, verified by eye"
+   },
+   "U26": {
+    "x": 5510,
+    "y": 310,
+    "w": 100,
+    "h": 48,
+    "note": "U26A, the 5532 between C91 and C92; found by find_in_image, verified by eye"
+   },
+   "VR25": {
+    "x": 2603,
+    "y": 1983,
+    "w": 125,
+    "h": 45,
+    "note": "the 3.3V clamp on ADC INPUT, drawn above VR26; found by find_in_image, verified by eye"
+   },
+   "VR30": {
+    "x": 5986,
+    "y": 992,
+    "w": 125,
+    "h": 45,
+    "note": "the 12V zener between R91 and R93; found by find_in_image, verified by eye"
+   }
+  },
+  "sh6": {
+   "R110": {
+    "x": 2239,
+    "y": 657,
+    "w": 115,
+    "h": 40,
+    "note": "the reader read this 12 ohm resistor's R110 label as R118, which is on sheet 2"
+   },
+   "C103": {
+    "x": 1210,
+    "y": 2646,
+    "w": 120,
+    "h": 45,
+    "note": "the 33pF on U31's WR line to LH COM; found by find_in_image, verified by eye"
+   },
+   "C105": {
+    "x": 2364,
+    "y": 694,
+    "w": 120,
+    "h": 45,
+    "note": "the .22uF from R110 to LH COM at U8A's supply; found by find_in_image, verified by eye"
+   },
+   "C106": {
+    "x": 3386,
+    "y": 2126,
+    "w": 120,
+    "h": 45,
+    "note": "the .22uF on the comparator's +5 LH supply to LH COM; found by find_in_image, verified by eye"
+   },
+   "C107": {
+    "x": 3410,
+    "y": 2782,
+    "w": 120,
+    "h": 45,
+    "note": "the .22uF across R114 at U35, to LH COM; found by find_in_image, verified by eye"
+   },
+   "C108": {
+    "x": 3385,
+    "y": 3528,
+    "w": 120,
+    "h": 45,
+    "note": "the .22uF on U36's supply to LH COM; found by find_in_image, verified by eye"
+   },
+   "R105": {
+    "x": 822,
+    "y": 2532,
+    "w": 120,
+    "h": 45,
+    "note": "the 1.2K in the WR line of the microprocessor interface; found by find_in_image, verified by eye"
+   },
+   "R106": {
+    "x": 1215,
+    "y": 3120,
+    "w": 120,
+    "h": 45,
+    "note": "the 12 from +5 LH into U9A, above C104; found by find_in_image, verified by eye"
+   },
+   "R108": {
+    "x": 1754,
+    "y": 2529,
+    "w": 120,
+    "h": 45,
+    "note": "the 1.8K on U31's PA7 output to LH COM; found by find_in_image, verified by eye"
+   },
+   "R109": {
+    "x": 1985,
+    "y": 924,
+    "w": 120,
+    "h": 45,
+    "note": "the 3K pull-down at U8A's input; found by find_in_image, verified by eye"
+   },
+   "R126": {
+    "x": 4464,
+    "y": 3391,
+    "w": 120,
+    "h": 45,
+    "note": "the 56K from HEATER SEL to S COM, drawn right of R127; found by find_in_image, verified by eye"
+   },
+   "R127": {
+    "x": 4210,
+    "y": 3391,
+    "w": 120,
+    "h": 45,
+    "note": "the 56K from DAC DIAG SEL to S COM, drawn left of R126; found by find_in_image, verified by eye"
+   },
+   "U32": {
+    "x": 2258,
+    "y": 1972,
+    "w": 110,
+    "h": 48,
+    "note": "the 74HC138 decoder, printed beside its outline; found by find_in_image, verified by eye"
+   },
+   "U9": {
+    "x": 2250,
+    "y": 222,
+    "w": 95,
+    "h": 48,
+    "note": "U9B, the 74HC32 OR gate on A0 and A1; found by find_in_image, verified by eye"
+   }
+  },
+  "sh4": {
+   "TP9": {
+    "x": 4534,
+    "y": 328,
+    "w": 120,
+    "h": 121,
+    "note": "wire-loop symbol and TP9 label on the +INPUT net out of K7; the reader found no TP9 on this sheet at all"
+   },
+   "TP10": {
+    "x": 4205,
+    "y": 733,
+    "w": 138,
+    "h": 121,
+    "note": "wire-loop symbol and TP10 label on the -INPUT net; the reader found no TP10 on this sheet at all"
+   },
+   "K6": {
+    "x": 3876,
+    "y": 457,
+    "w": 85,
+    "h": 48,
+    "note": "the 2FCL relay's own contact block in the adc amplifier input switching, drawn between K5 and K7; found by find_in_image, verified by eye"
+   },
+   "R59": {
+    "x": 4437,
+    "y": 1170,
+    "w": 100,
+    "h": 45,
+    "note": "the 56K beside Q52 (J2317), left of VR17 and VR18; found by find_in_image, verified by eye"
+   },
+   "R61": {
+    "x": 4844,
+    "y": 700,
+    "w": 100,
+    "h": 45,
+    "note": "the 1.5K CF from +44 S down to VR16; found by find_in_image, verified by eye"
+   },
+   "R70": {
+    "x": 5177,
+    "y": 2707,
+    "w": 100,
+    "h": 45,
+    "note": "the 20K 0.1% at U20A's inverting input; found by find_in_image, verified by eye"
+   },
+   "VR19": {
+    "x": 5728,
+    "y": 1050,
+    "w": 125,
+    "h": 45,
+    "note": "the 3.3V clamp on ADCAMP OUT, drawn above VR20; found by find_in_image, verified by eye"
+   },
+   "VR20": {
+    "x": 5764,
+    "y": 1162,
+    "w": 125,
+    "h": 45,
+    "note": "the 3.3V clamp from VR19 down to S COM; found by find_in_image, verified by eye"
+   },
+   "U19": {
+    "x": 5201,
+    "y": 998,
+    "w": 100,
+    "h": 48,
+    "note": "U19B, the OP227 in the adc null amplifier; found by find_in_image, verified by eye"
+   },
+   "U20": {
+    "x": 4880,
+    "y": 2781,
+    "w": 100,
+    "h": 48,
+    "note": "U20A, the LT1013 ahead of R70; found by find_in_image, verified by eye"
+   },
+   "A2": {
+    "x": 2008,
+    "y": 2365,
+    "w": 150,
+    "h": 50,
+    "note": "the buffered reference SIP block, printed A11-2 above 5700A-4044 and BUFFERED REFERENCE SIP; the sheets never write A2, so the marker goes on the assembly number inside the SIP's dashed outline; found by find_in_image, verified by eye"
+   }
+  }
+ },
+ "_layersComment": [
+  "Alignment of the photograph to board space. Thirty-six landmark pairs, each",
+  "one a designator whose silkscreen is legible in both images. Left column:",
+  "C19 and C20 at the top left, C57, Q14, CR2, Q19 and Q18 across the middle,",
+  "Z4, L10, Q15, Q24, Q17, Q23 and Q10 down to the bottom edge. Middle: C110,",
+  "Z12, U33, Q26, L2, C9, C84, C86, Z8, C78, C14, C95, C90, L4 and Z5. Right-",
+  "hand column: Z10, C106, U31, U32, U36, R124 and the R104 corner.",
+  "",
+  "This is the re-alignment against the covers-off photograph. The old shot had",
+  "the adc-amplifier shield (M2) over the Z10 block and a second shield over the",
+  "U25/U31 column, so there was no usable silkscreen right of x=0.80 and the fit",
+  "spanned the right-hand column instead of being anchored in it. Both shields",
+  "are off in this one: Z10, U25, U31, U35/U32/U36, U6, U7, U8, U9, the R124-127",
+  "row and the C101-C106 row are all legible, and seven of the landmarks now sit",
+  "in that column. The two moulded hybrid covers (MP1, MP31) are still fitted,",
+  "so HR5 and HR6 themselves remain unmeasurable -- their outlines and mounting",
+  "pads line up, but nothing inside them does -- and the K1-K8 relay block at",
+  "x 0.15-0.40, y 0.62-0.93 is relay lids rather than board, so that patch is",
+  "bracketed by landmarks rather than anchored inside.",
+  "",
+  "The src side is not eyeballed: it is the reviewed board coordinate of that",
+  "designator from data/a11.coords.json, so it is the same point the markers",
+  "are drawn from. The dst side was not eyeballed either -- the locator",
+  "drawing is the silkscreen artwork, and the photograph shows that same",
+  "silkscreen in yellow ink, so the drawing patch around each designator was",
+  "cross-correlated against the photograph and each pair is a local",
+  "registration rather than a click on a pixel grid. The patch is taken from",
+  "the drawing's part outlines with the designator lettering stripped out,",
+  "because the drawing does not print the text where the board does.",
+  "",
+  "Fit residuals are 0.2 to 4.9 px in the photograph (3400 px wide) at every",
+  "landmark but one; R104 sits 10.2 px out because it anchors the bottom-right",
+  "corner, which a single homography cannot reach without spoiling the rest.",
+  "Checked by warping the photograph into board space and drawing the locator",
+  "artwork over it: the DIP and leadless-carrier outlines, the relay bodies,",
+  "the toroid row along the bottom, the chip-part rows down the right-hand",
+  "column and the board edge all sit on their parts. Sampling the whole board",
+  "with the same correlation afterwards gives, over 421 patches, a median error",
+  "of 2.7 px and a 90th percentile of 5.0 px in the photograph. The worst region",
+  "is the empty bottom-right corner at about 10 px.",
+  "",
+  "Marked approximate. The shot is not perfectly overhead, and the ejector",
+  "ears and the threaded standoffs stand proud of the board -- they show 15",
+  "to 20 px of parallax against the drawing and were deliberately not used",
+  "as landmarks, mechanical though they are. Only flat, in-plane silkscreen",
+  "was used. The drawing's own geometry is not projective either: its left",
+  "quarter needs about 20 px more x than a homography fitted to the rest of",
+  "the board gives it, so the fit is balanced across the two rather than",
+  "letting the dense middle win.",
+  "",
+  "src is normalised in the drawing (3000 x 1704), dst in the photo",
+  "(3400 x 1974)."
+ ],
+ "layers": {
+  "photo": {
+   "approximate": true,
+   "landmarks": [
+    {
+     "src": [
+      0.03886,
+      0.28841
+     ],
+     "dst": [
+      0.0479,
+      0.28061
+     ]
+    },
+    {
+     "src": [
+      0.0392,
+      0.2415
+     ],
+     "dst": [
+      0.04797,
+      0.23553
+     ]
+    },
+    {
+     "src": [
+      0.08282,
+      0.34132
+     ],
+     "dst": [
+      0.08979,
+      0.33277
+     ]
+    },
+    {
+     "src": [
+      0.09026,
+      0.47622
+     ],
+     "dst": [
+      0.09725,
+      0.46247
+     ]
+    },
+    {
+     "src": [
+      0.10212,
+      0.7652
+     ],
+     "dst": [
+      0.11029,
+      0.7394
+     ]
+    },
+    {
+     "src": [
+      0.10821,
+      0.8139
+     ],
+     "dst": [
+      0.11668,
+      0.78572
+     ]
+    },
+    {
+     "src": [
+      0.12109,
+      0.90569
+     ],
+     "dst": [
+      0.12929,
+      0.87365
+     ]
+    },
+    {
+     "src": [
+      0.12372,
+      0.4756
+     ],
+     "dst": [
+      0.12906,
+      0.46287
+     ]
+    },
+    {
+     "src": [
+      0.14286,
+      0.51497
+     ],
+     "dst": [
+      0.14755,
+      0.50046
+     ]
+    },
+    {
+     "src": [
+      0.14334,
+      0.85917
+     ],
+     "dst": [
+      0.14994,
+      0.83034
+     ]
+    },
+    {
+     "src": [
+      0.1434,
+      0.76777
+     ],
+     "dst": [
+      0.14926,
+      0.74332
+     ]
+    },
+    {
+     "src": [
+      0.14354,
+      0.81355
+     ],
+     "dst": [
+      0.14974,
+      0.78711
+     ]
+    },
+    {
+     "src": [
+      0.15689,
+      0.47558
+     ],
+     "dst": [
+      0.1608,
+      0.46302
+     ]
+    },
+    {
+     "src": [
+      0.19031,
+      0.47524
+     ],
+     "dst": [
+      0.19294,
+      0.46307
+     ]
+    },
+    {
+     "src": [
+      0.39145,
+      0.49521
+     ],
+     "dst": [
+      0.39024,
+      0.48457
+     ]
+    },
+    {
+     "src": [
+      0.41155,
+      0.75565
+     ],
+     "dst": [
+      0.4125,
+      0.73798
+     ]
+    },
+    {
+     "src": [
+      0.43475,
+      0.69785
+     ],
+     "dst": [
+      0.43397,
+      0.68329
+     ]
+    },
+    {
+     "src": [
+      0.50935,
+      0.80689
+     ],
+     "dst": [
+      0.50822,
+      0.7909
+     ]
+    },
+    {
+     "src": [
+      0.52112,
+      0.40626
+     ],
+     "dst": [
+      0.51937,
+      0.39934
+     ]
+    },
+    {
+     "src": [
+      0.5426,
+      0.80561
+     ],
+     "dst": [
+      0.54117,
+      0.79022
+     ]
+    },
+    {
+     "src": [
+      0.5632,
+      0.36171
+     ],
+     "dst": [
+      0.56112,
+      0.35602
+     ]
+    },
+    {
+     "src": [
+      0.58798,
+      0.55644
+     ],
+     "dst": [
+      0.58653,
+      0.54781
+     ]
+    },
+    {
+     "src": [
+      0.59099,
+      0.36677
+     ],
+     "dst": [
+      0.5887,
+      0.3616
+     ]
+    },
+    {
+     "src": [
+      0.60799,
+      0.59731
+     ],
+     "dst": [
+      0.6064,
+      0.58816
+     ]
+    },
+    {
+     "src": [
+      0.65391,
+      0.80389
+     ],
+     "dst": [
+      0.6522,
+      0.79046
+     ]
+    },
+    {
+     "src": [
+      0.69493,
+      0.72121
+     ],
+     "dst": [
+      0.69353,
+      0.71013
+     ]
+    },
+    {
+     "src": [
+      0.69768,
+      0.5002
+     ],
+     "dst": [
+      0.69633,
+      0.49444
+     ]
+    },
+    {
+     "src": [
+      0.70621,
+      0.57715
+     ],
+     "dst": [
+      0.70515,
+      0.56976
+     ]
+    },
+    {
+     "src": [
+      0.71173,
+      0.23353
+     ],
+     "dst": [
+      0.71056,
+      0.23189
+     ]
+    },
+    {
+     "src": [
+      0.74141,
+      0.53074
+     ],
+     "dst": [
+      0.74073,
+      0.52464
+     ]
+    },
+    {
+     "src": [
+      0.7774,
+      0.87455
+     ],
+     "dst": [
+      0.77579,
+      0.8607
+     ]
+    },
+    {
+     "src": [
+      0.79869,
+      0.75289
+     ],
+     "dst": [
+      0.79787,
+      0.74452
+     ]
+    },
+    {
+     "src": [
+      0.85034,
+      0.27545
+     ],
+     "dst": [
+      0.85052,
+      0.2744
+     ]
+    },
+    {
+     "src": [
+      0.87829,
+      0.8012
+     ],
+     "dst": [
+      0.87485,
+      0.78905
+     ]
+    },
+    {
+     "src": [
+      0.88946,
+      0.27545
+     ],
+     "dst": [
+      0.88876,
+      0.27516
+     ]
+    },
+    {
+     "src": [
+      0.92857,
+      0.24102
+     ],
+     "dst": [
+      0.92853,
+      0.2418
+     ]
+    }
+   ]
+  }
+ }
+}

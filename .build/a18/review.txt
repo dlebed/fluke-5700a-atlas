@@ -1,0 +1,18 @@
+1996 parts: MP219-222 expands to 4 designators but Tot Qty is 5
+1996 parts: VR202,VR213,VR233,VR242 expands to 4 designators but Tot Qty is 10
+F6: Rev 9 groups it with F201,F202,F203 (stock 851949) but the 1996 list gives it stock 832337 -- part changed between revisions
+Rev9 parts: stock no 129890 (MP215,MP216,MP217,MP218) did not join on stock number
+Rev9 parts: stock no 650846 (Q203,Q206) did not join on stock number
+Rev9 parts: stock no 806497 (Q217) did not join on stock number
+Rev9 parts: stock no 266361 (R1) did not join on stock number
+Rev9 parts: stock no 109041 (R2,R3,R4,R5) did not join on stock number
+Rev9 parts: stock no 640995 (R202,R243) did not join on stock number
+Rev9 parts: stock no 108795 (R205,R216,R229,R240) did not join on stock number
+Rev9 parts: stock no 108290 (R207,R209,R237,R238) did not join on stock number
+Rev9 parts: stock no 109652 (R208,R210,R235,R236) did not join on stock number
+Rev9 parts: stock no 108589 (R215,R234) did not join on stock number
+Rev9 parts: stock no 573584 (R225) did not join on stock number
+Rev9 parts: S201 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 436691 (S201) did not join on stock number
+Rev9 parts: stock no 810267 (VR202,VR213,VR233,VR242) did not join on stock number
+Rev9 parts: stock no 820480 (VR206,VR207,VR218,VR228,VR237,VR238) did not join on stock number

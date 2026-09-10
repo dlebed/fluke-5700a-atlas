@@ -1,0 +1,60 @@
+{
+  "_comment": [
+    "Which rail each capacitor sits on, and what that rail runs at.",
+    "The rated voltage is NOT here -- it is read from the parts list at run time,",
+    "so a corrected BOM corrects this too.",
+    "",
+    "A4 has six capacitors and only two of them belong in a recap audit. Recap",
+    "ranks tantalums by voltage margin and aluminiums by capacitance lost; the",
+    "other four here are a ceramic (C2, 1000 pF), a polyester (C3, 0.1 uF), a",
+    "line-rated polyester (C5, 0.1 uF 250 V ac) and a second ceramic (C6,",
+    "6800 pF), none of which is an electrolytic and none of which ages the way",
+    "this mode is looking for. There is not a single aluminium can on the board.",
+    "So this file audits two parts, and that is the whole population rather than",
+    "a sample -- which is worth saying outright, because an audit file with two",
+    "entries otherwise looks like unfinished work.",
+    "",
+    "Both entries were traced on schematic sheet 3, and the trace is the reason",
+    "they are worth recording at all: C1 and C4 are 35 V tantalums sitting at",
+    "24 V, which is 69% of rating. That is the highest margin ratio on this",
+    "assembly by a long way and it is not an error -- it is what the circuit is.",
+    "Each fan runs from +12V FAN to -12V FAN, 24 V across it, and C1 and C4 are",
+    "connected across that pair ahead of the sense resistors R2 and R3, not from",
+    "one rail to common. A reading of 12 V here would be the easy mistake and it",
+    "would understate the stress by half.",
+    "",
+    "source is used strictly:",
+    "  'schematic'  the net was traced on the sheet AND the manuals state what",
+    "               that net runs at. Both entries qualify: sheet 3 draws the",
+    "               connection and Table 2-2 gives A19's +12 V and -12 V outputs.",
+    "",
+    "railClass is how much energy is behind the rail, which decides what a",
+    "shorted part does. This board's one letter:",
+    "  B  the output of a three-terminal IC regulator, one rail either side --",
+    "     A19's U1 (7812) and U2 (7912), each current limited and thermally",
+    "     protected, reaching this board through J41 with no local reservoir",
+    "     anywhere on A4. A short here is survivable and presents as both fans",
+    "     stopping rather than as damage.",
+    "",
+    "Hand-authored; tools/import_cap_audit.py was not used."
+  ],
+
+  "assembly": "A4",
+
+  "caps": {
+    "C1": {
+      "net": "+12V FAN to -12V FAN (across fan 1, ahead of R2)",
+      "appliedV": 24.0,
+      "railClass": "B",
+      "source": "schematic",
+      "note": "10 uF 35 V tantalum, polarity marked + on the +12V FAN side. Sheet 3 shows it connected between the +12V FAN line and the -12V FAN line on the supply side of the 2 ohm sense resistor R2, so it sees the whole 24 V the fan runs on rather than one 12 V rail. 24 V on a 35 V part is 69% of rating -- high for a solid tantalum by modern practice, normal for 1987, and comfortably the most stressed capacitor on this assembly. Both rails come from A19's U1 and U2 through J41 pins 20A/20C and 27A/27C; Table 2-2 gives them as +12 V and -12 V."
+    },
+    "C4": {
+      "net": "+12V FAN to -12V FAN (across fan 2, ahead of R3)",
+      "appliedV": 24.0,
+      "railClass": "B",
+      "source": "schematic",
+      "note": "The twin of C1 on the fan 2 circuit, identical part in an identical position: across the same +12V FAN / -12V FAN pair, on the supply side of R3. Same 24 V, same 69% of a 35 V rating. If one of the two has failed the other has had the same service life at the same stress, so replace them as a pair."
+    }
+  }
+}

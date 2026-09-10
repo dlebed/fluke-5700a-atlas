@@ -1,0 +1,31 @@
+1996 parts: C8,C9,C25,C27-29,C33-37,C45-51,C55-63,C72-76,C80,C30,C31 expands to 35 designators but Tot Qty is 36
+1996 parts: H7-9 expands to 3 designators but Tot Qty is 4
+1996 parts: Q11-13 expands to 3 designators but Tot Qty is 2
+1996 parts: Q14-16 expands to 3 designators but Tot Qty is 2
+Rev9 parts: stock no 152173 (H7,H8,H9) did not join on stock number
+Rev9 parts: stock no 912522 (Q9,Q10,Q14,Q15,Q16) did not join on stock number
+Rev9 parts: stock no 866769 (Q11,Q12,Q13) did not join on stock number
+Rev9 parts: stock no 573626 (R41) did not join on stock number
+Rev9 parts: stock no 719468 (R47) did not join on stock number
+Rev9 parts: stock no 572990 (R48,R49,R51,R55,R61,R65) did not join on stock number
+Rev9 parts: stock no 816462 (R50) did not join on stock number
+Rev9 parts: stock no 719674 (R52) did not join on stock number
+Rev9 parts: stock no 720201 (R53) did not join on stock number
+Rev9 parts: stock no 720318 (R66) did not join on stock number
+Rev9 parts: stock no 573444 (R74) did not join on stock number
+Rev9 parts: stock no 719476 (R75) did not join on stock number
+Rev9 parts: stock no 719559 (R100) did not join on stock number
+Rev9 parts: stock no 573634 (R115) did not join on stock number
+Rev9 parts: R123 is in the Rev 9 list but not the 1996 list
+Rev9 parts: R124 is in the Rev 9 list but not the 1996 list
+Rev9 parts: R125 is in the Rev 9 list but not the 1996 list
+Rev9 parts: R126 is in the Rev 9 list but not the 1996 list
+Rev9 parts: R127 is in the Rev 9 list but not the 1996 list
+Rev9 parts: R128 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 807669 (R123,R124,R125,R126,R127,R128) did not join on stock number
+Rev9 parts: stock no 767707 (U1) did not join on stock number
+U2: Rev 9 groups it with U11 (stock 851704) but the 1996 list gives it stock 783696 -- part changed between revisions
+U12: Rev 9 groups it with U11 (stock 851704) but the 1996 list gives it stock 783696 -- part changed between revisions
+Rev9 parts: stock no 820464 (VR4) did not join on stock number
+no manufacturer part number for CP3 (POUCH,TEST LEAD)
+no manufacturer part number for H1 (LABEL,C-MOS INSTRUCTION)

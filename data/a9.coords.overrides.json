@@ -1,0 +1,507 @@
+{
+  "_comment": [
+    "Hand corrections to the reader's output for A9, in pixels of the",
+    "full-resolution crops in .build/a9/ (see imageSize / sheetImageSize).",
+    "Positions are box CENTRES, which is what build_coords.py divides by the",
+    "image dimensions.", "",
+    "The board read well: 159 of 188 placeable designators, 76 percent, and the",
+    "silkscreen stands clear of the component outlines so nothing was fused.",
+    "Every one of the 159 was rendered and looked at. All 103 'agreed' and all 12",
+    "'single' markers were right; 5 of 12 'ambiguous' and 7 of 14 'collision'",
+    "were wrong. The 7 wrong collision partners (C1, C5, C16, CR5, K1, K2, U1)",
+    "were replaced by hand and their 7 correct partners (C17, C19, C52, CR3,",
+    "K11, K29, U11) promoted so their badge stops warning about a disagreement",
+    "that has been settled. 31 designators the reader never found were placed by",
+    "hand, and every hand placement was rendered with --proposed and checked",
+    "before it landed. The board is now at 188 of 188.", "",
+    "H1 and M4 are dropped rather than moved: a rivet and a shield have no",
+    "silkscreen, and the reader had put them on C20's and CR3's labels. Both are",
+    "in notOnDrawing with the other 20 mechanical parts.", "",
+    "All 18 test points are hand-placed on the board and on their sheets, as a",
+    "matter of course. On the board each box spans the label and the wire-loop",
+    "footprint printed directly beneath it -- on this drawing the pad is under",
+    "the text rather than beside it, so the two are one target.", "",
+    "The sheets are the usual story: 278 machine reads across four sheets, of",
+    "which 143 were wrong and are dropped. Sheet 1 is the worst (46 of 75 wrong)",
+    "because it carries the TEST POINT INFORMATION box and the two relay",
+    "bottom-view keys, and the reader takes a legend row for the thing it names:",
+    "twelve test points arrived pointing at their own legend entry, and seven",
+    "K-numbers at the bottom-view key captions. Sheet 4 is the opposite case --",
+    "its 30 relay coil blocks each carry their own designator legitimately, and",
+    "all 30 read correctly. What the reader finds instead of a designator on",
+    "these sheets, in order of frequency: a pin number ('16', '15', '8'), a net",
+    "or signal name ('OHMS SENSE HI' as H1, 'GROUND PLANE = SCOM' as L6 and Z2),",
+    "a value ('11.535K' as Q6, '3.8' as U8), a word from a note ('CARBON' as Z2,",
+    "'(MF)' as M4) and a pin-function label ('RESET' as R8, 'IN3' as Q3).",
+    "",
+    "Six markers were reassigned rather than dropped, because the reader had put",
+    "one designator's marker squarely on another real designator's label and the",
+    "second designator had no marker of its own: sh2 K5 -> K9, sh3 CR5 -> CR9,",
+    "sh3 C10 -> C6, sh3 U7 -> U9, sh4 C4 -> C42, sh4 C42 -> C40.", "",
+    "Photograph alignment is approximate and the credit says so. Fifteen landmark",
+    "pairs: fourteen test point pads along the top edge, where the drawing's",
+    "label and the board's silkscreen coincide, and eleven component bodies and",
+    "one block of silkscreen text spread over the rest of the board. Residuals",
+    "against those pairs are a median of 12 photo pixels and a p90 of 23, which",
+    "is about 14 and 26 drawing pixels -- good enough to overlay, not good enough",
+    "to measure with. Two things hold it back and both are properties of this",
+    "board rather than of the solve. The relay and DIP bodies stand several",
+    "millimetres proud, so they carry parallax; and the designator TEXT cannot be",
+    "used as a landmark here at all, because Fluke centred it inside the part",
+    "outline on the drawing and printed it below the part on the board -- the",
+    "K-relay labels sit 100 drawing pixels apart between the two images. Only the",
+    "test point row and 'OHMS CAL ASSY' are printed in the same place in both."
+  ],
+  "imageSize": { "w": 6020, "h": 3400 },
+  "sheetImageSize": {
+    "sh1": { "w": 6317, "h": 3821 },
+    "sh2": { "w": 6181, "h": 3686 },
+    "sh3": { "w": 6321, "h": 3821 },
+    "sh4": { "w": 6329, "h": 3875 }
+  },
+  "board": {
+    "TP1": { "x": 5028, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP2": { "x": 4843, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP5": { "x": 4630, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP6": { "x": 4413, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP7": { "x": 1885, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP8": { "x": 1678, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP9": { "x": 1470, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP10": { "x": 2310, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP11": { "x": 2948, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP12": { "x": 3398, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP13": { "x": 3165, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP14": { "x": 3800, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP15": { "x": 2102, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP16": { "x": 4183, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP17": { "x": 3978, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP18": { "x": 3605, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP19": { "x": 2525, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "TP20": { "x": 2730, "y": 257, "w": 118, "h": 82, "shape": "point" },
+    "C1": { "x": 2884, "y": 942, "w": 132, "h": 64, "shape": "rect" },
+    "C5": { "x": 2652, "y": 628, "w": 132, "h": 64, "shape": "rect" },
+    "C16": { "x": 2820, "y": 1396, "w": 64, "h": 140, "shape": "rect" },
+    "CR5": { "x": 3226, "y": 1860, "w": 64, "h": 140, "shape": "rect" },
+    "K1": { "x": 4159, "y": 757, "w": 213, "h": 435, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K2": { "x": 3631, "y": 760, "w": 215, "h": 434, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U1": { "x": 2866, "y": 546, "w": 132, "h": 64, "shape": "rect" },
+    "C3": { "x": 3036, "y": 554, "w": 64, "h": 140, "shape": "rect" },
+    "C8": { "x": 2170, "y": 516, "w": 132, "h": 64, "shape": "rect" },
+    "C14": { "x": 1804, "y": 1698, "w": 64, "h": 140, "shape": "rect" },
+    "C30": { "x": 3388, "y": 598, "w": 64, "h": 140, "shape": "rect" },
+    "C34": { "x": 711, "y": 2767, "w": 64, "h": 140, "shape": "rect" },
+    "C37": { "x": 2506, "y": 2750, "w": 132, "h": 64, "shape": "rect" },
+    "C40": { "x": 1208, "y": 1206, "w": 64, "h": 140, "shape": "rect" },
+    "C42": { "x": 1208, "y": 827, "w": 64, "h": 140, "shape": "rect" },
+    "C43": { "x": 398, "y": 880, "w": 64, "h": 140, "shape": "rect" },
+    "CR6": { "x": 3148, "y": 1860, "w": 64, "h": 140, "shape": "rect" },
+    "CR7": { "x": 3226, "y": 2016, "w": 64, "h": 140, "shape": "rect" },
+    "CR8": { "x": 3148, "y": 2016, "w": 64, "h": 140, "shape": "rect" },
+    "K3": { "x": 4156, "y": 1240, "w": 212, "h": 433, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K17": { "x": 4942, "y": 1240, "w": 210, "h": 433, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K20": { "x": 4683, "y": 1240, "w": 215, "h": 432, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K21": {
+      "x": 4419,
+      "y": 1473,
+      "w": 213,
+      "h": 765,
+      "shape": "rect",
+      "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing; extended past the inner foot bar to the outer bottom edge"
+    },
+    "K23": { "x": 4416, "y": 2605, "w": 213, "h": 434, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K25": { "x": 4679, "y": 2605, "w": 215, "h": 434, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "Q1": { "x": 3640, "y": 448, "w": 132, "h": 64, "shape": "rect" },
+    "Q6": { "x": 2914, "y": 2834, "w": 132, "h": 64, "shape": "rect" },
+    "R9": { "x": 2968, "y": 755, "w": 132, "h": 64, "shape": "rect" },
+    "R27": { "x": 2806, "y": 2732, "w": 132, "h": 64, "shape": "rect" },
+    "R42": { "x": 5609, "y": 1547, "w": 132, "h": 64, "shape": "rect" },
+    "U4": { "x": 2318, "y": 1116, "w": 132, "h": 64, "shape": "rect" },
+    "U21": { "x": 1484, "y": 2130, "w": 132, "h": 64, "shape": "rect" },
+    "U22": { "x": 1484, "y": 1872, "w": 132, "h": 64, "shape": "rect" },
+    "VR1": { "x": 3058, "y": 2022, "w": 64, "h": 140, "shape": "rect" },
+    "VR2": { "x": 2978, "y": 2022, "w": 64, "h": 140, "shape": "rect" },
+    "Z3": { "x": 1470, "y": 1368, "w": 132, "h": 64, "shape": "rect" },
+    "Z4": { "x": 1440, "y": 1710, "w": 132, "h": 64, "shape": "rect" },
+    "Z5": { "x": 5106, "y": 954, "w": 64, "h": 140, "shape": "rect" },
+    "K6": {
+      "x": 5228,
+      "y": 1973,
+      "w": 210,
+      "h": 762,
+      "shape": "rect",
+      "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing; extended past the inner foot bar to the outer bottom edge"
+    },
+    "T1": { "x": 1984, "y": 2224, "w": 120, "h": 64, "shape": "rect" },
+    "Z2": { "x": 2464, "y": 1646, "w": 120, "h": 64, "shape": "rect" },
+    "R30": { "x": 2001, "y": 1930, "w": 64, "h": 140, "shape": "rect" },
+    "C17": { "x": 1917, "y": 1458, "w": 95, "h": 139, "shape": "rect" },
+    "C19": { "x": 3128, "y": 2333, "w": 106, "h": 60, "shape": "rect" },
+    "C52": { "x": 2917, "y": 2486, "w": 137, "h": 72, "shape": "rect" },
+    "CR3": { "x": 2438, "y": 1737, "w": 111, "h": 60, "shape": "rect" },
+    "K11": { "x": 3628, "y": 1255, "w": 215, "h": 435, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K29": {
+      "x": 4155,
+      "y": 1943,
+      "w": 212,
+      "h": 763,
+      "shape": "rect",
+      "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing; extended past the inner foot bar to the outer bottom edge"
+    },
+    "U11": { "x": 1280, "y": 2712, "w": 105, "h": 58, "shape": "rect" },
+    "K4": { "x": 5740, "y": 2607, "w": 217, "h": 434, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K5": { "x": 5475, "y": 2608, "w": 215, "h": 434, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K7": {
+      "x": 4680,
+      "y": 1971,
+      "w": 215,
+      "h": 763,
+      "shape": "rect",
+      "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing; extended past the inner foot bar to the outer bottom edge"
+    },
+    "K8": {
+      "x": 4940,
+      "y": 1971,
+      "w": 211,
+      "h": 763,
+      "shape": "rect",
+      "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing; extended past the inner foot bar to the outer bottom edge"
+    },
+    "K9": {
+      "x": 3391,
+      "y": 1944,
+      "w": 215,
+      "h": 763,
+      "shape": "rect",
+      "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing; extended past the inner foot bar to the outer bottom edge"
+    },
+    "K10": { "x": 3390, "y": 2606, "w": 216, "h": 435, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K12": {
+      "x": 3627,
+      "y": 1944,
+      "w": 216,
+      "h": 763,
+      "shape": "rect",
+      "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing; extended past the inner foot bar to the outer bottom edge"
+    },
+    "K13": { "x": 3897, "y": 758, "w": 213, "h": 434, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K14": {
+      "x": 3894,
+      "y": 1420,
+      "w": 212,
+      "h": 764,
+      "shape": "rect",
+      "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing; extended past the inner foot bar to the outer bottom edge"
+    },
+    "K15": { "x": 4686, "y": 663, "w": 215, "h": 429, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K16": { "x": 4423, "y": 661, "w": 214, "h": 431, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K18": { "x": 4945, "y": 663, "w": 210, "h": 429, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K19": {
+      "x": 5273,
+      "y": 858,
+      "w": 211,
+      "h": 760,
+      "shape": "rect",
+      "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing; extended past the inner foot bar to the outer bottom edge"
+    },
+    "K22": { "x": 4153, "y": 2604, "w": 212, "h": 434, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K24": { "x": 4939, "y": 2605, "w": 212, "h": 434, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K26": { "x": 5213, "y": 2607, "w": 212, "h": 434, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K27": { "x": 3625, "y": 2606, "w": 216, "h": 434, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "K28": {
+      "x": 3892,
+      "y": 2439,
+      "w": 214,
+      "h": 763,
+      "shape": "rect",
+      "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing; extended past the inner foot bar to the outer bottom edge"
+    },
+    "K30": {
+      "x": 5565,
+      "y": 858,
+      "w": 215,
+      "h": 759,
+      "shape": "rect",
+      "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing; extended past the inner foot bar to the outer bottom edge"
+    },
+    "K31": { "x": 4418, "y": 2108, "w": 213, "h": 434, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U10": { "x": 2404, "y": 1478, "w": 195, "h": 94, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U12": { "x": 1492, "y": 2385, "w": 463, "h": 92, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U13": { "x": 1493, "y": 1559, "w": 465, "h": 92, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U14": { "x": 836, "y": 2368, "w": 603, "h": 145, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U15": { "x": 837, "y": 2066, "w": 603, "h": 145, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U16": { "x": 841, "y": 881, "w": 601, "h": 146, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U17": { "x": 838, "y": 1764, "w": 602, "h": 146, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U18": { "x": 1011, "y": 564, "w": 603, "h": 146, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U19": { "x": 840, "y": 1170, "w": 602, "h": 147, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U2": { "x": 2602, "y": 1117, "w": 194, "h": 94, "shape": "rect", "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye" },
+    "U20": { "x": 839, "y": 1475, "w": 602, "h": 148, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U3": { "x": 2936, "y": 1118, "w": 193, "h": 94, "shape": "rect", "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye" },
+    "U5": { "x": 2042, "y": 1118, "w": 192, "h": 92, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U6": { "x": 2511, "y": 2470, "w": 518, "h": 94, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U7": { "x": 3062, "y": 1477, "w": 397, "h": 93, "shape": "rect", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "U8": { "x": 2655, "y": 1477, "w": 193, "h": 93, "shape": "rect", "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye" },
+    "U9": { "x": 2110, "y": 1478, "w": 193, "h": 94, "shape": "rect", "note": "Body outline traced by flood-filling the drawing from the designator, checked by eye" },
+    "C22": { "x": 2291, "y": 1753, "w": 137, "h": 137, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "C23": { "x": 2293, "y": 1946, "w": 140, "h": 140, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "C24": { "x": 2641, "y": 1960, "w": 136, "h": 136, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "C33": { "x": 1983, "y": 2526, "w": 137, "h": 137, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "C36": { "x": 2164, "y": 2525, "w": 137, "h": 137, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "C7": { "x": 2379, "y": 689, "w": 137, "h": 137, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "C9": { "x": 2381, "y": 525, "w": 137, "h": 137, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "Q2": {
+      "x": 3366,
+      "y": 976,
+      "w": 100,
+      "h": 100,
+      "shape": "circle",
+      "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+    },
+    "Q3": {
+      "x": 3367,
+      "y": 810,
+      "w": 100,
+      "h": 100,
+      "shape": "circle",
+      "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+    },
+    "Q4": {
+      "x": 3159,
+      "y": 1058,
+      "w": 100,
+      "h": 100,
+      "shape": "circle",
+      "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+    },
+    "Q5": {
+      "x": 2721,
+      "y": 2838,
+      "w": 100,
+      "h": 100,
+      "shape": "circle",
+      "note": "Circle fitted to the outline arcs by a Hough search seeded from the designator, checked by eye"
+    }
+  },
+  "drop": ["H1", "M4"],
+  "dropSchematic": {
+    "sh1": [
+      "C1", "C3", "C6", "C7", "H1", "H5", "K10", "K11", "K12", "K19", "K20",
+      "K22", "K31", "L2", "L5", "L6", "L7", "M4", "Q3", "Q5", "R1", "R17",
+      "R2", "R8", "T1", "TP11", "TP13", "TP15", "TP16", "TP17", "TP18",
+      "TP19", "TP20", "TP7", "TP8", "TP9", "U4", "U5", "U6", "U7", "U8",
+      "U9", "VR1", "Z2"
+    ],
+    "sh2": [
+      "C16", "C55", "H1", "K5", "L5", "L6", "L7", "L8", "M4", "Q2", "Q5",
+      "Q6", "R10", "R32", "T1", "TP1", "U10", "U7", "Z2", "Z5"
+    ],
+    "sh3": [
+      "C1", "C5", "C7", "C8", "C10", "CR5", "H1", "H2", "H5", "K1", "K7",
+      "L7", "M4", "Q5", "R1", "TP5", "U2", "Z1"
+    ],
+    "sh4": [
+      "C10", "C17", "C3", "C4", "C6", "C9", "CR7", "H1", "H5", "L2", "L4",
+      "L5", "L6", "L7", "L8", "M4", "MP15", "Q1", "Q3", "R1", "R17", "R8",
+      "T1", "TP2", "TP5", "U1", "U10", "U3", "U5", "U6", "U7", "U8", "Z1",
+      "Z2"
+    ]
+  },
+  "schematic": {
+    "sh1": {
+      "TP1": { "x": 1420, "y": 1400, "w": 180, "h": 150, "note": "On the OHMS OUT HI net, not the legend row; the reader put TP1 on TP10's flag." },
+      "TP2": { "x": 1300, "y": 2000, "w": 180, "h": 150, "note": "On the OHMS OUT LO net beside K8." },
+      "TP5": { "x": 1420, "y": 1100, "w": 180, "h": 150, "note": "On the OHMS SENSE HI net." },
+      "TP6": { "x": 1470, "y": 2240, "w": 180, "h": 160, "note": "On the OHMS SENSE LO net; the reader found only the legend row." },
+      "TP10": { "x": 1510, "y": 2575, "w": 190, "h": 150, "note": "On the RCOM/SCOM net at K27." },
+      "TP14": { "x": 1478, "y": 539, "w": 180, "h": 150, "note": "On the AMP OUT net from P311 pin 30C." }
+    },
+    "sh2": {
+      "TP11": { "x": 4833, "y": 688, "w": 170, "h": 130, "note": "On the DIVIDER OUT net at Z1's tap, ahead of U1." },
+      "TP12": { "x": 1941, "y": 704, "w": 180, "h": 140, "note": "On the SCOM net at P312." },
+      "TP13": { "x": 2849, "y": 1065, "w": 190, "h": 140, "note": "On the SOURCE OUTPUT net (10V OUT HI)." },
+      "TP15": { "x": 4197, "y": 2178, "w": 190, "h": 140, "note": "On the DIFF AMP OUT net at K10." },
+      "TP19": { "x": 1512, "y": 2017, "w": 175, "h": 145, "note": "On the -INPUT DIFF AMP net at K2/K11." },
+      "TP20": { "x": 1512, "y": 2437, "w": 175, "h": 145, "note": "On the +INPUT DIFF AMP net; the reader never found it." },
+      "U1": { "x": 5035, "y": 801, "w": 100, "h": 60, "note": "The OP-07 buffer of the 2/5/10 V source; the reader put U1 on a Z1 pin number." },
+      "K9": { "x": 3054, "y": 472, "w": 90, "h": 50, "note": "Reassigned from the reader's K5 marker, which sits on K9's own coil label." },
+      "C4": { "x": 5104, "y": 649, "w": 120, "h": 127 },
+      "C5": { "x": 5105, "y": 920, "w": 109, "h": 120 },
+      "C9": { "x": 1329, "y": 904, "w": 172, "h": 86 },
+      "C10": { "x": 1513, "y": 905, "w": 181, "h": 94 },
+      "C30": { "x": 2094, "y": 2578, "w": 165, "h": 83 },
+      "C48": { "x": 3144, "y": 1935, "w": 144, "h": 124 },
+      "CR8": { "x": 3618, "y": 832, "w": 191, "h": 84 },
+      "L7": { "x": 726, "y": 637, "w": 105, "h": 109 },
+      "L8": { "x": 725, "y": 994, "w": 109, "h": 95 },
+      "R8": { "x": 4785, "y": 863, "w": 98, "h": 111 },
+      "R9": { "x": 4986, "y": 573, "w": 98, "h": 107 },
+      "R10": { "x": 4982, "y": 984, "w": 126, "h": 100 },
+      "K10": { "x": 4386, "y": 2236, "w": 100, "h": 60, "note": "On K10's own contact block on the DIFF AMP OUT net; a correct collision read the builder discards." },
+      "Q2": { "x": 3758, "y": 988, "w": 95, "h": 55, "note": "The VN10K gate switch left of Q3; the reader had Q2 on the COMPONENT I.D. legend." },
+      "R1": { "x": 3437, "y": 1051, "w": 95, "h": 60, "note": "10k gate resistor feeding Q2; a correct collision read against R4." },
+      "R39": { "x": 1733, "y": 2479, "w": 95, "h": 55, "note": "1k in the +INPUT DIFF AMP net at TP20; a correct collision read against R33." }
+    },
+    "sh3": {
+      "TP7": { "x": 4722, "y": 1181, "w": 180, "h": 145, "note": "On the ACOM net between VR1 and VR2." },
+      "TP8": { "x": 4722, "y": 921, "w": 180, "h": 145, "note": "On the +8A net above VR1." },
+      "TP9": { "x": 4722, "y": 1467, "w": 180, "h": 145, "note": "On the -8A net below VR2; the reader labelled this flag TP5." },
+      "TP16": { "x": 4772, "y": 2495, "w": 180, "h": 145, "note": "On the 1 kohm-in-Z2 node at U9's output." },
+      "TP17": { "x": 2669, "y": 2935, "w": 180, "h": 145, "note": "At the low end of the 500 ohm in Z2." },
+      "TP18": { "x": 2959, "y": 2550, "w": 180, "h": 145, "note": "At the high end of the 500 ohm in Z2, at U8's output; the reader never found it." },
+      "U7": { "x": 2148, "y": 2621, "w": 100, "h": 65, "note": "The LTC1052 chopper amplifier; the reader put U7 on U9's NE5534 label." },
+      "U9": {
+        "x": 4316,
+        "y": 2606,
+        "w": 95,
+        "h": 50,
+        "note": "On the U9 designator inside the op-amp symbol; an earlier hand position sat on the NE5534 part number below it (corrected in the final review pass)"
+      },
+      "T1": { "x": 2958, "y": 1343, "w": 95, "h": 60, "note": "The two-wire compensation transformer; the reader put T1 on a 1uF value." },
+      "CR9": { "x": 3646, "y": 1085, "w": 95, "h": 50, "note": "Reassigned from the reader's CR5 marker, which sits on CR9's own label." },
+      "C6": { "x": 2050, "y": 2912, "w": 100, "h": 60, "note": "Reassigned from the reader's C10 marker, which sits on C6's own label." },
+      "C15": { "x": 4402, "y": 2773, "w": 127, "h": 123 },
+      "C16": { "x": 2717, "y": 2382, "w": 261, "h": 100 },
+      "C17": { "x": 4371, "y": 2424, "w": 236, "h": 90 },
+      "C18": { "x": 1811, "y": 1080, "w": 176, "h": 94 },
+      "C19": { "x": 2204, "y": 1076, "w": 174, "h": 102 },
+      "C29": { "x": 2237, "y": 2775, "w": 153, "h": 88 },
+      "C52": { "x": 2008, "y": 1076, "w": 178, "h": 110 },
+      "C53": { "x": 2029, "y": 1926, "w": 159, "h": 97 },
+      "C55": { "x": 3981, "y": 2316, "w": 148, "h": 131 },
+      "CR4": { "x": 1745, "y": 2398, "w": 204, "h": 89 },
+      "CR5": { "x": 1570, "y": 2572, "w": 205, "h": 86 },
+      "L2": { "x": 2048, "y": 937, "w": 130, "h": 98 },
+      "L3": { "x": 4132, "y": 997, "w": 136, "h": 103 },
+      "L4": { "x": 4137, "y": 1547, "w": 125, "h": 106 },
+      "Q5": { "x": 1387, "y": 948, "w": 175, "h": 130 },
+      "Q6": { "x": 1423, "y": 1258, "w": 195, "h": 126 },
+      "R25": { "x": 2594, "y": 1078, "w": 139, "h": 128 },
+      "R30": { "x": 3362, "y": 1382, "w": 138, "h": 100 },
+      "CR10": { "x": 3718, "y": 1380, "w": 130, "h": 60, "note": "1N4448 across C23 in the -8A supply, below CR9." },
+      "U6": { "x": 2440, "y": 1593, "w": 95, "h": 55, "note": "The pulse-width modulator; label below the body at pin 7. A correct collision read against U5." },
+      "U10": { "x": 3200, "y": 2610, "w": 115, "h": 60, "note": "U10B, the OP215 output stage after U8; label inside the triangle." }
+    },
+    "sh4": {
+      "U14": { "x": 2363, "y": 2060, "w": 105, "h": 60, "note": "The reader put U14 on the 'U14 STB' line of U12's output list." },
+      "U17": { "x": 2173, "y": 3635, "w": 100, "h": 60, "note": "The reader put U17 on the 'U17 STB' line of U12's output list." },
+      "C39": { "x": 2233, "y": 3680, "w": 100, "h": 60, "note": "U17's decoupling capacitor; the reader never found it." },
+      "C42": { "x": 4529, "y": 831, "w": 90, "h": 50, "note": "Reassigned from the reader's C4 marker, which sits on C42's own label." },
+      "C40": { "x": 2418, "y": 2886, "w": 95, "h": 50, "note": "Reassigned from the reader's C42 marker, which sits on C40's own label." },
+      "C33": { "x": 719, "y": 280, "w": 177, "h": 102 },
+      "C35": { "x": 657, "y": 1705, "w": 205, "h": 87 },
+      "C51": { "x": 984, "y": 1427, "w": 168, "h": 87 },
+      "L5": { "x": 542, "y": 204, "w": 114, "h": 109 },
+      "L6": { "x": 539, "y": 468, "w": 120, "h": 105 },
+      "R33": { "x": 495, "y": 1637, "w": 104, "h": 100 },
+      "U21": { "x": 940, "y": 3659, "w": 100, "h": 60, "note": "8-1 mux in the diagnostic circuit; label under the body. A correct collision read against U2." },
+      "Z4": { "x": 1169, "y": 3668, "w": 95, "h": 55, "note": "1k SIP network on U21's inputs, right of the SCOM symbol." }
+    }
+  },
+  "sheets": {
+    "sh1": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.00047, "y0": 0.00131, "x1": 0.99937, "y1": 0.99895 }
+      }
+    },
+    "sh2": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.00032, "y0": 0.00081, "x1": 0.99951, "y1": 0.99919 }
+      }
+    },
+    "sh3": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.00032, "y0": 0.00052, "x1": 0.99984, "y1": 0.99921 }
+      }
+    },
+    "sh4": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": -0.01232, "y0": 0.00077, "x1": 0.99937, "y1": 0.99923 }
+      }
+    }
+  },
+  "notOnDrawing": [
+    "H1", "H2", "H3", "H4", "H5", "M4", "MP1", "MP2", "MP3", "MP4", "MP6",
+    "MP7", "MP8", "MP9", "MP10", "MP11", "MP12", "MP13", "MP14", "MP15",
+    "MP16", "MP17"
+  ],
+  "layers": {
+    "photo": {
+      "approximate": true,
+      "landmarks": [
+        {
+          "src": [0.24419, 0.08265],
+          "dst": [0.23688, 0.11789]
+        },
+        {
+          "src": [0.34917, 0.08265],
+          "dst": [0.34126, 0.11789]
+        },
+        {
+          "src": [0.4897, 0.08265],
+          "dst": [0.4781, 0.11789]
+        },
+        {
+          "src": [0.59884, 0.08265],
+          "dst": [0.58928, 0.11507]
+        },
+        {
+          "src": [0.69485, 0.08265],
+          "dst": [0.68611, 0.11507]
+        },
+        {
+          "src": [0.80449, 0.08265],
+          "dst": [0.78954, 0.11507]
+        },
+        {
+          "src": [0.83522, 0.08265],
+          "dst": [0.82125, 0.11507]
+        },
+        {
+          "src": [0.16827, 0.165],
+          "dst": [0.1644, 0.20231]
+        },
+        {
+          "src": [0.13904, 0.69529],
+          "dst": [0.13722, 0.69012]
+        },
+        {
+          "src": [0.06611, 0.68882],
+          "dst": [0.06757, 0.68605]
+        },
+        {
+          "src": [0.48405, 0.775],
+          "dst": [0.47641, 0.77892]
+        },
+        {
+          "src": [0.45282, 0.77824],
+          "dst": [0.44413, 0.77611]
+        },
+        {
+          "src": [0.5196, 0.79353],
+          "dst": [0.51227, 0.79081]
+        },
+        {
+          "src": [0.90282, 0.88353],
+          "dst": [0.88958, 0.87242]
+        },
+        {
+          "src": [0.95349, 0.76676],
+          "dst": [0.94753, 0.77048]
+        }
+      ],
+      "transform": {
+        "H": [
+          0.96516789, 0.00508563, 0.00033178, -0.01097258, 0.93683453,
+          0.04417473, -0.02436961, 0.00358551, 1.0
+        ]
+      }
+    }
+  }
+}

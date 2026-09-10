@@ -1,0 +1,178 @@
+{
+  "_comment": [
+    "Curated A4 reference material: what the board is, what each of its five",
+    "signal paths is made of, what a handful of parts do, and every place two",
+    "sources disagree.",
+    "",
+    "A4 is a backplane. It generates nothing, regulates nothing and measures",
+    "nothing, so the 'railCircuits' here are routing paths rather than supplies:",
+    "what carries the ac line, what carries each transformer secondary, and what",
+    "the four parts that are not connectors are doing. The vocabulary the app",
+    "renders (Rectifier / Filters / Fuses / Regulators) only half fits a board",
+    "with no rectifier and no regulator on it, so only the groups that are",
+    "literally true are filled in and the rest of each path is in its note.",
+    "",
+    "faultCodes is deliberately an empty list and not a missing key. No fault",
+    "code names A4, and Section 5-2 says why in one sentence -- see the first",
+    "caveat, which puts it where a reader will look for it.",
+    "",
+    "Everything here cites its section or its sheet. Where a number is derived",
+    "rather than read, the text says so and says from what."
+  ],
+
+  "overview": {
+    "summary": "The instrument's unguarded backplane, and the only assembly in it that carries the ac mains. Section 2-17 lists what is on it: the line-select switches, the line fuse, the power switch, a fibre-optic transmitter (J73) and receiver (J74), and the connectors for the Transformer assembly (A22), the Digital Power Supply (A19), the CPU (A20), the Front Panel (A2), the Rear Panel (A21) and the two 24 V dc chassis fans. Almost the whole parts list is connectors and hardware; the only components on it are two varistors, four resistors, six capacitors, two diodes and four switches. Three things make it worth a troubleshooter's time anyway. It is where the line is switched, fused and tapped for the transformer primary, so a dead instrument is diagnosed here first. Every one of the transformer's twenty-odd secondaries passes through it on the way to A19 and, through P81/P82, to the Analog Motherboard (A3) -- and schematic sheet 2 prints an open-circuit voltage for each of them, which is the only place in the manuals those numbers appear. And it carries the fibre-optic link that is the sole electrical break between the unguarded digital section and the guarded analog section, so a calibrator whose analog half has gone silent may have a fault here rather than anywhere it is pointing.",
+    "connectors": "Nineteen. To the Analog Motherboard (A3): P81 and P82, 20-pin, mating with J81/J82 (§2-16). To the Transformer assembly (A22): J13 (10 pin, digital secondaries), J14 (16 pin), J15 (14 pin), J16 (8 pin) and J11 (12 pin, the switched line out to the primary). To the Digital Power Supply (A19): J41, DIN 41612 type C 64-socket. To the CPU (A20): J61 and J62, both DIN 41612 type C 64-socket. To the Front Panel (A2): J21, DIN 41612 type C 64-pin right angle. To the Rear Panel (A21): J91, 34-pin ribbon. To the fans: J51 and J52, 3 pin. To the rear-panel line filter: J31, 5 pin right angle. Fibre optic: J73 transmitter and J74 receiver. There is no A4 equivalent of Table 2-1 -- that table is the Analog Motherboard's -- so the pin-level information exists only on schematic sheets 1 to 3.",
+    "source": "§2-16, §2-17, §2-18 and schematic sheets 1–3 of Figure 7-4"
+  },
+
+  "railCircuits": {
+    "AC": {
+      "rails": "The ac line, from J31 to J11",
+      "fuses": ["F1"],
+      "filters": ["RV2"],
+      "note": "The order matters and it is not the order you would guess. Sheet 1: the line arrives at the rear-panel receptacle, passes through the ac line filter FL1 and the line cord connector P31 — none of which is on this board — and reaches J31, a 5-pin right-angle header. From J31 it goes straight to SW1, the instrument on/off switch, and only then to F1. So SW1 and the tracks between J31 and F1 are live and unfused whenever the line cord is plugged in. RV2 (430 V) is the only component across the line, and it sits downstream of F1; there is no line capacitor on this board, and C5 despite its 250 V ac rating is on sheet 3 and not in the mains path at all. From there SW2, SW3 and SW4 — three DPDT slide switches, drawn as 2P2TSW — select which primary taps the line reaches and hand eight lines (108A, 122A, 8A, 0A, 108B, 122B, 8B, 0B) plus SHIELD to J11 and out to the transformer. The switch table printed on sheet 1 reads RIGHT=0, LEFT=1: 120 V is 0-0-0, 115 V 0-0-1, 110 V 0-1-0, 100 V 0-1-1, 240 V 1-0-0, 230 V 1-0-1, 220 V 1-1-0 and 200 V 1-1-1.",
+      "source": "Schematic sheet 1 (5700A-1005, 1 of 3); §2-17"
+    },
+    "XFMR": {
+      "rails": "Transformer secondaries to the Analog Motherboard, through P81 and P82",
+      "filters": ["RV1", "R4", "C6"],
+      "note": "Sheet 2 is one large interconnect and nothing else: the transformer's secondaries arrive on P13, P14, P15 and P16 and leave on J14, J15, P81 and P82 for the analog assemblies. RV1 (22 V), R4 (68 Ω) and C6 (6800 pF) are the only components on the sheet — a snubber and clamp from the guard node (E2) to earth ground, which is what keeps the guard from being driven by line transients. Sheet 2 prints an open-circuit voltage beside every secondary winding, with the note that they assume a 122 V 60 Hz primary: 12.9 V + 12.9 V and 39.5 V on S1; 82.9 V and 8.3 V on S2; 25.1 V + 25.1 V and 14.4 V + 14.4 V on S3; 428.4 V / 214.2 V / 55.6 V / 55.6 V / 214.2 V / 428.4 V on S4; and 20.1 V + 20.1 V, 39.5 V, 10.1 V, 11.5 V, 23 V and 39.5 V on S5. The 428 V taps are why P81, P82 and J15 carry WARNING HIGH VOLTAGE on the silkscreen.",
+      "source": "Schematic sheet 2 (5700A-1005, 2 of 3); §2-18"
+    },
+    "DIGITAL": {
+      "rails": "Digital transformer secondaries in on J13, out on J41 to the Digital Power Supply",
+      "note": "The four secondaries A19 runs on arrive together on J13, a 10-pin header, and go straight out on J41 to A19 with no component of any kind in between — which is what makes J13 and J41 the two places to measure when the instrument will not boot. Sheet 3 prints both pin maps in full. J13: pin 1 and 2 are 5 AC 1/2, pin 3 is unused, pins 4 and 5 are 75 AC 1/2, pins 6 and 7 are 35 AC 1/2, and pins 8, 9 and 10 are 12 AC 1, 12 AC CT and 12 AC 2. J41 doubles most of them across its A and C rows: 5 AC 1 on 1A/2A/1C/2C, 5 AC 2 on 3A/4A/3C/4C, 75 AC 1 on 7A/7C, 75 AC 2 on 8A/8C, 35 AC 1 on 9A/9C, 35 AC 2 on 10A/10C, 12 AC 1 on 11A/12A/11C, 12 AC CT on 13A/14A/13C and 12 AC 2 on 15A/16A/15C. A19's regulated rails come back the same way — +35 V on 18A/18C, +12V FAN on 20A/20C, +12 V on 21A/21C, −12 V on 26A/26C, −12V FAN on 27A/27C, +5 V on 32A/32C and +75 V on 24A/24C — along with PSFAILINTR* on 5A, 75VSD on 5C and RESETL on 29C.",
+      "source": "Schematic sheet 3 (5700A-1005, 3 of 3)"
+    },
+    "FAN": {
+      "rails": "24 V dc fan supply and the FAN1 / FAN2 current sense",
+      "filters": ["C1", "C4"],
+      "rectifier": ["CR3", "CR4"],
+      "note": "The only place on this board where a passive component does something other than sit across a line. Each fan runs from +12V FAN to −12V FAN, 24 V across it, through a 2 Ω wirewound sense resistor — R2 for fan 1 into J51, R3 for fan 2 into J52. The voltage across each resistor is the analog signal FAN1 or FAN2, which goes to the CPU on J61 and is what §2-45's fan monitor compares: U52D on A20 subtracts one from the other, and a window comparator raises FANINT* if either fan is shorted, open or drawing too much. So a fan fault reported by the instrument is measured here and judged there. C1 and C4 (10 µF) bypass each fan line and CR3 and CR4 (1N4002) are across them. Both fans are labelled NOT ON MOTHERBOARD on sheet 3: J51 and J52 are the headers, P51 and P52 the plugs on the fan leads.",
+      "source": "Schematic sheet 3; §2-45"
+    },
+    "FIBRE": {
+      "rails": "The fibre-optic guard crossing — J73 transmit, J74 receive",
+      "filters": ["C2", "C3"],
+      "note": "The only electrical break between the unguarded digital section and the guarded analog section, and the reason a fault here can look like the whole analog half of the instrument has died. J73 is an HFBR-1522 transmitter driven by XMT from the CPU on J62 pin 32C, with R1 (91 Ω) setting its current and C2 (1000 pF) across the supply; J74 is an HFBR-2522 receiver returning RCVB to J62 pin 31C, with C3 (0.1 µF) decoupling it. W15, the fibre-optic cable, runs from J73 and J74 to J71 and J72 on the Analog Motherboard (§2-19). §2-17 says in one line what this is for: the serial communication link between the CPU on the unguarded Digital Motherboard and the Regulator/Guard Crossing on the guarded Analog Motherboard.",
+      "source": "Schematic sheet 3; §2-17, §2-19"
+    }
+  },
+
+  "faultCodes": [],
+
+  "componentNotes": {
+    "F1": "The instrument's line fuse, in a PWB-mounted holder (MP1 body, MP2 cap) whose cap is reached from the rear panel with a screwdriver (§3-2). It is downstream of SW1, so the power switch is live with the fuse out. Three sources disagree about its rating — see the caveat — and Table 6-5's own footnote adds that stock 109280 is for the 100–120 V configuration and 109231 for 200–230 V. Before fitting a second one, read §2-61: A18's triac circuit blows this fuse on purpose when the ±17 V secondary exceeds 82 V, which is what happens if SW2–SW4 are set for 115 V on a 230 V line.",
+    "SW1": "The instrument on/off switch, DPST push-push, operated from the front panel through the flex linkage MP21 and the bracket MP16. It is in the line ahead of F1, so it switches live and neutral of an unfused line. The 1996 list gives it as one part, stock 665513, with the footnote '3 parts make up assembly 665513'; Rev 9 lists it as SWITCH PART, stock 886697. Both are carried here.",
+    "SW2": "Line-select switch, DPDT slide, right angle. With SW3 and SW4 it selects the transformer primary taps. Sheet 1's table reads RIGHT=0, LEFT=1, and SW2 is the coarse one: 0 for the 100–120 V group, 1 for the 200–240 V group. The rear-panel decal calls this switch S2.",
+    "SW3": "Line-select switch, DPDT slide, right angle. The middle bit of the three-bit code on sheet 1: 120 V is 0-0-0, 115 V 0-0-1, 110 V 0-1-0, 100 V 0-1-1, 240 V 1-0-0, 230 V 1-0-1, 220 V 1-1-0, 200 V 1-1-1, reading SW2-SW3-SW4 with RIGHT=0 and LEFT=1. The rear-panel decal calls this switch S3.",
+    "SW4": "Line-select switch, DPDT slide, right angle. The least significant bit of sheet 1's code. The rear-panel decal calls this switch S4.",
+    "RV1": "22 V metal oxide varistor, on sheet 2, clamping the guard node (E2) with R4 and C6. It is the transformer's shield/guard snubber rather than a mains part, which is why it is a 22 V device on a board whose other varistor is a 430 V one.",
+    "RV2": "430 V metal oxide varistor across the ac line downstream of F1, on sheet 1 — the instrument's mains transient suppressor. Rev 9 gives the manufacturer part as V275LA15AS14K275, a 275 V rms device. A varistor that has absorbed one surge too many fails short, and a shorted RV2 blows F1 every time it is replaced; check it before fitting a second fuse.",
+    "C5": "0.1 µF, 250 V ac polyester — the only earth-referenced capacitor on the board. It is NOT in the mains path, which its 250 V ac rating invites you to assume: sheet 3 draws it beside the Digital Power Supply connector J41, with one plate on EARTH GND and the other on the node it is drawn against, and sheet 1 shows no capacitor across the line at all. The ac rating is there because a capacitor that bridges to protective earth has to be a safety-rated part whatever the working voltage is, so fit only a line-rated (Y-class) replacement. Its upper net was not traced to a named signal; what is certain is the earth end and the position.",
+    "C6": "6800 pF, 100 V ceramic, with RV1 and R4 in the guard-to-earth snubber on sheet 2.",
+    "R4": "68 Ω carbon film, in series with C6 in the guard-to-earth snubber with RV1 (sheet 2).",
+    "R1": "91 Ω carbon film, setting the drive current of the J73 fibre-optic transmitter from +5 V (sheet 3).",
+    "R2": "2 Ω wirewound, 0.7 W, ±1 %, in series with fan 1 at J51. The voltage across it is the analog signal FAN1, which the CPU's fan monitor compares against FAN2 (§2-45) — so this resistor is a sensor, and a drifted or open one presents as a fan fault with a good fan.",
+    "R3": "2 Ω wirewound, 0.7 W, ±1 %, the same for fan 2 at J52, generating FAN2.",
+    "C1": "10 µF across fan 1's supply at J51, with CR3.",
+    "C4": "10 µF across fan 2's supply at J52, with CR4.",
+    "CR3": "1N4002 across fan 1's connector J51 (sheet 3).",
+    "CR4": "1N4002 across fan 2's connector J52 (sheet 3).",
+    "C2": "1000 pF across the +5 V supply at the J73 fibre-optic transmitter.",
+    "C3": "0.1 µF decoupling the J74 fibre-optic receiver.",
+    "J11": "12-pin header carrying the switched line out to the transformer primary: 122A, 108A, 8A, 0A on the A primary and 122B, 108B, 8B, 0B on the B primary, plus SHIELD and EARTH. Live at line potential, and silkscreened WARNING HIGH VOLTAGE. The 1996 list gives its stock number as 813362 and Rev 9 as 831354 — see the caveat.",
+    "J13": "10-pin header, the digital transformer secondaries in: pin 1/2 are 5 AC 1/2, pin 3 is unused, pins 4/5 are 75 AC 1/2, pins 6/7 are 35 AC 1/2 and pins 8/9/10 are 12 AC 1, 12 AC CT and 12 AC 2. Sheet 2 calls the first pair S AC 1 and S AC 2 where sheet 3 calls them 5 AC 1 and 5 AC 2; sheet 3 is right. Together with J41 this is the pair of connectors to measure when the instrument will not power up.",
+    "J14": "16-pin header taking the analog transformer secondaries (PA HAC, PA LAC, 44 S AC, PA CT, OSC LO GD, 15 OSC, 30 FR2, 5 FR2, 5 FR1, 18 FR1, 30 FR1) from P14 through to P82 and the Analog Motherboard.",
+    "J15": "14-pin header carrying the PA and 44 S secondaries through to P81. Silkscreened WARNING HIGH VOLTAGE: the PA HAC pair comes off the 428.4 V taps of winding S4.",
+    "J16": "8-pin header carrying the ±5 LH and ±17 S secondaries and GUARD through to P81.",
+    "J21": "DIN 41612 type C, 64-pin right angle — the Front Panel assembly (A2) connector, carrying the FP data, address and control buses, +5 V, +12 V, +75 V and 75VSD. The connector on the photographed board is marked AMP 533205-2.",
+    "J31": "5-pin right-angle header, the ac line in from the rear-panel line filter FL1 through P31. Live at line potential whenever the instrument is plugged in — the on/off switch is downstream of it.",
+    "J41": "DIN 41612 type C, 64-socket — the Digital Power Supply (A19) connector, mating with A19's P41. It carries all four ac secondaries in and all five dc rails back out, plus PSFAILINTR* on 5A, 75VSD on 5C and RESETL on 29C. Rev 9's Table 6-5 lists J41 on the 3-pin header row with J51 and J52; that is wrong, and the caveat says how it is known to be wrong.",
+    "J51": "3-pin header for fan 1, with R2 in series and C1/CR3 across it. The fan itself and its plug P51 are marked NOT ON MOTHERBOARD.",
+    "J52": "3-pin header for fan 2, with R3 in series and C4/CR4 across it.",
+    "J61": "DIN 41612 type C, 64-socket — CPU connector 1, carrying the front panel data, address and control buses, FANINT*'s two analog inputs FAN1 and FAN2, and BRESET*.",
+    "J62": "DIN 41612 type C, 64-socket — CPU connector 2, carrying the rear panel buses, the ±12 V and +5 V rails and, on pins 31C and 32C, RCVB and XMT for the fibre-optic link.",
+    "J73": "Fibre-optic transmitter, HFBR-1522, driven from XMT with R1 setting its current. With J74 it is the whole electrical isolation between the unguarded and guarded halves of the instrument (§2-17).",
+    "J74": "Fibre-optic receiver, HFBR-2522, returning RCVB to the CPU. Its partner at the other end of W15 is J72 on the Analog Motherboard (§2-19).",
+    "J91": "34-pin ribbon header to the Rear Panel assembly (A21), carrying the RP data, address and control buses, +12 V, −12 V and +5 V. W90 is the cable.",
+    "P81": "20-pin header mating with J81 on the Analog Motherboard (§2-16). Silkscreened WARNING HIGH VOLTAGE — it carries the PA HAC pair from the 428.4 V taps.",
+    "P82": "20-pin header mating with J82 on the Analog Motherboard (§2-16), carrying the OSC, FR1 and FR2 secondaries and GUARD.",
+    "MP1": "The line fuse holder body, PWB mounted. With MP2 (the cap) it is what §3-2 has you turn counterclockwise from the rear panel.",
+    "MP2": "The line fuse holder cap, 1/4 x 1-1/4, reached from the rear panel.",
+    "MP16": "The power switch bracket. One of the three parts the 1996 list's footnote 2 says make up assembly 665513, with SW1 and the screws H19/H20.",
+    "MP21": "The power switch flex linkage, 396 mm — the push rod from the front panel button to SW1. It is in the Rev 9 list only; the 1996 list does not have it. Rev 9's own description is printed SWITCH PART,FLEX LINKAGE,396MM; the scan splits FLEX.",
+    "W15": "The fibre-optic cable, from J73 and J74 on this board to J72 and J71 on the Analog Motherboard (§2-19).",
+    "W90": "The rear panel to CPU cable, into J91.",
+    "H19": "One of the two screws holding the power switch assembly. The two lists describe it differently — 4-40 x .187 stainless in 1996, M3 x 6 steel in Rev 9 — on the same stock number, 149567, so the join treats it as unchanged and shows only the 1996 description."
+  },
+
+  "caveats": [
+    {
+      "title": "No fault code names A4, and there is no Chapter 5 procedure for it",
+      "text": "This is a finding rather than missing data, and Section 5-2 states it outright: 'In all cases it is assumed that the Motherboard assemblies are fully operational.' Every diagnostic code in the manual is raised by software running on the CPU, read through the adc on the DAC assembly, and reported over the fibre-optic link — and the CPU, the front panel and both ends of that link all reach the instrument through this board. A code could not survive the fault it would have to report. Chapter 5's component-level sections run from §5-4 (A5) to §5-23 (A18); A4 sits below the range and has no section. The published description of this board is §2-16 to §2-18, which is what the routing paths and component notes here are drawn from, and the pin-level detail exists only on schematic sheets 1 to 3.",
+      "refs": []
+    },
+    {
+      "title": "Three different ratings for the line fuse, and the manual tells you to trust none of them",
+      "text": "Table 6-5 gives F1 as FUSE,.25X1.25,3A,250V,SLOW, stock 109280, and its footnote 1 adds that 109280 is the 100–120 V part and 109231 the 200–230 V one. Rev 9's Table 6-5 gives the same stock number and Bussmann MDL-3, which is a 3 A slow-blow. Schematic sheet 1 annotates the fuse holder '3.0A SLO'. The rear-panel decal drawn in Figure 3-1 of Chapter 3 reads 'T 125A 250V (SB)' — and reads the same in both the 100–120 V and the 200–240 V column, which cannot be right when the parts list gives the two ranges different part numbers. 'T 125A' is not a fuse, so the decal artwork has almost certainly lost a decimal point, but whether it should read 1.25 A or something else cannot be settled from these documents. The manual's own safety page settles what to do about it: 'To avoid fire hazard, use only the fuse specified on the line voltage selection switch label, and which is identical in type voltage rating, and current rating.' Read the label on the instrument in front of you. Nothing here has been resolved silently in either direction.",
+      "refs": ["F1"]
+    },
+    {
+      "title": "Rev 9 puts J41 on the 3-pin header row, and it is wrong",
+      "text": "Rev 9's Table 6-5 prints 'J 51, 52, 41  HEADER,1 ROW,.100CTR,3 PIN  845334' for a Tot Qty of 3, and 'J 61, 62  CONN,DIN41612,TYPE C,64 SCKT  807818' for a Tot Qty of 2. The 1996 list has it the other way round: J41, J61, J62 on 807818 for a Tot Qty of 3 and J51, J52 on 845334 for 2. Both are internally consistent, so the quantities cannot separate them — but three independent things can. Schematic sheet 3 draws J41 as a DIN64 with pins 1A–32A and 1C–32C. The A19 dataset in this tool has A19's mating connector P41 as 'CONN,DIN41612,TYPE C,64 PIN,RT ANG'. And §4-16 has A19 pulled straight up out of this board. J41 is a 64-way DIN 41612 socket; Rev 9's row is a typesetting error, not a revision change and not an OCR artefact (it was read off the page at 400 dpi). It is left standing in the data rather than rewritten, because burying it would destroy the evidence — but do not order J41 from the as-built row, which describes a 3-pin AMP 640456-3.",
+      "refs": ["J41", "J51", "J52", "J61", "J62"]
+    },
+    {
+      "title": "J11's stock number: 813362 in 1996, 831354 in Rev 9",
+      "text": "Both lists describe J11 identically — HEADER, 1 ROW, .156CTR, 12 PIN — and give different Fluke stock numbers, so the join fails and Rev 9's row is carried as as-built. Rev 9's number is the one that fits: its .156 headers run 385435 (8 pin, AMP 1-640388-8), 446724 (10 pin, -0), 831354 (12 pin, -2), 831362 (14 pin, -4) and 831370 (16 pin, -6), a clean series. The 1996 list's 813362 for the 12-pin part sits nowhere in that series and is one transposition away from 831362, which the 1996 list itself gives to the 14-pin J15. That is suggestive rather than conclusive, so both numbers are shown and neither has been overwritten.",
+      "refs": ["J11", "J15"]
+    },
+    {
+      "title": "The rear panel calls the line-select switches S2, S3 and S4",
+      "text": "The parts list, the locator drawing, the board silkscreen and schematic sheet 1 all call them SW2, SW3 and SW4. The voltage-selection decal on the rear panel, drawn in Figure 3-1 and referred to by the manual's safety page as 'the line voltage selection switch label', calls them S2, S3 and S4. A technician working from the rear of the instrument therefore sees a different set of names from the one this tool and the schematic use. Both are carried here; nothing has been renamed. This is the same shape of problem as A17's P801/J801, one step further out: the conflict is between the board and the instrument's own exterior rather than between two lists.",
+      "refs": ["SW2", "SW3", "SW4"]
+    },
+    {
+      "title": "The secondary voltages on sheet 2 are open-circuit values at a 122 V primary",
+      "text": "Sheet 2 prints a voltage beside every transformer winding and states its conditions in a note: 'SECONDARY VOLTAGES ASSUME PRIMARY IS 122V, 60Hz. SECONDARY VOLTAGES REPRESENT OPEN CIRCUIT MEASUREMENT.' Both halves of that matter on the bench. A reading taken at J13 or J41 with the instrument running is loaded, and a linear supply's transformer sags several per cent under load, so a measured value below the printed one is normal. And the values scale with the line: on a 110 V supply with the switches set correctly they are about 10 % lower than printed. The manuals publish no tolerance for any of them, so the probe points here carry the printed nominal and no band — a nominal with no tolerance is honest; an invented ±10 % would fail a good transformer under load.",
+      "refs": ["J13", "J41", "J14", "J15", "J16"]
+    },
+    {
+      "title": "E1 and E2 are on the board and on the schematic, and in no parts list",
+      "text": "Schematic sheet 3 shows two 3-pin jumper blocks: E1, marked '1-2: NORMAL OPERATION, 2-3: BYPASS (TEST USAGE)' across FRNTPNLCS* and FPDTK*, and E2, the same arrangement across RPSEL* and RPDTK*. The photographed board carries both, silkscreened 'E1 FRONT PANEL' and 'E2 REAR PANEL' with the same legend. Neither appears in Table 6-5, in Rev 9's Table 6-5, or on the locator drawing, so they are not components in this dataset and cannot be searched for or placed. They are worth knowing about anyway: in the bypass position the front panel's or the rear panel's data-acknowledge line is tied off, which makes the instrument behave as though that assembly had answered when it has not. If an instrument is behaving as if a panel is present and dead, check that both blocks are in 1-2. Note that sheet 2 uses E1, E2 and E3 for something else entirely — the earth ground, guard and S COM net symbols — so the same two names mean different things on two sheets of one figure.",
+      "refs": []
+    },
+    {
+      "title": "MP11's quantity, and Rev 9's rivet consolidation",
+      "text": "The 1996 row reads 'MP11  RIVET,S-TUB,OVAL,AL,.087,.343  838458' against a Tot Qty of 2 — one designator for two parts. The missing one is MP12: Rev 9 prints 'MP 3- 12' on stock 838482 for a Tot Qty of 10, so it names an MP12 that the 1996 row does not, and no MP19 exists in either list. The 1996 row is treated here as MP11 and MP12, which makes its quantity agree with itself. The revisions then genuinely disagree about the part: 1996 has MP3–MP10 as .250 aluminium rivets and MP11/MP12 as .343 aluminium ones, while Rev 9 has all ten of MP3–MP12 as .250 steel. Both are shown, the 1996 description as the main one and Rev 9's as as-built.",
+      "refs": ["MP11", "MP12"]
+    },
+    {
+      "title": "MP21 is in the Rev 9 list only, and the 1996 footnote is why",
+      "text": "Rev 9 lists 'MP 21  SWITCH PART,FLEX LINKAGE,396MM  836478'. The 1996 list has no MP21 at all; what it has instead is footnote 2 against SW1, MP16, H19 and H20 saying '3 parts make up assembly 665513'. So the 1996 revision sold the power switch, its bracket and its linkage as one assembly and did not designate the linkage separately, and Rev 9 broke it out. It is carried here as a Rev-9-only part. Its description comes from the scan rather than from a text layer, which is why FLEX is printed with a space in it.",
+      "refs": ["MP21", "SW1", "MP16"]
+    },
+    {
+      "title": "This board's revision: F on the silkscreen, level 101 in the manual",
+      "text": "The photographed board is silkscreened 'A4 / DIGITAL MOTHERBOARD ASSY / 760942 REV F / © 1988 FLUKE MADE IN USA'. The Manual Status Information table in Chapter 6 documents this assembly at revision level 101, which is a different numbering from the stamped letter — the same situation as A8 (REV M, level 105) and A10. The dataset carries the letter, because that is what is written on the board in front of you.",
+      "refs": []
+    },
+    {
+      "title": "The photograph is not registered against the drawing",
+      "text": "Photo, Overlay and Swipe show the board photograph unaligned, and that is a recorded gap rather than an oversight. An alignment was fitted from the board's outline corners and rejected: it lands F1, SW2 and J91 on their parts and J13, J16 and J41 about 180 px of a 3400 px image to the right of theirs, because this board's L-shaped outline puts three of its five corners in the right-hand quarter and the fit is spanned rather than anchored across the long section. Doing it properly needs flat silkscreen landmarks along that section, and the photograph was taken with the mains, fan and rear-panel looms lying across exactly that area. The reasoning is written out in full in data/a4.coords.overrides.json under _layersComment. Marker positions on the drawing are unaffected — they are measured against the drawing and are correct.",
+      "refs": []
+    },
+    {
+      "title": "The parts parser declines C5's ac voltage rating",
+      "text": "Every value, tolerance and rating on this board parses except one: C5's description is CAP,POLYES,0.1UF,+-20%,250VAC, and Parts.ratedVoltage() reads the last bare voltage field, which '250VAC' is not. So C5 shows no rated voltage where the other five capacitors do. It is left that way on purpose. An ac working-voltage rating is a different quantity from a dc one — a 250 V ac safety capacitor is not a 250 V dc part — and quietly presenting it as though it were would be a wrong answer rather than a missing one. C5 is a film capacitor and is not in the recap audit, so nothing downstream depends on it. This is the first ac-rated capacitor description any board in this tool has met.",
+      "refs": ["C5"]
+    },
+    {
+      "title": "A4 has no test points at all",
+      "text": "Table 6-5 lists no TP designators, the locator drawing shows none, and none of the three schematic sheets carries a test point legend. That is consistent for a backplane: there is nothing on it to test, only things to route. What it means for this dataset is that the Test points tab is empty on purpose and everything measurable is carried as a probe point instead, identified by connector and pin rather than by a TP number. Do not read the empty tab as unfinished work.",
+      "refs": []
+    }
+  ]
+}

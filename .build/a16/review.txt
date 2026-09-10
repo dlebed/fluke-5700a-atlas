@@ -1,0 +1,32 @@
+Rev9 parts: A1 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 775320 (A1) did not join on stock number
+Rev9 parts: C63 is in the Rev 9 list but not the 1996 list -- same row as C1,C2, stock 817049, which did join
+Rev9 parts: stock no 757096 (C12) did not join on stock number
+Rev9 parts: stock no 820449 (CR8,CR9) did not join on stock number
+CR69: Rev 9 groups it with CR35,CR36,CR37 (stock 876867) but the 1996 list gives it stock 852116 -- part changed between revisions
+Rev9 parts: stock no 114223 (H3,H4) did not join on stock number
+Rev9 parts: stock no 911271 (K12,K17) did not join on stock number
+Rev9 parts: MP3 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 791939 (MP3) did not join on stock number
+MP5: Rev 9 groups it with MP7,MP8 (stock 418384) but the 1996 list gives it stock 1599214 -- part changed between revisions
+MP6: Rev 9 groups it with MP7,MP8 (stock 418384) but the 1996 list gives it stock 1599214 -- part changed between revisions
+Rev9 parts: MP9 is in the Rev 9 list but not the 1996 list
+Rev9 parts: MP10 is in the Rev 9 list but not the 1996 list
+Rev9 parts: MP11 is in the Rev 9 list but not the 1996 list
+Rev9 parts: MP12 is in the Rev 9 list but not the 1996 list
+Rev9 parts: stock no 807347 (MP9,MP10,MP11,MP12) did not join on stock number
+Rev9 parts: stock no 775601 (MP58) did not join on stock number
+Rev9 parts: stock no 866769 (Q10) did not join on stock number
+Rev9 parts: stock no 783753 (Q12,Q14) did not join on stock number
+Rev9 parts: stock no 109629 (R15,R19,R52,R57) did not join on stock number
+Rev9 parts: stock no 108597 (R27) did not join on stock number
+Rev9 parts: stock no 109926 (R41,R51,R55) did not join on stock number
+Rev9 parts: stock no 221994 (R85) did not join on stock number
+Rev9 parts: stock no 159608 (R120) did not join on stock number
+Rev9 parts: VR8 is in the Rev 9 list but not the 1996 list -- same row as VR61,VR62, stock 820423, which did join
+Rev9 parts: VR9 is in the Rev 9 list but not the 1996 list -- same row as VR61,VR62, stock 820423, which did join
+Rev9 parts: stock no 810325 (VR15) did not join on stock number
+Rev9 parts: stock no 820415 (VR18) did not join on stock number
+Rev9 parts: stock no 820431 (VR51,VR52,VR57,VR58) did not join on stock number
+Rev9 parts: stock no 810317 (VR64) did not join on stock number
+Rev9 parts: stock no 810309 (VR65) did not join on stock number

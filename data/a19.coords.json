@@ -1,0 +1,2735 @@
+{
+ "assembly": "A19",
+ "generatedBy": "tools/build_coords.py",
+ "notOnDrawing": [
+  "H2",
+  "H3",
+  "H4",
+  "H5",
+  "H6",
+  "H7",
+  "H11",
+  "M1",
+  "M2",
+  "MP8",
+  "MP9",
+  "MP10",
+  "MP11",
+  "MP12",
+  "MP13",
+  "MP14",
+  "MP15",
+  "MP16",
+  "MP21",
+  "MP24",
+  "MP25",
+  "MP26",
+  "MP27",
+  "MP28",
+  "MP29",
+  "MP30",
+  "MP31"
+ ],
+ "placement": {
+  "C22": {
+   "board": {
+    "x": 0.14685,
+    "y": 0.20944,
+    "w": 0.01353,
+    "h": 0.01597,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.47159,
+     "y": 0.64877,
+     "w": 0.01251,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C24": {
+   "board": {
+    "x": 0.69636,
+    "y": 0.0987,
+    "w": 0.01319,
+    "h": 0.01597,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.34494,
+     "y": 0.13831,
+     "w": 0.01284,
+     "h": 0.00859,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C4": {
+   "board": {
+    "x": 0.81524,
+    "y": 0.10464,
+    "w": 0.00879,
+    "h": 0.01566,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.62441,
+     "y": 0.41984,
+     "w": 0.0081,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L2": {
+   "board": {
+    "x": 0.84751,
+    "y": 0.17784,
+    "w": 0.00891,
+    "h": 0.01535,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.66719,
+     "y": 0.3463,
+     "w": 0.01189,
+     "h": 0.01089,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "L1": {
+   "board": {
+    "x": 0.73437,
+    "y": 0.244,
+    "w": 0.00857,
+    "h": 0.01546,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.65135,
+     "y": 0.09131,
+     "w": 0.01189,
+     "h": 0.01089,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R5": {
+   "board": {
+    "x": 0.75137,
+    "y": 0.28486,
+    "w": 0.00857,
+    "h": 0.01566,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.57413,
+     "y": 0.34753,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "Q5": {
+   "board": {
+    "x": 0.75871,
+    "y": 0.16589,
+    "w": 0.00836,
+    "h": 0.01566,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.54929,
+     "y": 0.3728,
+     "w": 0.0081,
+     "h": 0.00814,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "CR23": {
+   "board": {
+    "x": 0.06766,
+    "y": 0.32183,
+    "w": 0.01847,
+    "h": 0.01675,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.62629,
+     "y": 0.6572,
+     "w": 0.01719,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C20": {
+   "board": {
+    "x": 0.19507,
+    "y": 0.51346,
+    "w": 0.01353,
+    "h": 0.01628,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.42334,
+     "y": 0.88071,
+     "w": 0.01273,
+     "h": 0.00849,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR30": {
+   "board": {
+    "x": 0.19468,
+    "y": 0.36928,
+    "w": 0.01832,
+    "h": 0.01608,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.67522,
+     "y": 0.88816,
+     "w": 0.01683,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C16": {
+   "board": {
+    "x": 0.16605,
+    "y": 0.3884,
+    "w": 0.01363,
+    "h": 0.01628,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.70822,
+     "y": 0.87821,
+     "w": 0.01241,
+     "h": 0.0162,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C15": {
+   "board": {
+    "x": 0.15009,
+    "y": 0.44432,
+    "w": 0.01363,
+    "h": 0.01692,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.6443,
+     "y": 0.87954,
+     "w": 0.01412,
+     "h": 0.01602,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R6": {
+   "board": {
+    "x": 0.67459,
+    "y": 0.38596,
+    "w": 0.00836,
+    "h": 0.01535,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.31407,
+     "y": 0.14137,
+     "w": 0.0081,
+     "h": 0.00817,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C25": {
+   "board": {
+    "x": 0.75763,
+    "y": 0.47756,
+    "w": 0.0133,
+    "h": 0.01628,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.51045,
+     "y": 0.43001,
+     "w": 0.01342,
+     "h": 0.01602,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q7": {
+   "board": {
+    "x": 0.71398,
+    "y": 0.53941,
+    "w": 0.00825,
+    "h": 0.01566,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.43246,
+     "y": 0.18127,
+     "w": 0.0081,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L4": {
+   "board": {
+    "x": 0.13706,
+    "y": 0.27014,
+    "w": 0.00821,
+    "h": 0.01566,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.65372,
+     "y": 0.63528,
+     "w": 0.01189,
+     "h": 0.01089,
+     "placement": "verified",
+     "placementNote": "moved onto the L4 designator above its coil in the final review pass (had sat on blank space above)"
+    }
+   ],
+   "schVerified": true
+  },
+  "F5": {
+   "board": {
+    "x": 0.70281,
+    "y": 0.78016,
+    "w": 0.00825,
+    "h": 0.01597,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.19097,
+     "y": 0.84125,
+     "w": 0.0081,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L3": {
+   "board": {
+    "x": 0.13676,
+    "y": 0.37188,
+    "w": 0.00865,
+    "h": 0.01628,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.65135,
+     "y": 0.58495,
+     "w": 0.01189,
+     "h": 0.01089,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR35": {
+   "board": {
+    "x": 0.09194,
+    "y": 0.38329,
+    "w": 0.02097,
+    "h": 0.0167,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.58009,
+     "y": 0.8954,
+     "w": 0.01705,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q10": {
+   "board": {
+    "x": 0.8187,
+    "y": 0.43086,
+    "w": 0.01312,
+    "h": 0.01608,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.25515,
+     "y": 0.23476,
+     "w": 0.01506,
+     "h": 0.01089,
+     "placement": "verified",
+     "placementNote": "On the transistor itself; the reader had it on the package legend caption."
+    }
+   ],
+   "schVerified": true
+  },
+  "C14": {
+   "board": {
+    "x": 0.07103,
+    "y": 0.59571,
+    "w": 0.0137,
+    "h": 0.01712,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.52253,
+     "y": 0.87985,
+     "w": 0.01256,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C11": {
+   "board": {
+    "x": 0.70456,
+    "y": 0.68347,
+    "w": 0.01304,
+    "h": 0.01608,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.27972,
+     "y": 0.86602,
+     "w": 0.01169,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "F2": {
+   "board": {
+    "x": 0.81817,
+    "y": 0.7655,
+    "w": 0.00865,
+    "h": 0.01588,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.216,
+     "y": 0.33117,
+     "w": 0.00813,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "F3": {
+   "board": {
+    "x": 0.85609,
+    "y": 0.7645,
+    "w": 0.00814,
+    "h": 0.01608,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.27597,
+     "y": 0.57147,
+     "w": 0.0081,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R7": {
+   "board": {
+    "x": 0.10717,
+    "y": 0.35599,
+    "w": 0.00836,
+    "h": 0.01566,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.62854,
+     "y": 0.58768,
+     "w": 0.0081,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q2": {
+   "board": {
+    "x": 0.87229,
+    "y": 0.46767,
+    "w": 0.0081,
+    "h": 0.01608,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.59717,
+     "y": 0.12344,
+     "w": 0.0081,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q9": {
+   "board": {
+    "x": 0.81867,
+    "y": 0.34803,
+    "w": 0.00819,
+    "h": 0.01504,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.33201,
+     "y": 0.19715,
+     "w": 0.01347,
+     "h": 0.01089,
+     "placement": "verified",
+     "placementNote": "On the transistor itself; the reader had it on the package legend caption."
+    }
+   ],
+   "schVerified": true
+  },
+  "C21": {
+   "board": {
+    "x": 0.13667,
+    "y": 0.54582,
+    "w": 0.01292,
+    "h": 0.01628,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.49091,
+     "y": 0.87992,
+     "w": 0.01169,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C23": {
+   "board": {
+    "x": 0.17011,
+    "y": 0.54577,
+    "w": 0.01353,
+    "h": 0.01644,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.61343,
+     "y": 0.87938,
+     "w": 0.01273,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q3": {
+   "board": {
+    "x": 0.74296,
+    "y": 0.53939,
+    "w": 0.00846,
+    "h": 0.01582,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.52615,
+     "y": 0.15305,
+     "w": 0.01347,
+     "h": 0.01089,
+     "placement": "verified",
+     "placementNote": "On the transistor itself; the reader had it on the package legend caption."
+    }
+   ],
+   "schVerified": true
+  },
+  "C19": {
+   "board": {
+    "x": 0.84334,
+    "y": 0.66659,
+    "w": 0.01292,
+    "h": 0.01597,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.30501,
+     "y": 0.65996,
+     "w": 0.01284,
+     "h": 0.00859,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "P41": {
+   "board": {
+    "x": 0.87571,
+    "y": 0.82483,
+    "w": 0.01314,
+    "h": 0.01597,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.82629,
+     "y": 0.32485,
+     "w": 0.01369,
+     "h": 0.01033,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "TP1": {
+   "board": {
+    "x": 0.65668,
+    "y": 0.12158,
+    "w": 0.02117,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad, +75VUR name and TP1 number together. TP1 sits one line above the other twelve because the row is staggered.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.29794,
+     "y": 0.08042,
+     "w": 0.01585,
+     "h": 0.01089,
+     "placement": "verified",
+     "placementNote": "On the +75VUR flag. The reader had it in the test point legend table."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP2": {
+   "board": {
+    "x": 0.71857,
+    "y": 0.13318,
+    "w": 0.02117,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad, +75V name and TP2 number together.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.68428,
+     "y": 0.07842,
+     "w": 0.01277,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP3": {
+   "board": {
+    "x": 0.74658,
+    "y": 0.13318,
+    "w": 0.02117,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad, PS-SD name and TP3 number together.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.13423,
+     "y": 0.21801,
+     "w": 0.01284,
+     "h": 0.00841,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "TP4": {
+   "board": {
+    "x": 0.84772,
+    "y": 0.13318,
+    "w": 0.02117,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad, +35VUR name and TP4 number together. The reader had put this on TP11, at the far end of the board.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.45787,
+     "y": 0.33571,
+     "w": 0.01262,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP5": {
+   "board": {
+    "x": 0.79951,
+    "y": 0.13318,
+    "w": 0.02117,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad, +35V name and TP5 number together.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.6981,
+     "y": 0.32815,
+     "w": 0.01585,
+     "h": 0.01089,
+     "placement": "verified",
+     "placementNote": "On the +35V flag. The reader had it on TP9's -12VUR flag."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP6": {
+   "board": {
+    "x": 0.77296,
+    "y": 0.13318,
+    "w": 0.02117,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad, RESETL name and TP6 number together. Labelled pad with no jumper fitted.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.22557,
+     "y": 0.18936,
+     "w": 0.01273,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP7": {
+   "board": {
+    "x": 0.16482,
+    "y": 0.1355,
+    "w": 0.02117,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad, +12VUR name and TP7 number together. Labelled pad with no jumper fitted; the +12VUR name is printed to the right rather than above.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.43658,
+     "y": 0.57626,
+     "w": 0.01234,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP8": {
+   "board": {
+    "x": 0.09723,
+    "y": 0.1355,
+    "w": 0.02117,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad, +12V name and TP8 number together.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.6831,
+     "y": 0.62179,
+     "w": 0.01256,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP9": {
+   "board": {
+    "x": 0.8715,
+    "y": 0.13318,
+    "w": 0.02117,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad, -12VUR name and TP9 number together. Labelled pad with no jumper fitted.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.33391,
+     "y": 0.72004,
+     "w": 0.01284,
+     "h": 0.00859,
+     "placement": "single"
+    }
+   ]
+  },
+  "TP10": {
+   "board": {
+    "x": 0.67117,
+    "y": 0.13318,
+    "w": 0.02117,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad, -12V name and TP10 number together.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.68653,
+     "y": 0.69053,
+     "w": 0.01823,
+     "h": 0.01089,
+     "placement": "verified",
+     "placementNote": "On the -12V flag. The reader had it in the test point legend table."
+    }
+   ],
+   "schVerified": true
+  },
+  "TP11": {
+   "board": {
+    "x": 0.07134,
+    "y": 0.1355,
+    "w": 0.02117,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad, +5VUR name and TP11 number together. Labelled pad with no jumper fitted.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.50626,
+     "y": 0.82918,
+     "w": 0.01625,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP12": {
+   "board": {
+    "x": 0.14739,
+    "y": 0.1355,
+    "w": 0.02117,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad, +5V name and TP12 number together.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.71739,
+     "y": 0.8273,
+     "w": 0.01705,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP13": {
+   "board": {
+    "x": 0.12915,
+    "y": 0.1355,
+    "w": 0.02117,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad, COM name and TP13 number together. The reference for every measurement on this board.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.73885,
+     "y": 0.90311,
+     "w": 0.01705,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C2": {
+   "board": {
+    "x": 0.71433,
+    "y": 0.40928,
+    "w": 0.01792,
+    "h": 0.02227,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The reader had this on C9's label, at the other end of the board.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.61847,
+     "y": 0.18321,
+     "w": 0.0081,
+     "h": 0.00824,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "C5": {
+   "board": {
+    "x": 0.87785,
+    "y": 0.66265,
+    "w": 0.01792,
+    "h": 0.02227,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The reader had this on the '+5V' silkscreen beside TP12.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.33216,
+     "y": 0.61548,
+     "w": 0.00813,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C7": {
+   "board": {
+    "x": 0.91564,
+    "y": 0.70998,
+    "w": 0.0728,
+    "h": 0.20742,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The reader had this on the CR25/CR27 outlines. Body outline measured off a pixel grid; the designator sits inside the outline",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.40975,
+     "y": 0.70635,
+     "w": 0.0081,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C8": {
+   "board": {
+    "x": 0.94723,
+    "y": 0.55081,
+    "w": 0.01792,
+    "h": 0.02227,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.4406,
+     "y": 0.70597,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C9": {
+   "board": {
+    "x": 0.02834,
+    "y": 0.27517,
+    "w": 0.01792,
+    "h": 0.02227,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The label C2's marker had been sitting on.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.54964,
+     "y": 0.626,
+     "w": 0.0081,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C10": {
+   "board": {
+    "x": 0.94821,
+    "y": 0.4942,
+    "w": 0.01792,
+    "h": 0.02227,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.55975,
+     "y": 0.70895,
+     "w": 0.02425,
+     "h": 0.03502,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C17": {
+   "board": {
+    "x": 0.74267,
+    "y": 0.67935,
+    "w": 0.01792,
+    "h": 0.02227,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The reader had this on R9's resistor body.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.15177,
+     "y": 0.11382,
+     "w": 0.01256,
+     "h": 0.01062,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C18": {
+   "board": {
+    "x": 0.8127,
+    "y": 0.68306,
+    "w": 0.03257,
+    "h": 0.0348,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The rectangular body beside the C18 label, which is printed outside it",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.24664,
+     "y": 0.36576,
+     "w": 0.01277,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR1": {
+   "board": {
+    "x": 0.73893,
+    "y": 0.57726,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The reader had this on CR13's label -- 'CR13' truncated to 'CR1'.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.19764,
+     "y": 0.09147,
+     "w": 0.01219,
+     "h": 0.00841,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "CR2": {
+   "board": {
+    "x": 0.72752,
+    "y": 0.57726,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.2445,
+     "y": 0.09143,
+     "w": 0.01277,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR3": {
+   "board": {
+    "x": 0.75081,
+    "y": 0.57726,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.19796,
+     "y": 0.12602,
+     "w": 0.01305,
+     "h": 0.00859,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR4": {
+   "board": {
+    "x": 0.7627,
+    "y": 0.57726,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.24453,
+     "y": 0.12609,
+     "w": 0.01262,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR8": {
+   "board": {
+    "x": 0.68306,
+    "y": 0.43712,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.65114,
+     "y": 0.19222,
+     "w": 0.01295,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR9": {
+   "board": {
+    "x": 0.77003,
+    "y": 0.68492,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.27356,
+     "y": 0.34682,
+     "w": 0.01291,
+     "h": 0.00841,
+     "placement": "single"
+    }
+   ]
+  },
+  "CR10": {
+   "board": {
+    "x": 0.79153,
+    "y": 0.62181,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.3061,
+     "y": 0.34669,
+     "w": 0.0169,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR11": {
+   "board": {
+    "x": 0.81352,
+    "y": 0.56241,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.27483,
+     "y": 0.38135,
+     "w": 0.01636,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR12": {
+   "board": {
+    "x": 0.82443,
+    "y": 0.56241,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.30614,
+     "y": 0.38134,
+     "w": 0.01701,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR13": {
+   "board": {
+    "x": 0.75928,
+    "y": 0.23341,
+    "w": 0.01792,
+    "h": 0.02227,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.51197,
+     "y": 0.3699,
+     "w": 0.01712,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR16": {
+   "board": {
+    "x": 0.78827,
+    "y": 0.23852,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.65905,
+     "y": 0.42891,
+     "w": 0.01755,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR17": {
+   "board": {
+    "x": 0.87736,
+    "y": 0.56148,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.36681,
+     "y": 0.58706,
+     "w": 0.01723,
+     "h": 0.01401,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR18": {
+   "board": {
+    "x": 0.86612,
+    "y": 0.56148,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.39778,
+     "y": 0.58677,
+     "w": 0.0169,
+     "h": 0.01459,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR19": {
+   "board": {
+    "x": 0.8544,
+    "y": 0.56148,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.36695,
+     "y": 0.62151,
+     "w": 0.01733,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR20": {
+   "board": {
+    "x": 0.84218,
+    "y": 0.56148,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.39793,
+     "y": 0.62101,
+     "w": 0.0169,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR21": {
+   "board": {
+    "x": 0.04202,
+    "y": 0.38144,
+    "w": 0.02117,
+    "h": 0.02227,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.4943,
+     "y": 0.54424,
+     "w": 0.01625,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR22": {
+   "board": {
+    "x": 0.96287,
+    "y": 0.63434,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.50256,
+     "y": 0.77198,
+     "w": 0.01747,
+     "h": 0.00864,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR24": {
+   "board": {
+    "x": 0.94984,
+    "y": 0.63434,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.62638,
+     "y": 0.69855,
+     "w": 0.01733,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR25": {
+   "board": {
+    "x": 0.69935,
+    "y": 0.54385,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.31444,
+     "y": 0.8407,
+     "w": 0.01662,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR26": {
+   "board": {
+    "x": 0.67117,
+    "y": 0.54385,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.34549,
+     "y": 0.84034,
+     "w": 0.01712,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR27": {
+   "board": {
+    "x": 0.68616,
+    "y": 0.54385,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.31441,
+     "y": 0.88191,
+     "w": 0.01647,
+     "h": 0.00859,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR28": {
+   "board": {
+    "x": 0.65798,
+    "y": 0.54385,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.34558,
+     "y": 0.88153,
+     "w": 0.01705,
+     "h": 0.00864,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR29": {
+   "board": {
+    "x": 0.06287,
+    "y": 0.70626,
+    "w": 0.02117,
+    "h": 0.02227,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.56646,
+     "y": 0.79076,
+     "w": 0.01701,
+     "h": 0.00817,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR31": {
+   "board": {
+    "x": 0.67182,
+    "y": 0.43619,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.36215,
+     "y": 0.18534,
+     "w": 0.01658,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR32": {
+   "board": {
+    "x": 0.693,
+    "y": 0.43619,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.38959,
+     "y": 0.18498,
+     "w": 0.01712,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR33": {
+   "board": {
+    "x": 0.81205,
+    "y": 0.2348,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.36279,
+     "y": 0.45067,
+     "w": 0.01744,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR34": {
+   "board": {
+    "x": 0.79935,
+    "y": 0.2348,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.38791,
+     "y": 0.45037,
+     "w": 0.01705,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "F1": {
+   "board": {
+    "x": 0.79186,
+    "y": 0.76427,
+    "w": 0.01792,
+    "h": 0.02227,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The reader had this as a box spanning Q9 and Q10.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.12445,
+     "y": 0.07618,
+     "w": 0.0081,
+     "h": 0.00841,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "F4": {
+   "board": {
+    "x": 0.83257,
+    "y": 0.76334,
+    "w": 0.01792,
+    "h": 0.02227,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.27609,
+     "y": 0.64439,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "L5": {
+   "board": {
+    "x": 0.96107,
+    "y": 0.72204,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The reader had this on an unlabelled outline in the left cluster.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.64976,
+     "y": 0.70765,
+     "w": 0.01189,
+     "h": 0.01089,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "L6": {
+   "board": {
+    "x": 0.97427,
+    "y": 0.72204,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.64976,
+     "y": 0.73671,
+     "w": 0.01189,
+     "h": 0.01089,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "L7": {
+   "board": {
+    "x": 0.21824,
+    "y": 0.44687,
+    "w": 0.05309,
+    "h": 0.15128,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "L7's designator is printed inside the choke's own circle; the reader had put the marker on the small outline beside C22. Body outline measured off a pixel grid; the designator sits inside the outline",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.67924,
+     "y": 0.84047,
+     "w": 0.01189,
+     "h": 0.01089,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q4": {
+   "board": {
+    "x": 0.83599,
+    "y": 0.48585,
+    "w": 0.01792,
+    "h": 0.02227,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.49657,
+     "y": 0.20584,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "Q6": {
+   "board": {
+    "x": 0.75928,
+    "y": 0.29466,
+    "w": 0.01792,
+    "h": 0.02227,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.60128,
+     "y": 0.37882,
+     "w": 0.0081,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q8": {
+   "board": {
+    "x": 0.79805,
+    "y": 0.18561,
+    "w": 0.01792,
+    "h": 0.02227,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.42502,
+     "y": 0.44987,
+     "w": 0.0081,
+     "h": 0.00824,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "R1": {
+   "board": {
+    "x": 0.85212,
+    "y": 0.41439,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The reader had this in the blank centre panel, 3000 px from the part.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.57172,
+     "y": 0.09226,
+     "w": 0.0081,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R2": {
+   "board": {
+    "x": 0.84316,
+    "y": 0.41439,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.45983,
+     "y": 0.18124,
+     "w": 0.00813,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R3": {
+   "board": {
+    "x": 0.74397,
+    "y": 0.35174,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.49274,
+     "y": 0.24685,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R4": {
+   "board": {
+    "x": 0.77231,
+    "y": 0.34432,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.16149,
+     "y": 0.2022,
+     "w": 0.0081,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R8": {
+   "board": {
+    "x": 0.66091,
+    "y": 0.4297,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.38425,
+     "y": 0.13783,
+     "w": 0.0081,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R9": {
+   "board": {
+    "x": 0.78599,
+    "y": 0.34246,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.23059,
+     "y": 0.21141,
+     "w": 0.01347,
+     "h": 0.01089,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R10": {
+   "board": {
+    "x": 0.83485,
+    "y": 0.22923,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.38669,
+     "y": 0.38651,
+     "w": 0.01506,
+     "h": 0.01089,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R11": {
+   "board": {
+    "x": 0.80423,
+    "y": 0.34571,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.20952,
+     "y": 0.24285,
+     "w": 0.01219,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R12": {
+   "board": {
+    "x": 0.77948,
+    "y": 0.35406,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.31205,
+     "y": 0.24866,
+     "w": 0.01251,
+     "h": 0.00817,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R13": {
+   "board": {
+    "x": 0.7943,
+    "y": 0.35406,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.45398,
+     "y": 0.43409,
+     "w": 0.01327,
+     "h": 0.02101,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR5": {
+   "board": {
+    "x": 0.7513,
+    "y": 0.35916,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.45972,
+     "y": 0.21573,
+     "w": 0.01284,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR6": {
+   "board": {
+    "x": 0.76254,
+    "y": 0.35916,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.52582,
+     "y": 0.2029,
+     "w": 0.01305,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR7": {
+   "board": {
+    "x": 0.73404,
+    "y": 0.35824,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.52575,
+     "y": 0.23101,
+     "w": 0.01284,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR14": {
+   "board": {
+    "x": 0.76889,
+    "y": 0.23852,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.55269,
+     "y": 0.42322,
+     "w": 0.01647,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR15": {
+   "board": {
+    "x": 0.7785,
+    "y": 0.23852,
+    "w": 0.00782,
+    "h": 0.05104,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.55275,
+     "y": 0.45186,
+     "w": 0.01647,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U1": {
+   "board": {
+    "x": 0.08502,
+    "y": 0.19582,
+    "w": 0.02036,
+    "h": 0.03666,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Regulator body between the heatsink fins, measured by eye off a pixel grid; the designator is printed above it",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.50317,
+     "y": 0.62724,
+     "w": 0.01347,
+     "h": 0.01089,
+     "placement": "verified",
+     "placementNote": "Inside the 7812 block. The reader had read it off C15's '100uF'."
+    }
+   ],
+   "schVerified": true
+  },
+  "U2": {
+   "board": {
+    "x": 0.91303,
+    "y": 0.56566,
+    "w": 0.05277,
+    "h": 0.03805,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator is printed beside the body; outline traced from a seed inside it, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.51486,
+     "y": 0.75298,
+     "w": 0.0081,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U3": {
+   "board": {
+    "x": 0.06954,
+    "y": 0.46914,
+    "w": 0.0355,
+    "h": 0.03341,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator is printed beside the body; outline traced from a seed inside it, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.56324,
+     "y": 0.86364,
+     "w": 0.0081,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C1": {
+   "board": {
+    "x": 0.69039,
+    "y": 0.25244,
+    "w": 0.07199,
+    "h": 0.2051,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.28475,
+     "y": 0.13822,
+     "w": 0.0081,
+     "h": 0.00829,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "C12": {
+   "board": {
+    "x": 0.20847,
+    "y": 0.66729,
+    "w": 0.0798,
+    "h": 0.22738,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.38681,
+     "y": 0.88103,
+     "w": 0.01284,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C13": {
+   "board": {
+    "x": 0.12101,
+    "y": 0.66775,
+    "w": 0.07915,
+    "h": 0.22552,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.45444,
+     "y": 0.88029,
+     "w": 0.01319,
+     "h": 0.00876,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C3": {
+   "board": {
+    "x": 0.78762,
+    "y": 0.51276,
+    "w": 0.03811,
+    "h": 0.10858,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.47723,
+     "y": 0.43025,
+     "w": 0.0081,
+     "h": 0.00841,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C6": {
+   "board": {
+    "x": 0.20847,
+    "y": 0.22784,
+    "w": 0.0798,
+    "h": 0.22738,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.43303,
+     "y": 0.64911,
+     "w": 0.0081,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q1": {
+   "board": {
+    "x": 0.90651,
+    "y": 0.30348,
+    "w": 0.05114,
+    "h": 0.14571,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.54491,
+     "y": 0.11761,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "L8": {
+   "board": {
+    "x": 0.67052,
+    "y": 0.72622,
+    "w": 0.03094,
+    "h": 0.13271,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline measured off a pixel grid; the designator sits inside the outline",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.22264,
+     "y": 0.88877,
+     "w": 0.0081,
+     "h": 0.00829,
+     "placement": "agreed"
+    }
+   ]
+  }
+ },
+ "layers": {
+  "photo": {
+   "landmarks": [
+    {
+     "note": "TP11",
+     "src": [
+      0.06954,
+      0.12343
+     ],
+     "dst": [
+      0.07212,
+      0.19798
+     ]
+    },
+    {
+     "note": "TP8",
+     "src": [
+      0.09544,
+      0.12343
+     ],
+     "dst": [
+      0.09716,
+      0.19798
+     ]
+    },
+    {
+     "note": "TP13",
+     "src": [
+      0.13094,
+      0.12343
+     ],
+     "dst": [
+      0.13172,
+      0.19798
+     ]
+    },
+    {
+     "note": "TP12",
+     "src": [
+      0.1443,
+      0.12343
+     ],
+     "dst": [
+      0.1453,
+      0.19798
+     ]
+    },
+    {
+     "note": "TP7",
+     "src": [
+      0.16042,
+      0.12343
+     ],
+     "dst": [
+      0.16099,
+      0.19798
+     ]
+    },
+    {
+     "note": "TP1",
+     "src": [
+      0.66189,
+      0.12251
+     ],
+     "dst": [
+      0.66232,
+      0.19707
+     ]
+    },
+    {
+     "note": "TP10",
+     "src": [
+      0.67443,
+      0.12251
+     ],
+     "dst": [
+      0.67431,
+      0.19707
+     ]
+    },
+    {
+     "note": "TP2",
+     "src": [
+      0.72117,
+      0.12251
+     ],
+     "dst": [
+      0.72245,
+      0.19707
+     ]
+    },
+    {
+     "note": "TP3",
+     "src": [
+      0.74674,
+      0.12251
+     ],
+     "dst": [
+      0.74766,
+      0.19707
+     ]
+    },
+    {
+     "note": "TP6",
+     "src": [
+      0.77296,
+      0.12251
+     ],
+     "dst": [
+      0.77323,
+      0.19707
+     ]
+    },
+    {
+     "note": "TP5",
+     "src": [
+      0.79886,
+      0.12251
+     ],
+     "dst": [
+      0.80074,
+      0.19707
+     ]
+    },
+    {
+     "note": "TP4",
+     "src": [
+      0.84642,
+      0.12251
+     ],
+     "dst": [
+      0.84535,
+      0.19707
+     ]
+    },
+    {
+     "note": "TP9",
+     "src": [
+      0.87134,
+      0.12251
+     ],
+     "dst": [
+      0.87092,
+      0.19707
+     ]
+    },
+    {
+     "note": "CR21",
+     "src": [
+      0.04202,
+      0.38144
+     ],
+     "dst": [
+      0.04355,
+      0.42942
+     ]
+    },
+    {
+     "note": "CR35",
+     "src": [
+      0.09218,
+      0.3819
+     ],
+     "dst": [
+      0.09117,
+      0.42942
+     ]
+    },
+    {
+     "note": "C14",
+     "src": [
+      0.06906,
+      0.59211
+     ],
+     "dst": [
+      0.06842,
+      0.62236
+     ]
+    },
+    {
+     "note": "C23",
+     "src": [
+      0.16596,
+      0.54153
+     ],
+     "dst": [
+      0.16523,
+      0.57654
+     ]
+    },
+    {
+     "note": "CR30",
+     "src": [
+      0.19463,
+      0.36937
+     ],
+     "dst": [
+      0.19415,
+      0.42438
+     ]
+    },
+    {
+     "note": "Q10",
+     "src": [
+      0.81873,
+      0.43109
+     ],
+     "dst": [
+      0.82049,
+      0.48488
+     ]
+    },
+    {
+     "note": "Q4",
+     "src": [
+      0.83599,
+      0.48585
+     ],
+     "dst": [
+      0.83795,
+      0.53666
+     ]
+    },
+    {
+     "note": "Q2",
+     "src": [
+      0.87231,
+      0.46775
+     ],
+     "dst": [
+      0.8718,
+      0.51925
+     ]
+    },
+    {
+     "note": "P41",
+     "src": [
+      0.87573,
+      0.82506
+     ],
+     "dst": [
+      0.87145,
+      0.84464
+     ]
+    },
+    {
+     "note": "C19",
+     "src": [
+      0.84332,
+      0.66682
+     ],
+     "dst": [
+      0.84324,
+      0.69661
+     ]
+    }
+   ],
+   "transform": {
+    "H": [
+     0.980252242,
+     -0.002837276,
+     0.003508995,
+     -0.002580773,
+     0.907957159,
+     0.085248439,
+     -0.022204999,
+     0.004165808,
+     1.0
+    ]
+   }
+  }
+ },
+ "sheets": {
+  "sh1": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.0146,
+     "y0": 0.0176,
+     "x1": 0.9885,
+     "y1": 0.9824
+    }
+   }
+  }
+ }
+}

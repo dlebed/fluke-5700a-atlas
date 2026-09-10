@@ -1,0 +1,216 @@
+{
+  "_comment": [
+    "Curated A12 test-point data. Hand-authored from the service manuals rather than",
+    "parsed. There is no study document for this board, so every value below was read",
+    "directly from the 1996 Series II service manual and cites the section it came from;",
+    "where a number is derived rather than printed it is marked 'inferred': true and the",
+    "note says what it was derived from.",
+    "",
+    "A12 has no supply table. Chapter 2 tabulates the supplies of A17, A18 and A19; it",
+    "tabulates none of A12's, because A12 generates none. Every rail it uses arrives on",
+    "P501 or P502 from the Regulator/Guard Crossing assembly (A17) except +5 OSC, which",
+    "U25 makes locally from +15 OSC (§2-119). So none of the eight test points is a",
+    "supply rail and none carries a supply nominal -- all eight are signal points, and",
+    "the only published expectations for them are the ten steps of §5-17.",
+    "",
+    "Signal names and their sheet/zone references are transcribed from the legend box at",
+    "the top of schematic sheet 1, which prints them as 'TP1 = OSC SENSE HI (PG1C7)' --",
+    "page 1, zone C7. All eight are non-insulated wire-loop jumpers: Table 6-15 lists",
+    "them as one line, 'TP1-8 JUMPER,WIRE,NONINSUL,0.200CTR', stock 816090, so all eight",
+    "take a clip lead rather than a probe tip.",
+    "",
+    "TP2 (OSC SENSE LO) is the reference for every measurement in §5-17 -- every step",
+    "says 'common to TP2' in as many words. It is a return and carries no expectation.",
+    "",
+    "Every §5-17 step is run with the Calibrator set to 1.0 V at 1 kHz in operate unless",
+    "the step says otherwise, and with the two monitor-defeat jumpers fitted (see the",
+    "warnings). That is why the conditions below all name an instrument setting: on this",
+    "board a test point has no reading at all until the instrument is sourcing.",
+    "",
+    "Three of the ten steps measure at a component pin rather than a test point. Those",
+    "are the probePoints. Step 4's is a waveform with no level, so it carries none."
+  ],
+
+  "rails": {
+    "SIG": {
+      "label": "Amplitude control loop",
+      "com": "TP2",
+      "color": "#5ec2a8"
+    },
+    "SENSOR": {
+      "label": "AC/DC transfer and sensors",
+      "com": "TP2",
+      "color": "#e0b13a"
+    },
+    "COM": {
+      "label": "Common",
+      "com": "TP2",
+      "color": "#9aa0a6"
+    }
+  },
+
+  "testpoints": [
+    {
+      "ref": "TP1",
+      "signal": "OSC SENSE HI",
+      "rail": "SIG",
+      "kind": "wire-loop",
+      "refPoint": "TP2",
+      "nominal": 1.0,
+      "tolerance": 0.05,
+      "unit": "V ac",
+      "condition": "Calibrator set to 1.0 V at 1 kHz, operate",
+      "source": "§5-17 step 1",
+      "note": "The board's ac input: the sensed output voltage arriving from the front panel SENSE HI via the motherboard, selected onto the averaging converter and the ac sense buffer by relay K1 in the reset position. Step 2 uses the same point differently -- measure the ac volts here, then move the DMM to the Calibrator's own output terminals, and the two readings must agree to within 10 ppm. That comparison, not the absolute level, is the test of the SENSE HI and SENSE LO current cancellation circuits: U1, Q1, Q2, K8 and K2B supply the current into SENSE HI so that none is drawn from the OSC SENSE HI line, and U2 returns it to SCOM rather than to OSC SENSE LO (§2-122). If the level itself is wrong, the manual sends you to K1 and its drive circuitry.",
+      "onFail": ["K1", "U1", "U2", "Q1", "Q2", "K8", "K2"]
+    },
+    {
+      "ref": "TP2",
+      "signal": "OSC SENSE LO",
+      "rail": "COM",
+      "kind": "wire-loop",
+      "isReturn": true,
+      "source": "Figure 7-14 sheet 1 legend (PG1B8)",
+      "note": "The reference for every measurement in §5-17 -- each step names it as 'common to TP2'. On sheet 1 the loop sits on the node that OSC RCOM (P501 27A/27C) and DAC/OSC OUT LO (P501 29A/29C) share, tied to the single-point ground the sheet draws as a 3 (sheet note 1). OSC SENSE LO itself arrives on P501 25A/25C and returns to the same point, so the legend's name and the net the loop is on are the same node. Not to be confused with OSC COM, the return for the +/-15 OSC supplies, which comes in on P501 3A/3C, or with SCOM, which arrives with the +/-17 S and +/-44 S rails on P502 32A/32C."
+    },
+    {
+      "ref": "TP3",
+      "signal": "VREF",
+      "rail": "SIG",
+      "kind": "wire-loop",
+      "refPoint": "TP2",
+      "nominal": 3.16,
+      "tolerance": 0.05,
+      "unit": "V dc",
+      "condition": "Calibrator set to 1.0 V at 1 kHz, operate",
+      "source": "§5-17 step 1",
+      "note": "The dc reference the whole amplitude loop works against: the DAC assembly's (A11) output voltage, brought in on DAC/OSC OUT HI and DAC/OSC SENSE HI and selected by K1 in the reset position. Its current is summed at the error integrator's input against the full-wave rectified current from the averaging converter, so the loop drives the output until the two balance -- 1.0 V rms out corresponds to 3.16 V here. During internal calibration K1 is set instead and VREF becomes the 6.5 V reference (BRF6/BSRF6) from A11 (§2-121). If this is wrong, check K1 and its drive circuitry before suspecting anything on A12: the number is A11's, not this board's.",
+      "conflict": "§5-17 step 1 gives ±50 mV at the test point; fault code 3412, which measures the same signal through the SDL line and the A11 adc rather than with a DMM, allows ±100 mV. The tighter figure is the one recorded here because it is the one measured at TP3.",
+      "onFail": ["K1", "U20", "U23", "U24"]
+    },
+    {
+      "ref": "TP4",
+      "signal": "BUFFER AMP OUT",
+      "rail": "SIG",
+      "kind": "wire-loop",
+      "refPoint": "TP2",
+      "nominal": 1.0,
+      "tolerancePct": 1,
+      "unit": "V ac",
+      "inferred": true,
+      "condition": "Calibrator set to 1.0 V at 1 kHz, operate. Offset must be well under 50 mV.",
+      "source": "§5-17 step 3",
+      "note": "Output of the buffer amplifier U3, a non-inverting unity-gain stage in front of the rectifying amplifier. The manual does not print an absolute number here: it says the reading must equal TP1's ±1% with much less than 50 mV of offset, so the 1.0 V nominal below is TP1's step 1 value carried across, not a figure read from the manual -- compare the two points rather than trusting the nominal. The second half of the step is the real test: change the output to 10.0 V and the reading here must stay the same ±1%, because in the 22 V range K3 sets the 20 dB attenuator in Z2 ahead of U3 (18 k / 2 k) and the buffer output is held between 0.22 and 2.2 V across both ranges (§2-123). If it does not hold, the manual sends you to Z2, K3 and U3.",
+      "onFail": ["U3", "Z2", "K3", "C22", "C25"]
+    },
+    {
+      "ref": "TP5",
+      "signal": "OSC CONT",
+      "rail": "SIG",
+      "kind": "wire-loop",
+      "refPoint": "TP2",
+      "nominal": 0,
+      "maxAbs": 5.0,
+      "unit": "V dc",
+      "condition": "Calibrator set to 1.0 V at 1 kHz, operate. Must be free of distortion.",
+      "source": "§5-17 step 7",
+      "note": "The assembly's output: the amplitude control voltage sent to the agc amplifier on the Oscillator Output assembly (A13). The manual gives a window rather than a value -- 'a dc voltage between +5 and -5V, free of distortion' -- which is recorded here as 0 V with a 5 V limit, so anything inside the window passes. It is the error integrator's output after the three-pole filter (U9B, U8B-U8D, C26-C31) and buffer U9A, so a reading pinned at one end of the window means the loop is not closing rather than that this stage is bad. Distortion on it, rather than its level, is what points at the filter.",
+      "onFail": ["U9", "U8", "C26", "C27", "C28", "C29", "C30", "C31"]
+    },
+    {
+      "ref": "TP6",
+      "signal": "MAIN SENSOR INPUT",
+      "rail": "SENSOR",
+      "kind": "wire-loop",
+      "refPoint": "TP2",
+      "noPublishedValue": true,
+      "condition": "Calibrator set to 1.0 V at 1 kHz, operate. Oscilloscope, not a DMM.",
+      "source": "§5-17 step 8; Figures 5-29 and 5-30",
+      "note": "The input to thermal RMS sensor U14, and the one test point on this board where a meter tells you nothing useful. The instrument alternates between applying the dc sense buffer's output and the ac sense buffer's output to the sensor, so the correct display is a scope switching between Figure 5-29 (dc sense buffer) and Figure 5-30 (ac sense buffer). The manual publishes waveforms, not a level, so none is recorded here. The second half of step 8 is a level check by comparison: at 10.0 V at 1 kHz the ac amplitude from the ac sense buffer must stay the same as at 1.0 V, because K4 changes U13's input resistance in Z3 between the two ranges -- 20 k in the 22 V range, 2.22 k and 20.0 k in parallel in the 2.2 V range, for gains of 0.316 and 3.16 (§2-127). If it does not hold, the manual names K4 and Z3.",
+      "onFail": ["U14", "K4", "Z3", "U13", "U12", "U30", "Q10", "Q12", "Q8", "Q9"]
+    },
+    {
+      "ref": "TP7",
+      "signal": "MAIN SENSOR OUTPUT",
+      "rail": "SENSOR",
+      "kind": "wire-loop",
+      "refPoint": "TP2",
+      "nominal": 3.16,
+      "tolerance": 0.16,
+      "unit": "V dc",
+      "condition": "Calibrator set to 1.0 V at 1 kHz, operate",
+      "source": "§5-17 step 9",
+      "note": "Output of the Fluke thermal RMS sensor U14 after the square-root amplifier (U15A, U15C, U17), which keeps the sensor's settling time constant as its input varies between full scale and a third of it (§2-127). This is the point the whole ac/dc transfer turns on: the difference between the dc and ac readings taken here is what the 15-bit dac is adjusted to null. Read it only after the monitor-defeat jumpers have been removed -- the note before step 9 is explicit about that. Comparator U21A shuts the sensor's input path down above 200 °C junction temperature, so a dead reading here may be protection rather than failure.",
+      "onFail": ["U14", "U15", "U17", "U21", "K7", "R31"]
+    },
+    {
+      "ref": "TP8",
+      "signal": "RCL",
+      "rail": "SENSOR",
+      "kind": "wire-loop",
+      "refPoint": "TP2",
+      "unit": "V dc",
+      "source": "§5-17 step 10",
+      "note": "The RCL line as it leaves the board on P501 pins 12A/12C for the DAC assembly (A11), where its amplitude is measured by the adc circuit. Everything the diagnostics know about this board's analog side arrives through it. Which source reaches it is chosen by K6 and the four sections of U19 under control lines SW1-SW4: U19A and K6 for the sensor at higher inputs, buffer U31 and U19B at lower ones, U19C for the ac/ac sensor and U19D for its divided output in the 220 V range (§2-127, §2-129). The two states below are the two the manual measures; both are the same measurement of U14's output arriving here, which is why the first repeats TP7's value.",
+      "states": [
+        {
+          "label": "1.0 V at 1 kHz, operate",
+          "nominal": 3.16,
+          "tolerance": 0.16,
+          "setup": "Must read the same as TP7 did in step 9.",
+          "source": "§5-17 step 10",
+          "inferred": true,
+          "onFail": ["U19", "K6"]
+        },
+        {
+          "label": "5 V at 1 kHz, operate",
+          "nominal": 1.58,
+          "tolerance": 0.16,
+          "source": "§5-17 step 10",
+          "onFail": ["U31", "U19", "K7"]
+        }
+      ]
+    }
+  ],
+
+  "probePoints": [
+    {
+      "id": "CR4-anode",
+      "label": "Anode of CR4 (rectifying amp output)",
+      "component": "CR4",
+      "refPoint": "TP2",
+      "noPublishedValue": true,
+      "condition": "Calibrator set to 1.0 V at 1 kHz, operate. Scope at 2 V/div, 200 us/div.",
+      "source": "§5-17 step 4; Figure 5-27",
+      "note": "The rectifying amplifier's output, and a waveform check rather than a level -- the display should match Figure 5-27. The amplifier is U5, U7, Q3 and Q4 with an inverting gain of 2; feedback runs through CR5 and one 2 k resistor in Z1 (pins 6 and 5) on positive input and through CR4 and a different 2 k resistor in Z1 (pins 3 and 5) on negative, so what you are looking at is the full-wave rectified current the error integrator sums against VREF (§2-123). No acceptance band is recorded because the manual publishes none.",
+      "onFail": ["U5", "U7", "Q3", "Q4", "CR4", "CR5", "Z1"]
+    },
+    {
+      "id": "U26-6",
+      "label": "U26 pin 6 (14 BIT DAC OUT)",
+      "component": "U26",
+      "refPoint": "TP2",
+      "unit": "V dc",
+      "nominal": -1.58,
+      "tolerance": 1.58,
+      "inferred": true,
+      "condition": "Calibrator set to 1.0 V at 1 kHz, operate. Must be stable.",
+      "source": "§5-17 step 5",
+      "note": "Output of the 15-bit dac: AD7534 U10 for bits 0-13, Q19 and R26 for bit 14, inverted by U26 and applied to the error integrator's summing node through R20 (§2-127). The manual gives a window, not a value -- 'a stable dc voltage between 0 and -3.16V' -- so the nominal and limit here are the centre and half-width of that window rather than a printed figure, and the check that matters is that the reading is inside it and steady. Fault code 3413 exercises the same circuit from the other end, driving it to 0 V, -1.58 V and -3.16 V and requiring each within +/-100 mV. A drifting reading is the loop hunting; a stuck one is the dac.",
+      "onFail": ["U10", "U26", "Q19", "R20", "R26"]
+    },
+    {
+      "id": "U11-6",
+      "label": "U11 pin 6 (ERROR INT. OUT)",
+      "component": "U11",
+      "refPoint": "TP2",
+      "unit": "V dc",
+      "nominal": 0,
+      "maxAbs": 5.0,
+      "condition": "Calibrator set to 1.0 V at 1 kHz, operate. Scope at 500 mV/div, 200 us/div.",
+      "source": "§5-17 step 6; Figure 5-28",
+      "note": "The error integrator's output, before the three-pole filter. Two things are checked at once: the ripple must look like Figure 5-28, and the dc level it rides on may be anywhere between -5 V and +5 V. The integrator is U11 with C43, joined by C42 through U8A when LFCOMP* goes low below 119 Hz, which drops the crossover by a factor of ten (§2-124). Fault codes 3414 and 3415 measure this same signal through the SDL line at 1 V and at 10 V and use the same 0 V +/-5.0 V window, which is where the limit recorded here comes from as well as from the step.",
+      "onFail": ["U11", "U8", "C42", "C43", "R20"]
+    }
+  ]
+}

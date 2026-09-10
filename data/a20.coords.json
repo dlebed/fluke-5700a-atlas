@@ -1,0 +1,3339 @@
+{
+ "assembly": "A20",
+ "generatedBy": "tools/build_coords.py",
+ "notOnDrawing": [
+  "C7",
+  "C14",
+  "C15",
+  "C16",
+  "C18",
+  "C107",
+  "C142",
+  "DS1",
+  "H3",
+  "H4",
+  "H5",
+  "H6",
+  "M3",
+  "M4",
+  "MP1",
+  "MP2",
+  "MP7",
+  "MP8",
+  "R2",
+  "R7",
+  "R8",
+  "R9",
+  "R10",
+  "R11",
+  "R12",
+  "R13",
+  "R14",
+  "R15",
+  "R16",
+  "R17",
+  "R81",
+  "T1",
+  "X5",
+  "X6",
+  "X8",
+  "X10",
+  "X13",
+  "X15",
+  "X16",
+  "X17",
+  "X18",
+  "X19",
+  "X20",
+  "X21",
+  "X22",
+  "X23",
+  "X24",
+  "XBT1"
+ ],
+ "placement": {
+  "C108": {
+   "board": {
+    "x": 0.01731,
+    "y": 0.23491,
+    "w": 0.01787,
+    "h": 0.01725,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.64795,
+     "y": 0.78969,
+     "w": 0.02681,
+     "h": 0.0232,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C115": {
+   "board": {
+    "x": 0.29601,
+    "y": 0.19966,
+    "w": 0.01801,
+    "h": 0.01692,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.23561,
+     "y": 0.67865,
+     "w": 0.02604,
+     "h": 0.02639,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C116": {
+   "board": {
+    "x": 0.4244,
+    "y": 0.11946,
+    "w": 0.01809,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.26416,
+     "y": 0.67865,
+     "w": 0.02604,
+     "h": 0.02924,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C118": {
+   "board": {
+    "x": 0.43708,
+    "y": 0.25627,
+    "w": 0.01875,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.32157,
+     "y": 0.67814,
+     "w": 0.02604,
+     "h": 0.03053,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C123": {
+   "board": {
+    "x": 0.56389,
+    "y": 0.2172,
+    "w": 0.01809,
+    "h": 0.01592,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.2328,
+     "y": 0.68127,
+     "w": 0.02566,
+     "h": 0.03015,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C6": {
+   "board": {
+    "x": 0.82299,
+    "y": 0.26007,
+    "w": 0.00883,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.09211,
+     "y": 0.33222,
+     "w": 0.02681,
+     "h": 0.02191,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C3": {
+   "board": {
+    "x": 0.75121,
+    "y": 0.72995,
+    "w": 0.0086,
+    "h": 0.01702,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.38241,
+     "y": 0.27397,
+     "w": 0.02932,
+     "h": 0.03093,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R1": {
+   "board": {
+    "x": 0.92465,
+    "y": 0.14121,
+    "w": 0.0086,
+    "h": 0.01681,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.24826,
+     "y": 0.21211,
+     "w": 0.01956,
+     "h": 0.02784,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R6": {
+   "board": {
+    "x": 0.92462,
+    "y": 0.17046,
+    "w": 0.0086,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.1702,
+     "y": 0.57956,
+     "w": 0.02212,
+     "h": 0.02846,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR1": {
+   "board": {
+    "x": 0.96683,
+    "y": 0.18514,
+    "w": 0.01346,
+    "h": 0.01625,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.25241,
+     "y": 0.23741,
+     "w": 0.01181,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR3": {
+   "board": {
+    "x": 0.9625,
+    "y": 0.23538,
+    "w": 0.01368,
+    "h": 0.01725,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.82201,
+     "y": 0.44596,
+     "w": 0.02626,
+     "h": 0.03706,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C101": {
+   "board": {
+    "x": 0.86157,
+    "y": 0.24545,
+    "w": 0.01798,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.4724,
+     "y": 0.79021,
+     "w": 0.02776,
+     "h": 0.02655,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR5": {
+   "board": {
+    "x": 0.92417,
+    "y": 0.25824,
+    "w": 0.01397,
+    "h": 0.03615,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.15498,
+     "y": 0.48616,
+     "w": 0.02212,
+     "h": 0.03777,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR2": {
+   "board": {
+    "x": 0.96251,
+    "y": 0.26609,
+    "w": 0.01368,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.82248,
+     "y": 0.31909,
+     "w": 0.0239,
+     "h": 0.03654,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R5": {
+   "board": {
+    "x": 0.01458,
+    "y": 0.38249,
+    "w": 0.00871,
+    "h": 0.01702,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.35615,
+     "y": 0.23892,
+     "w": 0.02618,
+     "h": 0.0268,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "Z5": {
+   "board": {
+    "x": 0.82859,
+    "y": 0.2059,
+    "w": 0.00817,
+    "h": 0.01725,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.48994,
+     "y": 0.58132,
+     "w": 0.06399,
+     "h": 0.05172,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C100": {
+   "board": {
+    "x": 0.03119,
+    "y": 0.3083,
+    "w": 0.01787,
+    "h": 0.01725,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.44338,
+     "y": 0.78995,
+     "w": 0.02681,
+     "h": 0.02603,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C103": {
+   "board": {
+    "x": 0.03147,
+    "y": 0.3421,
+    "w": 0.01845,
+    "h": 0.02074,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.53028,
+     "y": 0.78918,
+     "w": 0.02634,
+     "h": 0.02655,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C105": {
+   "board": {
+    "x": 0.09134,
+    "y": 0.48186,
+    "w": 0.01867,
+    "h": 0.01725,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.59022,
+     "y": 0.79098,
+     "w": 0.02571,
+     "h": 0.02371,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C106": {
+   "board": {
+    "x": 0.16834,
+    "y": 0.51719,
+    "w": 0.02372,
+    "h": 0.05108,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.62381,
+     "y": 0.78476,
+     "w": 0.01669,
+     "h": 0.01087,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C119": {
+   "board": {
+    "x": 0.29326,
+    "y": 0.50123,
+    "w": 0.01775,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.14497,
+     "y": 0.68204,
+     "w": 0.03054,
+     "h": 0.0268,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C117": {
+   "board": {
+    "x": 0.29457,
+    "y": 0.34251,
+    "w": 0.01775,
+    "h": 0.01725,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.29318,
+     "y": 0.67865,
+     "w": 0.02698,
+     "h": 0.03053,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C120": {
+   "board": {
+    "x": 0.4368,
+    "y": 0.40986,
+    "w": 0.01864,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.17519,
+     "y": 0.68153,
+     "w": 0.02597,
+     "h": 0.02577,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C113": {
+   "board": {
+    "x": 0.56554,
+    "y": 0.41336,
+    "w": 0.01831,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.20659,
+     "y": 0.67995,
+     "w": 0.02729,
+     "h": 0.02639,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R53": {
+   "board": {
+    "x": 0.96283,
+    "y": 0.30107,
+    "w": 0.01346,
+    "h": 0.01692,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.79371,
+     "y": 0.44982,
+     "w": 0.02626,
+     "h": 0.0404,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R54": {
+   "board": {
+    "x": 0.88929,
+    "y": 0.49386,
+    "w": 0.01257,
+    "h": 0.01725,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.54371,
+     "y": 0.46732,
+     "w": 0.03003,
+     "h": 0.03577,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R52": {
+   "board": {
+    "x": 0.96321,
+    "y": 0.32563,
+    "w": 0.01335,
+    "h": 0.01692,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.79528,
+     "y": 0.32218,
+     "w": 0.02547,
+     "h": 0.04117,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C102": {
+   "board": {
+    "x": 0.84023,
+    "y": 0.34163,
+    "w": 0.01758,
+    "h": 0.01692,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.50142,
+     "y": 0.78943,
+     "w": 0.02776,
+     "h": 0.025,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C13": {
+   "board": {
+    "x": 0.88894,
+    "y": 0.35799,
+    "w": 0.01312,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.52752,
+     "y": 0.342,
+     "w": 0.02909,
+     "h": 0.02779,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R61": {
+   "board": {
+    "x": 0.96281,
+    "y": 0.3537,
+    "w": 0.01316,
+    "h": 0.01692,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.73522,
+     "y": 0.49665,
+     "w": 0.03003,
+     "h": 0.03654,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R51": {
+   "board": {
+    "x": 0.83566,
+    "y": 0.37371,
+    "w": 0.01269,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.85629,
+     "y": 0.28744,
+     "w": 0.03003,
+     "h": 0.035,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C12": {
+   "board": {
+    "x": 0.90368,
+    "y": 0.37312,
+    "w": 0.01378,
+    "h": 0.01692,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.59811,
+     "y": 0.22182,
+     "w": 0.02469,
+     "h": 0.02985,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R56": {
+   "board": {
+    "x": 0.897,
+    "y": 0.44742,
+    "w": 0.03275,
+    "h": 0.02322,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.54167,
+     "y": 0.29954,
+     "w": 0.02028,
+     "h": 0.03706,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R55": {
+   "board": {
+    "x": 0.92038,
+    "y": 0.52063,
+    "w": 0.01323,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.68255,
+     "y": 0.37159,
+     "w": 0.02752,
+     "h": 0.04426,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR8": {
+   "board": {
+    "x": 0.92408,
+    "y": 0.28815,
+    "w": 0.01376,
+    "h": 0.01681,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.15325,
+     "y": 0.52859,
+     "w": 0.02369,
+     "h": 0.03234,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C2": {
+   "board": {
+    "x": 0.92369,
+    "y": 0.45667,
+    "w": 0.00838,
+    "h": 0.01692,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.48679,
+     "y": 0.42717,
+     "w": 0.02877,
+     "h": 0.03242,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C152": {
+   "board": {
+    "x": 0.82911,
+    "y": 0.47728,
+    "w": 0.01775,
+    "h": 0.04444,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.50786,
+     "y": 0.8703,
+     "w": 0.02877,
+     "h": 0.03242,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R60": {
+   "board": {
+    "x": 0.9708,
+    "y": 0.52541,
+    "w": 0.01295,
+    "h": 0.01692,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.73035,
+     "y": 0.37056,
+     "w": 0.02516,
+     "h": 0.03963,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R57": {
+   "board": {
+    "x": 0.86964,
+    "y": 0.44582,
+    "w": 0.03249,
+    "h": 0.02277,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.49717,
+     "y": 0.32476,
+     "w": 0.02343,
+     "h": 0.04246,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C109": {
+   "board": {
+    "x": 0.09077,
+    "y": 0.57749,
+    "w": 0.01831,
+    "h": 0.01702,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.68166,
+     "y": 0.78379,
+     "w": 0.01671,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R4": {
+   "board": {
+    "x": 0.01515,
+    "y": 0.60393,
+    "w": 0.00849,
+    "h": 0.01725,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.31293,
+     "y": 0.17415,
+     "w": 0.0081,
+     "h": 0.00818,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C110": {
+   "board": {
+    "x": 0.18417,
+    "y": 0.59459,
+    "w": 0.01787,
+    "h": 0.01725,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.70584,
+     "y": 0.78918,
+     "w": 0.02681,
+     "h": 0.0232,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C80": {
+   "board": {
+    "x": 0.01679,
+    "y": 0.69477,
+    "w": 0.01301,
+    "h": 0.01747,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.1974,
+     "y": 0.64639,
+     "w": 0.02556,
+     "h": 0.03866,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C128": {
+   "board": {
+    "x": 0.12453,
+    "y": 0.734,
+    "w": 0.01824,
+    "h": 0.01769,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.33647,
+     "y": 0.76005,
+     "w": 0.02901,
+     "h": 0.02938,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C81": {
+   "board": {
+    "x": 0.02206,
+    "y": 0.77481,
+    "w": 0.01308,
+    "h": 0.01725,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.25055,
+     "y": 0.675,
+     "w": 0.02822,
+     "h": 0.02423,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "Y1": {
+   "board": {
+    "x": 0.06503,
+    "y": 0.55086,
+    "w": 0.0086,
+    "h": 0.01725,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.33183,
+     "y": 0.25267,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C111": {
+   "board": {
+    "x": 0.12454,
+    "y": 0.71583,
+    "w": 0.0182,
+    "h": 0.01769,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.73923,
+     "y": 0.78314,
+     "w": 0.01608,
+     "h": 0.00811,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Z3": {
+   "board": {
+    "x": 0.38721,
+    "y": 0.78022,
+    "w": 0.00849,
+    "h": 0.01692,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.03076,
+     "y": 0.24485,
+     "w": 0.02539,
+     "h": 0.02912,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "Z4": {
+   "board": {
+    "x": 0.98669,
+    "y": 0.47946,
+    "w": 0.01118,
+    "h": 0.03272,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.66761,
+     "y": 0.46269,
+     "w": 0.04292,
+     "h": 0.10062,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C145": {
+   "board": {
+    "x": 0.97346,
+    "y": 0.69999,
+    "w": 0.01831,
+    "h": 0.01702,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.33428,
+     "y": 0.87777,
+     "w": 0.0272,
+     "h": 0.02445,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C143": {
+   "board": {
+    "x": 0.90599,
+    "y": 0.70532,
+    "w": 0.01809,
+    "h": 0.01692,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.3923,
+     "y": 0.87468,
+     "w": 0.02673,
+     "h": 0.02522,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "BT1": {
+   "board": {
+    "x": 0.86224,
+    "y": 0.70894,
+    "w": 0.01331,
+    "h": 0.01692,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.55723,
+     "y": 0.76994,
+     "w": 0.03113,
+     "h": 0.0543,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "L80": {
+   "board": {
+    "x": 0.04562,
+    "y": 0.78113,
+    "w": 0.01316,
+    "h": 0.01725,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.22703,
+     "y": 0.64201,
+     "w": 0.02493,
+     "h": 0.03325,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "L81": {
+   "board": {
+    "x": 0.04485,
+    "y": 0.82801,
+    "w": 0.01346,
+    "h": 0.01725,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.25902,
+     "y": 0.64253,
+     "w": 0.02289,
+     "h": 0.02758,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R82": {
+   "board": {
+    "x": 0.116,
+    "y": 0.84089,
+    "w": 0.01331,
+    "h": 0.01702,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.45202,
+     "y": 0.66521,
+     "w": 0.02054,
+     "h": 0.02655,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C130": {
+   "board": {
+    "x": 0.29042,
+    "y": 0.82769,
+    "w": 0.01831,
+    "h": 0.01692,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.39495,
+     "y": 0.76108,
+     "w": 0.02901,
+     "h": 0.03376,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "P61": {
+   "board": {
+    "x": 0.22491,
+    "y": 0.94604,
+    "w": 0.01316,
+    "h": 0.01702,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.66526,
+     "y": 0.33299,
+     "w": 0.05723,
+     "h": 0.42732,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C125": {
+   "board": {
+    "x": 0.43588,
+    "y": 0.8165,
+    "w": 0.01882,
+    "h": 0.01681,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.2471,
+     "y": 0.75979,
+     "w": 0.02791,
+     "h": 0.02655,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C10": {
+   "board": {
+    "x": 0.66612,
+    "y": 0.73047,
+    "w": 0.01316,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.57186,
+     "y": 0.68528,
+     "w": 0.02469,
+     "h": 0.03191,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C11": {
+   "board": {
+    "x": 0.6864,
+    "y": 0.71794,
+    "w": 0.01357,
+    "h": 0.02256,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.61211,
+     "y": 0.68682,
+     "w": 0.02752,
+     "h": 0.03371,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C126": {
+   "board": {
+    "x": 0.61534,
+    "y": 0.73391,
+    "w": 0.01787,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.27626,
+     "y": 0.76005,
+     "w": 0.02791,
+     "h": 0.02938,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "P62": {
+   "board": {
+    "x": 0.58536,
+    "y": 0.94521,
+    "w": 0.01301,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.29884,
+     "y": 0.33093,
+     "w": 0.05284,
+     "h": 0.42732,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C127": {
+   "board": {
+    "x": 0.5252,
+    "y": 0.81707,
+    "w": 0.01775,
+    "h": 0.01702,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.30542,
+     "y": 0.75954,
+     "w": 0.02697,
+     "h": 0.02706,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C132": {
+   "board": {
+    "x": 0.81036,
+    "y": 0.83031,
+    "w": 0.0182,
+    "h": 0.01692,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.44953,
+     "y": 0.87313,
+     "w": 0.02547,
+     "h": 0.02728,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "SW1": {
+   "board": {
+    "x": 0.8066,
+    "y": 0.12046,
+    "w": 0.01323,
+    "h": 0.01702,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.03202,
+     "y": 0.30644,
+     "w": 0.03454,
+     "h": 0.03943,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R3": {
+   "board": {
+    "x": 0.87312,
+    "y": 0.15053,
+    "w": 0.0086,
+    "h": 0.01636,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.14737,
+     "y": 0.3041,
+     "w": 0.0081,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR6": {
+   "board": {
+    "x": 0.92418,
+    "y": 0.22847,
+    "w": 0.01397,
+    "h": 0.02504,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.13867,
+     "y": 0.61345,
+     "w": 0.02008,
+     "h": 0.03777,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "Y3": {
+   "board": {
+    "x": 0.68042,
+    "y": 0.65003,
+    "w": 0.0083,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.58318,
+     "y": 0.65543,
+     "w": 0.02626,
+     "h": 0.01853,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "Z1": {
+   "board": {
+    "x": 0.23633,
+    "y": 0.44193,
+    "w": 0.00853,
+    "h": 0.01681,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.18833,
+     "y": 0.66881,
+     "w": 0.10599,
+     "h": 0.05155,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "R58": {
+   "board": {
+    "x": 0.92418,
+    "y": 0.34555,
+    "w": 0.01338,
+    "h": 0.01681,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.6033,
+     "y": 0.25965,
+     "w": 0.03003,
+     "h": 0.0404,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C131": {
+   "board": {
+    "x": 0.68693,
+    "y": 0.55693,
+    "w": 0.01794,
+    "h": 0.01681,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.42107,
+     "y": 0.87339,
+     "w": 0.02673,
+     "h": 0.02651,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C144": {
+   "board": {
+    "x": 0.90458,
+    "y": 0.6086,
+    "w": 0.01794,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.36289,
+     "y": 0.87571,
+     "w": 0.02799,
+     "h": 0.02728,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C129": {
+   "board": {
+    "x": 0.20686,
+    "y": 0.73522,
+    "w": 0.01779,
+    "h": 0.01702,
+    "shape": "rect"
+   },
+   "placement": "collision",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.36579,
+     "y": 0.76005,
+     "w": 0.02618,
+     "h": 0.03041,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C82": {
+   "board": {
+    "x": 0.07034,
+    "y": 0.84701,
+    "w": 0.01331,
+    "h": 0.01681,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.28426,
+     "y": 0.6634,
+     "w": 0.02618,
+     "h": 0.02423,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C5": {
+   "board": {
+    "x": 0.88979,
+    "y": 0.26874,
+    "w": 0.01566,
+    "h": 0.02963,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.06136,
+     "y": 0.30696,
+     "w": 0.02366,
+     "h": 0.02423,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C8": {
+   "board": {
+    "x": 0.02955,
+    "y": 0.45295,
+    "w": 0.00888,
+    "h": 0.01659,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.30915,
+     "y": 0.29042,
+     "w": 0.0081,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R59": {
+   "board": {
+    "x": 0.92404,
+    "y": 0.32144,
+    "w": 0.01296,
+    "h": 0.01642,
+    "shape": "rect"
+   },
+   "placement": "single",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.56069,
+     "y": 0.34174,
+     "w": 0.03003,
+     "h": 0.03114,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP1": {
+   "board": {
+    "x": 0.0384,
+    "y": 0.14152,
+    "w": 0.02941,
+    "h": 0.02359,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad and number together. The pad is the dash about 75 px left of the label, at the top left corner of the board above C108.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.43233,
+     "y": 0.12242,
+     "w": 0.02539,
+     "h": 0.04381,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP3": {
+   "board": {
+    "x": 0.26814,
+    "y": 0.16708,
+    "w": 0.01552,
+    "h": 0.05405,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad and number together; the pad is the vertical tick about 75 px above the label. TP3 and TP8 are a pair, left of U15.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.43877,
+     "y": 0.56869,
+     "w": 0.0127,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP4": {
+   "board": {
+    "x": 0.88578,
+    "y": 0.11499,
+    "w": 0.01552,
+    "h": 0.04177,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad and number together. Placed outright: the reader's only TP4 read was on TP1's label at the far left of the board.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.36783,
+     "y": 0.49742,
+     "w": 0.02775,
+     "h": 0.04768,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP5": {
+   "board": {
+    "x": 0.90768,
+    "y": 0.11646,
+    "w": 0.01634,
+    "h": 0.04177,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad and number together, in the top-right row between TP4 and TP10.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.36892,
+     "y": 0.3317,
+     "w": 0.02462,
+     "h": 0.04381,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP6": {
+   "board": {
+    "x": 0.83497,
+    "y": 0.12383,
+    "w": 0.02369,
+    "h": 0.04423,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The reader's verified label box, widened. TP6's pad could not be separated from SW1's switch outline at the grid resolution used, so this covers the label and the artwork immediately around it rather than a measured pad.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.43321,
+     "y": 0.23969,
+     "w": 0.02665,
+     "h": 0.04253,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP7": {
+   "board": {
+    "x": 0.86405,
+    "y": 0.11548,
+    "w": 0.01552,
+    "h": 0.04177,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad and number together; leftmost of the TP7/TP4/TP5 group, above R3.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.39981,
+     "y": 0.33273,
+     "w": 0.02493,
+     "h": 0.04716,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP8": {
+   "board": {
+    "x": 0.28758,
+    "y": 0.16609,
+    "w": 0.01552,
+    "h": 0.05405,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad and number together; the pad is the vertical tick above the label. Second digital common, on the same net as TP4.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.4031,
+     "y": 0.4951,
+     "w": 0.02901,
+     "h": 0.05103,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP9": {
+   "board": {
+    "x": 0.96912,
+    "y": 0.13317,
+    "w": 0.01552,
+    "h": 0.04423,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad and number together. The reader never found TP9 at all -- the same blind spot A18 hit, where the 9 reads as an S and the marker is attributed to TP5. Placed outright, at the right-hand end of the top row beside CR1.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.33396,
+     "y": 0.26171,
+     "w": 0.02374,
+     "h": 0.04529,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP10": {
+   "board": {
+    "x": 0.9281,
+    "y": 0.09582,
+    "w": 0.01879,
+    "h": 0.04423,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad and number together; TP10's label sits one line above the rest of the row, with its pad below it.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.30645,
+     "y": 0.26197,
+     "w": 0.02736,
+     "h": 0.044,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP11": {
+   "board": {
+    "x": 0.94951,
+    "y": 0.12482,
+    "w": 0.0183,
+    "h": 0.04177,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad and number together; the pad is below the label here rather than above.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.29717,
+     "y": 0.44081,
+     "w": 0.02579,
+     "h": 0.04426,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP12": {
+   "board": {
+    "x": 0.57827,
+    "y": 0.10811,
+    "w": 0.01797,
+    "h": 0.04668,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The reader's verified label box, widened. TP12 stands alone above U23; its pad was not separately measured.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.54591,
+     "y": 0.56871,
+     "w": 0.02846,
+     "h": 0.04195,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP13": {
+   "board": {
+    "x": 0.84314,
+    "y": 0.80983,
+    "w": 0.01797,
+    "h": 0.04177,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The reader's verified label box, widened. TP13 and TP14 sit either side of the polarity marking under BT1, which could not be told from a pad at the grid resolution used. On the photographed board TP13 is the square pad and TP14 the round one, both directly across the soldered cell.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.56478,
+     "y": 0.72182,
+     "w": 0.02814,
+     "h": 0.02651,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP14": {
+   "board": {
+    "x": 0.88415,
+    "y": 0.80983,
+    "w": 0.01797,
+    "h": 0.04177,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The reader's verified label box, widened; see TP13.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.59623,
+     "y": 0.74421,
+     "w": 0.02877,
+     "h": 0.03423,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U10": {
+   "board": {
+    "x": 0.22745,
+    "y": 0.64177,
+    "w": 0.07598,
+    "h": 0.02998,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.74353,
+     "y": 0.67964,
+     "w": 0.04748,
+     "h": 0.13737,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U11": {
+   "board": {
+    "x": 0.14869,
+    "y": 0.64226,
+    "w": 0.04886,
+    "h": 0.02998,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.54444,
+     "y": 0.73814,
+     "w": 0.01161,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U13": {
+   "board": {
+    "x": 0.62663,
+    "y": 0.48108,
+    "w": 0.0866,
+    "h": 0.08108,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.26745,
+     "y": 0.28254,
+     "w": 0.06306,
+     "h": 0.2,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U15": {
+   "board": {
+    "x": 0.35507,
+    "y": 0.18084,
+    "w": 0.09869,
+    "h": 0.08108,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.50745,
+     "y": 0.24657,
+     "w": 0.05867,
+     "h": 0.23157,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U16": {
+   "board": {
+    "x": 0.49706,
+    "y": 0.17985,
+    "w": 0.09886,
+    "h": 0.08108,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.50698,
+     "y": 0.48823,
+     "w": 0.05631,
+     "h": 0.24036,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U17": {
+   "board": {
+    "x": 0.3549,
+    "y": 0.33415,
+    "w": 0.09869,
+    "h": 0.08108,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.69929,
+     "y": 0.24761,
+     "w": 0.05584,
+     "h": 0.23881,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U18": {
+   "board": {
+    "x": 0.4969,
+    "y": 0.33268,
+    "w": 0.09869,
+    "h": 0.08108,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.69914,
+     "y": 0.4903,
+     "w": 0.0582,
+     "h": 0.237,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U19": {
+   "board": {
+    "x": 0.35474,
+    "y": 0.48305,
+    "w": 0.09837,
+    "h": 0.08108,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.19629,
+     "y": 0.25225,
+     "w": 0.05698,
+     "h": 0.23525,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U20": {
+   "board": {
+    "x": 0.49673,
+    "y": 0.48157,
+    "w": 0.09902,
+    "h": 0.08108,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.1944,
+     "y": 0.49008,
+     "w": 0.05509,
+     "h": 0.23113,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U21": {
+   "board": {
+    "x": 0.35458,
+    "y": 0.63735,
+    "w": 0.09869,
+    "h": 0.08157,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.35826,
+     "y": 0.25225,
+     "w": 0.05509,
+     "h": 0.23525,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U22": {
+   "board": {
+    "x": 0.49657,
+    "y": 0.63636,
+    "w": 0.09886,
+    "h": 0.08157,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.35684,
+     "y": 0.48982,
+     "w": 0.05462,
+     "h": 0.2319,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U25": {
+   "board": {
+    "x": 0.47582,
+    "y": 0.78133,
+    "w": 0.06144,
+    "h": 0.02948,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.39307,
+     "y": 0.19794,
+     "w": 0.04923,
+     "h": 0.06649,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U26": {
+   "board": {
+    "x": 0.6585,
+    "y": 0.77985,
+    "w": 0.06111,
+    "h": 0.02998,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.20069,
+     "y": 0.2,
+     "w": 0.06193,
+     "h": 0.1268,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U28": {
+   "board": {
+    "x": 0.16487,
+    "y": 0.7828,
+    "w": 0.06144,
+    "h": 0.02899,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.54296,
+     "y": 0.1982,
+     "w": 0.06491,
+     "h": 0.1232,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U29": {
+   "board": {
+    "x": 0.24493,
+    "y": 0.7828,
+    "w": 0.06095,
+    "h": 0.02948,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.54374,
+     "y": 0.32036,
+     "w": 0.07056,
+     "h": 0.11057,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U3": {
+   "board": {
+    "x": 0.05997,
+    "y": 0.4457,
+    "w": 0.04216,
+    "h": 0.02998,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.33817,
+     "y": 0.18557,
+     "w": 0.04416,
+     "h": 0.08557,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U30": {
+   "board": {
+    "x": 0.3281,
+    "y": 0.78231,
+    "w": 0.06127,
+    "h": 0.02998,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.54249,
+     "y": 0.43454,
+     "w": 0.06977,
+     "h": 0.11005,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U31": {
+   "board": {
+    "x": 0.75327,
+    "y": 0.6344,
+    "w": 0.11944,
+    "h": 0.08157,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.15,
+     "y": 0.43052,
+     "w": 0.08223,
+     "h": 0.25244,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U33": {
+   "board": {
+    "x": 0.62647,
+    "y": 0.63538,
+    "w": 0.07565,
+    "h": 0.08157,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.67186,
+     "y": 0.64436,
+     "w": 0.05629,
+     "h": 0.1544,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U52": {
+   "board": {
+    "x": 0.95572,
+    "y": 0.4172,
+    "w": 0.04297,
+    "h": 0.02948,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.59921,
+     "y": 0.43567,
+     "w": 0.05189,
+     "h": 0.05636,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U6": {
+   "board": {
+    "x": 0.22778,
+    "y": 0.54054,
+    "w": 0.07549,
+    "h": 0.02948,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.59109,
+     "y": 0.40713,
+     "w": 0.0081,
+     "h": 0.00818,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U8": {
+   "board": {
+    "x": 0.14771,
+    "y": 0.23489,
+    "w": 0.19232,
+    "h": 0.13366,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.33454,
+     "y": 0.64046,
+     "w": 0.0705,
+     "h": 0.36701,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C1": {
+   "board": {
+    "x": 0.725,
+    "y": 0.80983,
+    "w": 0.02288,
+    "h": 0.0688,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Can outline measured from the drawing's ink extent, checked by eye. The reader had put C1 on C126's label; the part itself is the lone can above P62, right of C3.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.35246,
+     "y": 0.27423,
+     "w": 0.02587,
+     "h": 0.02835,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C4": {
+   "board": {
+    "x": 0.92337,
+    "y": 0.41425,
+    "w": 0.00866,
+    "h": 0.01671,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label box measured off the glyph run, checked by eye. The reader had put C4 on C9's label at the far left of the board; C4 is in fact between C12 and U52.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.58553,
+     "y": 0.48688,
+     "w": 0.01903,
+     "h": 0.03371,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C9": {
+   "board": {
+    "x": 0.03954,
+    "y": 0.59115,
+    "w": 0.0085,
+    "h": 0.0172,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label box measured off the glyph run, checked by eye. The reader had put C9 on C2's label; C9 is one of the two crystal load capacitors beside Y1, next to R4.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.3592,
+     "y": 0.26814,
+     "w": 0.00937,
+     "h": 0.01531,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C17": {
+   "board": {
+    "x": 0.87108,
+    "y": 0.38722,
+    "w": 0.02288,
+    "h": 0.0688,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Can outline measured from the drawing's ink extent, checked by eye. The 47uF aluminium can between R51 and C13; the reader never found it.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.10369,
+     "y": 0.64217,
+     "w": 0.02729,
+     "h": 0.03053,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C104": {
+   "board": {
+    "x": 0.05572,
+    "y": 0.69877,
+    "w": 0.0183,
+    "h": 0.0172,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label box measured off the glyph run, checked by eye. The reader had put C104 on C109's label; C104 is the bypass capacitor left of T51.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.56577,
+     "y": 0.7851,
+     "w": 0.01682,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C122": {
+   "board": {
+    "x": 0.43284,
+    "y": 0.64226,
+    "w": 0.01846,
+    "h": 0.0172,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label box measured off the glyph run, checked by eye. Between U21 and U22 in the bypass row; the reader never found it.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.204,
+     "y": 0.68127,
+     "w": 0.02802,
+     "h": 0.02809,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C124": {
+   "board": {
+    "x": 0.69003,
+    "y": 0.17789,
+    "w": 0.01781,
+    "h": 0.01671,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label box measured off the glyph run, checked by eye. The reader had put C124 on C129's label; C124 sits left of U24 at the top of the board.",
+   "sch": [
+    {
+     "sheet": "sh3",
+     "x": 0.26098,
+     "y": 0.67998,
+     "w": 0.02818,
+     "h": 0.02963,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "C133": {
+   "board": {
+    "x": 0.57631,
+    "y": 0.56806,
+    "w": 0.01846,
+    "h": 0.01671,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label box measured off the glyph run, checked by eye. Between U22 and U33; the reader never found it. The 'C' of the label touches the capacitor outline, which is why the glyph run had to be extended left by hand.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.47767,
+     "y": 0.87108,
+     "w": 0.0283,
+     "h": 0.02985,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR4": {
+   "board": {
+    "x": 0.96258,
+    "y": 0.20491,
+    "w": 0.01373,
+    "h": 0.01622,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label box measured off the glyph run, checked by eye. Top of the right-hand diode column, above CR3; the reader never found it.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.85519,
+     "y": 0.4668,
+     "w": 0.0272,
+     "h": 0.02445,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR7": {
+   "board": {
+    "x": 0.92418,
+    "y": 0.19705,
+    "w": 0.0134,
+    "h": 0.01671,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label box measured off the glyph run, checked by eye. Top of the left-hand diode column, above CR6; the reader never found it.",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.10839,
+     "y": 0.59715,
+     "w": 0.03247,
+     "h": 0.02794,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "T51": {
+   "board": {
+    "x": 0.09003,
+    "y": 0.73956,
+    "w": 0.02876,
+    "h": 0.08649,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye. The 8 MHz transformer can, between C104 and C111.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.35513,
+     "y": 0.65232,
+     "w": 0.04907,
+     "h": 0.06598,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U1": {
+   "board": {
+    "x": 0.88562,
+    "y": 0.19459,
+    "w": 0.0201,
+    "h": 0.03047,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye. The reader had put U1 on TP5's label.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.11293,
+     "y": 0.28196,
+     "w": 0.03233,
+     "h": 0.06546,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U2": {
+   "board": {
+    "x": 0.87108,
+    "y": 0.30762,
+    "w": 0.04248,
+    "h": 0.02998,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye. The reader had put U2 on U20's label, half the board away.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.22003,
+     "y": 0.32165,
+     "w": 0.04006,
+     "h": 0.15129,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U4": {
+   "board": {
+    "x": 0.04935,
+    "y": 0.64373,
+    "w": 0.0482,
+    "h": 0.03096,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye. The reader had put U4 on U41's label.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.44164,
+     "y": 0.25464,
+     "w": 0.05205,
+     "h": 0.14149,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U5": {
+   "board": {
+    "x": 0.14739,
+    "y": 0.44423,
+    "w": 0.07598,
+    "h": 0.02998,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye. The reader had put U5 on U8's label; U5 is the PLD in the row with U3 and Z1.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.58517,
+     "y": 0.18969,
+     "w": 0.05568,
+     "h": 0.13557,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U9": {
+   "board": {
+    "x": 0.12549,
+    "y": 0.5371,
+    "w": 0.04281,
+    "h": 0.02998,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye. Between Y1 and C106; the reader never found it.",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.60174,
+     "y": 0.51031,
+     "w": 0.04811,
+     "h": 0.14381,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U27": {
+   "board": {
+    "x": 0.5665,
+    "y": 0.78084,
+    "w": 0.06176,
+    "h": 0.02948,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye. In the bottom row between C127 and C126; the reader never found it.",
+   "sch": [
+    {
+     "sheet": "sh4",
+     "x": 0.19849,
+     "y": 0.32861,
+     "w": 0.06162,
+     "h": 0.12165,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "U32": {
+   "board": {
+    "x": 0.78627,
+    "y": 0.77887,
+    "w": 0.02059,
+    "h": 0.02899,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye. Left of C132 near the battery; the reader never found it.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.38994,
+     "y": 0.29542,
+     "w": 0.05094,
+     "h": 0.05636,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  },
+  "Z2": {
+   "board": {
+    "x": 0.8652,
+    "y": 0.54496,
+    "w": 0.04853,
+    "h": 0.02998,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline traced by flood-filling the drawing from the designator, checked by eye. Below R54 and above BT1; the reader never found it.",
+   "sch": [
+    {
+     "sheet": "sh5",
+     "x": 0.23082,
+     "y": 0.25039,
+     "w": 0.07862,
+     "h": 0.05893,
+     "placement": "verified"
+    }
+   ],
+   "schVerified": true
+  }
+ },
+ "layers": {
+  "photo": {
+   "landmarks": [
+    {
+     "note": "C100",
+     "src": [
+      0.03119,
+      0.3083
+     ],
+     "dst": [
+      0.03847,
+      0.34662
+     ]
+    },
+    {
+     "note": "C82",
+     "src": [
+      0.07034,
+      0.84701
+     ],
+     "dst": [
+      0.07699,
+      0.8312
+     ]
+    },
+    {
+     "note": "C109",
+     "src": [
+      0.09077,
+      0.57749
+     ],
+     "dst": [
+      0.09627,
+      0.58944
+     ]
+    },
+    {
+     "note": "C128",
+     "src": [
+      0.12453,
+      0.734
+     ],
+     "dst": [
+      0.12885,
+      0.73035
+     ]
+    },
+    {
+     "note": "C106",
+     "src": [
+      0.16834,
+      0.51719
+     ],
+     "dst": [
+      0.17082,
+      0.53599
+     ]
+    },
+    {
+     "note": "C130",
+     "src": [
+      0.29042,
+      0.82769
+     ],
+     "dst": [
+      0.29115,
+      0.81804
+     ]
+    },
+    {
+     "note": "C117",
+     "src": [
+      0.29457,
+      0.34251
+     ],
+     "dst": [
+      0.29477,
+      0.37942
+     ]
+    },
+    {
+     "note": "C115",
+     "src": [
+      0.29601,
+      0.19966
+     ],
+     "dst": [
+      0.29615,
+      0.24835
+     ]
+    },
+    {
+     "note": "U30",
+     "src": [
+      0.31506,
+      0.78096
+     ],
+     "dst": [
+      0.31547,
+      0.77593
+     ]
+    },
+    {
+     "note": "U17",
+     "src": [
+      0.38227,
+      0.35592
+     ],
+     "dst": [
+      0.38238,
+      0.39266
+     ]
+    },
+    {
+     "note": "U15",
+     "src": [
+      0.38261,
+      0.20279
+     ],
+     "dst": [
+      0.38248,
+      0.25272
+     ]
+    },
+    {
+     "note": "C125",
+     "src": [
+      0.43588,
+      0.8165
+     ],
+     "dst": [
+      0.43589,
+      0.81205
+     ]
+    },
+    {
+     "note": "C120",
+     "src": [
+      0.4368,
+      0.40986
+     ],
+     "dst": [
+      0.43625,
+      0.44235
+     ]
+    },
+    {
+     "note": "C118",
+     "src": [
+      0.43708,
+      0.25627
+     ],
+     "dst": [
+      0.43645,
+      0.30242
+     ]
+    },
+    {
+     "note": "C127",
+     "src": [
+      0.5252,
+      0.81707
+     ],
+     "dst": [
+      0.52455,
+      0.81288
+     ]
+    },
+    {
+     "note": "C123",
+     "src": [
+      0.56389,
+      0.2172
+     ],
+     "dst": [
+      0.56258,
+      0.26699
+     ]
+    },
+    {
+     "note": "C113",
+     "src": [
+      0.56554,
+      0.41336
+     ],
+     "dst": [
+      0.56435,
+      0.446
+     ]
+    },
+    {
+     "note": "C126",
+     "src": [
+      0.61534,
+      0.73391
+     ],
+     "dst": [
+      0.61419,
+      0.73731
+     ]
+    },
+    {
+     "note": "C131",
+     "src": [
+      0.68693,
+      0.55693
+     ],
+     "dst": [
+      0.6856,
+      0.577
+     ]
+    },
+    {
+     "note": "C3",
+     "src": [
+      0.75121,
+      0.72995
+     ],
+     "dst": [
+      0.74958,
+      0.73344
+     ]
+    },
+    {
+     "note": "C152",
+     "src": [
+      0.82911,
+      0.47728
+     ],
+     "dst": [
+      0.82648,
+      0.50543
+     ]
+    },
+    {
+     "note": "BT1",
+     "src": [
+      0.86224,
+      0.70894
+     ],
+     "dst": [
+      0.85887,
+      0.71388
+     ]
+    },
+    {
+     "note": "R3",
+     "src": [
+      0.87312,
+      0.15053
+     ],
+     "dst": [
+      0.86918,
+      0.20966
+     ]
+    },
+    {
+     "note": "C144",
+     "src": [
+      0.90458,
+      0.6086
+     ],
+     "dst": [
+      0.90003,
+      0.62224
+     ]
+    },
+    {
+     "note": "TP9",
+     "src": [
+      0.96912,
+      0.13317
+     ],
+     "dst": [
+      0.96235,
+      0.19409
+     ]
+    },
+    {
+     "note": "C145",
+     "src": [
+      0.97346,
+      0.69999
+     ],
+     "dst": [
+      0.96636,
+      0.70478
+     ]
+    }
+   ],
+   "transform": {
+    "H": [
+     0.983027861,
+     0.000683096,
+     0.005769786,
+     0.004610548,
+     0.901686206,
+     0.068237618,
+     -0.004989858,
+     -0.001225979,
+     1.0
+    ]
+   }
+  }
+ },
+ "sheets": {
+  "sh1": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.005,
+     "y0": 0.0242,
+     "x1": 0.9877,
+     "y1": 0.9812
+    }
+   }
+  },
+  "sh2": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.0118,
+     "y0": 0.0194,
+     "x1": 0.9892,
+     "y1": 0.9816
+    }
+   }
+  },
+  "sh3": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.0055,
+     "y0": 0.025,
+     "x1": 0.9892,
+     "y1": 0.9822
+    }
+   }
+  },
+  "sh4": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.011,
+     "y0": 0.024,
+     "x1": 0.9893,
+     "y1": 0.9817
+    }
+   }
+  },
+  "sh5": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.0063,
+     "y0": 0.0262,
+     "x1": 0.9892,
+     "y1": 0.9817
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,2286 @@
+{
+ "assembly": "A10",
+ "generatedBy": "tools/build_coords.py",
+ "notOnDrawing": [
+  "H3",
+  "H4",
+  "H5",
+  "H6",
+  "H7",
+  "H8",
+  "MP1",
+  "MP2",
+  "MP3",
+  "MP4",
+  "MP6",
+  "MP7"
+ ],
+ "placement": {
+  "C10": {
+   "board": {
+    "x": 0.90855,
+    "y": 0.73791,
+    "w": 0.02747,
+    "h": 0.0332,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.42812,
+     "y": 0.26722,
+     "w": 0.01493,
+     "h": 0.00939,
+     "placement": "verified",
+     "placementNote": "U5 decoupling"
+    }
+   ],
+   "schVerified": true
+  },
+  "R2": {
+   "board": {
+    "x": 0.33355,
+    "y": 0.82362,
+    "w": 0.01319,
+    "h": 0.01542,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.22881,
+     "y": 0.45203,
+     "w": 0.0081,
+     "h": 0.00828,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "P301": {
+   "board": {
+    "x": 0.33879,
+    "y": 0.94599,
+    "w": 0.02819,
+    "h": 0.01542,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.03837,
+     "y": 0.10633,
+     "w": 0.01872,
+     "h": 0.01088,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R3": {
+   "board": {
+    "x": 0.36764,
+    "y": 0.81615,
+    "w": 0.00853,
+    "h": 0.02313,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.20943,
+     "y": 0.51005,
+     "w": 0.0081,
+     "h": 0.00828,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "P302": {
+   "board": {
+    "x": 0.73971,
+    "y": 0.94383,
+    "w": 0.02735,
+    "h": 0.01542,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.03541,
+     "y": 0.62585,
+     "w": 0.0199,
+     "h": 0.01088,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.04409,
+     "y": 0.53591,
+     "w": 0.01937,
+     "h": 0.01104,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "C12": {
+   "board": {
+    "x": 0.90854,
+    "y": 0.30905,
+    "w": 0.00884,
+    "h": 0.03112,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.42718,
+     "y": 0.70825,
+     "w": 0.01493,
+     "h": 0.00939,
+     "placement": "verified",
+     "placementNote": "U11 decoupling"
+    }
+   ],
+   "schVerified": true
+  },
+  "C2": {
+   "board": {
+    "x": 0.38657,
+    "y": 0.79105,
+    "w": 0.01358,
+    "h": 0.015,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.1576,
+     "y": 0.5444,
+     "w": 0.01497,
+     "h": 0.00946,
+     "placement": "verified",
+     "placementNote": "Reader had it as a collision and dropped it"
+    }
+   ],
+   "schVerified": true
+  },
+  "R5": {
+   "board": {
+    "x": 0.40285,
+    "y": 0.85534,
+    "w": 0.01184,
+    "h": 0.01389,
+    "shape": "rect"
+   },
+   "placement": "agreed",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.18835,
+     "y": 0.55824,
+     "w": 0.01391,
+     "h": 0.01774,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Z2": {
+   "board": {
+    "x": 0.20724,
+    "y": 0.37288,
+    "w": 0.01196,
+    "h": 0.01511,
+    "shape": "rect"
+   },
+   "placement": "ambiguous",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.39149,
+     "y": 0.51892,
+     "w": 0.01497,
+     "h": 0.00946,
+     "placement": "verified",
+     "placementNote": "Label at the foot of the 9K element; reader put it on the INT SENSE HI net name"
+    }
+   ],
+   "schVerified": true
+  },
+  "C1": {
+   "board": {
+    "x": 0.3386,
+    "y": 0.72377,
+    "w": 0.0193,
+    "h": 0.03549,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Reader put it on the 'AI' of the vertical OHMS MAIN ASSEMBLY silkscreen",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.15337,
+     "y": 0.43977,
+     "w": 0.0081,
+     "h": 0.0084,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "C3": {
+   "board": {
+    "x": 0.41754,
+    "y": 0.71605,
+    "w": 0.0193,
+    "h": 0.03549,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.12474,
+     "y": 0.44013,
+     "w": 0.0081,
+     "h": 0.00863,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C6": {
+   "board": {
+    "x": 0.51088,
+    "y": 0.88117,
+    "w": 0.02632,
+    "h": 0.03765,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline: the 4.7 uF tantalum is drawn as a circle",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.13363,
+     "y": 0.39616,
+     "w": 0.0081,
+     "h": 0.00845,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C7": {
+   "board": {
+    "x": 0.67632,
+    "y": 0.82253,
+    "w": 0.0193,
+    "h": 0.03549,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.13347,
+     "y": 0.47599,
+     "w": 0.0081,
+     "h": 0.00845,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "C11": {
+   "board": {
+    "x": 0.7807,
+    "y": 0.64352,
+    "w": 0.0193,
+    "h": 0.03549,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.42812,
+     "y": 0.48773,
+     "w": 0.01493,
+     "h": 0.00939,
+     "placement": "verified",
+     "placementNote": "U6 decoupling"
+    }
+   ],
+   "schVerified": true
+  },
+  "C13": {
+   "board": {
+    "x": 0.9114,
+    "y": 0.53704,
+    "w": 0.0193,
+    "h": 0.03549,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.42753,
+     "y": 0.92897,
+     "w": 0.01284,
+     "h": 0.00863,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C16": {
+   "board": {
+    "x": 0.90965,
+    "y": 0.20525,
+    "w": 0.0193,
+    "h": 0.03549,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.11205,
+     "y": 0.69679,
+     "w": 0.01284,
+     "h": 0.00857,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K1": {
+   "board": {
+    "x": 0.09912,
+    "y": 0.88426,
+    "w": 0.07246,
+    "h": 0.06327,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Reader put it on K19's label, a column away. Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.2089,
+     "y": 0.05263,
+     "w": 0.0081,
+     "h": 0.00833,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.90237,
+     "y": 0.12644,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "K4": {
+   "board": {
+    "x": 0.26912,
+    "y": 0.71975,
+    "w": 0.03596,
+    "h": 0.12809,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Reader put it on K1's label. Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.1612,
+     "y": 0.3306,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.81849,
+     "y": 0.34583,
+     "w": 0.0081,
+     "h": 0.00828,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K6": {
+   "board": {
+    "x": 0.23456,
+    "y": 0.60617,
+    "w": 0.1,
+    "h": 0.05957,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.1957,
+     "y": 0.13206,
+     "w": 0.0081,
+     "h": 0.00828,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.28363,
+     "y": 0.56821,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "K7": {
+   "board": {
+    "x": 0.09895,
+    "y": 0.68302,
+    "w": 0.07228,
+    "h": 0.06327,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Reader put it on C3. Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.30184,
+     "y": 0.1759,
+     "w": 0.0081,
+     "h": 0.00815,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.62214,
+     "y": 0.56706,
+     "w": 0.01422,
+     "h": 0.01268,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "K9": {
+   "board": {
+    "x": 0.23702,
+    "y": 0.12562,
+    "w": 0.07281,
+    "h": 0.06327,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.30196,
+     "y": 0.25289,
+     "w": 0.0081,
+     "h": 0.0084,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.18036,
+     "y": 0.80245,
+     "w": 0.01493,
+     "h": 0.00939,
+     "placement": "verified",
+     "placementNote": "Coil in the U13 row; reader had it on the package legend text"
+    }
+   ],
+   "schVerified": true
+  },
+  "K11": {
+   "board": {
+    "x": 0.08088,
+    "y": 0.51265,
+    "w": 0.10035,
+    "h": 0.05926,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.83704,
+     "y": 0.18781,
+     "w": 0.0117,
+     "h": 0.00833,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.2218,
+     "y": 0.5683,
+     "w": 0.02036,
+     "h": 0.01632,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K16": {
+   "board": {
+    "x": 0.46263,
+    "y": 0.5892,
+    "w": 0.03579,
+    "h": 0.1284,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.24785,
+     "y": 0.33309,
+     "w": 0.01305,
+     "h": 0.00833,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.53806,
+     "y": 0.12653,
+     "w": 0.01262,
+     "h": 0.00845,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K17": {
+   "board": {
+    "x": 0.32193,
+    "y": 0.12623,
+    "w": 0.07298,
+    "h": 0.06296,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.30177,
+     "y": 0.34275,
+     "w": 0.01245,
+     "h": 0.00815,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.66451,
+     "y": 0.78732,
+     "w": 0.01265,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K20": {
+   "board": {
+    "x": 0.57281,
+    "y": 0.12407,
+    "w": 0.12772,
+    "h": 0.06296,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.68602,
+     "y": 0.41579,
+     "w": 0.01925,
+     "h": 0.00852,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.53769,
+     "y": 0.5671,
+     "w": 0.01265,
+     "h": 0.00845,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K22": {
+   "board": {
+    "x": 0.70842,
+    "y": 0.43333,
+    "w": 0.12807,
+    "h": 0.06327,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.85142,
+     "y": 0.52307,
+     "w": 0.0295,
+     "h": 0.01643,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.82029,
+     "y": 0.56588,
+     "w": 0.01262,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K23": {
+   "board": {
+    "x": 0.57281,
+    "y": 0.3216,
+    "w": 0.12789,
+    "h": 0.06235,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.68582,
+     "y": 0.63728,
+     "w": 0.01936,
+     "h": 0.00863,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.90469,
+     "y": 0.56597,
+     "w": 0.01293,
+     "h": 0.00863,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K24": {
+   "board": {
+    "x": 0.70825,
+    "y": 0.32068,
+    "w": 0.12789,
+    "h": 0.06235,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.85207,
+     "y": 0.63599,
+     "w": 0.02021,
+     "h": 0.01737,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.94686,
+     "y": 0.56571,
+     "w": 0.01265,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K25": {
+   "board": {
+    "x": 0.57281,
+    "y": 0.43457,
+    "w": 0.12789,
+    "h": 0.06327,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.46541,
+     "y": 0.71621,
+     "w": 0.02546,
+     "h": 0.0117,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.6223,
+     "y": 0.34664,
+     "w": 0.01258,
+     "h": 0.00828,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K26": {
+   "board": {
+    "x": 0.43053,
+    "y": 0.125,
+    "w": 0.12842,
+    "h": 0.06327,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.30084,
+     "y": 0.71785,
+     "w": 0.01925,
+     "h": 0.00852,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.49542,
+     "y": 0.56725,
+     "w": 0.01262,
+     "h": 0.00869,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K27": {
+   "board": {
+    "x": 0.43281,
+    "y": 0.43519,
+    "w": 0.12842,
+    "h": 0.06327,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.30091,
+     "y": 0.79499,
+     "w": 0.01925,
+     "h": 0.0084,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.57985,
+     "y": 0.34689,
+     "w": 0.01241,
+     "h": 0.00845,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K30": {
+   "board": {
+    "x": 0.58684,
+    "y": 0.58889,
+    "w": 0.03579,
+    "h": 0.1284,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.90722,
+     "y": 0.74473,
+     "w": 0.01262,
+     "h": 0.0084,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.94684,
+     "y": 0.12604,
+     "w": 0.01273,
+     "h": 0.00845,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K39": {
+   "board": {
+    "x": 0.43035,
+    "y": 0.32222,
+    "w": 0.12842,
+    "h": 0.06235,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.85231,
+     "y": 0.79003,
+     "w": 0.02561,
+     "h": 0.0162,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.86245,
+     "y": 0.56598,
+     "w": 0.01251,
+     "h": 0.00863,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "L4": {
+   "board": {
+    "x": 0.5386,
+    "y": 0.88272,
+    "w": 0.0193,
+    "h": 0.03549,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.10652,
+     "y": 0.36978,
+     "w": 0.01493,
+     "h": 0.00939,
+     "placement": "verified",
+     "placementNote": "6T choke in the +5 RLH entry from P302 23A/23C"
+    }
+   ],
+   "schVerified": true
+  },
+  "L5": {
+   "board": {
+    "x": 0.69825,
+    "y": 0.82253,
+    "w": 0.0193,
+    "h": 0.03549,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.10652,
+     "y": 0.45068,
+     "w": 0.01493,
+     "h": 0.00939,
+     "placement": "verified",
+     "placementNote": "6T choke in the +5 LH entry from P302 22A/22C"
+    }
+   ],
+   "schVerified": true
+  },
+  "R1": {
+   "board": {
+    "x": 0.15193,
+    "y": 0.59568,
+    "w": 0.0193,
+    "h": 0.03549,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Label beside the tall thin 90 MOhm body at the left of the board",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.3888,
+     "y": 0.14845,
+     "w": 0.00822,
+     "h": 0.01041,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R6": {
+   "board": {
+    "x": 0.43439,
+    "y": 0.85525,
+    "w": 0.0193,
+    "h": 0.03549,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.24261,
+     "y": 0.75363,
+     "w": 0.0081,
+     "h": 0.00833,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U1": {
+   "board": {
+    "x": 0.37544,
+    "y": 0.72469,
+    "w": 0.0193,
+    "h": 0.03549,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Reader put it on the '5' of L5",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.16488,
+     "y": 0.48161,
+     "w": 0.0081,
+     "h": 0.00815,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "U7": {
+   "board": {
+    "x": 0.71544,
+    "y": 0.73704,
+    "w": 0.10175,
+    "h": 0.04722,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Reader put it on U1's label. Body outline measured off a pixel grid; the designator sits inside the package",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.74134,
+     "y": 0.47683,
+     "w": 0.0081,
+     "h": 0.00834,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "U8": {
+   "board": {
+    "x": 0.71544,
+    "y": 0.64475,
+    "w": 0.10175,
+    "h": 0.04877,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline measured off a pixel grid; the designator sits inside the package",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.74154,
+     "y": 0.25695,
+     "w": 0.0081,
+     "h": 0.00834,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "U9": {
+   "board": {
+    "x": 0.75439,
+    "y": 0.8216,
+    "w": 0.07789,
+    "h": 0.03086,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline measured off a pixel grid; the designator sits inside the package",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.22702,
+     "y": 0.32098,
+     "w": 0.01493,
+     "h": 0.00939,
+     "placement": "verified",
+     "placementNote": "The 4028, LATCHING RELAY STROBE DECODING"
+    }
+   ],
+   "schVerified": true
+  },
+  "U11": {
+   "board": {
+    "x": 0.84386,
+    "y": 0.31111,
+    "w": 0.10175,
+    "h": 0.04722,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline measured off a pixel grid; the designator sits inside the package",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.41585,
+     "y": 0.69874,
+     "w": 0.01166,
+     "h": 0.00822,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "VR1": {
+   "board": {
+    "x": 0.41895,
+    "y": 0.85525,
+    "w": 0.0193,
+    "h": 0.03549,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.18205,
+     "y": 0.43952,
+     "w": 0.0116,
+     "h": 0.0084,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Z1": {
+   "board": {
+    "x": 0.30035,
+    "y": 0.37346,
+    "w": 0.0193,
+    "h": 0.03549,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Reader put it on the 'MAIN' of the OHMS MAIN ASSEMBLY silkscreen",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.39133,
+     "y": 0.81813,
+     "w": 0.0081,
+     "h": 0.01076,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "Z3": {
+   "board": {
+    "x": 0.25175,
+    "y": 0.37346,
+    "w": 0.0193,
+    "h": 0.03549,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.7829,
+     "y": 0.51596,
+     "w": 0.00946,
+     "h": 0.01081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP1": {
+   "board": {
+    "x": 0.3786,
+    "y": 0.84043,
+    "w": 0.01667,
+    "h": 0.02469,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad is a horizontal bar just above the label",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.09567,
+     "y": 0.66185,
+     "w": 0.01734,
+     "h": 0.03337,
+     "placement": "verified",
+     "placementNote": "Flag on S COM, zone B8"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP2": {
+   "board": {
+    "x": 0.2407,
+    "y": 0.82963,
+    "w": 0.01754,
+    "h": 0.03858,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad bar above the label",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.1699,
+     "y": 0.84919,
+     "w": 0.01686,
+     "h": 0.03284,
+     "placement": "verified",
+     "placementNote": "Flag on OHMS SENSE LO, zone A7"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP3": {
+   "board": {
+    "x": 0.26053,
+    "y": 0.82963,
+    "w": 0.01754,
+    "h": 0.03858,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad bar above the label and 23 px left of its centre",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.20063,
+     "y": 0.84919,
+     "w": 0.01686,
+     "h": 0.03284,
+     "placement": "verified",
+     "placementNote": "Flag on OHMS OUT LO. The legend prints A8; the flag is in A7"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP4": {
+   "board": {
+    "x": 0.15316,
+    "y": 0.82963,
+    "w": 0.01754,
+    "h": 0.03858,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad bar above the label",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.11694,
+     "y": 0.05465,
+     "w": 0.01812,
+     "h": 0.03284,
+     "placement": "verified",
+     "placementNote": "Flag on INT OUT HI, zone D8"
+    }
+   ],
+   "schVerified": true
+  },
+  "TP5": {
+   "board": {
+    "x": 0.21825,
+    "y": 0.82963,
+    "w": 0.01754,
+    "h": 0.03858,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Pad bar above the label",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.11694,
+     "y": 0.1742,
+     "w": 0.01812,
+     "h": 0.03284,
+     "placement": "verified",
+     "placementNote": "Flag on INT SENSE HI, zone D8"
+    }
+   ],
+   "schVerified": true
+  },
+  "K2": {
+   "board": {
+    "x": 0.1793,
+    "y": 0.71944,
+    "w": 0.03561,
+    "h": 0.12809,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.16118,
+     "y": 0.17058,
+     "w": 0.0081,
+     "h": 0.00833,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.86063,
+     "y": 0.34579,
+     "w": 0.0081,
+     "h": 0.00845,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K3": {
+   "board": {
+    "x": 0.22298,
+    "y": 0.71944,
+    "w": 0.03596,
+    "h": 0.12809,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.16116,
+     "y": 0.24416,
+     "w": 0.0081,
+     "h": 0.00833,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.94504,
+     "y": 0.34535,
+     "w": 0.0081,
+     "h": 0.00845,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K5": {
+   "board": {
+    "x": 0.08263,
+    "y": 0.78395,
+    "w": 0.10789,
+    "h": 0.10432,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.31143,
+     "y": 0.10266,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.26247,
+     "y": 0.56815,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "K8": {
+   "board": {
+    "x": 0.0807,
+    "y": 0.59815,
+    "w": 0.10018,
+    "h": 0.05926,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.45206,
+     "y": 0.1911,
+     "w": 0.0081,
+     "h": 0.00833,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.30508,
+     "y": 0.56822,
+     "w": 0.0081,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K10": {
+   "board": {
+    "x": 0.09912,
+    "y": 0.18642,
+    "w": 0.07281,
+    "h": 0.06235,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.46363,
+     "y": 0.24215,
+     "w": 0.01256,
+     "h": 0.00825,
+     "placement": "single"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.22372,
+     "y": 0.80245,
+     "w": 0.01493,
+     "h": 0.00939,
+     "placement": "verified",
+     "placementNote": "Coil in the U13 row; reader had it on the package legend text"
+    }
+   ],
+   "schVerified": true
+  },
+  "K12": {
+   "board": {
+    "x": 0.0807,
+    "y": 0.43179,
+    "w": 0.10018,
+    "h": 0.05926,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.69878,
+     "y": 0.18874,
+     "w": 0.01269,
+     "h": 0.00833,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.24328,
+     "y": 0.56811,
+     "w": 0.01301,
+     "h": 0.00845,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K13": {
+   "board": {
+    "x": 0.09912,
+    "y": 0.26667,
+    "w": 0.07263,
+    "h": 0.06235,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.85101,
+     "y": 0.24831,
+     "w": 0.01249,
+     "h": 0.00815,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.26605,
+     "y": 0.80143,
+     "w": 0.01265,
+     "h": 0.00845,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K14": {
+   "board": {
+    "x": 0.09912,
+    "y": 0.35123,
+    "w": 0.07263,
+    "h": 0.06265,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.68523,
+     "y": 0.23996,
+     "w": 0.01269,
+     "h": 0.00833,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.3085,
+     "y": 0.8017,
+     "w": 0.01273,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K15": {
+   "board": {
+    "x": 0.37965,
+    "y": 0.58951,
+    "w": 0.03596,
+    "h": 0.1284,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.53853,
+     "y": 0.33132,
+     "w": 0.02049,
+     "h": 0.01314,
+     "placement": "verified",
+     "placementNote": "Reader had it as a collision with MP3 and dropped both"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.62442,
+     "y": 0.12652,
+     "w": 0.01251,
+     "h": 0.00845,
+     "placement": "agreed"
+    }
+   ],
+   "schVerified": true
+  },
+  "K18": {
+   "board": {
+    "x": 0.70825,
+    "y": 0.12377,
+    "w": 0.12807,
+    "h": 0.06296,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.30047,
+     "y": 0.41937,
+     "w": 0.01922,
+     "h": 0.0084,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.57965,
+     "y": 0.56735,
+     "w": 0.02047,
+     "h": 0.01233,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K19": {
+   "board": {
+    "x": 0.70825,
+    "y": 0.21636,
+    "w": 0.12807,
+    "h": 0.06327,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.68589,
+     "y": 0.33911,
+     "w": 0.01936,
+     "h": 0.00833,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.57967,
+     "y": 0.78804,
+     "w": 0.01265,
+     "h": 0.00834,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K21": {
+   "board": {
+    "x": 0.57281,
+    "y": 0.21698,
+    "w": 0.12772,
+    "h": 0.06358,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.68578,
+     "y": 0.52498,
+     "w": 0.01936,
+     "h": 0.00852,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.53713,
+     "y": 0.78786,
+     "w": 0.01166,
+     "h": 0.00845,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K28": {
+   "board": {
+    "x": 0.45789,
+    "y": 0.21759,
+    "w": 0.07333,
+    "h": 0.06358,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.62056,
+     "y": 0.76014,
+     "w": 0.01277,
+     "h": 0.00852,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.49323,
+     "y": 0.78814,
+     "w": 0.01278,
+     "h": 0.01418,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K29": {
+   "board": {
+    "x": 0.54579,
+    "y": 0.58889,
+    "w": 0.03596,
+    "h": 0.1284,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.60688,
+     "y": 0.68317,
+     "w": 0.01305,
+     "h": 0.00863,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.82027,
+     "y": 0.12631,
+     "w": 0.01251,
+     "h": 0.00845,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K31": {
+   "board": {
+    "x": 0.55246,
+    "y": 0.73117,
+    "w": 0.12772,
+    "h": 0.06296,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.55959,
+     "y": 0.72561,
+     "w": 0.02574,
+     "h": 0.01324,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.49442,
+     "y": 0.34656,
+     "w": 0.01493,
+     "h": 0.00939,
+     "placement": "verified",
+     "placementNote": "Coil in the U8 row; reader had it on the package legend text"
+    }
+   ],
+   "schVerified": true
+  },
+  "K32": {
+   "board": {
+    "x": 0.55246,
+    "y": 0.80741,
+    "w": 0.12807,
+    "h": 0.06265,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.68665,
+     "y": 0.8878,
+     "w": 0.01943,
+     "h": 0.00852,
+     "placement": "ambiguous"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.53841,
+     "y": 0.34656,
+     "w": 0.01493,
+     "h": 0.00939,
+     "placement": "verified",
+     "placementNote": "Coil in the U8 row; reader had it on the package legend text"
+    }
+   ],
+   "schVerified": true
+  },
+  "K33": {
+   "board": {
+    "x": 0.63965,
+    "y": 0.77099,
+    "w": 0.03614,
+    "h": 0.12716,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.56049,
+     "y": 0.51655,
+     "w": 0.01266,
+     "h": 0.00828,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.90456,
+     "y": 0.34568,
+     "w": 0.01293,
+     "h": 0.00845,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K34": {
+   "board": {
+    "x": 0.63035,
+    "y": 0.58889,
+    "w": 0.03649,
+    "h": 0.1284,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.55842,
+     "y": 0.41066,
+     "w": 0.01288,
+     "h": 0.0081,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.49784,
+     "y": 0.12732,
+     "w": 0.01241,
+     "h": 0.00857,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K35": {
+   "board": {
+    "x": 0.50386,
+    "y": 0.5892,
+    "w": 0.03614,
+    "h": 0.1284,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.9045,
+     "y": 0.32785,
+     "w": 0.01249,
+     "h": 0.0084,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.86237,
+     "y": 0.12644,
+     "w": 0.01251,
+     "h": 0.0088,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K36": {
+   "board": {
+    "x": 0.42088,
+    "y": 0.58951,
+    "w": 0.03561,
+    "h": 0.1287,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.61226,
+     "y": 0.33042,
+     "w": 0.01269,
+     "h": 0.00828,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.58209,
+     "y": 0.12662,
+     "w": 0.01273,
+     "h": 0.00863,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K37": {
+   "board": {
+    "x": 0.37702,
+    "y": 0.2179,
+    "w": 0.07263,
+    "h": 0.06358,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.85108,
+     "y": 0.33784,
+     "w": 0.01234,
+     "h": 0.0084,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.622,
+     "y": 0.78775,
+     "w": 0.01245,
+     "h": 0.00828,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "K38": {
+   "board": {
+    "x": 0.46246,
+    "y": 0.76759,
+    "w": 0.03579,
+    "h": 0.12685,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.20777,
+     "y": 0.72834,
+     "w": 0.01266,
+     "h": 0.00852,
+     "placement": "agreed"
+    },
+    {
+     "sheet": "sh2",
+     "x": 0.20373,
+     "y": 0.55926,
+     "w": 0.01774,
+     "h": 0.01385,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "U10": {
+   "board": {
+    "x": 0.85404,
+    "y": 0.81759,
+    "w": 0.07596,
+    "h": 0.02747,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.22938,
+     "y": 0.51227,
+     "w": 0.01493,
+     "h": 0.00939,
+     "placement": "verified",
+     "placementNote": "The 74HC138, LATCHING RELAY ENABLE DECODING"
+    }
+   ],
+   "schVerified": true
+  },
+  "U12": {
+   "board": {
+    "x": 0.84404,
+    "y": 0.41636,
+    "w": 0.10053,
+    "h": 0.04383,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.41744,
+     "y": 0.9191,
+     "w": 0.01493,
+     "h": 0.00939,
+     "placement": "verified",
+     "placementNote": "Reader put it on the words 'U12 STB' in U9's output list"
+    }
+   ],
+   "schVerified": true
+  },
+  "U13": {
+   "board": {
+    "x": 0.84456,
+    "y": 0.73704,
+    "w": 0.10053,
+    "h": 0.04352,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.10411,
+     "y": 0.93359,
+     "w": 0.01262,
+     "h": 0.0088,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U2": {
+   "board": {
+    "x": 0.84421,
+    "y": 0.52994,
+    "w": 0.10053,
+    "h": 0.04383,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.74137,
+     "y": 0.69729,
+     "w": 0.0081,
+     "h": 0.00845,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U3": {
+   "board": {
+    "x": 0.84368,
+    "y": 0.20772,
+    "w": 0.10035,
+    "h": 0.04352,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.10069,
+     "y": 0.68722,
+     "w": 0.0081,
+     "h": 0.0088,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U5": {
+   "board": {
+    "x": 0.84439,
+    "y": 0.63148,
+    "w": 0.10053,
+    "h": 0.04352,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.41673,
+     "y": 0.25767,
+     "w": 0.0081,
+     "h": 0.00834,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "U6": {
+   "board": {
+    "x": 0.71561,
+    "y": 0.55123,
+    "w": 0.10035,
+    "h": 0.04383,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh2",
+     "x": 0.41665,
+     "y": 0.47808,
+     "w": 0.01493,
+     "h": 0.00939,
+     "placement": "verified",
+     "placementNote": "Reader put it on the words 'U6 STB' in U9's output list"
+    }
+   ],
+   "schVerified": true
+  },
+  "C4": {
+   "board": {
+    "x": 0.41842,
+    "y": 0.77562,
+    "w": 0.03088,
+    "h": 0.05432,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.12687,
+     "y": 0.5444,
+     "w": 0.01497,
+     "h": 0.00946,
+     "placement": "verified",
+     "placementNote": "Reader put it on pin 8 of K1"
+    }
+   ],
+   "schVerified": true
+  }
+ },
+ "layers": {
+  "photo": {
+   "landmarks": [
+    {
+     "note": "photo corner, top left",
+     "src": [
+      -0.01671,
+      -0.05867
+     ],
+     "dst": [
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "note": "photo corner, top right",
+     "src": [
+      1.00077,
+      -0.0511
+     ],
+     "dst": [
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "note": "photo corner, bottom right",
+     "src": [
+      1.01377,
+      1.01163
+     ],
+     "dst": [
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "note": "photo corner, bottom left",
+     "src": [
+      -0.02348,
+      1.03267
+     ],
+     "dst": [
+      0.0,
+      1.0
+     ]
+    }
+   ],
+   "approximate": true,
+   "transform": {
+    "H": [
+     0.956768996,
+     0.005935205,
+     0.016335828,
+     -0.006947403,
+     0.933796995,
+     0.054669779,
+     -0.025524789,
+     0.017951257,
+     1.0
+    ]
+   }
+  }
+ },
+ "sheets": {
+  "sh1": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.00615,
+     "y0": 0.01682,
+     "x1": 0.98944,
+     "y1": 0.98345
+    }
+   }
+  },
+  "sh2": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.00974,
+     "y0": 0.01618,
+     "x1": 0.98979,
+     "y1": 0.9833
+    }
+   }
+  },
+  "sh3": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.00552,
+     "y0": 0.0168,
+     "x1": 0.98975,
+     "y1": 0.9832
+    }
+   }
+  },
+  "sh4": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.00989,
+     "y0": 0.01675,
+     "x1": 0.9898,
+     "y1": 0.98352
+    }
+   }
+  }
+ }
+}

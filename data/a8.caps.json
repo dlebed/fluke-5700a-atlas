@@ -1,0 +1,239 @@
+{
+ "_comment": [
+  "Which rail or node each capacitor sits on, and what that node runs at.",
+  "The rated voltage is NOT here -- it is read from the parts list at run time,",
+  "so a corrected BOM corrects this too.",
+  "",
+  "A8 has no electrolytics apart from one tantalum. Twenty-eight capacitors:",
+  "C22 is a 15 uF solid tantalum and the other twenty-seven are ceramic and",
+  "polyester film. All of them are audited anyway, because the same question --",
+  "how much of its rating is this part using -- is worth asking of a film cap",
+  "whose job is to hold a precision node still.",
+  "",
+  "Twenty-seven of the twenty-eight nets were traced on Figure 7-8 sheets 1, 3",
+  "and 4. C32 could not be traced at all; see its entry.",
+  "",
+  "source is used strictly:",
+  "  'schematic'  the net was traced on the sheet AND the voltage on it is a",
+  "               named supply rail whose value A17's Table 2-10 publishes.",
+  "  'inferred'   the net was traced on the sheet, but no source states what it",
+  "               runs at, so the figure is derived from the circuit. Each note",
+  "               says from what. These are design points, not measurements.",
+  "",
+  "Where a capacitor sits between two live nodes rather than between a node and",
+  "a common, appliedV is the largest DIFFERENCE those two nodes can show, which",
+  "is often far less than either one's voltage to common. C31 is the clearest",
+  "case: it bridges AC/DC mV to its own guard, and both move together.",
+  "",
+  "railClass is how much is behind the node, which decides what a shorted part",
+  "does. Two letters are enough for this board:",
+  "  A  a supply rail arriving from A17 on P202. The energy behind it is that",
+  "     regulator and its fuse on A17 -- +8 RLH is fused by F1 there (fault",
+  "     code 3609) -- not anything on this board. A short here browns out a rail",
+  "     the whole guarded analog section shares, so the symptom appears on other",
+  "     assemblies before it appears on this one.",
+  "  B  a signal, compensation or gate node inside one circuit block, fed",
+  "     through hundreds of ohms or more. A short changes one reading and",
+  "     nothing else, which is why every part here is a film or C0G type and",
+  "     none of them is a recap candidate."
+ ],
+ "assembly": "A8",
+ "caps": {
+  "C1": {
+   "net": "+5 LH (RESET line at U1)",
+   "appliedV": 5.0,
+   "railClass": "B",
+   "source": "inferred",
+   "note": "470 pF from the POP/RESET line into U1 pin 35 to LHCOM, with R1 (15.4 k) forming the delay. Sheet 4. A logic node on +5 LH, so 5 V on a 50 V part. Fault code 3826 -- the 82C55 control word found reset -- points here and at R1."
+  },
+  "C2": {
+   "net": "+5 LH (CS2* line at U1)",
+   "appliedV": 5.0,
+   "railClass": "B",
+   "source": "inferred",
+   "note": "33 pF filtering the CS2* chip select into U1 pin 6, with R2 (1.21 k). Sheet 4."
+  },
+  "C3": {
+   "net": "+5 LH",
+   "appliedV": 5.0,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "470 pF from +5 LH to LHCOM at the top of R14 (4.7 k), which pulls the U13 strobe line up. Sheet 4."
+  },
+  "C4": {
+   "net": "Q6 gate",
+   "appliedV": 5.0,
+   "railClass": "B",
+   "source": "inferred",
+   "note": "0.01 uF from Q6's gate to RCOM, slowing the gate edge that switches the internal cal zero amplifier between gain 10 and gain 130. Sheet 1. The gate is driven from PB4 through R16 (100 k) at +5 LH levels, so 5 V. A Z5V dielectric, whose capacitance is only nominal -- this is a snubber, not a timing element."
+  },
+  "C5": {
+   "net": "+5 LH (WR* line at U1)",
+   "appliedV": 5.0,
+   "railClass": "B",
+   "source": "inferred",
+   "note": "33 pF filtering the WR* write strobe into U1 pin 36, with R5 (1 k). Sheet 4."
+  },
+  "C6": {
+   "net": "+5 LH",
+   "appliedV": 5.0,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "0.22 uF decoupling U1's +5 LH supply pin to LHCOM. Sheet 4."
+  },
+  "C7": {
+   "net": "+5 LH",
+   "appliedV": 5.0,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "0.22 uF bypassing +5 LH to LH COM where it enters on P202 pins 22A/22C through its 6-turn choke. Sheet 3."
+  },
+  "C8": {
+   "net": "+17 S",
+   "appliedV": 17.0,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "0.22 uF bypassing +17 S to S COM at the P202 entry (pins 30A/30C) through its 6-turn choke. Sheet 3. The highest voltage any capacitor on this board sees, and still a third of a 50 V part."
+  },
+  "C9": {
+   "net": "-17 S",
+   "appliedV": 17.0,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "0.22 uF bypassing -17 S to S COM at the P202 entry (pins 31A/31C). Sheet 3. Negative with respect to S COM; entered as a magnitude."
+  },
+  "C10": {
+   "net": "2.2 V range diagnostic channel",
+   "appliedV": 2.2,
+   "railClass": "B",
+   "source": "inferred",
+   "note": "100 pF to S COM on the 2.2V OUT diagnostic input, after R35 (560 ohm), feeding one of U4's eight channels. Sheet 4. The node cannot exceed the 2.2 V range's own full scale."
+  },
+  "C12": {
+   "net": "+5 LH",
+   "appliedV": 5.0,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "0.22 uF decoupling +5 LH at the U19 output stage on sheet 3. Note it returns to S COM, not LH COM -- the analog common is what matters here."
+  },
+  "C13": {
+   "net": "-5 LH",
+   "appliedV": 5.0,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "0.22 uF decoupling -5 LH at the U19 output stage on sheet 3, also returning to S COM. Entered as a magnitude."
+  },
+  "C14": {
+   "net": "U20 differential input",
+   "appliedV": 2.2,
+   "railClass": "B",
+   "source": "inferred",
+   "note": "15 pF across the internal cal zero amplifier's two inputs, behind R39 and R40 (100 ohm each). Sheet 1. In use this node carries millivolts -- that is the whole point of the circuit -- and the 2.2 V recorded is the largest thing K29 can switch onto the input path. The only 100 V capacitor on the board, so the least stressed part here by a wide margin."
+  },
+  "C15": {
+   "net": "+17 S (U20 supply)",
+   "appliedV": 17.0,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "0.22 uF decoupling U20's positive supply pin to S COM, behind R41 (20 ohm). Sheet 1."
+  },
+  "C16": {
+   "net": "-17 S (U20 supply)",
+   "appliedV": 17.0,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "0.22 uF decoupling U20's negative supply pin to S COM, behind R42 (20 ohm). Sheet 1. Entered as a magnitude."
+  },
+  "C17": {
+   "net": "ZERO OUT (U20 feedback)",
+   "appliedV": 15.0,
+   "railClass": "B",
+   "source": "inferred",
+   "note": "1 uF across the 18 k element of Z2, the internal cal zero amplifier's feedback. Sheet 1. It therefore sees the amplifier's output, which the ±17 S rails limit to about ±15 V. In normal use it sits near zero; 15 V is the worst case a saturated amplifier can put across it. TP6 is this node."
+  },
+  "C18": {
+   "net": "U13STB",
+   "appliedV": 5.0,
+   "railClass": "B",
+   "source": "inferred",
+   "note": "470 pF from the U13 strobe line to LHCOM, with R14 (4.7 k) pulling it up to +5 LH. Sheet 4. U13 is the driver for the ten Analog Motherboard relays, so a failure here is a §5-9 step 3 symptom."
+  },
+  "C20": {
+   "net": "HY1 pin 18 to pin 17",
+   "appliedV": 2.2,
+   "railClass": "B",
+   "source": "inferred",
+   "note": "1000 pF between the hybrid's output (pin 18) and its sense return (pin 17). Sheet 3. Both ends track each other within the amplifier's error, so the difference across it is millivolts; the 2.2 V recorded is the range's full scale, which is the largest either end reaches."
+  },
+  "C21": {
+   "net": "+5 RLH",
+   "appliedV": 5.0,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "0.22 uF bypassing +5 RLH to RLH COM at the P202 entry (pins 23A/23C), beside C22. Sheet 3. +5 RLH is the relay coil supply, so this pair sees the current step every time a bank of latching relays is energised for its 10 ms pulse."
+  },
+  "C22": {
+   "net": "+5 RLH",
+   "appliedV": 6.4,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "The only tantalum on A8: 15 uF, 20 V, holding up +5 RLH against the 10 ms relay latching pulses, at the P202 entry beside C21. Sheet 3, and confirmed against the photographed board. CORRECTED 2026-08 from 5.0 V to 6.4 V: the net is right but the rail value was not. +5 RLH is not a 5 V rail despite its name -- Table 2-10 gives it as +5.975 V +/-425 mV at A17's TP14, and A17 raises U11's output deliberately with R13/CR34/CR35 (S2-73), so the top of the published band is +6.40 V. That is the figure A5, A13, A14, A15 and A17 already use for this same rail; A8, A9 and A10 were the three entries left at a nominal 5. 6.4 V on a 20 V part is 32 % of rating rather than 25 %, still comfortable, so this remains a low-priority replacement. Note the same stock number (807610) buys the 15 uF 20 V part that A16 runs at 18 V on C9; that one is the priority, not this."
+  },
+  "C23": {
+   "net": "DC ATT OUTPUT to HY1 pin 10",
+   "appliedV": 2.2,
+   "railClass": "B",
+   "source": "inferred",
+   "note": "22 pF across the hybrid's input pins, between the tap of the 5:1 divider (Z1 pin 8, which is TP2) and the pin 10 return. Sheet 3. Differential, so millivolts in use; 2.2 V is the full scale of the node it hangs off."
+  },
+  "C25": {
+   "net": "+5 RLH",
+   "appliedV": 5.0,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "0.22 uF bypassing +5 RLH to RLH COM at the U8 relay driver bank. Sheet 4, with C26."
+  },
+  "C26": {
+   "net": "+5 RLH",
+   "appliedV": 5.0,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "0.22 uF bypassing +5 RLH to RLH COM at the U8 relay driver bank. Sheet 4, with C25."
+  },
+  "C27": {
+   "net": "+5 LH",
+   "appliedV": 5.0,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "0.22 uF decoupling +5 LH to LHCOM at U13, the Analog Motherboard relay driver. Sheet 4."
+  },
+  "C29": {
+   "net": "+8 RLH to Q1 base",
+   "appliedV": 8.0,
+   "railClass": "B",
+   "source": "inferred",
+   "note": "100 pF from Q1's collector (+8 RLH) to its base, rolling off the motherboard relay supply loop. Sheet 4. In normal operation the base sits about 4 to 8 V above RLH COM, so the difference across this part is a few volts; the 8 V recorded is the whole rail, which is what it would see if RLY+V were shorted down."
+  },
+  "C30": {
+   "net": "DC ATT OUTPUT",
+   "appliedV": 2.2,
+   "railClass": "B",
+   "source": "inferred",
+   "note": "330 pF from the 5:1 divider tap (Z1 pin 8, TP2) to S COM. Sheet 3. Full scale of the dc 2.2 V range."
+  },
+  "C31": {
+   "net": "AC/DC mV to mV AC GUARD",
+   "appliedV": 5.1,
+   "railClass": "B",
+   "source": "inferred",
+   "note": "0.1 uF between the AC/DC mV node at K17A and its own guard, mV AC GUARD. Sheet 1. Both plates move together — that is what a guard is for — so the difference across it is small, and the node itself is hard-clamped to ±5.1 V by CR5/CR6 against VR3/VR4 on sheet 2. Worth stating plainly because the same node reaches INT SENSE HI, which carries up to 220 V in the 220 V range: this capacitor is NOT across that. It sits on the millivolt side of K17A."
+  },
+  "C32": {
+   "net": null,
+   "appliedV": null,
+   "railClass": null,
+   "source": "not traced",
+   "note": "220 pF ceramic, stock 740654, listed only in the 1996 Table 6-9 as 'CAPACITOR R05R,CAP,CER,220PF,+-20%,50V,C0G'. It is absent from the Rev 9 Table 6-9, has no manufacturer columns, and no C32 symbol was found on any of the five schematic sheets or on the locator drawing. Left untraced rather than guessed: a rail recorded for a part whose position is unknown is worse than no rail at all."
+  }
+ }
+}

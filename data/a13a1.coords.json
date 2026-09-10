@@ -1,0 +1,1585 @@
+{
+ "assembly": "A13A1",
+ "generatedBy": "tools/build_coords.py",
+ "notOnDrawing": [
+  "TP2"
+ ],
+ "placement": {
+  "A1": {
+   "board": {
+    "x": 0.57215,
+    "y": 0.64884,
+    "w": 0.05522,
+    "h": 0.08281,
+    "shape": "rect"
+   },
+   "placement": "ambiguous"
+  },
+  "TP1": {
+   "board": {
+    "x": 0.08553,
+    "y": 0.10417,
+    "w": 0.03289,
+    "h": 0.10417,
+    "shape": "circle"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "The test point pad itself; its label is below it",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.25346,
+     "y": 0.55799,
+     "w": 0.01258,
+     "h": 0.02062,
+     "placement": "verified",
+     "placementNote": "The test point circle on U2's output"
+    }
+   ],
+   "schVerified": true
+  },
+  "C13": {
+   "board": {
+    "x": 0.14079,
+    "y": 0.1875,
+    "w": 0.05373,
+    "h": 0.08333,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.24876,
+     "y": 0.47686,
+     "w": 0.01295,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C9": {
+   "board": {
+    "x": 0.14079,
+    "y": 0.29514,
+    "w": 0.05373,
+    "h": 0.09028,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.18888,
+     "y": 0.52242,
+     "w": 0.0081,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C10": {
+   "board": {
+    "x": 0.14079,
+    "y": 0.40278,
+    "w": 0.05373,
+    "h": 0.08333,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.1635,
+     "y": 0.54812,
+     "w": 0.01238,
+     "h": 0.00859,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U2": {
+   "board": {
+    "x": 0.08114,
+    "y": 0.35278,
+    "w": 0.05702,
+    "h": 0.14236,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.21234,
+     "y": 0.57933,
+     "w": 0.02176,
+     "h": 0.01644,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR4": {
+   "board": {
+    "x": 0.19737,
+    "y": 0.17708,
+    "w": 0.04386,
+    "h": 0.0625,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.20789,
+     "y": 0.50291,
+     "w": 0.01242,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR3": {
+   "board": {
+    "x": 0.19737,
+    "y": 0.32986,
+    "w": 0.04386,
+    "h": 0.0625,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.15762,
+     "y": 0.50361,
+     "w": 0.01253,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "U1": {
+   "board": {
+    "x": 0.14868,
+    "y": 0.60556,
+    "w": 0.05373,
+    "h": 0.14236,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.1816,
+     "y": 0.79897,
+     "w": 0.00943,
+     "h": 0.00773,
+     "placement": "verified",
+     "placementNote": "OP-07 offset amplifier; the reader chose R26's value"
+    }
+   ],
+   "schVerified": true
+  },
+  "C11": {
+   "board": {
+    "x": 0.19298,
+    "y": 0.62153,
+    "w": 0.02632,
+    "h": 0.17361,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.17123,
+     "y": 0.68144,
+     "w": 0.01101,
+     "h": 0.00773,
+     "placement": "verified",
+     "placementNote": ".01uF above CR6; the reader chose the COLL pin label"
+    }
+   ],
+   "schVerified": true
+  },
+  "CR6": {
+   "board": {
+    "x": 0.07456,
+    "y": 0.76042,
+    "w": 0.04605,
+    "h": 0.0625,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.14848,
+     "y": 0.7296,
+     "w": 0.01295,
+     "h": 0.00846,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R8": {
+   "board": {
+    "x": 0.05417,
+    "y": 0.84167,
+    "w": 0.05373,
+    "h": 0.08681,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.16951,
+     "y": 0.59253,
+     "w": 0.0081,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R5": {
+   "board": {
+    "x": 0.14518,
+    "y": 0.84167,
+    "w": 0.05373,
+    "h": 0.08681,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.14895,
+     "y": 0.82165,
+     "w": 0.0081,
+     "h": 0.00836,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "R9": {
+   "board": {
+    "x": 0.21864,
+    "y": 0.84167,
+    "w": 0.05373,
+    "h": 0.08681,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.15393,
+     "y": 0.66082,
+     "w": 0.00943,
+     "h": 0.00773,
+     "placement": "verified",
+     "placementNote": "2K beside C11 in the offset amplifier; the reader did not find it"
+    }
+   ],
+   "schVerified": true
+  },
+  "Q1": {
+   "board": {
+    "x": 0.21601,
+    "y": 0.56389,
+    "w": 0.01974,
+    "h": 0.10417,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.18007,
+     "y": 0.2143,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R31": {
+   "board": {
+    "x": 0.26645,
+    "y": 0.15625,
+    "w": 0.05482,
+    "h": 0.09028,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.22295,
+     "y": 0.46442,
+     "w": 0.0121,
+     "h": 0.00811,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C2": {
+   "board": {
+    "x": 0.34649,
+    "y": 0.15833,
+    "w": 0.05263,
+    "h": 0.08681,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.19001,
+     "y": 0.40781,
+     "w": 0.01273,
+     "h": 0.00818,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R6": {
+   "board": {
+    "x": 0.34649,
+    "y": 0.25347,
+    "w": 0.05263,
+    "h": 0.09028,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.41866,
+     "y": 0.70086,
+     "w": 0.0081,
+     "h": 0.00818,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q2": {
+   "board": {
+    "x": 0.29167,
+    "y": 0.31597,
+    "w": 0.0307,
+    "h": 0.0625,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.24423,
+     "y": 0.22917,
+     "w": 0.0081,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R7": {
+   "board": {
+    "x": 0.30373,
+    "y": 0.40833,
+    "w": 0.05263,
+    "h": 0.08681,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.24856,
+     "y": 0.38453,
+     "w": 0.0081,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR2": {
+   "board": {
+    "x": 0.35746,
+    "y": 0.45139,
+    "w": 0.04825,
+    "h": 0.0625,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.58365,
+     "y": 0.63823,
+     "w": 0.01273,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R30": {
+   "board": {
+    "x": 0.42544,
+    "y": 0.29028,
+    "w": 0.08333,
+    "h": 0.26736,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Trimmer outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.38512,
+     "y": 0.54227,
+     "w": 0.01273,
+     "h": 0.00836,
+     "placement": "single"
+    }
+   ]
+  },
+  "R2": {
+   "board": {
+    "x": 0.29211,
+    "y": 0.57292,
+    "w": 0.02961,
+    "h": 0.17361,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.20162,
+     "y": 0.25807,
+     "w": 0.0081,
+     "h": 0.00818,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R3": {
+   "board": {
+    "x": 0.33114,
+    "y": 0.57292,
+    "w": 0.02851,
+    "h": 0.17361,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.24436,
+     "y": 0.2767,
+     "w": 0.0081,
+     "h": 0.00811,
+     "placement": "ambiguous"
+    }
+   ]
+  },
+  "R4": {
+   "board": {
+    "x": 0.39364,
+    "y": 0.52222,
+    "w": 0.05482,
+    "h": 0.08681,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.28724,
+     "y": 0.2857,
+     "w": 0.0081,
+     "h": 0.0081,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C6": {
+   "board": {
+    "x": 0.39364,
+    "y": 0.61944,
+    "w": 0.05482,
+    "h": 0.08681,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.24839,
+     "y": 0.30833,
+     "w": 0.0081,
+     "h": 0.00818,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q3": {
+   "board": {
+    "x": 0.47368,
+    "y": 0.51736,
+    "w": 0.0307,
+    "h": 0.0625,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.28565,
+     "y": 0.38418,
+     "w": 0.0081,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R26": {
+   "board": {
+    "x": 0.46974,
+    "y": 0.60764,
+    "w": 0.05811,
+    "h": 0.09028,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.28923,
+     "y": 0.32384,
+     "w": 0.01295,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "P1": {
+   "board": {
+    "x": 0.36184,
+    "y": 0.79514,
+    "w": 0.16228,
+    "h": 0.21528,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Header outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.04064,
+     "y": 0.26853,
+     "w": 0.00856,
+     "h": 0.01067,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C8": {
+   "board": {
+    "x": 0.45724,
+    "y": 0.77431,
+    "w": 0.02851,
+    "h": 0.17361,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.62085,
+     "y": 0.61551,
+     "w": 0.0081,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R23": {
+   "board": {
+    "x": 0.48794,
+    "y": 0.77431,
+    "w": 0.02851,
+    "h": 0.17361,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.58361,
+     "y": 0.61273,
+     "w": 0.01273,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R25": {
+   "board": {
+    "x": 0.49452,
+    "y": 0.33333,
+    "w": 0.0307,
+    "h": 0.17361,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.38557,
+     "y": 0.58714,
+     "w": 0.02519,
+     "h": 0.01392,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR5": {
+   "board": {
+    "x": 0.49452,
+    "y": 0.17361,
+    "w": 0.01974,
+    "h": 0.13889,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.29145,
+     "y": 0.42861,
+     "w": 0.01273,
+     "h": 0.00811,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR6": {
+   "board": {
+    "x": 0.55373,
+    "y": 0.16667,
+    "w": 0.01974,
+    "h": 0.13889,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.29154,
+     "y": 0.45753,
+     "w": 0.01273,
+     "h": 0.00818,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR7": {
+   "board": {
+    "x": 0.60965,
+    "y": 0.16667,
+    "w": 0.01974,
+    "h": 0.13889,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.29155,
+     "y": 0.4861,
+     "w": 0.01264,
+     "h": 0.00811,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q5": {
+   "board": {
+    "x": 0.66667,
+    "y": 0.16667,
+    "w": 0.01974,
+    "h": 0.11806,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.47634,
+     "y": 0.49979,
+     "w": 0.0081,
+     "h": 0.00818,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q9": {
+   "board": {
+    "x": 0.73026,
+    "y": 0.16667,
+    "w": 0.01974,
+    "h": 0.11806,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.44182,
+     "y": 0.52191,
+     "w": 0.00943,
+     "h": 0.00773,
+     "placement": "verified",
+     "placementNote": "2N3904 in the mid-stage bias; the reader chose the Q2-Q9 pinout legend"
+    }
+   ],
+   "schVerified": true
+  },
+  "C3": {
+   "board": {
+    "x": 0.53991,
+    "y": 0.28819,
+    "w": 0.05154,
+    "h": 0.09028,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.32476,
+     "y": 0.44769,
+     "w": 0.0081,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q4": {
+   "board": {
+    "x": 0.58443,
+    "y": 0.27778,
+    "w": 0.03289,
+    "h": 0.0625,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.32722,
+     "y": 0.6006,
+     "w": 0.0081,
+     "h": 0.00818,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R21": {
+   "board": {
+    "x": 0.53991,
+    "y": 0.38889,
+    "w": 0.05154,
+    "h": 0.08333,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.35761,
+     "y": 0.60014,
+     "w": 0.01181,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR10": {
+   "board": {
+    "x": 0.68969,
+    "y": 0.27083,
+    "w": 0.05921,
+    "h": 0.0625,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.39277,
+     "y": 0.62152,
+     "w": 0.01698,
+     "h": 0.00869,
+     "placement": "single"
+    }
+   ]
+  },
+  "C4": {
+   "board": {
+    "x": 0.56732,
+    "y": 0.52431,
+    "w": 0.02741,
+    "h": 0.17361,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.42054,
+     "y": 0.64991,
+     "w": 0.0081,
+     "h": 0.00818,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R10": {
+   "board": {
+    "x": 0.60022,
+    "y": 0.52431,
+    "w": 0.02741,
+    "h": 0.17361,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.32324,
+     "y": 0.64811,
+     "w": 0.01281,
+     "h": 0.00811,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R22": {
+   "board": {
+    "x": 0.63158,
+    "y": 0.52431,
+    "w": 0.02851,
+    "h": 0.17361,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.38932,
+     "y": 0.6534,
+     "w": 0.01253,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R11": {
+   "board": {
+    "x": 0.66382,
+    "y": 0.52431,
+    "w": 0.02741,
+    "h": 0.17361,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.47818,
+     "y": 0.61721,
+     "w": 0.0121,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C7": {
+   "board": {
+    "x": 0.69518,
+    "y": 0.52431,
+    "w": 0.02851,
+    "h": 0.17361,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.50803,
+     "y": 0.61681,
+     "w": 0.0081,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "VR1": {
+   "board": {
+    "x": 0.5636,
+    "y": 0.64931,
+    "w": 0.04825,
+    "h": 0.0625,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.54057,
+     "y": 0.58473,
+     "w": 0.01168,
+     "h": 0.00818,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R24": {
+   "board": {
+    "x": 0.52895,
+    "y": 0.80903,
+    "w": 0.02741,
+    "h": 0.17361,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.64982,
+     "y": 0.58705,
+     "w": 0.01273,
+     "h": 0.01427,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "P2": {
+   "board": {
+    "x": 0.62654,
+    "y": 0.79167,
+    "w": 0.16118,
+    "h": 0.20833,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Header outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.74285,
+     "y": 0.14549,
+     "w": 0.00969,
+     "h": 0.01044,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R12": {
+   "board": {
+    "x": 0.75877,
+    "y": 0.26944,
+    "w": 0.05263,
+    "h": 0.08333,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.47835,
+     "y": 0.55374,
+     "w": 0.01305,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R13": {
+   "board": {
+    "x": 0.75877,
+    "y": 0.37153,
+    "w": 0.05263,
+    "h": 0.09028,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.43365,
+     "y": 0.48437,
+     "w": 0.01295,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R28": {
+   "board": {
+    "x": 0.75877,
+    "y": 0.47569,
+    "w": 0.05263,
+    "h": 0.08333,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.6219,
+     "y": 0.37707,
+     "w": 0.01288,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R20": {
+   "board": {
+    "x": 0.75877,
+    "y": 0.59722,
+    "w": 0.05263,
+    "h": 0.08333,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.66672,
+     "y": 0.30084,
+     "w": 0.01273,
+     "h": 0.01508,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R15": {
+   "board": {
+    "x": 0.75877,
+    "y": 0.73611,
+    "w": 0.05263,
+    "h": 0.08333,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.5185,
+     "y": 0.2357,
+     "w": 0.01264,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C5": {
+   "board": {
+    "x": 0.75877,
+    "y": 0.84028,
+    "w": 0.05263,
+    "h": 0.08333,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.44129,
+     "y": 0.42041,
+     "w": 0.0081,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q8": {
+   "board": {
+    "x": 0.80154,
+    "y": 0.40278,
+    "w": 0.0307,
+    "h": 0.0625,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.66311,
+     "y": 0.3765,
+     "w": 0.0081,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C12": {
+   "board": {
+    "x": 0.83289,
+    "y": 0.21875,
+    "w": 0.02961,
+    "h": 0.17361,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.56709,
+     "y": 0.25716,
+     "w": 0.01288,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R17": {
+   "board": {
+    "x": 0.85482,
+    "y": 0.23472,
+    "w": 0.05373,
+    "h": 0.08681,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.59425,
+     "y": 0.24433,
+     "w": 0.01284,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R27": {
+   "board": {
+    "x": 0.89474,
+    "y": 0.3875,
+    "w": 0.02961,
+    "h": 0.17014,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.6176,
+     "y": 0.21869,
+     "w": 0.01253,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR5": {
+   "board": {
+    "x": 0.89474,
+    "y": 0.09722,
+    "w": 0.04605,
+    "h": 0.0625,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.57535,
+     "y": 0.34585,
+     "w": 0.01666,
+     "h": 0.01018,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR4": {
+   "board": {
+    "x": 0.97368,
+    "y": 0.29167,
+    "w": 0.01974,
+    "h": 0.13889,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.57511,
+     "y": 0.29526,
+     "w": 0.01682,
+     "h": 0.01035,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q6": {
+   "board": {
+    "x": 0.95833,
+    "y": 0.40278,
+    "w": 0.03289,
+    "h": 0.0625,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.59041,
+     "y": 0.19716,
+     "w": 0.0081,
+     "h": 0.00811,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R19": {
+   "board": {
+    "x": 0.83224,
+    "y": 0.48611,
+    "w": 0.05482,
+    "h": 0.08333,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.6668,
+     "y": 0.34174,
+     "w": 0.01284,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R18": {
+   "board": {
+    "x": 0.83224,
+    "y": 0.58472,
+    "w": 0.05482,
+    "h": 0.08681,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.66663,
+     "y": 0.25921,
+     "w": 0.01284,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R29": {
+   "board": {
+    "x": 0.82127,
+    "y": 0.71875,
+    "w": 0.02851,
+    "h": 0.17361,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.55525,
+     "y": 0.19755,
+     "w": 0.0126,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "Q7": {
+   "board": {
+    "x": 0.85088,
+    "y": 0.68056,
+    "w": 0.01974,
+    "h": 0.11111,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.66467,
+     "y": 0.21486,
+     "w": 0.0081,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "CR9": {
+   "board": {
+    "x": 0.89254,
+    "y": 0.8125,
+    "w": 0.01974,
+    "h": 0.13889,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Designator beside the part",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.53931,
+     "y": 0.17603,
+     "w": 0.01101,
+     "h": 0.00773,
+     "placement": "verified",
+     "placementNote": "BAV99 beside C1 and R14 in the output driver; the reader did not find it"
+    }
+   ],
+   "schVerified": true
+  },
+  "R16": {
+   "board": {
+    "x": 0.94298,
+    "y": 0.65278,
+    "w": 0.05263,
+    "h": 0.08333,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.59413,
+     "y": 0.16207,
+     "w": 0.01305,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "C1": {
+   "board": {
+    "x": 0.94298,
+    "y": 0.75,
+    "w": 0.05263,
+    "h": 0.08333,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.50668,
+     "y": 0.17225,
+     "w": 0.0081,
+     "h": 0.00836,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R14": {
+   "board": {
+    "x": 0.94298,
+    "y": 0.84722,
+    "w": 0.05263,
+    "h": 0.08333,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.53781,
+     "y": 0.14402,
+     "w": 0.01266,
+     "h": 0.00824,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "R1": {
+   "board": {
+    "x": 0.25987,
+    "y": 0.79514,
+    "w": 0.02632,
+    "h": 0.17361,
+    "shape": "rect"
+   },
+   "verified": true,
+   "placement": "verified",
+   "placementNote": "Body outline; designator inside. The reader had R1 on R7",
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.15287,
+     "y": 0.2496,
+     "w": 0.0081,
+     "h": 0.00811,
+     "placement": "agreed"
+    }
+   ]
+  },
+  "TP2": {
+   "sch": [
+    {
+     "sheet": "sh1",
+     "x": 0.09898,
+     "y": 0.49834,
+     "w": 0.01231,
+     "h": 0.00852,
+     "placement": "agreed"
+    }
+   ]
+  }
+ },
+ "layers": {},
+ "sheets": {}
+}

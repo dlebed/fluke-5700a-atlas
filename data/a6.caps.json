@@ -1,0 +1,123 @@
+{
+ "_comment": [
+  "Which rail each capacitor sits on, and what that rail runs at.",
+  "The rated voltage is NOT here -- it is read from the parts list at run time,",
+  "so a corrected BOM corrects this too.",
+  "",
+  "source: 'schematic' means the net was traced on the Chapter 7 sheet named in",
+  "the note, at full resolution. All eleven entries here were traced on sheet 1",
+  "of 3; none is inferred, and none has appliedV left null.",
+  "",
+  "A6 has ELEVEN electrolytics and they are all tantalum: C1-C8 and C49-C51, one",
+  "part number for all of them (CAP,TA,4.7UF,+-20%,25V, stock 807644). There is",
+  "no aluminium can anywhere on this assembly -- every other capacitor in Table",
+  "6-7 is ceramic or polyester, so this is the whole recap list. All eleven sit",
+  "in the supply entry and rail-generation circuit in the bottom left of sheet 1,",
+  "which makes the audit unusually tidy: one part type, one circuit, one sheet.",
+  "",
+  "Rail voltages come from A17's dataset, which reads them off Table 2-10 and the",
+  "Figure 7-21 sheet 1 annotations -- +17 S is 17.475 V and -17 S is -17.865 V,",
+  "not a round 17 -- because A6 makes none of the four rails that arrive on P101.",
+  "The local rails are computed from those and from the zener values printed on",
+  "sheet 1, and each note says which. Magnitudes are entered unsigned.",
+  "",
+  "The worst margin on the board is 70% of rating (C7 and C8 on +17 S). Nothing",
+  "comes close to its limit and nothing exceeds it -- a ratio over 1.0 would have",
+  "meant the rating or the rail was recorded wrong, not that Fluke had shipped a",
+  "part that fails on power-up.",
+  "",
+  "railClass is how much energy is behind the rail, which decides what a shorted",
+  "part does. These letters are this board's:",
+  "  A  +17 S and -17 S from A17's regulators, referenced to S COM. Regulated,",
+  "     and NOT fused anywhere on this assembly -- there is no F designator in",
+  "     Table 6-7 at all, so A17's protection upstream of P101 is the only limit.",
+  "  B  +5 LH and -5 LH logic supplies from A17, referenced to LH COM (C1, C3) or",
+  "     to SCOM (C2, C4) depending on which side of the entry choke they sit.",
+  "     Regulated, and unfused on this board for the same reason.",
+  "  C  -5F, made on THIS board by choke L12 from -5 LH. Same energy as class B,",
+  "     one filter section further along.",
+  "  D  the shunt-regulated local rails +12 and -9.5, made on this board by a",
+  "     zener and a dropper. Energy-limited by R39 (12K) and R40 (10K), so these",
+  "     two are the only capacitors here behind any current limit at all."
+ ],
+ "assembly": "A6",
+ "caps": {
+  "C7": {
+   "net": "+17 S",
+   "appliedV": 17.475,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "Sheet 1 of 3: the +17 S bypass on the source side of entry choke L4, straight across P101 pins 22A/22C to S COM. 70% of a 25 V part and the worst margin on this board, which is not alarming for a solid tantalum on a regulated rail but is the pair to replace first if any recapping is done. Its partner on the load side of L4 is C8."
+  },
+  "C8": {
+   "net": "+17S",
+   "appliedV": 17.475,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "Sheet 1 of 3: the +17 S bypass on the LOAD side of choke L4, to SCOM, and the node the whole +17 S distribution and VR1's +12 dropper hang off. Same 70% of rating as C7. Note that this is the rail §5-5 step 13 calls the '~+17V' high level at U13's collectors, so a soft C8 shows up as ringing on that measurement rather than as a supply fault."
+  },
+  "C5": {
+   "net": "-17 S",
+   "appliedV": 17.865,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "Sheet 1 of 3: the -17 S bypass on the source side of entry choke L3, across P101 pins 23A/23C to S COM. 71% of a 25 V part -- fractionally the tightest of the eleven, because -17 S runs slightly further from zero than +17 S does. The mirror of C7."
+  },
+  "C6": {
+   "net": "-17S",
+   "appliedV": 17.865,
+   "railClass": "A",
+   "source": "schematic",
+   "note": "Sheet 1 of 3: the -17 S bypass on the LOAD side of choke L3, to SCOM, and the node that feeds both zener chains -- VR4 to -12 and VR5/CR8/CR9 to -11 and -9.5. The mirror of C8, and the same 71% of rating."
+  },
+  "C1": {
+   "net": "-5 LH",
+   "appliedV": 5.0,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "Sheet 1 of 3: across the incoming -5 LH rail at P101 pins 20A/20C, and returned to LH COM (18A/18C) rather than to SCOM -- it is on the source side of entry choke L1, in the LH COM domain. 20% of a 25 V part. The two commons matter here: C2, one choke further along, returns to SCOM instead."
+  },
+  "C2": {
+   "net": "-5LH",
+   "appliedV": 5.0,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "Sheet 1 of 3: the -5 LH bypass on the LOAD side of choke L1, to SCOM. This is the -5LH net that feeds the ECL parts before L12 makes -5F from it. 20% of rating."
+  },
+  "C3": {
+   "net": "+5 LH",
+   "appliedV": 5.1,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "Sheet 1 of 3: across the incoming +5 LH rail at P101 pins 16A/16C to LH COM, the mirror of C1 and on the same side of the entry chokes. 20% of a 25 V part."
+  },
+  "C4": {
+   "net": "+5LH",
+   "appliedV": 5.1,
+   "railClass": "B",
+   "source": "schematic",
+   "note": "Sheet 1 of 3: the +5 LH bypass on the LOAD side of choke L2, to SCOM. The node R66 and R67 divide to make the +2.5 V reference for the comparators in U7, U10 and U11, so a failure here moves every filter-select and multiplexer threshold at once. 20% of rating."
+  },
+  "C49": {
+   "net": "-5F",
+   "appliedV": 5.0,
+   "railClass": "C",
+   "source": "schematic",
+   "note": "Sheet 1 of 3: the reservoir for -5F, the rail choke L12 and this capacitor make from -5LH (§2-217 names both parts). -5F is the quiet negative supply for the ECL sections; it is the same 5 V as its parent, so 20% of a 25 V part. This is the only one of the eleven that is not on a rail arriving at P101 or a zener node."
+  },
+  "C50": {
+   "net": "+12",
+   "appliedV": 12.4,
+   "railClass": "D",
+   "source": "schematic",
+   "note": "Sheet 1 of 3, and the one that would be recorded wrongly by reading the feed rail instead of the node. C50 is NOT on +17 S: VR1, a 5.1 V zener, sits between +17S and this node with R39 (12K) as its load, so the node is +17.475 - 5.1 = 12.4 V and the capacitor sees 12.4 V, not 17.5. 50% of a 25 V part. The 12.4 V is computed from A17's +17 S nominal and VR1's marked voltage; the sheet's own net label is simply '+12'."
+  },
+  "C51": {
+   "net": "-9.5",
+   "appliedV": 10.4,
+   "railClass": "D",
+   "source": "schematic",
+   "note": "Sheet 1 of 3, and the second node that must be traced rather than assumed. C51 is NOT on -17 S: VR5 (6.2 V) drops from -17S to the -11 node, then CR8 and CR9 (1N4448) come back up two diode drops to the node C51 and R40 (10K) are on, which the sheet labels -9.5. Tracing it gives -17.865 + 6.2 = -11.665 at the VR5 knee and about -10.4 after two 0.6 V drops, which is what is entered; the printed label says -9.5, and the worst case if either diode opens is the -11.7 V at the knee. Every one of those numbers is under half the 25 V rating, so the choice between them changes nothing about the margin -- but the number to have written down is the traced one, not the rail feeding the chain."
+  }
+ }
+}

@@ -1,0 +1,404 @@
+{
+  "_comment": [
+    "Hand corrections to the OCR pass, folded in by tools/build_coords.py.",
+    "Positions are pixels of .build/a19/drawing_full.png (6140 x 2155) for the",
+    "board and of .build/a19/sch1_full.png (6310 x 3855) for the sheet -- NOT of",
+    "the downscaled images the browser loads.", "",
+    "How this board read. The drawing gave 65 of 140 designators (46%), about",
+    "what A17 managed and for the same reason: most of what is missing is the",
+    "dense right-hand section, where the diode and resistor labels are 25 px of",
+    "rotated silkscreen packed four to the centimetre. The schematic read far",
+    "better -- 113 of 140, 81% -- because it is typeset rather than silkscreened.",
+    "",
+    "Every one of the 65 board markers and every one of the 113 sheet markers was",
+    "rendered onto its source image and looked at. On the board 10 were wrong; on",
+    "the sheet 17 were, and 13 of those 17 were the two legend blocks in the",
+    "right-hand margin, exactly as references/pitfalls.md predicts. Everything the",
+    "reader missed and everything it got wrong is placed by hand below, measured",
+    "off a 50 px grid over the full-resolution image.", "",
+    "All 13 test points are hand-placed on both spaces as a matter of course. On",
+    "the board each box spans the signal name, the pad and the TP number together,",
+    "because the pad is a bare tick between the two pieces of text and a marker on",
+    "the text alone sends a probe to the wrong side of it."
+  ],
+  "imageSize": { "w": 6140, "h": 2155 },
+  "sheetImageSize": { "w": 6310, "h": 3855 },
+  "_dropComment": [
+    "H7 is a tubular rivet with no silkscreen designator. The reader put a marker",
+    "on it spanning a third of the board -- it had merged several unrelated reads",
+    "-- which also made a part that belongs in notOnDrawing look placed. That is",
+    "the A18 MP2 failure again, so it is dropped here and listed below.",
+    "Everything else the reader got wrong is replaced rather than dropped, since",
+    "a hand entry under 'board' already wins."
+  ],
+  "drop": ["H7"],
+  "_dropSchematicComment": [
+    "Seven reads on sheet 1 that are not this designator anywhere on the sheet.",
+    "C10 is the letter C of the Q4 bottom-view legend in the COMPONENT I.D. box.",
+    "M1 and M2 are rubber feet, H5/H6/H7 are a heat sink and two rivets and MP8",
+    "is a nut -- none of them has a schematic symbol at all; the reader found",
+    "them in 'MPSU10', 'MR850', '1N4002' and two P41 pin numbers.",
+    "Q3, Q9 and Q10 are dropped implicitly instead: their only read was the",
+    "caption of the TO-202 package legend, and each is re-placed by hand on its",
+    "own transistor, which is a better answer than dropping."
+  ],
+  "dropSchematic": {
+    "sh1": ["C10", "M1", "M2", "H5", "H6", "H7", "MP8"]
+  },
+  "_notOnDrawingComment": [
+    "27 parts with no silkscreen designator on the locator drawing: two rubber",
+    "feet, two nylon ejectors, two grommets, two spacers, the TO-3 and TO-220",
+    "heat sinks and clips, the insulators, and every screw, nut and rivet. They",
+    "stay searchable in the parts list; counting them as unplaced would make the",
+    "coverage badge lie and send someone hunting for a washer that was never",
+    "drawn. Note that the two ejectors ARE drawn -- the ears at the top corners --",
+    "but they carry no designator, which is what this list is about."
+  ],
+  "notOnDrawing": [
+    "H2", "H3", "H4", "H5", "H6", "H7", "H11", "M1", "M2", "MP8", "MP9",
+    "MP10", "MP11", "MP12", "MP13", "MP14", "MP15", "MP16", "MP21", "MP24",
+    "MP25", "MP26", "MP27", "MP28", "MP29", "MP30", "MP31"
+  ],
+  "_boardComment": [
+    "Measured by eye off a 50 px grid over drawing_full.png and rendered back to",
+    "check. Ten of these correct a marker the reader placed somewhere else:",
+    "  C2   was on C9's label at the far left of the board",
+    "  C5   was on the '+5V' silkscreen beside TP12",
+    "  C7   was on the CR25/CR27 outlines",
+    "  C17  was on R9's resistor body",
+    "  CR1  was on CR13's label -- a truncation misread, the A18 MP2 shape again",
+    "  F1   was a box spanning Q9 and Q10",
+    "  L5   was on an unlabelled outline below L3 in the left cluster",
+    "  L7   was on the small outline beside C22, not on the choke that carries",
+    "       the L7 silkscreen inside its own circle",
+    "  R1   was in the middle of the blank centre panel, 3000 px from the part",
+    "  TP4  was on TP11's label, at the opposite end of the board",
+    "The rest are parts the reader never found. Boxes are sized to the label:",
+    "110 x 48 for horizontal silkscreen, 48 x 110 for the rotated labels that",
+    "make up most of the right-hand section."
+  ],
+  "board": {
+    "TP1": {
+      "x": 4032,
+      "y": 262,
+      "w": 130,
+      "h": 110,
+      "note": "Pad, +75VUR name and TP1 number together. TP1 sits one line above the other twelve because the row is staggered."
+    },
+    "TP2": { "x": 4412, "y": 287, "w": 130, "h": 110, "note": "Pad, +75V name and TP2 number together." },
+    "TP3": { "x": 4584, "y": 287, "w": 130, "h": 110, "note": "Pad, PS-SD name and TP3 number together." },
+    "TP4": {
+      "x": 5205,
+      "y": 287,
+      "w": 130,
+      "h": 110,
+      "note": "Pad, +35VUR name and TP4 number together. The reader had put this on TP11, at the far end of the board."
+    },
+    "TP5": { "x": 4909, "y": 287, "w": 130, "h": 110, "note": "Pad, +35V name and TP5 number together." },
+    "TP6": { "x": 4746, "y": 287, "w": 130, "h": 110, "note": "Pad, RESETL name and TP6 number together. Labelled pad with no jumper fitted." },
+    "TP7": {
+      "x": 1012,
+      "y": 292,
+      "w": 130,
+      "h": 110,
+      "note": "Pad, +12VUR name and TP7 number together. Labelled pad with no jumper fitted; the +12VUR name is printed to the right rather than above."
+    },
+    "TP8": { "x": 597, "y": 292, "w": 130, "h": 110, "note": "Pad, +12V name and TP8 number together." },
+    "TP9": { "x": 5351, "y": 287, "w": 130, "h": 110, "note": "Pad, -12VUR name and TP9 number together. Labelled pad with no jumper fitted." },
+    "TP10": { "x": 4121, "y": 287, "w": 130, "h": 110, "note": "Pad, -12V name and TP10 number together." },
+    "TP11": { "x": 438, "y": 292, "w": 130, "h": 110, "note": "Pad, +5VUR name and TP11 number together. Labelled pad with no jumper fitted." },
+    "TP12": { "x": 905, "y": 292, "w": 130, "h": 110, "note": "Pad, +5V name and TP12 number together." },
+    "TP13": { "x": 793, "y": 292, "w": 130, "h": 110, "note": "Pad, COM name and TP13 number together. The reference for every measurement on this board." },
+    "C2": { "x": 4386, "y": 882, "w": 110, "h": 48, "note": "The reader had this on C9's label, at the other end of the board." },
+    "C5": { "x": 5390, "y": 1428, "w": 110, "h": 48, "note": "The reader had this on the '+5V' silkscreen beside TP12." },
+    "C7": {
+      "x": 5622,
+      "y": 1530,
+      "w": 447,
+      "h": 447,
+      "shape": "circle",
+      "note": "The reader had this on the CR25/CR27 outlines. Body outline measured off a pixel grid; the designator sits inside the outline"
+    },
+    "C8": { "x": 5816, "y": 1187, "w": 110, "h": 48 },
+    "C9": { "x": 174, "y": 593, "w": 110, "h": 48, "note": "The label C2's marker had been sitting on." },
+    "C10": { "x": 5822, "y": 1065, "w": 110, "h": 48 },
+    "C17": { "x": 4560, "y": 1464, "w": 110, "h": 48, "note": "The reader had this on R9's resistor body." },
+    "C18": { "x": 4990, "y": 1472, "w": 200, "h": 75, "shape": "rect", "note": "The rectangular body beside the C18 label, which is printed outside it" },
+    "CR1": { "x": 4537, "y": 1244, "w": 48, "h": 110, "note": "The reader had this on CR13's label -- 'CR13' truncated to 'CR1'." },
+    "CR2": { "x": 4467, "y": 1244, "w": 48, "h": 110 },
+    "CR3": { "x": 4610, "y": 1244, "w": 48, "h": 110 },
+    "CR4": { "x": 4683, "y": 1244, "w": 48, "h": 110 },
+    "CR8": { "x": 4194, "y": 942, "w": 48, "h": 110 },
+    "CR9": { "x": 4728, "y": 1476, "w": 48, "h": 110 },
+    "CR10": { "x": 4860, "y": 1340, "w": 48, "h": 110 },
+    "CR11": { "x": 4995, "y": 1212, "w": 48, "h": 110 },
+    "CR12": { "x": 5062, "y": 1212, "w": 48, "h": 110 },
+    "CR13": { "x": 4662, "y": 503, "w": 110, "h": 48 },
+    "CR16": { "x": 4840, "y": 514, "w": 48, "h": 110 },
+    "CR17": { "x": 5387, "y": 1210, "w": 48, "h": 110 },
+    "CR18": { "x": 5318, "y": 1210, "w": 48, "h": 110 },
+    "CR19": { "x": 5246, "y": 1210, "w": 48, "h": 110 },
+    "CR20": { "x": 5171, "y": 1210, "w": 48, "h": 110 },
+    "CR21": { "x": 258, "y": 822, "w": 130, "h": 48 },
+    "CR22": { "x": 5912, "y": 1367, "w": 48, "h": 110 },
+    "CR24": { "x": 5832, "y": 1367, "w": 48, "h": 110 },
+    "CR25": { "x": 4294, "y": 1172, "w": 48, "h": 110 },
+    "CR26": { "x": 4121, "y": 1172, "w": 48, "h": 110 },
+    "CR27": { "x": 4213, "y": 1172, "w": 48, "h": 110 },
+    "CR28": { "x": 4040, "y": 1172, "w": 48, "h": 110 },
+    "CR29": { "x": 386, "y": 1522, "w": 130, "h": 48 },
+    "CR31": { "x": 4125, "y": 940, "w": 48, "h": 110 },
+    "CR32": { "x": 4255, "y": 940, "w": 48, "h": 110 },
+    "CR33": { "x": 4986, "y": 506, "w": 48, "h": 110 },
+    "CR34": { "x": 4908, "y": 506, "w": 48, "h": 110 },
+    "F1": { "x": 4862, "y": 1647, "w": 110, "h": 48, "note": "The reader had this as a box spanning Q9 and Q10." },
+    "F4": { "x": 5112, "y": 1645, "w": 110, "h": 48 },
+    "L5": { "x": 5901, "y": 1556, "w": 48, "h": 110, "note": "The reader had this on an unlabelled outline in the left cluster." },
+    "L6": { "x": 5982, "y": 1556, "w": 48, "h": 110 },
+    "L7": {
+      "x": 1340,
+      "y": 963,
+      "w": 326,
+      "h": 326,
+      "shape": "circle",
+      "note": "L7's designator is printed inside the choke's own circle; the reader had put the marker on the small outline beside C22. Body outline measured off a pixel grid; the designator sits inside the outline"
+    },
+    "Q4": { "x": 5133, "y": 1047, "w": 110, "h": 48 },
+    "Q6": { "x": 4662, "y": 635, "w": 110, "h": 48 },
+    "Q8": { "x": 4900, "y": 400, "w": 110, "h": 48 },
+    "R1": { "x": 5232, "y": 893, "w": 48, "h": 110, "note": "The reader had this in the blank centre panel, 3000 px from the part." },
+    "R2": { "x": 5177, "y": 893, "w": 48, "h": 110 },
+    "R3": { "x": 4568, "y": 758, "w": 48, "h": 110 },
+    "R4": { "x": 4742, "y": 742, "w": 48, "h": 110 },
+    "R8": { "x": 4058, "y": 926, "w": 48, "h": 110 },
+    "R9": { "x": 4826, "y": 738, "w": 48, "h": 110 },
+    "R10": { "x": 5126, "y": 494, "w": 48, "h": 110 },
+    "R11": { "x": 4938, "y": 745, "w": 48, "h": 110 },
+    "R12": { "x": 4786, "y": 763, "w": 48, "h": 110 },
+    "R13": { "x": 4877, "y": 763, "w": 48, "h": 110 },
+    "VR5": { "x": 4613, "y": 774, "w": 48, "h": 110 },
+    "VR6": { "x": 4682, "y": 774, "w": 48, "h": 110 },
+    "VR7": { "x": 4507, "y": 772, "w": 48, "h": 110 },
+    "VR14": { "x": 4721, "y": 514, "w": 48, "h": 110 },
+    "VR15": { "x": 4780, "y": 514, "w": 48, "h": 110 },
+    "U1": {
+      "x": 522,
+      "y": 422,
+      "w": 125,
+      "h": 79,
+      "shape": "rect",
+      "note": "Regulator body between the heatsink fins, measured by eye off a pixel grid; the designator is printed above it"
+    },
+    "U2": {
+      "x": 5606,
+      "y": 1219,
+      "w": 324,
+      "h": 82,
+      "shape": "rect",
+      "note": "Designator is printed beside the body; outline traced from a seed inside it, checked by eye"
+    },
+    "U3": {
+      "x": 427,
+      "y": 1011,
+      "w": 218,
+      "h": 72,
+      "shape": "rect",
+      "note": "Designator is printed beside the body; outline traced from a seed inside it, checked by eye"
+    },
+    "C1": { "x": 4239, "y": 544, "w": 442, "h": 442, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "C12": { "x": 1280, "y": 1438, "w": 490, "h": 490, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "C13": { "x": 743, "y": 1439, "w": 486, "h": 486, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "C3": { "x": 4836, "y": 1105, "w": 234, "h": 234, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "C6": { "x": 1280, "y": 491, "w": 490, "h": 490, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "Q1": { "x": 5566, "y": 654, "w": 314, "h": 314, "shape": "circle", "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing" },
+    "L8": { "x": 4117, "y": 1565, "w": 190, "h": 286, "shape": "rect", "note": "Body outline measured off a pixel grid; the designator sits inside the outline" }
+  },
+  "_schematicComment": [
+    "Sixteen hand placements on sheet 1. Three are test points the reader could",
+    "only find in the legend table in the right-hand margin (TP1, TP10) or found",
+    "on the wrong net (TP5 landed on TP9's -12VUR flag, the TPS/TP5 confusion the",
+    "pitfalls file names). Three are transistors whose only read was the caption",
+    "of the TO-202 package legend -- 'Q3, Q7, Q8, Q9, Q10' is a row of genuine",
+    "designators laid out in a grid, which is exactly the block that arrives in",
+    "the agreed tier looking trustworthy. U1 was read off the '100uF' of C15.",
+    "The rest are the seven chokes and two resistors the reader never found."
+  ],
+  "schematic": {
+    "sh1": {
+      "TP1": { "x": 1880, "y": 310, "w": 100, "h": 42, "note": "On the +75VUR flag. The reader had it in the test point legend table." },
+      "TP5": { "x": 4405, "y": 1265, "w": 100, "h": 42, "note": "On the +35V flag. The reader had it on TP9's -12VUR flag." },
+      "TP10": { "x": 4332, "y": 2662, "w": 115, "h": 42, "note": "On the -12V flag. The reader had it in the test point legend table." },
+      "U1": { "x": 3175, "y": 2418, "w": 85, "h": 42, "note": "Inside the 7812 block. The reader had read it off C15's '100uF'." },
+      "L1": { "x": 4110, "y": 352, "w": 75, "h": 42 },
+      "L2": { "x": 4210, "y": 1335, "w": 75, "h": 42 },
+      "L3": { "x": 4110, "y": 2255, "w": 75, "h": 42 },
+      "L4": { "x": 4125, "y": 2449, "w": 75, "h": 42, "note": "moved onto the L4 designator above its coil in the final review pass (had sat on blank space above)" },
+      "L5": { "x": 4100, "y": 2728, "w": 75, "h": 42 },
+      "L6": { "x": 4100, "y": 2840, "w": 75, "h": 42 },
+      "L7": { "x": 4286, "y": 3240, "w": 75, "h": 42 },
+      "Q3": { "x": 3320, "y": 590, "w": 85, "h": 42, "note": "On the transistor itself; the reader had it on the package legend caption." },
+      "Q9": { "x": 2095, "y": 760, "w": 85, "h": 42, "note": "On the transistor itself; the reader had it on the package legend caption." },
+      "Q10": { "x": 1610, "y": 905, "w": 95, "h": 42, "note": "On the transistor itself; the reader had it on the package legend caption." },
+      "R9": { "x": 1455, "y": 815, "w": 85, "h": 42 },
+      "R10": { "x": 2440, "y": 1490, "w": 95, "h": 42 },
+      "C10": { "x": 3532, "y": 2733, "w": 153, "h": 135 }
+    }
+  },
+  "_layersComment": [
+    "Photo alignment: 23 landmark pairs, solved as a full projective fit.",
+    "src is board space (the locator drawing), dst is photo image space, and H",
+    "maps board -> photo.", "",
+    "Thirteen of the pairs are the test point pads themselves -- flat plated",
+    "holes, nothing standing over them, and spread right across the board's",
+    "1.5 m of width in board space, which is what fixes the horizontal scale.",
+    "The other ten are silkscreen designators low on the board, chosen only",
+    "where the text is clear of any component body in BOTH images.", "",
+    "Nothing here is an ejector, a standoff, a mounting hole or the top of an",
+    "electrolytic: those stand proud of the board and show 15-20 px of parallax",
+    "against flat artwork. Nor is anything taken from a part whose body covers",
+    "its own silkscreen in the photograph -- the four fuses and C5, C7 and C17",
+    "were tried and dropped for exactly that reason. Their printed designators",
+    "sit under or beside the component in the photo and inside the outline on",
+    "the drawing, which produced 50-130 px of apparent disagreement that is not",
+    "a misalignment at all.", "",
+    "Residuals against the 23 pairs: median 5.5 px, p90 16 px, worst 17 px, on",
+    "a 5671 x 2182 photograph -- about a tenth of a marker's width. That is the",
+    "accuracy of reading a landmark by eye rather than a limit of the fit."
+  ],
+  "layers": {
+    "photo": {
+      "landmarks": [
+        {
+          "note": "TP11",
+          "src": [0.06954, 0.12343],
+          "dst": [0.07212, 0.19798]
+        },
+        {
+          "note": "TP8",
+          "src": [0.09544, 0.12343],
+          "dst": [0.09716, 0.19798]
+        },
+        {
+          "note": "TP13",
+          "src": [0.13094, 0.12343],
+          "dst": [0.13172, 0.19798]
+        },
+        {
+          "note": "TP12",
+          "src": [0.1443, 0.12343],
+          "dst": [0.1453, 0.19798]
+        },
+        {
+          "note": "TP7",
+          "src": [0.16042, 0.12343],
+          "dst": [0.16099, 0.19798]
+        },
+        {
+          "note": "TP1",
+          "src": [0.66189, 0.12251],
+          "dst": [0.66232, 0.19707]
+        },
+        {
+          "note": "TP10",
+          "src": [0.67443, 0.12251],
+          "dst": [0.67431, 0.19707]
+        },
+        {
+          "note": "TP2",
+          "src": [0.72117, 0.12251],
+          "dst": [0.72245, 0.19707]
+        },
+        {
+          "note": "TP3",
+          "src": [0.74674, 0.12251],
+          "dst": [0.74766, 0.19707]
+        },
+        {
+          "note": "TP6",
+          "src": [0.77296, 0.12251],
+          "dst": [0.77323, 0.19707]
+        },
+        {
+          "note": "TP5",
+          "src": [0.79886, 0.12251],
+          "dst": [0.80074, 0.19707]
+        },
+        {
+          "note": "TP4",
+          "src": [0.84642, 0.12251],
+          "dst": [0.84535, 0.19707]
+        },
+        {
+          "note": "TP9",
+          "src": [0.87134, 0.12251],
+          "dst": [0.87092, 0.19707]
+        },
+        {
+          "note": "CR21",
+          "src": [0.04202, 0.38144],
+          "dst": [0.04355, 0.42942]
+        },
+        {
+          "note": "CR35",
+          "src": [0.09218, 0.3819],
+          "dst": [0.09117, 0.42942]
+        },
+        {
+          "note": "C14",
+          "src": [0.06906, 0.59211],
+          "dst": [0.06842, 0.62236]
+        },
+        {
+          "note": "C23",
+          "src": [0.16596, 0.54153],
+          "dst": [0.16523, 0.57654]
+        },
+        {
+          "note": "CR30",
+          "src": [0.19463, 0.36937],
+          "dst": [0.19415, 0.42438]
+        },
+        {
+          "note": "Q10",
+          "src": [0.81873, 0.43109],
+          "dst": [0.82049, 0.48488]
+        },
+        {
+          "note": "Q4",
+          "src": [0.83599, 0.48585],
+          "dst": [0.83795, 0.53666]
+        },
+        {
+          "note": "Q2",
+          "src": [0.87231, 0.46775],
+          "dst": [0.8718, 0.51925]
+        },
+        {
+          "note": "P41",
+          "src": [0.87573, 0.82506],
+          "dst": [0.87145, 0.84464]
+        },
+        {
+          "note": "C19",
+          "src": [0.84332, 0.66682],
+          "dst": [0.84324, 0.69661]
+        }
+      ]
+    }
+  },
+  "_sheetsComment": [
+    "The zone grid of sheet 1, measured off the printed frame: columns 8 to 1",
+    "left to right and rows D to A top to bottom, with 'frame' the inner border",
+    "in normalised sheet coordinates. Zone labels for every placement are derived",
+    "from it rather than typed."
+  ],
+  "sheets": {
+    "sh1": {
+      "grid": {
+        "cols": ["8", "7", "6", "5", "4", "3", "2", "1"],
+        "rows": ["D", "C", "B", "A"],
+        "frame": { "x0": 0.0146, "y0": 0.0176, "x1": 0.9885, "y1": 0.9824 }
+      }
+    }
+  }
+}

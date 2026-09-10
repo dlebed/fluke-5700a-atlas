@@ -1,0 +1,1540 @@
+{
+ "_comment": [
+  "Hand-placed and hand-corrected positions for A8, in pixels of",
+  ".build/a8/drawing_full.png (5350x3010) and of the schN_full.png crops.",
+  "",
+  "The board read well: 144 of 187 designators, 112 of them in the agreed",
+  "tier. Every one of the 144 was rendered onto the drawing and looked at.",
+  "Fifteen were wrong and are corrected here -- C2, C6, C7, C16, CR5, L2,",
+  "R13, R17, T1, U1, U2, U9, U10, Z2 and TP5, which the reader read off the",
+  "TP9 label (the 9-as-S confusion the pitfalls describe). Twenty-eight more",
+  "the reader never found are placed by eye off a pixel grid.",
+  "",
+  "All ten test points are placed by hand whatever the reader thought, and",
+  "every box spans the silkscreen label AND its wire-loop pad. On this board",
+  "the pad sits about 45 px below and 30 px left of its label -- a marker",
+  "centred on the text alone sends a probe to the wrong hole.",
+  "",
+  "TP3 is the odd one out: its label is vertical and its pad is a vertical",
+  "bar immediately to the right of the text rather than below it.",
+  "",
+  "The photo alignment is marked approximate. Six landmark pairs were",
+  "measured, all on flat in-plane silkscreen -- part outlines where the photo",
+  "shows one, and lettering only where the drawing and the board agree on",
+  "where it sits. The ejector ears, the two standoffs and the mounting-hole",
+  "hardware are deliberately not used; they stand proud of the board. Worst",
+  "landmark residual is 4.1 photo px and two independent check features (the",
+  "U1 DIP corner and the C22 body) land within 16 px, but nothing under the",
+  "MP2 hybrid cover could be anchored at all, so positions in that corner are",
+  "the homography's word rather than a measurement."
+ ],
+ "imageSize": {
+  "w": 5350,
+  "h": 3010
+ },
+ "sheetImageSize": {
+  "sh1": {
+   "w": 6450,
+   "h": 3935
+  },
+  "sh2": {
+   "w": 6405,
+   "h": 3915
+  },
+  "sh3": {
+   "w": 6445,
+   "h": 3890
+  },
+  "sh4": {
+   "w": 6375,
+   "h": 3910
+  },
+  "sh5": {
+   "w": 6425,
+   "h": 3890
+  }
+ },
+ "_sheetsComment": [
+  "Zone grid frames. The inner frame -- the rule just inside the zone-label",
+  "band -- was located from the ink profile of each full-resolution crop",
+  "rather than by eye, because every sheet sits at a different offset and",
+  "each is scanned with a fraction of a degree of skew. Columns run 8 to 1",
+  "left to right and rows D to A top to bottom on all five sheets."
+ ],
+ "sheets": {
+  "sh1": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.00961,
+     "y0": 0.0244,
+     "x1": 0.98636,
+     "y1": 0.97331
+    }
+   }
+  },
+  "sh2": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.01452,
+     "y0": 0.01967,
+     "x1": 0.98735,
+     "y1": 0.97624
+    }
+   }
+  },
+  "sh3": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.01924,
+     "y0": 0.01928,
+     "x1": 0.98743,
+     "y1": 0.97584
+    }
+   }
+  },
+  "sh4": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.01224,
+     "y0": 0.02097,
+     "x1": 0.98682,
+     "y1": 0.97545
+    }
+   }
+  },
+  "sh5": {
+   "grid": {
+    "cols": [
+     "8",
+     "7",
+     "6",
+     "5",
+     "4",
+     "3",
+     "2",
+     "1"
+    ],
+    "rows": [
+     "D",
+     "C",
+     "B",
+     "A"
+    ],
+    "frame": {
+     "x0": 0.01603,
+     "y0": 0.02057,
+     "x1": 0.98724,
+     "y1": 0.97635
+    }
+   }
+  }
+ },
+ "_boardComment": [
+  "Centre and size in pixels of drawing_full.png. Everything here is",
+  "'verified' -- it was looked at on the full-resolution drawing."
+ ],
+ "board": {
+  "C13": {
+   "x": 357,
+   "y": 1290,
+   "w": 100,
+   "h": 150,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "C16": {
+   "x": 3560,
+   "y": 592,
+   "w": 110,
+   "h": 115,
+   "note": "The reader put this marker on another part's label. Re-measured by eye off a pixel grid."
+  },
+  "C2": {
+   "x": 3963,
+   "y": 1638,
+   "w": 110,
+   "h": 115,
+   "note": "The reader put this marker on another part's label. Re-measured by eye off a pixel grid."
+  },
+  "C20": {
+   "x": 390,
+   "y": 645,
+   "w": 130,
+   "h": 130,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "C21": {
+   "x": 2960,
+   "y": 2635,
+   "w": 90,
+   "h": 150,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "C26": {
+   "x": 3575,
+   "y": 2378,
+   "w": 110,
+   "h": 115,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "C6": {
+   "x": 3945,
+   "y": 2572,
+   "w": 110,
+   "h": 115,
+   "note": "The reader put this marker on another part's label. Re-measured by eye off a pixel grid."
+  },
+  "C7": {
+   "x": 3838,
+   "y": 2572,
+   "w": 110,
+   "h": 115,
+   "note": "The reader put this marker on another part's label. Re-measured by eye off a pixel grid."
+  },
+  "CR5": {
+   "x": 335,
+   "y": 1850,
+   "w": 90,
+   "h": 150,
+   "note": "The reader put this marker on another part's label. Re-measured by eye off a pixel grid."
+  },
+  "CR9": {
+   "x": 340,
+   "y": 1450,
+   "w": 90,
+   "h": 150,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "K12": {
+   "x": 2114,
+   "y": 914,
+   "w": 186,
+   "h": 378,
+   "shape": "rect",
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it. Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K25": {
+   "x": 1617,
+   "y": 1520,
+   "w": 671,
+   "h": 184,
+   "shape": "rect",
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it. Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K31": {
+   "x": 2688,
+   "y": 1396,
+   "w": 186,
+   "h": 378,
+   "shape": "rect",
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it. Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K32": {
+   "x": 2952,
+   "y": 1396,
+   "w": 182,
+   "h": 378,
+   "shape": "rect",
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it. Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K8": {
+   "x": 3217,
+   "y": 1396,
+   "w": 186,
+   "h": 378,
+   "shape": "rect",
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it. Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K9": {
+   "x": 1620,
+   "y": 916,
+   "w": 185,
+   "h": 378,
+   "shape": "rect",
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it. Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "L2": {
+   "x": 2895,
+   "y": 2612,
+   "w": 110,
+   "h": 115,
+   "note": "The reader put this marker on another part's label. Re-measured by eye off a pixel grid."
+  },
+  "L4": {
+   "x": 3470,
+   "y": 2515,
+   "w": 110,
+   "h": 115,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "Q10": {
+   "x": 2735,
+   "y": 1690,
+   "w": 110,
+   "h": 115,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "Q11": {
+   "x": 3020,
+   "y": 1075,
+   "w": 90,
+   "h": 150,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "Q13": {
+   "x": 375,
+   "y": 358,
+   "w": 120,
+   "h": 110,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "Q4": {
+   "x": 185,
+   "y": 940,
+   "w": 110,
+   "h": 115,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "Q7": {
+   "x": 3400,
+   "y": 1075,
+   "w": 90,
+   "h": 150,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "Q9": {
+   "x": 2385,
+   "y": 1690,
+   "w": 110,
+   "h": 115,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "R13": {
+   "x": 349,
+   "y": 2455,
+   "w": 140,
+   "h": 110,
+   "note": "The reader put this marker on another part's label. Re-measured by eye off a pixel grid."
+  },
+  "R17": {
+   "x": 4515,
+   "y": 2298,
+   "w": 110,
+   "h": 150,
+   "note": "The reader put this marker on another part's label. Re-measured by eye off a pixel grid."
+  },
+  "R9": {
+   "x": 4455,
+   "y": 2095,
+   "w": 190,
+   "h": 90,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "T1": {
+   "x": 1105,
+   "y": 1030,
+   "w": 110,
+   "h": 115,
+   "note": "The reader put this marker on another part's label. Re-measured by eye off a pixel grid."
+  },
+  "TP1": {
+   "x": 2637,
+   "y": 178,
+   "w": 150,
+   "h": 95,
+   "note": "Placed by hand to span the silkscreen label and its wire-loop pad; a marker on the text alone sends a probe to the wrong place."
+  },
+  "TP10": {
+   "x": 4057,
+   "y": 208,
+   "w": 270,
+   "h": 90,
+   "note": "Placed by hand to span the silkscreen label and its wire-loop pad; a marker on the text alone sends a probe to the wrong place."
+  },
+  "TP2": {
+   "x": 2476,
+   "y": 178,
+   "w": 150,
+   "h": 95,
+   "note": "Placed by hand to span the silkscreen label and its wire-loop pad; a marker on the text alone sends a probe to the wrong place."
+  },
+  "TP3": {
+   "x": 172,
+   "y": 660,
+   "w": 120,
+   "h": 120,
+   "note": "Placed by hand to span the silkscreen label and its wire-loop pad; a marker on the text alone sends a probe to the wrong place."
+  },
+  "TP4": {
+   "x": 2780,
+   "y": 178,
+   "w": 150,
+   "h": 95,
+   "note": "Placed by hand to span the silkscreen label and its wire-loop pad; a marker on the text alone sends a probe to the wrong place."
+  },
+  "TP5": {
+   "x": 3132,
+   "y": 205,
+   "w": 190,
+   "h": 115,
+   "note": "Placed by hand to span the silkscreen label and its wire-loop pad; a marker on the text alone sends a probe to the wrong place."
+  },
+  "TP6": {
+   "x": 3700,
+   "y": 208,
+   "w": 230,
+   "h": 90,
+   "note": "Placed by hand to span the silkscreen label and its wire-loop pad; a marker on the text alone sends a probe to the wrong place."
+  },
+  "TP7": {
+   "x": 3407,
+   "y": 206,
+   "w": 220,
+   "h": 90,
+   "note": "Placed by hand to span the silkscreen label and its wire-loop pad; a marker on the text alone sends a probe to the wrong place."
+  },
+  "TP8": {
+   "x": 2942,
+   "y": 230,
+   "w": 110,
+   "h": 140,
+   "note": "Placed by hand to span the silkscreen label and its wire-loop pad; a marker on the text alone sends a probe to the wrong place."
+  },
+  "TP9": {
+   "x": 938,
+   "y": 264,
+   "w": 120,
+   "h": 100,
+   "note": "Placed by hand to span the silkscreen label and its wire-loop pad; a marker on the text alone sends a probe to the wrong place."
+  },
+  "U1": {
+   "x": 4191,
+   "y": 2055,
+   "w": 238,
+   "h": 1000,
+   "shape": "rect",
+   "note": "Body outline measured off a pixel grid; the designator sits inside the package"
+  },
+  "U10": {
+   "x": 3910,
+   "y": 1075,
+   "w": 90,
+   "h": 150,
+   "note": "The reader put this marker on another part's label. Re-measured by eye off a pixel grid."
+  },
+  "U11": {
+   "x": 3990,
+   "y": 788,
+   "w": 530,
+   "h": 143,
+   "shape": "rect",
+   "note": "Body outline measured off a pixel grid; the designator sits inside the package"
+  },
+  "U12": {
+   "x": 3990,
+   "y": 499,
+   "w": 530,
+   "h": 142,
+   "shape": "rect",
+   "note": "Body outline measured off a pixel grid; the designator sits inside the package"
+  },
+  "U19": {
+   "x": 390,
+   "y": 1085,
+   "w": 110,
+   "h": 115,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "U2": {
+   "x": 4520,
+   "y": 847,
+   "w": 416,
+   "h": 95,
+   "shape": "rect",
+   "note": "Body outline measured off a pixel grid; the designator sits inside the package"
+  },
+  "U20": {
+   "x": 3320,
+   "y": 640,
+   "w": 90,
+   "h": 130,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "U3": {
+   "x": 4855,
+   "y": 1395,
+   "w": 140,
+   "h": 130,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "U9": {
+   "x": 3650,
+   "y": 1372,
+   "w": 540,
+   "h": 145,
+   "shape": "rect",
+   "note": "Body outline measured off a pixel grid; the designator sits inside the package"
+  },
+  "VR1": {
+   "x": 150,
+   "y": 1660,
+   "w": 90,
+   "h": 150,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "VR3": {
+   "x": 2100,
+   "y": 2570,
+   "w": 110,
+   "h": 115,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "Z1": {
+   "x": 1290,
+   "y": 573,
+   "w": 110,
+   "h": 90,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "Z2": {
+   "x": 2990,
+   "y": 797,
+   "w": 110,
+   "h": 95,
+   "note": "The reader put this marker on another part's label. Re-measured by eye off a pixel grid."
+  },
+  "Z6": {
+   "x": 4970,
+   "y": 1015,
+   "w": 90,
+   "h": 150,
+   "note": "Placed by eye off a pixel grid on the silkscreen designator; the reader did not find it."
+  },
+  "K1": {
+   "x": 2593,
+   "y": 803,
+   "w": 186,
+   "h": 669,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K2": {
+   "x": 2704,
+   "y": 343,
+   "w": 378,
+   "h": 184,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K3": {
+   "x": 2686,
+   "y": 2050,
+   "w": 187,
+   "h": 668,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K4": {
+   "x": 3215,
+   "y": 2049,
+   "w": 186,
+   "h": 668,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K5": {
+   "x": 2416,
+   "y": 2051,
+   "w": 189,
+   "h": 668,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K6": {
+   "x": 640,
+   "y": 858,
+   "w": 664,
+   "h": 185,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K7": {
+   "x": 1377,
+   "y": 917,
+   "w": 187,
+   "h": 379,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K10": {
+   "x": 346,
+   "y": 2202,
+   "w": 185,
+   "h": 379,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K11": {
+   "x": 1873,
+   "y": 914,
+   "w": 185,
+   "h": 378,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K13": {
+   "x": 1617,
+   "y": 1279,
+   "w": 671,
+   "h": 184,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K14": {
+   "x": 2147,
+   "y": 1398,
+   "w": 186,
+   "h": 378,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K15": {
+   "x": 1057,
+   "y": 2054,
+   "w": 184,
+   "h": 669,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K16": {
+   "x": 2823,
+   "y": 803,
+   "w": 183,
+   "h": 668,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K17": {
+   "x": 577,
+   "y": 1656,
+   "w": 182,
+   "h": 690,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K18": {
+   "x": 1882,
+   "y": 2052,
+   "w": 184,
+   "h": 670,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K19": {
+   "x": 1618,
+   "y": 2054,
+   "w": 184,
+   "h": 670,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K20": {
+   "x": 1325,
+   "y": 2054,
+   "w": 186,
+   "h": 668,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K21": {
+   "x": 2419,
+   "y": 1398,
+   "w": 189,
+   "h": 378,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K22": {
+   "x": 2145,
+   "y": 2052,
+   "w": 185,
+   "h": 670,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K23": {
+   "x": 2358,
+   "y": 914,
+   "w": 189,
+   "h": 378,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K24": {
+   "x": 2950,
+   "y": 2050,
+   "w": 183,
+   "h": 668,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K26": {
+   "x": 575,
+   "y": 2201,
+   "w": 182,
+   "h": 380,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K27": {
+   "x": 1070,
+   "y": 1425,
+   "w": 185,
+   "h": 378,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K28": {
+   "x": 804,
+   "y": 1366,
+   "w": 183,
+   "h": 378,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K29": {
+   "x": 802,
+   "y": 1789,
+   "w": 184,
+   "h": 378,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing; the fitter's top edge had stopped on K28's outline"
+  },
+  "K30": {
+   "x": 801,
+   "y": 2200,
+   "w": 184,
+   "h": 380,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "K33": {
+   "x": 393,
+   "y": 2628,
+   "w": 379,
+   "h": 185,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U13": {
+   "x": 4388,
+   "y": 1367,
+   "w": 528,
+   "h": 126,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U15": {
+   "x": 4737,
+   "y": 1692,
+   "w": 167,
+   "h": 77,
+   "shape": "rect",
+   "note": "Designator is printed beside the body; outline traced from a seed inside it, checked by eye"
+  },
+  "U17": {
+   "x": 4737,
+   "y": 2018,
+   "w": 166,
+   "h": 78,
+   "shape": "rect",
+   "note": "Designator is printed beside the body; outline traced from a seed inside it, checked by eye"
+  },
+  "U21": {
+   "x": 3366,
+   "y": 390,
+   "w": 164,
+   "h": 79,
+   "shape": "rect",
+   "note": "Designator is printed beside the body; outline traced from a seed inside it, checked by eye"
+  },
+  "U4": {
+   "x": 4521,
+   "y": 1089,
+   "w": 399,
+   "h": 78,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U5": {
+   "x": 4572,
+   "y": 593,
+   "w": 524,
+   "h": 127,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U6": {
+   "x": 3649,
+   "y": 2217,
+   "w": 524,
+   "h": 126,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U7": {
+   "x": 3648,
+   "y": 1951,
+   "w": 520,
+   "h": 125,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  },
+  "U8": {
+   "x": 3649,
+   "y": 1661,
+   "w": 520,
+   "h": 124,
+   "shape": "rect",
+   "note": "Body outline fitted by detect_round_parts.py, checked by eye against the drawing"
+  }
+ },
+ "_notOnDrawingComment": [
+  "Parts with no silkscreen designator of their own, so they can never be",
+  "placed and counting them as unplaced would make the coverage badge lie.",
+  "H5-H8 are rivets, MP18-MP21 soluble spacers, MP9/MP10 the nylon ejectors",
+  "(drawn as the corner ears, but unlabelled), and MP2 the moulded cover over",
+  "the hybrid. C32 is the odd one: it is a real 220 pF part in the 1996 parts",
+  "list, but it appears in no Rev 9 list, on no schematic sheet and nowhere on",
+  "the locator drawing, so there is no position to give it."
+ ],
+ "notOnDrawing": [
+  "C32",
+  "H5",
+  "H6",
+  "H7",
+  "H8",
+  "MP2",
+  "MP9",
+  "MP10",
+  "MP18",
+  "MP19",
+  "MP20",
+  "MP21"
+ ],
+ "_layersComment": [
+  "src is board/drawing space and dst is photo space; H maps board -> photo.",
+  "Six pairs, measured on flat in-plane silkscreen only."
+ ],
+ "layers": {
+  "photo": {
+   "approximate": true,
+   "landmarks": [
+    {
+     "src": [
+      0.19626,
+      0.07309
+     ],
+     "dst": [
+      0.19294,
+      0.11702
+     ]
+    },
+    {
+     "src": [
+      0.78598,
+      0.08937
+     ],
+     "dst": [
+      0.78765,
+      0.13878
+     ]
+    },
+    {
+     "src": [
+      0.91907,
+      0.18937
+     ],
+     "dst": [
+      0.92412,
+      0.23839
+     ]
+    },
+    {
+     "src": [
+      0.10897,
+      0.83953
+     ],
+     "dst": [
+      0.10706,
+      0.82205
+     ]
+    },
+    {
+     "src": [
+      0.91215,
+      0.87542
+     ],
+     "dst": [
+      0.90824,
+      0.88346
+     ]
+    },
+    {
+     "src": [
+      0.03607,
+      0.34452
+     ],
+     "dst": [
+      0.03353,
+      0.36847
+     ]
+    }
+   ]
+  }
+ },
+ "_dropSchematicComment": [
+  "Every marker the reader produced on a sheet was rendered and looked at on",
+  "sheet 1, and the result is the pitfalls file's warning in numbers: of 96",
+  "reads, 25 were right. The rest sat on relay bottom-view legend captions",
+  "('K1, K3-K6, K13, K15-K20, K22, K24, K25' is eight designators in a row and",
+  "not one of them is a position), on the transistor package legends, on the",
+  "test point legend table, on pin numbers, on net names, on the notes block",
+  "and on the title block's '(1 of 5)'. Everything not on the reviewed keep",
+  "list is dropped here. Two of sheet 1's own drops are worth naming because",
+  "they look like parts and are not: C4 and C6 are the zone references in",
+  "'(PG3 C4)' and '(PG3 C6)' in the test point legend, and Q6/Q7/Q9/Q10/Q12/",
+  "Q13/Q1/Q2/Q4/U3 are the captions of the bottom-view package legends.",
+  "",
+  "Sheets 2, 3 and 4 have now been reviewed the same way, marker by marker,",
+  "and the hit rate matches sheet 1's shape: sheet 2 kept 24 of 62, sheet 3",
+  "36 of 68, sheet 4 78 of 125 -- the relay coil labels on sheet 4 read almost",
+  "perfectly, while the capacitor and IC reads on sheets 2 and 3 were mostly",
+  "pin numbers, net names and neighbouring labels. What is still listed here",
+  "was looked at and is wrong. A marker that is not there cannot send anyone",
+  "to the wrong part; one that is there and wrong can.",
+  "",
+  "Sheet 5 gets no reader pass at all and has no entry here. It is nothing but",
+  "the relay/FET state table -- rows of ranges against columns headed K1..K33,",
+  "Q6, Q7, Q9/Q10, Q11 -- plus its legend and the title block. There is no",
+  "circuit body on it, so every read it could produce would be a column header",
+  "that names a part without saying where it is. A14's sheet 4 is the same",
+  "shape and is handled the same way."
+ ],
+ "dropSchematic": {
+  "sh1": [
+   "C1",
+   "C10",
+   "C2",
+   "C3",
+   "C31",
+   "C4",
+   "C5",
+   "C6",
+   "C7",
+   "H5",
+   "H6",
+   "H7",
+   "H8",
+   "K1",
+   "K11",
+   "K13",
+   "K14",
+   "K16",
+   "K17",
+   "K2",
+   "K21",
+   "K22",
+   "K23",
+   "K24",
+   "K25",
+   "K3",
+   "K30",
+   "K32",
+   "K5",
+   "K6",
+   "L1",
+   "L2",
+   "Q1",
+   "Q10",
+   "Q12",
+   "Q13",
+   "Q2",
+   "Q4",
+   "Q6",
+   "Q7",
+   "Q9",
+   "R1",
+   "R10",
+   "R16",
+   "R17",
+   "R32",
+   "R33",
+   "R36",
+   "R38",
+   "R39",
+   "R5",
+   "R7",
+   "T1",
+   "TP1",
+   "TP10",
+   "TP2",
+   "TP3",
+   "TP4",
+   "TP7",
+   "TP9",
+   "U1",
+   "U10",
+   "U17",
+   "U3",
+   "U4",
+   "U5",
+   "U7",
+   "U8",
+   "VR1",
+   "VR3",
+   "Z5"
+  ],
+  "sh2": [
+   "C1",
+   "C10",
+   "C15",
+   "C2",
+   "C20",
+   "C5",
+   "C8",
+   "H5",
+   "H7",
+   "H8",
+   "K1",
+   "K10",
+   "K11",
+   "K18",
+   "K2",
+   "K5",
+   "K6",
+   "L1",
+   "L2",
+   "P201",
+   "P202",
+   "Q1",
+   "Q10",
+   "Q2",
+   "R1",
+   "R3",
+   "R37",
+   "R5",
+   "R6",
+   "R7",
+   "T1",
+   "U1",
+   "U10",
+   "U11",
+   "U12",
+   "U17",
+   "U2",
+   "U7",
+   "VR1",
+   "Z2",
+   "Z5"
+  ],
+  "sh3": [
+   "C1",
+   "C10",
+   "C13",
+   "C15",
+   "C2",
+   "C21",
+   "C5",
+   "C6",
+   "C9",
+   "CR1",
+   "CR5",
+   "H5",
+   "K5",
+   "L1",
+   "MP2",
+   "Q1",
+   "R10",
+   "R17",
+   "R2",
+   "R23",
+   "R5",
+   "R7",
+   "T1",
+   "TP3",
+   "TP4",
+   "TP5",
+   "U1",
+   "U12",
+   "U13",
+   "U6",
+   "U7",
+   "U8",
+   "U9",
+   "VR4",
+   "Z2",
+   "Z5"
+  ],
+  "sh4": [
+   "C15",
+   "C16",
+   "C17",
+   "C18",
+   "C4",
+   "C6",
+   "C7",
+   "C8",
+   "C9",
+   "CR12",
+   "CR5",
+   "H5",
+   "H6",
+   "H7",
+   "H8",
+   "K1",
+   "K10",
+   "K11",
+   "K18",
+   "K19",
+   "K20",
+   "K26",
+   "K27",
+   "K28",
+   "K29",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "P201",
+   "Q10",
+   "Q11",
+   "Q4",
+   "Q6",
+   "Q7",
+   "Q9",
+   "R22",
+   "R25",
+   "R29",
+   "R5",
+   "T1",
+   "TP1",
+   "TP10",
+   "TP2",
+   "TP4",
+   "TP5",
+   "VR1",
+   "VR4",
+   "Z1",
+   "Z2"
+  ]
+ },
+ "_schematicComment": [
+  "Hand placements on the sheets. All ten test points are placed on the net,",
+  "beside the flag symbol, and each was checked against the signal name the",
+  "sheet prints next to it -- 'S COM' beside TP9, 'ZERO OUT' beside TP6 -- which",
+  "is a check independent of the reader. The sheet and zone were read off the",
+  "sheet 1 legend first (TP1 = DC ATT INPUT (PG3 D6) and so on) and every one",
+  "of the ten landed in the zone the legend names.",
+  "",
+  "The rest are parts, and they come in three kinds. Some promote a reader hit",
+  "the eye confirmed, so the badge stops reporting a disagreement that has been",
+  "settled -- these are mostly the collision tier, which build_coords skips even",
+  "when the read is right, because two names landed on one label. Some correct a",
+  "read that had the position right and the name wrong: the reader called CR10",
+  "'CR12', CR9 'CR1', R9 'R5', Q13 'Q1'. The rest are labels the reader never",
+  "found in the circuit body at all -- the four chokes L1-L4, T1, U9, U10, U20,",
+  "Q6, Q7 and their neighbours -- placed by eye off the full-resolution sheet.",
+  "Every box in this section was rendered back onto the sheet and looked at.",
+  "",
+  "H2 is the one part in the assembly the sheets do not name; its entry says so."
+ ],
+ "schematic": {
+  "sh1": {
+   "TP5": {
+    "x": 3255,
+    "y": 1140,
+    "w": 230,
+    "h": 200,
+    "note": "Placed by hand on the flag symbol and its signal name, off a pixel grid. The reader prefers the sheet 1 legend table, which names the signal but is not where the net is."
+   },
+   "TP6": {
+    "x": 4530,
+    "y": 2410,
+    "w": 230,
+    "h": 200,
+    "note": "Placed by hand on the flag symbol and its signal name, off a pixel grid. The reader prefers the sheet 1 legend table, which names the signal but is not where the net is."
+   },
+   "TP7": {
+    "x": 2130,
+    "y": 3400,
+    "w": 280,
+    "h": 220,
+    "note": "Placed by hand on the flag symbol and its signal name, off a pixel grid. The reader prefers the sheet 1 legend table, which names the signal but is not where the net is."
+   },
+   "TP8": {
+    "x": 840,
+    "y": 3655,
+    "w": 230,
+    "h": 200,
+    "note": "Placed by hand on the flag symbol and its signal name, off a pixel grid. The reader prefers the sheet 1 legend table, which names the signal but is not where the net is."
+   },
+   "P201": {
+    "x": 5293,
+    "y": 261,
+    "w": 130,
+    "h": 70,
+    "note": "Read by the reader and confirmed by eye on the full-resolution sheet; promoted here so the marker stops warning about a disagreement that has been settled."
+   },
+   "Q11": {
+    "x": 3250,
+    "y": 2064,
+    "w": 110,
+    "h": 60,
+    "note": "Read by the reader and confirmed by eye on the full-resolution sheet; promoted here so the marker stops warning about a disagreement that has been settled."
+   },
+   "Z2": {
+    "x": 3205,
+    "y": 2485,
+    "w": 100,
+    "h": 60,
+    "note": "Read by the reader and confirmed by eye on the full-resolution sheet; promoted here so the marker stops warning about a disagreement that has been settled."
+   },
+   "C4": {
+    "x": 2877,
+    "y": 2683,
+    "w": 100,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet; the reader never found this label in the circuit body. Beside Q6 in the FET switching circuit, marked .01uF."
+   },
+   "C31": {
+    "x": 4878,
+    "y": 549,
+    "w": 115,
+    "h": 55,
+    "note": "Reader hit on the printed label, confirmed by eye on the full-resolution sheet; recorded here because the reader filed it as a collision and build_coords skips that tier. The 0.1uF coupling capacitor on the mV AC GUARD net."
+   },
+   "Q6": {
+    "x": 2687,
+    "y": 2629,
+    "w": 100,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet; the reader never found this label in the circuit body. The FET itself, not the 'Q6, Q7, Q11' package legend the reader preferred."
+   },
+   "Q7": {
+    "x": 3029,
+    "y": 1861,
+    "w": 100,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet; the reader never found this label in the circuit body. The FET itself, not the 'Q6, Q7, Q11' package legend the reader preferred."
+   },
+   "R38": {
+    "x": 3253,
+    "y": 1776,
+    "w": 115,
+    "h": 55,
+    "note": "Reader hit on the printed label, confirmed by eye on the full-resolution sheet; recorded here because the reader filed it as a collision and build_coords skips that tier. The 47 CC resistor between Q7 and Q11."
+   },
+   "R39": {
+    "x": 3436,
+    "y": 1656,
+    "w": 115,
+    "h": 55,
+    "note": "Reader hit on the printed label, confirmed by eye on the full-resolution sheet; recorded here because the reader filed it as a collision and build_coords skips that tier. The 100 ohm resistor into U20 pin 3."
+   },
+   "U20": {
+    "x": 3896,
+    "y": 1763,
+    "w": 115,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet; the reader never found this label in the circuit body. The 1007 op amp triangle between R41 and R42."
+   }
+  },
+  "sh2": {
+   "K10": {
+    "x": 4205,
+    "y": 2396,
+    "w": 115,
+    "h": 55,
+    "note": "Reader hit on the printed label, confirmed by eye on the full-resolution sheet; recorded here because the reader filed it as a collision and build_coords skips that tier. The reader also read this same label as K18, which stays dropped."
+   },
+   "K11": {
+    "x": 2503,
+    "y": 3035,
+    "w": 115,
+    "h": 55,
+    "note": "Reader hit on the printed label, confirmed by eye on the full-resolution sheet; recorded here because the reader filed it as a collision and build_coords skips that tier. The reader also read this same label as K1, which stays dropped."
+   },
+   "R37": {
+    "x": 4153,
+    "y": 2053,
+    "w": 115,
+    "h": 55,
+    "note": "Reader hit on the printed label, confirmed by eye on the full-resolution sheet; recorded here because the reader filed it as a collision and build_coords skips that tier. The 4.99K resistor to -17S; also read as R3, which stays dropped."
+   },
+   "T1": {
+    "x": 3642,
+    "y": 1922,
+    "w": 100,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet; the reader never found this label in the circuit body. The common-mode choke between Z1 and CR5/CR6."
+   }
+  },
+  "sh3": {
+   "TP1": {
+    "x": 1580,
+    "y": 620,
+    "w": 240,
+    "h": 210,
+    "note": "Placed by hand on the flag symbol and its signal name, off a pixel grid. The reader prefers the sheet 1 legend table, which names the signal but is not where the net is."
+   },
+   "TP2": {
+    "x": 2240,
+    "y": 1170,
+    "w": 250,
+    "h": 220,
+    "note": "Placed by hand on the flag symbol and its signal name, off a pixel grid. The reader prefers the sheet 1 legend table, which names the signal but is not where the net is."
+   },
+   "TP3": {
+    "x": 3610,
+    "y": 1220,
+    "w": 240,
+    "h": 200,
+    "note": "Placed by hand on the flag symbol and its signal name, off a pixel grid. The reader prefers the sheet 1 legend table, which names the signal but is not where the net is."
+   },
+   "TP4": {
+    "x": 5420,
+    "y": 1985,
+    "w": 250,
+    "h": 220,
+    "note": "Placed by hand on the flag symbol and its signal name, off a pixel grid. The reader prefers the sheet 1 legend table, which names the signal but is not where the net is."
+   },
+   "TP9": {
+    "x": 1465,
+    "y": 3160,
+    "w": 250,
+    "h": 220,
+    "note": "Placed by hand on the flag symbol and its signal name, off a pixel grid. The reader prefers the sheet 1 legend table, which names the signal but is not where the net is."
+   },
+   "C9": {
+    "x": 980,
+    "y": 3316,
+    "w": 105,
+    "h": 55,
+    "note": "Reader hit on the printed label, confirmed by eye on the full-resolution sheet; recorded here because the reader filed it as a collision and build_coords skips that tier. The .22uF from S COM to -17S; also read as C5, which stays dropped."
+   },
+   "C13": {
+    "x": 4966,
+    "y": 1814,
+    "w": 115,
+    "h": 55,
+    "note": "Reader hit on the printed label, confirmed by eye on the full-resolution sheet; recorded here because the reader filed it as a collision and build_coords skips that tier. The .22uF across R32; also read as C15, which stays dropped."
+   },
+   "C21": {
+    "x": 991,
+    "y": 2374,
+    "w": 115,
+    "h": 55,
+    "note": "Reader hit on the printed label, confirmed by eye on the full-resolution sheet; recorded here because the reader filed it as a collision and build_coords skips that tier. The .22uF on +5RLH; also read as C2, which stays dropped."
+   },
+   "R23": {
+    "x": 3313,
+    "y": 1282,
+    "w": 115,
+    "h": 55,
+    "note": "Reader hit on the printed label, confirmed by eye on the full-resolution sheet; recorded here because the reader filed it as a collision and build_coords skips that tier. The 1K into TP3; also read as R2, which stays dropped."
+   },
+   "CR9": {
+    "x": 3818,
+    "y": 1580,
+    "w": 115,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet: the reader read this label as its neighbour, so the position was right and the name was not. The reader named it CR1 and CR5; the sheet prints CR9, under CR8."
+   },
+   "Q13": {
+    "x": 3383,
+    "y": 1668,
+    "w": 115,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet: the reader read this label as its neighbour, so the position was right and the name was not. The reader read the leading 'Q1' and called it Q1."
+   },
+   "L1": {
+    "x": 765,
+    "y": 2550,
+    "w": 100,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet; the reader never found this label in the circuit body. The 6-turn choke in the +5 LH supply, left of C7."
+   },
+   "L2": {
+    "x": 790,
+    "y": 3072,
+    "w": 100,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet; the reader never found this label in the circuit body. The 6-turn choke in the +17 S supply, left of C8."
+   },
+   "L3": {
+    "x": 765,
+    "y": 3388,
+    "w": 100,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet; the reader never found this label in the circuit body. The 6-turn choke in the -17 S supply, below C9."
+   },
+   "L4": {
+    "x": 787,
+    "y": 2278,
+    "w": 100,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet; the reader never found this label in the circuit body. The 6-turn choke in the +5 RLH supply, left of C21."
+   },
+   "H2": {
+    "x": 5800,
+    "y": 2978,
+    "w": 400,
+    "h": 70,
+    "note": "The sheets never print H2. The parts list's H2 is 'HYBRID ASSEMBLY, TESTED'; sheet 3 draws it as the dashed block captioned HR1 ASSY, which carries the HYBRID row and the RNET row, and the board drawing settles it -- the H2 outline on the drawing has Z1 printed inside it, and Z1 is that RNET. Placed on the caption and the conflict recorded, because a part the sheet names differently is otherwise unfindable."
+   }
+  },
+  "sh4": {
+   "TP10": {
+    "x": 1950,
+    "y": 2080,
+    "w": 270,
+    "h": 200,
+    "note": "Placed by hand on the flag symbol and its signal name, off a pixel grid. The reader prefers the sheet 1 legend table, which names the signal but is not where the net is."
+   },
+   "K11": {
+    "x": 3870,
+    "y": 560,
+    "w": 115,
+    "h": 55,
+    "note": "Reader hit on the printed label, confirmed by eye on the full-resolution sheet; recorded here because the reader filed it as a collision and build_coords skips that tier. The reader also read this same coil label as K10, which stays dropped."
+   },
+   "C18": {
+    "x": 1098,
+    "y": 2808,
+    "w": 115,
+    "h": 55,
+    "note": "Reader hit on the printed label, confirmed by eye on the full-resolution sheet; recorded here because the reader filed it as a collision and build_coords skips that tier. The 470pF on U13STB; also read as C15 and C16, which stay dropped."
+   },
+   "R22": {
+    "x": 1800,
+    "y": 2141,
+    "w": 115,
+    "h": 55,
+    "note": "Reader hit on the printed label, confirmed by eye on the full-resolution sheet; recorded here because the reader filed it as a collision and build_coords skips that tier. The 1K into SDL; also read as R25 and R29, which stay dropped."
+   },
+   "C6": {
+    "x": 1034,
+    "y": 164,
+    "w": 100,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet; the reader never found this label in the circuit body. The .22uF on +5LH above the 82C55."
+   },
+   "C26": {
+    "x": 3488,
+    "y": 3546,
+    "w": 115,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet; the reader never found this label in the circuit body. The second .22uF across the +5RLH rail, right of C25."
+   },
+   "CR10": {
+    "x": 1810,
+    "y": 3446,
+    "w": 140,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet: the reader read this label as its neighbour, so the position was right and the name was not. The reader named this label CR12; the sheet prints CR10, above CR2."
+   },
+   "R5": {
+    "x": 838,
+    "y": 715,
+    "w": 100,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet; the reader never found this label in the circuit body. The 1K between WR* and C5."
+   },
+   "R9": {
+    "x": 683,
+    "y": 3588,
+    "w": 100,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet: the reader read this label as its neighbour, so the position was right and the name was not. The reader named this label R5; the sheet prints R9, in U17's feedback."
+   },
+   "U9": {
+    "x": 4810,
+    "y": 1006,
+    "w": 100,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet; the reader never found this label in the circuit body. The 5801 driver above U11; the reader found neither U9 nor U10."
+   },
+   "U10": {
+    "x": 4810,
+    "y": 1795,
+    "w": 115,
+    "h": 55,
+    "note": "Placed by eye off the full-resolution sheet; the reader never found this label in the circuit body. The 5801 driver above U11; the reader found neither U9 nor U10."
+   }
+  }
+ }
+}

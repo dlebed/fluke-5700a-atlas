@@ -1,0 +1,19 @@
+Rev9 parts: stock no 362371 (C8) did not join on stock number
+Rev9 parts: stock no 698720 (CR1,CR2,CR3,CR4) did not join on stock number
+Rev9 parts: stock no 719468 (R1) did not join on stock number
+Rev9 parts: stock no 573329 (R3) did not join on stock number
+Rev9 parts: stock no 573394 (R4,R5,R12,R13,R16,R17) did not join on stock number
+Rev9 parts: stock no 573428 (R6) did not join on stock number
+Rev9 parts: stock no 573170 (R7,R14) did not join on stock number
+Rev9 parts: stock no 573055 (R8,R9) did not join on stock number
+Rev9 parts: stock no 641092 (R10) did not join on stock number
+Rev9 parts: stock no 109371 (R11) did not join on stock number
+Rev9 parts: stock no 573634 (R20) did not join on stock number
+Rev9 parts: stock no 414052 (U6) did not join on stock number
+Rev9 parts: stock no 524850 (U7) did not join on stock number
+Rev9 parts: stock no 698647 (VR1,VR2) did not join on stock number
+no manufacturer part number for C71 (CAP,CER,47PF,+-20%,50V,C0G)
+no manufacturer part number for CR5 (DIODE,SI,BV=75V,IO=150MA,500MW)
+no manufacturer part number for CR6 (DIODE,SI,BV=75V,IO=150MA,500MW)
+no manufacturer part number for R22 (RES,MF,200,+-1%,0.125W,100PPM)
+no manufacturer part number for R23 (RES,MF,200,+-1%,0.125W,100PPM)

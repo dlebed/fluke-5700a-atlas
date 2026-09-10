@@ -1,0 +1,122 @@
+{
+  "_comment": [
+    "Which rail each electrolytic on A9 sits on, and what that rail runs at.",
+    "The rated voltage is NOT here -- it is read from the parts list at run",
+    "time, so a corrected BOM corrects this too.",
+    "",
+    "source: 'schematic' means the net was traced on the Chapter 7 sheet cited",
+    "in the note; 'inferred' means it was deduced from the rails present at that",
+    "slot and has not been read off a schematic. appliedV: null means the rail",
+    "was never traced -- shown as unknown rather than assumed safe.",
+    "",
+    "A9's electrolytic population is ten solid tantalums and no aluminium at",
+    "all, so there is nothing here whose capacitance can be expected to have",
+    "walked with age; what matters on this board is voltage margin. All ten are",
+    "traced on the sheets.",
+    "",
+    "railClass is how much energy is behind the rail, which decides what a",
+    "shorted part does:",
+    "  S   +/-17 S from A17, arriving on P312 through chokes L7 and L8 with no",
+    "      fuse on this board, then dropped through R14/R15 into the local",
+    "      +17/-17 nodes. A17's regulators are the only current limit.",
+    "  SW  the same +17 S switched by Q5 to feed the two-wire compensation",
+    "      converter -- the same energy behind it, live only when PB7 is true.",
+    "  FU  the unregulated side of the floating supply: the T1 secondary after",
+    "      CR1/CR9 and CR2/CR10, referenced to ACOM. Current-limited by the",
+    "      transformer and by 47 ohm R43/R44 downstream.",
+    "  FR  the regulated floating +/-8A rails, clamped by 8.2 V zeners VR1 and",
+    "      VR2 behind those same 47 ohm resistors -- the softest rails on the",
+    "      board, and the only ones referenced to ACOM rather than S COM.",
+    "  D   the 5 V logic and relay-driver rails from A19 and A17, arriving on",
+    "      P312 through chokes L5 and L6 and referenced to RLH COM / LH COM.",
+    "",
+    "One finding worth carrying forward: C18 is the tightest margin on the",
+    "board. It is a 4.7 uF 25 V part sitting on the switched +17 S node, about",
+    "68 percent of rating, where its partner C19 on the same node is a 35 V",
+    "part at about 49 percent. That is Fluke's choice and not an extraction",
+    "error -- both revisions of Table 6-10 give C18 as 25 V (stock 807644,",
+    "Sprague 199D475X0025BA1) and Figure 7-9 sheet 3 shows it on Q5's collector",
+    "ahead of L2 -- but it is the part to look at first if this converter has a",
+    "history.",
+    "",
+    "C22 and C23's applied voltage is the one number here that is derived rather",
+    "than read. Their node is the rectified T1 secondary, which the manual never",
+    "publishes; it is VR1/VR2's 8.2 V plus the drop across 47 ohm R43/R44, and",
+    "it is bounded above by those zeners' own 0.4 W rating. 10 V is the",
+    "conservative end of that range and is what is recorded, so the margin shown",
+    "understates rather than overstates."
+  ],
+  "assembly": "A9",
+  "caps": {
+    "C7": {
+      "net": "+17 (local, after L7 and R14)",
+      "appliedV": 17.0,
+      "railClass": "S",
+      "source": "schematic",
+      "note": "P312 pins 3A/3C -> L7 -> R14 -> the local +17 node feeding the 2/5/10 V source and the differential amplifier. Sheet 2 of 4. R14's value is one of this board's source disagreements: 24 ohm in both parts lists, 30 ohm on the sheet -- either way the drop across it under this load is small and the node sits at essentially +17 S."
+    },
+    "C9": {
+      "net": "-17 (local, after L8 and R15)",
+      "appliedV": 17.0,
+      "railClass": "S",
+      "source": "schematic",
+      "note": "P312 pins 2A/2C -> L8 -> R15 -> the local -17 node. Mirror of C7. Sheet 2 of 4."
+    },
+    "C18": {
+      "net": "+17 S switched by Q5 (U6 supply, ahead of L2)",
+      "appliedV": 17.0,
+      "railClass": "SW",
+      "source": "schematic",
+      "note": "On Q5's collector with C52, ahead of L2. Sheet 3 of 4. A 25 V part on a 17 V node -- the tightest voltage margin on this board, and the reservoir that takes the converter's switching current. Dead when the two-wire compensation circuit is off, because PB7 then holds Q6 and Q5 off and +17 S never reaches this node."
+    },
+    "C19": {
+      "net": "+17 S switched by Q5, after L2 (U6 +VIN through R25)",
+      "appliedV": 17.0,
+      "railClass": "SW",
+      "source": "schematic",
+      "note": "With C20 on the far side of L2, feeding U6's +VIN through 1 W resistor R25. Sheet 3 of 4. A 35 V part on the same node C18 sits on at 25 V."
+    },
+    "C22": {
+      "net": "T1 secondary, positive rectified (CR1 / CR9), ahead of R43",
+      "appliedV": 10,
+      "railClass": "FU",
+      "source": "schematic",
+      "note": "Across the positive rectified secondary to ACOM, before R43 and L3. Sheet 3 of 4. The level is derived, not published: VR1 clamps the far side of R43 at 8.2 V, so this node is 8.2 V plus the drop across 47 ohm, bounded above by VR1's 0.4 W rating. 10 V is the conservative end of that range."
+    },
+    "C23": {
+      "net": "T1 secondary, negative rectified (CR2 / CR10), ahead of R44",
+      "appliedV": 10,
+      "railClass": "FU",
+      "source": "schematic",
+      "note": "Mirror of C22 on the negative side, before R44 and L4. Sheet 3 of 4. Same derivation, from VR2 rather than VR1."
+    },
+    "C24": {
+      "net": "+8A",
+      "appliedV": 8.2,
+      "railClass": "FR",
+      "source": "schematic",
+      "note": "Across VR1 at the +8A rail, after R43 and L3. Sheet 3 of 4. This is TP8's node: §5-11 step 1 expects +8.2 V +/-5 % here referenced to TP7 (ACOM), not to S COM."
+    },
+    "C25": {
+      "net": "-8A",
+      "appliedV": 8.2,
+      "railClass": "FR",
+      "source": "schematic",
+      "note": "Across VR2 at the -8A rail, after R44 and L4. Sheet 3 of 4. TP9's node, expected at -8.2 V +/-5 % referenced to TP7."
+    },
+    "C33": {
+      "net": "+5 RLH (after L5)",
+      "appliedV": 6.4,
+      "railClass": "D",
+      "source": "schematic",
+      "note": "P312 pins 10A/10C -> L5 -> +SRLH, decoupled to RLH COM. Sheet 4 of 4. The bulk reservoir for the seven UCN5801 relay drivers, whose per-chip decoupling is the 0.22 uF row C39-C43 and C45. CORRECTED 2026-08 from 5.0 V to 6.4 V: the net was traced correctly but the rail value was taken from the rail's name. +5 RLH runs at +5.975 V +/-425 mV (Table 2-10, A17 TP14), raised above +5 LH on purpose by R13/CR34/CR35 on A17, so 6.40 V is the top of the published band and the figure the rest of the audit uses. 26 % of a 25 V part rather than 20 %."
+    },
+    "C36": {
+      "net": "+5 LH (after L6)",
+      "appliedV": 5.1,
+      "railClass": "D",
+      "source": "schematic",
+      "note": "P312 pins 11A/11C -> L6 -> +5LH, decoupled to LH COM. Sheet 4 of 4. The bulk reservoir for the logic side -- U11, U12, U13, U21 and U22 -- and the largest capacitor on the board at 47 uF. CORRECTED 2026-08 from 5.0 V to 5.1 V, which is Table 2-10's nominal for +5 LH at A17's TP11 (A17's U8 is trimmed above 5 V by R13 and CR34/CR35) and the figure every other board in this audit uses for the rail. On a 10 V part that is 51 % rather than 50 % -- either side of the line, this is a Marginal part and the tightest capacitor on A9 after the +/-17 pair. The band's top, +5.4 V, would make it 54 %."
+    }
+  }
+}

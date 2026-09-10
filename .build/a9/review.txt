@@ -1,0 +1,3 @@
+Rev9 parts: stock no 163394 (R11) did not join on stock number
+Rev9 parts: stock no 178566 (R25) did not join on stock number
+Rev9 parts: stock no 810309 (VR1,VR2) did not join on stock number
