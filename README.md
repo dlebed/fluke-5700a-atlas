@@ -10,14 +10,40 @@ the readings are still there next year.
 Standalone HTML: open `index.html` in a browser and it works. No server, no
 build step, no install, no network.
 
-Covers seventeen assemblies: **A4 Digital Motherboard**, **A5 Wideband Output**,
+Covers twenty assemblies: **A4 Digital Motherboard**, **A5 Wideband Output**,
 **A6 Wideband Oscillator**, **A7 Current/High-Resolution Oscillator**, **A8 Switch
 Matrix**, **A9 Ohms Cal**, **A10 Ohms Main**, **A11 DAC**, **A12 Oscillator
-Control**, **A13 Oscillator Output**, **A14 High Voltage Control**, **A15 High
-Voltage/High Current**, **A16 Power Amplifier**, **A17 Regulator/Guard Crossing**,
-**A18 Filter/PA Supply**, **A19 Digital Power Supply** and **A20 CPU**. The engine
-is assembly-agnostic — each board is a data file plus its images, and adding one
-is a data job.
+Control**, **A13 Oscillator Output**, **A13A1 Oscillator Wideband SMD**, **A14 High
+Voltage Control**, **A15 High Voltage/High Current**, **A16 Power Amplifier**,
+**A16A1 Power Amplifier Digital Control SIP**, **A17 Regulator/Guard Crossing**,
+**A18 Filter/PA Supply**, **A19 Digital Power Supply**, **A20 CPU** and **A21 Rear
+Panel**. The engine is assembly-agnostic — each board is a data file plus its
+images, and adding one is a data job.
+
+## What it looks like
+
+**Board view.** The photograph overlaid on the locator drawing, every part
+boxed and coloured by family, and the part card for the one you clicked:
+function, parts-list description, Fluke and manufacturer part numbers, and
+where it sits on the schematic.
+
+![Board view: photo overlaid on the locator drawing with Q201 selected](assets/screenshots/board-overlay.png)
+
+**Schematic view.** The same selection carried across to the schematic sheet,
+with every marker the reader and the reviewer placed.
+
+![Schematic view of A18 sheet 1 with Q201 selected](assets/screenshots/schematic.png)
+
+**Test points.** Grouped by supply rail with nominal, acceptable range,
+reference point, ripple and source table; click one and the board pans to it
+and the card opens for the reading you are about to take.
+
+![Test point mode with TP2 selected and its expected value shown](assets/screenshots/testpoints.png)
+
+**Procedure.** The manual's own troubleshooting steps for the board, with the
+setup, the hazards and progress ticked off as you go.
+
+![Procedure mode showing the section 5-23 steps for A18](assets/screenshots/procedure.png)
 
 ---
 
@@ -393,7 +419,7 @@ tools/make_release.sh my-name         # -> dist/my-name.zip
 
 The archive holds a single folder: unzip it, open `index.html` inside, and
 that is the whole tool. It contains the page, the styles, the engine, the
-seventeen datasets and their images, plus `LICENSE`, `CREDITS.md` and a README
+twenty datasets and their images, plus `LICENSE`, `CREDITS.md` and a README
 of its own carrying the safety warning — the xDevs.com terms require the notice
 and the link to travel with the files. It does not contain `tools/`, `.build/`,
 or the curated inputs the datasets are assembled from.
@@ -407,7 +433,7 @@ shipping it.
 ## The service manuals are not included
 
 Everything needed to *use* the tool is in this repository: open `index.html` and
-all seventeen boards are there, images and all. Nothing is fetched.
+all twenty boards are there, images and all. Nothing is fetched.
 
 Everything needed to *rebuild* a board from source is here too — the pipeline in
 `tools/`, the reader output the coordinates were built against in `.build/`, and
@@ -509,6 +535,8 @@ data/
   a18.coords.overrides.json  hand corrections applied over the OCR pass
   schema.md           what a dataset contains
 assets/a18/           drawing.png, photo.jpg, sch1.png, sch2.png
+assets/brand/         the mark, in the variants the header, README and favicon use
+assets/screenshots/   the four README screenshots; not shipped in the release package
 tools/                extraction, OCR, QA rendering, assembly, checks
 .build/               intermediates: full-resolution crops, OCR output, QA tiles
 ```
